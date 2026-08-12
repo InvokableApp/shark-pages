@@ -1,0 +1,259 @@
+<!--
+  CONECTIV / zz-embed-test / landing-demo
+  A full stylized info page (no form) built as ONE Custom Code block, to show the
+  team what git-hosted embeds can do. Every name, link, phone and disclaimer below
+  is a real CONECTIV custom value.
+
+  DEMO ONLY: the data-cvf / data-hrf attributes supply placeholder values when a
+  custom value is still empty, which is the normal state on a snapshot account.
+  Do not carry that fallback into a shipped buyer page. A blank field there should
+  read blank, so the buyer notices it needs filling.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300..800&display=swap">
+
+<div class="sk-conectiv-zz-embed-test-landing-demo">
+<div class="ld-root">
+
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <header class="ld-hero">
+    <div class="ld-glow" aria-hidden="true"></div>
+    <div class="ld-wrap">
+
+      <div class="ld-topbar ld-rise" style="--d:0s">
+        <span class="ld-mark">CONECTIV</span>
+        <span class="ld-chip">
+          Your guide
+          <b data-cvf="Jordan Reyes">{{custom_values.conectiv__your_full_name}}</b>
+        </span>
+      </div>
+
+      <p class="ld-eyebrow ld-rise" style="--d:.08s">Wellness and opportunity, in that order</p>
+
+      <h1 class="ld-h1 ld-rise" style="--d:.16s">
+        Feel better first.
+        <em>The rest follows.</em>
+      </h1>
+
+      <p class="ld-lede ld-rise" style="--d:.24s">
+        Conectiv is where clean wellness products and a real income path meet. Start with
+        what your body actually needs. Then decide how far you want to take it.
+      </p>
+
+      <div class="ld-ctas ld-rise" style="--d:.32s">
+        <a class="ld-btn ld-btn-primary"
+           href="https://{{custom_values.conectiv__your_mylife_wellness_link}}"
+           data-hrf="www.mylifewellness.com" target="_blank" rel="noopener">
+          Shop MyLife Wellness
+          <span class="ld-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+        <a class="ld-btn ld-btn-ghost"
+           href="https://{{custom_values.conectiv__your_coneqtx_link}}"
+           data-hrf="www.coneqtx.com" target="_blank" rel="noopener">
+          See the ConeqtX side
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── marquee ──────────────────────────────────────────────────────── -->
+  <div class="ld-marquee" aria-hidden="true">
+    <div class="ld-marquee-track">
+      <span>Clean ingredients</span><i>&#9679;</i><span>No pressure</span><i>&#9679;</i>
+      <span>Real people</span><i>&#9679;</i><span>Start small</span><i>&#9679;</i>
+      <span>Go at your pace</span><i>&#9679;</i>
+      <span>Clean ingredients</span><i>&#9679;</i><span>No pressure</span><i>&#9679;</i>
+      <span>Real people</span><i>&#9679;</i><span>Start small</span><i>&#9679;</i>
+      <span>Go at your pace</span><i>&#9679;</i>
+    </div>
+  </div>
+
+  <!-- ── the idea ─────────────────────────────────────────────────────── -->
+  <section class="ld-sec ld-idea">
+    <div class="ld-wrap ld-split">
+      <div class="ld-col-kicker">
+        <span class="ld-num">01</span>
+        <span class="ld-kick">The idea</span>
+      </div>
+      <div class="ld-col-body">
+        <h2 class="ld-h2">Most people quit before they ever feel anything.</h2>
+        <p>
+          Not because they are lazy, and not because the product was wrong. They stacked six
+          new habits on a week that was already full, missed three days, and decided the whole
+          thing was not for them.
+        </p>
+        <p>
+          Conectiv is built the other way around. One change that fits the week you already
+          have. Something you can keep doing when the week goes sideways, because it will.
+        </p>
+        <blockquote class="ld-quote">
+          You do not need a new personality. You need a routine that survives a busy week.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── pillars ──────────────────────────────────────────────────────── -->
+  <section class="ld-sec ld-pillars">
+    <div class="ld-wrap">
+      <div class="ld-col-kicker ld-kick-row">
+        <span class="ld-num">02</span>
+        <span class="ld-kick">What makes it different</span>
+      </div>
+      <div class="ld-grid3">
+        <article class="ld-card">
+          <span class="ld-card-idx">i</span>
+          <h3>Products that earn their place</h3>
+          <p>
+            Short ingredient lists you can read out loud. If it does not do something you can
+            feel within a month, it does not belong in the routine.
+          </p>
+        </article>
+        <article class="ld-card">
+          <span class="ld-card-idx">ii</span>
+          <h3>A path, not a pitch</h3>
+          <p>
+            Plenty of people never do anything but buy the products, and that is a completely
+            fine place to stop. The income side is there when you want it.
+          </p>
+        </article>
+        <article class="ld-card">
+          <span class="ld-card-idx">iii</span>
+          <h3>Someone who actually answers</h3>
+          <p>
+            You get a real person, not a support queue. Ask the awkward questions. That is what
+            they are there for.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── how it works ─────────────────────────────────────────────────── -->
+  <section class="ld-sec ld-steps">
+    <div class="ld-wrap">
+      <div class="ld-col-kicker ld-kick-row">
+        <span class="ld-num">03</span>
+        <span class="ld-kick">How it works</span>
+      </div>
+      <ol class="ld-steplist">
+        <li>
+          <span class="ld-ghost">1</span>
+          <h3>Start with one thing</h3>
+          <p>Pick the single product that maps to the thing bothering you most. Just the one.</p>
+        </li>
+        <li>
+          <span class="ld-ghost">2</span>
+          <h3>Give it thirty days</h3>
+          <p>Long enough to know. Short enough that you will actually finish it.</p>
+        </li>
+        <li>
+          <span class="ld-ghost">3</span>
+          <h3>Decide what is next</h3>
+          <p>Keep going, add something, or stop. All three are real answers.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── resources ────────────────────────────────────────────────────── -->
+  <section class="ld-sec ld-res">
+    <div class="ld-wrap">
+      <div class="ld-col-kicker ld-kick-row">
+        <span class="ld-num">04</span>
+        <span class="ld-kick">Free to take with you</span>
+      </div>
+      <div class="ld-grid2">
+        <a class="ld-res-card"
+           href="https://{{custom_values.conectiv__coffee_guide_download_url}}"
+           target="_blank" rel="noopener">
+          <span class="ld-res-tag">Guide</span>
+          <h3>The Clean Iced Coffee Guide</h3>
+          <p>Cafe drinks rebuilt without the sugar crash. Nine recipes, five minutes each.</p>
+          <span class="ld-res-go">Download <span class="ld-arrow" aria-hidden="true">&#8594;</span></span>
+        </a>
+        <a class="ld-res-card"
+           href="https://{{custom_values.conectiv__glp_foods_guide_download_url}}"
+           target="_blank" rel="noopener">
+          <span class="ld-res-tag">Guide</span>
+          <h3>Natural GLP Foods Guide</h3>
+          <p>The everyday foods that support your body's own appetite signals, and how to stack them.</p>
+          <span class="ld-res-go">Download <span class="ld-arrow" aria-hidden="true">&#8594;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── featured product ─────────────────────────────────────────────── -->
+  <section class="ld-sec ld-feature">
+    <div class="ld-wrap ld-feature-in">
+      <div class="ld-feature-copy">
+        <span class="ld-kick ld-kick-solo">Where most people start</span>
+        <h2 class="ld-h2">Amaze</h2>
+        <p>
+          The one people notice first. Steadier energy through the afternoon, without the
+          jitter and without the 3pm hole you fall into afterward.
+        </p>
+        <a class="ld-btn ld-btn-primary"
+           href="https://{{custom_values.conectiv__amaze_link}}"
+           data-hrf="www.mylifewellness.com/products/amaze" target="_blank" rel="noopener">
+          Take a look
+          <span class="ld-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+      <div class="ld-feature-art" aria-hidden="true">
+        <div class="ld-orb"></div>
+        <span class="ld-art-word">Amaze</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── your guide ───────────────────────────────────────────────────── -->
+  <section class="ld-sec ld-guide">
+    <div class="ld-wrap">
+      <div class="ld-guide-card">
+        <div class="ld-guide-head">
+          <span class="ld-avatar" data-cvf="J">{{custom_values.conectiv__your_first_name}}</span>
+          <div>
+            <span class="ld-kick">Your guide</span>
+            <h3 class="ld-guide-name" data-cvf="Jordan Reyes">{{custom_values.conectiv__your_full_name}}</h3>
+            <p class="ld-guide-co" data-cvf="Reyes Wellness Co">{{custom_values.conectiv__your_company_name}}</p>
+          </div>
+        </div>
+        <p class="ld-guide-blurb">
+          Questions about which product fits, or what the income side actually looks like day
+          to day? Reach out directly. No script, no pressure.
+        </p>
+        <div class="ld-guide-rows">
+          <a href="tel:{{custom_values.conectiv__your_phone}}">
+            <span>Phone</span><b data-cvf="(555) 014 2280">{{custom_values.conectiv__your_phone}}</b>
+          </a>
+          <a href="mailto:{{custom_values.conectiv__your_email}}">
+            <span>Email</span><b data-cvf="jordan@reyeswellness.co">{{custom_values.conectiv__your_email}}</b>
+          </a>
+          <a href="https://{{custom_values.conectiv__main_url}}" data-hrf="reyeswellness.co" target="_blank" rel="noopener">
+            <span>Site</span><b data-cvf="reyeswellness.co">{{custom_values.conectiv__main_url}}</b>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── footer ───────────────────────────────────────────────────────── -->
+  <footer class="ld-foot">
+    <div class="ld-wrap">
+      <span class="ld-mark ld-mark-foot">CONECTIV</span>
+      <nav class="ld-social">
+        <a href="https://{{custom_values.conectiv__facebook_link}}" data-hrf="facebook.com" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://{{custom_values.conectiv__instagram_link}}" data-hrf="instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://{{custom_values.conectiv__youtube_link}}" data-hrf="youtube.com" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://{{custom_values.conectiv__tiktok_link}}" data-hrf="tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://{{custom_values.conectiv__linkedin_link}}" data-hrf="linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+      <p class="ld-disclaimer">{{custom_values.conectiv__income_disclaimer}}</p>
+      <p class="ld-stamp">shark-pages / conectiv / zz-embed-test / landing-demo</p>
+    </div>
+  </footer>
+
+</div>
+</div>

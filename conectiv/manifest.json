@@ -8,6 +8,14 @@
       "elementId": "custom-code-y8oqqoq3qz",
       "elementTitle": "rep-card",
       "pattern": "B"
+    },
+    {
+      "path": "zz-embed-test/landing-demo",
+      "funnelId": "siLOeiHEXUbtlRKkAX0e",
+      "pageId": "FR9KJ6dyuMbAi920ojrq",
+      "elementId": "custom-code-5of6aaicje",
+      "elementTitle": "landing-demo",
+      "pattern": "B"
     }
   ]
 }

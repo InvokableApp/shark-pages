@@ -1,45 +1,59 @@
 /* Scoped under the block class. Custom code renders inline on the GHL page and
-   shares one style scope, so nothing here may be a bare selector. */
+   shares one style scope, so nothing here may be a bare selector.
+
+   v2: restyled from the original light card to the dark editorial treatment,
+   pushed over the live page with no GHL login and no snapshot. */
 
 .sk-conectiv-zz-embed-test-rep-card {
-  font-family: Jost, "Helvetica Neue", Arial, sans-serif;
-  color: var(--ctv-ink);
+  --rc-ink:   #0d1626;
+  --rc-ink-2: #121d31;
+  --rc-paper: #f4efe7;
+  --rc-dim:   rgba(244, 239, 231, .58);
+  --rc-faint: rgba(244, 239, 231, .13);
+  --rc-blue:  #3b7bff;
+  --rc-blue-lo: #1b4fd8;
+  --rc-sand:  #e0c9a3;
+
+  font-family: Manrope, "Helvetica Neue", Arial, sans-serif;
+  color: var(--rc-paper);
   display: flex;
   justify-content: center;
   padding: 8px 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-card {
   width: 100%;
-  max-width: 420px;
-  background: var(--ctv-surface);
-  border: 1px solid var(--ctv-line);
-  border-radius: 16px;
+  max-width: 440px;
+  background: linear-gradient(168deg, var(--rc-ink-2), var(--rc-ink));
+  border: 1px solid var(--rc-faint);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(11, 18, 32, .08);
+  box-shadow: 0 22px 60px rgba(4, 8, 16, .55);
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-bar {
-  height: 6px;
-  background: var(--ctv-gradient);
+  height: 3px;
+  background: linear-gradient(90deg, var(--rc-blue-lo), var(--rc-blue) 55%, var(--rc-sand));
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-head {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 20px 22px 14px;
+  gap: 16px;
+  padding: 26px 26px 18px;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-avatar {
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
   border-radius: 50%;
-  background: var(--ctv-gradient);
+  background: linear-gradient(140deg, var(--rc-blue-lo), var(--rc-blue));
   color: #fff;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -50,111 +64,114 @@
 
 .sk-conectiv-zz-embed-test-rep-card .skc-name {
   margin: 0;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.16;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-company {
-  margin: 3px 0 0;
-  font-size: 13px;
-  letter-spacing: .04em;
+  margin: 5px 0 0;
+  font-size: 11px;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--ctv-muted);
+  color: var(--rc-sand);
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-rows {
   list-style: none;
   margin: 0;
-  padding: 0 22px;
+  padding: 0 26px;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-rows li {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  padding: 10px 0;
-  border-top: 1px solid var(--ctv-line);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(244, 239, 231, .07);
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-label {
-  flex: 0 0 56px;
-  font-size: 11px;
-  letter-spacing: .08em;
+  flex: 0 0 52px;
+  font-size: 10px;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--ctv-muted);
+  color: var(--rc-sand);
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-val {
   font-size: 15px;
-  color: var(--ctv-blue-deep);
+  font-weight: 500;
+  color: var(--rc-paper);
   text-decoration: none;
   word-break: break-word;
+  transition: color .2s ease;
 }
 
-.sk-conectiv-zz-embed-test-rep-card .skc-val:hover {
-  text-decoration: underline;
-}
+.sk-conectiv-zz-embed-test-rep-card .skc-val:hover { color: var(--rc-blue); }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-cta {
   display: block;
-  margin: 18px 22px 4px;
-  padding: 14px 18px;
-  border-radius: 10px;
-  background: var(--ctv-gradient);
+  margin: 22px 26px 4px;
+  padding: 15px 18px;
+  border-radius: 999px;
+  background: linear-gradient(96deg, var(--rc-blue-lo), var(--rc-blue));
   color: #fff;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, .32);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(59, 123, 255, .40);
   color: #fff;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 8px 20px;
   justify-content: center;
-  padding: 14px 22px 0;
+  padding: 20px 26px 0;
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-social a {
-  font-size: 12px;
-  letter-spacing: .05em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--ctv-muted);
+  color: var(--rc-dim);
   text-decoration: none;
+  transition: color .2s ease;
 }
 
-.sk-conectiv-zz-embed-test-rep-card .skc-social a:hover {
-  color: var(--ctv-blue);
-}
+.sk-conectiv-zz-embed-test-rep-card .skc-social a:hover { color: var(--rc-sand); }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-disclaimer {
-  margin: 16px 22px 0;
-  font-size: 11px;
-  line-height: 1.5;
-  color: var(--ctv-muted);
+  margin: 20px 26px 0;
+  font-size: 10px;
+  line-height: 1.7;
+  color: rgba(244, 239, 231, .34);
 }
 
 .sk-conectiv-zz-embed-test-rep-card .skc-stamp {
-  margin: 14px 0 0;
-  padding: 10px 22px;
-  border-top: 1px solid var(--ctv-line);
-  font-size: 10px;
-  letter-spacing: .06em;
-  color: #9aa4b5;
+  margin: 18px 0 0;
+  padding: 12px 26px;
+  border-top: 1px solid var(--rc-faint);
+  font-size: 9px;
+  letter-spacing: .16em;
+  color: rgba(244, 239, 231, .24);
   text-align: center;
 }
 
 @media (max-width: 480px) {
-  .sk-conectiv-zz-embed-test-rep-card .skc-head { padding: 16px 16px 12px; }
-  .sk-conectiv-zz-embed-test-rep-card .skc-rows { padding: 0 16px; }
-  .sk-conectiv-zz-embed-test-rep-card .skc-cta { margin: 16px 16px 4px; }
+  .sk-conectiv-zz-embed-test-rep-card .skc-head { padding: 20px 18px 14px; }
+  .sk-conectiv-zz-embed-test-rep-card .skc-rows { padding: 0 18px; }
+  .sk-conectiv-zz-embed-test-rep-card .skc-cta { margin: 18px 18px 4px; }
 }
