@@ -1,0 +1,17 @@
+<!--
+  Pattern A probe: does GHL's sanitizer allow an EXTERNAL stylesheet and script in a
+  custom-code block, and can hosted JS read merge-field values handed to it inline?
+
+  Only this stub lives in GHL. The look and the markup come from GitHub Pages, so a
+  git push changes the page with no GHL write at all.
+-->
+<link rel="stylesheet" href="https://invokableapp.github.io/shark-pages/conectiv/zz-embed-test/hosted-probe/remote.css">
+
+<div class="sk-conectiv-zz-embed-test-hosted-probe"
+     data-cv-disclaimer="{{custom_values.conectiv__income_disclaimer}}"
+     data-cv-amaze="{{custom_values.conectiv__amaze_link}}"
+     data-cv-name="{{custom_values.conectiv__your_full_name}}">
+  <p class="hp-boot">Waiting for the hosted script.</p>
+</div>
+
+<script src="https://invokableapp.github.io/shark-pages/conectiv/zz-embed-test/hosted-probe/remote.js"></script>

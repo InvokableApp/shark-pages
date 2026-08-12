@@ -1,0 +1,35 @@
+/* Served from GitHub Pages, never written into GHL. */
+.sk-conectiv-zz-embed-test-hosted-probe {
+  font-family: Manrope, Arial, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 30px 28px;
+  border: 1px solid rgba(244, 239, 231, .16);
+  border-left: 3px solid #3b7bff;
+  border-radius: 4px;
+  background: linear-gradient(168deg, #121d31, #0d1626);
+  color: #f4efe7;
+}
+
+.sk-conectiv-zz-embed-test-hosted-probe .hp-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(59, 123, 255, .16);
+  color: #3b7bff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.sk-conectiv-zz-embed-test-hosted-probe h3 {
+  margin: 16px 0 10px;
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.sk-conectiv-zz-embed-test-hosted-probe p { margin: 0 0 8px; font-size: 14px; color: rgba(244, 239, 231, .62); }
+.sk-conectiv-zz-embed-test-hosted-probe code { color: #e0c9a3; font-size: 13px; }
+.sk-conectiv-zz-embed-test-hosted-probe .hp-boot { color: #ff6b6b; }
