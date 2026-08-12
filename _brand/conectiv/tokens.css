@@ -1,0 +1,11 @@
+/* CONECTIV brand tokens.
+   Consumed by blocks under conectiv/. Keep in sync with the account's page theme. */
+:root {
+  --ctv-blue: #2563eb;
+  --ctv-blue-deep: #155eef;
+  --ctv-ink: #0b1220;
+  --ctv-muted: #5b6577;
+  --ctv-line: #e3e8f0;
+  --ctv-surface: #ffffff;
+  --ctv-gradient: linear-gradient(90deg, #155eef 0%, #2563eb 55%, #4f8bff 100%);
+}

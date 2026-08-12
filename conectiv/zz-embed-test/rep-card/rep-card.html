@@ -1,0 +1,49 @@
+<!--
+  CONECTIV / zz-embed-test / rep-card
+  Pattern B: this markup is compiled into the Custom Code element's rawCustomCode.
+  Every value below is a real CONECTIV custom value. On the snapshot they render
+  empty by design; the buyer fills them during onboarding.
+-->
+<div class="sk-conectiv-zz-embed-test-rep-card">
+  <div class="skc-card">
+    <div class="skc-bar"></div>
+
+    <div class="skc-head">
+      <div class="skc-avatar">{{custom_values.conectiv__your_first_name}}</div>
+      <div class="skc-id">
+        <p class="skc-name">{{custom_values.conectiv__your_full_name}}</p>
+        <p class="skc-company">{{custom_values.conectiv__your_company_name}}</p>
+      </div>
+    </div>
+
+    <ul class="skc-rows">
+      <li>
+        <span class="skc-label">Phone</span>
+        <a class="skc-val" href="tel:{{custom_values.conectiv__your_phone}}">{{custom_values.conectiv__your_phone}}</a>
+      </li>
+      <li>
+        <span class="skc-label">Email</span>
+        <a class="skc-val" href="mailto:{{custom_values.conectiv__your_email}}">{{custom_values.conectiv__your_email}}</a>
+      </li>
+      <li>
+        <span class="skc-label">Site</span>
+        <a class="skc-val" href="https://{{custom_values.conectiv__main_url}}" target="_blank" rel="noopener">{{custom_values.conectiv__main_url}}</a>
+      </li>
+    </ul>
+
+    <a class="skc-cta" href="https://{{custom_values.conectiv__your_mylife_wellness_link}}" target="_blank" rel="noopener">
+      Shop MyLife Wellness
+    </a>
+
+    <div class="skc-social">
+      <a href="https://{{custom_values.conectiv__facebook_link}}" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://{{custom_values.conectiv__instagram_link}}" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://{{custom_values.conectiv__youtube_link}}" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://{{custom_values.conectiv__tiktok_link}}" target="_blank" rel="noopener">TikTok</a>
+    </div>
+
+    <p class="skc-disclaimer">{{custom_values.conectiv__income_disclaimer}}</p>
+
+    <p class="skc-stamp">shark-pages / conectiv / zz-embed-test / rep-card</p>
+  </div>
+</div>

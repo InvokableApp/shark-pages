@@ -1,0 +1,160 @@
+/* Scoped under the block class. Custom code renders inline on the GHL page and
+   shares one style scope, so nothing here may be a bare selector. */
+
+.sk-conectiv-zz-embed-test-rep-card {
+  font-family: Jost, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ctv-ink);
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ctv-surface);
+  border: 1px solid var(--ctv-line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 18, 32, .08);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-bar {
+  height: 6px;
+  background: var(--ctv-gradient);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px 14px;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-avatar {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 50%;
+  background: var(--ctv-gradient);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-name {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-company {
+  margin: 3px 0 0;
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ctv-muted);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0 22px;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-rows li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--ctv-line);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-label {
+  flex: 0 0 56px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ctv-muted);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-val {
+  font-size: 15px;
+  color: var(--ctv-blue-deep);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-val:hover {
+  text-decoration: underline;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-cta {
+  display: block;
+  margin: 18px 22px 4px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--ctv-gradient);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .32);
+  color: #fff;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  padding: 14px 22px 0;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-social a {
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ctv-muted);
+  text-decoration: none;
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-social a:hover {
+  color: var(--ctv-blue);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-disclaimer {
+  margin: 16px 22px 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ctv-muted);
+}
+
+.sk-conectiv-zz-embed-test-rep-card .skc-stamp {
+  margin: 14px 0 0;
+  padding: 10px 22px;
+  border-top: 1px solid var(--ctv-line);
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: #9aa4b5;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .sk-conectiv-zz-embed-test-rep-card .skc-head { padding: 16px 16px 12px; }
+  .sk-conectiv-zz-embed-test-rep-card .skc-rows { padding: 0 16px; }
+  .sk-conectiv-zz-embed-test-rep-card .skc-cta { margin: 16px 16px 4px; }
+}
