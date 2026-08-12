@@ -4,10 +4,9 @@
   team what git-hosted embeds can do. Every name, link, phone and disclaimer below
   is a real CONECTIV custom value.
 
-  DEMO ONLY: the data-cvf / data-hrf attributes supply placeholder values when a
-  custom value is still empty, which is the normal state on a snapshot account.
-  Do not carry that fallback into a shipped buyer page. A blank field there should
-  read blank, so the buyer notices it needs filling.
+  No placeholder fallbacks. Every value on this page comes from a real CONECTIV
+  custom value, so an empty field renders empty, which is the correct state on a
+  snapshot account until the buyer fills it in during onboarding.
 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300..800&display=swap">
 
@@ -23,7 +22,7 @@
         <span class="ld-mark">CONECTIV</span>
         <span class="ld-chip">
           Your guide
-          <b data-cvf="Jordan Reyes">{{custom_values.conectiv__your_full_name}}</b>
+          <b>{{custom_values.conectiv__your_full_name}}</b>
         </span>
       </div>
 
@@ -41,14 +40,12 @@
 
       <div class="ld-ctas ld-rise" style="--d:.32s">
         <a class="ld-btn ld-btn-primary"
-           href="https://{{custom_values.conectiv__your_mylife_wellness_link}}"
-           data-hrf="www.mylifewellness.com" target="_blank" rel="noopener">
+           href="https://{{custom_values.conectiv__your_mylife_wellness_link}}" target="_blank" rel="noopener">
           Shop MyLife Wellness
           <span class="ld-arrow" aria-hidden="true">&#8594;</span>
         </a>
         <a class="ld-btn ld-btn-ghost"
-           href="https://{{custom_values.conectiv__your_coneqtx_link}}"
-           data-hrf="www.coneqtx.com" target="_blank" rel="noopener">
+           href="https://{{custom_values.conectiv__your_coneqtx_link}}" target="_blank" rel="noopener">
           See the ConeqtX side
         </a>
       </div>
@@ -195,8 +192,7 @@
           jitter and without the 3pm hole you fall into afterward.
         </p>
         <a class="ld-btn ld-btn-primary"
-           href="https://{{custom_values.conectiv__amaze_link}}"
-           data-hrf="www.mylifewellness.com/products/amaze" target="_blank" rel="noopener">
+           href="https://{{custom_values.conectiv__amaze_link}}" target="_blank" rel="noopener">
           Take a look
           <span class="ld-arrow" aria-hidden="true">&#8594;</span>
         </a>
@@ -213,11 +209,11 @@
     <div class="ld-wrap">
       <div class="ld-guide-card">
         <div class="ld-guide-head">
-          <span class="ld-avatar" data-cvf="J">{{custom_values.conectiv__your_first_name}}</span>
+          <span class="ld-avatar">{{custom_values.conectiv__your_first_name}}</span>
           <div>
             <span class="ld-kick">Your guide</span>
-            <h3 class="ld-guide-name" data-cvf="Jordan Reyes">{{custom_values.conectiv__your_full_name}}</h3>
-            <p class="ld-guide-co" data-cvf="Reyes Wellness Co">{{custom_values.conectiv__your_company_name}}</p>
+            <h3 class="ld-guide-name">{{custom_values.conectiv__your_full_name}}</h3>
+            <p class="ld-guide-co">{{custom_values.conectiv__your_company_name}}</p>
           </div>
         </div>
         <p class="ld-guide-blurb">
@@ -226,13 +222,13 @@
         </p>
         <div class="ld-guide-rows">
           <a href="tel:{{custom_values.conectiv__your_phone}}">
-            <span>Phone</span><b data-cvf="(555) 014 2280">{{custom_values.conectiv__your_phone}}</b>
+            <span>Phone</span><b>{{custom_values.conectiv__your_phone}}</b>
           </a>
           <a href="mailto:{{custom_values.conectiv__your_email}}">
-            <span>Email</span><b data-cvf="jordan@reyeswellness.co">{{custom_values.conectiv__your_email}}</b>
+            <span>Email</span><b>{{custom_values.conectiv__your_email}}</b>
           </a>
-          <a href="https://{{custom_values.conectiv__main_url}}" data-hrf="reyeswellness.co" target="_blank" rel="noopener">
-            <span>Site</span><b data-cvf="reyeswellness.co">{{custom_values.conectiv__main_url}}</b>
+          <a href="https://{{custom_values.conectiv__main_url}}" target="_blank" rel="noopener">
+            <span>Site</span><b>{{custom_values.conectiv__main_url}}</b>
           </a>
         </div>
       </div>
@@ -244,11 +240,11 @@
     <div class="ld-wrap">
       <span class="ld-mark ld-mark-foot">CONECTIV</span>
       <nav class="ld-social">
-        <a href="https://{{custom_values.conectiv__facebook_link}}" data-hrf="facebook.com" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://{{custom_values.conectiv__instagram_link}}" data-hrf="instagram.com" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://{{custom_values.conectiv__youtube_link}}" data-hrf="youtube.com" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://{{custom_values.conectiv__tiktok_link}}" data-hrf="tiktok.com" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://{{custom_values.conectiv__linkedin_link}}" data-hrf="linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://{{custom_values.conectiv__facebook_link}}" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://{{custom_values.conectiv__instagram_link}}" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://{{custom_values.conectiv__youtube_link}}" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://{{custom_values.conectiv__tiktok_link}}" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://{{custom_values.conectiv__linkedin_link}}" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
       <p class="ld-disclaimer">{{custom_values.conectiv__income_disclaimer}}</p>
       <p class="ld-stamp">shark-pages / conectiv / zz-embed-test / landing-demo</p>
