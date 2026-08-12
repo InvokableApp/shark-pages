@@ -4,15 +4,16 @@
  * a div naming which block to load, and a script tag pointing here. Nothing else.
  * The markup, styling and behaviour all live in this repo and update on git push.
  *
- *   <div data-shark-block="conectiv/zz-embed-test/landing-demo"
+ *   <div data-shark-block="conectiv/c-investment-options-guide/results"
  *        data-cv-conectiv__your_full_name="{{custom_values.conectiv__your_full_name}}"></div>
  *   <script src="https://invokableapp.github.io/shark-pages/_loader/shark-embed.js"></script>
  *
- * For a block at {system}/{funnel}/{step}/{slot} it loads, in order:
+ * The path IS the address: {system}/{funnel}/{page}. Every block folder holds the
+ * same three filenames, so nothing has to be guessed. It loads, in order:
  *   _brand/{system}/tokens.css      (if present)
- *   {block}/{slot}.css
- *   {block}/{slot}.html             merge fields filled from the stub's data-cv-* attrs
- *   {block}/{slot}.js               (if present)
+ *   {system}/{funnel}/{page}/block.css
+ *   {system}/{funnel}/{page}/block.html   merge fields filled from the stub's data-cv-*
+ *   {system}/{funnel}/{page}/block.js     (if present)
  *
  * The same source files serve Pattern B, where they are compiled into GHL instead.
  * One source, two delivery modes.
@@ -42,17 +43,15 @@
   function load(el) {
     var path = (el.getAttribute("data-shark-block") || "").replace(/^\/|\/$/g, "");
     if (!path) return;
-    var parts = path.split("/");
-    var system = parts[0];
-    var slot = parts[parts.length - 1];
+    var system = path.split("/")[0];
     var dir = BASE + path + "/";
 
     addCss(BASE + "_brand/" + system + "/tokens.css", "tokens-" + system);
-    addCss(dir + slot + ".css", path + "-css");
+    addCss(dir + "block.css", path + "-css");
 
-    fetch(dir + slot + ".html", { cache: "no-cache" })
+    fetch(dir + "block.html", { cache: "no-cache" })
       .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status + " for " + slot + ".html");
+        if (!r.ok) throw new Error("HTTP " + r.status + " for block.html");
         return r.text();
       })
       .then(function (html) {
@@ -67,8 +66,8 @@
         el.innerHTML = html;
 
         // scripts inserted via innerHTML never execute, so load the block's JS properly
-        return fetch(dir + slot + ".js", { method: "HEAD" }).then(function (r) {
-          if (r.ok) addJs(dir + slot + ".js", path + "-js");
+        return fetch(dir + "block.js", { method: "HEAD" }).then(function (r) {
+          if (r.ok) addJs(dir + "block.js", path + "-js");
         }).catch(function () {});
       })
       .catch(function (e) {
