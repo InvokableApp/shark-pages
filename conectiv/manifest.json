@@ -1,0 +1,13 @@
+{
+  "system": "conectiv",
+  "blocks": [
+    {
+      "path": "zz-embed-test/rep-card",
+      "funnelId": "siLOeiHEXUbtlRKkAX0e",
+      "pageId": "jSlqXtmQ7DjPtg1est7U",
+      "elementId": "custom-code-y8oqqoq3qz",
+      "elementTitle": "rep-card",
+      "pattern": "B"
+    }
+  ]
+}
