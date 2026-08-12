@@ -36,54 +36,76 @@ markup has to be inline in GHL. That is why Pattern B is the default.
 
 ## Layout and naming
 
-Folder names mirror the block's real address in GHL, so a live URL reads back to a
-file path and vice versa.
+**The folder path IS the address.** It mirrors where the block lives in GoHighLevel,
+so a live page reads back to a folder and a folder reads forward to a page.
 
 ```
-{system}/{funnel-slug}/{step-slug}/{slot}.html
-                                   {slot}.css
-                                   {slot}.js        (optional)
-                                   assets/
+{system}/{funnel}/{page}/block.html
+                         block.css
+                         block.js      (optional)
+                         assets/
 ```
 
 | Segment | Is | Rule |
 |---|---|---|
-| `{system}` | `conectiv`, `glp`, `vital`, … | lowercase, no `shark` suffix |
-| `{funnel-slug}` | the funnel's real URL path | copy it from GHL, never invent one |
-| `{step-slug}` | the step's real URL path | same |
-| `{slot}` | the Custom Code element's **title** in the builder | kebab-cased (`Image_hero` → `hero`) |
+| `{system}` | `conectiv`, `glp`, `vital`, ... | lowercase, no `shark` suffix |
+| `{funnel}` | the funnel's real URL path in GHL | copy it, never invent one |
+| `{page}` | the step's real URL path in GHL | same |
 
-Shared, non-page-specific files:
+Every block folder holds the **same three filenames**, so nothing is ever guessed and
+the path alone identifies the block:
 
 ```
-_shared/            cross-system CSS/JS
-_brand/{system}/    brand tokens (tokens.css), logos, shared imagery
+conectiv/c-investment-options-guide/results/block.html
+         ^ system  ^ funnel                 ^ page
 ```
+
+That string is exactly what goes in the GHL socket:
+
+```html
+<div data-shark-block="conectiv/c-investment-options-guide/results" ...></div>
+```
+
+**More than one block on a page?** Add a folder below the page and name it for the
+slot: `.../results/hero/block.html`. Same three filenames, one level deeper.
+
+**Shared files:**
+
+```
+_loader/shark-embed.js   the universal loader every socket points at
+_shared/                 cross-system CSS/JS
+_brand/{system}/         brand tokens (tokens.css), logos, shared imagery
+```
+
+`.nojekyll` at the repo root is **required** — GitHub Pages runs Jekyll by default and
+silently 404s every path beginning with an underscore, which would kill `_loader/`,
+`_brand/` and `_shared/`.
 
 ### manifest.json
 
-Each system has `{system}/manifest.json` mapping every path to the GHL objects it
-targets. This is what lets one push script sync any subset without hardcoded IDs,
-and what an audit reads to find blocks that have drifted from their source.
+Each system has `{system}/manifest.json` mapping every block path to the GHL objects it
+targets, so one script can sync any subset without hardcoded IDs.
 
 ```json
 {
   "system": "conectiv",
   "blocks": [
-    {
-      "path": "zz-embed-test/rep-card",
-      "funnelId": "...",
-      "pageId": "...",
-      "elementTitle": "rep-card",
-      "pattern": "B"
-    }
+    { "path": "c-investment-options-guide/results",
+      "funnelId": "...", "pageId": "...", "elementId": "...",
+      "elementTitle": "results", "pattern": "A" }
   ]
 }
 ```
 
-`locationId` is **not** stored here — it comes from the pusher's environment.
+`locationId` is **not** stored here; it comes from the pusher's environment.
 
----
+**The manifest is authoritative, not the folder name.** GHL derives a funnel's URL slug
+from its NAME and ignores the `url` you pass on create, so a real slug can drift from
+what you expected. Name matching is only the fallback.
+
+**Buyer accounts re-mint every ID.** After a snapshot install the `funnelId` / `pageId` /
+`elementId` above are valid only for the source account. Fleet updates must resolve by
+NAME: funnel name, then step name, then the custom-code element's title.
 
 ## Rules for block markup
 
