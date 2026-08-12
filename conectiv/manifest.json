@@ -16,6 +16,14 @@
       "elementId": "custom-code-5of6aaicje",
       "elementTitle": "landing-demo",
       "pattern": "B"
+    },
+    {
+      "path": "zz-embed-test/hosted-probe",
+      "funnelId": "siLOeiHEXUbtlRKkAX0e",
+      "pageId": "jAGSn1YPJl00pFoj9b3P",
+      "elementId": "custom-code-123tvcpt6t",
+      "elementTitle": "hosted-probe",
+      "pattern": "B"
     }
   ]
 }

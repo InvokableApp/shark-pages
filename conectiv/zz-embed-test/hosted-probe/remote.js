@@ -13,12 +13,12 @@
 
   root.innerHTML =
     '<span class="hp-tag">Rendered from GitHub Pages</span>' +
-    "<h3>This markup was never written into GHL.</h3>" +
+    "<h3>Updated by a git push. GHL was never touched.</h3>" +
     "<p>The block in GoHighLevel is a 12 line stub. Everything you are reading came from " +
     "the shark-pages repo at page load, so a git push changes it with no GHL write.</p>" +
     "<p>Merge fields handed in from the stub:</p>" +
     "<p>full name: <code>" + (name || "(empty on the snapshot, as expected)") + "</code></p>" +
     "<p>amaze link: <code>" + (amaze || "(empty)") + "</code></p>" +
     "<p>disclaimer: <code>" + (disc ? disc.slice(0, 68) + "..." : "(empty)") + "</code></p>" +
-    '<p style="margin-top:14px">build marker: <code>v1</code></p>';
+    '<p style="margin-top:14px">build marker: <code>v2</code></p>';
 })();
