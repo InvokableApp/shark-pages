@@ -1,0 +1,24 @@
+{
+  "system": "glp",
+  "blocks": [],
+  "installs": [
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "Wjjwjhu6pOTmAueKIwBF",
+      "pageId": "EiAwwWXw6jb6sqF2sCy6",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "VV6ilxYpW2WXk8IGg9yA"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "p8bpr8T6bWWjq3c5VBrI",
+      "pageId": "231qyCvydUb9Tsi238zc",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "nazPY4gQMYslT5YM6fRr"
+    }
+  ]
+}

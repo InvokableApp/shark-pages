@@ -9,10 +9,16 @@
      cover the home screen and the tab title, and cost nothing per account. */
   (function () {
     var ICON = "https://invokableapp.github.io/shark-pages/_brand/glp/";
+    /* GHL always emits its own <link rel="icon"> pointing at the HighLevel default,
+       so "skip if one exists" silently loses every time. Drop the platform default
+       first, then add ours; anything the account set deliberately is left alone. */
     function head(tag, attrs) {
-      for (var k in attrs) {
-        var sel = tag + '[' + k + '="' + attrs[k] + '"]';
-        if (k === "rel" && document.head.querySelector(sel)) return;
+      if (attrs.rel) {
+        var existing = document.head.querySelectorAll(tag + '[rel="' + attrs.rel + '"]');
+        for (var i = 0; i < existing.length; i++) {
+          if (/leadconnectorhq|stcdn/.test(existing[i].getAttribute("href") || "")) existing[i].remove();
+          else return;
+        }
       }
       var el = document.createElement(tag);
       for (var a in attrs) el.setAttribute(a, attrs[a]);

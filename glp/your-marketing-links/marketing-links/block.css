@@ -68,7 +68,7 @@
   max-width: 62%;
   height: auto;
   margin: 0 auto 26px;
-  animation: sk-glp-rise .6s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-glp-your-marketing-links-marketing-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-title {
@@ -79,7 +79,7 @@
   line-height: 1.04;
   letter-spacing: -.012em;
   text-transform: uppercase;
-  animation: sk-glp-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
 }
 
 /* the green half of the wordmark, echoing the logo gradient */
@@ -98,7 +98,7 @@
   font-size: 15px;
   line-height: 1.45;
   text-wrap: balance;
-  animation: sk-glp-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-domain {
@@ -113,7 +113,7 @@
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 12.5px;
   color: var(--sk-ink-soft);
-  animation: sk-glp-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-domain-dot {
@@ -387,7 +387,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] {
   background: var(--sk-green-deep);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-glp-pop .35s cubic-bezier(.2,.9,.3,1) both; }
+.sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-glp-your-marketing-links-marketing-links-pop .35s cubic-bezier(.2,.9,.3,1) both; }
 
 /* the raw url, readable and selectable */
 .sk-glp-your-marketing-links-marketing-links .sk-url {
@@ -527,16 +527,16 @@
 
 /* ---------------- motion ---------------- */
 
-@keyframes sk-glp-rise {
+@keyframes sk-glp-your-marketing-links-marketing-links-rise {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes sk-glp-pop {
+@keyframes sk-glp-your-marketing-links-marketing-links-pop {
   0%   { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: none; }
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-card { animation: sk-glp-rise .5s cubic-bezier(.2,.7,.3,1) both; }
+.sk-glp-your-marketing-links-marketing-links .sk-card { animation: sk-glp-your-marketing-links-marketing-links-rise .5s cubic-bezier(.2,.7,.3,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   .sk-glp-your-marketing-links-marketing-links *, .sk-glp-your-marketing-links-marketing-links *::before, .sk-glp-your-marketing-links-marketing-links *::after {
