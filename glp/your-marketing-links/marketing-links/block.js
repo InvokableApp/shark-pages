@@ -2,6 +2,29 @@
   var root = document.querySelector(".sk-glp-your-marketing-links-marketing-links");
   if (!root) return;
 
+  /* ---------- home-screen icon ----------
+     Reps are told to bookmark this and Add to Home Screen. Without an
+     apple-touch-icon iOS screenshots the page and uses that as the icon, which
+     looks broken. GHL's per-funnel faviconUrl covers the browser tab; these
+     cover the home screen and the tab title, and cost nothing per account. */
+  (function () {
+    var ICON = "https://invokableapp.github.io/shark-pages/_brand/glp/";
+    function head(tag, attrs) {
+      for (var k in attrs) {
+        var sel = tag + '[' + k + '="' + attrs[k] + '"]';
+        if (k === "rel" && document.head.querySelector(sel)) return;
+      }
+      var el = document.createElement(tag);
+      for (var a in attrs) el.setAttribute(a, attrs[a]);
+      document.head.appendChild(el);
+    }
+    head("link", { rel: "apple-touch-icon", sizes: "180x180", href: ICON + "icon-180.png" });
+    head("link", { rel: "icon", type: "image/png", sizes: "512x512", href: ICON + "icon-512.png" });
+    head("meta", { name: "apple-mobile-web-app-title", content: "GLP Links" });
+    head("meta", { name: "theme-color", content: "#00853E" });
+  })();
+
+
   var I = {
     leaf:   '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
     dumbbell:'<path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><path d="M3.5 9v6"/><path d="M20.5 9v6"/><path d="M6.5 12h11"/>',
