@@ -30,17 +30,6 @@
     head("meta", { name: "theme-color", content: "#00853E" });
   })();
 
-  /* ---------- host section background ----------
-     The block is width-capped, so whatever the GHL section behind it is painted
-     shows as side gutters. Pages seeded by ensure-slot inherit the donor page's
-     near-black section (rgb(5,9,20)), which frames this light design in black.
-     Repaint the host here rather than writing to 65 GHL pages: the block owns its
-     own backdrop, and one git push corrects every account at once. */
-  (function () {
-    var host = root.closest(".c-section") || root.closest("section");
-    if (host) host.style.backgroundColor = "#f5f5f0";
-  })();
-
 
   var I = {
     leaf:   '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
