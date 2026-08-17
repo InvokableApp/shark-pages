@@ -1,0 +1,57 @@
+<!--
+  GLP / your-funnel-links / your-links
+  "Your Marketing Links" - the rep-facing mobile hub for GLP Shark.
+
+  DIFFERENT FROM VITAL ON PURPOSE: every funnel link is its own custom value
+  holding a FULL url, never domain + fixed slug. GLP reps run several domains
+  per account and their slugs drift per install, so an assembled url silently
+  serves the 404 fallback with a 200. One value per funnel survives both.
+
+  Unfilled values and the "Paste the full link..." placeholder are skipped, so a
+  rep sees only the funnels they actually run.
+  The four Meta CAPI values are deliberately absent: this page is public.
+-->
+<div class="sk-glp-your-funnel-links-your-links"
+     data-cv-distributor_buy_link="{{custom_values.distributor_buy_link}}"
+     data-cv-drops_ads_funnel_link="{{custom_values.drops_ads_funnel_link}}"
+     data-cv-drops_funnel_link="{{custom_values.drops_funnel_link}}"
+     data-cv-glp_foods_guide_funnel_link="{{custom_values.glp_foods_guide_funnel_link}}"
+     data-cv-glp_workout_guide_funnel_link="{{custom_values.glp_workout_guide_funnel_link}}"
+     data-cv-navigation_funnel_link="{{custom_values.navigation_funnel_link}}"
+     data-cv-opportunity_funnel_link="{{custom_values.opportunity_funnel_link}}"
+     data-cv-opportunity_warm_funnel_link="{{custom_values.opportunity_warm_funnel_link}}"
+     data-cv-orygn_tour_funnel_link="{{custom_values.orygn_tour_funnel_link}}"
+     data-cv-personal_branded_funnel_link="{{custom_values.personal_branded_funnel_link}}"
+     data-cv-protein_recipe_guide_funnel_link="{{custom_values.protein_recipe_guide_funnel_link}}"
+     data-cv-rep_buy_link="{{custom_values.rep_buy_link}}"
+     data-cv-rep_first_name="{{custom_values.rep_first_name}}"
+     data-cv-side_hustle_quiz_funnel_link="{{custom_values.side_hustle_quiz_funnel_link}}"
+     data-cv-weight_loss_quiz_funnel_link="{{custom_values.weight_loss_quiz_funnel_link}}">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo"
+         src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a19df098afc6d724e6e8867.svg"
+         alt="GLP Shark">
+    <h1 class="sk-title">Your Marketing Links</h1>
+    <p class="sk-sub" data-greeting>Here are your marketing links.</p>
+  </header>
+
+  <div class="sk-setup" data-setup hidden>
+    <h2>Finish your setup first</h2>
+    <p>Your funnel links have not been added yet. Paste each one into the GLP Funnel Links custom values and this page fills in automatically.</p>
+  </div>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <h2 class="sk-foot-title">Run this from your phone</h2>
+      <p class="sk-foot-copy">Get the HighLevel app so your leads, texts and calls follow you everywhere.</p>
+      <div class="sk-store" data-store></div>
+    </div>
+    <p class="sk-legal">GLP Shark</p>
+  </footer>
+
+</div>
