@@ -1,0 +1,44 @@
+<!--
+  VITAL / vital---your-funnel-links / vital-user-links
+  "Your Funnel Links" — the rep-facing mobile hub.
+  Hosted (Pattern A): the GHL page holds only the socket; this file is the page.
+  data-domain carries the buyer's own domain, substituted by GHL server-side
+  into the socket and passed through by the loader. Every funnel link is built
+  from that domain plus a fixed slug, so one file serves every buyer.
+-->
+<div class="sk-vital-vital---your-funnel-links-vital-user-links" data-domain="{{custom_values.main_vital_url}}">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo"
+         src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml"
+         alt="Vital Shark">
+    <h1 class="sk-title">Your Funnel Links</h1>
+    <p class="sk-sub">Every page in your system, ready to copy and send. Tap a funnel to open it.</p>
+    <div class="sk-domain" data-domain-strip hidden>
+      <span class="sk-domain-dot"></span>
+      <span class="sk-domain-text"></span>
+    </div>
+  </header>
+
+  <!-- shown only when main_vital_url is empty -->
+  <div class="sk-setup" data-setup hidden>
+    <h2>Finish your setup first</h2>
+    <p>Your domain has not been added yet, so your links are not live. Add your domain in setup and this page fills in automatically.</p>
+  </div>
+
+  <main class="sk-body" data-body>
+    <!-- groups render here -->
+  </main>
+
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <h2 class="sk-foot-title">Run this from your phone</h2>
+      <p class="sk-foot-copy">Get the HighLevel app so your leads, texts and calls follow you everywhere.</p>
+      <div class="sk-store" data-store></div>
+    </div>
+    <p class="sk-legal">Vital Shark</p>
+  </footer>
+
+</div>

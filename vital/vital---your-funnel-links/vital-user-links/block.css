@@ -1,0 +1,490 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SCOPE: every selector sits under .sk-vital-vital---your-funnel-links-vital-user-links.
+   In the hosted block this becomes
+   .sk-vital-vital---your-funnel-links-vital-user-links per
+   HOSTED-BLOCKS-SOP §1. Kept short here for readability.
+   ============================================================ */
+
+.sk-vital-vital---your-funnel-links-vital-user-links *,
+.sk-vital-vital---your-funnel-links-vital-user-links *::before,
+.sk-vital-vital---your-funnel-links-vital-user-links *::after { box-sizing: border-box; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links {
+  /* brand, pulled straight off the logo SVG */
+  --sk-green:      #8db53c;
+  --sk-green-deep: #1b3c1a;
+  --sk-ink:        #12180f;
+  --sk-ink-soft:   #5d6957;
+  --sk-ink-faint:  #8e9887;
+  --sk-paper:      #f5f5f0;
+  --sk-card:       #ffffff;
+  --sk-line:       #e2e3da;
+  --sk-line-soft:  #ededE6;
+
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  position: relative;
+  margin: 0 auto;
+  max-width: 560px;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* paper grain, keeps the flat off-white from looking like a default */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-head {
+  padding: 40px 4px 24px;
+  text-align: center;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-logo {
+  display: block;
+  width: 172px;
+  max-width: 62%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-vfl-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  animation: sk-vfl-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the green half of the wordmark, echoing the logo gradient */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-title em {
+  font-style: normal;
+  background: linear-gradient(118deg, var(--sk-green) 0%, var(--sk-green-deep) 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+  animation: sk-vfl-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 7px 14px 7px 11px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  color: var(--sk-ink-soft);
+  animation: sk-vfl-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-domain-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sk-green);
+  box-shadow: 0 0 0 3px rgba(141,181,60,.22);
+}
+
+/* ---------------- setup state ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-setup {
+  margin: 8px 0 24px;
+  padding: 22px var(--sk-pad);
+  border: 1px solid #e8ddb8;
+  border-radius: var(--sk-r);
+  background: #fdf8e8;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-setup h2 {
+  margin: 0 0 6px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 105, "wght" 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-setup p { margin: 0; font-size: 14.5px; color: #6b5f34; }
+
+/* ---------------- groups ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group { margin-top: 30px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(245,245,240,0));
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-green-deep);
+  white-space: nowrap;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(226,227,218,0));
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease, transform .3s ease;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] {
+  border-color: rgba(141,181,60,.5);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-mark {
+  display: grid;
+  place-items: center;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(141,181,60,.16), rgba(27,60,26,.1));
+  color: var(--sk-green-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.6; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-green), var(--sk-green-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: opacity .25s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-green-deep);
+}
+
+/* expanding panel: grid-rows 0fr -> 1fr animates without a fixed height */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel-inner { overflow: hidden; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel-pad {
+  padding: 2px var(--sk-pad) var(--sk-pad);
+}
+
+/* image slot, reserved for the funnel flow strip. hidden until we have art. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-shot {
+  display: none;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  aspect-ratio: 16 / 9;
+  background: repeating-linear-gradient(135deg, #f7f7f3 0 10px, #f2f2ec 10px 20px);
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc {
+  margin: 0 0 16px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+
+/* primary action */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-green) 0%, var(--sk-green-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy:active { transform: scale(.985); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy svg { width: 17px; height: 17px; stroke-width: 1.8; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] {
+  background: var(--sk-green-deep);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-vfl-pop .35s cubic-bezier(.2,.9,.3,1) both; }
+
+/* the raw url, readable and selectable */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #fafaf6;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-green-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open:active { background: #f0f4e6; border-color: var(--sk-green); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+/* secondary resource links */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #fbfbf7;
+  color: var(--sk-green-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip:active {
+  background: #f0f4e6;
+  border-color: var(--sk-green);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip svg {
+  flex: none;
+  width: 17px; height: 17px;
+  stroke-width: 1.7;
+  color: var(--sk-green);
+}
+
+/* ---------------- footer ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot { margin-top: 40px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-card {
+  padding: 26px var(--sk-pad) 24px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-green-deep) 0%, #0e2410 100%);
+  color: #fff;
+  text-align: center;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 106, "wght" 700;
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: .012em;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-copy {
+  margin: 8px auto 18px;
+  max-width: 32ch;
+  font-size: 14.2px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.72);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-store { display: flex; flex-direction: column; gap: 9px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-store a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 13.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-store a.is-primary {
+  background: var(--sk-green);
+  border-color: var(--sk-green);
+  color: #10200c;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-store svg { width: 17px; height: 17px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-legal {
+  margin: 22px 0 0;
+  text-align: center;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 84, "wght" 600;
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-vfl-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes sk-vfl-pop {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card { animation: sk-vfl-rise .5s cubic-bezier(.2,.7,.3,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-vital-vital---your-funnel-links-vital-user-links *, .sk-vital-vital---your-funnel-links-vital-user-links *::before, .sk-vital-vital---your-funnel-links-vital-user-links *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (min-width: 620px) {
+  .sk-vital-vital---your-funnel-links-vital-user-links { padding-bottom: 64px; }
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-store { flex-direction: row; }
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-store a { flex: 1; }
+}
