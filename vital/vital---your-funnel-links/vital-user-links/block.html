@@ -1,12 +1,64 @@
 <!--
   VITAL / vital---your-funnel-links / vital-user-links
-  "Your Funnel Links" — the rep-facing mobile hub.
-  Hosted (Pattern A): the GHL page holds only the socket; this file is the page.
-  data-domain carries the buyer's own domain, substituted by GHL server-side
-  into the socket and passed through by the loader. Every funnel link is built
-  from that domain plus a fixed slug, so one file serves every buyer.
+  "Your Funnel Links" - the rep-facing mobile hub.
+  Every data-cv-* below is filled by GHL server-side in the socket and passed
+  through by the loader. Funnel links = the buyer domain + a fixed slug;
+  product links come straight from the rep's own referral custom values.
+  The four Meta CAPI values are deliberately absent: this page is public and
+  an access token in an attribute would be readable by anyone.
 -->
-<div class="sk-vital-vital---your-funnel-links-vital-user-links" data-domain="{{custom_values.main_vital_url}}">
+<div class="sk-vital-vital---your-funnel-links-vital-user-links"
+     data-cv-main_vital_url="{{custom_values.main_vital_url}}"
+     data-cv-vital_age_collagen_url="{{custom_values.vital_age_collagen_url}}"
+     data-cv-vital_app_ref_code="{{custom_values.vital_app_ref_code}}"
+     data-cv-vital_asculax_url="{{custom_values.vital_asculax_url}}"
+     data-cv-vital_clean_brew_guide_pdf_url="{{custom_values.vital_clean_brew_guide_pdf_url}}"
+     data-cv-vital_company_name="{{custom_values.vital_company_name}}"
+     data-cv-vital_control_url="{{custom_values.vital_control_url}}"
+     data-cv-vital_curcumax_url="{{custom_values.vital_curcumax_url}}"
+     data-cv-vital_daily_url="{{custom_values.vital_daily_url}}"
+     data-cv-vital_dfenz_url="{{custom_values.vital_dfenz_url}}"
+     data-cv-vital_einstein_kids_guide_pdf_url="{{custom_values.vital_einstein_kids_guide_pdf_url}}"
+     data-cv-vital_email_designated_domain="{{custom_values.vital_email_designated_domain}}"
+     data-cv-vital_facebook_url="{{custom_values.vital_facebook_url}}"
+     data-cv-vital_fortyflora_url="{{custom_values.vital_fortyflora_url}}"
+     data-cv-vital_genius_shake_url="{{custom_values.vital_genius_shake_url}}"
+     data-cv-vital_glp_recipe_guide_pdf_url="{{custom_values.vital_glp_recipe_guide_pdf_url}}"
+     data-cv-vital_glutation_plus_url="{{custom_values.vital_glutation_plus_url}}"
+     data-cv-vital_glutation_url="{{custom_values.vital_glutation_url}}"
+     data-cv-vital_income_disclaimer="{{custom_values.vital_income_disclaimer}}"
+     data-cv-vital_instagram_url="{{custom_values.vital_instagram_url}}"
+     data-cv-vital_itadol_url="{{custom_values.vital_itadol_url}}"
+     data-cv-vital_italay_url="{{custom_values.vital_italay_url}}"
+     data-cv-vital_italboost_url="{{custom_values.vital_italboost_url}}"
+     data-cv-vital_itaren_url="{{custom_values.vital_itaren_url}}"
+     data-cv-vital_lattekaffe_url="{{custom_values.vital_lattekaffe_url}}"
+     data-cv-vital_linkedin_url="{{custom_values.vital_linkedin_url}}"
+     data-cv-vital_lovkafe_url="{{custom_values.vital_lovkafe_url}}"
+     data-cv-vital_neurokafe_url="{{custom_values.vital_neurokafe_url}}"
+     data-cv-vital_nitro_url="{{custom_values.vital_nitro_url}}"
+     data-cv-vital_nourish_url="{{custom_values.vital_nourish_url}}"
+     data-cv-vital_nrgy_tropical_url="{{custom_values.vital_nrgy_tropical_url}}"
+     data-cv-vital_omega_3_url="{{custom_values.vital_omega_3_url}}"
+     data-cv-vital_opportunity_url="{{custom_values.vital_opportunity_url}}"
+     data-cv-vital_organex_url="{{custom_values.vital_organex_url}}"
+     data-cv-vital_performance_url="{{custom_values.vital_performance_url}}"
+     data-cv-vital_pro_url="{{custom_values.vital_pro_url}}"
+     data-cv-vital_product_url_retail="{{custom_values.vital_product_url_retail}}"
+     data-cv-vital_product_url_retail_kids_collection="{{custom_values.vital_product_url_retail_kids_collection}}"
+     data-cv-vital_product_url_sub="{{custom_values.vital_product_url_sub}}"
+     data-cv-vital_protein_first_guide_pdf_url="{{custom_values.vital_protein_first_guide_pdf_url}}"
+     data-cv-vital_rep_email="{{custom_values.vital_rep_email}}"
+     data-cv-vital_rep_first_name="{{custom_values.vital_rep_first_name}}"
+     data-cv-vital_rep_full_name="{{custom_values.vital_rep_full_name}}"
+     data-cv-vital_rep_phone="{{custom_values.vital_rep_phone}}"
+     data-cv-vital_s_balance_url="{{custom_values.vital_s_balance_url}}"
+     data-cv-vital_smart_biotics_url="{{custom_values.vital_smart_biotics_url}}"
+     data-cv-vital_te_detox_url="{{custom_values.vital_te_detox_url}}"
+     data-cv-vital_thermokafe_url="{{custom_values.vital_thermokafe_url}}"
+     data-cv-vital_tiktok_url="{{custom_values.vital_tiktok_url}}"
+     data-cv-vital_twitter_url="{{custom_values.vital_twitter_url}}"
+     data-cv-vital_youtube_url="{{custom_values.vital_youtube_url}}">
 
   <div class="sk-grain" aria-hidden="true"></div>
 
@@ -15,7 +67,7 @@
          src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml"
          alt="Vital Shark">
     <h1 class="sk-title">Your Funnel Links</h1>
-    <p class="sk-sub">Every page in your system, ready to copy and send. Tap a funnel to open it.</p>
+    <p class="sk-sub" data-greeting>Here are your marketing links.</p>
     <div class="sk-domain" data-domain-strip hidden>
       <span class="sk-domain-dot"></span>
       <span class="sk-domain-text"></span>

@@ -68,7 +68,7 @@
   max-width: 62%;
   height: auto;
   margin: 0 auto 26px;
-  animation: sk-vfl-rise .6s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-rise .6s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-title {
@@ -79,7 +79,7 @@
   line-height: 1.04;
   letter-spacing: -.012em;
   text-transform: uppercase;
-  animation: sk-vfl-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
 }
 
 /* the green half of the wordmark, echoing the logo gradient */
@@ -98,7 +98,7 @@
   font-size: 15px;
   line-height: 1.45;
   text-wrap: balance;
-  animation: sk-vfl-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-domain {
@@ -113,7 +113,7 @@
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 12.5px;
   color: var(--sk-ink-soft);
-  animation: sk-vfl-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-domain-dot {
@@ -192,6 +192,19 @@
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-card + .sk-card { margin-top: 10px; }
+
+/* product rows: no description or chips, so they sit tighter. There can be
+   thirty of them, and a full-height card each would bury the funnels. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim + .sk-card--slim { margin-top: 7px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim .sk-trigger {
+  grid-template-columns: 32px 1fr 20px;
+  gap: 12px;
+  padding: 11px var(--sk-pad);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim .sk-mark { width: 32px; height: 32px; border-radius: 9px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim .sk-mark svg { width: 16px; height: 16px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim .sk-name { font-size: 15px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card--slim .sk-panel-pad { padding-top: 4px; }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] {
   border-color: rgba(141,181,60,.5);
@@ -325,7 +338,7 @@
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] {
   background: var(--sk-green-deep);
 }
-.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-vfl-pop .35s cubic-bezier(.2,.9,.3,1) both; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-pop .35s cubic-bezier(.2,.9,.3,1) both; }
 
 /* the raw url, readable and selectable */
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-url {
@@ -465,16 +478,16 @@
 
 /* ---------------- motion ---------------- */
 
-@keyframes sk-vfl-rise {
+@keyframes sk-rise {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes sk-vfl-pop {
+@keyframes sk-pop {
   0%   { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: none; }
 }
 
-.sk-vital-vital---your-funnel-links-vital-user-links .sk-card { animation: sk-vfl-rise .5s cubic-bezier(.2,.7,.3,1) both; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card { animation: sk-rise .5s cubic-bezier(.2,.7,.3,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   .sk-vital-vital---your-funnel-links-vital-user-links *, .sk-vital-vital---your-funnel-links-vital-user-links *::before, .sk-vital-vital---your-funnel-links-vital-user-links *::after {

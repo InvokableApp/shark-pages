@@ -12,7 +12,8 @@
     link:   '<path d="M9.5 13.5a4 4 0 0 0 5.66 0l3-3a4 4 0 1 0-5.66-5.66l-1.2 1.2"/><path d="M14.5 10.5a4 4 0 0 0-5.66 0l-3 3a4 4 0 1 0 5.66 5.66l1.2-1.2"/>',
     coffee: '<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2v3"/><path d="M11 2v3"/>',
     kids:   '<circle cx="12" cy="8.5" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M8.5 3.5 12 1l3.5 2.5"/>',
-    chart:  '<path d="M3 20h18"/><rect x="5" y="11" width="3.5" height="6" rx="1"/><rect x="10.2" y="7" width="3.5" height="10" rx="1"/><rect x="15.5" y="13" width="3.5" height="4" rx="1"/>'
+    chart:  '<path d="M3 20h18"/><rect x="5" y="11" width="3.5" height="6" rx="1"/><rect x="10.2" y="7" width="3.5" height="10" rx="1"/><rect x="15.5" y="13" width="3.5" height="4" rx="1"/>',
+    bottle: '<path d="M10 2h4v3.2a3 3 0 0 0 .6 1.8l.9 1.2a4 4 0 0 1 .8 2.4V19a3 3 0 0 1-3 3h-2.6a3 3 0 0 1-3-3v-8.4a4 4 0 0 1 .8-2.4l.9-1.2A3 3 0 0 0 10 5.2Z"/><path d="M7.7 13h8.6"/>'
   };
   function icon(k) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
@@ -86,11 +87,68 @@
     }
   ];
 
-  /* ---------- domain ---------- */
-  var domain = (root.getAttribute("data-domain") || "")
-    .trim().replace(/^https?:\/\//i, "").replace(/\/+$/, "");
+  /* ---------- direct product links ----------
+     Every entry is a custom value the rep fills with their own referral
+     link. Unfilled ones are skipped entirely, so a rep who sells four
+     products sees four rows, not thirty. The stored values carry no
+     protocol and the placeholder copy still starts with "Paste"/"Enter",
+     so both are filtered before anything renders.                      */
+  var PRODUCTS = [
+    { cv: "vital_product_url_retail",                 name: "Vital Shop" },
+    { cv: "vital_product_url_sub",                    name: "Subscription / Autoship" },
+    { cv: "vital_opportunity_url",                    name: "Business Opportunity" },
+    { cv: "vital_product_url_retail_kids_collection", name: "Kids Collection" },
+    { cv: "vital_nourish_url",        name: "Nourish+" },
+    { cv: "vital_genius_shake_url",   name: "Genius Shake" },
+    { cv: "vital_dfenz_url",          name: "D-Fenz" },
+    { cv: "vital_smart_biotics_url",  name: "Smart Biotics" },
+    { cv: "vital_pro_url",            name: "Vital Pro" },
+    { cv: "vital_daily_url",          name: "V-Daily" },
+    { cv: "vital_age_collagen_url",   name: "VitalAge Collagen" },
+    { cv: "vital_performance_url",    name: "Performance+" },
+    { cv: "vital_glutation_plus_url", name: "Glutation Plus+" },
+    { cv: "vital_glutation_url",      name: "V-Glutation" },
+    { cv: "vital_omega_3_url",        name: "V-Omega 3" },
+    { cv: "vital_curcumax_url",       name: "V-Curcumax" },
+    { cv: "vital_fortyflora_url",     name: "V-Fortyflora" },
+    { cv: "vital_control_url",        name: "V-Control" },
+    { cv: "vital_s_balance_url",      name: "S-Balance" },
+    { cv: "vital_nitro_url",          name: "V-Nitro" },
+    { cv: "vital_organex_url",        name: "V-Organex" },
+    { cv: "vital_te_detox_url",       name: "V-TE Detox" },
+    { cv: "vital_asculax_url",        name: "V-Asculax" },
+    { cv: "vital_itaren_url",         name: "V-Itaren" },
+    { cv: "vital_itadol_url",         name: "V-Itadol" },
+    { cv: "vital_italay_url",         name: "V-Italay" },
+    { cv: "vital_italboost_url",      name: "V-Italboost" },
+    { cv: "vital_lattekaffe_url",     name: "LatteKafe" },
+    { cv: "vital_thermokafe_url",     name: "V-ThermoKafe" },
+    { cv: "vital_neurokafe_url",      name: "V-NeuroKafe" },
+    { cv: "vital_lovkafe_url",        name: "V-LovKafe" },
+    { cv: "vital_nrgy_tropical_url",  name: "V-NRGY Tropical" }
+  ];
 
-  var ready = !!domain && domain.indexOf("{") === -1;
+  /* reads a custom value off the block root. Empty, unsubstituted and
+     "Paste your ... link" placeholder text all count as not filled. */
+  function cv(key) {
+    var v = (root.getAttribute("data-cv-" + key) || "").trim();
+    if (!v) return "";
+    if (v.indexOf("{") !== -1) return "";
+    if (/^(paste|enter)\b/i.test(v)) return "";
+    return v;
+  }
+
+  /* ---------- greeting ---------- */
+  var firstName = cv("vital_rep_first_name");
+  root.querySelector("[data-greeting]").textContent =
+    firstName ? "Hi " + firstName + ", here are your marketing links."
+              : "Here are your marketing links.";
+
+  /* ---------- domain ---------- */
+  var domain = cv("main_vital_url")
+    .replace(/^https?:\/\//i, "").replace(/\/+$/, "");
+
+  var ready = !!domain;
 
   if (!ready) {
     root.querySelector("[data-setup]").hidden = false;
@@ -161,6 +219,52 @@
 
     html += '</section>';
   });
+
+  /* ---------- product group ---------- */
+  var products = PRODUCTS
+    .map(function (p) { return { name: p.name, link: cv(p.cv) }; })
+    .filter(function (p) { return !!p.link; })
+    .map(function (p) {
+      // stored without a protocol; a merge field that starts with "{" would
+      // otherwise be read as a relative path and produce a dead link
+      p.href = /^https?:\/\//i.test(p.link) ? p.link : "https://" + p.link;
+      return p;
+    });
+
+  if (products.length) {
+    html += '<section class="sk-group">' +
+              '<div class="sk-group-head">' +
+                '<span class="sk-group-label">Direct product links</span>' +
+                '<span class="sk-group-rule"></span>' +
+                '<span class="sk-group-count">' + products.length + '</span>' +
+              '</div>';
+
+    products.forEach(function (p) {
+      var delay = (0.04 * n++).toFixed(2);
+      html +=
+        '<article class="sk-card sk-card--slim" data-open="false" style="animation-delay:' + delay + 's">' +
+          '<button class="sk-trigger" type="button" aria-expanded="false">' +
+            '<span class="sk-mark">' + icon("bottle") + '</span>' +
+            '<span><span class="sk-name">' + p.name + '</span></span>' +
+            '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<button class="sk-copy" type="button" data-state="idle" data-link="' + p.href + '">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+              '<span class="sk-copy-label">Copy Product Link</span>' +
+            '</button>' +
+            '<div class="sk-url">' +
+              '<span class="sk-url-text">' + p.href.replace(/^https:\/\//, "") + '</span>' +
+              '<a class="sk-open" href="' + p.href + '" target="_blank" rel="noopener" aria-label="Open product page">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>' +
+              '</a>' +
+            '</div>' +
+          '</div></div></div>' +
+        '</article>';
+    });
+
+    html += '</section>';
+  }
 
   body.innerHTML = html;
 
