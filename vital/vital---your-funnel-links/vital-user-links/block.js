@@ -28,6 +28,12 @@
     head("link", { rel: "icon", type: "image/png", sizes: "512x512", href: ICON + "icon-512.png" });
     head("meta", { name: "apple-mobile-web-app-title", content: "Vital Links" });
     head("meta", { name: "theme-color", content: "#8db53c" });
+    /* The block is width-capped, so the GHL section behind it shows as side gutters.
+       Pages seeded from the donor inherit a near-black section, which frames this
+       light design in black. Repaint the host from the block so one git push fixes
+       every account instead of a write per page. */
+    var host = root.closest(".c-section") || root.closest("section");
+    if (host) host.style.backgroundColor = "#f5f5f0";
   })();
 
 
