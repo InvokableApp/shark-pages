@@ -231,39 +231,44 @@
       return p;
     });
 
+  /* One card, not one per product. Thirty-two accordion rows buried the
+     funnels above them, so the whole set lives behind a single dropdown:
+     name on the left, copy on the right. Tapping the name opens the product
+     page, so the row needs no third control. */
   if (products.length) {
-    html += '<section class="sk-group">' +
-              '<div class="sk-group-head">' +
-                '<span class="sk-group-label">Direct product links</span>' +
-                '<span class="sk-group-rule"></span>' +
-                '<span class="sk-group-count">' + products.length + '</span>' +
-              '</div>';
+    var rows = products.map(function (p) {
+      return '<li class="sk-prow">' +
+               '<a class="sk-prow-name" href="' + p.href + '" target="_blank" rel="noopener">' + p.name + '</a>' +
+               '<button class="sk-copy sk-copy--mini" type="button" data-state="idle"' +
+                      ' data-done="Copied" data-link="' + p.href + '"' +
+                      ' aria-label="Copy the ' + p.name + ' link">' +
+                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+                 '<span class="sk-copy-label">Copy</span>' +
+               '</button>' +
+             '</li>';
+    }).join("");
 
-    products.forEach(function (p) {
-      var delay = (0.04 * n++).toFixed(2);
-      html +=
-        '<article class="sk-card sk-card--slim" data-open="false" style="animation-delay:' + delay + 's">' +
+    html +=
+      '<section class="sk-group">' +
+        '<div class="sk-group-head">' +
+          '<span class="sk-group-label">Direct product links</span>' +
+          '<span class="sk-group-rule"></span>' +
+          '<span class="sk-group-count">' + products.length + '</span>' +
+        '</div>' +
+        '<article class="sk-card" data-open="false" style="animation-delay:' + (0.04 * n++).toFixed(2) + 's">' +
           '<button class="sk-trigger" type="button" aria-expanded="false">' +
             '<span class="sk-mark">' + icon("bottle") + '</span>' +
-            '<span><span class="sk-name">' + p.name + '</span></span>' +
+            '<span>' +
+              '<span class="sk-name">Product links</span>' +
+              '<span class="sk-tease">' + products.length + ' links, ready to copy</span>' +
+            '</span>' +
             '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
           '</button>' +
           '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-            '<button class="sk-copy" type="button" data-state="idle" data-link="' + p.href + '">' +
-              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
-              '<span class="sk-copy-label">Copy Product Link</span>' +
-            '</button>' +
-            '<div class="sk-url">' +
-              '<span class="sk-url-text">' + p.href.replace(/^https:\/\//, "") + '</span>' +
-              '<a class="sk-open" href="' + p.href + '" target="_blank" rel="noopener" aria-label="Open product page">' +
-                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>' +
-              '</a>' +
-            '</div>' +
+            '<ul class="sk-plist">' + rows + '</ul>' +
           '</div></div></div>' +
-        '</article>';
-    });
-
-    html += '</section>';
+        '</article>' +
+      '</section>';
   }
 
   body.innerHTML = html;
@@ -293,13 +298,19 @@
     var link = btn.getAttribute("data-link");
     var label = btn.querySelector(".sk-copy-label");
 
+    // remember each button's own resting label, so the big funnel button and
+    // the compact product buttons restore correctly
+    if (!btn.getAttribute("data-idle")) {
+      btn.setAttribute("data-idle", label.textContent);
+    }
+
     function done() {
       btn.setAttribute("data-state", "done");
-      label.textContent = "Link copied";
+      label.textContent = btn.getAttribute("data-done") || "Link copied";
       clearTimeout(btn._t);
       btn._t = setTimeout(function () {
         btn.setAttribute("data-state", "idle");
-        label.textContent = "Copy Funnel Link";
+        label.textContent = btn.getAttribute("data-idle");
       }, 1900);
     }
 

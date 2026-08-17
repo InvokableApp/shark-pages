@@ -1,11 +1,10 @@
 <!--
   VITAL / vital---your-funnel-links / vital-user-links
   "Your Funnel Links" - the rep-facing mobile hub.
-  Every data-cv-* below is filled by GHL server-side in the socket and passed
-  through by the loader. Funnel links = the buyer domain + a fixed slug;
-  product links come straight from the rep's own referral custom values.
-  The four Meta CAPI values are deliberately absent: this page is public and
-  an access token in an attribute would be readable by anyone.
+  Every data-cv-* is filled by GHL server-side in the socket and passed through
+  by the loader. Funnel links = buyer domain + fixed slug; product links come
+  from the rep's own referral custom values and live behind one dropdown.
+  The four Meta CAPI values are deliberately absent: this page is public.
 -->
 <div class="sk-vital-vital---your-funnel-links-vital-user-links"
      data-cv-main_vital_url="{{custom_values.main_vital_url}}"
