@@ -11,6 +11,7 @@
     user:   '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
     users:  '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
     compass:'<circle cx="12" cy="12" r="9.5"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2Z"/>',
+    image:  '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/>',
     cart:   '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>'
   };
   function icon(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'+I[k]+'</svg>';}
@@ -80,6 +81,18 @@
   ];
 
   /* the rep's own buy links, which are not funnels */
+
+  /* Ready-to-post social library. Identical for every GLP rep, so these are
+     static in the block rather than custom values. Source: the GLP ads
+     training page (glpshark.com/ads-training-page1-769355). */
+  var SOCIAL = [
+    { name:"Product images, 1x1",      url:"https://canva.link/qryqd6ykd8cj52m" },
+    { name:"Product images, 9x16",     url:"https://canva.link/x7jlmu1gmeo5umf" },
+    { name:"Opportunity images, 1x1",  url:"https://canva.link/wpssx0sbep1xhej" },
+    { name:"Opportunity images, 9x16", url:"https://canva.link/d43ep73ca1unbjn" },
+    { name:"Recipe lead magnet images",url:"https://canva.link/n6t92pxvso2744m" }
+  ];
+
   var DIRECT = [
     { cv:"rep_buy_link",         name:"Product link, for customers" },
     { cv:"distributor_buy_link", name:"Recruitment link, for distributors" }
@@ -134,6 +147,28 @@
     });
     html += '</section>';
   });
+
+
+  /* social content dropdown */
+  var socialRows = SOCIAL.map(function (x) {
+    return '<li class="sk-prow">' +
+             '<a class="sk-prow-name" href="'+x.url+'" target="_blank" rel="noopener">'+x.name+'</a>' +
+             '<a class="sk-chip sk-chip--go" href="'+x.url+'" target="_blank" rel="noopener">Open</a>' +
+           '</li>';
+  }).join("");
+  html += '<section class="sk-group"><div class="sk-group-head">' +
+            '<span class="sk-group-label">Social content</span><span class="sk-group-rule"></span>' +
+            '<span class="sk-group-count">'+SOCIAL.length+'</span></div>' +
+          '<article class="sk-card" data-open="false" style="animation-delay:'+(0.04*n++).toFixed(2)+'s">' +
+            '<button class="sk-trigger" type="button" aria-expanded="false">' +
+              '<span class="sk-mark">'+icon("image")+'</span>' +
+              '<span><span class="sk-name">Ready to post images</span><span class="sk-tease">Product, opportunity and lead magnet</span></span>' +
+              '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
+            '</button>' +
+            '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+              '<ul class="sk-plist">'+socialRows+'</ul>' +
+            '</div></div></div>' +
+          '</article></section>';
 
   /* direct buy links, one dropdown */
   var direct = DIRECT.map(function(d){ d.link=cv(d.cv); return d; }).filter(function(d){ return !!d.link; });

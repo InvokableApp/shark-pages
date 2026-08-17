@@ -238,6 +238,16 @@
   font-size: 11.5px;
   letter-spacing: .07em;
 }
+.sk-glp-your-funnel-links-your-links .sk-chip--go {
+  min-height: 36px;
+  padding: 0 15px;
+  justify-content: center;
+  font-size: 11.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 .sk-glp-your-funnel-links-your-links .sk-copy.sk-copy--mini svg { width: 14px; height: 14px; }
 .sk-glp-your-funnel-links-your-links .sk-copy.sk-copy--mini[data-state="done"] {
   background: var(--sk-green-deep);
