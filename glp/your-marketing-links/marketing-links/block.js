@@ -1,5 +1,5 @@
 (function () {
-  var root = document.querySelector(".sk-glp-your-funnel-links-your-links");
+  var root = document.querySelector(".sk-glp-your-marketing-links-marketing-links");
   if (!root) return;
 
   var I = {
