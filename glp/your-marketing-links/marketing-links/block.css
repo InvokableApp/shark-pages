@@ -12,16 +12,18 @@
 .sk-glp-your-marketing-links-marketing-links *::after { box-sizing: border-box; }
 
 .sk-glp-your-marketing-links-marketing-links {
-  /* brand, pulled straight off the logo SVG */
-  --sk-green:      #00853E;
-  --sk-green-deep: #004526;
+  /* brand, taken from the orange sales page at glpshark.com/learn-more so the
+     rep hub and the page that sold them the system read as one system */
+  --sk-brand:      #EC5E2A;
+  --sk-brand-deep: #C94A1E;
+  --sk-brand-tint: #FDF0EA;
   --sk-ink:        #101410;
   --sk-ink-soft:   #56605a;
   --sk-ink-faint:  #8b948e;
-  --sk-paper:      #f5f5f0;
+  --sk-paper:      #f7f4f1;
   --sk-card:       #ffffff;
-  --sk-line:       #e2e3da;
-  --sk-line-soft:  #ededE6;
+  --sk-line:       #e6e0da;
+  --sk-line-soft:  #efe9e3;
 
   --sk-r:      18px;
   --sk-r-sm:   12px;
@@ -85,7 +87,7 @@
 /* the green half of the wordmark, echoing the logo gradient */
 .sk-glp-your-marketing-links-marketing-links .sk-title em {
   font-style: normal;
-  background: linear-gradient(118deg, var(--sk-green) 0%, var(--sk-green-deep) 82%);
+  background: linear-gradient(118deg, var(--sk-brand) 0%, var(--sk-brand-deep) 82%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -119,8 +121,8 @@
 .sk-glp-your-marketing-links-marketing-links .sk-domain-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--sk-green);
-  box-shadow: 0 0 0 3px rgba(0,133,62,.22);
+  background: var(--sk-brand);
+  box-shadow: 0 0 0 3px rgba(236,94,42,.22);
 }
 
 /* ---------------- setup state ---------------- */
@@ -155,7 +157,7 @@
   gap: 12px;
   margin: 0 0 12px;
   padding: 14px 4px 12px;
-  background: linear-gradient(var(--sk-paper) 62%, rgba(245,245,240,0));
+  background: linear-gradient(var(--sk-paper) 62%, rgba(247,244,241,0));
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-group-label {
@@ -164,14 +166,14 @@
   font-size: 11.5px;
   letter-spacing: .17em;
   text-transform: uppercase;
-  color: var(--sk-green-deep);
+  color: var(--sk-brand-deep);
   white-space: nowrap;
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-group-rule {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--sk-line), rgba(226,227,218,0));
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-group-count {
@@ -223,7 +225,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-prow-name:active { color: var(--sk-green-deep); }
+.sk-glp-your-marketing-links-marketing-links .sk-prow-name:active { color: var(--sk-brand-deep); }
 
 /* compact copy button, same component as the big one */
 .sk-glp-your-marketing-links-marketing-links .sk-copy.sk-copy--mini {
@@ -232,9 +234,9 @@
   padding: 0 13px;
   gap: 7px;
   border-radius: 9px;
-  background: #fbfbf7;
+  background: #fdfbf9;
   border: 1px solid var(--sk-line);
-  color: var(--sk-green-deep);
+  color: var(--sk-brand-deep);
   font-size: 11.5px;
   letter-spacing: .07em;
 }
@@ -250,13 +252,13 @@
 
 .sk-glp-your-marketing-links-marketing-links .sk-copy.sk-copy--mini svg { width: 14px; height: 14px; }
 .sk-glp-your-marketing-links-marketing-links .sk-copy.sk-copy--mini[data-state="done"] {
-  background: var(--sk-green-deep);
-  border-color: var(--sk-green-deep);
+  background: var(--sk-brand-deep);
+  border-color: var(--sk-brand-deep);
   color: #fff;
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] {
-  border-color: rgba(0,133,62,.45);
+  border-color: rgba(236,94,42,.45);
   box-shadow: var(--sk-shadow-lift);
 }
 
@@ -282,14 +284,14 @@
   place-items: center;
   width: 42px; height: 42px;
   border-radius: var(--sk-r-sm);
-  background: linear-gradient(140deg, rgba(0,133,62,.16), rgba(0,69,38,.10));
-  color: var(--sk-green-deep);
+  background: linear-gradient(140deg, rgba(236,94,42,.16), rgba(201,74,30,.10));
+  color: var(--sk-brand-deep);
   transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1);
 }
 .sk-glp-your-marketing-links-marketing-links .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.6; }
 
 .sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-mark {
-  background: linear-gradient(140deg, var(--sk-green), var(--sk-green-deep));
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
   color: #fff;
   transform: rotate(-4deg) scale(1.04);
 }
@@ -324,7 +326,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-chev svg { width: 18px; height: 18px; display: block; }
 .sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-chev {
   transform: rotate(180deg);
-  color: var(--sk-green-deep);
+  color: var(--sk-brand-deep);
 }
 
 /* expanding panel: grid-rows 0fr -> 1fr animates without a fixed height */
@@ -347,7 +349,7 @@
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r-sm);
   aspect-ratio: 16 / 9;
-  background: repeating-linear-gradient(135deg, #f7f7f3 0 10px, #f2f2ec 10px 20px);
+  background: repeating-linear-gradient(135deg, #faf6f3 0 10px, #f4ede8 10px 20px);
 }
 
 .sk-glp-your-marketing-links-marketing-links .sk-desc {
@@ -369,7 +371,7 @@
   padding: 0 18px;
   border: 0;
   border-radius: 13px;
-  background: linear-gradient(122deg, var(--sk-green) 0%, var(--sk-green-deep) 88%);
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
   color: #fff;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 100, "wght" 700;
@@ -385,7 +387,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-copy svg { width: 17px; height: 17px; stroke-width: 1.8; }
 
 .sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] {
-  background: var(--sk-green-deep);
+  background: var(--sk-brand-deep);
 }
 .sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-glp-your-marketing-links-marketing-links-pop .35s cubic-bezier(.2,.9,.3,1) both; }
 
@@ -398,7 +400,7 @@
   padding: 11px 13px;
   border: 1px dashed var(--sk-line);
   border-radius: var(--sk-r-sm);
-  background: #fafaf6;
+  background: #fdfaf7;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-url-text {
   flex: 1;
@@ -419,11 +421,11 @@
   border-radius: 9px;
   border: 1px solid var(--sk-line);
   background: #fff;
-  color: var(--sk-green-deep);
+  color: var(--sk-brand-deep);
   text-decoration: none;
   transition: background .2s ease, border-color .2s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-open:active { background: #e9f3ec; border-color: var(--sk-green); }
+.sk-glp-your-marketing-links-marketing-links .sk-open:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
 .sk-glp-your-marketing-links-marketing-links .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
 
 /* secondary resource links */
@@ -442,8 +444,8 @@
   padding: 8px 13px;
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r-sm);
-  background: #fbfbf7;
-  color: var(--sk-green-deep);
+  background: #fdfbf9;
+  color: var(--sk-brand-deep);
   font-size: 13.4px;
   font-weight: 600;
   line-height: 1.25;
@@ -452,14 +454,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-chip:active {
-  background: #e9f3ec;
-  border-color: var(--sk-green);
+  background: var(--sk-brand-tint);
+  border-color: var(--sk-brand);
 }
 .sk-glp-your-marketing-links-marketing-links .sk-chip svg {
   flex: none;
   width: 17px; height: 17px;
   stroke-width: 1.7;
-  color: var(--sk-green);
+  color: var(--sk-brand);
 }
 
 /* ---------------- footer ---------------- */
@@ -469,7 +471,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-foot-card {
   padding: 26px var(--sk-pad) 24px;
   border-radius: var(--sk-r);
-  background: linear-gradient(155deg, var(--sk-green-deep) 0%, #00301a 100%);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #8f3312 100%);
   color: #fff;
   text-align: center;
 }
@@ -508,9 +510,9 @@
   text-decoration: none;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-store a.is-primary {
-  background: var(--sk-green);
-  border-color: var(--sk-green);
-  color: #10200c;
+  background: var(--sk-brand);
+  border-color: var(--sk-brand);
+  color: #201410;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-store svg { width: 17px; height: 17px; }
 

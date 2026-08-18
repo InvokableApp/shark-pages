@@ -27,7 +27,7 @@
     head("link", { rel: "apple-touch-icon", sizes: "180x180", href: ICON + "icon-180.png" });
     head("link", { rel: "icon", type: "image/png", sizes: "512x512", href: ICON + "icon-512.png" });
     head("meta", { name: "apple-mobile-web-app-title", content: "GLP Links" });
-    head("meta", { name: "theme-color", content: "#00853E" });
+    head("meta", { name: "theme-color", content: "#EC5E2A" });
   })();
 
 
@@ -63,6 +63,7 @@
     { label:"Start a conversation", items:[
       { cv:"glp_foods_guide_funnel_link",      icon:"leaf",     name:"Natural GLP Foods Guide",
         tease:"Free foods guide", canva:"https://canva.link/gszpkrgjxsn7fga",
+        howto:"https://glpshark.com/glp-food-guide-training",
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
       { cv:"protein_recipe_guide_funnel_link", icon:"leaf",     name:"High Protein Recipe Guide",
         tease:"Recipes and grocery list", canva:"https://canva.link/n6t92pxvso2744m",
@@ -168,9 +169,18 @@
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>' +
               '</a>' +
             '</div>' +
-            (f.canva ? '<div class="sk-links"><a class="sk-chip" href="'+f.canva+'" target="_blank" rel="noopener">' +
+            /* Resource chips. The training link is ONE canonical url per funnel,
+               hosted on glpshark.com rather than copied into every rep account,
+               so Joe updates the training in one place. */
+            (f.canva || f.howto ?
+              '<div class="sk-links">' +
+              (f.howto ? '<a class="sk-chip" href="'+f.howto+'" target="_blank" rel="noopener">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg>' +
+                'How to use this funnel</a>' : '') +
+              (f.canva ? '<a class="sk-chip" href="'+f.canva+'" target="_blank" rel="noopener">' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/></svg>' +
-                'Images for social posts</a></div>' : '') +
+                'Images for social posts</a>' : '') +
+              '</div>' : '') +
           '</div></div></div>' +
         '</article>';
     });
