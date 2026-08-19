@@ -29,6 +29,24 @@
 .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__meter--accent .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__fill { background:linear-gradient(90deg,#1B4AC4,#4E86F0); box-shadow:0 0 12px rgba(27,74,196,.35); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__meter--accent .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__meter-head span { color:var(--sk-brand); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__meter-note { margin:8px 0 0; font-size:13px; line-height:1.45; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__h2 { margin:34px 0 16px; padding-top:28px; border-top:1px solid var(--sk-line); font-family:"Archivo",ui-sans-serif,sans-serif; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__meters + .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__h2 { margin-top:34px; }
+/* the four-profile map: 2x2 on desktop, stacked on narrow. The reader's own cell is the
+   only one that carries the brand colour, so the grid reads at a glance. */
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell { position:relative; padding:18px 16px; border:1px solid var(--sk-line); border-radius:14px; background:#FBFCFF; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell--you { border-color:var(--sk-brand); background:#F1F5FE; box-shadow:0 0 0 1px var(--sk-brand) inset; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__you { position:absolute; top:-9px; left:16px; padding:2px 9px; border-radius:999px; background:var(--sk-brand); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell-n { margin:0 0 4px; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:15px; font-weight:700; letter-spacing:-.01em; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell--you .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell-n { color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cell-a { margin:0; font-size:13px; line-height:1.4; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__steps { margin:0; padding:0; list-style:none; counter-reset:sk-s; display:grid; gap:12px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__steps li { counter-increment:sk-s; position:relative; padding-left:42px; color:var(--sk-ink-soft); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__steps li::before { content:counter(sk-s); position:absolute; left:0; top:-1px; width:28px; height:28px; border-radius:50%; background:#EEF3FD; color:var(--sk-brand); font-family:"Archivo",ui-sans-serif,sans-serif; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__method { margin:28px 0 0; padding:16px 18px; border:1px solid var(--sk-line); border-radius:14px; background:#FBFCFF; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__method summary { cursor:pointer; font-size:13px; font-weight:600; color:var(--sk-ink); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__method summary::marker { color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__method p { margin:12px 0 0; font-size:13px; line-height:1.55; color:var(--sk-ink-faint); }
 @keyframes sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret-meter { to { width:var(--sk-w); } }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__cta { margin-top:32px; padding-top:28px; border-top:1px solid var(--sk-line); display:flex; flex-wrap:wrap; gap:14px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__btn { display:inline-block; text-decoration:none; text-align:center; padding:18px 34px; border-radius:999px; background:var(--sk-brand); color:#fff; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:16px; font-weight:700; box-shadow:0 10px 26px -10px rgba(27,74,196,.7); transition:background .16s ease, transform .16s ease; }
@@ -88,5 +106,6 @@
 @media (max-width:860px) {
   .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret { padding:36px 16px 52px; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__card { padding:26px 20px; border-radius:20px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__grid { grid-template-columns:1fr; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-best-kept-secret__btn { width:100%; }
 }
