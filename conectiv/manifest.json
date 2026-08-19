@@ -35,6 +35,69 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "vqkDW52mifieASrHbxxf",
+      "pageId": "BnJuNnoE86OoriyB0W3l",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ehcaigB66Wg6yqURjP1Q"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "Y0HLdeecyFOa0MEfXev9",
+      "pageId": "qUdDOS4ULKv6Kdkpa44T",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "CBzuP30SQTcfjmwmiiHB"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "mqutrZ9V8s919YXVG1nG",
+      "pageId": "ykyz2azWqsR677yN8nuK",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "IDfu8nZWwbcZ0PpEORkx"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "kVkzZ9PH7g2CjTdtMqOQ",
+      "pageId": "yBq2Tvs30duvQSPi3IIT",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "VVUgWC7PFEsFAIvtxK30"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "BKyisgsA1LDibIDBgI23",
+      "pageId": "CUGqlFQsUEnNHKGAlwbp",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "0MAM9bTEbi3DvVe5ufA6"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "Ow2QUYRNkFSv18xioTDX",
+      "pageId": "ZlGuGUMhTDHKO4dwEbLh",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k4og6SKQlZjvudMnUIXS"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "IZLcvXr3XSbRciKptYol",
+      "pageId": "0nmpsX1vlBiuy06MsYLu",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "xyDfaDnIH9nNT43dkqrP"
     }
   ]
 }

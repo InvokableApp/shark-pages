@@ -551,3 +551,230 @@
   .sk-conectiv-your-funnel-links-c-user-links-page .sk-store { flex-direction: row; }
   .sk-conectiv-your-funnel-links-c-user-links-page .sk-store a { flex: 1; }
 }
+
+/* ============================================================
+   ADD TO HOME SCREEN
+   The button sits under the greeting and is revealed by JS only when it can
+   actually do something. The sheet detects the platform rather than asking,
+   and leads with written steps because the videos are ~23MB each.
+   ============================================================ */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs svg {
+  width: 17px; height: 17px; flex: none;
+  stroke-width: 1.7;
+  color: var(--sk-brand);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:active { transform: translateY(1px); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+
+/* ---- sheet ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet[hidden] { display: none; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 20, 34, .5);
+  backdrop-filter: blur(2px);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-a2hs-fade .22s ease both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-a2hs-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet { align-items: center; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip { display: none; } }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x svg { width: 15px; height: 15px; }
+
+/* ---- platform toggle ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 18px;
+  border: 1px solid var(--sk-line);
+  border-radius: 12px;
+  background: var(--sk-card);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg-btn {
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 13.5px;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg-btn[aria-pressed="true"] {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+}
+
+/* ---- written steps, the primary instruction ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps b {
+  font-weight: 700;
+  color: var(--sk-ink);
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps .sk-gl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px 1px 4px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps .sk-gl svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+/* ---- optional video ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch { margin-top: 16px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary::-webkit-details-marker { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary svg { width: 18px; height: 18px; flex: none; color: var(--sk-brand); stroke-width: 1.7; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary em { font-style: normal; font-weight: 500; color: var(--sk-ink-faint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch-body { padding-top: 12px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch video {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  border-radius: var(--sk-r-sm);
+  border: 1px solid var(--sk-line);
+  background: #000;
+}
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-a2hs-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-a2hs-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel,
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-scrim { animation: none; }
+}
