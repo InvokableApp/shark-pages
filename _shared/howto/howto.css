@@ -370,6 +370,15 @@
 
 .sk-howto .sk-btn--ghost:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
 
+/* ---------------- split (copy beside a screenshot) ----------------
+   One column on a phone, two side by side once there is room. The wrapper
+   exists at every width so the desktop rules only change grid-template-columns
+   and never restructure the DOM. */
+
+.sk-howto .sk-split { display: grid; gap: 0; }
+.sk-howto .sk-split-copy { display: flex; flex-direction: column; }
+.sk-howto .sk-shot-fig { margin: 0; }
+
 /* ---------------- screenshot ---------------- */
 
 .sk-howto .sk-shot {
@@ -458,4 +467,84 @@
   .sk-howto .sk-head { padding-top: 52px; }
   .sk-howto .sk-card-tease,
   .sk-howto .sk-sub { max-width: 44ch; }
+}
+
+/* ---------------- desktop ----------------
+   Reps read this on a phone, but they also open it on the laptop they run the
+   business from, and a 560px column stranded in the middle of a 1440px screen
+   reads as broken rather than as restraint. So the column widens and the groups
+   become grids: videos two across, assets three, the ads card split.
+
+   Column count is DECLARED, not inferred: data-cols on each group. A 16:9 video
+   in a third of the width is a thumbnail, so the generator caps videos at two
+   whatever the count. Auto-fit would not know that.
+
+   Equal-height cards come from .sk-card-head absorbing the slack rather than
+   from margin-top:auto on the button. Auto margin would bottom-align the button
+   correctly and then collapse its 15px gap to zero on the tallest card, which
+   only shows up on the one card that happens to be tallest. */
+
+@media (min-width: 900px) {
+  .sk-howto {
+    max-width: 1120px;
+    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .sk-howto .sk-head { padding: 64px 4px 30px; }
+  .sk-howto .sk-logo { width: 208px; margin-bottom: 26px; }
+  .sk-howto .sk-title { font-size: 46px; letter-spacing: -.016em; }
+  .sk-howto .sk-sub { margin-top: 14px; font-size: 16.5px; max-width: 52ch; }
+
+  .sk-howto .sk-note {
+    max-width: 780px;
+    margin: 6px auto 34px;
+    padding: 15px 18px;
+    font-size: 14.2px;
+  }
+
+  /* groups become grids, with the sticky header spanning every column */
+  .sk-howto .sk-group {
+    display: grid;
+    gap: 18px;
+    align-items: stretch;
+    margin-bottom: 34px;
+  }
+
+  .sk-howto .sk-group-head {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 18px 2px 12px;
+  }
+
+  .sk-howto .sk-group[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sk-howto .sk-group[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .sk-howto .sk-card { margin: 0; display: flex; flex-direction: column; }
+  .sk-howto .sk-card-head { flex: 1 1 auto; }
+  .sk-howto .sk-card-tease { max-width: none; }
+
+  /* the video frame sits at the foot of the card, so frames line up across a row
+     even when one title wraps to two lines and its neighbour does not */
+  .sk-howto .sk-vid .sk-frame { margin-top: auto; }
+
+  /* ads card: copy and button on the left, the screenshot beside it.
+     STRETCH, not start: the screenshot column is much taller than the copy, and
+     letting the copy column shrink to its content leaves a slab of dead white
+     under the button. Stretched, the button drops to the foot of the card and
+     the two columns finish together. */
+  .sk-howto .sk-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 26px;
+    align-items: stretch;
+  }
+
+  .sk-howto .sk-split .sk-btn { margin-top: auto; }
+  .sk-howto .sk-shot { margin-top: 0; }
+
+  .sk-howto .sk-foot { margin-top: 12px; font-size: 13px; }
+}
+
+@media (min-width: 1240px) {
+  .sk-howto { max-width: 1180px; }
+  .sk-howto .sk-title { font-size: 52px; }
 }
