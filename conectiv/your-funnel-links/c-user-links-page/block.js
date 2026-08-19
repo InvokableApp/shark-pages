@@ -69,31 +69,31 @@
      §3 and §5. */
   var GROUPS = [
     { label:"Start a conversation", items:[
-      { slug:"c-natural-glp-foods-guide", howto:"c-natural-glp-foods-guide-how-to", icon:"leaf", name:"Natural GLP Foods Guide",
+      { slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"c-natural-glp-foods-guide-how-to", icon:"leaf", name:"Natural GLP Foods Guide",
         tease:"Free foods guide",
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
-      { slug:"c-clean-iced-coffee", howto:"c-clean-brew-how-to", icon:"drop", name:"Clean Iced Coffee Recipes",
+      { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"c-clean-brew-how-to", icon:"drop", name:"Clean Iced Coffee Recipes",
         tease:"Free recipe guide",
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." } ]},
 
     { label:"Quizzes and tools", items:[
-      { slug:"c-side-hustle-quiz", howto:"c-side-hustle-how-to", icon:"quiz", name:"Side Hustle Quiz",
+      { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"c-side-hustle-how-to", icon:"quiz", name:"Side Hustle Quiz",
         tease:"Finds their work-from-home fit",
         desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
-      { slug:"c-travel-destination-quiz", howto:"c-travel-destination-how-to", icon:"compass", name:"Travel Destination Quiz",
+      { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"c-travel-destination-how-to", icon:"compass", name:"Travel Destination Quiz",
         tease:"Matches them to a destination",
         desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
-      { slug:"c-investment-options", howto:"c-investment-how-to", icon:"quiz", name:"Investment Options Quiz",
+      { slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"c-investment-how-to", icon:"quiz", name:"Investment Options Quiz",
         tease:"Matches them to an option",
         desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
 
     { label:"Explain Conectiv", items:[
-      { slug:"c-what-is-conectiv", howto:"c-what-is-conectiv-how-to", icon:"info", name:"What Is Conectiv",
+      { slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"c-what-is-conectiv-how-to", icon:"info", name:"What Is Conectiv",
         tease:"The full overview",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     { label:"Recruit", items:[
-      { slug:"c-opportunity-explainer", howto:"c-opportunity-how-to", icon:"users", name:"Opportunity Explainer",
+      { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"c-opportunity-how-to", icon:"users", name:"Opportunity Explainer",
         tease:"The business, explained",
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
@@ -108,7 +108,14 @@
 
   /* the rep's own buy links, which are not funnels */
 
-  /* Ready-to-post social library. This is GENERIC SYSTEM content, identical for
+  /* Per-funnel creative (the `canva` key above) is lifted from the buttons already
+     on that funnel's own "HOW TO MARKET / USE THIS FUNNEL!" page, so the chip and the
+     how-to page can never drift apart. Re-run the scan against the snapshot's how-to
+     pages when Joe refreshes a campaign's creative.
+     The two "Your own pages" funnels have none, which is correct: a rep's personal
+     site and social-links page carry no campaign creative. Vital matches.
+
+     Ready-to-post social library. This is GENERIC SYSTEM content, identical for
      every Conectiv rep, so it lives here as static data rather than as a custom
      value per account. Campaign-specific creative belongs on the funnel itself
      (the `canva` key above), not in this list.
