@@ -28,9 +28,17 @@
   --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
   --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
 
+  /* FULL-BLEED GROUND, CAPPED CONTENT.
+     The paper colour is painted by the block itself, so the block must span the
+     whole browser or the GHL section shows through at the sides and the page
+     reads as a stripe. Capping .sk-howto and centring it was exactly that bug:
+     no section setting can fix it, because the narrow background belongs to the
+     block. So the block stays full width and its CHILDREN carry the measure,
+     via the rule below. Section still needs the HOSTED-BLOCKS-SOP §6 container
+     recipe (padding 0, allowRowMaxWidth true) or GHL adds its own gutters. */
   position: relative;
-  margin: 0 auto;
-  max-width: 560px;
+  margin: 0;
+  max-width: none;
   padding: 0 16px calc(48px + env(safe-area-inset-bottom));
   background: var(--sk-paper);
   color: var(--sk-ink);
@@ -52,7 +60,12 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
 }
 
-.sk-howto > *:not(.sk-grain) { position: relative; z-index: 1; }
+.sk-howto > *:not(.sk-grain) {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin-inline: auto;
+}
 
 /* ---------------- header ---------------- */
 
@@ -119,32 +132,6 @@
   height: 15px;
   color: var(--sk-brand);
 }
-
-/* ---------------- editor notice ---------------- */
-
-.sk-howto .sk-note {
-  display: flex;
-  gap: 11px;
-  margin: 4px 0 30px;
-  padding: 13px 15px;
-  border: 1px solid var(--sk-line);
-  border-left: 3px solid var(--sk-brand);
-  border-radius: var(--sk-r-sm);
-  background: var(--sk-card);
-  color: var(--sk-ink-soft);
-  font-size: 13.5px;
-  line-height: 1.45;
-}
-
-.sk-howto .sk-note svg {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  margin-top: 1px;
-  color: var(--sk-brand);
-}
-
-.sk-howto .sk-note strong { color: var(--sk-ink); font-weight: 600; }
 
 /* ---------------- group header ---------------- */
 
@@ -485,22 +472,13 @@
    only shows up on the one card that happens to be tallest. */
 
 @media (min-width: 900px) {
-  .sk-howto {
-    max-width: 1120px;
-    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
-  }
+  .sk-howto { padding: 0 32px calc(76px + env(safe-area-inset-bottom)); }
+  .sk-howto > *:not(.sk-grain) { max-width: 1120px; }
 
   .sk-howto .sk-head { padding: 64px 4px 30px; }
   .sk-howto .sk-logo { width: 208px; margin-bottom: 26px; }
   .sk-howto .sk-title { font-size: 46px; letter-spacing: -.016em; }
   .sk-howto .sk-sub { margin-top: 14px; font-size: 16.5px; max-width: 52ch; }
-
-  .sk-howto .sk-note {
-    max-width: 780px;
-    margin: 6px auto 34px;
-    padding: 15px 18px;
-    font-size: 14.2px;
-  }
 
   /* groups become grids, with the sticky header spanning every column */
   .sk-howto .sk-group {
@@ -545,6 +523,6 @@
 }
 
 @media (min-width: 1240px) {
-  .sk-howto { max-width: 1180px; }
+  .sk-howto > *:not(.sk-grain) { max-width: 1180px; }
   .sk-howto .sk-title { font-size: 52px; }
 }
