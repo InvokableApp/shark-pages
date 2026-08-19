@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap");
+
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page *, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page *::before, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page *::after { box-sizing:border-box; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page {
+  --sk-brand:#1B4AC4; --sk-brand-deep:#14379A;
+  --sk-ink:#0E1A33; --sk-ink-soft:#4A5670; --sk-ink-faint:#7C87A0;
+  --sk-paper:#F4F7FD; --sk-card:#FFFFFF; --sk-line:#E3E9F5;
+  margin:0 auto; padding:0 20px 72px; background:var(--sk-paper); color:var(--sk-ink);
+  font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif; font-size:16px; line-height:1.6;
+}
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page section { max-width:1040px; margin:0 auto; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__hero { padding:64px 0 8px; text-align:center; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__eyebrow, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__kicker { margin:0 0 12px; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__h1 { margin:0 0 18px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:800; letter-spacing:-.035em; font-size:clamp(32px,5vw,58px); line-height:1.02; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__h2 { margin:0 0 26px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:700; letter-spacing:-.025em; font-size:clamp(24px,3.2vw,36px); line-height:1.14; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__h3 { margin:0 0 8px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:700; font-size:20px; letter-spacing:-.015em; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__lede { max-width:720px; margin:0 auto; font-size:18px; color:var(--sk-ink-soft); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__p { margin:0 0 12px; color:var(--sk-ink-soft); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__note { margin:20px 0 0; font-size:15px; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__role { margin:0 0 12px; font-size:14px; font-weight:600; color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__kick-sm { margin:0 0 6px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__sec { padding:56px 0; border-top:1px solid var(--sk-line); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__wide { display:block; width:100%; height:auto; max-width:760px; margin:0 auto 32px; border-radius:18px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote {
+  background:var(--sk-card); border:1px solid var(--sk-line); border-radius:20px; padding:28px;
+  box-shadow:0 1px 2px rgba(14,26,51,.04), 0 18px 44px -30px rgba(14,26,51,.28);
+}
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod { text-align:center; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod img { width:100%; max-width:230px; height:auto; margin:0 auto 18px; display:block; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__list { margin:0; padding:0; list-style:none; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__list li { position:relative; padding:0 0 9px 24px; color:var(--sk-ink-soft); font-size:15px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__list li::before { content:""; position:absolute; left:0; top:9px; width:9px; height:9px; border-radius:50%; background:var(--sk-brand); box-shadow:0 0 0 3px #E1ECFD; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__claim { margin:0 0 10px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:700; font-size:17px; color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__who { display:flex; align-items:center; gap:12px; margin-top:16px; padding-top:16px; border-top:1px solid var(--sk-line); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__who img { width:44px; height:44px; border-radius:50%; object-fit:cover; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__who strong { display:block; font-size:15px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__who span { font-size:13px; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; padding:44px 28px; margin:56px auto; text-align:center; background:var(--sk-card); border:1px solid var(--sk-line); border-radius:22px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__stat-n { display:block; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:800; font-size:clamp(34px,4.4vw,52px); letter-spacing:-.03em; color:var(--sk-brand); line-height:1; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__stat-l { display:block; margin-top:8px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__final { padding:56px 0 8px; text-align:center; border-top:1px solid var(--sk-line); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__cta { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:26px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn { display:inline-block; text-decoration:none; padding:18px 38px; border-radius:999px; background:var(--sk-brand); color:#fff; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:16px; font-weight:700; box-shadow:0 10px 26px -10px rgba(27,74,196,.7); transition:background .16s ease, transform .16s ease; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn:hover { background:var(--sk-brand-deep); transform:translateY(-2px); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn--ghost { background:transparent; color:var(--sk-brand); border:1.5px solid #C9D6F2; box-shadow:none; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn--ghost:hover { background:#EEF3FD; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__disclaimer { max-width:1040px; margin:40px auto 0; font-size:12px; line-height:1.5; color:var(--sk-ink-faint); }
+@media (max-width:860px) {
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page { padding:0 16px 52px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__hero { padding:40px 0 4px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__sec { padding:40px 0; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote { padding:22px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn { width:100%; }
+}

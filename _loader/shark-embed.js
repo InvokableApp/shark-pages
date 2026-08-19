@@ -63,6 +63,13 @@
           var v = el.getAttribute("data-cv-" + key.toLowerCase());
           return v === null ? "" : v;
         });
+        // Resolve the block's own assets/ folder against Pages. The markup is injected
+        // into a GHL page, so a bare src="assets/x.webp" would resolve against the GHL
+        // domain and 404. Only the literal "assets/" prefix is rewritten, so absolute
+        // URLs and every other path are left exactly as authored.
+        html = html.replace(/(\s(?:src|href|poster)=["'])assets\//g, "$1" + dir + "assets/");
+        html = html.replace(/url\((["']?)assets\//g, "url($1" + dir + "assets/");
+
         el.innerHTML = html;
 
         // scripts inserted via innerHTML never execute, so load the block's JS properly
