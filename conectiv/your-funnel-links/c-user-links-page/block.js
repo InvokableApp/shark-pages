@@ -130,6 +130,14 @@
   /* the one value everything hangs off */
   var MAIN = cv("conectiv__main_url").replace(/^https?:\/\//i,"").replace(/\/+$/,"");
 
+  /* Same strip Vital shows: the rep can see at a glance WHICH domain every link
+     below is built from, which is the first thing to check when a link 404s. */
+  if (MAIN) {
+    var strip = root.querySelector("[data-domain-strip]");
+    strip.hidden = false;
+    strip.querySelector(".sk-domain-text").textContent = MAIN;
+  }
+
   var body = root.querySelector("[data-body]");
   var html = "", n = 0, live = 0;
 
@@ -183,7 +191,7 @@
             (f.canva || f.howtoUrl ?
               '<div class="sk-links">' +
               (f.howtoUrl ? '<a class="sk-chip" href="'+f.howtoUrl+'" target="_blank" rel="noopener">' +
-                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg>' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 6 3.5-6 3.5Z"/></svg>' +
                 'How to use this funnel</a>' : '') +
               (f.canva ? '<a class="sk-chip" href="'+f.canva+'" target="_blank" rel="noopener">' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/></svg>' +
@@ -238,7 +246,7 @@
             '<article class="sk-card" data-open="false" style="animation-delay:'+(0.04*n++).toFixed(2)+'s">' +
               '<button class="sk-trigger" type="button" aria-expanded="false">' +
                 '<span class="sk-mark">'+icon("cart")+'</span>' +
-                '<span><span class="sk-name">Your buy links</span><span class="sk-tease">Product and recruitment</span></span>' +
+                '<span><span class="sk-name">Your buy links</span><span class="sk-tease">'+direct.length+' links, ready to copy</span></span>' +
                 '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
               '</button>' +
               '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
