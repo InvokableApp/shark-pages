@@ -9,6 +9,22 @@
   font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif; font-size:16px; line-height:1.6;
 }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page section { max-width:1040px; margin:0 auto; }
+
+/* -- scroll motion. The hidden state is guarded by .sk-motion, which shark-reveal.js
+   adds only when it actually runs, so a 404 or JS-off render shows everything. -- */
+.sk-motion .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page [data-sk-reveal] {
+  opacity:0; transform:translateY(22px);
+  transition:opacity .62s cubic-bezier(.22,.61,.36,1), transform .62s cubic-bezier(.22,.61,.36,1);
+  transition-delay:calc(var(--sk-i, 0) * 70ms);
+  will-change:opacity, transform;
+}
+.sk-motion .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page [data-sk-reveal].sk-in { opacity:1; transform:none; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page [data-sk-parallax] { will-change:transform; }
+@media (prefers-reduced-motion: reduce) {
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page [data-sk-reveal] { opacity:1 !important; transform:none !important; transition:none !important; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page [data-sk-parallax] { transform:none !important; }
+}
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__widewrap { overflow:hidden; border-radius:18px; max-width:760px; margin:0 auto 32px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__hero { padding:64px 0 8px; text-align:center; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__eyebrow, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__kicker { margin:0 0 12px; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--sk-brand); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__h1 { margin:0 0 18px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:800; letter-spacing:-.035em; font-size:clamp(32px,5vw,58px); line-height:1.02; }
@@ -20,13 +36,15 @@
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__role { margin:0 0 12px; font-size:14px; font-weight:600; color:var(--sk-brand); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__kick-sm { margin:0 0 6px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-ink-faint); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__sec { padding:56px 0; border-top:1px solid var(--sk-line); }
-.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__wide { display:block; width:100%; height:auto; max-width:760px; margin:0 auto 32px; border-radius:18px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__wide { display:block; width:100%; height:auto; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote {
+  transition:transform .2s ease, box-shadow .2s ease;
   background:var(--sk-card); border:1px solid var(--sk-line); border-radius:20px; padding:28px;
   box-shadow:0 1px 2px rgba(14,26,51,.04), 0 18px 44px -30px rgba(14,26,51,.28);
 }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card:hover, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod:hover, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote:hover { transform:translateY(-4px); box-shadow:0 1px 2px rgba(14,26,51,.05), 0 26px 56px -32px rgba(14,26,51,.36); }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod { text-align:center; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod img { width:100%; max-width:230px; height:auto; margin:0 auto 18px; display:block; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__list { margin:0; padding:0; list-style:none; }
@@ -51,6 +69,7 @@
   .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page { padding:0 16px 52px; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__hero { padding:40px 0 4px; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__sec { padding:40px 0; }
-  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote { padding:22px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__prod, .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__quote {
+ padding:22px; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-product-page__btn { width:100%; }
 }
