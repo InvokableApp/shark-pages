@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SHARED "HOW TO USE THIS FUNNEL" STYLESHEET
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE stylesheet for every how-to page in every system. It is scoped under
+   .sk-howto, which every how-to block carries alongside its own mandated
+   .sk-{system}-{funnel}-{page} class. The per-page block.css declares only the
+   nine palette tokens on that page class, and they cascade into everything here.
+
+   So: colour is per system, everything else is per design system. Changing a
+   component here changes every how-to page in every account on one git push.
+
+   Do not add colour literals below. If a value is not in the token block, it is
+   an ink/paper mix and belongs in the per-page tokens instead.
+   ============================================================ */
+
+.sk-howto *,
+.sk-howto *::before,
+.sk-howto *::after { box-sizing: border-box; }
+
+.sk-howto {
+  /* structural tokens: identical in every system, per design system 7.2 */
+  --sk-r: 18px;
+  --sk-r-sm: 12px;
+  --sk-pad: 20px;
+  --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
+  --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
+
+  position: relative;
+  margin: 0 auto;
+  max-width: 560px;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* paper grain, keeps flat off-white from reading as an unstyled default */
+.sk-howto .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-howto > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-howto .sk-head {
+  padding: 38px 4px 22px;
+  text-align: center;
+}
+
+.sk-howto .sk-logo {
+  display: block;
+  width: 168px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 22px;
+}
+
+.sk-howto .sk-title {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sk-howto .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-howto .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* the funnel this page belongs to, set as data rather than prose */
+.sk-howto .sk-funnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 7px 13px 7px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+  text-align: left;
+}
+
+.sk-howto .sk-funnel svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--sk-brand);
+}
+
+/* ---------------- editor notice ---------------- */
+
+.sk-howto .sk-note {
+  display: flex;
+  gap: 11px;
+  margin: 4px 0 30px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.sk-howto .sk-note svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--sk-brand);
+}
+
+.sk-howto .sk-note strong { color: var(--sk-ink); font-weight: 600; }
+
+/* ---------------- group header ---------------- */
+
+.sk-howto .sk-group {
+  margin: 0 0 26px;
+}
+
+.sk-howto .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 0 13px;
+  padding: 14px 2px 11px;
+  background: linear-gradient(var(--sk-paper) 62%, transparent);
+}
+
+.sk-howto .sk-group-label {
+  flex: none;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-ink);
+}
+
+.sk-howto .sk-group-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--sk-line);
+}
+
+.sk-howto .sk-group-count {
+  flex: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-howto .sk-card {
+  margin: 0 0 12px;
+  padding: var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+
+.sk-howto .sk-card:last-child { margin-bottom: 0; }
+
+.sk-howto .sk-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.sk-howto .sk-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand);
+}
+
+.sk-howto .sk-mark svg { width: 21px; height: 21px; }
+
+.sk-howto .sk-card-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  letter-spacing: -.005em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+.sk-howto .sk-card-tease {
+  margin: 5px 0 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+
+.sk-howto .sk-card-body {
+  margin: 14px 0 0;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.52;
+}
+
+.sk-howto .sk-card-body p { margin: 0 0 10px; }
+.sk-howto .sk-card-body p:last-child { margin-bottom: 0; }
+.sk-howto .sk-card-body strong { color: var(--sk-ink); font-weight: 600; }
+
+/* an inline token reproducing a UI element named in prose, design system 4 */
+.sk-howto .sk-gl {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------------- video card ---------------- */
+
+.sk-howto .sk-vid { padding: 0; overflow: hidden; }
+
+.sk-howto .sk-vid .sk-card-head { padding: var(--sk-pad) var(--sk-pad) 15px; }
+
+/* click-to-load facade: the vimeo player is only fetched once the rep asks for it,
+   so a page with three videos still loads like a page with none */
+.sk-howto .sk-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-top: 1px solid var(--sk-line-soft);
+  padding: 0;
+  display: block;
+  background-color: var(--sk-ink);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sk-howto .sk-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 8, .1) 0%, rgba(8, 10, 8, .42) 100%);
+  transition: opacity .3s ease;
+}
+
+.sk-howto .sk-frame:hover::after { opacity: .72; }
+
+.sk-howto .sk-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 28px -8px rgba(8, 10, 8, .55);
+  color: #fff;
+  transition: transform .28s cubic-bezier(.2, .7, .3, 1);
+}
+
+.sk-howto .sk-frame:hover .sk-play { transform: translate(-50%, -50%) scale(1.07); }
+.sk-howto .sk-frame:active .sk-play { transform: translate(-50%, -50%) scale(.97); }
+
+.sk-howto .sk-play svg { width: 25px; height: 25px; margin-left: 3px; }
+
+.sk-howto .sk-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sk-howto .sk-frame[data-playing="true"] { cursor: default; }
+.sk-howto .sk-frame[data-playing="true"]::after,
+.sk-howto .sk-frame[data-playing="true"] .sk-play { display: none; }
+
+/* ---------------- buttons ---------------- */
+
+.sk-howto .sk-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 15px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .12s ease;
+}
+
+.sk-howto .sk-btn:hover { box-shadow: var(--sk-shadow-lift); }
+.sk-howto .sk-btn:active { transform: translateY(1px); }
+.sk-howto .sk-btn svg { flex: none; width: 17px; height: 17px; }
+
+.sk-howto .sk-btn--ghost {
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  color: var(--sk-ink);
+}
+
+.sk-howto .sk-btn--ghost:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+/* ---------------- screenshot ---------------- */
+
+.sk-howto .sk-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+}
+
+.sk-howto .sk-shot-cap {
+  margin: 8px 0 0;
+  color: var(--sk-ink-faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ---------------- footer ---------------- */
+
+.sk-howto .sk-foot {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sk-line);
+  color: var(--sk-ink-faint);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ---------------- focus, always visible ---------------- */
+
+.sk-howto a:focus-visible,
+.sk-howto button:focus-visible,
+.sk-howto [tabindex]:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------------- entry motion ----------------
+   Hidden states are guarded by .sk-motion, which the shared reveal engine adds to
+   <html> only once it actually runs. Without the guard, a slow Pages build or a
+   blocked script renders a blank page. Design system 5 / hosted-blocks SOP 9. */
+
+@keyframes sk-howto-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sk-howto .sk-head > * {
+  animation: sk-howto-rise .55s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.sk-howto .sk-logo   { animation-delay: .02s; }
+.sk-howto .sk-title  { animation-delay: .08s; }
+.sk-howto .sk-sub    { animation-delay: .14s; }
+.sk-howto .sk-funnel { animation-delay: .20s; }
+
+.sk-motion .sk-howto [data-sk-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s cubic-bezier(.2, .7, .3, 1), transform .5s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--sk-i, 0) * .05s);
+}
+
+.sk-motion .sk-howto [data-sk-reveal].sk-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-howto .sk-head > * { animation: none; }
+  .sk-motion .sk-howto [data-sk-reveal] { opacity: 1; transform: none; transition: none; }
+  .sk-howto .sk-play,
+  .sk-howto .sk-btn,
+  .sk-howto .sk-frame::after { transition: none; }
+}
+
+/* ---------------- wider than a phone ---------------- */
+
+@media (min-width: 560px) {
+  .sk-howto { padding-bottom: 64px; }
+  .sk-howto .sk-head { padding-top: 52px; }
+  .sk-howto .sk-card-tease,
+  .sk-howto .sk-sub { max-width: 44ch; }
+}
