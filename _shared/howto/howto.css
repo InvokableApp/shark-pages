@@ -516,6 +516,18 @@
      even when one title wraps to two lines and its neighbour does not */
   .sk-howto .sk-vid .sk-frame { margin-top: auto; }
 
+  /* A LONE VIDEO IS A HERO, NOT A BILLBOARD. At the full 1180 measure a 16:9
+     frame is 663px tall and swallows the page; capped it reads as the primary
+     thing without pushing everything else below the fold. Many funnels ship one
+     training rather than two, so this is a common shape, not an edge case.
+     justify-self, not an auto margin: .sk-card sets `margin` as a shorthand at
+     this width and would reset it. */
+  .sk-howto .sk-group[data-cols="1"] .sk-vid {
+    width: 100%;
+    max-width: 860px;
+    justify-self: center;
+  }
+
   /* ads card: copy and button on the left, the screenshot beside it.
      STRETCH, not start: the screenshot column is much taller than the copy, and
      letting the copy column shrink to its content leaves a slab of dead white
