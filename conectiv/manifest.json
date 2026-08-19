@@ -25,5 +25,16 @@
       "elementTitle": "hosted-probe",
       "pattern": "B"
     }
+  ],
+  "installs": [
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "pXWZl9QFtkhNjA6nPAOw",
+      "pageId": "CRF9Lrm4EOSCV5f8j23t",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    }
   ]
 }
