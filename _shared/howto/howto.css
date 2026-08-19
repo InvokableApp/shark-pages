@@ -34,8 +34,18 @@
      reads as a stripe. Capping .sk-howto and centring it was exactly that bug:
      no section setting can fix it, because the narrow background belongs to the
      block. So the block stays full width and its CHILDREN carry the measure,
-     via the rule below. Section still needs the HOSTED-BLOCKS-SOP §6 container
-     recipe (padding 0, allowRowMaxWidth true) or GHL adds its own gutters. */
+     via the three-column grid below. Section still needs the HOSTED-BLOCKS-SOP
+     §6 container recipe (padding 0, allowRowMaxWidth true) or GHL adds its own
+     gutters.
+
+     THE MEASURE IS A GRID COLUMN, NOT AN AUTO MARGIN. `margin-inline: auto` on
+     the children looks equivalent and is not: .sk-group and .sk-card set
+     `margin` as a SHORTHAND, which silently resets margin-inline to 0 and drops
+     them against the left edge. The header, having no margin shorthand, stayed
+     centred, so the page half-worked in a way that reads as a mystery. Placing
+     children in column 2 cannot be undone by any margin a component sets. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
   position: relative;
   margin: 0;
   max-width: none;
@@ -61,10 +71,9 @@
 }
 
 .sk-howto > *:not(.sk-grain) {
+  grid-column: 2;
   position: relative;
   z-index: 1;
-  max-width: 560px;
-  margin-inline: auto;
 }
 
 /* ---------------- header ---------------- */
@@ -472,8 +481,10 @@
    only shows up on the one card that happens to be tallest. */
 
 @media (min-width: 900px) {
-  .sk-howto { padding: 0 32px calc(76px + env(safe-area-inset-bottom)); }
-  .sk-howto > *:not(.sk-grain) { max-width: 1120px; }
+  .sk-howto {
+    grid-template-columns: 1fr min(1120px, 100%) 1fr;
+    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
+  }
 
   .sk-howto .sk-head { padding: 64px 4px 30px; }
   .sk-howto .sk-logo { width: 208px; margin-bottom: 26px; }
@@ -523,6 +534,6 @@
 }
 
 @media (min-width: 1240px) {
-  .sk-howto > *:not(.sk-grain) { max-width: 1180px; }
+  .sk-howto { grid-template-columns: 1fr min(1180px, 100%) 1fr; }
   .sk-howto .sk-title { font-size: 52px; }
 }
