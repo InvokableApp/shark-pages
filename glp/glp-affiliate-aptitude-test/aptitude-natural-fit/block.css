@@ -22,7 +22,14 @@
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meters { margin:32px 0 0; padding:28px 0 0; border-top:1px solid var(--sk-line); display:grid; gap:18px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter-head { display:flex; justify-content:space-between; font-size:14px; font-weight:600; margin-bottom:8px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__track { height:8px; border-radius:999px; background:#E9EEF9; overflow:hidden; }
-.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__fill { height:100%; border-radius:999px; background:var(--sk-brand); }
+/* Bars grow from 0 to their value once the loader has cleared (3.1s), so the score reads
+   as something being measured rather than a static graphic. Width is carried in --sk-w
+   so the keyframe can animate to it. */
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__fill { height:100%; width:0; border-radius:999px; background:var(--sk-brand); animation:sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit-meter .9s cubic-bezier(.22,.61,.36,1) forwards; animation-delay:calc(3.1s + var(--sk-i,0) * .12s); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter--accent .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__fill { background:linear-gradient(90deg,#1B4AC4,#4E86F0); box-shadow:0 0 12px rgba(27,74,196,.35); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter--accent .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter-head span { color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter-note { margin:8px 0 0; font-size:13px; line-height:1.45; color:var(--sk-ink-faint); }
+@keyframes sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit-meter { to { width:var(--sk-w); } }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__cta { margin-top:32px; padding-top:28px; border-top:1px solid var(--sk-line); display:flex; flex-wrap:wrap; gap:14px; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn { display:inline-block; text-decoration:none; text-align:center; padding:18px 34px; border-radius:999px; background:var(--sk-brand); color:#fff; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:16px; font-weight:700; box-shadow:0 10px 26px -10px rgba(27,74,196,.7); transition:background .16s ease, transform .16s ease; }
 .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn:hover { background:var(--sk-brand-deep); transform:translateY(-2px); }
@@ -73,6 +80,9 @@
 @media (prefers-reduced-motion:reduce) {
   .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__loader { display:none; }
   .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__crumbs, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__eyebrow, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__title, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__card, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__disclaimer { opacity:1; animation:none; }
+  /* The fill starts at width:0 and is animated to --sk-w. Killing the animation without
+     restoring the width would render every meter empty, which is worse than no motion. */
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__fill { width:var(--sk-w); animation:none; }
 }
 
 @media (max-width:860px) {
