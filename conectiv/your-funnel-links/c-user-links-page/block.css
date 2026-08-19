@@ -1,0 +1,553 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SCOPE: every selector sits under .sk-conectiv-your-funnel-links-c-user-links-page.
+   In the hosted block this becomes
+   .sk-vital-vital---your-funnel-links-vital-user-links per
+   HOSTED-BLOCKS-SOP §1. Kept short here for readability.
+   ============================================================ */
+
+.sk-conectiv-your-funnel-links-c-user-links-page *,
+.sk-conectiv-your-funnel-links-c-user-links-page *::before,
+.sk-conectiv-your-funnel-links-c-user-links-page *::after { box-sizing: border-box; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page {
+  /* brand, matching _brand/conectiv/tokens.css and the account's page theme */
+  --sk-brand:      #2563EB;
+  --sk-brand-deep: #155EEF;
+  --sk-brand-tint: #EAF0FD;
+  --sk-ink:        #0B1220;
+  --sk-ink-soft:   #5B6577;
+  --sk-ink-faint:  #8b93a5;
+  --sk-paper:      #f4f6fa;
+  --sk-card:       #ffffff;
+  --sk-line:       #dfe4ef;
+  --sk-line-soft:  #e9edf5;
+
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  position: relative;
+  margin: 0 auto;
+  max-width: 560px;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* paper grain, keeps the flat off-white from looking like a default */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-head {
+  padding: 40px 4px 24px;
+  text-align: center;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-logo {
+  display: block;
+  width: 172px;
+  max-width: 62%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the green half of the wordmark, echoing the logo gradient */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title em {
+  font-style: normal;
+  background: linear-gradient(118deg, var(--sk-brand) 0%, var(--sk-brand-deep) 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 7px 14px 7px 11px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  color: var(--sk-ink-soft);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-domain-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sk-brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.22);
+}
+
+/* ---------------- setup state ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup {
+  margin: 8px 0 24px;
+  padding: 22px var(--sk-pad);
+  border: 1px solid #e8ddb8;
+  border-radius: var(--sk-r);
+  background: #fdf8e8;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup h2 {
+  margin: 0 0 6px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 105, "wght" 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup p { margin: 0; font-size: 14.5px; color: #6b5f34; }
+
+/* ---------------- groups ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group { margin-top: 30px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(247,244,241,0));
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease, transform .3s ease;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card + .sk-card { margin-top: 10px; }
+
+/* product list: one dropdown holding every product, name left, copy right */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-plist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--sk-line);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--sk-line-soft);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow:last-child { border-bottom: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow-name {
+  min-width: 0;
+  padding: 6px 0;
+  color: var(--sk-ink);
+  font-size: 14.8px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow-name:active { color: var(--sk-brand-deep); }
+
+/* compact copy button, same component as the big one */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy.sk-copy--mini {
+  width: auto;
+  min-height: 36px;
+  padding: 0 13px;
+  gap: 7px;
+  border-radius: 9px;
+  background: #fbfcfe;
+  border: 1px solid var(--sk-line);
+  color: var(--sk-brand-deep);
+  font-size: 11.5px;
+  letter-spacing: .07em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip--go {
+  min-height: 36px;
+  padding: 0 15px;
+  justify-content: center;
+  font-size: 11.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy.sk-copy--mini svg { width: 14px; height: 14px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy.sk-copy--mini[data-state="done"] {
+  background: var(--sk-brand-deep);
+  border-color: var(--sk-brand-deep);
+  color: #fff;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] {
+  border-color: rgba(37,99,235,.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark {
+  display: grid;
+  place-items: center;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(37,99,235,.16), rgba(21,94,239,.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.6; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: opacity .25s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr -> 1fr animates without a fixed height */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-inner { overflow: hidden; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-pad {
+  padding: 2px var(--sk-pad) var(--sk-pad);
+}
+
+/* image slot, reserved for the funnel flow strip. hidden until we have art. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-shot {
+  display: none;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  aspect-ratio: 16 / 9;
+  background: repeating-linear-gradient(135deg, #f7f9fd 0 10px, #eef2f9 10px 20px);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc {
+  margin: 0 0 16px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+
+/* primary action */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy:active { transform: scale(.985); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy svg { width: 17px; height: 17px; stroke-width: 1.8; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] {
+  background: var(--sk-brand-deep);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] .sk-copy-label { animation: sk-conectiv-your-funnel-links-c-user-links-page-pop .35s cubic-bezier(.2,.9,.3,1) both; }
+
+/* the raw url, readable and selectable */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #fbfcfe;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+/* secondary resource links */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #fbfcfe;
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip:active {
+  background: var(--sk-brand-tint);
+  border-color: var(--sk-brand);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip svg {
+  flex: none;
+  width: 17px; height: 17px;
+  stroke-width: 1.7;
+  color: var(--sk-brand);
+}
+
+/* ---------------- footer ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot { margin-top: 40px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-card {
+  padding: 26px var(--sk-pad) 24px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #0b3fa8 100%);
+  color: #fff;
+  text-align: center;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 106, "wght" 700;
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: .012em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-copy {
+  margin: 8px auto 18px;
+  max-width: 32ch;
+  font-size: 14.2px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.72);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store { display: flex; flex-direction: column; gap: 9px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 13.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store a.is-primary {
+  background: var(--sk-brand);
+  border-color: var(--sk-brand);
+  color: #101828;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store svg { width: 17px; height: 17px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-legal {
+  margin: 22px 0 0;
+  text-align: center;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 84, "wght" 600;
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-pop {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card { animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-your-funnel-links-c-user-links-page *, .sk-conectiv-your-funnel-links-c-user-links-page *::before, .sk-conectiv-your-funnel-links-c-user-links-page *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (min-width: 620px) {
+  .sk-conectiv-your-funnel-links-c-user-links-page { padding-bottom: 64px; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-store { flex-direction: row; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-store a { flex: 1; }
+}

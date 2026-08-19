@@ -1,0 +1,63 @@
+<!--
+  CONECTIV / your-funnel-links / c-user-links-page
+  "Your Funnel Links" - the rep-facing mobile hub for Conectiv.
+
+  LINK MODEL: the VITAL one. ONE domain value (conectiv__main_url) plus a FIXED
+  c- slug per funnel, because every buyer installs the same snapshot onto one
+  domain. See MARKETING-LINKS-PAGE-SOP §2 - and §5, because a domain connect
+  suffixes slugs and silently breaks every link built this way.
+
+  Unfilled values and the "Enter…/Paste…" placeholders are skipped, so a rep who
+  has not finished setup sees the setup card instead of a page of dead links.
+  The four Meta CAPI values are deliberately absent: this page is public.
+-->
+<div class="sk-conectiv-your-funnel-links-c-user-links-page"
+     data-cv-conectiv__alive_link="{{custom_values.conectiv__alive_link}}"
+     data-cv-conectiv__amaze_link="{{custom_values.conectiv__amaze_link}}"
+     data-cv-conectiv__coffee_guide_download_url="{{custom_values.conectiv__coffee_guide_download_url}}"
+     data-cv-conectiv__email_designated_domain="{{custom_values.conectiv__email_designated_domain}}"
+     data-cv-conectiv__facebook_link="{{custom_values.conectiv__facebook_link}}"
+     data-cv-conectiv__glp_foods_guide_download_url="{{custom_values.conectiv__glp_foods_guide_download_url}}"
+     data-cv-conectiv__income_disclaimer="{{custom_values.conectiv__income_disclaimer}}"
+     data-cv-conectiv__instagram_link="{{custom_values.conectiv__instagram_link}}"
+     data-cv-conectiv__linkedin_link="{{custom_values.conectiv__linkedin_link}}"
+     data-cv-conectiv__main_url="{{custom_values.conectiv__main_url}}"
+     data-cv-conectiv__tiktok_link="{{custom_values.conectiv__tiktok_link}}"
+     data-cv-conectiv__twitter_link="{{custom_values.conectiv__twitter_link}}"
+     data-cv-conectiv__your_company_name="{{custom_values.conectiv__your_company_name}}"
+     data-cv-conectiv__your_coneqtx_link="{{custom_values.conectiv__your_coneqtx_link}}"
+     data-cv-conectiv__your_email="{{custom_values.conectiv__your_email}}"
+     data-cv-conectiv__your_first_name="{{custom_values.conectiv__your_first_name}}"
+     data-cv-conectiv__your_full_name="{{custom_values.conectiv__your_full_name}}"
+     data-cv-conectiv__your_last_name="{{custom_values.conectiv__your_last_name}}"
+     data-cv-conectiv__your_mylife_wellness_link="{{custom_values.conectiv__your_mylife_wellness_link}}"
+     data-cv-conectiv__your_phone="{{custom_values.conectiv__your_phone}}"
+     data-cv-conectiv__youtube_link="{{custom_values.conectiv__youtube_link}}">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo"
+         src="CONECTIV_LOGO_URL"
+         alt="Conectiv">
+    <h1 class="sk-title">Your Funnel Links</h1>
+    <p class="sk-sub" data-greeting>Here are your funnel links.</p>
+  </header>
+
+  <div class="sk-setup" data-setup hidden>
+    <h2>Finish your setup first</h2>
+    <p>Add your main domain in the Conectiv custom values and every link on this page fills in automatically.</p>
+  </div>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <h2 class="sk-foot-title">Run this from your phone</h2>
+      <p class="sk-foot-copy">Get the HighLevel app so your leads, texts and calls follow you everywhere.</p>
+      <div class="sk-store" data-store></div>
+    </div>
+    <p class="sk-legal">Conectiv</p>
+  </footer>
+
+</div>
