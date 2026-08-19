@@ -595,6 +595,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-affiliate-aptitude-test/aptitude-product-page",
+      "funnelId": "8eFnRNNgBMzwILxhHd6Y",
+      "pageId": "kUMkqikmAVhvPnnZpoKo",
+      "elementId": "custom-code-iJ1t4isQ5M",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
