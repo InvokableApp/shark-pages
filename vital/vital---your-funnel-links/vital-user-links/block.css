@@ -540,3 +540,231 @@
   .sk-vital-vital---your-funnel-links-vital-user-links .sk-store { flex-direction: row; }
   .sk-vital-vital---your-funnel-links-vital-user-links .sk-store a { flex: 1; }
 }
+
+/* ============================================================
+   ADD TO HOME SCREEN
+   Same behaviour as the GLP hub, in Vital's palette. The button sits under the
+   domain strip and is revealed by JS only when it can actually do something.
+   The sheet detects the platform rather than asking, and leads with written
+   steps because the walkthrough videos are 18MB (iOS) and 11MB (Android).
+   ============================================================ */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs svg {
+  width: 17px; height: 17px; flex: none;
+  stroke-width: 1.7;
+  color: var(--sk-green);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-green); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs:active { transform: translateY(1px); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs:focus-visible { outline: 2px solid var(--sk-green); outline-offset: 3px; }
+
+/* ---- sheet ---- */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet[hidden] { display: none; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 24, 15, .5);
+  backdrop-filter: blur(2px);
+  animation: sk-a2hs-fade .22s ease both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-a2hs-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet { align-items: center; }
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-grip { display: none; } }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-x svg { width: 15px; height: 15px; }
+
+/* ---- platform toggle ---- */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 18px;
+  border: 1px solid var(--sk-line);
+  border-radius: 12px;
+  background: var(--sk-card);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-seg-btn {
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 13.5px;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-seg-btn[aria-pressed="true"] {
+  background: linear-gradient(118deg, var(--sk-green) 0%, var(--sk-green-deep) 82%);
+  color: #fff;
+}
+
+/* ---- written steps, the primary instruction ---- */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(141, 181, 60, .18);
+  color: var(--sk-green-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps b {
+  font-weight: 700;
+  color: var(--sk-ink);
+  white-space: nowrap;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps .sk-gl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px 1px 4px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  white-space: nowrap;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps .sk-gl svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+/* ---- optional video ---- */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch { margin-top: 16px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch summary::-webkit-details-marker { display: none; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch summary svg { width: 18px; height: 18px; flex: none; color: var(--sk-green); stroke-width: 1.7; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch summary em { font-style: normal; font-weight: 500; color: var(--sk-ink-faint); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch-body { padding-top: 12px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-watch video {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  border-radius: var(--sk-r-sm);
+  border: 1px solid var(--sk-line);
+  background: #000;
+}
+
+@keyframes sk-a2hs-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-a2hs-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel,
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-scrim { animation: none; }
+}
