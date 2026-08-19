@@ -559,6 +559,42 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-affiliate-aptitude-test/aptitude-trusted-voice",
+      "funnelId": "8eFnRNNgBMzwILxhHd6Y",
+      "pageId": "Acwn5h8rYmlCUnxYpm48",
+      "elementId": "custom-code-X_4tHEMKN0",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-affiliate-aptitude-test/aptitude-natural-fit",
+      "funnelId": "8eFnRNNgBMzwILxhHd6Y",
+      "pageId": "9LYllTqv3lTGkPbk7qxw",
+      "elementId": "custom-code-hiKcRONmnk",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-affiliate-aptitude-test/aptitude-best-kept-secret",
+      "funnelId": "8eFnRNNgBMzwILxhHd6Y",
+      "pageId": "TJQSDiqny6KW2AhQQzw8",
+      "elementId": "custom-code-D6gAuN9Dvc",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-affiliate-aptitude-test/aptitude-fresh-start",
+      "funnelId": "8eFnRNNgBMzwILxhHd6Y",
+      "pageId": "IuuXVSzTzfj2tvpJY5P1",
+      "elementId": "custom-code-eRtyTF6U--",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
