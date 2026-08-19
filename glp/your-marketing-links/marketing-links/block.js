@@ -286,5 +286,135 @@
   var goog='<a class="'+(isAndroid?"is-primary":"")+'" href="'+PLAY+'" target="_blank" rel="noopener">'+play+'Google Play</a>';
   store.innerHTML = isAndroid ? (goog+ios) : (ios+goog);
 
+
+  /* ---------- add to home screen ----------
+     CAN THIS BE AUTOMATIC? Only partly, and only on Android.
+       iOS  — Safari exposes NO API for this. Add to Home Screen is Share -> Add,
+              a manual gesture, and no script can trigger or fake it. Instructions
+              are the only option there, which is why they lead.
+       Android — Chrome MAY fire `beforeinstallprompt`, which is a real one tap
+              install. It is not guaranteed (it depends on the browser and on the
+              page being installable), so it is treated as a bonus: when it fires
+              the button installs directly and the sheet never opens.
+     The platform is DETECTED rather than asked, so nobody taps through a
+     "which phone?" question to reach their own steps. */
+  (function () {
+    var openBtn = root.querySelector("[data-a2hs-open]");
+    var sheet   = root.querySelector("[data-a2hs-sheet]");
+    if (!openBtn || !sheet) return;
+
+    // Already installed: the button would be pure noise, so it never appears.
+    var installed = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+                    window.navigator.standalone === true;
+    if (installed) return;
+
+    var label   = openBtn.querySelector("[data-a2hs-label]");
+    var stepsEl = sheet.querySelector("[data-a2hs-steps]");
+    var videoEl = sheet.querySelector("[data-a2hs-video]");
+    var watch   = sheet.querySelector(".sk-watch");
+
+    /* One walkthrough per platform. The runtimes differ (iOS ~1 min, Android ~2 min),
+       so the hint on the summary is per platform rather than one static claim. */
+    var VIDEO = {
+      ios:     { src: "https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85cfbf005891114d29ddef.mp4", hint: "(1 minute video)" },
+      android: { src: "https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85d91f9cca634f084ab692.mp4", hint: "(2 minute video)" }
+    };
+    var share = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8.5 6.5 3.5-3.5 3.5 3.5"/><path d="M6 11H4.8A1.8 1.8 0 0 0 3 12.8v6.4A1.8 1.8 0 0 0 4.8 21h14.4a1.8 1.8 0 0 0 1.8-1.8v-6.4A1.8 1.8 0 0 0 19.2 11H18"/></svg>Share</span>';
+    var kebab = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>menu</span>';
+
+    var STEPS = {
+      ios: [
+        'Tap the ' + share + ' button at the bottom of Safari.',
+        'Scroll down the list and tap <b>Add to Home Screen</b>.',
+        'Tap <b>Add</b> in the top right. The icon appears with your other apps.'
+      ],
+      android: [
+        'Tap the ' + kebab + ' in the top right of Chrome.',
+        'Tap <b>Install app</b>, or <b>Add to Home screen</b> if you do not see it.',
+        'Confirm with <b>Install</b>. The icon appears with your other apps.'
+      ]
+    };
+    // Opening from inside another app's browser is the one thing that makes the real
+    // steps impossible, and it is common: reps reach this from a Facebook or Instagram
+    // message. Naming it here saves the "it isn't there" support message.
+    var INAPP = /FBAN|FBAV|Instagram|Line\/|Twitter|LinkedInApp/i.test(navigator.userAgent || "");
+
+    var ua = navigator.userAgent || "";
+    var guess = (/iPad|iPhone|iPod/.test(ua) || (ua.indexOf("Mac") > -1 && navigator.maxTouchPoints > 1))
+      ? "ios" : (/Android/i.test(ua) ? "android" : "ios");
+
+    function paint(os) {
+      sheet.querySelectorAll(".sk-seg-btn").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-os") === os));
+      });
+      var list = STEPS[os].map(function (t) { return "<li><span>" + t + "</span></li>"; }).join("");
+      if (INAPP) {
+        list = '<li><span>You opened this inside another app. Tap that app’s menu and choose ' +
+               '<b>Open in ' + (os === "ios" ? "Safari" : "Chrome") + '</b> first.</span></li>' + list;
+      }
+      stepsEl.innerHTML = list;
+      // Rebuilt on every switch so only the platform being viewed is ever fetched, and
+      // preload="none" keeps even that at zero bytes until the rep presses play. These
+      // files are ~23MB each; preloading both would cost a rep 46MB for nothing.
+      videoEl.innerHTML = '<video controls playsinline preload="none" src="' + VIDEO[os].src + '"></video>';
+      var hint = sheet.querySelector("[data-a2hs-size]");
+      if (hint) hint.textContent = VIDEO[os].hint;
+      if (watch) watch.open = false;
+    }
+
+    var lastFocus = null;
+    function open() {
+      lastFocus = document.activeElement;
+      paint(guess);
+      sheet.hidden = false;
+      document.body.style.overflow = "hidden";
+      var x = sheet.querySelector(".sk-sheet-x");
+      if (x) x.focus();
+    }
+    function close() {
+      // stop playback and drop the buffer, or audio keeps going behind the closed sheet
+      var v = sheet.querySelector("video");
+      if (v) { try { v.pause(); } catch (e) {} }
+      videoEl.innerHTML = "";
+      sheet.hidden = true;
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    sheet.addEventListener("click", function (e) {
+      if (e.target.closest("[data-a2hs-close]")) { close(); return; }
+      var seg = e.target.closest(".sk-seg-btn");
+      if (seg) { guess = seg.getAttribute("data-os"); paint(guess); }
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !sheet.hidden) close(); });
+
+    // Android's real install prompt, when the browser offers one.
+    var deferred = null;
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      deferred = e;
+      label.textContent = "Add this page to your home screen";
+    });
+    window.addEventListener("appinstalled", function () { openBtn.hidden = true; deferred = null; });
+
+    openBtn.addEventListener("click", function () {
+      if (deferred) {
+        deferred.prompt();
+        deferred.userChoice.then(function (r) {
+          if (r && r.outcome === "accepted") openBtn.hidden = true;
+          // dismissed: the browser will not re-offer this prompt, so fall back to the
+          // written steps rather than leaving a button that silently does nothing
+          else { deferred = null; label.textContent = "How to add this to your home screen"; }
+        });
+        deferred = null;
+        return;
+      }
+      open();
+    });
+
+    label.textContent = "How to add this to your home screen";
+    openBtn.hidden = false;
+  })();
+
   root.querySelector(".sk-title").innerHTML = 'Your <em>Marketing</em> Links';
 })();

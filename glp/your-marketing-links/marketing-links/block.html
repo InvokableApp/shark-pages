@@ -36,7 +36,51 @@
          alt="GLP Shark">
     <h1 class="sk-title">Your Marketing Links</h1>
     <p class="sk-sub" data-greeting>Here are your marketing links.</p>
+
+    <!-- Add-to-home-screen affordance. Hidden by default and revealed by block.js only
+         when it is useful: it stays hidden once the page is already running as an
+         installed app, so it never nags a rep who has done it. On Android, when the
+         browser offers a real install prompt, this becomes ONE TAP and the sheet below
+         is skipped entirely. iOS has no such API, so there it opens the instructions. -->
+    <button class="sk-a2hs" type="button" data-a2hs-open hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
+      </svg>
+      <span data-a2hs-label>Add this page to your home screen</span>
+    </button>
   </header>
+
+  <!-- Instructions sheet. The platform is DETECTED, not asked, so the rep lands straight
+       on their own steps; the toggle is only there for the rare wrong guess. Written
+       steps come first because they are three lines and cost nothing, and the video is
+       63s / ~23MB, so it stays behind preload="none" and downloads only on a tap. -->
+  <div class="sk-sheet" data-a2hs-sheet hidden>
+    <div class="sk-sheet-scrim" data-a2hs-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sk-a2hs-title">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-a2hs-title">Keep this page one tap away</h2>
+        <button class="sk-sheet-x" type="button" data-a2hs-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="sk-seg" role="group" aria-label="Choose your phone">
+        <button class="sk-seg-btn" type="button" data-os="ios" aria-pressed="false">iPhone</button>
+        <button class="sk-seg-btn" type="button" data-os="android" aria-pressed="false">Android</button>
+      </div>
+
+      <ol class="sk-steps" data-a2hs-steps></ol>
+
+      <details class="sk-watch">
+        <summary>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 6 3.5-6 3.5Z"/></svg>
+          <span>Watch it instead <em data-a2hs-size>(1 minute video)</em></span>
+        </summary>
+        <div class="sk-watch-body" data-a2hs-video></div>
+      </details>
+    </div>
+  </div>
 
   <div class="sk-setup" data-setup hidden>
     <h2>Finish your setup first</h2>
