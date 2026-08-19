@@ -178,10 +178,10 @@
      rep has no domain yet, and everything after it stops running.
 
      CAN THIS BE AUTOMATIC? Only partly, and only on Android.
-       iOS  — Safari exposes NO API for this. Add to Home Screen is Share -> Add,
+       iOS: Safari exposes NO API for this. Add to Home Screen is Share -> Add,
               a manual gesture, and no script can trigger or fake it. Instructions
               are the only option there, which is why they lead.
-       Android — Chrome MAY fire `beforeinstallprompt`, which is a real one tap
+       Android: Chrome MAY fire `beforeinstallprompt`, which is a real one tap
               install. It is not guaranteed, so it is treated as a bonus: when it
               fires the button installs directly and the sheet never opens. */
   (function () {
