@@ -1,0 +1,54 @@
+{
+  "system": "glp",
+  "funnel": "how-to-use-funnel-pages",
+  "page": "glp-food-guide-training",
+  "funnelName": "Natural GLP Foods Guide",
+  "logo": "https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a57eb201097b811952c0512.png",
+  "logoAlt": "GLP Shark",
+  "sub": "Watch the two short trainings, grab the assets, then start sending traffic.",
+  "videos": [
+    {
+      "icon": "book",
+      "title": "How to use this funnel",
+      "tease": "What it does, where to post it, and what happens once a lead comes through.",
+      "vimeo": "1216518109",
+      "poster": "https://i.vimeocdn.com/video/2187972177-e62407e85649f3f3c1681804c8d7d3522c395c3458ecce89083148131aca2f89-d_1280.jpg"
+    },
+    {
+      "icon": "target",
+      "title": "Drive traffic to this funnel",
+      "tease": "Exactly how to get eyes on it, in order, starting today.",
+      "vimeo": "1219006718",
+      "poster": "https://i.vimeocdn.com/video/2191092849-2899fe56b1a37bbc81cebcbef79ea1194e535a62f6168316b8d49a5cec34fe74-d_1280.jpg"
+    }
+  ],
+  "links": [
+    {
+      "icon": "chat",
+      "title": "Scripts and follow-up",
+      "tease": "What to say to leads who come through this funnel, and how to follow up so they answer.",
+      "label": "Open the scripts",
+      "url": "https://glpshark.com/glp-foods-scripts-page",
+      "primary": true
+    },
+    {
+      "icon": "image",
+      "title": "Social imagery",
+      "tease": "Ready to post graphics built for this funnel. Edit them in Canva, then post.",
+      "label": "Open the image library",
+      "url": "https://canva.link/gszpkrgjxsn7fga"
+    },
+    {
+      "icon": "school",
+      "title": "Training hub",
+      "tease": "Every training for your marketing system in one place, not just this funnel.",
+      "label": "Open the training hub",
+      "url": "https://glpshark.com/training"
+    }
+  ],
+  "ads": {
+    "url": "https://glpshark.com/get-ads",
+    "label": "Upgrade to run ads",
+    "shot": "assets/ads-training-sidebar.webp"
+  }
+}
