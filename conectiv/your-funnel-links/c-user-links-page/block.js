@@ -69,51 +69,50 @@
      §3 and §5. */
   var GROUPS = [
     { label:"Start a conversation", items:[
-      { slug:"c-natural-glp-foods-guide", icon:"leaf", name:"Natural GLP Foods Guide",
+      { slug:"c-natural-glp-foods-guide", howto:"c-natural-glp-foods-guide-how-to", icon:"leaf", name:"Natural GLP Foods Guide",
         tease:"Free foods guide",
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
-      { slug:"c-clean-iced-coffee", icon:"drop", name:"Clean Iced Coffee Recipes",
+      { slug:"c-clean-iced-coffee", howto:"c-clean-brew-how-to", icon:"drop", name:"Clean Iced Coffee Recipes",
         tease:"Free recipe guide",
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." } ]},
 
     { label:"Quizzes and tools", items:[
-      { slug:"c-side-hustle-quiz", icon:"quiz", name:"Side Hustle Quiz",
+      { slug:"c-side-hustle-quiz", howto:"c-side-hustle-how-to", icon:"quiz", name:"Side Hustle Quiz",
         tease:"Finds their work-from-home fit",
         desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
-      { slug:"c-travel-destination-quiz", icon:"compass", name:"Travel Destination Quiz",
+      { slug:"c-travel-destination-quiz", howto:"c-travel-destination-how-to", icon:"compass", name:"Travel Destination Quiz",
         tease:"Matches them to a destination",
         desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
-      { slug:"c-investment-options", icon:"quiz", name:"Investment Options Quiz",
+      { slug:"c-investment-options", howto:"c-investment-how-to", icon:"quiz", name:"Investment Options Quiz",
         tease:"Matches them to an option",
         desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
 
     { label:"Explain Conectiv", items:[
-      { slug:"c-what-is-conectiv", icon:"info", name:"What Is Conectiv",
+      { slug:"c-what-is-conectiv", howto:"c-what-is-conectiv-how-to", icon:"info", name:"What Is Conectiv",
         tease:"The full overview",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     { label:"Recruit", items:[
-      { slug:"c-opportunity-explainer", icon:"users", name:"Opportunity Explainer",
+      { slug:"c-opportunity-explainer", howto:"c-opportunity-how-to", icon:"users", name:"Opportunity Explainer",
         tease:"The business, explained",
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
     { label:"Your own pages", items:[
-      { slug:"c-personal-branded-page", icon:"user", name:"Personal Branded One Pager",
+      { slug:"c-personal-branded-page", howto:"c-personal-branded-how-to", icon:"user", name:"Personal Branded One Pager",
         tease:"Your name, your contact details",
         desc:"Your own branded page with your name and details. Use it as your link in bio." },
-      { slug:"c-social-links", icon:"compass", name:"Social Links Share Page",
+      { slug:"c-social-links", howto:"c-social-links-how-to", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ];
 
   /* the rep's own buy links, which are not funnels */
 
-  /* Ready-to-post social library. Identical for every GLP rep, so these are
-     static in the block rather than custom values. Source: the GLP ads
-     training page (glpshark.com/ads-training-page1-769355). */
-  /* Conectiv has no shared Canva library yet, so the social-content dropdown is
-     omitted rather than shipped empty. Add entries here when Joe supplies them and
-     it appears on every account with one git push. */
+  /* Ready-to-post social library. This is GENERIC SYSTEM content, identical for
+     every Conectiv rep, so it lives here as static data rather than as a custom
+     value per account. Campaign-specific creative belongs on the funnel itself
+     (the `canva` key above), not in this list.
+     Empty until Joe supplies the library; the section hides itself until then. */
   var SOCIAL = [];
 
   var DIRECT = [
@@ -137,7 +136,16 @@
   GROUPS.forEach(function (g) {
     /* domain + fixed slug. With no main domain filled there is nothing to build a
        link from, so every card is skipped and the setup card shows instead. */
-    var items = g.items.map(function(f){ f.link = MAIN ? MAIN + "/" + f.slug : ""; return f; })
+    var items = g.items.map(function(f){
+                       f.link = MAIN ? MAIN + "/" + f.slug : "";
+                       /* The how-to pages ship INSIDE the buyer's own snapshot, one per
+                          funnel, so they resolve against the rep's own domain exactly like
+                          the funnel itself. A full URL passes through untouched, which is how
+                          a central training page would be wired instead. */
+                       f.howtoUrl = !f.howto ? ""
+                                  : /^https?:\/\//i.test(f.howto) ? f.howto
+                                  : (MAIN ? href(MAIN + "/" + f.howto) : "");
+                       return f; })
                        .filter(function(f){ return !!f.link; });
     if (!items.length) return;
     live += items.length;
@@ -172,9 +180,9 @@
             /* Resource chips. The training link is ONE canonical url per funnel,
                hosted on glpshark.com rather than copied into every rep account,
                so Joe updates the training in one place. */
-            (f.canva || f.howto ?
+            (f.canva || f.howtoUrl ?
               '<div class="sk-links">' +
-              (f.howto ? '<a class="sk-chip" href="'+f.howto+'" target="_blank" rel="noopener">' +
+              (f.howtoUrl ? '<a class="sk-chip" href="'+f.howtoUrl+'" target="_blank" rel="noopener">' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg>' +
                 'How to use this funnel</a>' : '') +
               (f.canva ? '<a class="sk-chip" href="'+f.canva+'" target="_blank" rel="noopener">' +
@@ -195,6 +203,7 @@
              '<a class="sk-chip sk-chip--go" href="'+x.url+'" target="_blank" rel="noopener">Open</a>' +
            '</li>';
   }).join("");
+  if (SOCIAL.length) {
   html += '<section class="sk-group"><div class="sk-group-head">' +
             '<span class="sk-group-label">Social content</span><span class="sk-group-rule"></span>' +
             '<span class="sk-group-count">'+SOCIAL.length+'</span></div>' +
@@ -208,6 +217,7 @@
               '<ul class="sk-plist">'+socialRows+'</ul>' +
             '</div></div></div>' +
           '</article></section>';
+  }
 
   /* direct buy links, one dropdown */
   var direct = DIRECT.map(function(d){ d.link=cv(d.cv); return d; }).filter(function(d){ return !!d.link; });
