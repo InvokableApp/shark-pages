@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap");
+
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit *, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit *::before, .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit *::after { box-sizing: border-box; }
+
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit {
+  --sk-brand:#1B4AC4; --sk-brand-deep:#14379A;
+  --sk-ink:#0E1A33; --sk-ink-soft:#4A5670; --sk-ink-faint:#7C87A0;
+  --sk-paper:#F4F7FD; --sk-card:#FFFFFF; --sk-line:#E3E9F5;
+  margin:0 auto; padding:56px 20px 72px;
+  background:var(--sk-paper); color:var(--sk-ink);
+  font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:16px; line-height:1.6;
+}
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__crumbs { max-width:820px; margin:0 auto 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:13px; color:var(--sk-ink-faint); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__crumbs i { font-style:normal; color:#C3CCE0; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__crumbs b { color:var(--sk-ink); font-weight:600; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__eyebrow { max-width:820px; margin:0 auto 8px; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__title { max-width:820px; margin:0 auto 28px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:800; letter-spacing:-.035em; font-size:clamp(36px,5.6vw,64px); line-height:1; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__card { max-width:820px; margin:0 auto; background:var(--sk-card); border:1px solid var(--sk-line); border-radius:24px; padding:40px; box-shadow:0 1px 2px rgba(14,26,51,.04),0 24px 60px -28px rgba(14,26,51,.30); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__lede { margin:0 0 18px; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.25; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__p { margin:0 0 14px; color:var(--sk-ink-soft); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meters { margin:32px 0 0; padding:28px 0 0; border-top:1px solid var(--sk-line); display:grid; gap:18px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__meter-head { display:flex; justify-content:space-between; font-size:14px; font-weight:600; margin-bottom:8px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__track { height:8px; border-radius:999px; background:#E9EEF9; overflow:hidden; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__fill { height:100%; border-radius:999px; background:var(--sk-brand); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__cta { margin-top:32px; padding-top:28px; border-top:1px solid var(--sk-line); display:flex; flex-wrap:wrap; gap:14px; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn { display:inline-block; text-decoration:none; text-align:center; padding:18px 34px; border-radius:999px; background:var(--sk-brand); color:#fff; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:16px; font-weight:700; box-shadow:0 10px 26px -10px rgba(27,74,196,.7); transition:background .16s ease, transform .16s ease; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn:hover { background:var(--sk-brand-deep); transform:translateY(-2px); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn--ghost { background:transparent; color:var(--sk-brand); border:1.5px solid #C9D6F2; box-shadow:none; }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn--ghost:hover { background:#EEF3FD; color:var(--sk-brand-deep); }
+.sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__disclaimer { max-width:820px; margin:22px auto 0; font-size:12px; line-height:1.5; color:var(--sk-ink-faint); }
+@media (max-width:860px) {
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit { padding:36px 16px 52px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__card { padding:26px 20px; border-radius:20px; }
+  .sk-glp-glp-affiliate-aptitude-test-aptitude-natural-fit__btn { width:100%; }
+}

@@ -1,0 +1,83 @@
+<!--
+================================================================================
+GLP SHARK — STANDARD MARKETING-LINKS SOCKET  (snapshot reference copy)
+Full SOP: references/MARKETING-LINKS-PAGE-SOP.md  §11 socket · §12 failure modes
+================================================================================
+
+WHERE IT GOES
+  Funnel name  Your Marketing Links        <- exact, the tooling finds it by name
+  Step name    Marketing Links
+  Step slug    /marketing-links            <- exact, one step only (see FAILURE MODES)
+  Element      a Custom Code block titled "Custom Code"
+
+SEO / SHARE META  (identical on all 58 live accounts, verified 2026-08-18)
+  title        Your Marketing Links
+  description  Every funnel, product and social link in your GLP Shark system, in one
+               place, ready to copy and share.
+  imageUrl     https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a4bb8ad6a04624f33c89da4.png
+  favicon      set per funnel — faviconUrl does NOT travel with a snapshot install and is
+               empty on every fresh buyer. Use web/scripts/set-funnel-favicon.mjs; never
+               hand-roll the POST, update-settings is a full replace and wipes tracking codes.
+
+  Written by the installer, which then POLLS to confirm — this meta is write-behind and a
+  read straight after the write looks like a failure when it is not.
+
+CUSTOM VALUES
+  The 24 data-cv-* keys below are every value present on 90-100% of the live fleet,
+  measured by fieldKey (NEVER by display name — operators rename those freely).
+  All 24 must EXIST in the snapshot. Empty is correct; missing is a real bug, because the
+  block references them and the buyer would have nothing to fill.
+
+  NEVER add a key matching /meta_access_token|dataset_id|api_key|_secret|_token$|password/.
+  This page is public with no login and a socket renders every value it names into the
+  served HTML. Five secret-shaped values are deliberately excluded.
+
+HOW IT WORKS
+  The socket is only an ADDRESS. Markup, CSS and JS load from GitHub Pages, so one design
+  serves every account and updates ship by `git push` to shark-pages — no account access.
+  The data-cv-* bridge exists because GHL substitutes {{custom_values.x}} only inside its
+  own HTML, never inside content fetched from elsewhere.
+
+FAILURE MODES THAT COST REAL TIME (2026-08-18 fleet run, SOP §12)
+  - TWO steps slugged /marketing-links in one funnel: every write lands on the first,
+    the public router serves the second. The install reports success and the rep's page
+    is blank. ALWAYS verify by fetching the public URL and grepping for data-shark-block.
+  - A wrong GHL URL returns 200 serving the 404 fallback, not a 404. Verify by content
+    hash against a known-bad path, never by status code.
+  - Duplicate hub funnels: never retry a create without re-reading until the partial
+    result is visible. GHL's funnel list is eventually consistent.
+
+INSTALL IT WITH THE SCRIPT, NOT BY HAND, WHEREVER POSSIBLE
+  node web/scripts/glp-links-onboard.mjs --loc <id> [--domain <d>] [--no-domain] --apply
+  Dry by default. Idempotent. Aborts on any failed step.
+-->
+
+<!-- shark-pages socket: glp/your-marketing-links/marketing-links -->
+<!-- Do not edit. Markup, CSS and JS live in the shark-pages repo and update on git push. -->
+<div data-shark-block="glp/your-marketing-links/marketing-links"
+     data-cv-distributor_buy_link="{{custom_values.distributor_buy_link}}"
+     data-cv-drops_ads_funnel_link="{{custom_values.drops_ads_funnel_link}}"
+     data-cv-drops_funnel_link="{{custom_values.drops_funnel_link}}"
+     data-cv-glp_food_guide_pdf_url="{{custom_values.glp_food_guide_pdf_url}}"
+     data-cv-glp_food_guide_web_url="{{custom_values.glp_food_guide_web_url}}"
+     data-cv-glp_foods_guide_funnel_link="{{custom_values.glp_foods_guide_funnel_link}}"
+     data-cv-glp_workout_guide_funnel_link="{{custom_values.glp_workout_guide_funnel_link}}"
+     data-cv-navigation_funnel_link="{{custom_values.navigation_funnel_link}}"
+     data-cv-opportunity_funnel_link="{{custom_values.opportunity_funnel_link}}"
+     data-cv-opportunity_warm_funnel_link="{{custom_values.opportunity_warm_funnel_link}}"
+     data-cv-orygn_tour_funnel_link="{{custom_values.orygn_tour_funnel_link}}"
+     data-cv-personal_branded_funnel_link="{{custom_values.personal_branded_funnel_link}}"
+     data-cv-protein_recipe_guide_funnel_link="{{custom_values.protein_recipe_guide_funnel_link}}"
+     data-cv-rep_buy_link="{{custom_values.rep_buy_link}}"
+     data-cv-rep_email="{{custom_values.rep_email}}"
+     data-cv-rep_first_name="{{custom_values.rep_first_name}}"
+     data-cv-rep_full_name="{{custom_values.rep_full_name}}"
+     data-cv-rep_phone="{{custom_values.rep_phone}}"
+     data-cv-reps_last_name="{{custom_values.reps_last_name}}"
+     data-cv-side_hustle_quiz_funnel_link="{{custom_values.side_hustle_quiz_funnel_link}}"
+     data-cv-weight_loss_quiz_funnel_link="{{custom_values.weight_loss_quiz_funnel_link}}"
+     data-cv-your_company_name="{{custom_values.your_company_name}}"
+     data-cv-your_email_designated_domain="{{custom_values.your_email_designated_domain}}"
+     data-cv-your_user_name="{{custom_values.your_user_name}}"
+></div>
+<script src="https://invokableapp.github.io/shark-pages/_loader/shark-embed.js"></script>
