@@ -194,6 +194,7 @@
 /* ---------- button ---------- */
 .sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn{
   display:inline-block;
+  text-decoration:none;
   border:0;
   border-radius:0;
   padding:17px 34px;
@@ -261,4 +262,15 @@
 @media (max-width:560px){
   .sk-vital-vital-minimalist-glp-guide-confirmation{font-size:16.5px;}
   .sk-vital-vital-minimalist-glp-guide-confirmation .sk-h1 br{display:none;}
+}
+
+/* ---------- SMS consent line ---------- */
+/* Deliberately plain and small but READABLE: this is the disclosure the opt-in rests on,
+   so it is not styled down into fine print the way the legal footer is. */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-consent{
+  margin:0 auto 26px;
+  max-width:56ch;
+  font-size:14.5px;
+  line-height:1.55;
+  color:var(--ink-2);
 }

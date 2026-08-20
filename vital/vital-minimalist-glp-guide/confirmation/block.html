@@ -69,10 +69,17 @@
     <div class="sk-wrap sk-close">
       <h2 class="sk-h2 sk-h2-lg">One text. <br>Something good.</h2>
       <p>Once or twice a week, for the 30 days. That is the whole commitment.</p>
-      <button type="button" class="sk-btn sk-btn-lg" data-sk-open-treats>Text me the treats</button>
-      <p class="sk-fine">
-        Reply STOP any time and they end immediately. Message and data rates may apply.
+      <!-- The consent sentence sits directly above the control, because the CLICK is the
+           opt-in: the destination step's pageview is what tags the contact and starts the
+           drip. Nothing here asks for the number again, it is already on the contact from
+           the guide opt-in. -->
+      <p class="sk-consent">
+        By tapping below you agree to receive recurring marketing texts from
+        {{custom_values.vital_company_name}} at the number you just gave us. One or two a week
+        for the 30 days. Consent is not a condition of any purchase. Message and data rates may
+        apply. Reply STOP at any time and they end immediately.
       </p>
+      <a class="sk-btn sk-btn-lg" href="https://{{custom_values.main_vital_url}}/vital-minimalist-glp-treats">Yes, add me to the bonus texts</a>
     </div>
   </section>
 
