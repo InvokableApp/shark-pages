@@ -1,6 +1,15 @@
 {
   "system": "vital",
-  "blocks": [],
+  "blocks": [
+    {
+      "path": "vital-minimalist-glp-guide/treats",
+      "funnelId": "V0liwqV1133B347ftCW2",
+      "pageId": "JE3D8wBxXBjZULL9x3u7",
+      "elementId": "custom-code-uy0u8njtkv",
+      "elementTitle": "treats",
+      "pattern": "A"
+    }
+  ],
   "installs": [
     {
       "path": "how-to/vital-facial-health-scan",
