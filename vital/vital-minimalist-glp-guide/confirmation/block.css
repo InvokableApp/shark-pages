@@ -1,164 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap');
+
 /* Vital / Minimalist GLP Guide / Confirmation
-   Every selector is scoped to the block root per HOSTED-BLOCKS-SOP §1: custom code
-   renders inline and shares the page's scope, so an unscoped rule leaks onto the
-   live GHL page. Palette is Vital's system green plus the grape accent. */
+   ------------------------------------------------------------------
+   Same field-manual direction as the opt-in (Oswald over Newsreader,
+   hairline rules, hard offset frames, no rounded cards or soft
+   shadows). This page reverses the opt-in's order: it OPENS dark, as
+   a dispatch slip confirming the send, then drops to paper for the
+   treats offer so the second ask reads as a separate document.
+
+   Each band paints its own full-width ground, so the design never
+   depends on the GHL page background being right (SOP §4b).
+   Every selector carries the block scope: custom code renders inline
+   and shares the page scope (HOSTED-BLOCKS-SOP §1). */
 
 .sk-vital-vital-minimalist-glp-guide-confirmation{
-  --sk-green:#5a7526;
-  --sk-green-bright:#8db53c;
-  --sk-grape:#7c3aed;
-  --sk-ink:#1b2113;
-  --sk-muted:#5f6a51;
-  --sk-line:#e0e7d2;
-  --sk-tint:#f4f8ea;
-  --sk-surface:#ffffff;
+  --paper:#f4f2e9;
+  --paper-2:#eae7db;
+  --ink:#171c12;
+  --ink-2:#4d5545;
+  --lime:#8db53c;
+  --lime-deep:#54711f;
+  --grape:#6d28d9;
+  --rule:#c9c8b8;
+  --rule-2:#dedbcd;
+  --dark:#171c12;
+
+  --display:'Oswald','Haettenschweiler','Arial Narrow',sans-serif;
+  --body:'Newsreader',Georgia,'Times New Roman',serif;
 
   box-sizing:border-box;
-  max-width:640px;
-  margin:0 auto;
-  padding:8px 4px 4px;
-  color:var(--sk-ink);
-  font-family:inherit;
-  line-height:1.6;
+  margin:0;
+  padding:0;
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
   text-align:left;
 }
 .sk-vital-vital-minimalist-glp-guide-confirmation *{box-sizing:border-box;}
+.sk-vital-vital-minimalist-glp-guide-confirmation img{max-width:100%;display:block;}
 
-.sk-vital-vital-minimalist-glp-guide-confirmation__ticket{
+/* ---------- bands + measure ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-band{width:100%;}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-band-paper{background:var(--paper);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-band-dark{background:var(--dark);color:var(--paper);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-band-chart{
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 39px, rgba(23,28,18,.055) 39px 40px),
+    var(--paper-2);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 clamp(20px,5vw,56px);
+}
+
+/* ---------- micro label ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-tag{
   display:flex;
-  gap:14px;
-  align-items:flex-start;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__check{
-  flex:0 0 auto;
-  width:34px;height:34px;border-radius:50%;
-  background:var(--sk-green-bright);
-  display:grid;place-items:center;
-  margin-top:4px;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__check svg{
-  width:19px;height:19px;fill:none;stroke:#ffffff;stroke-width:2.6;
-  stroke-linecap:round;stroke-linejoin:round;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__title{
-  margin:0 0 6px;
-  font-size:clamp(24px,5.2vw,32px);
-  line-height:1.12;
-  font-weight:700;
-  letter-spacing:-.02em;
-  color:var(--sk-ink);
-  text-wrap:balance;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__sub{
-  margin:0;
-  color:var(--sk-muted);
-  font-size:15.5px;
-}
-
-.sk-vital-vital-minimalist-glp-guide-confirmation__rule{
-  height:1px;
-  background:var(--sk-line);
-  margin:26px 0;
-}
-
-.sk-vital-vital-minimalist-glp-guide-confirmation__offer{
-  background:var(--sk-tint);
-  border:1px solid var(--sk-line);
-  border-radius:10px;
-  padding:22px;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__eyebrow{
-  margin:0 0 6px;
-  font-size:11.5px;
+  align-items:center;
+  gap:10px;
+  margin:0 0 22px;
+  font-family:var(--display);
+  font-size:12px;
   font-weight:600;
-  letter-spacing:.13em;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  color:var(--sk-green);
+  color:var(--lime-deep);
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation__h2{
-  margin:0 0 10px;
-  font-size:clamp(20px,4.4vw,25px);
-  line-height:1.18;
-  font-weight:700;
-  letter-spacing:-.015em;
-  text-wrap:balance;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__lede{
-  margin:0 0 18px;
-  font-size:15.5px;
-  color:var(--sk-muted);
-}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-tag i{width:26px;height:3px;background:var(--lime);flex:0 0 auto;}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-tag span{color:var(--rule);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-tag-dark{color:var(--lime);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-tag-dark span{color:rgba(244,242,233,.35);}
 
-.sk-vital-vital-minimalist-glp-guide-confirmation__treats{
-  list-style:none;
-  margin:0 0 20px;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__treats li{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  grid-template-rows:auto auto;
-  column-gap:11px;
-  row-gap:1px;
-  align-items:start;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__dot{
-  grid-row:1 / span 2;
-  width:7px;height:7px;border-radius:50%;
-  background:var(--sk-grape);
-  margin-top:8px;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__treats b{
-  font-size:15.5px;
+/* ---------- display type ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-h1{
+  margin:0 0 22px;
+  font-family:var(--display);
   font-weight:600;
+  font-size:clamp(40px,5.8vw,74px);
+  line-height:.94;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation__treats i{
-  font-style:normal;
-  font-size:14px;
-  color:var(--sk-muted);
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-h2{
+  margin:0 0 12px;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(30px,4.4vw,52px);
+  line-height:.98;
+  text-transform:uppercase;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-h2-lg{font-size:clamp(36px,6vw,68px);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-lede{
+  margin:0;
+  font-size:18.5px;
+  line-height:1.55;
+  color:var(--ink-2);
+  max-width:44ch;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-lede-dark{color:rgba(244,242,233,.72);}
+
+/* ---------- the dispatch slip ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:clamp(30px,5vw,68px);
+  align-items:start;
+  padding-top:clamp(46px,7vw,84px);padding-bottom:clamp(46px,7vw,84px);
+}
+/* The slip's meta column is a ruled ticket: labels in condensed caps, values in
+   the serif, so it reads as a record of something that happened. */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip-meta{
+  margin:0;
+  border-top:2px solid var(--lime);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip-meta > div{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(244,242,233,.16);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip-meta dt{
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(244,242,233,.5);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip-meta dd{
+  margin:0;
+  font-size:17px;
+  color:var(--paper);
+  text-align:right;
 }
 
-.sk-vital-vital-minimalist-glp-guide-confirmation__cta{
-  display:block;
+/* ---------- section head ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-sec-head{
+  padding:clamp(46px,6vw,80px) 0 34px;
+  max-width:52ch;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-sec-sub{margin:0;font-size:17.5px;color:var(--ink-2);}
+
+/* ---------- the treats ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(22px,3.4vw,44px);
+  padding:0 0 clamp(52px,7vw,92px);
+  border-top:2px solid var(--ink);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat{padding:26px 0 0;}
+/* hard offset frame, the same device the opt-in uses on the cover */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-fig{
+  position:relative;
+  margin:0 0 20px;
+  padding:0 12px 12px 0;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-fig::before{
+  content:"";
+  position:absolute;
+  inset:12px 0 0 12px;
+  border:1px solid var(--ink);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-fig img{
+  position:relative;
   width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-n{
+  margin:0 0 8px;
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.24em;
+  color:var(--lime-deep);
+  font-variant-numeric:tabular-nums;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-name{
+  margin:0 0 10px;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(20px,2.3vw,26px);
+  line-height:1.02;
+  text-transform:uppercase;
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-note{margin:0;font-size:16px;line-height:1.5;color:var(--ink-2);}
+
+/* ---------- button ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn{
+  display:inline-block;
   border:0;
-  border-radius:8px;
-  padding:15px 20px;
-  background:var(--sk-green-bright);
-  color:#12180b;
-  font-family:inherit;
-  font-size:16.5px;
-  font-weight:700;
-  letter-spacing:-.005em;
+  border-radius:0;
+  padding:17px 34px;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--display);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
   cursor:pointer;
-  transition:background .16s ease, transform .16s ease;
+  position:relative;
+  transition:background .16s ease, color .16s ease;
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation__cta:hover{
-  background:#9cc548;
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-4px;
+  height:4px;
+  background:var(--lime);
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation__cta:active{
-  transform:translateY(1px);
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__cta:focus-visible{
-  outline:3px solid var(--sk-grape);
-  outline-offset:2px;
-}
-.sk-vital-vital-minimalist-glp-guide-confirmation__cta[data-sk-done]{
-  background:var(--sk-green);
-  color:#ffffff;
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn:hover{background:var(--lime-deep);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-lg{padding:20px 46px;font-size:16px;}
+/* once the SMS opt-in is in, the button stops being a control */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn[data-sk-done]{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--ink);
   cursor:default;
 }
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn[data-sk-done]::after{background:var(--lime);}
 
-.sk-vital-vital-minimalist-glp-guide-confirmation__fine{
-  margin:12px 0 0;
-  font-size:12.5px;
-  line-height:1.5;
-  color:var(--sk-muted);
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-fine{
+  margin:18px 0 0;
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-2);
 }
 
-@media (prefers-reduced-motion:reduce){
-  .sk-vital-vital-minimalist-glp-guide-confirmation__cta{transition:none;}
+/* ---------- close ---------- */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-close{
+  text-align:center;
+  padding-top:clamp(52px,7vw,92px);padding-bottom:clamp(56px,8vw,100px);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-close p{
+  margin:0 auto 34px;
+  max-width:40ch;
+  font-size:18.5px;
+  color:var(--ink-2);
+}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-close .sk-fine{margin:22px auto 0;max-width:46ch;}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-slip{grid-template-columns:1fr;gap:34px;}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-treats{grid-template-columns:1fr;gap:34px;}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat{padding-top:22px;border-top:1px solid var(--rule);}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat:first-child{border-top:0;}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-treat-name br{display:none;}
+}
+@media (max-width:560px){
+  .sk-vital-vital-minimalist-glp-guide-confirmation{font-size:16.5px;}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-h1 br{display:none;}
 }

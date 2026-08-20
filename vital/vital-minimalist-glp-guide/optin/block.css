@@ -118,7 +118,7 @@
   grid-template-columns:1.15fr .85fr;
   gap:clamp(32px,6vw,80px);
   align-items:center;
-  padding:clamp(46px,7vw,88px) 0 clamp(50px,7vw,92px);
+  padding-top:clamp(46px,7vw,88px);padding-bottom:clamp(50px,7vw,92px);
 }
 
 .sk-vital-vital-minimalist-glp-guide-optin .sk-stats{
@@ -325,7 +325,7 @@
   grid-template-columns:1fr 1fr;
   gap:clamp(32px,6vw,72px);
   align-items:start;
-  padding:clamp(46px,6vw,84px) 0 clamp(50px,7vw,90px);
+  padding-top:clamp(46px,6vw,84px);padding-bottom:clamp(50px,7vw,90px);
 }
 .sk-vital-vital-minimalist-glp-guide-optin .sk-contents{
   list-style:none;
@@ -409,7 +409,7 @@
 
 /* ---------- close ---------- */
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close{
-  padding:clamp(56px,8vw,104px) 0;
+  padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px);
   max-width:none;
   text-align:center;
 }
