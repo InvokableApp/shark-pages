@@ -1,5 +1,17 @@
 <div class="sk-vital-vital-minimalist-glp-guide-optin" data-sk-optin>
 
+  <!-- ── sticky bar ───────────────────────────────────────────────────
+       Hidden until the hero CTA has scrolled away, so it never duplicates a
+       button that is already on screen. Fixed, not sticky: this block is one
+       element inside a GHL page, so a sticky bar would only stick within the
+       block's own box. -->
+  <div class="sk-bar" data-sk-bar hidden>
+    <div class="sk-bar-in">
+      <p class="sk-bar-name">The Minimalist GLP Guide <span>/</span> 30 days</p>
+      <button type="button" class="sk-btn sk-btn-sm" data-sk-open>Download now</button>
+    </div>
+  </div>
+
   <!-- ── hero ─────────────────────────────────────────────────────── -->
   <section class="sk-band sk-band-paper">
     <div class="sk-wrap sk-hero">
@@ -12,13 +24,13 @@
           thinking about it.
         </p>
 
-        <dl class="sk-stats">
+        <dl class="sk-stats" data-sk-stagger>
           <div><dt>15</dt><dd>minutes <br>per workout</dd></div>
           <div><dt>2</dt><dd>choices <br>per food group</dd></div>
           <div><dt>0</dt><dd>recipes <br>to follow</dd></div>
         </dl>
 
-        <button type="button" class="sk-btn" data-sk-open>Send me the guide</button>
+        <button type="button" class="sk-btn" data-sk-open data-sk-hero-cta>Send me the guide</button>
         <p class="sk-fine">A free PDF. Arrives by email in about a minute.</p>
       </div>
 
@@ -31,13 +43,13 @@
   <!-- ── the loop, as a wall chart ────────────────────────────────── -->
   <section class="sk-band sk-band-chart" data-sk-loop>
     <div class="sk-wrap">
-      <header class="sk-sec-head">
+      <header class="sk-sec-head" data-sk-reveal>
         <p class="sk-tag"><i></i>The protocol</p>
         <h2 class="sk-h2">It rotates <br>every two days</h2>
         <p class="sk-sec-sub">Day A, Day B, Day A. Fifteen minutes, three moves, then a walk. You never pick a workout.</p>
       </header>
 
-      <div class="sk-chart">
+      <div class="sk-chart" data-sk-stagger>
         <article class="sk-col" data-sk-day="a">
           <p class="sk-col-id"><span>Day</span><b>A</b></p>
           <h3 class="sk-col-name">Legs <br>and back</h3>
@@ -71,7 +83,7 @@
 
   <!-- ── inside the guide ─────────────────────────────────────────── -->
   <section class="sk-band sk-band-paper">
-    <div class="sk-wrap sk-inside">
+    <div class="sk-wrap sk-inside" data-sk-reveal>
       <div class="sk-inside-copy">
         <p class="sk-tag"><i></i>Inside</p>
         <h2 class="sk-h2">You stop deciding <br>what to eat</h2>
@@ -80,7 +92,7 @@
           download and print, and every meal on it gives you two options. You pick one. No recipes
           and nothing to look up. If you do want the numbers, there is a page for that too.
         </p>
-        <ol class="sk-contents">
+        <ol class="sk-contents" data-sk-stagger>
           <li><span>01</span>Plate builders for breakfast, lunch and dinner, plus the fifteen item shopping list</li>
           <li><span>02</span>Your daily protein floor, and how to set calories around it if you track</li>
           <li><span>03</span>Day A and Day B, three moves each, in three difficulty versions</li>
@@ -89,18 +101,20 @@
         </ol>
       </div>
 
+      <div class="sk-spec-rail">
       <figure class="sk-spec">
         <figcaption>Breakfast</figcaption>
         <div class="sk-spec-row"><span>Protein</span><b>3 eggs, any style</b><i>or</i><b>Plain Greek yogurt</b></div>
         <div class="sk-spec-row"><span>Add</span><b>Half an avocado</b><i>or</i><b>A handful of berries</b></div>
         <p class="sk-spec-foot">Two picks. That is breakfast.</p>
       </figure>
+      </div>
     </div>
   </section>
 
   <!-- ── close ────────────────────────────────────────────────────── -->
   <section class="sk-band sk-band-dark">
-    <div class="sk-wrap sk-close">
+    <div class="sk-wrap sk-close" data-sk-reveal>
       <h2 class="sk-h2 sk-h2-lg">It is thirty days, <br>not forever</h2>
       <p>
         Long enough to build a default you can go back to. Short enough that you finish it.

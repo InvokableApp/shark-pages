@@ -18,6 +18,70 @@
     });
   });
 
+  /* ---- scroll reveals ---------------------------------------------------
+     A scroll SWEEP rather than IntersectionObserver. IO looked like the obvious
+     tool and is wrong for this: it only fires when an intersection threshold is
+     crossed, so an element that goes from below the viewport to above it in one
+     jump (anchor link, Cmd+End, a browser-restored scroll position) never gets a
+     callback and stays invisible. Measured: 4 elements stuck hidden after a jump
+     to the bottom. A sweep just asks "is it above the line yet", which is true
+     however the reader got there.
+
+     CSS keeps everything VISIBLE until .sk-motion lands, so a dead script or a
+     blocked file can never leave the page blank. Reduced motion opts out and the
+     class is never added. The listener removes itself once the last element has
+     played: these are entrances, not scroll-linked animation. */
+  var reducedMo = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reducedMo) {
+    root.classList.add("sk-motion");
+    var pending = [].slice.call(root.querySelectorAll("[data-sk-reveal],[data-sk-stagger]"));
+    var queued = false;
+    var play = function (el) {
+      if (el.hasAttribute("data-sk-stagger")) {
+        var kids = el.children;
+        for (var k = 0; k < kids.length; k++) kids[k].style.setProperty("--sk-d", (k * 90) + "ms");
+      }
+      el.setAttribute("data-sk-in", "1");
+    };
+    var sweep = function () {
+      queued = false;
+      var line = window.innerHeight * 0.92;
+      pending = pending.filter(function (el) {
+        if (el.getBoundingClientRect().top >= line) return true;
+        play(el);
+        return false;
+      });
+      if (!pending.length) window.removeEventListener("scroll", onScroll);
+    };
+    var onScroll = function () {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(sweep);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    sweep();
+  }
+
+  /* ---- sticky download bar ----------------------------------------------
+     Shown only once the hero CTA has scrolled off, so the page never shows two
+     copies of the same button at once. The bar's button is wired by the same
+     [data-sk-open] handler above, so it opens the page popup like any other CTA.
+     `hidden` comes off as soon as we take control: with JS dead the bar stays
+     hidden rather than sitting permanently across the top. */
+  var bar = root.querySelector("[data-sk-bar]");
+  var heroCta = root.querySelector("[data-sk-hero-cta]");
+  if (bar && heroCta && window.IntersectionObserver) {
+    bar.hidden = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) bar.removeAttribute("data-sk-on");
+        else if (e.boundingClientRect.top < 0) bar.setAttribute("data-sk-on", "1");
+        else bar.removeAttribute("data-sk-on");
+      });
+    }, { threshold: 0 }).observe(heroCta);
+  }
+
   var days = root.querySelectorAll("[data-sk-day]");
   if (!days.length) return;
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

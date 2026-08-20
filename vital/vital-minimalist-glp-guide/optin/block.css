@@ -444,3 +444,80 @@
   .sk-vital-vital-minimalist-glp-guide-optin .sk-btn,
   .sk-vital-vital-minimalist-glp-guide-optin .sk-btn::after{transition:none;}
 }
+
+/* ================= motion =================================================
+   Two effects, both cheap and both opt-out under prefers-reduced-motion.
+
+   1. STICKY SPEC CARD. The breakfast card is the worked example for the list
+      beside it, so it should stay put while that list scrolls. Sticky only
+      travels if its containing block is taller than it is, and .sk-inside is
+      align-items:start, which shrinks every grid item to its content. Hence
+      .sk-spec-rail: a stretched grid item for the card to move inside.
+   2. REVEALS. Opacity + a short translate, sequenced by index. Nothing moves
+      more than 14px and nothing animates layout, so there is no CLS.
+   ========================================================================= */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-rail{align-self:stretch;}
+@media (min-width:861px){
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-spec{position:sticky;top:clamp(24px,6vh,64px);}
+}
+
+.sk-vital-vital-minimalist-glp-guide-optin [data-sk-reveal],
+.sk-vital-vital-minimalist-glp-guide-optin [data-sk-stagger] > *{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .62s cubic-bezier(.22,.61,.36,1), transform .62s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--sk-d,0ms);
+  will-change:opacity,transform;
+}
+.sk-vital-vital-minimalist-glp-guide-optin [data-sk-reveal][data-sk-in],
+.sk-vital-vital-minimalist-glp-guide-optin [data-sk-stagger][data-sk-in] > *{opacity:1;transform:none;}
+/* once it has played, drop the hint so the compositor can let the layer go */
+.sk-vital-vital-minimalist-glp-guide-optin [data-sk-in]{will-change:auto;}
+
+/* No JS, no IntersectionObserver, or reduced motion: everything is simply visible.
+   The .sk-motion class is set by block.js, so the default state in CSS is VISIBLE
+   and the animation is opt-in. A JS failure must never leave the page blank. */
+.sk-vital-vital-minimalist-glp-guide-optin:not(.sk-motion) [data-sk-reveal],
+.sk-vital-vital-minimalist-glp-guide-optin:not(.sk-motion) [data-sk-stagger] > *{opacity:1;transform:none;transition:none;}
+
+@media (prefers-reduced-motion:reduce){
+  .sk-vital-vital-minimalist-glp-guide-optin [data-sk-reveal],
+  .sk-vital-vital-minimalist-glp-guide-optin [data-sk-stagger] > *{opacity:1;transform:none;transition:none;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-spec{position:static;}
+}
+
+/* ---------- sticky bar ----------
+   FIXED rather than sticky: this block is a single element inside a GHL page, so a
+   sticky bar would pin only within the block's own box and vanish with it. Fixed is
+   viewport-relative and behaves the same wherever the block is dropped. */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar{
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  background:var(--ink); color:var(--paper);
+  border-bottom:3px solid var(--lime);
+  transform:translateY(-100%);
+  transition:transform .34s cubic-bezier(.22,.61,.36,1);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar[data-sk-on]{transform:none;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar-in{
+  max-width:1120px; margin:0 auto;
+  padding:11px clamp(20px,5vw,56px);
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name{
+  margin:0; font-family:var(--display); font-size:12.5px; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--paper);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name span{color:var(--lime);padding:0 6px;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn-sm{padding:11px 22px;font-size:12.5px;letter-spacing:.14em;}
+/* the bar's button sits on ink, so it inverts like the confirmation page's does */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn{background:var(--paper);color:var(--ink);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn::after{display:none;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn:hover{background:var(--lime);color:var(--ink);}
+@media (max-width:560px){
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name{font-size:11px;letter-spacing:.12em;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name span, .sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-btn-sm{padding:10px 16px;font-size:11.5px;flex:0 0 auto;}
+}
+@media (prefers-reduced-motion:reduce){
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-bar{transition:none;}
+}
