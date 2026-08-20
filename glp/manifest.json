@@ -613,6 +613,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "0yOeZuEulVgCfgDGuw6L",
+      "pageId": "vc0mfmYhmRlYaIfMdGBb",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "07CxC2uQ1cljdNFGhx9L"
     }
   ]
 }

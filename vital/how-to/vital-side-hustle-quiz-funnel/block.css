@@ -1,0 +1,24 @@
+/* VITAL / how-to / vital-side-hustle-quiz-funnel
+ *
+ * The design lives in _shared/howto/howto.css, scoped under .sk-howto, and is
+ * shared by every how-to page in every system. This file declares ONLY the nine
+ * palette tokens, on the block's own scope class, and they cascade into the
+ * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/howto.css");
+
+.sk-vital-how-to-vital-side-hustle-quiz-funnel {
+  --sk-brand:      #8DB53C;
+  --sk-brand-deep: #1B3C1A;
+  --sk-brand-tint: #EAF2DC;
+  --sk-ink:        #12180F;
+  --sk-ink-soft:   #5D6957;
+  --sk-ink-faint:  #8E9887;
+  --sk-paper:      #F5F5F0;
+  --sk-line:       #E2E3DA;
+  --sk-line-soft:  #EDEDE6;
+  --sk-card:       #FFFFFF;
+}

@@ -366,6 +366,30 @@
 
 .sk-howto .sk-btn--ghost:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
 
+/* ---------------- AskAI prompt ----------------
+   A block of prose the rep copies and pastes into Ask AI. It is content to be
+   TAKEN, not read, so it gets a container that reads as a quotation and a copy
+   button rather than a link. Selectable text is kept (some reps will highlight
+   it by hand) and the button is the fast path, not the only one. */
+
+.sk-howto .sk-prompt {
+  margin: 14px 0 0;
+  padding: 15px 17px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-size: 14.4px;
+  line-height: 1.55;
+}
+
+.sk-howto .sk-prompt p { margin: 0 0 9px; }
+.sk-howto .sk-prompt p:last-child { margin-bottom: 0; }
+
+/* idle / done state machine, per design system §4 */
+.sk-howto .sk-copy[data-done="true"] { background: var(--sk-brand-deep); }
+
 /* ---------------- split (copy beside a screenshot) ----------------
    One column on a phone, two side by side once there is room. The wrapper
    exists at every width so the desktop rules only change grid-template-columns

@@ -1,0 +1,24 @@
+/* GLP / how-to / which-work-from-home-model-is-right-for-you-quiz-funnel
+ *
+ * The design lives in _shared/howto/howto.css, scoped under .sk-howto, and is
+ * shared by every how-to page in every system. This file declares ONLY the nine
+ * palette tokens, on the block's own scope class, and they cascade into the
+ * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/howto.css");
+
+.sk-glp-how-to-which-work-from-home-model-is-right-for-you-quiz-funnel {
+  --sk-brand:      #EC5E2A;
+  --sk-brand-deep: #C94A1E;
+  --sk-brand-tint: #FDF0EA;
+  --sk-ink:        #101410;
+  --sk-ink-soft:   #56605A;
+  --sk-ink-faint:  #8B948E;
+  --sk-paper:      #F7F4F1;
+  --sk-line:       #E6E0DA;
+  --sk-line-soft:  #EFE9E3;
+  --sk-card:       #FFFFFF;
+}

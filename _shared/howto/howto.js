@@ -33,7 +33,10 @@
     mega:   "M4 10.2v3.6a1 1 0 001 1h2.2l7.3 3.9V5.3L7.2 9.2H5a1 1 0 00-1 1zM18.4 9.4a3.6 3.6 0 010 5.2M7.2 15.2V19a1 1 0 001 1h1.4a1 1 0 001-1v-2.2",
     target: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM12 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z",
     arrow:  "M5 12h14M13 6l6 6-6 6",
-    ext:    "M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"
+    ext:    "M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5",
+    spark:  "M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z",
+    copy:   "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z",
+    pdf:    "M12 3v11M8.2 10.4L12 14.2l3.8-3.8M4.5 17v2.5A1.5 1.5 0 006 21h12a1.5 1.5 0 001.5-1.5V17"
   };
 
   function icon(name) {
@@ -80,8 +83,48 @@
     frame.appendChild(f);
   }
 
+  /* Copy the prompt. The label swaps to a confirmation for 1.9s, then restores,
+     so the rep gets feedback without a toast or a layout shift. execCommand is
+     the fallback: the clipboard API needs a secure context, and a GHL page on a
+     buyer's not-yet-SSL domain is exactly where this would otherwise fail
+     silently. */
+  function copyText(text, btn) {
+    var label = btn.querySelector("[data-copy-label]") || btn;
+    var was = label.textContent;
+    var done = function () {
+      btn.setAttribute("data-done", "true");
+      label.textContent = btn.getAttribute("data-copy-done") || "Copied";
+      setTimeout(function () { btn.removeAttribute("data-done"); label.textContent = was; }, 1900);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacy(text, done); });
+    } else legacy(text, done);
+  }
+
+  function legacy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* nothing else to try */ }
+    document.body.removeChild(ta);
+  }
+
   function wire(scope) {
     paintIcons(scope);
+
+    var copiers = scope.querySelectorAll("[data-sk-copy]");
+    for (var c = 0; c < copiers.length; c++) {
+      (function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var src = btn.closest(".sk-card").querySelector(".sk-prompt");
+          if (src) copyText(src.innerText.trim(), btn);
+        });
+      })(copiers[c]);
+    }
     var frames = scope.querySelectorAll("[data-vimeo]");
     for (var i = 0; i < frames.length; i++) {
       (function (frame) {
