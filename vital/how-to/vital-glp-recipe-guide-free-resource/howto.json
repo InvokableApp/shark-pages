@@ -18,9 +18,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.vital_glp_recipe_guide_pdf_url}}",
+   "url": "https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/6a592594524a3ec4c63958b7.pdf",
    "primary": true
   },
   {

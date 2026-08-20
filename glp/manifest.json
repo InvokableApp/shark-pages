@@ -730,6 +730,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to-use-funnel-pages/glp-food-guide-training",
+      "funnelId": "SzMXnTKYSJyOsUmZoItg",
+      "pageId": "fezqG7WBlISPZELeX6hX",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }

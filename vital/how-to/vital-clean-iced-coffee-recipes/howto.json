@@ -18,9 +18,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.vital_clean_brew_guide_pdf_url}}",
+   "url": "https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/90412c42-51a8-4b93-888a-0e50731275e7.pdf",
    "primary": true
   },
   {

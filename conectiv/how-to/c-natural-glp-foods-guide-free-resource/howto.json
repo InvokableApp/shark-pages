@@ -25,9 +25,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.conectiv__glp_foods_guide_download_url}}",
+   "url": "https://assets.cdn.filesafe.space/uNxituXahyZtAIqwdVJI/media/74d54020-663d-48f4-8050-96f267436633.pdf",
    "primary": true
   },
   {

@@ -98,6 +98,69 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "xyDfaDnIH9nNT43dkqrP"
+    },
+    {
+      "path": "how-to/c-investment-options-guide",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "iUlz08vO9oKiPztn11ae",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-opportunity-information-page",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "Aej3MMqyvh2ZLMZdwL5l",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-personal-branded-one-pager",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "JiFFIBLd0BmUtuCqa9Lp",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-social-links-share",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "e0w6AvXEEbCZe3I0EWY3",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-travel-destination-quiz-funnel",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "UUhHEu6GgU4Hna2QJmbO",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-what-is-conectiv-overview",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "7lmR4Sqven9DRpZ5P0pw",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-which-side-hustle-is-right-for-you-quiz-funnel",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "KDXU8PYEx2MCRbyDZZcK",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }

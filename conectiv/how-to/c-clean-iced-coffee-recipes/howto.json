@@ -25,9 +25,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.conectiv__coffee_guide_download_url}}",
+   "url": "https://assets.cdn.filesafe.space/uNxituXahyZtAIqwdVJI/media/096d68de-be8c-4d73-a37b-8e5e5358c840.pdf",
    "primary": true
   },
   {

@@ -18,9 +18,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.vital_protein_first_guide_pdf_url}}",
+   "url": "https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/20bb2bd3-5e64-446d-937f-ce3e757ce10b.pdf",
    "primary": true
   },
   {

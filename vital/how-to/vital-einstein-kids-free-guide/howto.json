@@ -18,9 +18,9 @@
   {
    "icon": "pdf",
    "title": "The guide PDF",
-   "tease": "Print it, or send it straight to someone who asked for it.",
+   "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.vital_einstein_kids_guide_pdf_url}}",
+   "url": "https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/2f7dd4a8-c73e-4910-adca-4a7f65263405.pdf",
    "primary": true
   },
   {

@@ -1,0 +1,60 @@
+{
+  "system": "vital",
+  "blocks": [],
+  "installs": [
+    {
+      "path": "how-to/vital-facial-health-scan",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "QreAGs6hpRjfbvG28lrd",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-opportunity-information",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "fHHHG0119lohLCr1UofC",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-personal-branded",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "1oXttpasrOCxLpOobJEn",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-side-hustle-quiz-funnel",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "nFUpgcGAuAtpkJA3mGsO",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-social-links-share-page",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "v4knrZrsPEIYRbHMgp60",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/what-is-vital-information",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "miKpBdQPTe08U3acsFEN",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    }
+  ]
+}
