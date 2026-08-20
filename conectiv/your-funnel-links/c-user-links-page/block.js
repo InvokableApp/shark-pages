@@ -69,39 +69,39 @@
      §3 and §5. */
   var GROUPS = [
     { label:"Start a conversation", items:[
-      { slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"c-natural-glp-foods-guide-how-to", icon:"leaf", name:"Natural GLP Foods Guide",
+      { slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"https://conectivshark.com/c-natural-glp-foods-guide-training", icon:"leaf", name:"Natural GLP Foods Guide",
         tease:"Free foods guide",
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
-      { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"c-clean-brew-how-to", icon:"drop", name:"Clean Iced Coffee Recipes",
+      { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
         tease:"Free recipe guide",
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." } ]},
 
     { label:"Quizzes and tools", items:[
-      { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"c-side-hustle-how-to", icon:"quiz", name:"Side Hustle Quiz",
+      { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
         tease:"Finds their work-from-home fit",
         desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
-      { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"c-travel-destination-how-to", icon:"compass", name:"Travel Destination Quiz",
+      { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"https://conectivshark.com/c-travel-destination-training", icon:"compass", name:"Travel Destination Quiz",
         tease:"Matches them to a destination",
         desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
-      { slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"c-investment-how-to", icon:"quiz", name:"Investment Options Quiz",
+      { slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"https://conectivshark.com/c-investment-training", icon:"quiz", name:"Investment Options Quiz",
         tease:"Matches them to an option",
         desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
 
     { label:"Explain Conectiv", items:[
-      { slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"c-what-is-conectiv-how-to", icon:"info", name:"What Is Conectiv",
+      { slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"https://conectivshark.com/c-what-is-conectiv-training", icon:"info", name:"What Is Conectiv",
         tease:"The full overview",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     { label:"Recruit", items:[
-      { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"c-opportunity-how-to", icon:"users", name:"Opportunity Explainer",
+      { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"https://conectivshark.com/c-opportunity-training", icon:"users", name:"Opportunity Explainer",
         tease:"The business, explained",
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
     { label:"Your own pages", items:[
-      { slug:"c-personal-branded-page", howto:"c-personal-branded-how-to", icon:"user", name:"Personal Branded One Pager",
+      { slug:"c-personal-branded-page", howto:"https://conectivshark.com/c-personal-branded-training", icon:"user", name:"Personal Branded One Pager",
         tease:"Your name, your contact details",
         desc:"Your own branded page with your name and details. Use it as your link in bio." },
-      { slug:"c-social-links", howto:"c-social-links-how-to", icon:"compass", name:"Social Links Share Page",
+      { slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ];
