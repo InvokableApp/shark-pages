@@ -100,6 +100,33 @@
       "elementTitle": "confirmation",
       "pattern": "A",
       "locationId": "FARA5f6fZAfOIsNbABzr"
+    },
+    {
+      "path": "vital-minimalist-glp-guide/optin",
+      "funnelId": "V0liwqV1133B347ftCW2",
+      "pageId": "uBLYDJNOk5UkLJ2TFCWO",
+      "elementId": "custom-code-w3j9s9zor8",
+      "elementTitle": "optin",
+      "pattern": "A",
+      "locationId": "FARA5f6fZAfOIsNbABzr"
+    },
+    {
+      "path": "vital-minimalist-glp-guide/guide",
+      "funnelId": "V0liwqV1133B347ftCW2",
+      "pageId": "o0OpArYVnNtrh36GPFEb",
+      "elementId": "custom-code-aa6w4b826i",
+      "elementTitle": "guide",
+      "pattern": "A",
+      "locationId": "FARA5f6fZAfOIsNbABzr"
+    },
+    {
+      "path": "vital-minimalist-glp-guide/nourish",
+      "funnelId": "V0liwqV1133B347ftCW2",
+      "pageId": "jmrO6UyuQysxosGNasPL",
+      "elementId": "custom-code-9fpv305znv",
+      "elementTitle": "nourish",
+      "pattern": "A",
+      "locationId": "FARA5f6fZAfOIsNbABzr"
     }
   ]
 }
