@@ -58,19 +58,19 @@
       label: "Start a conversation",
       items: [
         { icon: "leaf", name: "High Protein Recipe Guide",
-          slug: "vital-protein-first", canva: "https://canva.link/glkotdv7npi40hl", howto: "vital-protein-first-how-to",
+          slug: "vital-protein-first", canva: "https://canva.link/glkotdv7npi40hl", howto: "https://vitalshark.io/vital-protein-first-training",
           tease: "Free recipes and grocery list",
           desc: "A free high protein recipe guide and grocery list. Your best cold opener for anyone who wants to lose weight without giving up food they actually like." },
         { icon: "chart", name: "GLP Recipe Guide",
-          slug: "vital-free-glp-recipe-guide", howto: "vital-glp-recipe-how-to",
+          slug: "vital-free-glp-recipe-guide", howto: "https://vitalshark.io/vital-glp-recipe-training",
           tease: "Built for people on GLP medications",
           desc: "A free recipe and shopping list guide written for people taking GLP medications. Strong opener for the weight loss conversation, and it leads into Nourish+." },
         { icon: "coffee", name: "Clean Coffee Recipes",
-          slug: "vital-clean-iced-coffee", canva: "https://canva.link/reyh5ko5e8260am", howto: "vital-clean-brew-how-to",
+          slug: "vital-clean-iced-coffee", canva: "https://canva.link/reyh5ko5e8260am", howto: "https://vitalshark.io/vital-clean-brew-training",
           tease: "Iced coffee without the junk",
           desc: "A free clean iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives." },
         { icon: "kids", name: "Einstein Kids Meal Guide",
-          slug: "vital-einstein-kids", canva: "https://canva.link/65wch4c5w1he7ma", howto: "vital-einstein-kids-how-to",
+          slug: "vital-einstein-kids", canva: "https://canva.link/65wch4c5w1he7ma", howto: "https://vitalshark.io/vital-einstein-kids-training",
           tease: "Kid friendly meals for parents",
           desc: "A free kid friendly meal guide for parents. Works well in mom groups, school communities and family pages." }
       ]
@@ -79,11 +79,11 @@
       label: "Quizzes and tools",
       items: [
         { icon: "scan", name: "Health Scanner",
-          slug: "vital-health-scan", canva: "https://canva.link/8r9y6jcyifb3002", howto: "vital-health-scan-how-to-use",
+          slug: "vital-health-scan", canva: "https://canva.link/8r9y6jcyifb3002", howto: "https://vitalshark.io/vital-health-scan-training",
           tease: "Free face scan in about a minute",
           desc: "Sends them to a free face scan that reads key wellness markers in about a minute. High curiosity, low commitment, and it hands you the follow up." },
         { icon: "quiz", name: "Side Hustle Quiz",
-          slug: "vital-match-quiz", canva: "https://canva.link/iei2zd7bavlwksq", howto: "vital-side-hustle-how-to",
+          slug: "vital-match-quiz", canva: "https://canva.link/iei2zd7bavlwksq", howto: "https://vitalshark.io/vital-side-hustle-training",
           tease: "Sorts them into the right fit",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Vital fits. Use it when someone is interested but not ready to talk." }
       ]
@@ -92,11 +92,11 @@
       label: "Explain Vital",
       items: [
         { icon: "info", name: "What Is Vital",
-          slug: "", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "what-is-vital-how-to",
+          slug: "", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/what-is-vital-training",
           tease: "Your main site, the simple version",
           desc: "The plain explainer. Send it the moment someone asks what Vital actually is, so you are not answering the same question by text every week. This one is your domain on its own." },
         { icon: "chart", name: "Opportunity One Pager",
-          slug: "vital-opportunity-explainer", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "vital-opportunity-how-to",
+          slug: "vital-opportunity-explainer", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/vital-opportunity-training",
           tease: "The business side, on one page",
           desc: "One page that lays out the business side start to finish. Best for people who have already told you they want to hear more." }
       ]
@@ -105,11 +105,11 @@
       label: "Your own pages",
       items: [
         { icon: "user", name: "Personal Branded Site",
-          slug: "vital-personal-site", howto: "vital-personal-branded-how-to",
+          slug: "vital-personal-site", howto: "https://vitalshark.io/vital-personal-branded-training",
           tease: "Your name, your contact details",
           desc: "Your own branded page carrying your name and contact details. Use it as the link in your bio and on your business card." },
         { icon: "link", name: "Social Links Page",
-          slug: "vital-social-links", howto: "vital-social-links-how-to",
+          slug: "vital-social-links", howto: "https://vitalshark.io/vital-social-links-training",
           tease: "One link that holds all your links",
           desc: "One link that holds every other link. Put it in your Instagram and TikTok bio so you are never editing a bio again." }
       ]
@@ -317,7 +317,12 @@
   strip.hidden = false;
   strip.querySelector(".sk-domain-text").textContent = domain;
 
-  function url(slug) { return "https://" + domain + (slug ? "/" + slug : ""); }
+  /* A value starting with http is an absolute URL and is used verbatim (central how-to
+     pages on vitalshark.io); anything else is a slug on the rep own domain. */
+  function url(slug) {
+    if (/^https?:/i.test(slug)) return slug;
+    return "https://" + domain + (slug ? "/" + slug : "");
+  }
 
   /* ---------- render ---------- */
   var body = root.querySelector("[data-body]");
