@@ -161,6 +161,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-clean-iced-coffee-recipes",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "DUo2mB5NInBM4l8iapr0",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-natural-glp-foods-guide-free-resource",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "RR0hPE3fhHgoBYGVeCVF",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }

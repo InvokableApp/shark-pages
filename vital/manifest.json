@@ -55,6 +55,42 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-clean-iced-coffee-recipes",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "7RN3iIQf4Cv3WbtgMttF",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-einstein-kids-free-guide",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "em3yyiSvjnmQabh29si0",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-free-protein-packed-recipe-guide",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "NawRBw6yekhStbz2upyZ",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/vital-glp-recipe-guide-free-resource",
+      "funnelId": "xMmtpW9YjDUHDa5bOz7l",
+      "pageId": "ryuUpI7KJ0ZDyHfVq1nZ",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }
