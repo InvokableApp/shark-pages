@@ -411,10 +411,11 @@
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close{
   padding:clamp(56px,8vw,104px) 0;
   max-width:none;
+  text-align:center;
 }
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close .sk-h2{color:var(--paper);}
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close p{
-  margin:0 0 34px;
+  margin:0 auto 34px;
   max-width:42ch;
   font-size:19px;
   color:rgba(244,242,233,.72);
