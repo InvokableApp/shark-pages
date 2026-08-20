@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Vital / Minimalist GLP Guide / Nourish+
+   The product page, and the one page in this funnel that gets to be dark. The guide is
+   paper-white throughout, so flipping the ground here marks the moment the guide stops
+   teaching and starts recommending. Same palette and faces as the PDF.
+   Every selector is scoped (HOSTED-BLOCKS-SOP §1). */
+
+.sk-vital-vital-minimalist-glp-guide-nourish{
+  --paper:#fbfbf7;
+  --ink:#1b2113;
+  --muted:rgba(251,251,247,.72);
+  --lime:#8db53c;
+  --lime-deep:#5a7526;
+  --grape:#a78bfa;
+  --dark:#20281a;
+  --dark-2:#28321f;
+  --hair:rgba(251,251,247,.16);
+
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  box-sizing:border-box;
+  max-width:960px;
+  margin:0 auto;
+  padding:0 20px 48px;
+  background:transparent;
+  color:var(--paper);
+  font-family:var(--sans);
+  line-height:1.65;
+  text-align:left;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish *{box-sizing:border-box;}
+
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-eyebrow{
+  margin:0 0 14px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--lime);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-h1{
+  margin:0 0 20px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(32px,5.2vw,52px);
+  line-height:1.04;
+  letter-spacing:-.022em;
+  color:var(--paper);
+  text-wrap:balance;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-h1 em{
+  font-style:italic;
+  font-weight:600;
+  color:var(--lime);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-h2{
+  margin:0 0 12px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(24px,3.4vw,34px);
+  line-height:1.12;
+  letter-spacing:-.018em;
+  color:var(--paper);
+  text-wrap:balance;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-lede,
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-sub{
+  margin:0;
+  font-size:16.5px;
+  color:var(--muted);
+  max-width:58ch;
+}
+
+/* the whole block paints its own dark ground, rounded, so it reads as one panel
+   on whatever the GHL page background happens to be */
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-hero,
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-slot,
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why,
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta-band{
+  background:var(--dark);
+  padding-left:clamp(24px,5vw,54px);
+  padding-right:clamp(24px,5vw,54px);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-hero{
+  padding-top:60px; padding-bottom:44px;
+  border-radius:14px 14px 0 0;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-slot{ padding-top:8px; padding-bottom:44px; }
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why{ padding-top:8px; padding-bottom:44px; }
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta-band{
+  padding-top:44px; padding-bottom:52px;
+  border-top:1px solid var(--hair);
+  border-radius:0 0 14px 14px;
+  text-align:center;
+}
+
+/* ---------- the slot marker ---------- */
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-slot-mark{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:22px;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-slot-mark span{
+  border:1px solid var(--hair);
+  border-radius:999px;
+  padding:6px 14px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:rgba(251,251,247,.45);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-slot-mark .sk-on{
+  background:var(--lime);
+  border-color:var(--lime);
+  color:#141a0c;
+}
+
+/* ---------- why ---------- */
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why article{
+  border-top:1px solid var(--hair);
+  padding-top:16px;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-n{
+  margin:0 0 8px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:15px;
+  color:var(--grape);
+  font-variant-numeric:tabular-nums;
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why h3{
+  margin:0 0 7px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:-.012em;
+  color:var(--paper);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-why p{
+  margin:0;
+  font-size:14.5px;
+  color:var(--muted);
+}
+
+/* ---------- CTA ---------- */
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta-band p{
+  margin:0 auto 26px;
+  max-width:44ch;
+  font-size:16px;
+  color:var(--muted);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta{
+  display:inline-block;
+  border-radius:7px;
+  padding:16px 36px;
+  background:var(--lime);
+  color:#141a0c;
+  font-size:16.5px;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .18s ease, transform .18s ease;
+  box-shadow:0 12px 26px -14px rgba(141,181,60,.9);
+}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta:hover{background:#9bc648;transform:translateY(-1px);}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-cta:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
+.sk-vital-vital-minimalist-glp-guide-nourish .sk-fine{
+  margin:18px 0 0;
+  font-size:12px;
+  color:rgba(251,251,247,.5);
+}
+
+@media (max-width:760px){
+  .sk-vital-vital-minimalist-glp-guide-nourish .sk-why{grid-template-columns:1fr;gap:20px;}
+  .sk-vital-vital-minimalist-glp-guide-nourish .sk-hero{padding-top:42px;padding-bottom:32px;}
+  .sk-vital-vital-minimalist-glp-guide-nourish .sk-cta{width:100%;}
+}
+@media (prefers-reduced-motion:reduce){
+  .sk-vital-vital-minimalist-glp-guide-nourish .sk-cta{transition:none;}
+}
