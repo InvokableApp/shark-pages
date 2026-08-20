@@ -102,8 +102,30 @@
   letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2);
 }
 
+/* ---------- the product band ----------
+   Copy left, figure right, same as every other section in this campaign. The figure
+   uses the hard offset frame the other pages use so the shot reads as part of the
+   page. .sk-lede on this page is tuned for the DARK slip, so paper-band copy gets its
+   own colour rather than reusing it. */
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(32px,6vw,72px); align-items:center;
+  padding-top:clamp(46px,6vw,84px); padding-bottom:clamp(50px,7vw,90px);
+}
+/* :not(.sk-tag) matters. The eyebrow is a <p class="sk-tag">, and a bare
+   ".sk-product-copy p" outranks ".sk-tag" on specificity, so it silently repainted the
+   eyebrow in body colour and body size. */
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-copy > p:not(.sk-tag){margin:0;font-size:17px;line-height:1.6;color:var(--ink-2);max-width:48ch;}
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-copy > p:not(.sk-tag) + p{margin-top:18px;}
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-copy .sk-btn{margin-top:30px;}
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-fig{position:relative;margin:0;padding:0 14px 14px 0;}
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-fig::before{content:"";position:absolute;inset:14px 0 0 14px;border:1px solid var(--ink);}
+.sk-vital-vital-minimalist-glp-guide-treats .sk-product-fig img{position:relative;width:100%;height:auto;}
+
 @media (max-width:900px){
   .sk-vital-vital-minimalist-glp-guide-treats .sk-slip{grid-template-columns:1fr;gap:34px;}
+  .sk-vital-vital-minimalist-glp-guide-treats .sk-product{grid-template-columns:1fr;gap:36px;}
+  .sk-vital-vital-minimalist-glp-guide-treats .sk-product-fig{max-width:320px;}
 }
 @media (max-width:560px){
   .sk-vital-vital-minimalist-glp-guide-treats{font-size:16.5px;}
