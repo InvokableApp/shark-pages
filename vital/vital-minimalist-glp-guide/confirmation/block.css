@@ -275,14 +275,17 @@
   color:var(--ink-2);
 }
 
-/* secondary action on the dark slip: read the guide online instead of waiting */
-.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-ghost{
-  background:transparent; color:var(--paper);
-  border:1px solid rgba(244,242,233,.4);
-  margin-top:26px;
+/* Button ON THE DARK BAND. The default .sk-btn is an ink block for the paper bands;
+   ink on ink is invisible, and an outlined "ghost" variant was worse: the shared
+   ::after lime bar sits at bottom:-4px, which reads as a deliberate offset under a
+   SOLID block and as a detached slab under a transparent outline. This design has no
+   outline-button motif at all, so the correct move is to invert the existing device
+   rather than invent a new one. Paper block, ink label, same lime bar. */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-invert{
+  background:var(--paper); color:var(--ink);
+  margin-top:30px;
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-ghost::after{background:var(--lime);}
-.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-ghost:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-btn-invert:hover{background:var(--lime); color:var(--ink);}
 .sk-vital-vital-minimalist-glp-guide-confirmation .sk-fine-dark{
   margin-top:14px; font-size:14px; line-height:1.6;
   color:rgba(244,242,233,.55);
@@ -295,17 +298,17 @@
    opt-in and pushed the copy flush to the screen edge on mobile. */
 .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-copy .sk-lede + .sk-lede{margin-top:18px;}
 .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product{
-  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
-  gap:60px; align-items:center;
-  padding-top:clamp(52px,7vw,92px); padding-bottom:clamp(52px,7vw,92px);
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(32px,6vw,72px); align-items:center;
+  padding-top:clamp(46px,6vw,84px); padding-bottom:clamp(50px,7vw,90px);
 }
-.sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig{margin:0;}
-.sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig img{
-  display:block; width:100%; height:auto; max-width:420px; margin:0 auto;
-}
+/* same hard offset frame as .sk-treat-fig, so the product reads as part of this page
+   rather than a stock product shot dropped in */
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig{position:relative; margin:0; padding:0 14px 14px 0;}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig::before{content:""; position:absolute; inset:14px 0 0 14px; border:1px solid var(--ink);}
+.sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig img{position:relative; width:100%; height:auto;}
 .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-copy .sk-btn{margin-top:30px;}
 @media (max-width:820px){
   .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product{grid-template-columns:1fr; gap:36px;}
-  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig{order:-1;}
-  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig img{max-width:280px;}
+  .sk-vital-vital-minimalist-glp-guide-confirmation .sk-product-fig{max-width:320px;}
 }
