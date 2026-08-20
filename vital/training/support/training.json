@@ -1,0 +1,41 @@
+{
+  "system": "vital",
+  "funnel": "training",
+  "page": "support",
+  "key": "vital-support",
+  "brand": "Vital Shark",
+  "eyebrow": "Support",
+  "eyebrowIcon": "life",
+  "title": "Reach out to support",
+  "lede": "Stuck on something? Email or text us and a real person will get back to you. The live chat bubble on this page works too.",
+  "contactLabel": "Three ways to reach us",
+  "contact": [
+    {
+      "label": "Email support",
+      "sub": "support@sharksuite.ai",
+      "email": "support@sharksuite.ai",
+      "icon": "mail"
+    },
+    {
+      "label": "Text support",
+      "sub": "+1 609-544-4044",
+      "sms": "+1 609-544-4044",
+      "icon": "chat"
+    },
+    {
+      "label": "Read the FAQ",
+      "sub": "sharksuite.ai/shark-faq",
+      "url": "https://sharksuite.ai/shark-faq",
+      "icon": "ext",
+      "ghost": true
+    }
+  ],
+  "note": "Most questions are already answered on the FAQ page, and the System Training tab has a video for nearly every feature. Worth a look before you write in.",
+  "noteActions": [
+    {
+      "label": "System training",
+      "url": "https://vitalshark.io/system-training",
+      "icon": "cog"
+    }
+  ]
+}

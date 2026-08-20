@@ -1,0 +1,12 @@
+{
+  "system": "vital", "funnel": "training", "page": "office-hours", "key": "vital-office",
+  "brand": "Vital Shark", "eyebrow": "Office hours", "eyebrowIcon": "cal",
+  "title": "Office hours",
+  "lede": "Join us the first Tuesday of every month to ask questions and go deeper on the system. Bring anything you are stuck on.",
+  "groupLabel": "What office hours looks like",
+  "library": [ { "title": "A recent session", "video": "https://youtu.be/HjbK407PnIY" } ],
+  "calendar": "https://calendar.google.com/calendar/embed?src=c_fdc8e64fb9f6471c13caf08dd1e2e15978910d85a1fb0cc836dec3d6a4f303a5%40group.calendar.google.com&ctz=America%2FNew_York",
+  "calendarLabel": "Upcoming sessions",
+  "note": "Cannot make it live? Every session is recorded and posted here.",
+  "noteActions": [ { "label": "Go to the FAQ page", "url": "https://sharksuite.ai/shark-faq", "icon": "doc" } ]
+}

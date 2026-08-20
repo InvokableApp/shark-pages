@@ -1,0 +1,23 @@
+{
+  "system": "vital", "funnel": "training", "page": "system-training", "key": "vital-system",
+  "brand": "Vital Shark", "eyebrow": "System training", "eyebrowIcon": "cog",
+  "title": "System training",
+  "lede": "Extra videos on system features and the questions we get asked most. Cannot find what you need? Open the support chat on this page and ask.",
+  "filter": true,
+  "groupLabel": "Feature walkthroughs",
+  "library": [
+    { "title": "How to purchase a phone number", "video": "https://vimeo.com/1190233133" },
+    { "title": "How to make a QR code for your funnels", "video": "https://vimeo.com/1216235823" },
+    { "title": "How to set up the blog feature", "video": "https://vimeo.com/1190211400" },
+    { "title": "How to connect a domain to the AI Studio funnels", "video": "https://vimeo.com/1190210970" },
+    { "title": "How to set up a booking calendar", "video": "https://vimeo.com/1187452952" },
+    { "title": "How to create a new automation", "video": "https://vimeo.com/1187439324" },
+    { "title": "How to create a new email campaign", "video": "https://vimeo.com/1187443196" },
+    { "title": "How to add a contact", "video": "https://vimeo.com/1187440186" },
+    { "title": "How to import contacts", "video": "https://vimeo.com/1187435758" },
+    { "title": "How to personalise forms", "video": "https://vimeo.com/1190558373" },
+    { "title": "Additional training videos", "video": "https://vimeo.com/1188057919" }
+  ],
+  "note": "Still have questions? Our FAQ page covers the rest.",
+  "noteActions": [ { "label": "Go to the FAQ page", "url": "https://sharksuite.ai/shark-faq", "icon": "doc" } ]
+}

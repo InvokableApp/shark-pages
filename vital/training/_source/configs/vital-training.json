@@ -1,0 +1,58 @@
+{
+  "system": "vital",
+  "funnel": "training",
+  "page": "home",
+  "key": "vital-setup",
+  "brand": "Vital Shark",
+  "eyebrow": "Training portal",
+  "eyebrowIcon": "home",
+  "title": "Welcome to your training portal",
+  "lede": "Your next steps are simple. Watch the short videos on this page, follow along as you go, then start driving traffic. Please watch these before you start using your system: it makes the whole thing go smoother.",
+  "headerActions": [
+    { "label": "Login to your system", "url": "https://go.sharksuite.ai/", "icon": "key" }
+  ],
+  "progress": true,
+  "groupLabel": "Setup, start to finish",
+  "steps": [
+    { "title": "Understanding your system",
+      "body": "A look at the system in totality and where to go next. It can do everything, but we are keeping it simple to start.",
+      "video": "https://vimeo.com/1210568966" },
+    { "title": "Get familiar with your custom values",
+      "body": "Custom values power the personalisation in your funnels and emails. This video shows you what they are and how to change them.",
+      "video": "https://vimeo.com/1209973581" },
+    { "title": "See and communicate with your leads",
+      "body": "You have a full contact management system built in. Here is where to find your leads, how to message them, and what else the contacts area can do.",
+      "video": "https://vimeo.com/1209973246" },
+    { "title": "Edit and broadcast emails",
+      "body": "Your system ships with pre-written emails, ready to send. You can personalise them or write your own broadcasts. You do not need to change anything: they are already written for you.",
+      "video": "https://vimeo.com/1209972914" },
+    { "title": "Use your pipelines",
+      "body": "The pre-built pipelines organise your leads and decide which messages they receive. This walks through how to use them.",
+      "video": "https://vimeo.com/1209968324" },
+    { "title": "Learn about and edit your funnels",
+      "body": "Your funnels are pre-built and ready to deploy. Here is where to find them, how they work, and how to do basic edits. No editing is required to go live.",
+      "video": "https://vimeo.com/1209972568" },
+    { "title": "Understand your automations",
+      "body": "Automations are a big part of how the system runs. This shows you where to find them, what each one does, and how to edit them.",
+      "video": "https://vimeo.com/1209970932" },
+    { "title": "Download and set up the app",
+      "body": "The app lets you run your business from your phone: message leads, check stats and more.",
+      "video": "https://vimeo.com/1202598480",
+      "actions": [
+        { "label": "iPhone app", "url": "https://apps.apple.com/us/app/highlevel/id1425004076", "icon": "apple" },
+        { "label": "Android app", "url": "https://play.google.com/store/apps/details?id=com.gohighlevel", "icon": "droid", "ghost": true }
+      ] },
+    { "title": "Understand billing",
+      "body": "How your wallet works, where to see your charges, and what usage fees cover.",
+      "video": "https://vimeo.com/1209973969" },
+    { "title": "Start driving traffic",
+      "body": "You are through the basics. Now the fun part. This covers every way to get traffic to your funnel pages.",
+      "video": "https://vimeo.com/1209963263" },
+    { "title": "Get your system for free",
+      "body": "Refer 3 active users and your Vital Shark subscription is free. Once 3 people join through your referral link and stay active, you pay nothing.",
+      "actions": [
+        { "label": "Get your referral link", "url": "https://vitalshark.io/three-and-free", "icon": "flag" }
+      ] }
+  ],
+  "note": "Once you have watched these and your system is set up, you are ready to drive traffic. When you want to go deeper, System Training and Marketing Training are in the menu above."
+}

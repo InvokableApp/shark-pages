@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SHARED TRAINING PORTAL STYLESHEET
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE stylesheet for every training-portal page in every system, scoped under
+   .sk-train. The per-page block.css declares ONLY the nine palette tokens on
+   that page's own scope class; they cascade into everything here.
+
+   Same contract as _shared/howto/howto.css: colour is per system, everything
+   else is per design system, and a component fix reaches every portal page in
+   every account on one git push. No colour literals below the token block.
+   ============================================================ */
+
+.sk-train *,
+.sk-train *::before,
+.sk-train *::after { box-sizing: border-box; }
+
+.sk-train {
+  --sk-r: 18px;
+  --sk-r-sm: 12px;
+  --sk-pad: 20px;
+  --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
+  --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
+
+  /* FULL-BLEED GROUND, CAPPED CONTENT — the how-to lesson, unchanged.
+     The block paints the paper, so it must span the whole browser or the GHL
+     section shows through at the sides. The MEASURE is a grid column, never an
+     auto margin: components set `margin` as a shorthand, which silently resets
+     margin-inline to 0. Column 2 cannot be undone by any margin a card sets. */
+  display: grid;
+  grid-template-columns: 1fr min(600px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-train .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-train > *:not(.sk-grain) { grid-column: 2; position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-train .sk-head { padding: 30px 2px 18px; }
+
+.sk-train .sk-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  background: var(--sk-brand-tint);
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin-bottom: 16px;
+}
+.sk-train .sk-eyebrow svg { width: 13px; height: 13px; stroke-width: 2; }
+
+.sk-train h1 {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: "wdth" 96;
+  font-weight: 800;
+  font-size: clamp(29px, 7.4vw, 40px);
+  line-height: 1.06;
+  letter-spacing: -.022em;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.sk-train .sk-lede {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ---------------- tab nav ----------------
+   Sticky because a portal page is long and the tabs are the only way between
+   pages. Horizontally scrollable on a phone rather than wrapped: a wrapped row
+   of five tabs eats a third of the first screen. */
+
+.sk-train .sk-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 -16px 26px;
+  padding: 10px 16px;
+  background: color-mix(in srgb, var(--sk-paper) 88%, transparent);
+  backdrop-filter: saturate(1.6) blur(10px);
+  -webkit-backdrop-filter: saturate(1.6) blur(10px);
+  border-bottom: 1px solid var(--sk-line-soft);
+}
+.sk-train .sk-tabs-inner {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.sk-train .sk-tabs-inner::-webkit-scrollbar { display: none; }
+
+.sk-train .sk-tab {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--sk-line);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.sk-train .sk-tab svg { width: 15px; height: 15px; stroke-width: 1.9; fill: none; stroke: currentColor; }
+.sk-train .sk-tab:hover { border-color: var(--sk-brand); color: var(--sk-ink); }
+.sk-train .sk-tab[aria-current="page"] {
+  background: var(--sk-brand-deep);
+  border-color: var(--sk-brand-deep);
+  color: #fff;
+}
+
+/* ---------------- progress rail ----------------
+   Only rendered on a page whose content IS an ordered sequence. The home page
+   is literally "Step 1..11", so a checklist encodes something true; it is not
+   decoration bolted onto a video list. */
+
+.sk-train .sk-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  margin-bottom: 26px;
+}
+.sk-train .sk-progress-ring { flex: 0 0 auto; width: 46px; height: 46px; transform: rotate(-90deg); }
+.sk-train .sk-progress-ring circle { fill: none; stroke-width: 5; }
+.sk-train .sk-progress-ring .t { stroke: var(--sk-line); }
+.sk-train .sk-progress-ring .v { stroke: var(--sk-brand); stroke-linecap: round; transition: stroke-dashoffset .5s cubic-bezier(.2,.7,.3,1); }
+.sk-train .sk-progress-text { flex: 1 1 auto; min-width: 0; }
+.sk-train .sk-progress-count {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  display: block;
+}
+.sk-train .sk-progress-hint { font-size: 13px; color: var(--sk-ink-faint); }
+.sk-train .sk-progress-reset {
+  flex: 0 0 auto;
+  border: 0;
+  background: none;
+  color: var(--sk-ink-faint);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 4px;
+}
+.sk-train .sk-progress-reset:hover { color: var(--sk-ink); }
+
+/* ---------------- section grouping ---------------- */
+
+.sk-train .sk-group { margin-bottom: 34px; }
+.sk-train .sk-group-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 2px 14px;
+}
+.sk-train .sk-group-label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+  white-space: nowrap;
+}
+.sk-train .sk-group-rule { flex: 1 1 auto; height: 1px; background: var(--sk-line); }
+.sk-train .sk-group-count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------- step card ---------------- */
+
+.sk-train .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  margin: 0 0 16px;
+  overflow: hidden;
+  transition: box-shadow .22s, border-color .22s;
+}
+.sk-train .sk-card:hover { box-shadow: var(--sk-shadow-lift); }
+.sk-train .sk-card[data-done="true"] { border-color: color-mix(in srgb, var(--sk-brand) 45%, var(--sk-line)); }
+
+.sk-train .sk-card-head { padding: var(--sk-pad); display: flex; gap: 14px; align-items: flex-start; }
+
+/* the step number is the checkbox — one target, and it reads as a checklist
+   without a separate control competing with the heading for the eye */
+.sk-train .sk-step {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sk-line);
+  background: var(--sk-paper);
+  color: var(--sk-ink-soft);
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.sk-train .sk-step:hover { border-color: var(--sk-brand); }
+.sk-train .sk-step svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 2.6; fill: none; display: none; }
+.sk-train .sk-card[data-done="true"] .sk-step {
+  background: var(--sk-brand);
+  border-color: var(--sk-brand);
+  color: #fff;
+}
+.sk-train .sk-card[data-done="true"] .sk-step span { display: none; }
+.sk-train .sk-card[data-done="true"] .sk-step svg { display: block; }
+
+.sk-train .sk-card-title {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 98;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.24;
+  letter-spacing: -.012em;
+  margin: 4px 0 0;
+  text-wrap: balance;
+}
+.sk-train .sk-card-body { color: var(--sk-ink-soft); font-size: 15px; margin: 9px 0 0; }
+.sk-train .sk-card-body strong { color: var(--sk-ink); font-weight: 600; }
+
+/* ---------------- video facade ----------------
+   Poster + play button; the iframe is injected on click. Twelve autoloading
+   embeds on one page is twelve third-party frames before the reader has asked
+   for any of them. */
+
+.sk-train .sk-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--sk-brand-deep);
+  border-top: 1px solid var(--sk-line-soft);
+  cursor: pointer;
+  overflow: hidden;
+}
+.sk-train .sk-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  opacity: 0;
+  transition: opacity .4s, transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.sk-train .sk-frame img.ok { opacity: 1; }
+.sk-train .sk-frame:hover img.ok { transform: scale(1.03); }
+.sk-train .sk-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.sk-train .sk-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.35));
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.sk-train .sk-frame[data-live="true"] { cursor: default; }
+.sk-train .sk-frame[data-live="true"]::after,
+.sk-train .sk-frame[data-live="true"] .sk-play { display: none; }
+
+.sk-train .sk-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, .94);
+  color: var(--sk-brand-deep);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px -6px rgba(0, 0, 0, .45);
+  transition: transform .22s cubic-bezier(.2,.7,.3,1), background .22s;
+}
+.sk-train .sk-frame:hover .sk-play { transform: translate(-50%, -50%) scale(1.09); background: #fff; }
+.sk-train .sk-play svg { width: 23px; height: 23px; margin-left: 3px; fill: currentColor; }
+
+.sk-train .sk-dur {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  background: rgba(0, 0, 0, .62);
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+
+/* ---------------- buttons ---------------- */
+
+.sk-train .sk-actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 var(--sk-pad) var(--sk-pad); }
+.sk-train .sk-card-head + .sk-actions { padding-top: 2px; }
+
+.sk-train .sk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--sk-brand-deep);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid var(--sk-brand-deep);
+  transition: transform .16s, box-shadow .16s, background .16s;
+}
+.sk-train .sk-btn:hover { transform: translateY(-1px); box-shadow: var(--sk-shadow-lift); }
+.sk-train .sk-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+.sk-train .sk-btn.sk-ghost { background: var(--sk-card); color: var(--sk-ink); border-color: var(--sk-line); }
+.sk-train .sk-btn.sk-ghost:hover { border-color: var(--sk-brand); }
+
+/* ---------------- library grid (system / marketing training) ---------------- */
+
+.sk-train .sk-filter {
+  position: relative;
+  margin-bottom: 20px;
+}
+.sk-train .sk-filter input {
+  width: 100%;
+  padding: 13px 16px 13px 42px;
+  border-radius: 999px;
+  border: 1px solid var(--sk-line);
+  background: var(--sk-card);
+  color: var(--sk-ink);
+  font: inherit;
+  font-size: 15px;
+}
+.sk-train .sk-filter input::placeholder { color: var(--sk-ink-faint); }
+.sk-train .sk-filter input:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 1px; border-color: transparent; }
+.sk-train .sk-filter svg {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 17px;
+  height: 17px;
+  stroke: var(--sk-ink-faint);
+  stroke-width: 2;
+  fill: none;
+  pointer-events: none;
+}
+.sk-train .sk-empty {
+  display: none;
+  padding: 30px 4px;
+  text-align: center;
+  color: var(--sk-ink-faint);
+  font-size: 15px;
+}
+.sk-train .sk-lib[data-empty="true"] .sk-empty { display: block; }
+.sk-train .sk-card[hidden] { display: none; }
+
+/* ---------------- calendar embed ---------------- */
+
+.sk-train .sk-cal {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.sk-train .sk-cal iframe { display: block; width: 100%; height: 560px; border: 0; }
+
+/* ---------------- closing note ---------------- */
+
+.sk-train .sk-note {
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-brand-tint);
+  padding: 22px var(--sk-pad);
+  text-align: center;
+}
+.sk-train .sk-note p { margin: 0 0 14px; color: var(--sk-brand-deep); font-size: 15px; }
+.sk-train .sk-note p:last-child { margin-bottom: 0; }
+
+.sk-train .sk-foot {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--sk-line);
+  font-size: 13px;
+  color: var(--sk-ink-faint);
+  text-align: center;
+}
+
+/* ---------------- motion ---------------- */
+
+html.sk-motion .sk-train .sk-card,
+html.sk-motion .sk-train .sk-progress { opacity: 0; transform: translateY(12px); }
+html.sk-motion .sk-train .sk-reveal { animation: sk-rise .55s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes sk-rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-train *, .sk-train *::before, .sk-train *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+  html.sk-motion .sk-train .sk-card,
+  html.sk-motion .sk-train .sk-progress { opacity: 1; transform: none; }
+}
+
+/* ---------------- desktop ---------------- */
+
+@media (min-width: 900px) {
+  .sk-train {
+    grid-template-columns: 1fr min(1120px, 100%) 1fr;
+    padding: 0 32px calc(80px + env(safe-area-inset-bottom));
+  }
+  .sk-train .sk-head { padding: 46px 2px 24px; }
+  .sk-train .sk-tabs { margin: 0 -32px 32px; padding: 12px 32px; }
+  .sk-train .sk-tabs-inner { justify-content: flex-start; }
+
+  /* A STEP IS READ, A LIBRARY IS SCANNED — so they get different shapes.
+     Steps stay one per row with the video beside the copy: the sequence is the
+     information, and two columns of steps would break the order. */
+  .sk-train .sk-steps .sk-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); align-items: stretch; }
+  /* the copy is short and the frame sets the row height, so centring the head
+     keeps a step from reading as a block of text pinned to the ceiling */
+  .sk-train .sk-steps .sk-card-head { padding: 24px 26px; align-self: center; }
+  .sk-train .sk-steps .sk-card-title { font-size: 21px; }
+  .sk-train .sk-steps .sk-actions { padding: 0 26px 26px; margin-top: auto; }
+  /* KEEP 16:9 ON THE STEP FRAME. `height:100%` looked right and was not: a short
+     text column makes a very wide, very short frame, and object-fit:cover then
+     crops the middle out of a thumbnail whose whole job is to carry a title.
+     With the ratio kept, the frame sets the row height and the poster is whole. */
+  .sk-train .sk-steps .sk-frame { border-top: 0; border-left: 1px solid var(--sk-line-soft); aspect-ratio: 16 / 9; align-self: stretch; }
+  .sk-train .sk-steps .sk-card.sk-no-video { grid-template-columns: 1fr; }
+
+  /* the library IS a grid: the videos are peers, order carries nothing */
+  .sk-train .sk-lib { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+  .sk-train .sk-lib .sk-card { margin: 0; display: flex; flex-direction: column; }
+  .sk-train .sk-lib .sk-card-head { flex: 1 1 auto; }
+  .sk-train .sk-lib .sk-frame { margin-top: auto; }
+  .sk-train .sk-lib .sk-empty { grid-column: 1 / -1; }
+  /* A LONE CARD IS A FEATURE, NOT A GAP. One card in a three-up grid reads as
+     two missing cards, so it takes the full measure and centres instead. */
+  .sk-train .sk-lib[data-count="1"] { grid-template-columns: minmax(0, 720px); justify-content: center; }
+
+  .sk-train .sk-progress { padding: 20px 24px; }
+  .sk-train .sk-cal iframe { height: 640px; }
+}
+
+@media (min-width: 1240px) {
+  .sk-train { grid-template-columns: 1fr min(1180px, 100%) 1fr; }
+  .sk-train .sk-lib { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* the two action rows that are not inside a card */
+.sk-train .sk-head-actions { padding: 18px 0 0; }
+.sk-train .sk-note-actions { padding: 0; justify-content: center; }
+
+/* ---------------- wordmark ----------------
+   Sized by height so a system whose logo has a different aspect ratio needs no
+   per-system rule. It links home, which is what a masthead logo always does. */
+/* block, not inline-block: the eyebrow that follows is inline-flex and would
+   otherwise sit on the same line as the wordmark */
+.sk-train .sk-logo { display: block; width: fit-content; margin-bottom: 22px; }
+.sk-train .sk-logo img { display: block; height: 34px; width: auto; max-width: min(320px, 72vw); }
+
+/* ---------------- contact buttons (support page) ----------------
+   Full width and stacked: on a phone these are the whole point of the page and
+   a row of pills makes each target smaller than the thing it is for. */
+.sk-train .sk-contact { display: grid; gap: 12px; }
+.sk-train .sk-contact .sk-btn { justify-content: flex-start; padding: 18px 22px; font-size: 16px; }
+.sk-train .sk-contact .sk-btn svg { width: 19px; height: 19px; flex: 0 0 auto; }
+.sk-train .sk-btn-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; }
+.sk-train .sk-btn-sub {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: .78;
+  letter-spacing: .01em;
+  margin-top: 3px;
+}
+
+@media (min-width: 900px) {
+  .sk-train .sk-logo { margin-bottom: 26px; }
+  .sk-train .sk-logo img { height: 40px; }
+  .sk-train .sk-contact { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}

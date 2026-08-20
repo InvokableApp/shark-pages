@@ -91,6 +91,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "vital-minimalist-glp-guide/confirmation",
+      "funnelId": "V0liwqV1133B347ftCW2",
+      "pageId": "Wj614lrRqd8rA4K57T0a",
+      "elementId": "custom-code-43mvhle52c",
+      "elementTitle": "confirmation",
+      "pattern": "A",
+      "locationId": "FARA5f6fZAfOIsNbABzr"
     }
   ]
 }

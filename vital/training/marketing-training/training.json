@@ -1,0 +1,69 @@
+{
+  "system": "vital",
+  "funnel": "training",
+  "page": "marketing-training",
+  "key": "vital-marketing",
+  "brand": "Vital Shark",
+  "eyebrow": "Marketing training",
+  "eyebrowIcon": "mega",
+  "title": "Marketing training",
+  "lede": "How to market the funnels in your Vital Shark system so you generate more customer and distributor leads, and build your team.",
+  "filter": true,
+  "groupLabel": "Start here",
+  "library": [
+    {
+      "title": "Marketing training overview",
+      "video": "https://vimeo.com/1188059343"
+    },
+    {
+      "title": "What you should be doing daily",
+      "body": "A few things to do every day to promote your business with this system.",
+      "video": "https://vimeo.com/1196390748"
+    },
+    {
+      "title": "Funnel specific marketing training",
+      "video": "https://vimeo.com/1201852080"
+    }
+  ],
+  "groupLabel2": "Funnel by funnel",
+  "library2": [
+    {
+      "title": "Main funnel",
+      "video": "https://vimeo.com/1216141256"
+    },
+    {
+      "title": "Opportunity One Pager funnel",
+      "video": "https://vimeo.com/1216101413"
+    },
+    {
+      "title": "Coffee lead magnet funnel",
+      "video": "https://vimeo.com/1215862982"
+    },
+    {
+      "title": "GLP Recipe Guide and Workout Guide funnels",
+      "video": "https://vimeo.com/1216099523"
+    },
+    {
+      "title": "Side Hustle Quiz funnel",
+      "video": "https://vimeo.com/1215882313"
+    },
+    {
+      "title": "High Protein Fat Burning Recipe Guide funnel",
+      "video": "https://vimeo.com/1215873859"
+    }
+  ],
+  "note": "Text two people a day, minimum. The scripts page has proven conversation frameworks for introducing the opportunity, building interest and guiding a prospect toward joining your team.",
+  "noteActions": [
+    {
+      "label": "Open the scripts page",
+      "url": "https://vitalshark.io/scripts",
+      "icon": "doc"
+    },
+    {
+      "label": "Go to the FAQ page",
+      "url": "https://sharksuite.ai/shark-faq",
+      "icon": "ext",
+      "ghost": true
+    }
+  ]
+}
