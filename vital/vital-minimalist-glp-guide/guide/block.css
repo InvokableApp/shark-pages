@@ -402,3 +402,23 @@
 @media (prefers-reduced-motion:reduce){
   .sk-vital-vital-minimalist-glp-guide-guide .g-nav a,.sk-vital-vital-minimalist-glp-guide-guide .g-cta{transition:none;}
 }
+
+/* protein floor table (Part One, "If you want the numbers") */
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums{ border:1px solid var(--hair); border-radius:6px; overflow:hidden; margin:22px 0; }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-head{ background:var(--dark); color:var(--paper); padding:11px 16px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-head span{ font-family:var(--sans); font-size:12px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-head i{ font-style:normal; font-family:var(--sans); font-size:10px;
+  letter-spacing:.08em; text-transform:uppercase; opacity:.72; }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-row{ display:grid; grid-template-columns:1fr 1fr 1.15fr; align-items:center;
+  border-top:1px solid var(--hair); }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-row>*{ padding:11px 16px; font-size:15px; font-variant-numeric:tabular-nums; }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-hdr{ border-top:0; background:var(--tint); }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-hdr>span{ font-family:var(--sans); font-size:10px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.11em; color:var(--muted); }
+.sk-vital-vital-minimalist-glp-guide-guide .g-nums-row b{ font-family:var(--serif); font-weight:700; }
+@media (max-width:560px){
+  .sk-vital-vital-minimalist-glp-guide-guide .g-nums-row{ grid-template-columns:1fr 1fr; }
+  .sk-vital-vital-minimalist-glp-guide-guide .g-nums-row>*:nth-child(3){ grid-column:1 / -1; padding-top:0; color:var(--muted); font-size:14px; }
+}
