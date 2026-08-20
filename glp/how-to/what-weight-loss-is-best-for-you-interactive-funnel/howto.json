@@ -1,0 +1,16 @@
+{
+ "system": "glp",
+ "funnel": "how-to",
+ "page": "what-weight-loss-is-best-for-you-interactive-funnel",
+ "funnelName": "Weight Loss Supplement Recommendation (Quiz Funnel)",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark",
+ "videos": [],
+ "links": [],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",
+  "url": "https://glpshark.com/get-ads",
+  "label": "Upgrade to run ads"
+ }
+}

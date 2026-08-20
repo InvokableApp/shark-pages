@@ -1,0 +1,28 @@
+{
+ "system": "glp",
+ "funnel": "how-to",
+ "page": "recruitment",
+ "funnelName": "Opportunity Funnel (Send To Warm Leads)",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark",
+ "videos": [],
+ "links": [
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say to leads who come through this funnel, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://glpshark.com/scripts",
+   "primary": true
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://glpshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

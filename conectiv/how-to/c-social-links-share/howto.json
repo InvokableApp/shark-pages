@@ -1,0 +1,28 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-social-links-share",
+ "funnelName": "Social Links Share Page",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1217708349",
+   "poster": "https://i.vimeocdn.com/video/2189459645-8382e5847b8e5e098afa6989d632afa7adefa675eca3558493d85bed16e5e2b3-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

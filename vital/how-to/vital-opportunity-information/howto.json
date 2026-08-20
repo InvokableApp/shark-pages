@@ -1,0 +1,41 @@
+{
+ "system": "vital",
+ "funnel": "how-to",
+ "page": "vital-opportunity-information",
+ "funnelName": "Vital Opportunity One Page Explainer",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216169790",
+   "poster": "https://i.vimeocdn.com/video/2187530444-c4fa9c6836bcd162bab48b2e7e0c3d85402786626ad5060a9453c0ce3374da6c-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/8mtdfsarwmyz3jk",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://vitalshark.io/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",
+  "url": "https://vitalshark.io/get-ads",
+  "label": "Upgrade to run ads"
+ }
+}

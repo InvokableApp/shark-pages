@@ -1,0 +1,41 @@
+{
+ "system": "glp",
+ "funnel": "how-to",
+ "page": "orygn-free-protein-packed-recipe-guide",
+ "funnelName": "High Protein, Fat Burning FREE Recipe & Grocery List Funnel (Lead Mag)",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1212767746",
+   "poster": "https://i.vimeocdn.com/video/2183286166-7d6154caae9676cf441c69d98eeb97a4dd629da171b4b3e40d28ac6d3034d0ed-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/n6t92pxvso2744m",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://glpshark.com/training",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",
+  "url": "https://glpshark.com/get-ads",
+  "label": "Upgrade to run ads"
+ }
+}

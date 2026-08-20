@@ -1,0 +1,28 @@
+{
+ "system": "vital",
+ "funnel": "how-to",
+ "page": "vital-personal-branded",
+ "funnelName": "Personal Branded",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216211632",
+   "poster": "https://i.vimeocdn.com/video/2187582301-cb2f07422a7bad6ecc8edb2368a267d34d8cb42d5fd3a460dc14f19b61b57ba9-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://vitalshark.io/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

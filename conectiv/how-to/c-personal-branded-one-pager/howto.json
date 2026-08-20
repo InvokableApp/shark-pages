@@ -1,0 +1,20 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-personal-branded-one-pager",
+ "funnelName": "Personal Branded One Pager",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [],
+ "links": [
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

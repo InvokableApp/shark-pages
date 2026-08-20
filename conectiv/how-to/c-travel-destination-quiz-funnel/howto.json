@@ -1,0 +1,42 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-travel-destination-quiz-funnel",
+ "funnelName": "Travel Destination Quiz",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216512245",
+   "poster": "https://i.vimeocdn.com/video/2187964332-46e35134f60e2744cd88b648c3ee776d6ba371ddffb468cec0004f8290c3c831-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/u7kmb8ff96e3l53",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks to DM me to access our “where should you travel next?” funnel! This funnel asks questions and makes a recommendation to them on where they could go depending on if they are traveling alone, with family, etc. What type of posts can I put up on social media to entice folks to DM me to get this link so they can get a personalized recommendation?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp"
+ }
+}

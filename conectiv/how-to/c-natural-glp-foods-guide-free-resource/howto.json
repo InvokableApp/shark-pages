@@ -1,0 +1,57 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-natural-glp-foods-guide-free-resource",
+ "funnelName": "GLP Foods Lead Mag",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216505349",
+   "poster": "https://i.vimeocdn.com/video/2187954654-cb880646243c9fff6efb2f8c81ccd471cab8ac5ac45b38890d83fc77ca02a2f6-d_1280.jpg"
+  },
+  {
+   "icon": "pdf",
+   "title": "Print the guide",
+   "tease": "How to print the PDF and hand it to someone in person.",
+   "vimeo": "1217671674",
+   "poster": "https://i.vimeocdn.com/video/2189411653-82f145f6b0665a5b600725465066f986d7c0ad6a99b00ad08314e6d4aae1bf47-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "pdf",
+   "title": "The guide PDF",
+   "tease": "Print it, or send it straight to someone who asked for it.",
+   "label": "Download the PDF",
+   "url": "https://{{custom_values.conectiv__glp_foods_guide_download_url}}",
+   "primary": true
+  },
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/wq64jii9m8k6wf5",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the short trainings, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks interested in my company's health and wellness products that I sell to help folks taking a GLP-1 or interested in taking a GLP product … So I put together a free recipe guide that attracts people who are already taking a GLP-1 but dont want to lose muscle while they lose the weight. I want to get people to reach out to me to download this guide… What type of posts can I put up on social media to entice folks to DM me to get the link to download this free protein rich, strength maintaining and building recipe guide?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp"
+ }
+}

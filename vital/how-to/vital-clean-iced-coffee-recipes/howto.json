@@ -1,0 +1,52 @@
+{
+ "system": "vital",
+ "funnel": "how-to",
+ "page": "vital-clean-iced-coffee-recipes",
+ "funnelName": "Clean Coffee Recipes Free Guide Funnel",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216170253",
+   "poster": "https://i.vimeocdn.com/video/2187531820-dbaf87bfad10e86be5c656859d801fd6ef2057e7ecf0d31961595eaabad4be79-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "pdf",
+   "title": "The guide PDF",
+   "tease": "Print it, or send it straight to someone who asked for it.",
+   "label": "Download the PDF",
+   "url": "https://{{custom_values.vital_clean_brew_guide_pdf_url}}",
+   "primary": true
+  },
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/reyh5ko5e8260am",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://vitalshark.io/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks interested in my companies coffee formula… You can get more information on the coffee and all of the benefits here (drop the link to your coffee)… I also want to offer folks a free lead magnet, which is healthier iced coffee recipes to help them make delicious and healthier iced coffee on the go.. What type of posts can I put up on social media to entice folks to DM me to get the link to download / get more information on the coffee product?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",
+  "url": "https://vitalshark.io/get-ads",
+  "label": "Upgrade to run ads"
+ }
+}

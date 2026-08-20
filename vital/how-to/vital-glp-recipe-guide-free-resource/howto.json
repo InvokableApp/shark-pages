@@ -1,0 +1,44 @@
+{
+ "system": "vital",
+ "funnel": "how-to",
+ "page": "vital-glp-recipe-guide-free-resource",
+ "funnelName": "GLP Recipe Guide & Shopping List",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216169792",
+   "poster": "https://i.vimeocdn.com/video/2187530846-40c899fe4da5973ffd9fdd02f7fb642096f548bfc023f231eb5e65388581cb91-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "pdf",
+   "title": "The guide PDF",
+   "tease": "Print it, or send it straight to someone who asked for it.",
+   "label": "Download the PDF",
+   "url": "https://{{custom_values.vital_glp_recipe_guide_pdf_url}}",
+   "primary": true
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://vitalshark.io/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks interested in my company's health and wellness products that I sell to help folks taking a GLP-1 or interested in taking a GLP product … So I put together a free recipe guide that attracts people who are already taking a GLP-1 but dont want to lose muscle while they lose the weight. I want to get people to reach out to me to download this guide… What type of posts can I put up on social media to entice folks to DM me to get the link to download this free protein rich, strength maintaining and building recipe guide?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",
+  "url": "https://vitalshark.io/get-ads",
+  "label": "Upgrade to run ads"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-investment-options-guide",
+ "funnelName": "Investment Options Quiz",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216468228",
+   "poster": "https://i.vimeocdn.com/video/2187907373-c66c605b2d40ae855f4dd6e519da521508f4e77f2db355c5f1f3be330a45163d-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/c1mqv0iaol3twrc",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks to DM me to access our investment options quiz funnel, it asks them questions related to their risk level, how much disposable income they have etc. and compares side by side investment options to look at! What type of posts can I put up on social media to entice folks to DM me to get this link so they can compare options side by side?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp"
+ }
+}

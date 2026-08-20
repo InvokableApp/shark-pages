@@ -1,0 +1,28 @@
+{
+ "system": "vital",
+ "funnel": "how-to",
+ "page": "vital-social-links-share-page",
+ "funnelName": "Social Links Share Page",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1216169791",
+   "poster": "https://i.vimeocdn.com/video/2187530262-a47ef798f52333b5a4b1f0a0a57e1c3644d125569d8e5e7ccafbca09a69ab66f-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://vitalshark.io/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

@@ -1,0 +1,42 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-which-side-hustle-is-right-for-you-quiz-funnel",
+ "funnelName": "Side Hustle Quiz",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How to use this funnel",
+   "tease": "What it does, where to post it, and what happens once a lead comes through.",
+   "vimeo": "1217391480",
+   "poster": "https://i.vimeocdn.com/video/2189060577-41aee40e70e8d2ebe9eb7f1c0a8b22dfdfee741aee8b836ce6a3318ce86e2544-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/s6qp9hd49af04zk",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic.",
+ "prompt": {
+  "text": "I am trying to get folks interested in joining my companies business opportunity.. Folks get compensated for sharing our products and services on social media and other areas. I have a free quiz tool that I can share with folks to see if this opportunity would be a GOOD FIT for them… What type of posts can I put up on social media to entice folks to DM me to get the link to the free quiz tool to see if my opportunity would be a good fit for them based on their lifestyle, goals and time availability?"
+ },
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp"
+ }
+}
