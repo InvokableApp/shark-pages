@@ -1,405 +1,445 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap');
 
 /* Vital / Minimalist GLP Guide / Opt In
    ------------------------------------------------------------------
-   Design brief: the product's promise is SUBTRACTION, so the page is
-   quiet and wide-margined, and spends its one bold move on the LOOP
-   device (two day cards with a slow alternating highlight). Palette and
-   type are lifted verbatim from the guide PDF so the ad, the page and
-   the download read as one product.
+   DIRECTION: a training field manual, not a wellness landing page.
+   The product is a protocol with fixed numbers (2 days, 3 moves, 2
+   choices, 30 days), so the visual language is gym wall chart and
+   printed program card: Oswald condensed caps, hairline rules, hard
+   offset frames, numerals doing real work. No rounded cards, no soft
+   shadows, no glows, no centred feature grids.
+
+   Type: Oswald (condensed, industrial, the font of gym signage) over
+   Newsreader (editorial serif) so the page reads as a published
+   document rather than a product page.
+
+   Each band paints its OWN full-width ground, so the design never
+   depends on the GHL page background being right.
 
    Every selector carries the block scope: custom code renders inline
-   and shares the GHL page's scope, so an unscoped rule leaks onto the
-   live page (HOSTED-BLOCKS-SOP §1). */
+   and shares the page scope (HOSTED-BLOCKS-SOP §1). */
 
 .sk-vital-vital-minimalist-glp-guide-optin{
-  --paper:#fbfbf7;
-  --surface:#ffffff;
-  --ink:#1b2113;
-  --muted:#68715c;
+  --paper:#f4f2e9;
+  --paper-2:#eae7db;
+  --ink:#171c12;
+  --ink-2:#4d5545;
   --lime:#8db53c;
-  --lime-deep:#5a7526;
-  --grape:#7c3aed;
-  --hair:#dfe3d4;
-  --tint:#f2f6e8;
-  --dark:#20281a;
+  --lime-deep:#54711f;
+  --grape:#6d28d9;
+  --rule:#c9c8b8;
+  --rule-2:#dedbcd;
+  --dark:#171c12;
 
-  --serif:'Fraunces',Georgia,'Times New Roman',serif;
-  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --display:'Oswald','Haettenschweiler','Arial Narrow',sans-serif;
+  --body:'Newsreader',Georgia,'Times New Roman',serif;
 
   box-sizing:border-box;
-  max-width:1080px;
-  margin:0 auto;
-  padding:0 20px;
+  margin:0;
+  padding:0;
   color:var(--ink);
-  font-family:var(--sans);
-  line-height:1.65;
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
   text-align:left;
 }
 .sk-vital-vital-minimalist-glp-guide-optin *{box-sizing:border-box;}
 .sk-vital-vital-minimalist-glp-guide-optin img{max-width:100%;display:block;}
 
-/* ---------- shared type ---------- */
-.sk-vital-vital-minimalist-glp-guide-optin .sk-eyebrow{
-  margin:0 0 14px;
-  font-size:11px;
+/* ---------- bands + measure ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-band{width:100%;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-band-paper{background:var(--paper);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-band-dark{background:var(--dark);color:var(--paper);}
+/* the chart band gets a faint ruled ground, like squared paper */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-band-chart{
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 39px, rgba(23,28,18,.055) 39px 40px),
+    var(--paper-2);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 clamp(20px,5vw,56px);
+}
+
+/* ---------- micro label ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-tag{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 22px;
+  font-family:var(--display);
+  font-size:12px;
   font-weight:600;
-  letter-spacing:.17em;
+  letter-spacing:.22em;
   text-transform:uppercase;
   color:var(--lime-deep);
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-eyebrow span{color:var(--hair);margin:0 4px;}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-center{text-align:center;}
-
-.sk-vital-vital-minimalist-glp-guide-optin .sk-h1{
-  margin:0 0 18px;
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:clamp(34px,5.4vw,56px);
-  line-height:1.04;
-  letter-spacing:-.022em;
-  text-wrap:balance;
+.sk-vital-vital-minimalist-glp-guide-optin .sk-tag i{
+  width:26px;
+  height:3px;
+  background:var(--lime);
+  flex:0 0 auto;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-h1 em{
-  font-style:italic;
+.sk-vital-vital-minimalist-glp-guide-optin .sk-tag span{color:var(--rule);}
+
+/* ---------- display type ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-h1{
+  margin:0 0 22px;
+  font-family:var(--display);
   font-weight:600;
-  color:var(--lime-deep);
+  font-size:clamp(44px,6.6vw,84px);
+  line-height:.92;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
 }
 .sk-vital-vital-minimalist-glp-guide-optin .sk-h2{
-  margin:0 0 10px;
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:clamp(25px,3.6vw,36px);
-  line-height:1.1;
-  letter-spacing:-.018em;
-  text-wrap:balance;
+  margin:0 0 12px;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(30px,4.4vw,52px);
+  line-height:.98;
+  letter-spacing:0;
+  text-transform:uppercase;
 }
+.sk-vital-vital-minimalist-glp-guide-optin .sk-h2-lg{font-size:clamp(36px,6vw,72px);}
 .sk-vital-vital-minimalist-glp-guide-optin .sk-lede{
-  margin:0 0 26px;
-  font-size:17px;
-  color:var(--muted);
+  margin:0 0 30px;
+  font-size:19px;
+  line-height:1.55;
+  color:var(--ink-2);
   max-width:30ch;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-sub{
-  margin:0 auto 8px;
-  font-size:16px;
-  color:var(--muted);
-  max-width:54ch;
-}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-lede-sm{font-size:17.5px;max-width:38ch;margin-bottom:26px;}
 
 /* ---------- hero ---------- */
 .sk-vital-vital-minimalist-glp-guide-optin .sk-hero{
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:56px;
+  grid-template-columns:1.15fr .85fr;
+  gap:clamp(32px,6vw,80px);
   align-items:center;
-  padding:60px 0 54px;
+  padding:clamp(46px,7vw,88px) 0 clamp(50px,7vw,92px);
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-facts{
-  list-style:none;
-  margin:0 0 30px;
-  padding:0;
+
+.sk-vital-vital-minimalist-glp-guide-optin .sk-stats{
   display:flex;
-  gap:30px;
-  flex-wrap:wrap;
+  margin:0 0 34px;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-facts li{
+.sk-vital-vital-minimalist-glp-guide-optin .sk-stats > div{
+  flex:1;
   display:flex;
-  flex-direction:column;
-  border-left:2px solid var(--lime);
-  padding-left:12px;
+  align-items:baseline;
+  gap:10px;
+  padding:16px 18px 16px 0;
+  border-left:1px solid var(--rule-2);
+  padding-left:18px;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-facts b{
-  font-family:var(--serif);
-  font-size:22px;
+.sk-vital-vital-minimalist-glp-guide-optin .sk-stats > div:first-child{border-left:0;padding-left:0;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-stats dt{
+  font-family:var(--display);
   font-weight:700;
-  line-height:1.15;
+  font-size:38px;
+  line-height:.85;
+  color:var(--ink);
   font-variant-numeric:tabular-nums;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-facts span{
-  font-size:12px;
-  color:var(--muted);
-  letter-spacing:.01em;
+.sk-vital-vital-minimalist-glp-guide-optin .sk-stats dd{
+  margin:0;
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:400;
+  line-height:1.32;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--ink-2);
 }
 
-.sk-vital-vital-minimalist-glp-guide-optin .sk-shot{
+/* the cover sits in a hard offset frame, not a soft shadow */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-cover{
   position:relative;
-  display:flex;
-  justify-content:center;
+  margin:0;
+  padding:0 14px 14px 0;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-shot img{
-  width:100%;
-  max-width:380px;
-  border-radius:3px;
-  transform:rotate(-2.2deg);
-  box-shadow:0 2px 4px rgba(27,33,19,.06), 0 30px 60px -28px rgba(27,33,19,.45);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-shot-glow{
+.sk-vital-vital-minimalist-glp-guide-optin .sk-cover::before{
+  content:"";
   position:absolute;
-  inset:auto 0 -6% 0;
-  height:64%;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(141,181,60,.20), rgba(141,181,60,0) 70%);
-  pointer-events:none;
+  inset:14px 0 0 14px;
+  border:1px solid var(--ink);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-cover img{
+  position:relative;
+  width:100%;
 }
 
-/* ---------- CTA ---------- */
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cta{
+/* ---------- button ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn{
   display:inline-block;
   border:0;
-  border-radius:7px;
-  padding:16px 30px;
-  background:var(--lime);
-  color:#141a0c;
-  font-family:var(--sans);
-  font-size:16.5px;
-  font-weight:700;
-  letter-spacing:-.005em;
-  cursor:pointer;
-  transition:background .18s ease, transform .18s ease, box-shadow .18s ease;
-  box-shadow:0 10px 22px -12px rgba(90,117,38,.75);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cta:hover{
-  background:#9bc648;
-  transform:translateY(-1px);
-  box-shadow:0 14px 26px -12px rgba(90,117,38,.85);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cta:active{transform:translateY(0);}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cta:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cta-light{background:var(--lime);color:#141a0c;}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-fine{
-  margin:12px 0 0;
-  font-size:12.5px;
-  color:var(--muted);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-fine-light{color:rgba(251,251,247,.6);}
-
-/* ---------- the loop ---------- */
-.sk-vital-vital-minimalist-glp-guide-optin .sk-loop{
-  padding:52px 0 54px;
-  border-top:1px solid var(--hair);
-  text-align:center;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-days{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  gap:22px;
-  align-items:stretch;
-  margin:30px 0 22px;
-  text-align:left;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day{
-  background:var(--surface);
-  border:1px solid var(--hair);
-  border-radius:10px;
-  padding:24px 24px 20px;
-  transition:border-color .5s ease, box-shadow .5s ease, transform .5s ease;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day[data-sk-on]{
-  border-color:var(--lime);
-  box-shadow:0 0 0 1px var(--lime), 0 18px 34px -24px rgba(90,117,38,.7);
-  transform:translateY(-3px);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day-tag{
-  margin:0 0 6px;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.19em;
-  text-transform:uppercase;
-  color:var(--lime-deep);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day h3{
-  margin:0 0 14px;
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:21px;
-  letter-spacing:-.012em;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day ul{
-  list-style:none;
-  margin:0 0 14px;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day li{
-  font-size:14.5px;
-  padding-left:18px;
-  position:relative;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day li::before{
-  content:"";
-  position:absolute;
-  left:0; top:.62em;
-  width:7px; height:7px;
-  border-radius:50%;
-  background:var(--lime);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-day-foot{
-  margin:0;
-  padding-top:12px;
-  border-top:1px solid var(--hair);
-  font-size:12px;
-  letter-spacing:.03em;
-  color:var(--muted);
-}
-
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cycle{
-  align-self:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:6px;
-  color:var(--muted);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cycle svg{
-  width:38px; height:38px;
-  fill:none;
-  stroke:var(--grape);
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  animation:sk-vital-vital-minimalist-glp-guide-optin-spin 9s linear infinite;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-cycle span{
-  font-size:9.5px;
-  font-weight:600;
+  border-radius:0;
+  padding:17px 34px;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--display);
+  font-size:15px;
+  font-weight:500;
   letter-spacing:.16em;
   text-transform:uppercase;
-}
-@keyframes sk-vital-vital-minimalist-glp-guide-optin-spin{
-  to{ transform:rotate(360deg); }
-}
-
-.sk-vital-vital-minimalist-glp-guide-optin .sk-note{
-  margin:0 auto;
-  max-width:52ch;
-  font-size:14.5px;
-  color:var(--muted);
-}
-
-/* ---------- proof ---------- */
-.sk-vital-vital-minimalist-glp-guide-optin .sk-proof{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:48px;
-  align-items:center;
-  padding:52px 0 54px;
-  border-top:1px solid var(--hair);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-list{
-  list-style:none;
-  margin:20px 0 0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:11px;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-list li{
+  cursor:pointer;
   position:relative;
-  padding-left:26px;
-  font-size:15px;
+  transition:background .16s ease, color .16s ease;
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-list li::before{
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn::after{
   content:"";
   position:absolute;
-  left:2px; top:.52em;
-  width:11px; height:6px;
-  border-left:2px solid var(--lime);
-  border-bottom:2px solid var(--lime);
-  transform:rotate(-45deg);
+  left:0; right:0; bottom:-4px;
+  height:4px;
+  background:var(--lime);
+  transition:transform .16s ease;
+  transform-origin:left;
 }
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn:hover{background:var(--lime-deep);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn:hover::after{transform:scaleX(1.0) translateY(-2px);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn-lg{padding:20px 46px;font-size:16px;background:var(--lime);color:var(--ink);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn-lg:hover{background:var(--paper);color:var(--ink);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-btn-lg::after{background:var(--paper);}
 
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek{
-  margin:0;
-  background:var(--surface);
-  border:1px solid var(--hair);
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 22px 44px -34px rgba(27,33,19,.5);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek figcaption{
-  background:var(--dark);
-  color:var(--paper);
-  padding:13px 20px;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-row{
-  display:grid;
-  grid-template-columns:74px 1fr 26px 1fr;
-  align-items:center;
-  gap:8px;
-  padding:15px 20px;
-  border-top:1px solid var(--hair);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-row:first-of-type{border-top:0;}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-row span{
-  font-size:9.5px;
-  font-weight:700;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  color:var(--lime-deep);
-}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-row b{font-size:14.5px;font-weight:500;}
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-row i{
-  font-style:normal;
-  font-size:9px;
-  text-transform:uppercase;
+.sk-vital-vital-minimalist-glp-guide-optin .sk-fine{
+  margin:18px 0 0;
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:400;
   letter-spacing:.1em;
-  color:var(--muted);
-  text-align:center;
+  text-transform:uppercase;
+  color:var(--ink-2);
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-peek-foot{
+.sk-vital-vital-minimalist-glp-guide-optin .sk-fine-dark{color:rgba(244,242,233,.55);}
+
+/* ---------- section head ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-sec-head{
+  padding:clamp(44px,6vw,78px) 0 30px;
+  max-width:44ch;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-sec-sub{
   margin:0;
-  padding:13px 20px;
-  border-top:1px solid var(--hair);
-  background:var(--tint);
-  font-size:12.5px;
-  color:var(--lime-deep);
-  font-weight:500;
+  font-size:17.5px;
+  color:var(--ink-2);
 }
 
-/* ---------- closing ---------- */
-.sk-vital-vital-minimalist-glp-guide-optin .sk-close{
-  background:var(--dark);
+/* ---------- the wall chart ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-chart{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col{
+  padding:30px clamp(20px,3vw,36px) 26px;
+  border-left:1px solid var(--rule);
+  transition:background .45s ease, color .45s ease;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col:first-child{border-left:0;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col[data-sk-on]{background:var(--ink);color:var(--paper);}
+
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col-id{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin:0 0 16px;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col-id span{
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+  transition:color .45s ease;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col[data-sk-on] .sk-col-id span{color:var(--lime);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col-id b{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(52px,7vw,86px);
+  line-height:.8;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col-name{
+  margin:0 0 20px;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(21px,2.5vw,28px);
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-moves{
+  list-style:none;
+  margin:0 0 20px;
+  padding:0;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-moves li{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  padding:11px 0;
+  border-top:1px solid var(--rule-2);
+  font-size:17px;
+  transition:border-color .45s ease;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col[data-sk-on] .sk-moves li{border-color:rgba(244,242,233,.2);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-moves li span{
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.12em;
+  color:var(--lime-deep);
+  font-variant-numeric:tabular-nums;
+  transition:color .45s ease;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col[data-sk-on] .sk-moves li span{color:var(--lime);}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col-foot{
+  margin:0;
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  transition:color .45s ease;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-col[data-sk-on] .sk-col-foot{color:rgba(244,242,233,.6);}
+
+.sk-vital-vital-minimalist-glp-guide-optin .sk-chart-note{
+  margin:0;
+  padding:26px 0 clamp(46px,6vw,80px);
+  max-width:56ch;
+  font-size:17px;
+  color:var(--ink-2);
+}
+
+/* ---------- inside ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-inside{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(32px,6vw,72px);
+  align-items:start;
+  padding:clamp(46px,6vw,84px) 0 clamp(50px,7vw,90px);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-contents{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-top:1px solid var(--rule);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-contents li{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  padding:14px 0;
+  border-bottom:1px solid var(--rule-2);
+  font-size:17px;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-contents li span{
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.12em;
+  color:var(--lime-deep);
+  font-variant-numeric:tabular-nums;
+  flex:0 0 auto;
+}
+
+/* the builder as a spec table, hard ruled */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec{
+  margin:0;
+  border:2px solid var(--ink);
+  background:var(--paper);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec figcaption{
+  background:var(--ink);
   color:var(--paper);
-  border-radius:14px;
-  padding:52px 40px 46px;
-  margin:0 0 44px;
+  padding:13px 20px;
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row{
+  display:grid;
+  grid-template-columns:80px 1fr 34px 1fr;
+  align-items:center;
+  gap:10px;
+  padding:17px 20px;
+  border-top:1px solid var(--rule-2);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row:first-of-type{border-top:0;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row span{
+  font-family:var(--display);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row b{font-weight:400;font-size:17px;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row i{
+  font-family:var(--display);
+  font-style:normal;
   text-align:center;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-spec-foot{
+  margin:0;
+  padding:14px 20px;
+  border-top:2px solid var(--ink);
+  background:var(--paper-2);
+  font-family:var(--display);
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+
+/* ---------- close ---------- */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-close{
+  padding:clamp(56px,8vw,104px) 0;
+  max-width:none;
 }
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close .sk-h2{color:var(--paper);}
 .sk-vital-vital-minimalist-glp-guide-optin .sk-close p{
-  margin:0 auto 26px;
-  max-width:46ch;
-  font-size:16px;
-  color:rgba(251,251,247,.78);
+  margin:0 0 34px;
+  max-width:42ch;
+  font-size:19px;
+  color:rgba(244,242,233,.72);
 }
-.sk-vital-vital-minimalist-glp-guide-optin .sk-close .sk-fine{margin-top:14px;}
 
 /* ---------- responsive ---------- */
-@media (max-width:860px){
+@media (max-width:880px){
   .sk-vital-vital-minimalist-glp-guide-optin .sk-hero,
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-proof{
-    grid-template-columns:1fr;
-    gap:34px;
-  }
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-hero{padding:38px 0 40px;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-shot{order:-1;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-shot img{max-width:280px;transform:none;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-inside{grid-template-columns:1fr;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-cover{order:-1;max-width:320px;}
   .sk-vital-vital-minimalist-glp-guide-optin .sk-lede{max-width:none;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-days{grid-template-columns:1fr;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-cycle{flex-direction:row;gap:10px;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-close{padding:40px 24px 36px;border-radius:10px;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-cta{width:100%;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-chart{grid-template-columns:1fr;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-col{border-left:0;border-top:1px solid var(--rule);}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-col:first-child{border-top:0;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-btn{width:100%;text-align:center;}
 }
-
+@media (max-width:520px){
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-stats{flex-direction:column;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-stats > div{border-left:0;border-top:1px solid var(--rule-2);padding-left:0;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-stats > div:first-child{border-top:0;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row{grid-template-columns:1fr;gap:3px;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-spec-row i{text-align:left;}
+}
 @media (prefers-reduced-motion:reduce){
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-cycle svg{animation:none;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-day,
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-cta{transition:none;}
-  .sk-vital-vital-minimalist-glp-guide-optin .sk-day[data-sk-on]{transform:none;}
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-col,
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-btn,
+  .sk-vital-vital-minimalist-glp-guide-optin .sk-btn::after{transition:none;}
 }
