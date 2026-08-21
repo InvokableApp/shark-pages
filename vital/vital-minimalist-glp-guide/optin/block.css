@@ -509,6 +509,12 @@
 }
 .sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name span{color:var(--lime);padding:0 6px;}
 .sk-vital-vital-minimalist-glp-guide-optin .sk-btn-sm{padding:11px 22px;font-size:12.5px;letter-spacing:.14em;}
+/* The page has a mobile rule that makes every .sk-btn width:100%, which is right for
+   the in-page CTAs and wrong here: it stretched the bar button across the whole bar,
+   pushed it past the right gutter, and squeezed the label to zero width. Opt the bar
+   out, and let the label take the slack and ellipsis instead of collapsing. */
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn{width:auto;flex:0 0 auto;}
+.sk-vital-vital-minimalist-glp-guide-optin .sk-bar-name{flex:1 1 auto;min-width:0;}
 /* the bar's button sits on ink, so it inverts like the confirmation page's does */
 .sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn{background:var(--paper);color:var(--ink);}
 .sk-vital-vital-minimalist-glp-guide-optin .sk-bar .sk-btn::after{display:none;}
