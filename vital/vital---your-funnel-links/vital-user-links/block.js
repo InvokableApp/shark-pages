@@ -42,6 +42,7 @@
     coffee: '<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2v3"/><path d="M11 2v3"/>',
     kids:   '<circle cx="12" cy="8.5" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M8.5 3.5 12 1l3.5 2.5"/>',
     chart:  '<path d="M3 20h18"/><rect x="5" y="11" width="3.5" height="6" rx="1"/><rect x="10.2" y="7" width="3.5" height="10" rx="1"/><rect x="15.5" y="13" width="3.5" height="4" rx="1"/>',
+    share:  '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>',
     bottle: '<path d="M10 2h4v3.2a3 3 0 0 0 .6 1.8l.9 1.2a4 4 0 0 1 .8 2.4V19a3 3 0 0 1-3 3h-2.6a3 3 0 0 1-3-3v-8.4a4 4 0 0 1 .8-2.4l.9-1.2A3 3 0 0 0 10 5.2Z"/><path d="M7.7 13h8.6"/>'
   };
   function icon(k) {
@@ -431,6 +432,47 @@
           '</div></div></div>' +
         '</article>' +
       '</section>';
+  }
+
+  /* The rep's SHARK affiliate link.
+
+     This refers people to the Vital Shark MARKETING SYSTEM, not to Vital product or the
+     Vital opportunity. Every other link on this page points a lead at the rep's own
+     business; this one points a fellow rep at the system the page itself is part of,
+     so the copy has to say so plainly or it reads as a downline referral.
+
+     One custom value per account, filled from the Affiliate Manager in Shark Sales
+     (campaign.referralRealLink with <<affiliate_id>> replaced by the affiliate's own
+     am_id). Unmatched accounts hold an empty value and this whole section is skipped,
+     which is why a missing affiliate never renders a dead or, worse, someone else's
+     link. */
+  var affiliate = cv("vitalshark_affiliate_link");
+  if (affiliate) {
+    var au = /^https?:\/\//i.test(affiliate) ? affiliate : "https://" + affiliate.replace(/^\/+/, "");
+    html += '<section class="sk-group"><div class="sk-group-head">' +
+              '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
+              '<span class="sk-group-count">1</span></div>' +
+            '<article class="sk-card" data-open="false" style="animation-delay:'+(0.04*n++).toFixed(2)+'s">' +
+              '<button class="sk-trigger" type="button" aria-expanded="false">' +
+                '<span class="sk-mark">'+icon("share")+'</span>' +
+                '<span><span class="sk-name">Your Vital Shark affiliate link</span>' +
+                '<span class="sk-tease">Earn when someone buys the system</span></span>' +
+                '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
+              '</button>' +
+              '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+                '<p class="sk-desc">This is your affiliate link for the Vital Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.</p>' +
+                '<button class="sk-copy" type="button" data-state="idle" data-done="Link copied" data-link="'+au+'">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+                  '<span class="sk-copy-label">Copy Affiliate Link</span>' +
+                '</button>' +
+                '<div class="sk-url">' +
+                  '<span class="sk-url-text">'+au.replace(/^https?:\/\//,"")+'</span>' +
+                  '<a class="sk-open" href="'+au+'" target="_blank" rel="noopener" aria-label="Open your affiliate link">' +
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>' +
+                  '</a>' +
+                '</div>' +
+              '</div></div></div>' +
+            '</article></section>';
   }
 
   body.innerHTML = html;

@@ -41,6 +41,7 @@
     users:  '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
     compass:'<circle cx="12" cy="12" r="9.5"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2Z"/>',
     image:  '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/>',
+    share:  '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>',
     cart:   '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>'
   };
   function icon(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'+I[k]+'</svg>';}
@@ -392,7 +393,48 @@
             '</article></section>';
   }
 
-  if (!live && !direct.length) {
+  /* The rep's SHARK affiliate link.
+
+     This refers people to the Conectiv Shark MARKETING SYSTEM, not to Conectiv product or the
+     Conectiv opportunity. Every other link on this page points a lead at the rep's own
+     business; this one points a fellow rep at the system the page itself is part of,
+     so the copy has to say so plainly or it reads as a downline referral.
+
+     One custom value per account, filled from the Affiliate Manager in Shark Sales
+     (campaign.referralRealLink with <<affiliate_id>> replaced by the affiliate's own
+     am_id). Unmatched accounts hold an empty value and this whole section is skipped,
+     which is why a missing affiliate never renders a dead or, worse, someone else's
+     link. */
+  var affiliate = cv("conectivshark_affiliate_link");
+  if (affiliate) {
+    var au = /^https?:\/\//i.test(affiliate) ? affiliate : "https://" + affiliate.replace(/^\/+/, "");
+    html += '<section class="sk-group"><div class="sk-group-head">' +
+              '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
+              '<span class="sk-group-count">1</span></div>' +
+            '<article class="sk-card" data-open="false" style="animation-delay:'+(0.04*n++).toFixed(2)+'s">' +
+              '<button class="sk-trigger" type="button" aria-expanded="false">' +
+                '<span class="sk-mark">'+icon("share")+'</span>' +
+                '<span><span class="sk-name">Your Conectiv Shark affiliate link</span>' +
+                '<span class="sk-tease">Earn when someone buys the system</span></span>' +
+                '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
+              '</button>' +
+              '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+                '<p class="sk-desc">This is your affiliate link for the Conectiv Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.</p>' +
+                '<button class="sk-copy" type="button" data-state="idle" data-done="Link copied" data-link="'+au+'">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+                  '<span class="sk-copy-label">Copy Affiliate Link</span>' +
+                '</button>' +
+                '<div class="sk-url">' +
+                  '<span class="sk-url-text">'+au.replace(/^https?:\/\//,"")+'</span>' +
+                  '<a class="sk-open" href="'+au+'" target="_blank" rel="noopener" aria-label="Open your affiliate link">' +
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>' +
+                  '</a>' +
+                '</div>' +
+              '</div></div></div>' +
+            '</article></section>';
+  }
+
+  if (!live && !direct.length && !affiliate) {
     root.querySelector("[data-setup]").hidden = false;
     body.hidden = true;
   } else {
