@@ -260,7 +260,7 @@
               '<button class="sk-trigger" type="button" aria-expanded="false">' +
                 '<span class="sk-mark">'+icon("share")+'</span>' +
                 '<span><span class="sk-name">Your GLP Shark affiliate link</span>' +
-                '<span class="sk-tease">Earn when someone buys the system</span></span>' +
+                '<span class="sk-tease">Share the Shark marketing system</span></span>' +
                 '<span class="sk-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>' +
               '</button>' +
               '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
