@@ -68,7 +68,7 @@
   max-width: 62%;
   height: auto;
   margin: 0 auto 26px;
-  animation: sk-rise .6s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-title {
@@ -79,7 +79,7 @@
   line-height: 1.04;
   letter-spacing: -.012em;
   text-transform: uppercase;
-  animation: sk-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
 }
 
 /* the green half of the wordmark, echoing the logo gradient */
@@ -98,7 +98,7 @@
   font-size: 15px;
   line-height: 1.45;
   text-wrap: balance;
-  animation: sk-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-domain {
@@ -113,7 +113,7 @@
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 12.5px;
   color: var(--sk-ink-soft);
-  animation: sk-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .18s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-domain-dot {
@@ -377,7 +377,7 @@
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] {
   background: var(--sk-green-deep);
 }
-.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-pop .35s cubic-bezier(.2,.9,.3,1) both; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] .sk-copy-label { animation: sk-vital-vital---your-funnel-links-vital-user-links-pop .35s cubic-bezier(.2,.9,.3,1) both; }
 
 /* the raw url, readable and selectable */
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-url {
@@ -517,16 +517,16 @@
 
 /* ---------------- motion ---------------- */
 
-@keyframes sk-rise {
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-rise {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes sk-pop {
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-pop {
   0%   { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: none; }
 }
 
-.sk-vital-vital---your-funnel-links-vital-user-links .sk-card { animation: sk-rise .5s cubic-bezier(.2,.7,.3,1) both; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card { animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .5s cubic-bezier(.2,.7,.3,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   .sk-vital-vital---your-funnel-links-vital-user-links *, .sk-vital-vital---your-funnel-links-vital-user-links *::before, .sk-vital-vital---your-funnel-links-vital-user-links *::after {
@@ -592,7 +592,7 @@
   inset: 0;
   background: rgba(18, 24, 15, .5);
   backdrop-filter: blur(2px);
-  animation: sk-a2hs-fade .22s ease both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-a2hs-fade .22s ease both;
 }
 
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel {
@@ -606,7 +606,7 @@
   border-radius: 22px 22px 0 0;
   background: var(--sk-paper);
   box-shadow: var(--sk-shadow-lift);
-  animation: sk-a2hs-up .28s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-a2hs-up .28s cubic-bezier(.2,.7,.3,1) both;
 }
 @media (min-width: 560px) {
   .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet { align-items: center; }
@@ -761,8 +761,8 @@
   background: #000;
 }
 
-@keyframes sk-a2hs-fade { from { opacity: 0 } to { opacity: 1 } }
-@keyframes sk-a2hs-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-a2hs-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-a2hs-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
 
 @media (prefers-reduced-motion: reduce) {
   .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel,
