@@ -60,6 +60,22 @@ var SYS = {
   var root = document.querySelector('.sk-conectiv-your-funnel-links-c-user-links-page');
   if (!root) return;
 
+  /* ---------- typeface ----------
+     The block styles Archivo on the VARIABLE axes, wdth and wght, but it never
+     loaded the font: it inherited whatever the host GHL page happened to
+     request. GHL asks for static weights, and against a static face
+     font-variation-settings is ignored outright, so every weight in the design
+     silently collapsed to one. Load the variable file ourselves so the block
+     owns its own typography instead of borrowing the page's.
+     No IIFE here: the build appends the extra script at the first '})();'. */
+  var FONT_HREF = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap';
+  if (!document.querySelector('link[href^="https://fonts.googleapis.com/css2?family=Archivo:wdth"]')) {
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = FONT_HREF;
+    document.head.appendChild(fontLink);
+  }
+
   /* ---------- icons ----------
      Inline path data in one map, 24x24, fill none, stroke currentColor. Never an
      icon font, never a remote sprite. */
