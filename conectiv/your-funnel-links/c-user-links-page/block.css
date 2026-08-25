@@ -360,6 +360,10 @@
 }
 .sk-conectiv-your-funnel-links-c-user-links-page .sk-desc:last-child { margin-bottom: 0; }
 
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
 /* inline links inside body copy */
 .sk-conectiv-your-funnel-links-c-user-links-page .sk-desc a {
   color: var(--sk-brand-deep);

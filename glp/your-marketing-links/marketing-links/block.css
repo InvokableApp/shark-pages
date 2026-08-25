@@ -360,6 +360,10 @@
 }
 .sk-glp-your-marketing-links-marketing-links .sk-desc:last-child { margin-bottom: 0; }
 
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-glp-your-marketing-links-marketing-links .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
 /* inline links inside body copy */
 .sk-glp-your-marketing-links-marketing-links .sk-desc a {
   color: var(--sk-brand-deep);
