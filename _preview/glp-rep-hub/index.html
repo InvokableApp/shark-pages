@@ -896,6 +896,23 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
 .sk-dmo .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
 @media (min-width: 460px) { .sk-dmo .sk-store { flex-direction: row; } .sk-dmo .sk-store a { flex: 1; } }
 
+/* the lede paragraphs. Left aligned on a ch measure, because centred body copy
+   stops being readable past about two lines. */
+.sk-dmo .sk-lede { margin-top: 26px; }
+.sk-dmo .sk-lede p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+}
+.sk-dmo .sk-lede p:first-child {
+  font-size: 16.4px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-dmo .sk-lede p:last-child { margin-bottom: 0; }
+
 /* ---------------- route: links ---------------- */
 
 /* one dropdown per funnel, name left, copy right, exactly as the live page */
@@ -1078,33 +1095,14 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
   <section class="sk-screen" data-screen="leads">
     <header class="sk-page-head">
       <h1 class="sk-page-title">Your Leads</h1>
-      <p class="sk-page-sub">Everyone who fills in one of your funnels lands in one place.</p>
+      <p class="sk-page-sub">One inbox for every lead, every funnel, on your phone.</p>
     </header>
 
-    <div class="sk-vid" style="margin-top:24px">
-      <button class="sk-frame" type="button" data-vimeo="" aria-label="Play the walkthrough of where your leads live">
-        <svg class="sk-poster" viewBox="0 0 320 180" role="img" aria-hidden="true">
-          <defs><linearGradient id="hubL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
-          <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
-          <circle cx="160" cy="90" r="70" fill="#fff" opacity=".58"/>
-          <rect x="62" y="34" width="122" height="92" rx="10" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
-          <rect x="62" y="34" width="122" height="16" rx="10" fill="var(--sk-ink)" opacity=".07"/>
-          <rect x="74" y="60" width="46" height="6" rx="3" fill="url(#hubL)"/>
-          <rect x="74" y="74" width="82" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
-          <rect x="74" y="86" width="66" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
-          <rect x="74" y="98" width="74" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
-          <path d="M104 126h38v8h-38z" fill="var(--sk-ink)" opacity=".1"/>
-          <rect x="196" y="46" width="62" height="106" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
-          <rect x="216" y="53" width="22" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".18"/>
-          <rect x="204" y="66" width="46" height="14" rx="7" fill="url(#hubL)"/>
-          <rect x="204" y="86" width="46" height="14" rx="7" fill="var(--sk-ink)" opacity=".08"/>
-          <rect x="204" y="106" width="46" height="14" rx="7" fill="url(#hubL)" opacity=".55"/>
-          <rect x="204" y="126" width="46" height="14" rx="7" fill="var(--sk-ink)" opacity=".08"/>
-          <circle cx="266" cy="60" r="9" fill="var(--sk-brand)"/>
-          <text x="266" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">3</text>
-        </svg>
-        <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l13-7.5z"/></svg></span>
-      </button>
+    <div class="sk-lede">
+      <p>Every person who fills in one of your funnels lands in your HighLevel account. That is where you talk to them, and it is the only place you need to check.</p>
+      <p>Download the HighLevel app and log in with the details you were sent when your account was set up. Every text, email and form reply, from every funnel you run, arrives in one inbox. You reply straight from your phone, and you get a notification the moment a new lead comes in, so you can answer while they are still paying attention.</p>
+      <p>Speed matters more than anything you say. A lead who hears back in five minutes is worth many times one you get to tomorrow, so turn notifications ON and reply from wherever you are.</p>
+      <p>Prefer a bigger screen? Log in at app.gohighlevel.com. Same inbox, same conversations, nothing separate to learn.</p>
     </div>
 
     <div class="sk-group">
@@ -1431,8 +1429,8 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
             </div>
 
             <p class="sk-desc">Somewhere right now, someone is typing out the exact problem you solve, in public, and asking strangers for help. Your job is to find those people and be the most useful answer in the thread.</p>
-            <p class="sk-desc">Facebook groups are one of the BEST places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
-            <p class="sk-desc">Do not stop at Facebook. <a href="https://www.reddit.com/search/?q=&type=posts" target="_blank" rel="noopener">REDDIT</a>, <a href="https://nextdoor.com" target="_blank" rel="noopener">NEXTDOOR</a>, and <a href="https://www.quora.com" target="_blank" rel="noopener">QUORA</a> are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
+            <p class="sk-desc"><a href="https://www.facebook.com/groups/" target="_blank" rel="noopener">Facebook groups</a> are one of the BEST places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
+            <p class="sk-desc">Do not stop at Facebook. <a href="https://www.reddit.com" target="_blank" rel="noopener">REDDIT</a>, <a href="https://nextdoor.com" target="_blank" rel="noopener">NEXTDOOR</a>, and <a href="https://www.quora.com" target="_blank" rel="noopener">QUORA</a> are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
             <p class="sk-desc">Then actually answer it. Give away the useful thing for free, in the thread, where everyone can read it. No pitch, no link drop. Being the person who helped is what makes someone check your profile, and your profile is what turns them into a lead.</p>
             <p class="sk-desc">As mentioned in the previous section, consistency is KEY. You have to keep swinging if you want to get a hit. Show up every day and answer at least ONE real question, wherever you find it.</p>
 
