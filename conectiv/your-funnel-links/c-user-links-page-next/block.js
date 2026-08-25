@@ -41,6 +41,11 @@ var SYS = {
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ],
   lists: [
+    { label: 'Social content', icon: 'image', name: 'Ready to post images',
+      tease: 'Product, opportunity and lead magnet', single: {
+        url: 'https://www.canva.com/design/DAHRi1jc7jI/xscZV8kpW6--BbQ3JQDl4w/view',
+        desc: 'Every ready to post image for Conectiv, in one Canva folder. Open it, take your own copy, then edit that copy so the originals stay clean for everyone else.',
+        cta: 'Open the image library' } },
     { label: 'Direct buy links', icon: 'cart', name: 'Your buy links',
       tease: 'Product and partner links', perRep: true, items: [
     { cv:"conectiv__your_mylife_wellness_link", name:"MyLife Wellness, for customers" },
@@ -194,6 +199,27 @@ var SYS = {
      rather than a funnel. Static entries carry a url, per rep entries carry a
      custom value and drop out when it is empty. */
   (SYS.lists || []).forEach(function (L) {
+    /* A library that is ONE destination rather than a directory. A dropdown
+       holding a single row costs two taps to reach one link, so it renders as
+       a card with a primary button instead. */
+    if (L.single) {
+      html += '<div class="sk-group"><div class="sk-group-head">' +
+        '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+        '<span class="sk-group-count">1</span></div>' +
+        '<article class="sk-card" data-open="false">' +
+          '<button class="sk-trigger" type="button" aria-expanded="false">' +
+            '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+            '<span><span class="sk-name">' + L.name + '</span>' +
+            '<span class="sk-tease">' + L.tease + '</span></span>' +
+            '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<p class="sk-desc">' + L.single.desc + '</p>' +
+            '<a class="sk-copy" href="' + L.single.url + '" target="_blank" rel="noopener">' +
+              icon('image', 1.8) + L.single.cta + '</a>' +
+          '</div></div></div></article></div>';
+      return;
+    }
     var rows = L.items.map(function (x) {
       var u = x.url || (x.cv ? cv(x.cv) : '');
       if (!u) return '';
