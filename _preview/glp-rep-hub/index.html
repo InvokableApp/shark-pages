@@ -1574,12 +1574,6 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
       <p class="sk-foot-copy">Get to work, this stuff works, but ONLY if you work the system. Let&#8217;s GO!</p>
     </div>
   </footer>
-    <div class="sk-tail">
-      <a class="sk-chip" href="#" data-asset="storefront">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></svg>
-        Want more people to talk to? Visit the lead storefront.
-      </a>
-    </div>
   </section>
 
   <!-- ============ SUPPORT ============ -->
@@ -1784,6 +1778,7 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
   /* ---------- funnel links ---------- */
   var linksHost = root.querySelector('[data-links]');
   var html = '';
+  var liveCount = 0;
   GROUPS.forEach(function (g) {
     var rows = g.items.map(function (it) {
       var url = cv(it.cv) || it.demo;
@@ -1811,6 +1806,7 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
         '</div></div></div></article>';
     }).join('');
     if (!rows) return;
+    liveCount += rows.split('<article').length - 1;
     html += '<div class="sk-group"><div class="sk-group-head">' +
       '<span class="sk-group-label">' + g.label + '</span>' +
       '<span class="sk-group-rule"></span>' +
@@ -1837,6 +1833,7 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
   /* direct buy links, one dropdown, name left and copy right */
   var direct = DIRECT.map(function (d) { d.link = cv(d.cv) || d.demo; return d; })
                      .filter(function (d) { return !!d.link; });
+  liveCount += direct.length;
   if (direct.length) {
     html += '<div class="sk-group"><div class="sk-group-head">' +
       '<span class="sk-group-label">Direct buy links</span><span class="sk-group-rule"></span>' +
@@ -1862,6 +1859,7 @@ html, body { margin: 0; padding: 0; background: #F7F4F1; }
      nothing rather than a dead link or, worse, someone else's. */
   var affiliate = cv('glpshark_affiliate_link') || 'glpshark.com/?fp_ref=your-username';
   if (affiliate) {
+    liveCount++;
     var au = href(affiliate);
     html += '<div class="sk-group"><div class="sk-group-head">' +
       '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
