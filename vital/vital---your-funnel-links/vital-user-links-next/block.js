@@ -1,80 +1,110 @@
 (function () {
 var SYS = {
-  nameCv: 'rep_first_name',
-  domainCv: null,
+  nameCv: 'vital_rep_first_name',
+  domainCv: 'main_vital_url',
   groups: [
-    { label: 'Start a conversation', items: [
-      { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
-        tease: 'Free foods guide',
-        howto: 'https://glpshark.com/glp-food-guide-training',
-        canva: 'https://canva.link/gszpkrgjxsn7fga',
-        desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
-      { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
-        tease: 'Recipes and grocery list',
-        canva: 'https://canva.link/n6t92pxvso2744m',
-        howto: 'https://glpshark.com/protein-recipe-guide-training',
-        desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
-      { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
-        tease: 'Free workout download',
-        desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' } ]},
-
-    { label: 'Quizzes and tools', items: [
-      { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
-        tease: 'Recommends the right support',
-        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
-      { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
-        tease: 'Finds their work-from-home fit',
-        howto: 'https://glpshark.com/side-hustle-quiz-training',
-        desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' } ]},
-
-    { label: 'Share the product', items: [
-      { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
-        tease: 'For people who already know you',
-        howto: 'https://glpshark.com/drops-funnel-training',
-        desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
-      { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
-        tease: 'For cold traffic',
-        desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
-
-    { label: 'Explain ORYGN', items: [
-      { cv: 'orygn_tour_funnel_link', icon: 'info', name: 'ORYGN Tour',
-        tease: 'Products, opportunity, comp plan',
-        desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is.' },
-      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Navigation Page',
-        tease: 'Let them choose their path',
-        desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
-
-    { label: 'Recruit', items: [
-      { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
-        tease: 'For people who asked about the business',
-        howto: 'https://glpshark.com/opportunity-warm-training',
-        desc: 'The business explained, for people who have already told you they want to hear more.' },
-      { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
-        tease: 'For cold traffic',
-        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
-
-    { label: 'Your own pages', items: [
-      { cv: 'personal_branded_funnel_link', icon: 'user', name: 'Personal Branded One Pager',
-        tease: 'Your name, your contact details',
-        desc: 'Your own branded page with your name and details. Use it as your link in bio.' } ]}
+    {
+      label: "Start a conversation",
+      items: [
+        { icon: "leaf", name: "High Protein Recipe Guide",
+          slug: "vital-protein-first", canva: "https://canva.link/glkotdv7npi40hl", howto: "https://vitalshark.io/vital-protein-first-training",
+          tease: "Free recipes and grocery list",
+          desc: "A free high protein recipe guide and grocery list. Your best cold opener for anyone who wants to lose weight without giving up food they actually like." },
+        { icon: "chart", name: "GLP Recipe Guide",
+          slug: "vital-free-glp-recipe-guide", howto: "https://vitalshark.io/vital-glp-recipe-training",
+          tease: "Built for people on GLP medications",
+          desc: "A free recipe and shopping list guide written for people taking GLP medications. Strong opener for the weight loss conversation, and it leads into Nourish+." },
+        { icon: "coffee", name: "Clean Coffee Recipes",
+          slug: "vital-clean-iced-coffee", canva: "https://canva.link/reyh5ko5e8260am", howto: "https://vitalshark.io/vital-clean-brew-training",
+          tease: "Iced coffee without the junk",
+          desc: "A free clean iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives." },
+        { icon: "kids", name: "Einstein Kids Meal Guide",
+          slug: "vital-einstein-kids", canva: "https://canva.link/65wch4c5w1he7ma", howto: "https://vitalshark.io/vital-einstein-kids-training",
+          tease: "Kid friendly meals for parents",
+          desc: "A free kid friendly meal guide for parents. Works well in mom groups, school communities and family pages." }
+      ]
+    },
+    {
+      label: "Quizzes and tools",
+      items: [
+        { icon: "scan", name: "Health Scanner",
+          slug: "vital-health-scan", canva: "https://canva.link/8r9y6jcyifb3002", howto: "https://vitalshark.io/vital-health-scan-training",
+          tease: "Free face scan in about a minute",
+          desc: "Sends them to a free face scan that reads key wellness markers in about a minute. High curiosity, low commitment, and it hands you the follow up." },
+        { icon: "quiz", name: "Side Hustle Quiz",
+          slug: "vital-match-quiz", canva: "https://canva.link/iei2zd7bavlwksq", howto: "https://vitalshark.io/vital-side-hustle-training",
+          tease: "Sorts them into the right fit",
+          desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Vital fits. Use it when someone is interested but not ready to talk." }
+      ]
+    },
+    {
+      label: "Explain Vital",
+      items: [
+        { icon: "info", name: "What Is Vital",
+          slug: "", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/what-is-vital-training",
+          tease: "Your main site, the simple version",
+          desc: "The plain explainer. Send it the moment someone asks what Vital actually is, so you are not answering the same question by text every week. This one is your domain on its own." },
+        { icon: "chart", name: "Opportunity One Pager",
+          slug: "vital-opportunity-explainer", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/vital-opportunity-training",
+          tease: "The business side, on one page",
+          desc: "One page that lays out the business side start to finish. Best for people who have already told you they want to hear more." }
+      ]
+    },
+    {
+      label: "Your own pages",
+      items: [
+        { icon: "user", name: "Personal Branded Site",
+          slug: "vital-personal-site", howto: "https://vitalshark.io/vital-personal-branded-training",
+          tease: "Your name, your contact details",
+          desc: "Your own branded page carrying your name and contact details. Use it as the link in your bio and on your business card." },
+        { icon: "link", name: "Social Links Page",
+          slug: "vital-social-links", howto: "https://vitalshark.io/vital-social-links-training",
+          tease: "One link that holds all your links",
+          desc: "One link that holds every other link. Put it in your Instagram and TikTok bio so you are never editing a bio again." }
+      ]
+    }
   ],
   lists: [
-    { label: 'Social content', icon: 'image', name: 'Ready to post images',
-      tease: 'Product, opportunity and lead magnet', items: [
-      { name: 'Product images, 1x1',       url: 'https://canva.link/qryqd6ykd8cj52m' },
-      { name: 'Product images, 9x16',      url: 'https://canva.link/x7jlmu1gmeo5umf' },
-      { name: 'Opportunity images, 1x1',   url: 'https://canva.link/wpssx0sbep1xhej' },
-      { name: 'Opportunity images, 9x16',  url: 'https://canva.link/d43ep73ca1unbjn' },
-      { name: 'Recipe lead magnet images', url: 'https://canva.link/n6t92pxvso2744m' } ] },
-    { label: 'Direct buy links', icon: 'cart', name: 'Your buy links',
-      tease: 'Product and recruitment', perRep: true, items: [
-      { cv: 'rep_buy_link',         name: 'Product link, for customers' },
-      { cv: 'distributor_buy_link', name: 'Recruitment link, for distributors' } ] }
+    { label: 'Direct product links', icon: 'cart', name: 'Product links',
+      tease: 'Every product link, ready to copy', perRep: true, items: [
+    { cv: "vital_product_url_retail",                 name: "Vital Shop" },
+    { cv: "vital_product_url_sub",                    name: "Subscription / Autoship" },
+    { cv: "vital_opportunity_url",                    name: "Business Opportunity" },
+    { cv: "vital_product_url_retail_kids_collection", name: "Kids Collection" },
+    { cv: "vital_nourish_url",        name: "Nourish+" },
+    { cv: "vital_genius_shake_url",   name: "Genius Shake" },
+    { cv: "vital_dfenz_url",          name: "D-Fenz" },
+    { cv: "vital_smart_biotics_url",  name: "Smart Biotics" },
+    { cv: "vital_pro_url",            name: "Vital Pro" },
+    { cv: "vital_daily_url",          name: "V-Daily" },
+    { cv: "vital_age_collagen_url",   name: "VitalAge Collagen" },
+    { cv: "vital_performance_url",    name: "Performance+" },
+    { cv: "vital_glutation_plus_url", name: "Glutation Plus+" },
+    { cv: "vital_glutation_url",      name: "V-Glutation" },
+    { cv: "vital_omega_3_url",        name: "V-Omega 3" },
+    { cv: "vital_curcumax_url",       name: "V-Curcumax" },
+    { cv: "vital_fortyflora_url",     name: "V-Fortyflora" },
+    { cv: "vital_control_url",        name: "V-Control" },
+    { cv: "vital_s_balance_url",      name: "S-Balance" },
+    { cv: "vital_nitro_url",          name: "V-Nitro" },
+    { cv: "vital_organex_url",        name: "V-Organex" },
+    { cv: "vital_te_detox_url",       name: "V-TE Detox" },
+    { cv: "vital_asculax_url",        name: "V-Asculax" },
+    { cv: "vital_itaren_url",         name: "V-Itaren" },
+    { cv: "vital_itadol_url",         name: "V-Itadol" },
+    { cv: "vital_italay_url",         name: "V-Italay" },
+    { cv: "vital_italboost_url",      name: "V-Italboost" },
+    { cv: "vital_lattekaffe_url",     name: "LatteKafe" },
+    { cv: "vital_thermokafe_url",     name: "V-ThermoKafe" },
+    { cv: "vital_neurokafe_url",      name: "V-NeuroKafe" },
+    { cv: "vital_lovkafe_url",        name: "V-LovKafe" },
+    { cv: "vital_nrgy_tropical_url",  name: "V-NRGY Tropical" }
+  ] }
   ],
-  affiliate: { cv: 'glpshark_affiliate_link', name: 'Your GLP Shark affiliate link',
-    desc: 'This is your affiliate link for the GLP Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
+  affiliate: { cv: 'vitalshark_affiliate_link', name: 'Your Vital Shark affiliate link',
+    desc: 'This is your affiliate link for the Vital Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
 };
-  var root = document.querySelector('.sk-glp-your-marketing-links-marketing-links');
+  var root = document.querySelector('.sk-vital-vital---your-funnel-links-vital-user-links');
   if (!root) return;
 
   /* ---------- icons ----------
@@ -415,7 +445,7 @@ var SYS = {
      default, so "skip if one exists" silently loses every time: drop the
      platform default first, then add ours, and leave anything deliberate. */
   (function () {
-    var ICON = 'https://invokableapp.github.io/shark-pages/_brand/glp/';
+    var ICON = 'https://invokableapp.github.io/shark-pages/_brand/vital/';
     function head(tag, attrs) {
       if (attrs.rel) {
         var existing = document.head.querySelectorAll(tag + '[rel="' + attrs.rel + '"]');
@@ -430,8 +460,8 @@ var SYS = {
     }
     head('link', { rel: 'apple-touch-icon', sizes: '180x180', href: ICON + 'icon-180.png' });
     head('link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: ICON + 'icon-512.png' });
-    head('meta', { name: 'apple-mobile-web-app-title', content: 'GLP Shark' });
-    head('meta', { name: 'theme-color', content: '#EC5E2A' });
+    head('meta', { name: 'apple-mobile-web-app-title', content: 'Vital Shark' });
+    head('meta', { name: 'theme-color', content: '#8DB53C' });
   })();
 
   /* ---------- add to home screen ----------

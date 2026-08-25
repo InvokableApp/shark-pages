@@ -7,27 +7,27 @@
      1. the nine palette tokens below
      2. the wordmark in .sk-logo
 
-   Scope class is .sk-glp-your-marketing-links-marketing-links for this dial-in file. In the hosted block it becomes
+   Scope class is .sk-conectiv-your-funnel-links-c-user-links-page for this dial-in file. In the hosted block it becomes
    .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
    ============================================================ */
 
 
-.sk-glp-your-marketing-links-marketing-links *,
-.sk-glp-your-marketing-links-marketing-links *::before,
-.sk-glp-your-marketing-links-marketing-links *::after { box-sizing: border-box; }
+.sk-conectiv-your-funnel-links-c-user-links-page *,
+.sk-conectiv-your-funnel-links-c-user-links-page *::before,
+.sk-conectiv-your-funnel-links-c-user-links-page *::after { box-sizing: border-box; }
 
-.sk-glp-your-marketing-links-marketing-links {
+.sk-conectiv-your-funnel-links-c-user-links-page {
   /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
      system section 2 table; swapping these nine is the whole reskin. */
-  --sk-brand:      #EC5E2A;
-  --sk-brand-deep: #C94A1E;
-  --sk-brand-tint: #FDF0EA;
-  --sk-ink:        #101410;
-  --sk-ink-soft:   #56605A;
-  --sk-ink-faint:  #8B948E;
-  --sk-paper:      #F7F4F1;
-  --sk-line:       #E6E0DA;
-  --sk-line-soft:  #EFE9E3;
+  --sk-brand:      #2563EB;
+  --sk-brand-deep: #155EEF;
+  --sk-brand-tint: #EAF0FD;
+  --sk-ink:        #0B1220;
+  --sk-ink-soft:   #5B6577;
+  --sk-ink-faint:  #8B93A5;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DFE4EF;
+  --sk-line-soft:  #E9EDF5;
   --sk-card:       #ffffff;
 
   /* structural tokens, identical in every system */
@@ -54,10 +54,10 @@
   overflow-x: clip;
 }
 
-.sk-glp-your-marketing-links-marketing-links > * { grid-column: 2; }
+.sk-conectiv-your-funnel-links-c-user-links-page > * { grid-column: 2; }
 
 /* paper grain, keeps the flat off white from reading as an unstyled default */
-.sk-glp-your-marketing-links-marketing-links .sk-grain {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-grain {
   position: fixed;
   inset: 0;
   grid-column: 1 / -1;
@@ -67,25 +67,25 @@
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
 }
-.sk-glp-your-marketing-links-marketing-links > *:not(.sk-grain) { position: relative; z-index: 1; }
+.sk-conectiv-your-funnel-links-c-user-links-page > *:not(.sk-grain) { position: relative; z-index: 1; }
 
 /* ---------------- header ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-head { padding: 40px 4px 8px; text-align: center; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-head { padding: 40px 4px 8px; text-align: center; }
 
 /* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
    page belongs to the next system. Inlined as a data URI here so the preview is
    self contained; in the hosted block it points at _brand/{system}/logo.svg. */
-.sk-glp-your-marketing-links-marketing-links .sk-logo {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-logo {
   display: block;
   width: 188px;
   max-width: 64%;
   height: auto;
   margin: 0 auto 26px;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s cubic-bezier(.2,.7,.3,1) both;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-title {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title {
   margin: 0;
   font-family: "Archivo", sans-serif;
   /* Sized to land on three lines at the full measure and four on a phone. The
@@ -97,12 +97,12 @@
   letter-spacing: -.006em;
   text-transform: uppercase;
   text-wrap: balance;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
 }
 
 /* the brand gradient sits on the two shouted words, same trick as the
    marketing links title */
-.sk-glp-your-marketing-links-marketing-links .sk-title em {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title em {
   font-style: normal;
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
   -webkit-background-clip: text;
@@ -119,17 +119,17 @@
 
 /* ---------------- video facade ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-vid {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vid {
   margin-top: 26px;
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r);
   background: var(--sk-card);
   box-shadow: var(--sk-shadow);
   overflow: hidden;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-frame {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame {
   position: relative;
   display: block;
   width: 100%;
@@ -140,9 +140,9 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-play {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-play {
   position: absolute;
   inset: 0;
   margin: auto;
@@ -151,18 +151,18 @@
   width: 62px; height: 62px;
   border-radius: 50%;
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
-  box-shadow: 0 10px 26px -10px rgba(201,74,30,.8);
+  box-shadow: 0 10px 26px -10px rgba(21,94,239,.8);
   transition: transform .22s cubic-bezier(.2,.8,.3,1);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-frame:hover .sk-play { transform: scale(1.06); }
-.sk-glp-your-marketing-links-marketing-links .sk-frame:active .sk-play { transform: scale(.97); }
-.sk-glp-your-marketing-links-marketing-links .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
 
 /* ---------------- at a glance ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-glance { margin-top: 44px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-glance { margin-top: 44px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-h2 {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-h2 {
   margin: 0 0 16px;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 104, "wght" 700;
@@ -174,16 +174,16 @@
   text-wrap: balance;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-tiles {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tiles {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
 @media (min-width: 480px) {
-  .sk-glp-your-marketing-links-marketing-links .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-tiles { grid-template-columns: repeat(3, 1fr); }
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-tile {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,9 +194,9 @@
   background: var(--sk-card);
   box-shadow: var(--sk-shadow);
   text-align: center;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-tile span {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tile span {
   font-size: 13.5px;
   line-height: 1.3;
   font-weight: 600;
@@ -205,23 +205,23 @@
 }
 
 /* icon chip, the .sk-mark component */
-.sk-glp-your-marketing-links-marketing-links .sk-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark {
   display: grid;
   place-items: center;
   flex: none;
   width: 42px; height: 42px;
   border-radius: var(--sk-r-sm);
-  background: linear-gradient(140deg, rgba(236,94,42,.16), rgba(201,74,30,.10));
+  background: linear-gradient(140deg, rgba(37,99,235,.16), rgba(21,94,239,.10));
   color: var(--sk-brand-deep);
   transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
 
 /* ---------------- group header ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-group { margin-top: 40px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group { margin-top: 40px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-group-head {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-head {
   position: sticky;
   top: 0;
   z-index: 3;
@@ -230,9 +230,9 @@
   gap: 12px;
   margin: 0 0 12px;
   padding: 14px 4px 12px;
-  background: linear-gradient(var(--sk-paper) 62%, rgba(247,244,241,0));
+  background: linear-gradient(var(--sk-paper) 62%, rgba(244,246,250,0));
 }
-.sk-glp-your-marketing-links-marketing-links .sk-group-label {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-label {
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 88, "wght" 700;
   font-size: 11.5px;
@@ -241,12 +241,12 @@
   color: var(--sk-brand-deep);
   white-space: nowrap;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-group-rule {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-rule {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
 }
-.sk-glp-your-marketing-links-marketing-links .sk-group-count {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-count {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 11px;
   color: var(--sk-ink-faint);
@@ -254,24 +254,24 @@
 
 /* ---------------- accordion card ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-card {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card {
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r);
   background: var(--sk-card);
   box-shadow: var(--sk-shadow);
   overflow: hidden;
   transition: box-shadow .3s ease, border-color .3s ease;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-card + .sk-card { margin-top: 10px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card + .sk-card { margin-top: 10px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] {
-  border-color: rgba(236,94,42,.45);
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] {
+  border-color: rgba(37,99,235,.45);
   box-shadow: var(--sk-shadow-lift);
 }
 
 /* the trigger row */
-.sk-glp-your-marketing-links-marketing-links .sk-trigger {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-trigger {
   display: grid;
   grid-template-columns: 42px 1fr 22px;
   align-items: center;
@@ -287,13 +287,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-mark {
   background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
   color: #fff;
   transform: rotate(-4deg) scale(1.04);
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-name {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-name {
   display: block;
   margin: 0;
   font-family: "Archivo", sans-serif;
@@ -304,7 +304,7 @@
   text-wrap: balance;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-tease {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tease {
   display: block;
   margin-top: 5px;
   font-size: 13.5px;
@@ -312,35 +312,35 @@
   color: var(--sk-ink-faint);
   transition: opacity .25s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-tease { opacity: 0; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-chev {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev {
   justify-self: end;
   color: var(--sk-ink-faint);
   transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-chev svg { width: 18px; height: 18px; display: block; }
-.sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-chev {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-chev {
   transform: rotate(180deg);
   color: var(--sk-brand-deep);
 }
 
 /* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
    without a magic number. Never animate height or max-height here. */
-.sk-glp-your-marketing-links-marketing-links .sk-panel {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
-.sk-glp-your-marketing-links-marketing-links .sk-panel-inner { overflow: hidden; }
-.sk-glp-your-marketing-links-marketing-links .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-inner { overflow: hidden; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
 
 /* ---------------- panel contents ---------------- */
 
 /* the illustration. House style art, drawn in the palette, never a photo and
    never a stock render. */
-.sk-glp-your-marketing-links-marketing-links .sk-art {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -350,29 +350,29 @@
   background: var(--sk-brand-tint);
   overflow: hidden;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-art svg { display: block; width: 100%; height: 100%; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art svg { display: block; width: 100%; height: 100%; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-desc {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc {
   margin: 0 0 12px;
   font-size: 14.8px;
   line-height: 1.52;
   color: var(--sk-ink-soft);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-desc:last-child { margin-bottom: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc:last-child { margin-bottom: 0; }
 
 /* inline links inside body copy */
-.sk-glp-your-marketing-links-marketing-links .sk-desc a {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc a {
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(236,94,42,.45);
+  text-decoration-color: rgba(37,99,235,.45);
   text-underline-offset: 2px;
   transition: text-decoration-color .2s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
 
 /* the lead in line that sits directly above a button */
-.sk-glp-your-marketing-links-marketing-links .sk-lead {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lead {
   margin: 0 0 10px;
   font-size: 14.8px;
   line-height: 1.45;
@@ -381,7 +381,7 @@
 }
 
 /* primary action, the .sk-copy component */
-.sk-glp-your-marketing-links-marketing-links .sk-copy {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,15 +405,15 @@
   -webkit-tap-highlight-color: transparent;
   transition: transform .16s ease, filter .25s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-copy:hover { filter: brightness(1.04); }
-.sk-glp-your-marketing-links-marketing-links .sk-copy:active { transform: scale(.985); }
-.sk-glp-your-marketing-links-marketing-links .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy:hover { filter: brightness(1.04); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy:active { transform: scale(.985); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
 
 /* Long label variant. Two CTAs are full sentences rather than the short shouted
    label the component was tuned for, and uppercase plus .085em tracking turns
    those into a three line block. Sentence case and tighter tracking keep them
    readable without touching a word of the copy. */
-.sk-glp-your-marketing-links-marketing-links .sk-copy--long {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--long {
   min-height: 56px;
   padding: 14px 20px;
   font-variation-settings: "wdth" 100, "wght" 650;
@@ -428,10 +428,10 @@
    Joe asked for these off the page rather than pointing at nothing. The copy
    and the buttons are still in the markup, so restoring them is deleting this
    one rule and filling in the hrefs. Do not delete the markup. */
-.sk-glp-your-marketing-links-marketing-links .sk-videoslot { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-videoslot { display: none; }
 
 /* secondary link, the .sk-chip component */
-.sk-glp-your-marketing-links-marketing-links .sk-chip {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -448,23 +448,23 @@
   transition: background .2s ease, border-color .2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-chip:hover,
-.sk-glp-your-marketing-links-marketing-links .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
-.sk-glp-your-marketing-links-marketing-links .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip:hover,
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
 
 /* ---------------- footer ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-foot { margin-top: 44px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot { margin-top: 44px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-foot-card {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-card {
   padding: 30px var(--sk-pad) 28px;
   border-radius: var(--sk-r);
-  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #C94A1E 100%);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #155EEF 100%);
   color: #fff;
   text-align: center;
   box-shadow: var(--sk-shadow-lift);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-foot-eyebrow {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-eyebrow {
   margin: 0 0 12px;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 88, "wght" 700;
@@ -473,7 +473,7 @@
   text-transform: uppercase;
   color: rgba(255,255,255,.6);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-foot-title {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-title {
   margin: 0 auto;
   max-width: 22ch;
   font-family: "Archivo", sans-serif;
@@ -484,7 +484,7 @@
   text-transform: uppercase;
   text-wrap: balance;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-foot-copy {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-copy {
   margin: 16px auto 0;
   max-width: 32ch;
   font-size: 14.6px;
@@ -494,22 +494,22 @@
 
 /* ---------------- focus ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links a:focus-visible,
-.sk-glp-your-marketing-links-marketing-links button:focus-visible {
+.sk-conectiv-your-funnel-links-c-user-links-page a:focus-visible,
+.sk-conectiv-your-funnel-links-c-user-links-page button:focus-visible {
   outline: 2px solid var(--sk-brand);
   outline-offset: 3px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-trigger:focus-visible { outline-offset: -3px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-trigger:focus-visible { outline-offset: -3px; }
 
 /* ---------------- motion ---------------- */
 
-@keyframes sk-glp-your-marketing-links-marketing-links-rise {
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sk-glp-your-marketing-links-marketing-links *, .sk-glp-your-marketing-links-marketing-links *::before, .sk-glp-your-marketing-links-marketing-links *::after {
+  .sk-conectiv-your-funnel-links-c-user-links-page *, .sk-conectiv-your-funnel-links-c-user-links-page *::before, .sk-conectiv-your-funnel-links-c-user-links-page *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
@@ -524,7 +524,7 @@
 
 /* ---------------- top bar ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-bar {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar {
   position: sticky;
   top: 0;
   z-index: 20;
@@ -538,9 +538,9 @@
   border-bottom: 1px solid transparent;
   transition: border-color .25s ease;
 }
-.sk-glp-your-marketing-links-marketing-links[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+.sk-conectiv-your-funnel-links-c-user-links-page[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
 
-.sk-glp-your-marketing-links-marketing-links .sk-bar-in {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-in {
   grid-column: 2;
   display: grid;
   grid-template-columns: 44px 1fr 44px;
@@ -549,7 +549,7 @@
   min-height: 56px;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-bar-btn {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn {
   display: grid;
   place-items: center;
   width: 44px; height: 44px;
@@ -561,40 +561,40 @@
   -webkit-tap-highlight-color: transparent;
   transition: background .2s ease, opacity .2s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
-.sk-glp-your-marketing-links-marketing-links .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
-.sk-glp-your-marketing-links-marketing-links .sk-bar-btn[hidden] { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn[hidden] { display: none; }
 
 /* the bar wordmark, shown on the destinations only. On home the big logo in
    the page body is doing that job and a second one would just repeat it. */
-.sk-glp-your-marketing-links-marketing-links .sk-bar-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-mark {
   justify-self: center;
   height: 22px;
   width: auto;
   opacity: 0;
   transition: opacity .3s ease;
 }
-.sk-glp-your-marketing-links-marketing-links:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+.sk-conectiv-your-funnel-links-c-user-links-page:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
 
 /* ---------------- screens ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-screen { display: none; }
-.sk-glp-your-marketing-links-marketing-links .sk-screen[data-active="true"] { display: block; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-screen { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-screen[data-active="true"] { display: block; }
 
 /* ---------------- home ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-home { padding: 26px 0 0; text-align: center; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-home { padding: 26px 0 0; text-align: center; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-home-logo {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-home-logo {
   display: block;
   width: 224px;
   max-width: 74%;
   height: auto;
   margin: 0 auto 30px;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s cubic-bezier(.2,.7,.3,1) both;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-ask {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-ask {
   margin: 0 auto 22px;
   max-width: 18ch;
   font-family: "Archivo", sans-serif;
@@ -604,9 +604,9 @@
   letter-spacing: -.01em;
   text-transform: uppercase;
   text-wrap: balance;
-  animation: sk-glp-your-marketing-links-marketing-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-ask em {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-ask em {
   font-style: normal;
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
   -webkit-background-clip: text;
@@ -616,11 +616,11 @@
   margin: -.06em -.1em;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
 
 /* the four destination cards. Same grammar as the accordion trigger row, so
    home reads as part of the same page rather than a different product. */
-.sk-glp-your-marketing-links-marketing-links .sk-dest {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest {
   display: grid;
   grid-template-columns: 46px 1fr 22px;
   align-items: center;
@@ -635,22 +635,22 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
-  animation: sk-glp-your-marketing-links-marketing-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-dest:hover {
-  border-color: rgba(236,94,42,.45);
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover {
+  border-color: rgba(37,99,235,.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-dest:active { transform: translateY(0); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:active { transform: translateY(0); }
 
-.sk-glp-your-marketing-links-marketing-links .sk-dest .sk-mark { width: 46px; height: 46px; }
-.sk-glp-your-marketing-links-marketing-links .sk-dest:hover .sk-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover .sk-mark {
   background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
   color: #fff;
 }
 
-.sk-glp-your-marketing-links-marketing-links .sk-dest-name {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-name {
   display: block;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 104, "wght" 640;
@@ -658,19 +658,19 @@
   line-height: 1.2;
   letter-spacing: -.006em;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-dest-tease {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-tease {
   display: block;
   margin-top: 4px;
   font-size: 13.5px;
   line-height: 1.35;
   color: var(--sk-ink-faint);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
-.sk-glp-your-marketing-links-marketing-links .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
-.sk-glp-your-marketing-links-marketing-links .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
 
 /* utility pill, deliberately not gradient: it must not compete with the four */
-.sk-glp-your-marketing-links-marketing-links .sk-a2hs {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -688,15 +688,15 @@
   box-shadow: var(--sk-shadow);
   transition: color .18s, border-color .18s, transform .18s;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
-.sk-glp-your-marketing-links-marketing-links .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
-.sk-glp-your-marketing-links-marketing-links .sk-a2hs:active { transform: translateY(1px); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:active { transform: translateY(1px); }
 
 /* ---------------- destination page head ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-head { padding: 30px 4px 6px; text-align: center; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-page-title {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-title {
   margin: 0;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 106, "wght" 700;
@@ -706,7 +706,7 @@
   text-transform: uppercase;
   text-wrap: balance;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-page-sub {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-sub {
   margin: 12px auto 0;
   max-width: 34ch;
   color: var(--sk-ink-soft);
@@ -717,7 +717,7 @@
 
 /* ---------------- nav sheet ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-sheet {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -725,16 +725,16 @@
   align-items: flex-end;
   justify-content: center;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet[hidden] { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet[hidden] { display: none; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-scrim {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-scrim {
   position: absolute;
   inset: 0;
   background: rgba(16,20,16,.5);
   backdrop-filter: blur(2px);
-  animation: sk-glp-your-marketing-links-marketing-links-fade .22s ease both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-fade .22s ease both;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-panel {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel {
   position: relative;
   width: 100%;
   max-width: 520px;
@@ -745,28 +745,28 @@
   border-radius: 22px 22px 0 0;
   background: var(--sk-paper);
   box-shadow: var(--sk-shadow-lift);
-  animation: sk-glp-your-marketing-links-marketing-links-up .28s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-up .28s cubic-bezier(.2,.7,.3,1) both;
 }
 @media (min-width: 560px) {
-  .sk-glp-your-marketing-links-marketing-links .sk-sheet { align-items: center; }
-  .sk-glp-your-marketing-links-marketing-links .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet { align-items: center; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-grip {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip {
   width: 38px; height: 4px;
   margin: 0 auto 14px;
   border-radius: 99px;
   background: var(--sk-line);
 }
-@media (min-width: 560px) { .sk-glp-your-marketing-links-marketing-links .sk-sheet-grip { display: none; } }
+@media (min-width: 560px) { .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip { display: none; } }
 
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-head {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-title {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-title {
   margin: 0;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 88, "wght" 700;
@@ -775,7 +775,7 @@
   text-transform: uppercase;
   color: var(--sk-brand-deep);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-x {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x {
   flex: none;
   width: 32px; height: 32px;
   display: grid; place-items: center;
@@ -785,11 +785,11 @@
   color: var(--sk-ink-soft);
   cursor: pointer;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-nav {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav {
   display: grid;
   grid-template-columns: 40px 1fr;
   align-items: center;
@@ -807,17 +807,17 @@
   -webkit-tap-highlight-color: transparent;
   transition: border-color .2s ease, background .2s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
-.sk-glp-your-marketing-links-marketing-links .sk-nav .sk-mark { width: 40px; height: 40px; }
-.sk-glp-your-marketing-links-marketing-links .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
-.sk-glp-your-marketing-links-marketing-links .sk-nav[aria-current="page"] .sk-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav[aria-current="page"] .sk-mark {
   background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
   color: #fff;
 }
 
 /* ---------------- route: leads ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-route {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route {
   display: grid;
   grid-template-columns: 46px 1fr;
   align-items: center;
@@ -828,25 +828,25 @@
   background: var(--sk-card);
   box-shadow: var(--sk-shadow);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-route + .sk-route { margin-top: 10px; }
-.sk-glp-your-marketing-links-marketing-links .sk-route-name {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route + .sk-route { margin-top: 10px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-name {
   display: block;
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 104, "wght" 640;
   font-size: 16px;
   line-height: 1.2;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-route-copy {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-copy {
   display: block;
   margin-top: 4px;
   font-size: 13.6px;
   line-height: 1.4;
   color: var(--sk-ink-soft);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-route-act { grid-column: 1 / -1; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-act { grid-column: 1 / -1; }
 
 /* numbered steps, CSS counter so the markup carries no numerals */
-.sk-glp-your-marketing-links-marketing-links .sk-steps {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps {
   counter-reset: sk-step;
   list-style: none;
   margin: 0;
@@ -855,7 +855,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-steps li {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li {
   counter-increment: sk-step;
   display: grid;
   grid-template-columns: 26px 1fr;
@@ -869,7 +869,7 @@
   line-height: 1.45;
   color: var(--sk-ink);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-steps li::before {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li::before {
   content: counter(sk-step);
   display: grid;
   place-items: center;
@@ -880,41 +880,41 @@
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 12.5px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-steps b { font-weight: 700; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps b { font-weight: 700; }
 
 /* app store row */
-.sk-glp-your-marketing-links-marketing-links .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
-@media (min-width: 460px) { .sk-glp-your-marketing-links-marketing-links .sk-store { flex-direction: row; } .sk-glp-your-marketing-links-marketing-links .sk-store a { flex: 1; } }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-conectiv-your-funnel-links-c-user-links-page .sk-store { flex-direction: row; } .sk-conectiv-your-funnel-links-c-user-links-page .sk-store a { flex: 1; } }
 
 /* the lede paragraphs. Left aligned on a ch measure, because centred body copy
    stops being readable past about two lines. */
-.sk-glp-your-marketing-links-marketing-links .sk-lede { margin-top: 26px; }
-.sk-glp-your-marketing-links-marketing-links .sk-lede p {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede { margin-top: 26px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p {
   margin: 0 0 14px;
   font-size: 15.2px;
   line-height: 1.55;
   color: var(--sk-ink-soft);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-lede p:first-child {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p:first-child {
   font-size: 16.4px;
   line-height: 1.45;
   font-weight: 600;
   color: var(--sk-ink);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-lede p:last-child { margin-bottom: 0; }
-.sk-glp-your-marketing-links-marketing-links .sk-lede a {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p:last-child { margin-bottom: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede a {
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(236,94,42,.45);
+  text-decoration-color: rgba(37,99,235,.45);
   text-underline-offset: 2px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
 
 /* ---------------- route: links ---------------- */
 
 /* one dropdown per funnel, name left, copy right, exactly as the live page */
-.sk-glp-your-marketing-links-marketing-links .sk-url {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -924,7 +924,7 @@
   border-radius: var(--sk-r-sm);
   background: #FDFAF7;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-url-text {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url-text {
   flex: 1;
   min-width: 0;
   font-family: "JetBrains Mono", ui-monospace, monospace;
@@ -935,7 +935,7 @@
   -webkit-user-select: all;
   user-select: all;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-open {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open {
   flex: none;
   display: grid;
   place-items: center;
@@ -947,22 +947,22 @@
   text-decoration: none;
   transition: background .2s ease, border-color .2s ease;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
-.sk-glp-your-marketing-links-marketing-links .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-links {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px;
   margin-top: 12px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-links .sk-chip { margin-top: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-links .sk-chip { margin-top: 0; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
 
 /* preview banner. Says plainly that the data is stand in, so nobody reviews
    demo urls as if they were a rep's real ones. */
-.sk-glp-your-marketing-links-marketing-links .sk-note {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-note {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -975,13 +975,13 @@
   font-size: 13.6px;
   line-height: 1.45;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
 
 /* ---------------- route: support ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-support { display: flex; flex-direction: column; gap: 10px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-support { display: flex; flex-direction: column; gap: 10px; }
 
-.sk-glp-your-marketing-links-marketing-links .sk-contact {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact {
   display: grid;
   grid-template-columns: 46px 1fr 22px;
   align-items: center;
@@ -995,19 +995,19 @@
   text-decoration: none;
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-contact:hover {
-  border-color: rgba(236,94,42,.45);
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact:hover {
+  border-color: rgba(37,99,235,.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }
-.sk-glp-your-marketing-links-marketing-links .sk-contact:hover .sk-mark {
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact:hover .sk-mark {
   background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
   color: #fff;
 }
 
 /* ---------------- storefront tail ---------------- */
 
-.sk-glp-your-marketing-links-marketing-links .sk-tail { margin-top: 14px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tail { margin-top: 14px; }
 
-@keyframes sk-glp-your-marketing-links-marketing-links-fade { from { opacity: 0 } to { opacity: 1 } }
-@keyframes sk-glp-your-marketing-links-marketing-links-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }

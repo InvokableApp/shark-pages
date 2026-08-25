@@ -1,5 +1,58 @@
 (function () {
-  var root = document.querySelector('.sk-glp-your-marketing-links-marketing-links');
+var SYS = {
+  nameCv: 'conectiv__your_first_name',
+  domainCv: 'conectiv__main_url',
+  groups: [
+    { label:"Start a conversation", items:[
+      { slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"https://conectivshark.com/c-natural-glp-foods-guide-training", icon:"leaf", name:"Natural GLP Foods Guide",
+        tease:"Free foods guide",
+        desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
+      { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
+        tease:"Free recipe guide",
+        desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." } ]},
+
+    { label:"Quizzes and tools", items:[
+      { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
+        tease:"Finds their work-from-home fit",
+        desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
+      { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"https://conectivshark.com/c-travel-destination-training", icon:"compass", name:"Travel Destination Quiz",
+        tease:"Matches them to a destination",
+        desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
+      { slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"https://conectivshark.com/c-investment-training", icon:"quiz", name:"Investment Options Quiz",
+        tease:"Matches them to an option",
+        desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
+
+    { label:"Explain Conectiv", items:[
+      { slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"https://conectivshark.com/c-what-is-conectiv-training", icon:"info", name:"What Is Conectiv",
+        tease:"The full overview",
+        desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
+
+    { label:"Recruit", items:[
+      { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"https://conectivshark.com/c-opportunity-training", icon:"users", name:"Opportunity Explainer",
+        tease:"The business, explained",
+        desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
+
+    { label:"Your own pages", items:[
+      { slug:"c-personal-branded-page", howto:"https://conectivshark.com/c-personal-branded-training", icon:"user", name:"Personal Branded One Pager",
+        tease:"Your name, your contact details",
+        desc:"Your own branded page with your name and details. Use it as your link in bio." },
+      { slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
+        tease:"All your socials in one place",
+        desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
+  ],
+  lists: [
+    { label: 'Direct buy links', icon: 'cart', name: 'Your buy links',
+      tease: 'Product and partner links', perRep: true, items: [
+    { cv:"conectiv__your_mylife_wellness_link", name:"MyLife Wellness, for customers" },
+    { cv:"conectiv__alive_link",                name:"ALIVE coffee" },
+    { cv:"conectiv__amaze_link",                name:"AMAZE" },
+    { cv:"conectiv__your_coneqtx_link",         name:"ConeqtX, for partners" }
+  ] }
+  ],
+  affiliate: { cv: 'conectivshark_affiliate_link', name: 'Your Conectiv Shark affiliate link',
+    desc: 'This is your affiliate link for the Conectiv Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
+};
+  var root = document.querySelector('.sk-conectiv-your-funnel-links-c-user-links-page');
   if (!root) return;
 
   /* ---------- icons ----------
@@ -51,87 +104,31 @@
     { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' }
   ];
 
-  /* ---------- the funnel library ----------
-     GLP funnel links come from ONE custom value each, not domain plus slug: GLP
-     buyers run several domains and their slugs drift per install, so a fixed
-     slug would silently serve the 404 fallback with a 200.
-     PREVIEW urls stand in until the real values are wired. */
-  var GROUPS = [
-    { label: 'Start a conversation', items: [
-      { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
-        tease: 'Free foods guide',
-        howto: 'https://glpshark.com/glp-food-guide-training',
-        canva: 'https://canva.link/gszpkrgjxsn7fga',
-        desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
-      { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
-        tease: 'Recipes and grocery list',
-        canva: 'https://canva.link/n6t92pxvso2744m',
-        howto: 'https://glpshark.com/protein-recipe-guide-training',
-        desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
-      { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
-        tease: 'Free workout download',
-        desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' } ]},
+  /* ---------- link building ----------
+     Two models across the fleet, and the difference is deliberate.
+       cv   : one custom value per funnel holding a FULL url. GLP reps run
+              several domains per account and their slugs drift per install, so
+              an assembled url silently serves the 404 fallback with a 200.
+       slug : one domain custom value plus a fixed slug per funnel. Vital and
+              Conectiv installs are uniform, so the slugs hold.
+     A slug starting with http is absolute and used verbatim, which is how the
+     central how-to pages sit alongside a rep's own domain. */
+  var domain = SYS.domainCv
+    ? cv(SYS.domainCv).replace(/^https?:\/\//i, '').replace(/\/+$/, '')
+    : '';
 
-    { label: 'Quizzes and tools', items: [
-      { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
-        tease: 'Recommends the right support',
-        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
-      { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
-        tease: 'Finds their work-from-home fit',
-        howto: 'https://glpshark.com/side-hustle-quiz-training',
-        desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' } ]},
-
-    { label: 'Share the product', items: [
-      { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
-        tease: 'For people who already know you',
-        howto: 'https://glpshark.com/drops-funnel-training',
-        desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
-      { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
-        tease: 'For cold traffic',
-        desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
-
-    { label: 'Explain ORYGN', items: [
-      { cv: 'orygn_tour_funnel_link', icon: 'info', name: 'ORYGN Tour',
-        tease: 'Products, opportunity, comp plan',
-        desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is.' },
-      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Navigation Page',
-        tease: 'Let them choose their path',
-        desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
-
-    { label: 'Recruit', items: [
-      { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
-        tease: 'For people who asked about the business',
-        howto: 'https://glpshark.com/opportunity-warm-training',
-        desc: 'The business explained, for people who have already told you they want to hear more.' },
-      { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
-        tease: 'For cold traffic',
-        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
-
-    { label: 'Your own pages', items: [
-      { cv: 'personal_branded_funnel_link', icon: 'user', name: 'Personal Branded One Pager',
-        tease: 'Your name, your contact details',
-        desc: 'Your own branded page with your name and details. Use it as your link in bio.' } ]}
-  ];
-
-  /* Ready to post social library. Identical for every GLP rep, so these are
-     static in the block rather than custom values. Source: the GLP ads training
-     page (glpshark.com/ads-training-page1-769355). */
-  var SOCIAL = [
-    { name: 'Product images, 1x1',       url: 'https://canva.link/qryqd6ykd8cj52m' },
-    { name: 'Product images, 9x16',      url: 'https://canva.link/x7jlmu1gmeo5umf' },
-    { name: 'Opportunity images, 1x1',   url: 'https://canva.link/wpssx0sbep1xhej' },
-    { name: 'Opportunity images, 9x16',  url: 'https://canva.link/d43ep73ca1unbjn' },
-    { name: 'Recipe lead magnet images', url: 'https://canva.link/n6t92pxvso2744m' }
-  ];
-
-  /* the rep's own buy links, which are not funnels */
-  var DIRECT = [
-    { cv: 'rep_buy_link',         name: 'Product link, for customers' },
-    { cv: 'distributor_buy_link', name: 'Recruitment link, for distributors' }
-  ];
+  function funnelUrl(it) {
+    if (SYS.domainCv) {
+      if (!domain) return '';
+      if (/^https?:/i.test(it.slug || '')) return it.slug;
+      return 'https://' + domain + (it.slug ? '/' + it.slug : '');
+    }
+    var v = cv(it.cv);
+    return v ? href(v) : '';
+  }
 
   /* ---------- greeting ---------- */
-  var firstName = cv('rep_first_name');
+  var firstName = cv(SYS.nameCv);
   var nameEl = root.querySelector('[data-name]');
   if (nameEl) nameEl.textContent = firstName;
   var commaEl = root.querySelector('[data-comma]');
@@ -159,11 +156,11 @@
   var linksHost = root.querySelector('[data-links]');
   var html = '';
   var liveCount = 0;
-  GROUPS.forEach(function (g) {
+  SYS.groups.forEach(function (g) {
     var rows = g.items.map(function (it) {
-      var url = cv(it.cv);
-      if (!url) return '';
-      var full = href(url);
+      var full = funnelUrl(it);
+      if (!full) return '';
+      var url = full.replace(/^https?:\/\//, '');
       return '<article class="sk-card" data-open="false">' +
         '<button class="sk-trigger" type="button" aria-expanded="false">' +
           '<span class="sk-mark" aria-hidden="true">' + icon(it.icon) + '</span>' +
@@ -192,52 +189,41 @@
       '<span class="sk-group-rule"></span>' +
       '<span class="sk-group-count">' + g.items.length + '</span></div>' + rows + '</div>';
   });
-  /* social content: one dropdown holding the whole image library */
-  html += '<div class="sk-group"><div class="sk-group-head">' +
-    '<span class="sk-group-label">Social content</span><span class="sk-group-rule"></span>' +
-    '<span class="sk-group-count">' + SOCIAL.length + '</span></div>' +
-    '<article class="sk-card" data-open="false">' +
-      '<button class="sk-trigger" type="button" aria-expanded="false">' +
-        '<span class="sk-mark" aria-hidden="true">' + icon('image') + '</span>' +
-        '<span><span class="sk-name">Ready to post images</span>' +
-        '<span class="sk-tease">Product, opportunity and lead magnet</span></span>' +
-        '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
-      '</button>' +
-      '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-        '<ul class="sk-plist">' + SOCIAL.map(function (x) {
-          return '<li class="sk-prow"><a class="sk-prow-name" href="' + x.url + '" target="_blank" rel="noopener">' +
-            x.name + '</a><a class="sk-chip sk-chip--go" href="' + x.url + '" target="_blank" rel="noopener">Open</a></li>';
-        }).join('') + '</ul>' +
-      '</div></div></div></article></div>';
-
-  /* direct buy links, one dropdown, name left and copy right */
-  var direct = DIRECT.map(function (d) { d.link = cv(d.cv); return d; })
-                     .filter(function (d) { return !!d.link; });
-  liveCount += direct.length;
-  if (direct.length) {
+  /* Extra groups: a row list of name plus link, used for the social image
+     library, product and buy links, and anything else that is a directory
+     rather than a funnel. Static entries carry a url, per rep entries carry a
+     custom value and drop out when it is empty. */
+  (SYS.lists || []).forEach(function (L) {
+    var rows = L.items.map(function (x) {
+      var u = x.url || (x.cv ? cv(x.cv) : '');
+      if (!u) return '';
+      u = href(u);
+      return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
+        x.name + '</a>' + (x.url
+          ? '<a class="sk-chip sk-chip--go" href="' + u + '" target="_blank" rel="noopener">Open</a>'
+          : '<button class="sk-copy sk-copy--mini" type="button" data-copy="' + u + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy</span></button>') + '</li>';
+    }).filter(Boolean);
+    if (!rows.length) return;
+    if (L.perRep) liveCount += rows.length;
     html += '<div class="sk-group"><div class="sk-group-head">' +
-      '<span class="sk-group-label">Direct buy links</span><span class="sk-group-rule"></span>' +
-      '<span class="sk-group-count">' + direct.length + '</span></div>' +
+      '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + rows.length + '</span></div>' +
       '<article class="sk-card" data-open="false">' +
         '<button class="sk-trigger" type="button" aria-expanded="false">' +
-          '<span class="sk-mark" aria-hidden="true">' + icon('cart') + '</span>' +
-          '<span><span class="sk-name">Your buy links</span>' +
-          '<span class="sk-tease">Product and recruitment</span></span>' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+          '<span><span class="sk-name">' + L.name + '</span>' +
+          '<span class="sk-tease">' + L.tease + '</span></span>' +
           '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
         '</button>' +
         '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-          '<ul class="sk-plist">' + direct.map(function (d) {
-            var u = href(d.link);
-            return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
-              d.name + '</a><button class="sk-copy sk-copy--mini" type="button" data-copy="' + u + '">' +
-              icon('copy', 1.8) + '<span class="sk-copy-label">Copy</span></button></li>';
-          }).join('') + '</ul>' +
+          '<ul class="sk-plist">' + rows.join('') + '</ul>' +
         '</div></div></div></article></div>';
-  }
+  });
 
   /* Refer the system. The affiliate link is per rep, so a missing one renders
      nothing rather than a dead link or, worse, someone else's. */
-  var affiliate = cv('glpshark_affiliate_link');
+  var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
   if (affiliate) {
     liveCount++;
     var au = href(affiliate);
@@ -247,12 +233,12 @@
       '<article class="sk-card" data-open="false">' +
         '<button class="sk-trigger" type="button" aria-expanded="false">' +
           '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
-          '<span><span class="sk-name">Your GLP Shark affiliate link</span>' +
+          '<span><span class="sk-name">' + SYS.affiliate.name + '</span>' +
           '<span class="sk-tease">Share the Shark marketing system</span></span>' +
           '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
         '</button>' +
         '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-          '<p class="sk-desc">This is your affiliate link for the GLP Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.</p>' +
+          '<p class="sk-desc">' + SYS.affiliate.desc + '</p>' +
           '<button class="sk-copy" type="button" data-copy="' + au + '">' +
             icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
           '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
@@ -407,7 +393,7 @@
      default, so "skip if one exists" silently loses every time: drop the
      platform default first, then add ours, and leave anything deliberate. */
   (function () {
-    var ICON = 'https://invokableapp.github.io/shark-pages/_brand/glp/';
+    var ICON = 'https://invokableapp.github.io/shark-pages/_brand/conectiv/';
     function head(tag, attrs) {
       if (attrs.rel) {
         var existing = document.head.querySelectorAll(tag + '[rel="' + attrs.rel + '"]');
@@ -422,8 +408,8 @@
     }
     head('link', { rel: 'apple-touch-icon', sizes: '180x180', href: ICON + 'icon-180.png' });
     head('link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: ICON + 'icon-512.png' });
-    head('meta', { name: 'apple-mobile-web-app-title', content: 'GLP Shark' });
-    head('meta', { name: 'theme-color', content: '#EC5E2A' });
+    head('meta', { name: 'apple-mobile-web-app-title', content: 'Conectiv Shark' });
+    head('meta', { name: 'theme-color', content: '#2563EB' });
   })();
 
   /* ---------- add to home screen ----------
