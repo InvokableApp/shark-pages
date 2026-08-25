@@ -8,6 +8,14 @@
  "videos": [],
  "links": [
   {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "How to open conversations, ask for testimonials, and re-engage people you have spoken to before.",
+   "label": "Open the scripts",
+   "url": "https://conectivshark.com/additional-scripts",
+   "primary": true
+  },
+  {
    "icon": "school",
    "title": "Training hub",
    "tease": "Every training for your marketing system in one place, not just this funnel.",
