@@ -157,7 +157,7 @@ var SYS = {
     { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
     { id: 'leads',   icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
     { id: 'promote', icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
-    { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' }
+    { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or send us a message.' }
   ];
 
   /* ---------- link building ----------

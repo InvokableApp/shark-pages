@@ -297,7 +297,7 @@
   display: block;
   margin: 0;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 640;
+  font-variation-settings: "wdth" 104, "wght" 720;
   font-size: 16.5px;
   line-height: 1.22;
   letter-spacing: -.006em;
@@ -657,7 +657,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-dest-name {
   display: block;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 640;
+  font-variation-settings: "wdth" 104, "wght" 720;
   font-size: 17px;
   line-height: 1.2;
   letter-spacing: -.006em;
@@ -804,7 +804,7 @@
   background: var(--sk-card);
   color: inherit;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 640;
+  font-variation-settings: "wdth" 104, "wght" 720;
   font-size: 15.5px;
   text-decoration: none;
   cursor: pointer;
@@ -836,7 +836,7 @@
 .sk-glp-your-marketing-links-marketing-links .sk-route-name {
   display: block;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 640;
+  font-variation-settings: "wdth" 104, "wght" 720;
   font-size: 16px;
   line-height: 1.2;
 }
