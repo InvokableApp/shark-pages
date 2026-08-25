@@ -91,7 +91,8 @@
   /* Sized to land on three lines at the full measure and four on a phone. The
      width axis does part of that work: dropping from 112 to 100 fits more per
      line than shrinking alone would, so the headline stays a headline. */
-  font-variation-settings: "wdth" 100, "wght" 700;
+  font-weight: 800;
+  font-variation-settings: "wdth" 100, "wght" 800;
   font-size: clamp(21px, 5.4vw, 26px);
   line-height: 1.12;
   letter-spacing: -.006em;
@@ -165,7 +166,8 @@
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-h2 {
   margin: 0 0 16px;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 700;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
   font-size: 20px;
   line-height: 1.16;
   letter-spacing: -.006em;
@@ -482,7 +484,8 @@
   margin: 0 auto;
   max-width: 22ch;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 106, "wght" 700;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
   font-size: clamp(20px, 5.6vw, 25px);
   line-height: 1.14;
   letter-spacing: -.006em;
@@ -603,7 +606,8 @@
   margin: 0 auto 22px;
   max-width: 18ch;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 104, "wght" 700;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
   font-size: clamp(23px, 6.6vw, 28px);
   line-height: 1.1;
   letter-spacing: -.01em;
@@ -705,7 +709,8 @@
 .sk-vital-vital---your-funnel-links-vital-user-links .sk-page-title {
   margin: 0;
   font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 106, "wght" 700;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
   font-size: clamp(25px, 7vw, 31px);
   line-height: 1.08;
   letter-spacing: -.01em;
