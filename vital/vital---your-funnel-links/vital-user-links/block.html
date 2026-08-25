@@ -1,39 +1,26 @@
 <!--
-  VITAL / vital---your-funnel-links / vital-user-links
-  "Your Funnel Links" - the rep-facing mobile hub.
-  Every data-cv-* is filled by GHL server-side in the socket and passed through
-  by the loader. Funnel links = buyer domain + fixed slug; product links come
-  from the rep's own referral custom values and live behind one dropdown.
-  The four Meta CAPI values are deliberately absent: this page is public.
+  vital/vital---your-funnel-links/vital-user-links
+  The rep hub: a home screen plus funnel links, leads, how to promote
+  and support. One block, hash routed, so the whole hub travels in a
+  snapshot as a single custom code socket.
 -->
 <div class="sk-vital-vital---your-funnel-links-vital-user-links"
-     data-cv-vitalshark_affiliate_link="{{custom_values.vitalshark_affiliate_link}}"
      data-cv-main_vital_url="{{custom_values.main_vital_url}}"
      data-cv-vital_age_collagen_url="{{custom_values.vital_age_collagen_url}}"
-     data-cv-vital_app_ref_code="{{custom_values.vital_app_ref_code}}"
      data-cv-vital_asculax_url="{{custom_values.vital_asculax_url}}"
-     data-cv-vital_clean_brew_guide_pdf_url="{{custom_values.vital_clean_brew_guide_pdf_url}}"
-     data-cv-vital_company_name="{{custom_values.vital_company_name}}"
      data-cv-vital_control_url="{{custom_values.vital_control_url}}"
      data-cv-vital_curcumax_url="{{custom_values.vital_curcumax_url}}"
      data-cv-vital_daily_url="{{custom_values.vital_daily_url}}"
      data-cv-vital_dfenz_url="{{custom_values.vital_dfenz_url}}"
-     data-cv-vital_einstein_kids_guide_pdf_url="{{custom_values.vital_einstein_kids_guide_pdf_url}}"
-     data-cv-vital_email_designated_domain="{{custom_values.vital_email_designated_domain}}"
-     data-cv-vital_facebook_url="{{custom_values.vital_facebook_url}}"
      data-cv-vital_fortyflora_url="{{custom_values.vital_fortyflora_url}}"
      data-cv-vital_genius_shake_url="{{custom_values.vital_genius_shake_url}}"
-     data-cv-vital_glp_recipe_guide_pdf_url="{{custom_values.vital_glp_recipe_guide_pdf_url}}"
      data-cv-vital_glutation_plus_url="{{custom_values.vital_glutation_plus_url}}"
      data-cv-vital_glutation_url="{{custom_values.vital_glutation_url}}"
-     data-cv-vital_income_disclaimer="{{custom_values.vital_income_disclaimer}}"
-     data-cv-vital_instagram_url="{{custom_values.vital_instagram_url}}"
      data-cv-vital_itadol_url="{{custom_values.vital_itadol_url}}"
      data-cv-vital_italay_url="{{custom_values.vital_italay_url}}"
      data-cv-vital_italboost_url="{{custom_values.vital_italboost_url}}"
      data-cv-vital_itaren_url="{{custom_values.vital_itaren_url}}"
      data-cv-vital_lattekaffe_url="{{custom_values.vital_lattekaffe_url}}"
-     data-cv-vital_linkedin_url="{{custom_values.vital_linkedin_url}}"
      data-cv-vital_lovkafe_url="{{custom_values.vital_lovkafe_url}}"
      data-cv-vital_neurokafe_url="{{custom_values.vital_neurokafe_url}}"
      data-cv-vital_nitro_url="{{custom_values.vital_nitro_url}}"
@@ -47,52 +34,52 @@
      data-cv-vital_product_url_retail="{{custom_values.vital_product_url_retail}}"
      data-cv-vital_product_url_retail_kids_collection="{{custom_values.vital_product_url_retail_kids_collection}}"
      data-cv-vital_product_url_sub="{{custom_values.vital_product_url_sub}}"
-     data-cv-vital_protein_first_guide_pdf_url="{{custom_values.vital_protein_first_guide_pdf_url}}"
-     data-cv-vital_rep_email="{{custom_values.vital_rep_email}}"
      data-cv-vital_rep_first_name="{{custom_values.vital_rep_first_name}}"
-     data-cv-vital_rep_full_name="{{custom_values.vital_rep_full_name}}"
-     data-cv-vital_rep_phone="{{custom_values.vital_rep_phone}}"
      data-cv-vital_s_balance_url="{{custom_values.vital_s_balance_url}}"
      data-cv-vital_smart_biotics_url="{{custom_values.vital_smart_biotics_url}}"
      data-cv-vital_te_detox_url="{{custom_values.vital_te_detox_url}}"
      data-cv-vital_thermokafe_url="{{custom_values.vital_thermokafe_url}}"
-     data-cv-vital_tiktok_url="{{custom_values.vital_tiktok_url}}"
-     data-cv-vital_twitter_url="{{custom_values.vital_twitter_url}}"
-     data-cv-vital_youtube_url="{{custom_values.vital_youtube_url}}">
-
+     data-cv-vitalshark_affiliate_link="{{custom_values.vitalshark_affiliate_link}}">
   <div class="sk-grain" aria-hidden="true"></div>
 
-  <header class="sk-head">
-    <img class="sk-logo"
-         src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml"
-         alt="Vital Shark">
-    <h1 class="sk-title">Your Funnel Links</h1>
-    <p class="sk-sub" data-greeting>Here are your marketing links.</p>
-    <div class="sk-domain" data-domain-strip hidden>
-      <span class="sk-domain-dot"></span>
-      <span class="sk-domain-text"></span>
+  <!-- ============ top bar ============
+       Back sits on the destinations only, the hamburger everywhere. On home the
+       back button is hidden rather than removed so the bar never reflows. -->
+  <div class="sk-bar">
+    <div class="sk-bar-in">
+      <button class="sk-bar-btn" type="button" data-back aria-label="Back to home" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <img class="sk-bar-mark" src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml" alt="" aria-hidden="true">
+      <button class="sk-bar-btn" type="button" data-menu-open aria-label="Open menu" style="grid-column:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
+  </div>
 
-    <!-- Add-to-home-screen affordance. Hidden by default and revealed by block.js only
-         when it is useful: it stays hidden once the page is already running as an
-         installed app, so it never nags a rep who has done it. On Android, when the
-         browser offers a real install prompt, this becomes ONE TAP and the sheet below
-         is skipped entirely. iOS has no such API, so there it opens the instructions. -->
-    <button class="sk-a2hs" type="button" data-a2hs-open hidden>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
-      </svg>
-      <span data-a2hs-label>Add this page to your home screen</span>
-    </button>
-  </header>
+  <!-- ============ nav sheet ============ -->
+  <div class="sk-sheet" data-menu hidden>
+    <div class="sk-sheet-scrim" data-menu-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title">Go to</h2>
+        <button class="sk-sheet-x" type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="sk-navlist" data-navlist></nav>
+    </div>
+  </div>
 
-  <!-- Instructions sheet. The platform is DETECTED, not asked, so the rep lands straight
-       on their own steps; the toggle is only there for the rare wrong guess. Written
-       steps come first because they are three lines and cost nothing, and the videos are
-       18MB (iOS) and 11MB (Android), so they stay behind preload="none". -->
+
+  <!-- Add to home screen instructions. The platform is DETECTED, not asked, so a
+       rep lands straight on their own steps; the toggle is only there for the
+       rare wrong guess. Written steps lead because they are three lines and cost
+       nothing, and the videos are ~23MB, so they stay behind preload="none". -->
   <div class="sk-sheet" data-a2hs-sheet hidden>
     <div class="sk-sheet-scrim" data-a2hs-close></div>
-    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sk-a2hs-title">
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sk-a2hs-title" tabindex="-1">
       <div class="sk-sheet-grip" aria-hidden="true"></div>
       <div class="sk-sheet-head">
         <h2 class="sk-sheet-title" id="sk-a2hs-title">Keep this page one tap away</h2>
@@ -100,14 +87,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
       </div>
-
       <div class="sk-seg" role="group" aria-label="Choose your phone">
         <button class="sk-seg-btn" type="button" data-os="ios" aria-pressed="false">iPhone</button>
         <button class="sk-seg-btn" type="button" data-os="android" aria-pressed="false">Android</button>
       </div>
-
       <ol class="sk-steps" data-a2hs-steps></ol>
-
       <details class="sk-watch">
         <summary>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 6 3.5-6 3.5Z"/></svg>
@@ -118,23 +102,549 @@
     </div>
   </div>
 
-  <!-- shown only when main_vital_url is empty -->
-  <div class="sk-setup" data-setup hidden>
-    <h2>Finish your setup first</h2>
-    <p>Your domain has not been added yet, so your links are not live. Add your domain in setup and this page fills in automatically.</p>
-  </div>
+  <!-- ============ HOME ============ -->
+  <section class="sk-screen sk-home" data-screen="home">
+    <img class="sk-home-logo" src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml" alt="Vital Shark, AI Marketing System">
+    <h1 class="sk-ask">What would you like to do<span data-comma></span><em data-name></em>?</h1>
 
-  <main class="sk-body" data-body>
-    <!-- groups render here -->
-  </main>
+    <div class="sk-menu" data-menugrid></div>
 
+    <button class="sk-a2hs" type="button" data-a2hs-open hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
+      </svg>
+      <span data-a2hs-label>Add this page to your home screen</span>
+    </button>
+  </section>
+
+  <!-- ============ FUNNEL LINKS ============ -->
+  <section class="sk-screen" data-screen="links">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Funnel Links</h1>
+      <p class="sk-page-sub">Every funnel you can share. Tap one, copy the link, post it.</p>
+    </header>
+    <div style="height:22px"></div>
+    <div data-links></div>
+  </section>
+
+  <!-- ============ YOUR LEADS ============ -->
+  <section class="sk-screen" data-screen="leads">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Leads</h1>
+      <p class="sk-page-sub">One inbox for every lead, every funnel, on your phone.</p>
+    </header>
+
+    <div class="sk-lede">
+      <p>Every person who fills in one of your funnels lands in your HighLevel account. That is where you talk to them, and it is the only place you need to check.</p>
+      <p>Download the HighLevel app and log in with the details you were sent when your account was set up. Every text, email and form reply, from every funnel you run, arrives in one inbox. You reply straight from your phone, and you get a notification the moment a new lead comes in, so you can answer while they are still paying attention.</p>
+      <p>Speed matters more than anything you say. A lead who hears back in five minutes is worth many times one you get to tomorrow, so turn notifications ON and reply from wherever you are.</p>
+      <p>Prefer a bigger screen? Log in at <a href="https://go.sharksuite.ai/" target="_blank" rel="noopener">go.sharksuite.ai</a>. Same inbox, same conversations, nothing separate to learn.</p>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Two ways in</span><span class="sk-group-rule"></span></div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.4"/><path d="M8 20.5h8"/><path d="M12 17v3.5"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your computer</span>
+          <span class="sk-route-copy">Log in and everything is on one screen.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://go.sharksuite.ai/" target="_blank" rel="noopener">Log in</a>
+        </span>
+      </div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your phone</span>
+          <span class="sk-route-copy">Get a notification the second a lead comes in.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://vitalshark.io/shark-app" target="_blank" rel="noopener" style="min-height:46px;font-size:13px">Get the app</a>
+          <div class="sk-store">
+            <a class="sk-chip" href="https://apps.apple.com/us/app/highlevel/id1425004076" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg>
+              Download for iPhone
+            </a>
+            <a class="sk-chip" href="https://play.google.com/store/apps/details?id=com.gohighlevel" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9.5h14v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="m7.5 9.5 1.6-3M16.5 9.5l-1.6-3"/></svg>
+              Download for Android
+            </a>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Where to look</span><span class="sk-group-rule"></span></div>
+      <ol class="sk-steps">
+        <li><span>Open <b>Conversations</b>. Every text, email and form reply lands in one thread per person, so you never lose the history.</span></li>
+        <li><span>Open <b>Contacts</b> to see everyone who has ever opted in, and which funnel they came from.</span></li>
+        <li><span>Open <b>Opportunities</b> to see who is warm, who is hot, and who you still owe a follow up.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO PROMOTE ============ -->
+  <section class="sk-screen" data-screen="promote">
+  <!-- ============ header ============ -->
+  <header class="sk-head">
+    <h1 class="sk-title">If you want to generate <em>CONSISTENT</em> leads for your business, here&#8217;s what you need to do <em>DAILY</em>.</h1>
+  </header>
+
+  <!-- ============ at a glance ============ -->
+  <section class="sk-glance">
+    <h2 class="sk-h2">Your Daily Method Of Operation At A Glance:</h2>
+    <div class="sk-tiles">
+
+      <div class="sk-tile" style="animation-delay:.04s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>Text 2 people a day</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.08s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>Post twice on your stories</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.12s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>Post once to your feeds</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.16s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>Answer questions where people are asking questions</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.2s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>Follow up with prospects</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.24s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Run ads</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ the six action items ============ -->
+  <section class="sk-group">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Action Item</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">6</span>
+    </div>
+
+    <!-- ---- text ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>
+          <span class="sk-name">Text 2 People EVERY DAY!</span>
+          <span class="sk-tease">The one thing you fully control.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="66" fill="#fff" opacity=".6"/>
+                <rect x="122" y="26" width="76" height="128" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="150" y="34" width="20" height="3.5" rx="1.75" fill="var(--sk-ink)" opacity=".18"/>
+                <path d="M139 50h36a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-36a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)"/>
+                <rect x="133" y="80" width="38" height="17" rx="6" fill="var(--sk-ink)" opacity=".08"/>
+                <path d="M145 108h30a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-30a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)" opacity=".85"/>
+                <g fill="none" stroke="var(--sk-ink)" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round">
+                  <circle cx="56" cy="72" r="12"/><path d="M36 106a20 20 0 0 1 40 0"/>
+                  <circle cx="264" cy="72" r="12"/><path d="M244 106a20 20 0 0 1 40 0"/>
+                </g>
+                <g fill="var(--sk-brand)"><circle cx="56" cy="46" r="7"/><circle cx="264" cy="46" r="7"/></g>
+                <text x="56" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">1</text>
+                <text x="264" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">2</text>
+                <path d="M84 84 C 100 82, 108 84, 116 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+                <path d="M236 84 C 220 82, 212 84, 204 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is your HIGHEST-PRIORITY action item because it&#8217;s the single most important thing you can do. Why? Because you have 100% control over how many people you reach.</p>
+            <p class="sk-desc">When you post on social media, there&#8217;s no guarantee how many people will actually see it. But if you personally message two people, ideally more, you know your message is reaching them.</p>
+            <p class="sk-desc">Follow the provided scripts, and we strongly recommend focusing on the opportunity-based scripts.</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to say?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- stories ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>
+          <span class="sk-name">Post TWICE To Your META / IG STORIES!</span>
+          <span class="sk-tease">Twice a day, every day, no skipping.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g opacity=".55">
+                  <rect x="74" y="40" width="72" height="112" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".14"/>
+                  <rect x="82" y="48" width="26" height="3" rx="1.5" fill="var(--sk-brand)"/>
+                  <rect x="112" y="48" width="26" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".14"/>
+                  <rect x="82" y="60" width="56" height="52" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+                  <rect x="82" y="120" width="40" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                </g>
+                <rect x="152" y="26" width="86" height="130" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
+                <rect x="161" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <rect x="197" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <circle cx="169" cy="50" r="7" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="181" y="47" width="34" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".14"/>
+                <rect x="161" y="64" width="68" height="60" rx="8" fill="url(#dmoG2)" opacity=".16"/>
+                <path d="M181 82l22 12-22 12z" fill="url(#dmoG2)"/>
+                <rect x="161" y="132" width="46" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                <circle cx="256" cy="42" r="11" fill="var(--sk-brand)"/>
+                <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
+                <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
+            <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">And remember, most people need to see your message multiple times before they decide to reach out, buy, or join.</p>
+            <p class="sk-desc">Keep showing up. Keep posting. That&#8217;s the ticket. It&#8217;s not complicated. Just do it!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your stories?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- feeds ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>
+          <span class="sk-name">Post ONCE To Your META / IG FEEDS!</span>
+          <span class="sk-tease">Likes and comments turn into leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="96" y="30" width="128" height="120" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <circle cx="116" cy="50" r="9" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="132" y="45" width="52" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".16"/>
+                <rect x="132" y="54" width="32" height="4" rx="2" fill="var(--sk-ink)" opacity=".1"/>
+                <rect x="106" y="68" width="108" height="46" rx="8" fill="url(#dmoG3)" opacity=".16"/>
+                <path d="M126 78h68a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V82a4 4 0 0 1 4-4z" fill="none" stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="1.6"/>
+                <circle cx="141" cy="90" r="4.5" fill="var(--sk-brand)" opacity=".7"/>
+                <path d="M122 106l18-14 14 11 12-8 32 17z" fill="url(#dmoG3)" opacity=".55"/>
+                <path d="M112 130c0-4 3-6.5 6-6.5 2 0 3.4 1 4.2 2.2.8-1.2 2.2-2.2 4.2-2.2 3 0 6 2.5 6 6.5 0 5.5-10.2 11-10.2 11S112 135.5 112 130z" fill="url(#dmoG3)"/>
+                <path d="M148 124h20a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-12l-5 4v-4a5 5 0 0 1-3-5v-5a5 5 0 0 1 5-5z" fill="none" stroke="var(--sk-ink)" stroke-opacity=".4" stroke-width="2"/>
+                <g stroke="var(--sk-brand)" stroke-width="2.6" stroke-linecap="round"><path d="M186 128h14M186 135h14"/></g>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="242" cy="118" r="9"/><path d="M228 142a14 14 0 0 1 28 0"/>
+                </g>
+                <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">Remember, LIKES and COMMENTS = Leads!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your FEEDS?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- answer questions ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>
+          <span class="sk-name">ANSWER Questions Where People Are ASKING Questions!</span>
+          <span class="sk-tease">Facebook, Reddit, Nextdoor, Quora.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="72" fill="#fff" opacity=".55"/>
+
+                <!-- four communities asking, each a neutral bubble with a question mark -->
+                <g>
+                  <path d="M34 30h44a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9H50l-10 9v-9h-6a9 9 0 0 1-9-9V39a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M50 44.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="56.6" cy="60.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M236 26h44a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-26l-10 9v-9h-8a9 9 0 0 1-9-9V35a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M252 40.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="258.6" cy="56.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M28 112h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9H44l-10 9v-9h-6a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M43 126.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="49.6" cy="142.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M242 110h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-24l-10 9v-9h-8a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M257 124.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="263.6" cy="140.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+
+                <!-- your answer at the centre, the only brand coloured thing -->
+                <path d="M118 62h84a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-56l-14 13v-13h-14a12 12 0 0 1-12-12V74a12 12 0 0 1 12-12z" fill="url(#dmoG4)"/>
+                <g stroke="#fff" stroke-linecap="round" stroke-width="3.4">
+                  <path d="M132 80h56" opacity=".95"/>
+                  <path d="M132 92h44" opacity=".65"/>
+                </g>
+                <path d="M132 103.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- the answer reaching each place -->
+                <g stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round" fill="none">
+                  <path d="M112 78 C 98 70, 92 64, 88 58"/>
+                  <path d="M216 74 C 228 66, 234 60, 238 54"/>
+                  <path d="M112 106 C 98 114, 92 118, 84 122"/>
+                  <path d="M216 106 C 228 112, 236 116, 244 120"/>
+                </g>
+              </svg>
+            </div>
+
+            <p class="sk-desc">Somewhere right now, someone is typing out the exact problem you solve, in public, and asking strangers for help. Your job is to find those people and be the most useful answer in the thread.</p>
+            <p class="sk-desc"><a href="https://www.facebook.com/groups/" target="_blank" rel="noopener">Facebook groups</a> are one of the BEST places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
+            <p class="sk-desc">Do not stop at Facebook. <a href="https://www.reddit.com" target="_blank" rel="noopener">REDDIT</a>, <a href="https://nextdoor.com" target="_blank" rel="noopener">NEXTDOOR</a>, and <a href="https://www.quora.com" target="_blank" rel="noopener">QUORA</a> are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
+            <p class="sk-desc">Then actually answer it. Give away the useful thing for free, in the thread, where everyone can read it. No pitch, no link drop. Being the person who helped is what makes someone check your profile, and your profile is what turns them into a lead.</p>
+            <p class="sk-desc">As mentioned in the previous section, consistency is KEY. You have to keep swinging if you want to get a hit. Show up every day and answer at least ONE real question, wherever you find it.</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- ads ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>
+          <span class="sk-name">Run Ads On Facebook &amp; Instagram!</span>
+          <span class="sk-tease">The fastest way to a steady flow of fresh leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="66" y="38" width="120" height="104" rx="13" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="78" y="50" width="34" height="9" rx="4.5" fill="url(#dmoG5)"/>
+                <text x="95" y="57" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#fff">AD</text>
+                <rect x="78" y="68" width="96" height="40" rx="7" fill="url(#dmoG5)" opacity=".16"/>
+                <path d="M78 108l26-20 20 15 16-11 34 24z" fill="url(#dmoG5)" opacity=".45"/>
+                <rect x="78" y="118" width="96" height="12" rx="6" fill="url(#dmoG5)"/>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4">
+                  <circle cx="238" cy="76" r="30"/><circle cx="238" cy="76" r="18"/>
+                </g>
+                <circle cx="238" cy="76" r="7" fill="url(#dmoG5)"/>
+                <g fill="url(#dmoG5)">
+                  <rect x="206" y="140" width="14" height="16" rx="4" opacity=".45"/>
+                  <rect x="226" y="128" width="14" height="28" rx="4" opacity=".7"/>
+                  <rect x="246" y="114" width="14" height="42" rx="4"/>
+                </g>
+                <path d="M196 118 C 210 112, 220 104, 226 96" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">If your SHARK account includes access to advertising support, TAKE ADVANTAGE OF IT AND RUN ADS!</p>
+            <p class="sk-desc">Paid advertising is one of the most cost-effective ways to generate a steady flow of fresh leads into your pipeline every day. When you combine ads with the other strategies on this page, you&#8217;ll never run short on conversations, &#8220;at-bats,&#8221; or opportunities.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click here to watch the training on why running ads can be such a powerful part of your growth strategy.
+            </a>
+            </div>
+
+            <p class="sk-desc" style="margin-top:16px">If you have access to the ADS ENGINE inside your SHARK account, watch the training and get your ads running! Have questions? Reach out to us anytime.</p>
+
+            <p class="sk-lead">Don&#8217;t have access to the ADS ENGINE but want it?</p>
+            <a class="sk-chip" href="https://vitalshark.io/get-ads" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-5M12 8.2v.2"/></svg>
+              Click here to learn more.
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- follow up ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>
+          <span class="sk-name">FOLLOW UP With Your Prospects!</span>
+          <span class="sk-tease">80% of sales happen after the fourth follow up.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g>
+                  <circle cx="72" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="72" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">1</text>
+                  <circle cx="118" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="118" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">2</text>
+                  <circle cx="164" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="164" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">3</text>
+                  <circle cx="212" cy="90" r="22" fill="url(#dmoG6)"/>
+                  <text x="212" y="96" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="17" fill="#fff">4</text>
+                </g>
+                <g stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round">
+                  <path d="M89 90h12"/><path d="M135 90h12"/><path d="M181 90h9"/>
+                </g>
+                <path d="M242 90h14" stroke="var(--sk-brand)" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M262 84l7 8 14-16" fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g transform="translate(150 26)">
+                  <path d="M4 3.5h8l3 8-4 3a20 20 0 0 0 9 9l3-4 8 3v8a3.5 3.5 0 0 1-3.5 3.5A28 28 0 0 1 .5 7 3.5 3.5 0 0 1 4 3.5z" fill="#fff" stroke="var(--sk-brand)" stroke-width="1.8" stroke-linejoin="round"/>
+                </g>
+                <text x="160" y="152" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="11" letter-spacing="2.4" fill="var(--sk-brand-deep)" opacity=".75">80% OF SALES</text>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is arguably the MOST IMPORTANT thing you can do on a daily basis&#8230; Remember, the FORTUNE is in the FOLLOW UP! And&#8230; Did you know that 80% of sales are made after the FOURTH follow up? Moral of the story, you NEED to follow up with your leads.</p>
+            <p class="sk-desc">Keep it simple&#8230; many times you are just hitting the person up again seeing if they looked at information, watched a video, accessed one of your free guides, etc.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video on EXACTLY how to follow up.
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============ footer ============ -->
   <footer class="sk-foot">
     <div class="sk-foot-card">
-      <h2 class="sk-foot-title">Run this from your phone</h2>
-      <p class="sk-foot-copy">Get the HighLevel app so your leads, texts and calls follow you everywhere.</p>
-      <div class="sk-store" data-store></div>
+      <p class="sk-foot-eyebrow">Remember&#8230;</p>
+      <p class="sk-foot-title">The RESULTS that you&#8217;re looking for is in the WORK that you&#8217;re AVOIDING.</p>
+      <p class="sk-foot-copy">Get to work, this stuff works, but ONLY if you work the system. Let&#8217;s GO!</p>
     </div>
-    <p class="sk-legal">Vital Shark</p>
   </footer>
+    <div class="sk-tail">
+      <a class="sk-chip" href="https://vitalshark.io/setup-my-ads" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></svg>
+        Want more people to talk to? Visit the lead storefront.
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORT ============ -->
+  <section class="sk-screen" data-screen="support">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Contact Support</h1>
+      <p class="sk-page-sub">Stuck on something? Pick whichever is easiest and we will come back to you.</p>
+    </header>
+    <div style="height:24px"></div>
+
+    <div class="sk-support">
+      <a class="sk-contact" href="https://vitalshark.io/support" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/></svg></span>
+        <span>
+          <span class="sk-route-name">Get support</span>
+          <span class="sk-route-copy">Every way to reach us, in one place.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="sk-contact" href="https://vitalshark.io/office-hours" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5.4l3.4 2"/></svg></span>
+        <span>
+          <span class="sk-route-name">Office hours</span>
+          <span class="sk-route-copy">Live every week. Bring your screen and your questions.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="sk-contact" href="https://vitalshark.io/training" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg></span>
+        <span>
+          <span class="sk-route-name">Training hub</span>
+          <span class="sk-route-copy">System training and marketing training.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+  </section>
 
 </div>
