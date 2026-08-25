@@ -8,6 +8,14 @@
  "videos": [],
  "links": [
   {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say when someone asks about the business, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://glpshark.com/scripts",
+   "primary": true
+  },
+  {
    "icon": "school",
    "title": "Training hub",
    "tease": "Every training for your marketing system in one place, not just this funnel.",

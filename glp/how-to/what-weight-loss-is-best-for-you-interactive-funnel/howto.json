@@ -6,7 +6,16 @@
  "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
  "logoAlt": "GLP Shark",
  "videos": [],
- "links": [],
+ "links": [
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say to leads who come through this funnel, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://glpshark.com/weight-loss-supp-scripts",
+   "primary": true
+  }
+ ],
  "sub": "Watch the training, grab the assets, then start sending traffic.",
  "ads": {
   "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/assets/ads-sidebar.webp",

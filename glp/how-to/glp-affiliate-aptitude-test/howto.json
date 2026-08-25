@@ -14,6 +14,15 @@
    "poster": "https://i.vimeocdn.com/video/2180533871-df9e245402635bb8fdf3166ec76eb6e4b854d90b9e6b65137db1f064131e3fe2-d_1280.jpg"
   }
  ],
- "links": [],
+ "links": [
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say when someone asks about the business, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://glpshark.com/scripts",
+   "primary": true
+  }
+ ],
  "sub": "Watch the training, grab the assets, then start sending traffic."
 }
