@@ -24,6 +24,14 @@
    "primary": true
   },
   {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say to leads who come through this funnel, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://vitalshark.io/high-protein-recipe-scripts",
+   "primary": false
+  },
+  {
    "icon": "image",
    "title": "Social imagery and ads",
    "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",

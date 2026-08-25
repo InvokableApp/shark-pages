@@ -24,6 +24,14 @@
    "primary": true
   },
   {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say to leads who come through this funnel, and how to follow up so they answer.",
+   "label": "Open the scripts",
+   "url": "https://vitalshark.io/glp-recipe-guide-scripts",
+   "primary": false
+  },
+  {
    "icon": "school",
    "title": "Training hub",
    "tease": "Every training for your marketing system in one place, not just this funnel.",
