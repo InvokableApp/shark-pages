@@ -68,6 +68,7 @@
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
       { cv:"protein_recipe_guide_funnel_link", icon:"leaf",     name:"High Protein Recipe Guide",
         tease:"Recipes and grocery list", canva:"https://canva.link/n6t92pxvso2744m",
+        howto:"https://glpshark.com/protein-recipe-guide-training",
         desc:"A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like." },
       { cv:"glp_workout_guide_funnel_link",    icon:"dumbbell", name:"GLP Workout Guide",
         tease:"Free workout download",
@@ -79,11 +80,13 @@
         desc:"A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take." },
       { cv:"side_hustle_quiz_funnel_link",  icon:"quiz", name:"Side Hustle Quiz",
         tease:"Finds their work-from-home fit",
+        howto:"https://glpshark.com/side-hustle-quiz-training",
         desc:"Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready." } ]},
 
     { label:"Share the product", items:[
       { cv:"drops_funnel_link",     icon:"drop", name:"Drops, warm leads",
         tease:"For people who already know you",
+        howto:"https://glpshark.com/drops-funnel-training",
         desc:"The DROPS information page for people who have already spoken with you. Straight to the product, no warm up." },
       { cv:"drops_ads_funnel_link", icon:"drop", name:"Drops, ads and social",
         tease:"For cold traffic",
@@ -100,6 +103,7 @@
     { label:"Recruit", items:[
       { cv:"opportunity_warm_funnel_link", icon:"users", name:"Opportunity, warm leads",
         tease:"For people who asked about the business",
+        howto:"https://glpshark.com/opportunity-warm-training",
         desc:"The business explained, for people who have already told you they want to hear more." },
       { cv:"opportunity_funnel_link",      icon:"users", name:"Opportunity, ads and social",
         tease:"For cold traffic",
