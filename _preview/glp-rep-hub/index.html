@@ -1,0 +1,1993 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shark Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   DAILY METHOD OF OPERATION
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE page per system. Two things change between systems and nothing else:
+     1. the nine palette tokens below
+     2. the wordmark in .sk-logo
+
+   Scope class is .sk-dmo for this dial-in file. In the hosted block it becomes
+   .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+html, body { margin: 0; padding: 0; background: #F7F4F1; }
+
+.sk-dmo *,
+.sk-dmo *::before,
+.sk-dmo *::after { box-sizing: border-box; }
+
+.sk-dmo {
+  /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
+     system section 2 table; swapping these nine is the whole reskin. */
+  --sk-brand:      #EC5E2A;
+  --sk-brand-deep: #C94A1E;
+  --sk-brand-tint: #FDF0EA;
+  --sk-ink:        #101410;
+  --sk-ink-soft:   #56605A;
+  --sk-ink-faint:  #8B948E;
+  --sk-paper:      #F7F4F1;
+  --sk-line:       #E6E0DA;
+  --sk-line-soft:  #EFE9E3;
+  --sk-card:       #ffffff;
+
+  /* structural tokens, identical in every system */
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  /* full bleed ground, capped content. The measure is a grid column, never an
+     auto margin: components that set the margin shorthand would reset it. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-dmo > * { grid-column: 2; }
+
+/* paper grain, keeps the flat off white from reading as an unstyled default */
+.sk-dmo .sk-grain {
+  position: fixed;
+  inset: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+.sk-dmo > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-dmo .sk-head { padding: 40px 4px 8px; text-align: center; }
+
+/* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
+   page belongs to the next system. Inlined as a data URI here so the preview is
+   self contained; in the hosted block it points at _brand/{system}/logo.svg. */
+.sk-dmo .sk-logo {
+  display: block;
+  width: 188px;
+  max-width: 64%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-dmo-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-dmo .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  /* Sized to land on three lines at the full measure and four on a phone. The
+     width axis does part of that work: dropping from 112 to 100 fits more per
+     line than shrinking alone would, so the headline stays a headline. */
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: clamp(21px, 5.4vw, 26px);
+  line-height: 1.12;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-dmo-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the brand gradient sits on the two shouted words, same trick as the
+   marketing links title */
+.sk-dmo .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* The gradient box is the inline advance width, and glyphs whose ink spills
+     past it lose the overhang: the upper right arm of a trailing Y is the one
+     that shows. Padding grows the paint box, the matching negative margin takes
+     the space back, so nothing on the line moves. */
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+/* ---------------- video facade ---------------- */
+
+.sk-dmo .sk-vid {
+  margin-top: 26px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  animation: sk-dmo-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-dmo .sk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  background: var(--sk-brand-tint);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-dmo .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+
+.sk-dmo .sk-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 26px -10px rgba(201,74,30,.8);
+  transition: transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.sk-dmo .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-dmo .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-dmo .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+
+/* ---------------- at a glance ---------------- */
+
+.sk-dmo .sk-glance { margin-top: 44px; }
+
+.sk-dmo .sk-h2 {
+  margin: 0 0 16px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 700;
+  font-size: 20px;
+  line-height: 1.16;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sk-dmo .sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .sk-dmo .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-dmo .sk-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  text-align: center;
+  animation: sk-dmo-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-dmo .sk-tile span {
+  font-size: 13.5px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+/* icon chip, the .sk-mark component */
+.sk-dmo .sk-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(236,94,42,.16), rgba(201,74,30,.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
+}
+.sk-dmo .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+
+/* ---------------- group header ---------------- */
+
+.sk-dmo .sk-group { margin-top: 40px; }
+
+.sk-dmo .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(247,244,241,0));
+}
+.sk-dmo .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+.sk-dmo .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+}
+.sk-dmo .sk-group-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- accordion card ---------------- */
+
+.sk-dmo .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  animation: sk-dmo-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-dmo .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-dmo .sk-card[data-open="true"] {
+  border-color: rgba(236,94,42,.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-dmo .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-dmo .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-dmo .sk-name {
+  display: block;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+  text-wrap: balance;
+}
+
+.sk-dmo .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  transition: opacity .25s ease;
+}
+.sk-dmo .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-dmo .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-dmo .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-dmo .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
+   without a magic number. Never animate height or max-height here. */
+.sk-dmo .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-dmo .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-dmo .sk-panel-inner { overflow: hidden; }
+.sk-dmo .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+
+/* ---------------- panel contents ---------------- */
+
+/* the illustration. House style art, drawn in the palette, never a photo and
+   never a stock render. */
+.sk-dmo .sk-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  overflow: hidden;
+}
+.sk-dmo .sk-art svg { display: block; width: 100%; height: 100%; }
+
+.sk-dmo .sk-desc {
+  margin: 0 0 12px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+.sk-dmo .sk-desc:last-child { margin-bottom: 0; }
+
+/* the lead in line that sits directly above a button */
+.sk-dmo .sk-lead {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+
+/* primary action, the .sk-copy component */
+.sk-dmo .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-dmo .sk-copy:hover { filter: brightness(1.04); }
+.sk-dmo .sk-copy:active { transform: scale(.985); }
+.sk-dmo .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+
+/* Long label variant. Two CTAs are full sentences rather than the short shouted
+   label the component was tuned for, and uppercase plus .085em tracking turns
+   those into a three line block. Sentence case and tighter tracking keep them
+   readable without touching a word of the copy. */
+.sk-dmo .sk-copy--long {
+  min-height: 56px;
+  padding: 14px 20px;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 14.5px;
+  letter-spacing: .005em;
+  line-height: 1.28;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* secondary link, the .sk-chip component */
+.sk-dmo .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFBF9;
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-dmo .sk-chip:hover,
+.sk-dmo .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-dmo .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+/* ---------------- footer ---------------- */
+
+.sk-dmo .sk-foot { margin-top: 44px; }
+
+.sk-dmo .sk-foot-card {
+  padding: 30px var(--sk-pad) 28px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #8F3312 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--sk-shadow-lift);
+}
+.sk-dmo .sk-foot-eyebrow {
+  margin: 0 0 12px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.sk-dmo .sk-foot-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 106, "wght" 700;
+  font-size: clamp(20px, 5.6vw, 25px);
+  line-height: 1.14;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-dmo .sk-foot-copy {
+  margin: 16px auto 0;
+  max-width: 32ch;
+  font-size: 14.6px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+/* ---------------- focus ---------------- */
+
+.sk-dmo a:focus-visible,
+.sk-dmo button:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+}
+.sk-dmo .sk-trigger:focus-visible { outline-offset: -3px; }
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-dmo-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-dmo *, .sk-dmo *::before, .sk-dmo *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   THE HUB SHELL
+   Home screen plus four destinations, per Joe's outline. One block, one URL,
+   hash routed, so the whole thing still travels inside a snapshot as a single
+   custom code socket.
+   ============================================================ */
+
+/* ---------------- top bar ---------------- */
+
+.sk-dmo .sk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: rgba(247, 244, 241, .88);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.sk-dmo[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+
+.sk-dmo .sk-bar-in {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+}
+
+.sk-dmo .sk-bar-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--sk-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s ease, opacity .2s ease;
+}
+.sk-dmo .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-dmo .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-dmo .sk-bar-btn[hidden] { display: none; }
+
+/* the bar wordmark, shown on the destinations only. On home the big logo in
+   the page body is doing that job and a second one would just repeat it. */
+.sk-dmo .sk-bar-mark {
+  justify-self: center;
+  height: 22px;
+  width: auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sk-dmo:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+
+/* ---------------- screens ---------------- */
+
+.sk-dmo .sk-screen { display: none; }
+.sk-dmo .sk-screen[data-active="true"] { display: block; }
+
+/* ---------------- home ---------------- */
+
+.sk-dmo .sk-home { padding: 26px 0 0; text-align: center; }
+
+.sk-dmo .sk-home-logo {
+  display: block;
+  width: 224px;
+  max-width: 74%;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: sk-dmo-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-dmo .sk-ask {
+  margin: 0 auto 22px;
+  max-width: 18ch;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 700;
+  font-size: clamp(23px, 6.6vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-dmo-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-dmo .sk-ask em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+.sk-dmo .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* the four destination cards. Same grammar as the accordion trigger row, so
+   home reads as part of the same page rather than a different product. */
+.sk-dmo .sk-dest {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+  animation: sk-dmo-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-dmo .sk-dest:hover {
+  border-color: rgba(236,94,42,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-dmo .sk-dest:active { transform: translateY(0); }
+
+.sk-dmo .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-dmo .sk-dest:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+.sk-dmo .sk-dest-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.006em;
+}
+.sk-dmo .sk-dest-tease {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+}
+.sk-dmo .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-dmo .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-dmo .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+
+/* utility pill, deliberately not gradient: it must not compete with the four */
+.sk-dmo .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-dmo .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-dmo .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-dmo .sk-a2hs:active { transform: translateY(1px); }
+
+/* ---------------- destination page head ---------------- */
+
+.sk-dmo .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+
+.sk-dmo .sk-page-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 106, "wght" 700;
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-dmo .sk-page-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* ---------------- nav sheet ---------------- */
+
+.sk-dmo .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-dmo .sk-sheet[hidden] { display: none; }
+
+.sk-dmo .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16,20,16,.5);
+  backdrop-filter: blur(2px);
+  animation: sk-dmo-fade .22s ease both;
+}
+.sk-dmo .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-dmo-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-dmo .sk-sheet { align-items: center; }
+  .sk-dmo .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+.sk-dmo .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-dmo .sk-sheet-grip { display: none; } }
+
+.sk-dmo .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sk-dmo .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+}
+.sk-dmo .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-dmo .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+
+.sk-dmo .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+
+.sk-dmo .sk-nav {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: inherit;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 15.5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.sk-dmo .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-dmo .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-dmo .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-dmo .sk-nav[aria-current="page"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- route: leads ---------------- */
+
+.sk-dmo .sk-route {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-dmo .sk-route + .sk-route { margin-top: 10px; }
+.sk-dmo .sk-route-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 104, "wght" 640;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.sk-dmo .sk-route-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.6px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+}
+.sk-dmo .sk-route-act { grid-column: 1 / -1; }
+
+/* numbered steps, CSS counter so the markup carries no numerals */
+.sk-dmo .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sk-dmo .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-dmo .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+}
+.sk-dmo .sk-steps b { font-weight: 700; }
+
+/* app store row */
+.sk-dmo .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-dmo .sk-store { flex-direction: row; } .sk-dmo .sk-store a { flex: 1; } }
+
+/* ---------------- route: links ---------------- */
+
+/* one dropdown per funnel, name left, copy right, exactly as the live page */
+.sk-dmo .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFAF7;
+}
+.sk-dmo .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-dmo .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-dmo .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-dmo .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+.sk-dmo .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sk-dmo .sk-links .sk-chip { margin-top: 0; }
+
+.sk-dmo .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+
+/* preview banner. Says plainly that the data is stand in, so nobody reviews
+   demo urls as if they were a rep's real ones. */
+.sk-dmo .sk-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #E8DDB8;
+  border-radius: var(--sk-r-sm);
+  background: #FDF8E8;
+  color: #6B5F34;
+  font-size: 13.6px;
+  line-height: 1.45;
+}
+.sk-dmo .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+
+/* ---------------- route: support ---------------- */
+
+.sk-dmo .sk-support { display: flex; flex-direction: column; gap: 10px; }
+
+.sk-dmo .sk-contact {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.sk-dmo .sk-contact:hover {
+  border-color: rgba(236,94,42,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-dmo .sk-contact:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- storefront tail ---------------- */
+
+.sk-dmo .sk-tail { margin-top: 14px; }
+
+@keyframes sk-dmo-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-dmo-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+</style>
+</head>
+<body>
+<div class="sk-dmo sk-hub"
+     data-cv-rep_first_name="{{custom_values.rep_first_name}}"
+     data-cv-glp_foods_guide_funnel_link="{{custom_values.glp_foods_guide_funnel_link}}"
+     data-cv-protein_recipe_guide_funnel_link="{{custom_values.protein_recipe_guide_funnel_link}}"
+     data-cv-glp_workout_guide_funnel_link="{{custom_values.glp_workout_guide_funnel_link}}"
+     data-cv-weight_loss_quiz_funnel_link="{{custom_values.weight_loss_quiz_funnel_link}}"
+     data-cv-side_hustle_quiz_funnel_link="{{custom_values.side_hustle_quiz_funnel_link}}"
+     data-cv-drops_funnel_link="{{custom_values.drops_funnel_link}}"
+     data-cv-drops_ads_funnel_link="{{custom_values.drops_ads_funnel_link}}"
+     data-cv-orygn_tour_funnel_link="{{custom_values.orygn_tour_funnel_link}}"
+     data-cv-navigation_funnel_link="{{custom_values.navigation_funnel_link}}"
+     data-cv-opportunity_warm_funnel_link="{{custom_values.opportunity_warm_funnel_link}}"
+     data-cv-opportunity_funnel_link="{{custom_values.opportunity_funnel_link}}"
+     data-cv-personal_branded_funnel_link="{{custom_values.personal_branded_funnel_link}}">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <!-- ============ top bar ============
+       Back sits on the destinations only, the hamburger everywhere. On home the
+       back button is hidden rather than removed so the bar never reflows. -->
+  <div class="sk-bar">
+    <div class="sk-bar-in">
+      <button class="sk-bar-btn" type="button" data-back aria-label="Back to home" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <img class="sk-bar-mark" src="data:image/png;base64,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" alt="" aria-hidden="true">
+      <button class="sk-bar-btn" type="button" data-menu-open aria-label="Open menu" style="grid-column:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ nav sheet ============ -->
+  <div class="sk-sheet" data-menu hidden>
+    <div class="sk-sheet-scrim" data-menu-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title">Go to</h2>
+        <button class="sk-sheet-x" type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="sk-navlist" data-navlist></nav>
+    </div>
+  </div>
+
+  <!-- ============ HOME ============ -->
+  <section class="sk-screen sk-home" data-screen="home">
+    <img class="sk-home-logo" src="data:image/png;base64,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" alt="GLP Shark, AI Marketing System">
+    <h1 class="sk-ask">What would you like to do<span data-comma></span><em data-name></em>?</h1>
+
+    <div class="sk-menu" data-menugrid></div>
+
+    <button class="sk-a2hs" type="button" data-a2hs>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
+      </svg>
+      <span>Add this page to your home screen</span>
+    </button>
+  </section>
+
+  <!-- ============ FUNNEL LINKS ============ -->
+  <section class="sk-screen" data-screen="links">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Funnel Links</h1>
+      <p class="sk-page-sub">Every funnel you can share. Tap one, copy the link, post it.</p>
+    </header>
+    <div style="height:22px"></div>
+    <p class="sk-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>
+      <span>Preview only. These are stand in links so the layout can be reviewed. On a live account each one comes from that rep&#8217;s own custom value.</span>
+    </p>
+    <div data-links></div>
+  </section>
+
+  <!-- ============ YOUR LEADS ============ -->
+  <section class="sk-screen" data-screen="leads">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Leads</h1>
+      <p class="sk-page-sub">Everyone who fills in one of your funnels lands in one place.</p>
+    </header>
+
+    <div class="sk-vid" style="margin-top:24px">
+      <button class="sk-frame" type="button" data-vimeo="" aria-label="Play the walkthrough of where your leads live">
+        <svg class="sk-poster" viewBox="0 0 320 180" role="img" aria-hidden="true">
+          <defs><linearGradient id="hubL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+          <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+          <circle cx="160" cy="90" r="70" fill="#fff" opacity=".58"/>
+          <rect x="62" y="34" width="122" height="92" rx="10" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+          <rect x="62" y="34" width="122" height="16" rx="10" fill="var(--sk-ink)" opacity=".07"/>
+          <rect x="74" y="60" width="46" height="6" rx="3" fill="url(#hubL)"/>
+          <rect x="74" y="74" width="82" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
+          <rect x="74" y="86" width="66" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
+          <rect x="74" y="98" width="74" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".12"/>
+          <path d="M104 126h38v8h-38z" fill="var(--sk-ink)" opacity=".1"/>
+          <rect x="196" y="46" width="62" height="106" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
+          <rect x="216" y="53" width="22" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".18"/>
+          <rect x="204" y="66" width="46" height="14" rx="7" fill="url(#hubL)"/>
+          <rect x="204" y="86" width="46" height="14" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+          <rect x="204" y="106" width="46" height="14" rx="7" fill="url(#hubL)" opacity=".55"/>
+          <rect x="204" y="126" width="46" height="14" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+          <circle cx="266" cy="60" r="9" fill="var(--sk-brand)"/>
+          <text x="266" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">3</text>
+        </svg>
+        <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l13-7.5z"/></svg></span>
+      </button>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Two ways in</span><span class="sk-group-rule"></span></div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.4"/><path d="M8 20.5h8"/><path d="M12 17v3.5"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your computer</span>
+          <span class="sk-route-copy">Log in and everything is on one screen.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://app.gohighlevel.com" target="_blank" rel="noopener">Log in</a>
+        </span>
+      </div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your phone</span>
+          <span class="sk-route-copy">Get a notification the second a lead comes in.</span>
+        </span>
+        <span class="sk-route-act">
+          <div class="sk-store">
+            <a class="sk-chip" href="https://apps.apple.com/us/app/highlevel/id1425004076" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg>
+              Download for iPhone
+            </a>
+            <a class="sk-chip" href="https://play.google.com/store/apps/details?id=com.gohighlevel" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9.5h14v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="m7.5 9.5 1.6-3M16.5 9.5l-1.6-3"/></svg>
+              Download for Android
+            </a>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Where to look</span><span class="sk-group-rule"></span></div>
+      <ol class="sk-steps">
+        <li><span>Open <b>Conversations</b>. Every text, email and form reply lands in one thread per person, so you never lose the history.</span></li>
+        <li><span>Open <b>Contacts</b> to see everyone who has ever opted in, and which funnel they came from.</span></li>
+        <li><span>Open <b>Opportunities</b> to see who is warm, who is hot, and who you still owe a follow up.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO PROMOTE ============ -->
+  <section class="sk-screen" data-screen="promote">
+  <!-- ============ header ============ -->
+  <header class="sk-head">
+    <h1 class="sk-title">If you want to generate <em>CONSISTENT</em> leads for your business, here&#8217;s what you need to do <em>DAILY</em>.</h1>
+  </header>
+
+  <!-- ============ at a glance ============ -->
+  <section class="sk-glance">
+    <h2 class="sk-h2">Your Daily Method Of Operation At A Glance:</h2>
+    <div class="sk-tiles">
+
+      <div class="sk-tile" style="animation-delay:.04s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>Text 2 people a day</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.08s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>Post twice on your stories</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.12s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>Post once to your feeds</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.16s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>Answer questions where people are asking questions</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.2s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>Follow up with prospects</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.24s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Run ads</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ the six action items ============ -->
+  <section class="sk-group">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Action Item</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">6</span>
+    </div>
+
+    <!-- ---- text ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>
+          <span class="sk-name">Text 2 People EVERY DAY!</span>
+          <span class="sk-tease">The one thing you fully control.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="66" fill="#fff" opacity=".6"/>
+                <rect x="122" y="26" width="76" height="128" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="150" y="34" width="20" height="3.5" rx="1.75" fill="var(--sk-ink)" opacity=".18"/>
+                <path d="M139 50h36a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-36a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)"/>
+                <rect x="133" y="80" width="38" height="17" rx="6" fill="var(--sk-ink)" opacity=".08"/>
+                <path d="M145 108h30a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-30a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)" opacity=".85"/>
+                <g fill="none" stroke="var(--sk-ink)" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round">
+                  <circle cx="56" cy="72" r="12"/><path d="M36 106a20 20 0 0 1 40 0"/>
+                  <circle cx="264" cy="72" r="12"/><path d="M244 106a20 20 0 0 1 40 0"/>
+                </g>
+                <g fill="var(--sk-brand)"><circle cx="56" cy="46" r="7"/><circle cx="264" cy="46" r="7"/></g>
+                <text x="56" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">1</text>
+                <text x="264" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">2</text>
+                <path d="M84 84 C 100 82, 108 84, 116 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+                <path d="M236 84 C 220 82, 212 84, 204 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is your HIGHEST-PRIORITY action item because it&#8217;s the single most important thing you can do. Why? Because you have 100% control over how many people you reach.</p>
+            <p class="sk-desc">When you post on social media, there&#8217;s no guarantee how many people will actually see it. But if you personally message two people, ideally more, you know your message is reaching them.</p>
+            <p class="sk-desc">Follow the provided scripts, and we strongly recommend focusing on the opportunity-based scripts.</p>
+
+            <p class="sk-lead">Curious to know WHAT to say?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- stories ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>
+          <span class="sk-name">Post TWICE To Your META / IG STORIES!</span>
+          <span class="sk-tease">Twice a day, every day, no skipping.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g opacity=".55">
+                  <rect x="74" y="40" width="72" height="112" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".14"/>
+                  <rect x="82" y="48" width="26" height="3" rx="1.5" fill="var(--sk-brand)"/>
+                  <rect x="112" y="48" width="26" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".14"/>
+                  <rect x="82" y="60" width="56" height="52" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+                  <rect x="82" y="120" width="40" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                </g>
+                <rect x="152" y="26" width="86" height="130" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
+                <rect x="161" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <rect x="197" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <circle cx="169" cy="50" r="7" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="181" y="47" width="34" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".14"/>
+                <rect x="161" y="64" width="68" height="60" rx="8" fill="url(#dmoG2)" opacity=".16"/>
+                <path d="M181 82l22 12-22 12z" fill="url(#dmoG2)"/>
+                <rect x="161" y="132" width="46" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                <circle cx="256" cy="42" r="11" fill="var(--sk-brand)"/>
+                <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
+                <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
+            <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">And remember, most people need to see your message multiple times before they decide to reach out, buy, or join.</p>
+            <p class="sk-desc">Keep showing up. Keep posting. That&#8217;s the ticket. It&#8217;s not complicated. Just do it!</p>
+
+            <p class="sk-lead">Curious to know WHAT to post to your stories?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- feeds ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>
+          <span class="sk-name">Post ONCE To Your META / IG FEEDS!</span>
+          <span class="sk-tease">Likes and comments turn into leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="96" y="30" width="128" height="120" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <circle cx="116" cy="50" r="9" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="132" y="45" width="52" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".16"/>
+                <rect x="132" y="54" width="32" height="4" rx="2" fill="var(--sk-ink)" opacity=".1"/>
+                <rect x="106" y="68" width="108" height="46" rx="8" fill="url(#dmoG3)" opacity=".16"/>
+                <path d="M126 78h68a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V82a4 4 0 0 1 4-4z" fill="none" stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="1.6"/>
+                <circle cx="141" cy="90" r="4.5" fill="var(--sk-brand)" opacity=".7"/>
+                <path d="M122 106l18-14 14 11 12-8 32 17z" fill="url(#dmoG3)" opacity=".55"/>
+                <path d="M112 130c0-4 3-6.5 6-6.5 2 0 3.4 1 4.2 2.2.8-1.2 2.2-2.2 4.2-2.2 3 0 6 2.5 6 6.5 0 5.5-10.2 11-10.2 11S112 135.5 112 130z" fill="url(#dmoG3)"/>
+                <path d="M148 124h20a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-12l-5 4v-4a5 5 0 0 1-3-5v-5a5 5 0 0 1 5-5z" fill="none" stroke="var(--sk-ink)" stroke-opacity=".4" stroke-width="2"/>
+                <g stroke="var(--sk-brand)" stroke-width="2.6" stroke-linecap="round"><path d="M186 128h14M186 135h14"/></g>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="242" cy="118" r="9"/><path d="M228 142a14 14 0 0 1 28 0"/>
+                </g>
+                <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">Remember, LIKES and COMMENTS = Leads!</p>
+
+            <p class="sk-lead">Curious to know WHAT to post to your FEEDS?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- answer questions ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>
+          <span class="sk-name">ANSWER Questions Where People Are ASKING Questions!</span>
+          <span class="sk-tease">Facebook, Reddit, Nextdoor, Quora.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="72" fill="#fff" opacity=".55"/>
+
+                <!-- four communities asking, each a neutral bubble with a question mark -->
+                <g>
+                  <path d="M34 30h44a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9H50l-10 9v-9h-6a9 9 0 0 1-9-9V39a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M50 44.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="56.6" cy="60.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M236 26h44a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-26l-10 9v-9h-8a9 9 0 0 1-9-9V35a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M252 40.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="258.6" cy="56.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M28 112h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9H44l-10 9v-9h-6a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M43 126.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="49.6" cy="142.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M242 110h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-24l-10 9v-9h-8a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M257 124.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="263.6" cy="140.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+
+                <!-- your answer at the centre, the only brand coloured thing -->
+                <path d="M118 62h84a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-56l-14 13v-13h-14a12 12 0 0 1-12-12V74a12 12 0 0 1 12-12z" fill="url(#dmoG4)"/>
+                <g stroke="#fff" stroke-linecap="round" stroke-width="3.4">
+                  <path d="M132 80h56" opacity=".95"/>
+                  <path d="M132 92h44" opacity=".65"/>
+                </g>
+                <path d="M132 103.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- the answer reaching each place -->
+                <g stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round" fill="none">
+                  <path d="M112 78 C 98 70, 92 64, 88 58"/>
+                  <path d="M216 74 C 228 66, 234 60, 238 54"/>
+                  <path d="M112 106 C 98 114, 92 118, 84 122"/>
+                  <path d="M216 106 C 228 112, 236 116, 244 120"/>
+                </g>
+              </svg>
+            </div>
+
+            <p class="sk-desc">Somewhere right now, someone is typing out the exact problem you solve, in public, and asking strangers for help. Your job is to find those people and be the most useful answer in the thread.</p>
+            <p class="sk-desc">Facebook groups are one of the BEST places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
+            <p class="sk-desc">Do not stop at Facebook. REDDIT, NEXTDOOR, and QUORA are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
+            <p class="sk-desc">Then actually answer it. Give away the useful thing for free, in the thread, where everyone can read it. No pitch, no link drop. Being the person who helped is what makes someone check your profile, and your profile is what turns them into a lead.</p>
+            <p class="sk-desc">As mentioned in the previous section, consistency is KEY. You have to keep swinging if you want to get a hit. Show up every day and answer at least ONE real question, wherever you find it.</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- ads ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>
+          <span class="sk-name">Run Ads On Facebook &amp; Instagram!</span>
+          <span class="sk-tease">The fastest way to a steady flow of fresh leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="66" y="38" width="120" height="104" rx="13" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="78" y="50" width="34" height="9" rx="4.5" fill="url(#dmoG5)"/>
+                <text x="95" y="57" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#fff">AD</text>
+                <rect x="78" y="68" width="96" height="40" rx="7" fill="url(#dmoG5)" opacity=".16"/>
+                <path d="M78 108l26-20 20 15 16-11 34 24z" fill="url(#dmoG5)" opacity=".45"/>
+                <rect x="78" y="118" width="96" height="12" rx="6" fill="url(#dmoG5)"/>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4">
+                  <circle cx="238" cy="76" r="30"/><circle cx="238" cy="76" r="18"/>
+                </g>
+                <circle cx="238" cy="76" r="7" fill="url(#dmoG5)"/>
+                <g fill="url(#dmoG5)">
+                  <rect x="206" y="140" width="14" height="16" rx="4" opacity=".45"/>
+                  <rect x="226" y="128" width="14" height="28" rx="4" opacity=".7"/>
+                  <rect x="246" y="114" width="14" height="42" rx="4"/>
+                </g>
+                <path d="M196 118 C 210 112, 220 104, 226 96" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">If your SHARK account includes access to advertising support, TAKE ADVANTAGE OF IT AND RUN ADS!</p>
+            <p class="sk-desc">Paid advertising is one of the most cost-effective ways to generate a steady flow of fresh leads into your pipeline every day. When you combine ads with the other strategies on this page, you&#8217;ll never run short on conversations, &#8220;at-bats,&#8221; or opportunities.</p>
+
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click here to watch the training on why running ads can be such a powerful part of your growth strategy.
+            </a>
+
+            <p class="sk-desc" style="margin-top:16px">If you have access to the ADS ENGINE inside your SHARK account, watch the training and get your ads running! Have questions? Reach out to us anytime.</p>
+
+            <p class="sk-lead">Don&#8217;t have access to the ADS ENGINE but want it?</p>
+            <a class="sk-chip" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-5M12 8.2v.2"/></svg>
+              Click here to learn more.
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- follow up ---- -->
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>
+          <span class="sk-name">FOLLOW UP With Your Prospects!</span>
+          <span class="sk-tease">80% of sales happen after the fourth follow up.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g>
+                  <circle cx="72" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="72" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">1</text>
+                  <circle cx="118" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="118" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">2</text>
+                  <circle cx="164" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="164" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">3</text>
+                  <circle cx="212" cy="90" r="22" fill="url(#dmoG6)"/>
+                  <text x="212" y="96" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="17" fill="#fff">4</text>
+                </g>
+                <g stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round">
+                  <path d="M89 90h12"/><path d="M135 90h12"/><path d="M181 90h9"/>
+                </g>
+                <path d="M242 90h14" stroke="var(--sk-brand)" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M262 84l7 8 14-16" fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g transform="translate(150 26)">
+                  <path d="M4 3.5h8l3 8-4 3a20 20 0 0 0 9 9l3-4 8 3v8a3.5 3.5 0 0 1-3.5 3.5A28 28 0 0 1 .5 7 3.5 3.5 0 0 1 4 3.5z" fill="#fff" stroke="var(--sk-brand)" stroke-width="1.8" stroke-linejoin="round"/>
+                </g>
+                <text x="160" y="152" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="11" letter-spacing="2.4" fill="var(--sk-brand-deep)" opacity=".75">80% OF SALES</text>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is arguably the MOST IMPORTANT thing you can do on a daily basis&#8230; Remember, the FORTUNE is in the FOLLOW UP! And&#8230; Did you know that 80% of sales are made after the FOURTH follow up? Moral of the story, you NEED to follow up with your leads.</p>
+            <p class="sk-desc">Keep it simple&#8230; many times you are just hitting the person up again seeing if they looked at information, watched a video, accessed one of your free guides, etc.</p>
+
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video on EXACTLY how to follow up.
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============ footer ============ -->
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <p class="sk-foot-eyebrow">Remember&#8230;</p>
+      <p class="sk-foot-title">The RESULTS that you&#8217;re looking for is in the WORK that you&#8217;re AVOIDING.</p>
+      <p class="sk-foot-copy">Get to work, this stuff works, but ONLY if you work the system. Let&#8217;s GO!</p>
+    </div>
+  </footer>
+    <div class="sk-tail">
+      <a class="sk-chip" href="#" data-asset="storefront">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></svg>
+        Want more people to talk to? Visit the lead storefront.
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORT ============ -->
+  <section class="sk-screen" data-screen="support">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Contact Support</h1>
+      <p class="sk-page-sub">Stuck on something? Pick whichever is easiest and we will come back to you.</p>
+    </header>
+    <div style="height:24px"></div>
+
+    <div class="sk-support">
+      <a class="sk-contact" href="#" data-asset="support-email">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.6"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span>
+          <span class="sk-route-name">Email us</span>
+          <span class="sk-route-copy">Best for anything that needs a screenshot.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="sk-contact" href="#" data-asset="support-sms">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>
+          <span class="sk-route-name">Text us</span>
+          <span class="sk-route-copy">Fastest for a quick question.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="sk-contact" href="#" data-asset="support-hours">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5.4l3.4 2"/></svg></span>
+        <span>
+          <span class="sk-route-name">Join office hours</span>
+          <span class="sk-route-copy">Live every week. Bring your screen and your questions.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.sk-dmo');
+  if (!root) return;
+
+  /* ---------- icons ----------
+     Inline path data in one map, 24x24, fill none, stroke currentColor. Never an
+     icon font, never a remote sprite. */
+  var I = {
+    link:    '<path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/>',
+    inbox:   '<path d="M2.5 13.5h5l1.6 2.6h5.8l1.6-2.6h5"/><path d="M4.6 5.4 2.5 13.5v3.6a2.4 2.4 0 0 0 2.4 2.4h14.2a2.4 2.4 0 0 0 2.4-2.4v-3.6L19.4 5.4A2.4 2.4 0 0 0 17.2 4H6.8a2.4 2.4 0 0 0-2.2 1.4z"/>',
+    rocket:  '<path d="M13.5 4.5c3.4-2.2 6-2 6-2s.2 2.6-2 6c-2.5 3.9-6.4 5.6-6.4 5.6l-3.2-3.2S9.6 7 13.5 4.5z"/><path d="M8 15.5 5 18M6.5 11.5 4 12.8l1.8 1.8M12.5 17.5l1.3-2.5 1.8 1.8"/>',
+    life:    '<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/>',
+    leaf:    '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    dumbbell:'<path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><path d="M3.5 9v6"/><path d="M20.5 9v6"/><path d="M6.5 12h11"/>',
+    quiz:    '<path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/>',
+    drop:    '<path d="M12 2.7s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.1 12 2.7 12 2.7Z"/>',
+    info:    '<circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5"/><path d="M12 8h.01"/>',
+    user:    '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+    users:   '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
+    compass: '<circle cx="12" cy="12" r="9.5"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2Z"/>',
+    copy:    '<rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/>',
+    check:   '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+    out:     '<path d="M14 4h6v6"/><path d="M20 4 10.5 13.5"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>',
+    play:    '<path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/>',
+    chev:    '<path d="m9 5 7 7-7 7"/>',
+    down:    '<path d="m6 9 6 6 6-6"/>',
+    image:   '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/>',
+    cart:    '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>',
+    share:   '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>'
+  };
+  function icon(k, w) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' +
+      (w || 1.7) + '" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
+  }
+
+  /* ---------- custom values ----------
+     Empty, unsubstituted, and the "Paste the full link" placeholder all count as
+     not filled, exactly as the live marketing links block treats them. */
+  function cv(key) {
+    var v = (root.getAttribute('data-cv-' + key) || '').trim();
+    if (!v || v.indexOf('{') !== -1 || /^(paste|enter|add)\b/i.test(v)) return '';
+    return v;
+  }
+  function href(v) { return /^https?:\/\//i.test(v) ? v : 'https://' + v.replace(/^\/+/, ''); }
+
+  /* ---------- the four destinations ---------- */
+  var DEST = [
+    { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
+    { id: 'leads',   icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
+    { id: 'promote', icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
+    { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' }
+  ];
+
+  /* ---------- the funnel library ----------
+     GLP funnel links come from ONE custom value each, not domain plus slug: GLP
+     buyers run several domains and their slugs drift per install, so a fixed
+     slug would silently serve the 404 fallback with a 200.
+     PREVIEW urls stand in until the real values are wired. */
+  var GROUPS = [
+    { label: 'Start a conversation', items: [
+      { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
+        tease: 'Free foods guide', demo: 'glpshark.com/glp-food-guide',
+        howto: 'https://glpshark.com/glp-food-guide-training',
+        canva: 'https://canva.link/gszpkrgjxsn7fga',
+        desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
+      { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
+        tease: 'Recipes and grocery list', demo: 'glpshark.com/protein-recipe-guide',
+        canva: 'https://canva.link/n6t92pxvso2744m',
+        desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
+      { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
+        tease: 'Free workout download', demo: 'glpshark.com/glp-workout-guide',
+        desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' } ]},
+
+    { label: 'Quizzes and tools', items: [
+      { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
+        tease: 'Recommends the right support', demo: 'glpshark.com/weight-loss-quiz',
+        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
+      { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
+        tease: 'Finds their work-from-home fit', demo: 'glpshark.com/side-hustle-quiz',
+        desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' } ]},
+
+    { label: 'Share the product', items: [
+      { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
+        tease: 'For people who already know you', demo: 'glpshark.com/drops',
+        desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
+      { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
+        tease: 'For cold traffic', demo: 'glpshark.com/drops-ads',
+        desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
+
+    { label: 'Explain ORYGN', items: [
+      { cv: 'orygn_tour_funnel_link', icon: 'info', name: 'ORYGN Tour',
+        tease: 'Products, opportunity, comp plan', demo: 'glpshark.com/orygn-tour',
+        desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is.' },
+      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Navigation Page',
+        tease: 'Let them choose their path', demo: 'glpshark.com/navigation',
+        desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
+
+    { label: 'Recruit', items: [
+      { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
+        tease: 'For people who asked about the business', demo: 'glpshark.com/opportunity-warm',
+        desc: 'The business explained, for people who have already told you they want to hear more.' },
+      { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
+        tease: 'For cold traffic', demo: 'glpshark.com/opportunity',
+        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
+
+    { label: 'Your own pages', items: [
+      { cv: 'personal_branded_funnel_link', icon: 'user', name: 'Personal Branded One Pager',
+        tease: 'Your name, your contact details', demo: 'glpshark.com/your-name',
+        desc: 'Your own branded page with your name and details. Use it as your link in bio.' } ]}
+  ];
+
+  /* Ready to post social library. Identical for every GLP rep, so these are
+     static in the block rather than custom values. Source: the GLP ads training
+     page (glpshark.com/ads-training-page1-769355). */
+  var SOCIAL = [
+    { name: 'Product images, 1x1',       url: 'https://canva.link/qryqd6ykd8cj52m' },
+    { name: 'Product images, 9x16',      url: 'https://canva.link/x7jlmu1gmeo5umf' },
+    { name: 'Opportunity images, 1x1',   url: 'https://canva.link/wpssx0sbep1xhej' },
+    { name: 'Opportunity images, 9x16',  url: 'https://canva.link/d43ep73ca1unbjn' },
+    { name: 'Recipe lead magnet images', url: 'https://canva.link/n6t92pxvso2744m' }
+  ];
+
+  /* the rep's own buy links, which are not funnels */
+  var DIRECT = [
+    { cv: 'rep_buy_link',         name: 'Product link, for customers',
+      demo: 'myorygn.co/your-username' },
+    { cv: 'distributor_buy_link', name: 'Recruitment link, for distributors',
+      demo: 'orygn.co/your-username' }
+  ];
+
+  /* ---------- greeting ---------- */
+  var firstName = cv('rep_first_name') || 'Jeff';
+  var nameEl = root.querySelector('[data-name]');
+  if (nameEl) nameEl.textContent = firstName;
+  var commaEl = root.querySelector('[data-comma]');
+  if (commaEl) commaEl.textContent = firstName ? ', ' : '';
+
+  /* ---------- home destinations ---------- */
+  var grid = root.querySelector('[data-menugrid]');
+  grid.innerHTML = DEST.map(function (d, i) {
+    return '<a class="sk-dest" href="#/' + d.id + '" style="animation-delay:' + (0.1 + i * 0.05) + 's">' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span><span class="sk-dest-name">' + d.name + '</span>' +
+      '<span class="sk-dest-tease">' + d.tease + '</span></span>' +
+      '<span class="sk-dest-go" aria-hidden="true">' + icon('chev', 2) + '</span></a>';
+  }).join('');
+
+  /* ---------- nav sheet ---------- */
+  var navlist = root.querySelector('[data-navlist]');
+  navlist.innerHTML = [{ id: 'home', icon: 'compass', name: 'Home' }].concat(DEST).map(function (d) {
+    return '<a class="sk-nav" href="#/' + d.id + '">' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span>' + d.name + '</span></a>';
+  }).join('');
+
+  /* ---------- funnel links ---------- */
+  var linksHost = root.querySelector('[data-links]');
+  var html = '';
+  GROUPS.forEach(function (g) {
+    var rows = g.items.map(function (it) {
+      var url = cv(it.cv) || it.demo;
+      if (!url) return '';
+      var full = href(url);
+      return '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(it.icon) + '</span>' +
+          '<span><span class="sk-name">' + it.name + '</span>' +
+          '<span class="sk-tease">' + it.tease + '</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<p class="sk-desc">' + it.desc + '</p>' +
+          '<button class="sk-copy" type="button" data-copy="' + full + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+          '<div class="sk-url"><span class="sk-url-text">' + url + '</span>' +
+            '<a class="sk-open" href="' + full + '" target="_blank" rel="noopener" aria-label="Open ' + it.name + '">' + icon('out', 1.8) + '</a></div>' +
+          ((it.howto || it.canva) ? '<div class="sk-links">' +
+            (it.howto ? '<a class="sk-chip" href="' + it.howto + '" target="_blank" rel="noopener">' +
+              icon('play', 1.7) + 'How to use this funnel</a>' : '') +
+            (it.canva ? '<a class="sk-chip" href="' + it.canva + '" target="_blank" rel="noopener">' +
+              icon('image', 1.7) + 'Images for social posts</a>' : '') +
+            '</div>' : '') +
+        '</div></div></div></article>';
+    }).join('');
+    if (!rows) return;
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">' + g.label + '</span>' +
+      '<span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + g.items.length + '</span></div>' + rows + '</div>';
+  });
+  /* social content: one dropdown holding the whole image library */
+  html += '<div class="sk-group"><div class="sk-group-head">' +
+    '<span class="sk-group-label">Social content</span><span class="sk-group-rule"></span>' +
+    '<span class="sk-group-count">' + SOCIAL.length + '</span></div>' +
+    '<article class="sk-card" data-open="false">' +
+      '<button class="sk-trigger" type="button" aria-expanded="false">' +
+        '<span class="sk-mark" aria-hidden="true">' + icon('image') + '</span>' +
+        '<span><span class="sk-name">Ready to post images</span>' +
+        '<span class="sk-tease">Product, opportunity and lead magnet</span></span>' +
+        '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+      '</button>' +
+      '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+        '<ul class="sk-plist">' + SOCIAL.map(function (x) {
+          return '<li class="sk-prow"><a class="sk-prow-name" href="' + x.url + '" target="_blank" rel="noopener">' +
+            x.name + '</a><a class="sk-chip sk-chip--go" href="' + x.url + '" target="_blank" rel="noopener">Open</a></li>';
+        }).join('') + '</ul>' +
+      '</div></div></div></article></div>';
+
+  /* direct buy links, one dropdown, name left and copy right */
+  var direct = DIRECT.map(function (d) { d.link = cv(d.cv) || d.demo; return d; })
+                     .filter(function (d) { return !!d.link; });
+  if (direct.length) {
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">Direct buy links</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + direct.length + '</span></div>' +
+      '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon('cart') + '</span>' +
+          '<span><span class="sk-name">Your buy links</span>' +
+          '<span class="sk-tease">Product and recruitment</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<ul class="sk-plist">' + direct.map(function (d) {
+            var u = href(d.link);
+            return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
+              d.name + '</a><button class="sk-copy sk-copy--mini" type="button" data-copy="' + u + '">' +
+              icon('copy', 1.8) + '<span class="sk-copy-label">Copy</span></button></li>';
+          }).join('') + '</ul>' +
+        '</div></div></div></article></div>';
+  }
+
+  /* Refer the system. The affiliate link is per rep, so a missing one renders
+     nothing rather than a dead link or, worse, someone else's. */
+  var affiliate = cv('glpshark_affiliate_link') || 'glpshark.com/?fp_ref=your-username';
+  if (affiliate) {
+    var au = href(affiliate);
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">1</span></div>' +
+      '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
+          '<span><span class="sk-name">Your GLP Shark affiliate link</span>' +
+          '<span class="sk-tease">Share the Shark marketing system</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<p class="sk-desc">This is your affiliate link for the GLP Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.</p>' +
+          '<button class="sk-copy" type="button" data-copy="' + au + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+          '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
+            '<a class="sk-open" href="' + au + '" target="_blank" rel="noopener" aria-label="Open your affiliate link">' + icon('out', 1.8) + '</a></div>' +
+        '</div></div></div></article></div>';
+  }
+
+  linksHost.innerHTML = html;
+
+  /* ---------- copy to clipboard ----------
+     Idle to done state machine: the label swaps to a confirmation for 1.9s and
+     then restores, so the tap is acknowledged without a toast. */
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-copy]') : null;
+    if (!btn) return;
+    var url = btn.getAttribute('data-copy');
+    var label = btn.querySelector('.sk-copy-label');
+    function done() {
+      btn.setAttribute('data-state', 'done');
+      if (label) label.textContent = 'Copied';
+      setTimeout(function () {
+        btn.removeAttribute('data-state');
+        if (label) label.textContent = 'Copy my link';
+      }, 1900);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, done);
+    } else {
+      var t = document.createElement('textarea');
+      t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(t);
+      done();
+    }
+  });
+
+  /* ---------- accordions ----------
+     State lives in data-open on the card, mirrored to aria-expanded on the
+     trigger. One open at a time, per group of cards on the active screen. */
+  root.addEventListener('click', function (e) {
+    var trigger = e.target.closest ? e.target.closest('.sk-trigger') : null;
+    if (!trigger) return;
+    var card = trigger.closest('.sk-card');
+    var screen = trigger.closest('.sk-screen');
+    var willOpen = card.getAttribute('data-open') !== 'true';
+    screen.querySelectorAll('.sk-card').forEach(function (c) {
+      c.setAttribute('data-open', 'false');
+      var t = c.querySelector('.sk-trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      card.setAttribute('data-open', 'true');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  /* ---------- video facade ----------
+     The player is never in the markup: data-vimeo holds the numeric id and the
+     iframe is injected on click, so a page carrying videos costs nothing until
+     a viewer asks for one. */
+  root.addEventListener('click', function (e) {
+    var frame = e.target.closest ? e.target.closest('.sk-frame') : null;
+    if (!frame) return;
+    var id = frame.getAttribute('data-vimeo');
+    if (!id) return;
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:relative;width:100%;aspect-ratio:16/9';
+    var f = document.createElement('iframe');
+    f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0';
+    f.allow = 'autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen = true;
+    f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+    wrap.appendChild(f);
+    frame.replaceWith(wrap);
+  });
+
+  /* ---------- menu sheet ---------- */
+  var sheet = root.querySelector('[data-menu]');
+  var lastFocus = null;
+  function openMenu() {
+    lastFocus = document.activeElement;
+    sheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    sheet.querySelector('.sk-sheet-panel').focus();
+  }
+  function closeMenu() {
+    sheet.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  root.querySelector('[data-menu-open]').addEventListener('click', openMenu);
+  sheet.querySelectorAll('[data-menu-close]').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !sheet.hidden) closeMenu();
+  });
+
+  /* ---------- router ----------
+     Hash routed so the whole hub is one block at one URL, which is what lets it
+     travel inside a snapshot as a single custom code socket. */
+  var screens = root.querySelectorAll('.sk-screen');
+  var backBtn = root.querySelector('[data-back]');
+  var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1 };
+
+  function route() {
+    var id = (location.hash || '').replace(/^#\/?/, '') || 'home';
+    if (!VALID[id]) id = 'home';
+    screens.forEach(function (s) {
+      s.setAttribute('data-active', String(s.getAttribute('data-screen') === id));
+    });
+    root.setAttribute('data-route', id);
+    backBtn.hidden = (id === 'home');
+    navlist.querySelectorAll('.sk-nav').forEach(function (a) {
+      if (a.getAttribute('href') === '#/' + id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    if (!sheet.hidden) closeMenu();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  backBtn.addEventListener('click', function () { location.hash = '#/home'; });
+  route();
+
+  /* the bar grows a hairline once the page has moved, so it separates from the
+     content without drawing a permanent line across the top */
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      root.setAttribute('data-scrolled', String(window.scrollY > 4));
+      ticking = false;
+    });
+  }, { passive: true });
+
+  /* ---------- assets not wired yet ----------
+     Everything waiting on a real url or video id is marked data-asset. Rather
+     than shipping a dead link that looks live, say so on tap. */
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('[data-asset]') : null;
+    if (!a) return;
+    e.preventDefault();
+    alert('Not wired yet: ' + a.getAttribute('data-asset') +
+          '\n\nThis link goes live once the real url is supplied.');
+  });
+  root.querySelector('[data-a2hs]').addEventListener('click', function () {
+    alert('Add to home screen\n\nThe live page detects iPhone or Android and shows that platform’s steps. Carried over from the marketing links page.');
+  });
+})();
+</script>
+</body>
+</html>
