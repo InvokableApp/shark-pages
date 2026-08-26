@@ -8,7 +8,7 @@
 
   Every purchase CTA points at the funnel's REDIRECT step, not straight at the shop, so the click
   is tracked: a pageview on that step fires Fire Lead, and the step then forwards to
-  https://{{custom_values.beneve_buy_link}} on its own. (HOSTED-BLOCKS-SOP §7b.)
+  https://{{custom_values.beneve_original_coffee_link}} on its own. (HOSTED-BLOCKS-SOP §7b.)
 
   Design and behaviour live in _shared/product/, scoped under .sk-prod, and are shared by every
   product page in every system. This file holds only markup; block.css holds only palette tokens.
@@ -19,7 +19,7 @@
 -->
 <div class="sk-prod sk-prod-bnv-coffee"
      data-buy-step="beneve-clean-brew-redirect"
-     data-buy-url="{{custom_values.beneve_buy_link}}">
+     data-buy-url="{{custom_values.beneve_original_coffee_link}}">
 
   <!-- reading progress, fixed to the top of the viewport -->
   <div class="sk-prod-prog" aria-hidden="true"><i></i></div>

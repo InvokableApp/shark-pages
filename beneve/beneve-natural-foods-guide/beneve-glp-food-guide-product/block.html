@@ -8,7 +8,7 @@
 
   Every purchase CTA points at the funnel's own REDIRECT step, not straight at the shop, so
   the click is tracked: a pageview on that step fires the Fire Lead workflow, and the step
-  then forwards to https://{{custom_values.beneve_buy_link}} on its own. The href is written
+  then forwards to https://{{custom_values.beneve_gut_advantage_link}} on its own. The href is written
   sibling-relative so it survives whatever funnel path a buyer's account ends up with;
   block.js resolves it to an absolute same-funnel URL, and falls back to the buy link itself
   when the page is not being served from inside the funnel (builder preview).
@@ -21,7 +21,7 @@
 -->
 <div class="sk-prod sk-prod-bnv-gut"
      data-buy-step="beneve-glp-food-guide-redirect"
-     data-buy-url="{{custom_values.beneve_buy_link}}"
+     data-buy-url="{{custom_values.beneve_gut_advantage_link}}"
      data-cv-beneve_rep_first_name="{{custom_values.beneve_rep_first_name}}">
 
   <!-- reading progress, fixed to the top of the viewport -->

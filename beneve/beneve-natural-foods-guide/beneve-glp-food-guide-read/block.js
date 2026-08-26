@@ -22,7 +22,7 @@
   // funnel (builder preview), so the button is never dead.
   (function () {
     var step = root.getAttribute("data-buy-step");
-    var buy = root.getAttribute("data-cv-beneve_buy_link");
+    var buy = root.getAttribute("data-cv-beneve_gut_advantage_link");
     var btns = root.querySelectorAll("[data-buy]");
     if (!btns.length) return;
     var path = location.pathname.replace(/\/+$/, "");
