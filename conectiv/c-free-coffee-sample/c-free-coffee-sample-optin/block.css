@@ -56,17 +56,14 @@
 @keyframes sk-prod-ctv-sheen{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
 /* ============================ HERO EXTRAS ============================ */
-/* A free offer's single biggest objection is "what is the catch", so the price line answers it
-   in the hero rather than 3 screens down: the value is struck through, the price is FREE. */
-.sk-prod-ctv .sk-prod-ctv-price{
-  display:flex;align-items:baseline;gap:.7rem;margin:0 0 1.3rem;flex-wrap:wrap;
+/* A free offer's biggest objection is "what is the catch", so the hero answers it directly.
+   This used to anchor against the $65 full bag with a strikethrough. That was removed
+   2026-08-26 (Jeff): the page sells ONE thing, a free sample, and pricing a product the reader
+   is not being asked to buy just reintroduces the question of buying it. */
+.sk-prod-ctv .sk-prod-ctv-covered{
+  margin:0 0 1.5rem;font-size:.95rem;color:var(--sk-teal-d);font-weight:600;
+  padding-left:.9rem;border-left:2px solid var(--sk-teal);max-width:30em;
 }
-.sk-prod-ctv .sk-prod-ctv-price b{
-  font-family:var(--sk-serif);font-weight:400;font-size:clamp(2rem,4.4vw,2.8rem);
-  line-height:1;color:var(--sk-teal-d);letter-spacing:-.02em;
-}
-.sk-prod-ctv .sk-prod-ctv-price s{color:#93a3a5;font-size:1.05rem;text-decoration-thickness:1.5px}
-.sk-prod-ctv .sk-prod-ctv-price em{font-style:normal;font-size:.9rem;color:var(--sk-body)}
 
 /* the pack floats, and a soft ring behind it turns slowly so the hero is never fully static */
 .sk-prod-ctv .sk-prod-ctv-ring{
@@ -78,16 +75,34 @@
 .sk-prod-ctv .sk-prod-hero-shot img{animation:sk-prod-ctv-bob 7s var(--ctv-ease) infinite}
 @keyframes sk-prod-ctv-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
 
-/* the free-sample seal, pinned to the pack */
+/* The free-sample seal, pinned to the pack.
+   ⚠️ This was `display:grid; place-items:center` over a bare text node plus a <b>. Grid wraps the
+   loose text in an anonymous item and puts the <b> in a SECOND implicit row, then the two rows
+   stretch to fill the circle: the two words ended up flung apart with a hole between them. Flex
+   column with an explicit gap keeps them as one stacked lockup. Both children are elements now,
+   so there is no anonymous item either way. */
 .sk-prod-ctv .sk-prod-ctv-seal{
-  position:absolute;right:4%;top:6%;z-index:2;
-  display:grid;place-items:center;width:104px;height:104px;border-radius:50%;
-  background:var(--sk-sage);color:#fff;text-align:center;line-height:1.15;
-  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  box-shadow:0 14px 30px rgba(185,131,79,.38);
+  position:absolute;right:3%;top:4%;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  width:98px;height:98px;border-radius:50%;
+  background:radial-gradient(circle at 38% 30%,#c9955f,var(--sk-sage) 62%,#a9743f);
+  color:#fff;text-align:center;
+  box-shadow:0 14px 30px rgba(185,131,79,.42),inset 0 1px 0 rgba(255,255,255,.35);
   transform:rotate(-9deg);
 }
-.sk-prod-ctv .sk-prod-ctv-seal b{display:block;font-size:1.25rem;letter-spacing:.02em}
+/* the stamped inner hairline, the thing that reads as a seal rather than a dot */
+.sk-prod-ctv .sk-prod-ctv-seal::before{
+  content:"";position:absolute;inset:6px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.42);
+}
+.sk-prod-ctv .sk-prod-ctv-seal i{
+  font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.19em;
+  text-transform:uppercase;opacity:.92;line-height:1;
+}
+.sk-prod-ctv .sk-prod-ctv-seal b{
+  font-family:var(--sk-serif);font-size:1.6rem;font-weight:400;line-height:1;
+  letter-spacing:.01em;text-transform:uppercase;
+}
 
 /* ============================ COUNTERS ============================ */
 .sk-prod-ctv .sk-prod-ctv-stats{
@@ -206,11 +221,35 @@
   .sk-prod-ctv .sk-prod-ctv-ings,.sk-prod-ctv .sk-prod-ctv-vs-grid,.sk-prod-ctv .sk-prod-ctv-steps{grid-template-columns:1fr}
   .sk-prod-ctv .sk-prod-ctv-stats{grid-template-columns:repeat(2,1fr);gap:1.6rem 1rem}
   .sk-prod-ctv .sk-prod-ctv-price{justify-content:center}
-  .sk-prod-ctv .sk-prod-ctv-seal{width:84px;height:84px;font-size:.62rem;right:2%}
-  .sk-prod-ctv .sk-prod-ctv-seal b{font-size:1rem}
+  .sk-prod-ctv .sk-prod-ctv-seal{width:78px;height:78px;right:2%}
+  .sk-prod-ctv .sk-prod-ctv-seal i{font-size:.52rem;letter-spacing:.15em}
+  .sk-prod-ctv .sk-prod-ctv-seal b{font-size:1.25rem}
 }
 @media (prefers-reduced-motion:reduce){
   .sk-prod-ctv .sk-prod-ctv-strip::after,
   .sk-prod-ctv .sk-prod-ctv-ring,
   .sk-prod-ctv .sk-prod-hero-shot img{animation:none}
 }
+
+/* ============================ TASTE ============================ */
+/* One wide panel rather than another card grid: after six ingredient cards the eye needs a
+   change of rhythm, and this beat is a single argument, not a list. */
+.sk-prod-ctv .sk-prod-ctv-taste{
+  position:relative;overflow:hidden;
+  margin-top:clamp(2rem,4vw,3rem);
+  padding:clamp(2rem,4vw,3.2rem) clamp(1.6rem,4vw,3.4rem);
+  border-radius:26px;border:1px solid var(--sk-line);
+  background:linear-gradient(120deg,#fff 0%,var(--sk-mist) 60%,rgba(230,199,155,.28) 100%);
+}
+.sk-prod-ctv .sk-prod-ctv-taste::after{
+  content:"";position:absolute;width:22rem;height:22rem;right:-7rem;top:-9rem;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,145,132,.16),rgba(26,145,132,0) 68%);pointer-events:none;
+}
+.sk-prod-ctv .sk-prod-ctv-taste > *{position:relative;z-index:1}
+.sk-prod-ctv .sk-prod-ctv-taste h3{
+  margin:0 0 1rem;font-family:var(--sk-serif);font-weight:300;
+  font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.15;letter-spacing:-.01em;color:var(--sk-navy);
+  max-width:20em;
+}
+.sk-prod-ctv .sk-prod-ctv-taste p{margin:0 0 1rem;max-width:44em}
+.sk-prod-ctv .sk-prod-ctv-taste .sk-prod-note{margin-bottom:0}
