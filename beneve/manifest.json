@@ -21,8 +21,16 @@
       "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-product",
       "funnelId": "13IhXSPjIGwhekSn3rqz",
       "pageId": "ntDBjhaVHPhTeW4rAHdh",
-      "elementId": "custom-code-xa1fqs696f",
+      "elementId": "custom-code-6jjnc0hk0l",
       "elementTitle": "Original Coffee Sticks",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-guide",
+      "funnelId": "13IhXSPjIGwhekSn3rqz",
+      "pageId": "diEPsrHnkdQMQCXOVMqQ",
+      "elementId": "custom-code-RLEKVsQUAr",
+      "elementTitle": "Custom Code",
       "pattern": "A"
     }
   ]

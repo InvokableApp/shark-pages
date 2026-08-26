@@ -167,7 +167,12 @@
 .sk-prod .sk-prod-use-n{
   flex:0 0 auto;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
   background:linear-gradient(140deg,rgba(121,189,190,.25),rgba(188,213,122,.3));
-  font-family:var(--sk-serif,serif);font-size:1.7rem;font-weight:600;line-height:1;
+  /* SANS here, deliberately. The display serif is Cormorant, which ships oldstyle figures and no
+     lining set, so "65" sat at x-height with descenders and read as tiny lowercase inside the
+     circle. font-variant-numeric cannot fix a face that has no lining figures; changing the face
+     can. */
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:1.15rem;font-weight:700;line-height:1;letter-spacing:-.01em;
   color:var(--sk-navy,#1e386a);
 }
 .sk-prod .sk-prod-use strong{display:block;color:var(--sk-navy,#1e386a);font-size:.95rem}

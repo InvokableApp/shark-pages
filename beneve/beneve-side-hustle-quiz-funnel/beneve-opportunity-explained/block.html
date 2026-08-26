@@ -1,0 +1,242 @@
+<!--
+  beneve/beneve-side-hustle-quiz-funnel/beneve-opportunity-explained
+  The opportunity page of the Side Hustle Quiz funnel: what being a Beneve Influencer actually is.
+
+  INFO-CENTRIC, not an enrollment form. The sign-up happens on beneve.com under the rep's own link,
+  and that link is what earns the commission. Every CTA points at the funnel's REDIRECT step, not
+  straight at beneve.com, so the click is tracked: a pageview there fires Fire Lead, and the step
+  forwards to https://{{custom_values.beneve_opportunity_url}} on its own. (HOSTED-BLOCKS-SOP §7b.)
+
+  Design and behaviour live in _shared/product/, scoped under .sk-prod, shared with the product
+  pages so every long-form page in the system reads as one family.
+
+  Copy is Beneve's own, from beneve.com/{rep}/customer/become-an-influencer: the opening, the four
+  values, the ten compensation points and the income disclaimer. House rules applied on top:
+  addressed to the reader, em-dashes removed, no earnings claim Beneve does not already make.
+-->
+<div class="sk-prod sk-prod-bnv-opp"
+     data-buy-step="beneve-side-hustle-redirect"
+     data-buy-url="{{custom_values.beneve_opportunity_url}}">
+
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Become an Influencer</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="beneve-side-hustle-redirect" data-buy>Get started</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>The Beneve opportunity</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Become an <span class="sk-prod-accent">Influencer</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          If you love Beneve, there is an easy way to help pay for your products. By sharing what
+          you already use, you can partner with the Influencer who introduced you to Beneve and
+          learn how to build your own business.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>65% payout</li>
+          <li>13 ways to earn</li>
+          <li>12 levels deep</li>
+          <li>Bill of Rights</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="beneve-side-hustle-redirect" data-buy>
+            Get started today
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">See how it pays</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/redefining.webp"
+             alt="Two women sitting outdoors with Beneve products" loading="eager" decoding="async">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Scroll to read more">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== CLAIM ============================== -->
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>Redefining what it means to build a business</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        A new era of influence, where integrity meets opportunity.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6.5v5c0 4.5 3.4 8.3 8 9.5 4.6-1.2 8-5 8-9.5v-5L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <h3>Integrity</h3>
+          <p>We do what is right in every decision. Transparency and honesty guide how we operate and lead.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+          </span>
+          <h3>Empowerment</h3>
+          <p>We equip Influencers to build ownership, confidence, and financial freedom through education and support.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18.5 20a6.6 6.6 0 0 0-3-5.5"/></svg>
+          </span>
+          <h3>Community</h3>
+          <p>A family of purpose-driven people who value connection over competition, because growth is stronger together.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg>
+          </span>
+          <h3>Innovation</h3>
+          <p>Science-backed wellness and a modern, ethical model that promotes both health and prosperity.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FORMULA ROWS ============================== -->
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>Why Beneve</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">A smarter way to build your business</h2>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/community.webp"
+               alt="A Beneve Influencer holding a stack of products" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
+          <h3>65% of Every Dollar</h3>
+          <p>Beneve allocates 65% of every dollar toward Influencer compensation, one of the highest levels in health and wellness direct sales.</p>
+          <p class="sk-prod-note">
+            That number is the whole argument. It is not a launch promotion and it is not a
+            top-of-the-house average. It is what the plan is built to pay out.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/laptop.webp"
+               alt="A woman working at a laptop" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
+          <h3>Your Business Is Yours</h3>
+          <p>The Influencer Bill of Rights safeguards your business ownership and your social media channels.</p>
+          <p class="sk-prod-note">
+            Ask anyone who has built an audience for a company and then lost access to it. A
+            written commitment on ownership is rare enough in this industry to be the reason
+            people move.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/own-terms.webp"
+               alt="A quiet home workspace with a closed laptop and a notebook" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
+          <h3>Growth On Your Terms</h3>
+          <p>Cover the cost of your own products, create a meaningful part-time income, or pursue a full-time opportunity. The path meets you where you are.</p>
+          <p class="sk-prod-note">
+            No storefront, no inventory, no massive following required. You share products you
+            already use, from wherever you already are.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/belong.webp"
+               alt="People gathered around a kitchen island in morning light" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
+          <h3>You Belong Here</h3>
+          <p>You join a family of entrepreneurs united by purpose, driven by wellness, and committed to helping others live better.</p>
+          <p class="sk-prod-note">
+            Collaboration, mentorship, and people who celebrate your wins. That part does not show
+            up in a compensation plan, and it is the part most people stay for.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Products and rewards that deliver</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Thirteen ways to earn, and one of the most generous plans in the industry</h2>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>Influencer Bill of Rights protecting your business ownership and social media channels</li>
+          <li>65% commission payout, significantly higher than the industry average</li>
+          <li>13 unique ways to earn</li>
+          <li>50% new customer bonus, paid weekly</li>
+          <li>15 to 30% customer retention bonus, paid monthly</li>
+          <li>12-level unilevel structure, 4 levels deeper than typical industry models</li>
+          <li>Highest percentage payout of any unilevel</li>
+          <li>Unilevel check match, up to 3 levels deep</li>
+          <li>Optional health coverage including medical, dental, life and supplemental</li>
+          <li>Over $500,000 in rank advancement bonuses available</li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">65</span>
+          <div>
+            <strong>Percent payout</strong>
+            <span>Of every dollar, allocated toward Influencer compensation.</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
+        <img src="assets/own-terms.webp"
+             alt="A calm home workspace" loading="lazy" decoding="async">
+        <figcaption>Built to fit your season, your goals, and your values</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSE ============================== -->
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>Ready to explore what is possible for you?</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
+        Start with the person who sent you here. They will walk you through it.
+      </p>
+      <a class="sk-prod-btn sk-prod-btn-lg" href="beneve-side-hustle-redirect" data-buy data-rise data-delay="2">
+        Get started today
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="sk-prod-fine" data-rise data-delay="3">
+        {{custom_values.beneve_income_disclaimer}} Beneve does not guarantee any particular level of
+        earnings. Your results depend on your own effort, skill and circumstances.
+      </p>
+    </div>
+  </section>
+</div>
