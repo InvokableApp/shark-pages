@@ -226,3 +226,33 @@
 /* the ingredient callout shot, under the checklist in the facts column */
 .sk-bnv-gut .sk-bnv-ing{margin:0 0 1.2rem;border-radius:18px;overflow:hidden;border:1px solid var(--bnv-line,#e3e8ef);background:#fff}
 .sk-bnv-gut .sk-bnv-ing img{width:100%}
+
+/* ---------- mobile buy bar (HOSTED-BLOCKS-SOP §8b) ---------- */
+/* Fixed, so it is viewport-relative wherever the block sits on the GHL page. Hidden until
+   block.js says otherwise, and desktop never shows it: the hero CTA and the closing band
+   already carry the page there. */
+.sk-bnv-gut .sk-bnv-bar{
+  display:none; position:fixed; left:0; right:0; top:0; z-index:60;
+  align-items:center; gap:12px; padding:10px 16px;
+  background:var(--bnv-navy,#1e386a); box-shadow:0 6px 20px rgba(22,35,61,.22);
+}
+.sk-bnv-gut .sk-bnv-bar[hidden]{ display:none !important; }
+.sk-bnv-gut .sk-bnv-bar-name{
+  flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  font-family:var(--bnv-serif,serif); font-size:1.02rem; color:#fff;
+}
+/* The bar sits on ink, so its button inverts: paper block, ink label (§8c). And it must opt
+   out of any full-width mobile button rule, or it stretches past the gutter (§8b). */
+.sk-bnv-gut .sk-bnv-bar-btn{
+  flex:0 0 auto; width:auto; padding:.62rem 1.05rem; font-size:.9rem;
+  background:var(--bnv-teal,#79bdbe); color:var(--bnv-ink,#16233d);
+}
+.sk-bnv-gut .sk-bnv-bar-btn:hover{ background:var(--bnv-teal-d,#4e9799); color:#fff; transform:none; box-shadow:none; }
+@media (max-width:900px){
+  .sk-bnv-gut .sk-bnv-bar{ display:flex; }
+  .sk-bnv-gut .sk-bnv-bar[hidden]{ display:none !important; }
+}
+/* the reading line shares top:0 with the bar, so on mobile it drops below the measured bar height */
+@media (max-width:900px){
+  .sk-bnv-gut .sk-bnv-prog{ top:var(--sk-bar-h,0px); }
+}

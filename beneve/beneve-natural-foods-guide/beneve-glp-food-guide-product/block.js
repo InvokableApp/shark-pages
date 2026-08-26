@@ -5,6 +5,7 @@
  * runs off the loader's own script tag.
  *
  *  0. buy       resolve the purchase CTAs onto the funnel's own redirect step
+ *  0b. bar     the fixed mobile buy bar, revealed once the hero CTA scrolls off the top
  *  1. reveal    IntersectionObserver, staggered by data-delay
  *  2. float     gentle parallax on the hero jar, rAF-throttled
  *  3. progress  the reading bar
@@ -42,6 +43,32 @@
     }
     if (!href) return;
     for (var b = 0; b < btns.length; b++) btns[b].setAttribute("href", href);
+  })();
+
+  // ---- 0b. mobile buy bar --------------------------------------------------
+  // Standard on every product page (HOSTED-BLOCKS-SOP §8b). Shipped `hidden` so a dead script
+  // cannot leave a permanent bar across the top, and revealed only once the hero CTA has gone
+  // past the TOP of the viewport. The `boundingClientRect.top < 0` test is the whole trick: an
+  // element that is simply below the fold is also "not intersecting", and without it the bar
+  // appears while the reader is still above the hero.
+  (function () {
+    var bar = root.querySelector(".sk-bnv-bar");
+    var hero = root.querySelector("#sk-bnv-hero-cta");
+    if (!bar || !hero) return;
+    // The reading-progress line pins to top:0 as well, so on mobile it is measured out of the
+    // way of the bar rather than guessed at.
+    var place = function () { root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px"); };
+    var show = function (on) {
+      if (on) { bar.removeAttribute("hidden"); place(); }
+      else bar.setAttribute("hidden", "");
+    };
+    if (!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        show(!e.isIntersecting && e.boundingClientRect.top < 0);
+      });
+    }, { threshold: 0 }).observe(hero);
+    window.addEventListener("resize", function () { if (!bar.hasAttribute("hidden")) place(); }, { passive: true });
   })();
 
   // ---- 1. reveal on scroll -------------------------------------------------
