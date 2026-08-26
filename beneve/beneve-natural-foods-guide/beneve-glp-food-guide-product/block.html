@@ -15,103 +15,106 @@
 
   Copy is Beneve's own wherever they had any. Connective tissue follows the house rules:
   addressed to the avatar, no em-dashes, no claim Beneve does not already make.
+
+  Design and behaviour live in _shared/product/, scoped under .sk-prod, and are shared by every
+  product page in every system. This file holds only markup; block.css holds only palette tokens.
 -->
-<div class="sk-bnv-gut"
+<div class="sk-prod sk-prod-bnv-gut"
      data-buy-step="beneve-glp-food-guide-redirect"
-     data-cv-beneve_buy_link="{{custom_values.beneve_buy_link}}"
+     data-buy-url="{{custom_values.beneve_buy_link}}"
      data-cv-beneve_rep_first_name="{{custom_values.beneve_rep_first_name}}">
 
   <!-- reading progress, fixed to the top of the viewport -->
-  <div class="sk-bnv-prog" aria-hidden="true"><i></i></div>
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
 
   <!-- Mobile buy bar. FIXED, not sticky: a hosted block is one element inside the GHL page, so
        position:sticky would pin this only within the block's own box (HOSTED-BLOCKS-SOP §8b).
        Ships `hidden`; block.js reveals it once the hero CTA has scrolled off the TOP, so the page
        never shows two copies of the same button. -->
-  <div class="sk-bnv-bar" hidden>
-    <span class="sk-bnv-bar-name">Gut Advantage</span>
-    <a class="sk-bnv-btn sk-bnv-bar-btn" href="beneve-glp-food-guide-redirect" data-buy>Buy now</a>
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Gut Advantage</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="beneve-glp-food-guide-redirect" data-buy>Buy now</a>
   </div>
 
   <!-- ============================== HERO ============================== -->
-  <section class="sk-bnv-hero">
-    <div class="sk-bnv-orb sk-bnv-orb-a" aria-hidden="true"></div>
-    <div class="sk-bnv-orb sk-bnv-orb-b" aria-hidden="true"></div>
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
 
-    <div class="sk-bnv-wrap sk-bnv-hero-grid">
-      <div class="sk-bnv-hero-copy">
-        <p class="sk-bnv-eyebrow" data-rise>Digestive Balance Support</p>
-        <h1 class="sk-bnv-h1" data-rise data-delay="1">
-          Gut&nbsp;Advantage <span class="sk-bnv-accent">Capsules</span>
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Digestive Balance Support</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Gut&nbsp;Advantage <span class="sk-prod-accent">Capsules</span>
         </h1>
-        <p class="sk-bnv-lede" data-rise data-delay="2">
+        <p class="sk-prod-lede" data-rise data-delay="2">
           A true pre, pro, postbiotic formula featuring butyrate and colostrum to help nourish
           the gut environment and support overall digestive wellness.
         </p>
 
-        <ul class="sk-bnv-hero-tags" data-rise data-delay="3">
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
           <li>Pre, pro + postbiotic</li>
           <li>Colostrum</li>
           <li>Butyrate</li>
           <li>150 capsules</li>
         </ul>
 
-        <div class="sk-bnv-cta-row" data-rise data-delay="4">
-          <a class="sk-bnv-btn" id="sk-bnv-hero-cta" href="beneve-glp-food-guide-redirect" data-buy>
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="beneve-glp-food-guide-redirect" data-buy>
             Get Gut Advantage
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="sk-bnv-btn-ghost" href="#sk-bnv-formula">See what is inside</a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">See what is inside</a>
         </div>
       </div>
 
-      <figure class="sk-bnv-hero-shot" data-float>
-        <span class="sk-bnv-halo" aria-hidden="true"></span>
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
         <img src="assets/jar.webp"
              alt="Beneve Gut Advantage Capsules, 150 count" loading="eager" decoding="async">
       </figure>
     </div>
 
-    <button class="sk-bnv-scroll" type="button" data-scroll-to="#sk-bnv-claim" aria-label="Scroll to read more">
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Scroll to read more">
       <span></span>
     </button>
   </section>
 
   <!-- ============================== CLAIM ============================== -->
-  <section class="sk-bnv-claim" id="sk-bnv-claim">
-    <div class="sk-bnv-wrap">
-      <h2 class="sk-bnv-h2 sk-bnv-center" data-rise>The Holy Grail for Optimal Gut Health</h2>
-      <p class="sk-bnv-sub sk-bnv-center" data-rise data-delay="1">
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>The Holy Grail for Optimal Gut Health</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
         A comprehensive approach to overall wellness and weight management.
       </p>
 
-      <div class="sk-bnv-pillars">
-        <article class="sk-bnv-pillar" data-rise data-delay="1">
-          <span class="sk-bnv-ico" aria-hidden="true">
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 0-3 3v1.2A3.2 3.2 0 0 0 6 10.4c0 .9.4 1.7 1 2.3-.6.6-1 1.4-1 2.3A3.2 3.2 0 0 0 9.2 18 2.8 2.8 0 0 0 12 21a2.8 2.8 0 0 0 2.8-3A3.2 3.2 0 0 0 18 15c0-.9-.4-1.7-1-2.3.6-.6 1-1.4 1-2.3a3.2 3.2 0 0 0-3-3.2V6a3 3 0 0 0-3-3Z"/><path d="M12 3v18"/></svg>
           </span>
           <h3>Gut-Brain Support</h3>
           <p>Supports the connection between your gut and brain for overall wellness.</p>
         </article>
 
-        <article class="sk-bnv-pillar" data-rise data-delay="2">
-          <span class="sk-bnv-ico" aria-hidden="true">
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="10" cy="17" r="1.6"/></svg>
           </span>
           <h3>Comprehensive Gut Blend</h3>
           <p>Features pre, pro, and postbiotics with colostrum.</p>
         </article>
 
-        <article class="sk-bnv-pillar" data-rise data-delay="3">
-          <span class="sk-bnv-ico" aria-hidden="true">
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2.5-6 4 12L16 13h5"/></svg>
           </span>
           <h3>GLP-1 &amp; Serotonin Support</h3>
           <p>Supports natural pathways linked to appetite and mood.</p>
         </article>
 
-        <article class="sk-bnv-pillar" data-rise data-delay="4">
-          <span class="sk-bnv-ico" aria-hidden="true">
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/></svg>
           </span>
           <h3>Daily Wellness Support</h3>
@@ -122,69 +125,69 @@
   </section>
 
   <!-- ============================== FORMULA ROWS ============================== -->
-  <section class="sk-bnv-formula" id="sk-bnv-formula">
-    <div class="sk-bnv-wrap">
-      <p class="sk-bnv-kicker sk-bnv-center" data-rise>What makes it different</p>
-      <h2 class="sk-bnv-h2 sk-bnv-center" data-rise data-delay="1">Four things working at once</h2>
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>What makes it different</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Four things working at once</h2>
 
-      <div class="sk-bnv-row">
-        <figure class="sk-bnv-row-img" data-slide="left">
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
           <img src="assets/benefits.webp"
                alt="Gut Advantage benefits" loading="lazy" decoding="async">
         </figure>
-        <div class="sk-bnv-row-copy" data-slide="right">
-          <span class="sk-bnv-num" aria-hidden="true">01</span>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
           <h3>Multi-Layered Formula</h3>
           <p>Combines pre, pro, and postbiotics to support the gut from multiple angles.</p>
-          <p class="sk-bnv-note">
+          <p class="sk-prod-note">
             Prebiotics feed what is already there. Probiotics add to it. Postbiotics are what
             those bacteria produce. Most formulas pick one. This one runs all three together.
           </p>
         </div>
       </div>
 
-      <div class="sk-bnv-row sk-bnv-row-flip">
-        <figure class="sk-bnv-row-img" data-slide="right">
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
           <img src="assets/support.webp"
                alt="Gut Advantage daily support" loading="lazy" decoding="async">
         </figure>
-        <div class="sk-bnv-row-copy" data-slide="left">
-          <span class="sk-bnv-num" aria-hidden="true">02</span>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
           <h3>Colostrum Advantage</h3>
           <p>Includes colostrum with immunoglobulins to support gut integrity and immune function.</p>
-          <p class="sk-bnv-note">
+          <p class="sk-prod-note">
             Colostrum is the first milk, the one built to get a brand new digestive system
             working. That is the job it is doing here.
           </p>
         </div>
       </div>
 
-      <div class="sk-bnv-row">
-        <figure class="sk-bnv-row-img" data-slide="left">
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
           <img src="assets/glp1-pathway.webp"
                alt="A bowl of yogurt and berries in morning light" loading="lazy" decoding="async">
         </figure>
-        <div class="sk-bnv-row-copy" data-slide="right">
-          <span class="sk-bnv-num" aria-hidden="true">03</span>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
           <h3>GLP-1 Pathway Support</h3>
           <p>Designed to support natural GLP-1 activity linked to appetite and metabolic function.</p>
-          <p class="sk-bnv-note">
+          <p class="sk-prod-note">
             GLP-1 is a hormone your own gut already makes. This is about supporting the pathway
             you have, through food and formula, every day.
           </p>
         </div>
       </div>
 
-      <div class="sk-bnv-row sk-bnv-row-flip">
-        <figure class="sk-bnv-row-img" data-slide="right">
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
           <img src="assets/gut-brain-axis.webp"
                alt="Two ceramic forms joined by a single green thread" loading="lazy" decoding="async">
         </figure>
-        <div class="sk-bnv-row-copy" data-slide="left">
-          <span class="sk-bnv-num" aria-hidden="true">04</span>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
           <h3>Gut-Brain Axis Focus</h3>
           <p>Targets the connection between gut health and overall wellness, including mood and cognition.</p>
-          <p class="sk-bnv-note">
+          <p class="sk-prod-note">
             The gut and the brain talk constantly. Support one and you are supporting the other.
           </p>
         </div>
@@ -193,35 +196,35 @@
   </section>
 
   <!-- ============================== FACTS ============================== -->
-  <section class="sk-bnv-facts">
-    <div class="sk-bnv-wrap sk-bnv-facts-grid">
-      <div class="sk-bnv-facts-copy">
-        <p class="sk-bnv-kicker" data-rise>Premium ingredients</p>
-        <h2 class="sk-bnv-h2" data-rise data-delay="1">Explore what makes Gut Advantage exceptional</h2>
-        <ul class="sk-bnv-checks" data-rise data-delay="2">
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Premium ingredients</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Explore what makes Gut Advantage exceptional</h2>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
           <li>Pre, pro and postbiotics in one capsule</li>
           <li>Butyrate, the postbiotic your gut lining runs on</li>
           <li>Colostrum with immunoglobulins</li>
           <li>Built for daily use, not a reset or a cleanse</li>
         </ul>
-        <div class="sk-bnv-use" data-rise data-delay="3">
-          <span class="sk-bnv-use-n">5</span>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">5</span>
           <div>
             <strong>Suggested use</strong>
             <span>Take 5 capsules daily.</span>
           </div>
         </div>
-        <figure class="sk-bnv-ing" data-rise data-delay="4">
+        <figure class="sk-prod-ing" data-rise data-delay="4">
           <img src="assets/ingredients.webp"
                alt="Gut Advantage premium ingredients" loading="lazy" decoding="async">
         </figure>
-        <figure class="sk-bnv-certs" data-rise data-delay="5">
+        <figure class="sk-prod-certs" data-rise data-delay="5">
           <img src="assets/certifications.webp"
                alt="Third party tested, GMP certified, made in the USA" loading="lazy" decoding="async">
         </figure>
       </div>
 
-      <figure class="sk-bnv-facts-img" data-rise data-delay="2">
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
         <img src="assets/supplement-facts.webp"
              alt="Gut Advantage Capsules supplement facts panel" loading="lazy" decoding="async">
         <figcaption>Full supplement facts</figcaption>
@@ -230,17 +233,17 @@
   </section>
 
   <!-- ============================== CLOSE ============================== -->
-  <section class="sk-bnv-close">
-    <div class="sk-bnv-wrap sk-bnv-center">
-      <h2 class="sk-bnv-h2 sk-bnv-close-h" data-rise>Start with your gut</h2>
-      <p class="sk-bnv-sub" data-rise data-delay="1">
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>Start with your gut</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
         The guide gave you the foods. Gut Advantage is the daily piece that works alongside them.
       </p>
-      <a class="sk-bnv-btn sk-bnv-btn-lg" href="beneve-glp-food-guide-redirect" data-buy data-rise data-delay="2">
+      <a class="sk-prod-btn sk-prod-btn-lg" href="beneve-glp-food-guide-redirect" data-buy data-rise data-delay="2">
         Get Gut Advantage
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <p class="sk-bnv-fine" data-rise data-delay="3">
+      <p class="sk-prod-fine" data-rise data-delay="3">
         These statements have not been evaluated by the Food and Drug Administration. This
         product is not intended to diagnose, treat, cure or prevent any disease.
       </p>

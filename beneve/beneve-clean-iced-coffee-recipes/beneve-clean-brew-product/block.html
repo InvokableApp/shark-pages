@@ -1,0 +1,247 @@
+<!--
+  beneve/beneve-clean-iced-coffee-recipes/beneve-clean-brew-product
+  Original Coffee Sticks, the product step of the Clean Iced Coffee funnel.
+
+  INFO-CENTRIC, not a store page. No price, no quantity, no Add To Cart and no Subscribe & Save,
+  because the purchase happens on beneve.com under the rep's own link and that link is what earns
+  the commission.
+
+  Every purchase CTA points at the funnel's REDIRECT step, not straight at the shop, so the click
+  is tracked: a pageview on that step fires Fire Lead, and the step then forwards to
+  https://{{custom_values.beneve_buy_link}} on its own. (HOSTED-BLOCKS-SOP §7b.)
+
+  Design and behaviour live in _shared/product/, scoped under .sk-prod, and are shared by every
+  product page in every system. This file holds only markup; block.css holds only palette tokens.
+
+  Copy is Beneve's own wherever they had any: the description, the six benefit callouts and the
+  ingredient list are from their product page and its panels. Connective tissue follows the house
+  rules: addressed to the avatar, no em-dashes, no claim Beneve does not already make.
+-->
+<div class="sk-prod sk-prod-bnv-coffee"
+     data-buy-step="beneve-clean-brew-redirect"
+     data-buy-url="{{custom_values.beneve_buy_link}}">
+
+  <!-- reading progress, fixed to the top of the viewport -->
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- Mobile buy bar, standard on every product page (HOSTED-BLOCKS-SOP §8b). Ships hidden;
+       the shared engine reveals it once the hero CTA has scrolled off the top. -->
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Original Coffee Sticks</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="beneve-clean-brew-redirect" data-buy>Buy now</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Clean Energy + Focus</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Original Coffee <span class="sk-prod-accent">Sticks</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          A full-strength nootropic coffee that provides smooth, sustained energy and enhanced
+          focus with a blend of premium Arabica coffee and cognitive support ingredients.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>Premium Arabica</li>
+          <li>230mg caffeine</li>
+          <li>15 calories</li>
+          <li>24 stick packs</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="beneve-clean-brew-redirect" data-buy>
+            Get Original Coffee
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">See what is inside</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/box.webp"
+             alt="Beneve Xcelerate Original Coffee, 24 stick packs" loading="eager" decoding="async">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Scroll to read more">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== CLAIM ============================== -->
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>Clean energy, and the focus to use it</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Premium Arabica with cognitive support ingredients, in one stick pack.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>
+          </span>
+          <h3>Focus</h3>
+          <p>Promotes focus with a premium Arabica coffee blend.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2.5-6 4 12L16 13h5"/></svg>
+          </span>
+          <h3>Energy and Alertness</h3>
+          <p>Boosts energy, alertness, and mental function.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2l1.5-3 2 6 1.5-3h2"/><path d="M17 8v8M20 10v4"/></svg>
+          </span>
+          <h3>Exercise Performance</h3>
+          <p>Enhances exercise performance and endurance.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c3.9 0 6-2.6 6-5.6 0-3.9-3.4-5.5-3.4-8.9 0-1.2.4-2.1.9-2.8-3.6.6-6.2 3.3-6.2 6.4 0 1.6.7 2.6.7 3.6 0 .9-.7 1.5-1.5 1.5-.9 0-1.6-.7-1.9-1.6-.4.9-.6 1.9-.6 2.9C6 18.3 8.1 21 12 21Z"/></svg>
+          </span>
+          <h3>Metabolism</h3>
+          <p>Supports fat metabolism, thermogenic activity, and weight management.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FORMULA ROWS ============================== -->
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>What makes it different</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Four things in every stick</h2>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/benefits.webp"
+               alt="Original Coffee Sticks benefits" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
+          <h3>Premium Arabica Blend</h3>
+          <p>Promotes focus, built on a premium Arabica coffee blend.</p>
+          <p class="sk-prod-note">
+            It is coffee first. The rest of the formula is built around it rather than hidden
+            behind it, which is why it tastes like coffee and not like a supplement.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/ingredients.webp"
+               alt="Original Coffee Sticks key ingredients" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
+          <h3>L-Theanine With the Caffeine</h3>
+          <p>Supports relaxation and cognitive function alongside 230mg of caffeine per serving.</p>
+          <p class="sk-prod-note">
+            L-Theanine works with caffeine rather than against it, which is what takes the edge
+            off the jitter without taking the energy with it.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/sustained-energy.webp"
+               alt="A cup of black coffee and whole beans in morning light" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
+          <h3>Built For Output</h3>
+          <p>Enhances exercise performance and endurance, with L-Citrulline and Beta Alanine.</p>
+          <p class="sk-prod-note">
+            Beta Alanine supports acid regulation in working muscle and L-Citrulline supports
+            nitric oxide production. Both are in the stick, not in a second product.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/calm-focus.webp"
+               alt="A coffee cup beside an open notebook on a pale oak desk" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
+          <h3>Steady Under Pressure</h3>
+          <p>Supports a healthy stress response and cortisol balance, with L-Tyrosine and GABA.</p>
+          <p class="sk-prod-note">
+            L-Tyrosine supports mental performance under stressful conditions. That is the part
+            most coffee leaves out, and it is the part that matters on a long day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Premium ingredients</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Explore what makes Original Coffee exceptional</h2>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>Premium Arabica blend, 230mg caffeine per serving</li>
+          <li>L-Theanine, L-Tyrosine, GABA and Acetyl-L-Carnitine</li>
+          <li>L-Citrulline and Beta Alanine for output</li>
+          <li>Gluten free, dairy free, nut free and non GMO</li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">1</span>
+          <div>
+            <strong>Suggested use</strong>
+            <span>Mix one stick into 8 oz of hot or cold water. First-time users, or anyone
+            sensitive to caffeine, start with a third to a half a stick and build up.</span>
+          </div>
+        </div>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          For healthy adults only, and not for anyone under 18. Do not use if you are pregnant or
+          nursing, and do not take other caffeinated products alongside it. If you have a medical
+          condition or take medication, talk to your healthcare professional first.
+        </p>
+      </div>
+
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
+        <img src="assets/supplement-facts.webp"
+             alt="Original Coffee Sticks supplement facts panel" loading="lazy" decoding="async">
+        <figcaption>Full supplement facts</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSE ============================== -->
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>Start with one stick</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
+        The recipes gave you the clean brews. Original Coffee is the one you reach for on the
+        mornings you need to actually get something done.
+      </p>
+      <a class="sk-prod-btn sk-prod-btn-lg" href="beneve-clean-brew-redirect" data-buy data-rise data-delay="2">
+        Get Original Coffee
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="sk-prod-fine" data-rise data-delay="3">
+        These statements have not been evaluated by the Food and Drug Administration. This
+        product is not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>
