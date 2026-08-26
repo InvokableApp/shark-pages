@@ -69,6 +69,13 @@
 .sk-cap .sk-cap-hero h1{color:#fff}
 .sk-cap .sk-cap-hero .sk-cap-eyebrow{color:var(--sk-lime,#bcd57a)}
 .sk-cap .sk-cap-hero .sk-cap-lede{color:rgba(255,255,255,.86)}
+/* A CTA sitting ON the navy hero must not BE navy. Beneve lime with ink text carries the
+   contrast and suits the subject; the same rule applies to the closing band. */
+.sk-cap .sk-cap-hero .sk-cap-btn{
+  background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d);
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+.sk-cap .sk-cap-hero .sk-cap-note{color:rgba(255,255,255,.72)}
 .sk-cap .sk-cap-hero-grid{
   position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;
   gap:clamp(2rem,5vw,4rem);align-items:center;
@@ -96,7 +103,25 @@
 .sk-cap .sk-cap-head .sk-cap-eyebrow{display:block;margin-bottom:1rem}
 .sk-cap .sk-cap-head p{margin-top:1rem}
 
-/* ── the mechanism: two pathways, side by side ────────────────────────────── */
+/* ── pain cards: 3-up, the "sound familiar?" row ──────────────────────────── */
+.sk-cap .sk-cap-pain{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.75rem)}
+.sk-cap .sk-cap-pain-card{
+  background:#fff;border:1px solid var(--sk-line,#e3e8ef);border-radius:16px;
+  padding:clamp(1.4rem,2.4vw,1.9rem);
+}
+.sk-cap .sk-cap-pain-card h3{
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);font-size:.86rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--sk-teal-d,#4e9799);margin-bottom:.7rem;
+}
+.sk-cap .sk-cap-pain-card p{margin:0;font-size:.99rem}
+
+/* ── prose block: the "here is the problem" section ───────────────────────── */
+.sk-cap .sk-cap-prose{max-width:660px;margin:0 auto;text-align:center}
+.sk-cap .sk-cap-prose h2{margin-bottom:1.5rem}
+.sk-cap .sk-cap-prose p{font-size:1.06rem}
+.sk-cap .sk-cap-prose p:last-child{margin-bottom:0}
+
+/* ── contents list: what is inside, one line per section of the guide ─────── */
 .sk-cap .sk-cap-path{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2rem)}
 .sk-cap .sk-cap-path-card{
   background:#fff;border:1px solid var(--sk-line,#e3e8ef);border-radius:16px;
@@ -147,7 +172,7 @@
 }
 .sk-cap .sk-cap-close h2{color:#fff;max-width:20ch;margin:0 auto}
 .sk-cap .sk-cap-close p{color:rgba(255,255,255,.85);max-width:52ch;margin:1.1rem auto 1.9rem}
-.sk-cap .sk-cap-close .sk-cap-btn{background:var(--sk-teal,#79bdbe);color:var(--sk-ink,#16233d)}
+.sk-cap .sk-cap-close .sk-cap-btn{background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d)}
 .sk-cap .sk-cap-close .sk-cap-note{color:rgba(255,255,255,.7)}
 
 /* ── mobile CTA bar ───────────────────────────────────────────────────────────
@@ -166,7 +191,11 @@
 }
 /* opt out of the page-wide mobile full-width button rule, or the label collapses to zero */
 .sk-cap .sk-cap-bar .sk-cap-btn{flex:0 0 auto;width:auto;padding:.72rem 1.25rem;font-size:.9rem;
-  background:var(--sk-teal,#79bdbe);color:var(--sk-ink,#16233d);box-shadow:none}
+  background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d);box-shadow:none}
+
+/* ── legal foot ───────────────────────────────────────────────────────────── */
+.sk-cap .sk-cap-foot{padding:2rem 0 2.5rem;background:var(--sk-mist,#f2f5f8)}
+.sk-cap .sk-cap-foot p{max-width:820px;margin:0 auto;text-align:center;font-size:.78rem;line-height:1.6;opacity:.75}
 
 /* ── reveal ───────────────────────────────────────────────────────────────── */
 .sk-cap [data-sk-rev]{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -181,7 +210,8 @@
   .sk-cap .sk-cap-hero-grid,
   .sk-cap .sk-cap-inside{grid-template-columns:1fr}
   .sk-cap .sk-cap-hero-art{order:-1;max-width:340px;margin:0 auto}
-  .sk-cap .sk-cap-path{grid-template-columns:1fr}
+  .sk-cap .sk-cap-path,
+  .sk-cap .sk-cap-pain{grid-template-columns:1fr}
   .sk-cap .sk-cap-strip{grid-template-columns:1fr}
   .sk-cap .sk-cap-bar{display:flex}
   .sk-cap .sk-cap-bar[hidden]{display:none !important}

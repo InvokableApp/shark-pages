@@ -2,18 +2,21 @@
   beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox
   The Hormone Lunchbox opt-in page. Lead magnet for Beneve Glutathione+.
 
-  EVERY CTA OPENS THE PAGE POPUP, and none of them is a link. The opt-in form lives in the GHL
-  page's own popup (Jeff wires it there); each button carries `data-sk-open` and the shared
-  engine dispatches `customWidgetOpenPopup`, the no-argument window event GHL ships for this.
-  No popup id anywhere, so the block is account-agnostic and survives a snapshot install
-  (HOSTED-BLOCKS-SOP §7). Constraint that comes with it: ONE popup on this page.
+  STRUCTURE IS THE PROVEN LEAD-MAG LANDER, read off the two live Beneve landers (Natural GLP Foods
+  and Clean Iced Coffee) rather than invented: eyebrow + outcome headline + a sub that names the
+  CONTENTS, one line killing the obvious objection, CTA, the problem, "sound familiar?" pain cards,
+  WHATS INSIDE as one line per section of the guide, CTA, free-download band, disclaimer.
+  The job of this page is to get the PDF downloaded. It sells what is in the guide. It does not
+  argue the science: that is what the guide itself is for. (Jeff, 2026-08-26.)
 
-  Imagery is the REAL guide, not a stand-in: assets/cover.webp and assets/stack.webp are renders
-  of the actual PDF cover and two of its interior pages, so what the visitor is shown is what
-  they get. Lunch photos are three of the guide's own hero shots.
+  EVERY CTA OPENS THE PAGE POPUP and none of them is a link. The opt-in form lives in the GHL
+  page's own popup; each button carries `data-sk-open` and the shared engine dispatches
+  `customWidgetOpenPopup`, the no-argument window event GHL ships for this. No popup id anywhere,
+  so the block is account-agnostic and survives a snapshot install (HOSTED-BLOCKS-SOP §7).
+  Constraint that comes with it: ONE popup on this page.
 
-  Copy follows the house rules: addressed to the avatar, no em-dashes, and no claim Beneve does
-  not already make. The DIM-from-cruciferous line is Beneve's own ingredient copy.
+  Imagery is the REAL guide: assets/cover.webp and assets/stack.webp are renders of the actual PDF
+  cover and two of its interior pages, and the lunch photos are the guide's own hero shots.
   Design and behaviour live in _shared/capture/, scoped .sk-cap; block.css holds only the palette.
 -->
 <div class="sk-cap sk-cap-bnv-lunchbox">
@@ -22,23 +25,20 @@
        the top, so the page never shows two copies of the same button. -->
   <div class="sk-cap-bar" hidden>
     <span class="sk-cap-bar-name">The Hormone Lunchbox, free</span>
-    <button type="button" class="sk-cap-btn" data-sk-open>Send it to me</button>
+    <button type="button" class="sk-cap-btn" data-sk-open>Get it</button>
   </div>
 
   <section class="sk-cap-hero">
     <div class="sk-cap-wrap sk-cap-hero-grid">
       <div class="sk-cap-hero-copy">
-        <span class="sk-cap-eyebrow">Free guide</span>
-        <h1>Ten packable lunches for hormone balance.</h1>
-        <p class="sk-cap-lede">Built on the vegetables your body turns into DIM, and the everyday
-          foods it turns into its own glutathione. One container each. All hold cold.</p>
-        <ul class="sk-cap-ticks">
-          <li>10 lunches you can make in under 15 minutes</li>
-          <li>A Sunday prep plan: three pans, five lunches</li>
-          <li>The master grocery list and a one-page cheat sheet</li>
-        </ul>
-        <button type="button" class="sk-cap-btn" data-sk-open data-sk-hero-cta>Send me the guide</button>
-        <p class="sk-cap-note">Free. Straight to your inbox.</p>
+        <span class="sk-cap-eyebrow">The free Hormone Lunchbox guide</span>
+        <h1>10 Packable Lunches That Work With Your Hormones</h1>
+        <p class="sk-cap-lede">Download the FREE Hormone Lunchbox guide and get 10 lunches you can
+          pack the night before, built on the everyday vegetables your body turns into DIM. Plus a
+          Sunday prep plan, a done-for-you grocery list, and a one page cheat sheet.</p>
+        <p class="sk-cap-lede"><strong>No powders and no meal plan to follow. Just lunch.</strong></p>
+        <button type="button" class="sk-cap-btn" data-sk-open data-sk-hero-cta>Download The Free Guide</button>
+        <p class="sk-cap-note">Free guide. No spam. Unsubscribe in one click.</p>
       </div>
       <div class="sk-cap-hero-art">
         <img src="assets/cover.webp" width="900" height="1165"
@@ -48,37 +48,43 @@
   </section>
 
   <section class="sk-cap-sec">
+    <div class="sk-cap-wrap sk-cap-prose" data-sk-rev>
+      <h2>Here is where eating for your hormones falls apart.</h2>
+      <p>Dinner is where vegetables go to be planned and then not cooked. Breakfast is usually a
+        lost cause. And by lunchtime you are deciding on an empty stomach, which is the worst time
+        anyone has ever decided anything.</p>
+      <p>Lunch is the one meal you can settle once, on a Sunday, and then just carry with you.</p>
+      <p>So that is what this guide is. Ten lunches, all built on the same short list of
+        vegetables, all packed in one container.</p>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec sk-cap-mist">
     <div class="sk-cap-wrap">
       <div class="sk-cap-head" data-sk-rev>
-        <span class="sk-cap-eyebrow">Why it works</span>
-        <h2>Two things your body makes, and the foods it makes them from</h2>
-        <p>You do not swallow DIM or glutathione. Your body makes both of them, out of food you
-          put on your plate.</p>
+        <span class="sk-cap-eyebrow">Sound familiar?</span>
       </div>
-      <div class="sk-cap-path" data-sk-rev>
-        <div class="sk-cap-path-card">
-          <div class="sk-cap-chain">
-            <span>Cruciferous</span><i>&rarr;</i><span>Glucosinolates</span><i>&rarr;</i><span>DIM</span>
-          </div>
-          <h3>Broccoli, cabbage and kale become DIM</h3>
-          <p>Chewing and digestion break the glucosinolates in cruciferous vegetables down into
-            indole-3-carbinol, and your stomach converts a share of that into DIM. You eat the vegetable.
-            Your body makes the DIM.</p>
+      <div class="sk-cap-pain" data-sk-rev>
+        <div class="sk-cap-pain-card">
+          <h3>The 3pm crash</h3>
+          <p>A lunch that is mostly carbs lifts you and drops you an hour later. Every lunch in
+            here is built around protein and fiber, so the afternoon holds.</p>
         </div>
-        <div class="sk-cap-path-card">
-          <div class="sk-cap-chain">
-            <span>Sulfur foods</span><i>&rarr;</i><span>Cysteine</span><i>&rarr;</i><span>Glutathione</span>
-          </div>
-          <h3>Eggs, garlic and onions become glutathione</h3>
-          <p>Your body builds glutathione from three amino acids, and cysteine is the bottleneck.
-            Cysteine rides in on sulfur-rich foods, which is why eggs, garlic, onions and the
-            cruciferous family keep showing up on the same list.</p>
+        <div class="sk-cap-pain-card">
+          <h3>Nothing packed</h3>
+          <p>No lunch means whatever is nearest, and whatever is nearest is rarely a vegetable.
+            These are made the night before and grabbed on the way out.</p>
+        </div>
+        <div class="sk-cap-pain-card">
+          <h3>The sad desk salad</h3>
+          <p>Soggy greens by noon is why most people quit packing lunch. Every recipe says how many
+            days it holds, and the dressing rules keep it crisp.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sk-cap-sec sk-cap-mist">
+  <section class="sk-cap-sec">
     <div class="sk-cap-wrap sk-cap-inside">
       <div data-sk-rev>
         <img src="assets/stack.webp" width="1400" height="1050"
@@ -86,36 +92,44 @@
       </div>
       <div data-sk-rev>
         <span class="sk-cap-eyebrow">What is inside</span>
-        <h2 style="margin:1rem 0 1.75rem">What the 27 pages cover</h2>
+        <h2 style="margin:1rem 0 1rem">Ten Lunches, The Shopping List, And The Sunday That Sets Them Up</h2>
+        <p style="margin-bottom:1.75rem">Everyday ingredients, no specialty store, and nothing that
+          needs a microwave.</p>
         <ul class="sk-cap-inside-list">
           <li><span class="sk-cap-inside-n">1</span>
-            <div><h3>The Cruciferous Ten</h3>
-              <p>Ten vegetables, and the one thing worth knowing about each. You do not need all
-                ten. You need two or three you like, on rotation.</p></div></li>
+            <div><h3>10 Packable Lunches</h3>
+              <p>Each one fits a single container and says how many days it keeps. Most take under
+                fifteen minutes.</p></div></li>
           <li><span class="sk-cap-inside-n">2</span>
-            <div><h3>The Lunchbox Formula</h3>
-              <p>Cruciferous base, protein, sulfur ally, dressing, crunch. Once you know it you can
-                build your own without a recipe.</p></div></li>
+            <div><h3>The Cruciferous Ten</h3>
+              <p>The vegetables your body turns into DIM, and the one thing worth knowing about
+                using each of them.</p></div></li>
           <li><span class="sk-cap-inside-n">3</span>
-            <div><h3>Ten packable lunches</h3>
-              <p>Every one fits a single container, holds cold, and needs no microwave. Each says
-                how many days it keeps.</p></div></li>
+            <div><h3>The Sulfur Foods</h3>
+              <p>The everyday foods your body builds its own glutathione from. Most of them are
+                already in your fridge.</p></div></li>
           <li><span class="sk-cap-inside-n">4</span>
-            <div><h3>Sunday prep and the grocery list</h3>
-              <p>Forty minutes, three pans, and most of the week is done. Plus the full shopping
-                list and a one-page cheat sheet for the fridge door.</p></div></li>
+            <div><h3>The Lunchbox Formula</h3>
+              <p>Five slots. Fill them any way you like and you can build your own lunches without
+                a recipe.</p></div></li>
+          <li><span class="sk-cap-inside-n">5</span>
+            <div><h3>Sunday Prep In Forty Minutes</h3>
+              <p>Three pans and a chopping board, and most of the week is handled before it
+                starts.</p></div></li>
+          <li><span class="sk-cap-inside-n">6</span>
+            <div><h3>A Done For You Grocery List</h3>
+              <p>Everything grouped so you can shop straight off it, plus a one page cheat sheet
+                for the fridge door.</p></div></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="sk-cap-sec">
+  <section class="sk-cap-sec sk-cap-mist">
     <div class="sk-cap-wrap">
       <div class="sk-cap-head" data-sk-rev>
         <span class="sk-cap-eyebrow">A few of the ten</span>
-        <h2>Lunches you will want to eat</h2>
-        <p>Nobody has trouble believing broccoli is good for them. They have trouble eating it on a
-          Tuesday. That is the problem this guide solves.</p>
+        <h2>What you will be eating</h2>
       </div>
       <div class="sk-cap-strip" data-sk-rev>
         <figure><img src="assets/lunch-1.webp" width="900" height="600"
@@ -128,16 +142,28 @@
           alt="Cauliflower rice burrito bowl with black beans and avocado" loading="lazy" decoding="async">
           <figcaption>Cauliflower Burrito Bowl<small>Cauliflower rice will not turn to paste</small></figcaption></figure>
       </div>
+      <div style="text-align:center;margin-top:clamp(2rem,4vw,3rem)" data-sk-rev>
+        <button type="button" class="sk-cap-btn" data-sk-open>Get The Free Guide</button>
+      </div>
     </div>
   </section>
 
   <section class="sk-cap-close">
     <div class="sk-cap-wrap" data-sk-rev>
-      <h2>Pack the cabbage. It is the easiest change in here.</h2>
-      <p>Send yourself the guide, pick two lunches that sound good, and make them this week.</p>
+      <span class="sk-cap-eyebrow" style="display:block;margin-bottom:1rem">Free download</span>
+      <h2>Ten lunches, packed and ready, starting this Sunday.</h2>
+      <p>Get the free guide in your inbox in under 2 minutes.</p>
+      <button type="button" class="sk-cap-btn" data-sk-open>Send Me The Guide</button>
+      <p class="sk-cap-note">Free guide. No spam. Unsubscribe in one click.</p>
+    </div>
+  </section>
 
-      <button type="button" class="sk-cap-btn" data-sk-open>Send me the guide</button>
-      <p class="sk-cap-note">It is free.</p>
+  <section class="sk-cap-foot">
+    <div class="sk-cap-wrap">
+      <p>The information in this guide is for educational and informational purposes only and is not
+        medical, nutritional, diagnostic, or treatment advice. Individual needs vary. If you are
+        pregnant, nursing, managing a thyroid condition, or taking medication, talk to your
+        healthcare provider before making significant changes to how you eat.</p>
     </div>
   </section>
 
