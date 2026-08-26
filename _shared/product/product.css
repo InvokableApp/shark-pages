@@ -125,6 +125,12 @@
   color:var(--sk-teal-d,#4e9799);
 }
 .sk-prod .sk-prod-ico svg{width:24px;height:24px}
+/* A pillar sitting inside a CENTERED wrap (.sk-prod-center) centers its heading and body, but the
+   icon TILE is a block element and stayed pinned to the left edge, which reads as a misalignment
+   rather than a choice. The icon should follow the card's own text alignment. Scoped to
+   .sk-prod-center so the default left-aligned pillars (every Beneve product page) are untouched.
+   Added 2026-08-26 for the Conectiv free-sample lander, which is the first centered use. */
+.sk-prod .sk-prod-center .sk-prod-ico{margin-inline:auto}
 .sk-prod .sk-prod-pillar h3{margin:0 0 .4rem;font-size:1.02rem;font-weight:700;color:var(--sk-navy,#1e386a)}
 .sk-prod .sk-prod-pillar p{margin:0;font-size:.92rem}
 
