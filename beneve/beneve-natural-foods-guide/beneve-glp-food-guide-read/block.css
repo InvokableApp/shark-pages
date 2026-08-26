@@ -165,16 +165,16 @@
 
 /* ---- 1. restrained clinical palette (overrides guide.css) ---- */
 .sk-bnv-guide{
-  --forest:#1d3a2b;      /* deep pine, headers */
-  --cream:#f6f3ec;       /* warm paper */
-  --green:#4a7a5c;       /* muted eucalyptus accent (was neon) */
-  --green-deep:#39634a;
-  --ink:#242a22;
-  --grey:#70706a;
-  --hair:#d8d2c5;
-  --green-tint:#eaf0ea;
-  --panel:#efeae0;
-  --gold:#a9894f;        /* single warm hairline accent */
+  --forest:#14284c;      /* Beneve navy-d, headers (was GLP pine #1d3a2b) */
+  --cream:#fbfcfd;      /* Beneve paper, cool (was warm #f6f3ec) */
+  --green:#4e9799;      /* Beneve teal-d, the accent */
+  --green-deep:#1e386a;      /* Beneve navy */
+  --ink:#16233d;      /* Beneve ink */
+  --grey:#4a5568;      /* Beneve body */
+  --hair:#e3e8ef;      /* Beneve line */
+  --green-tint:#eef5f5;      /* Beneve teal tint */
+  --panel:#f2f5f8;      /* Beneve mist */
+  --gold:#879b53;      /* Beneve sage, the single warm hairline accent */
 }
 
 /* ---- 2. editorial serif for all display type ---- */

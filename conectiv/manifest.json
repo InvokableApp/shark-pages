@@ -197,6 +197,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "lZXr3ossKR65XuXbkrh1"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page",
+      "funnelId": "Qq6I3NQZv6hhLcuces3E",
+      "pageId": "rmBDTztPmQ0yeVACg4JR",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "siOsdbrcDcQWbFmlDJiq"
     }
   ]
 }
