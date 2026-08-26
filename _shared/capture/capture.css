@@ -1,0 +1,194 @@
+/* _shared/capture/capture.css
+ *
+ * The ONE lead-magnet capture-page design, for every campaign in every system, scoped .sk-cap.
+ * A page's own block.css declares ONLY its palette tokens and @imports this file, the same
+ * contract as _shared/product/ and _shared/howto/. Third page type, same rule: a per-page
+ * override means the shared component needs a variant, not that this page is special.
+ *
+ * Expects these tokens on the block's scope class:
+ *   --sk-navy --sk-navy-d --sk-teal --sk-teal-d --sk-sage --sk-lime
+ *   --sk-ink --sk-body --sk-cream --sk-mist --sk-line --sk-serif --sk-sans
+ *
+ * Every CTA in here is a popup trigger, never a link: the form lives in the GHL page's own popup
+ * and capture.js dispatches `customWidgetOpenPopup` (HOSTED-BLOCKS-SOP §7). That keeps the block
+ * account-agnostic, because the event takes no popup id and ids are minted per page.
+ */
+
+.sk-cap{
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  color:var(--sk-body,#4a5568);
+  background:var(--sk-cream,#fffdfb);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sk-cap *{box-sizing:border-box}
+.sk-cap img{max-width:100%;height:auto;display:block}
+.sk-cap .sk-cap-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ── type ─────────────────────────────────────────────────────────────────── */
+.sk-cap h1,.sk-cap h2,.sk-cap h3{
+  font-family:var(--sk-serif,Georgia,serif);
+  color:var(--sk-ink,#16233d);
+  font-weight:600;line-height:1.08;letter-spacing:-.01em;margin:0;
+}
+.sk-cap h1{font-size:clamp(2.3rem,5vw,4rem)}
+.sk-cap h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+.sk-cap h3{font-size:clamp(1.15rem,1.9vw,1.4rem)}
+.sk-cap p{margin:0 0 1rem}
+.sk-cap .sk-cap-eyebrow{
+  font:600 .78rem/1 var(--sk-sans,Inter,system-ui,sans-serif);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--sk-teal-d,#4e9799);
+}
+.sk-cap .sk-cap-lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--sk-body,#4a5568)}
+
+/* ── the CTA. One button style, used everywhere, always a popup trigger. ──── */
+.sk-cap .sk-cap-btn{
+  display:inline-block;border:0;cursor:pointer;text-decoration:none;
+  font:700 1rem/1 var(--sk-sans,Inter,system-ui,sans-serif);
+  letter-spacing:.04em;padding:1.05rem 2.2rem;border-radius:999px;
+  background:var(--sk-navy,#1e386a);color:#fff;
+  box-shadow:0 12px 28px rgba(30,56,106,.26);
+  transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+}
+.sk-cap .sk-cap-btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(30,56,106,.32);filter:brightness(1.06)}
+.sk-cap .sk-cap-btn:active{transform:translateY(0)}
+.sk-cap .sk-cap-btn.sk-cap-btn-teal{background:var(--sk-teal,#79bdbe);color:var(--sk-ink,#16233d);box-shadow:0 12px 28px rgba(121,189,190,.34)}
+.sk-cap .sk-cap-note{font-size:.85rem;color:var(--sk-body,#4a5568);opacity:.8;margin-top:.9rem}
+
+/* ── hero ─────────────────────────────────────────────────────────────────── */
+.sk-cap .sk-cap-hero{
+  position:relative;overflow:hidden;
+  background:radial-gradient(120% 90% at 18% 18%, var(--sk-navy,#1e386a) 0%, var(--sk-navy-d,#14284c) 68%);
+  color:#fff;padding:clamp(3rem,7vw,5.5rem) 0 clamp(3rem,7vw,5rem);
+}
+.sk-cap .sk-cap-hero::after{
+  content:"";position:absolute;inset:auto 0 -30% 0;height:60%;
+  background:radial-gradient(60% 100% at 70% 0%, rgba(121,189,190,.24), rgba(121,189,190,0) 70%);
+  pointer-events:none;
+}
+.sk-cap .sk-cap-hero h1{color:#fff}
+.sk-cap .sk-cap-hero .sk-cap-eyebrow{color:var(--sk-lime,#bcd57a)}
+.sk-cap .sk-cap-hero .sk-cap-lede{color:rgba(255,255,255,.86)}
+.sk-cap .sk-cap-hero-grid{
+  position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(2rem,5vw,4rem);align-items:center;
+}
+.sk-cap .sk-cap-hero-copy>*+*{margin-top:1.25rem}
+.sk-cap .sk-cap-hero-art img{
+  border-radius:8px;
+  box-shadow:0 44px 90px rgba(0,0,0,.42),0 8px 22px rgba(0,0,0,.24);
+  transform:rotate(-2deg);
+}
+.sk-cap .sk-cap-ticks{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.sk-cap .sk-cap-ticks li{display:flex;gap:.7rem;align-items:flex-start;color:rgba(255,255,255,.92);font-size:1rem}
+.sk-cap .sk-cap-ticks li::before{
+  content:"";flex:0 0 auto;width:20px;height:20px;margin-top:.18rem;border-radius:50%;
+  background:var(--sk-teal,#79bdbe);
+  -webkit-mask:no-repeat center/11px url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2 8.6l4 4L14 4' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+          mask:no-repeat center/11px url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2 8.6l4 4L14 4' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  box-shadow:inset 0 0 0 20px var(--sk-teal,#79bdbe);
+}
+
+/* ── generic section ──────────────────────────────────────────────────────── */
+.sk-cap .sk-cap-sec{padding:clamp(3rem,6vw,4.75rem) 0}
+.sk-cap .sk-cap-sec.sk-cap-mist{background:var(--sk-mist,#f2f5f8)}
+.sk-cap .sk-cap-head{max-width:760px;margin:0 auto clamp(2rem,4vw,3rem);text-align:center}
+.sk-cap .sk-cap-head .sk-cap-eyebrow{display:block;margin-bottom:1rem}
+.sk-cap .sk-cap-head p{margin-top:1rem}
+
+/* ── the mechanism: two pathways, side by side ────────────────────────────── */
+.sk-cap .sk-cap-path{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2rem)}
+.sk-cap .sk-cap-path-card{
+  background:#fff;border:1px solid var(--sk-line,#e3e8ef);border-radius:16px;
+  padding:clamp(1.5rem,2.6vw,2.1rem);
+}
+.sk-cap .sk-cap-path-card h3{margin-bottom:.7rem}
+.sk-cap .sk-cap-path-card p:last-child{margin-bottom:0}
+.sk-cap .sk-cap-chain{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin:0 0 1rem;
+  font:600 .82rem/1.4 var(--sk-sans,Inter,system-ui,sans-serif);
+}
+.sk-cap .sk-cap-chain span{
+  background:var(--sk-mist,#f2f5f8);border:1px solid var(--sk-line,#e3e8ef);
+  border-radius:999px;padding:.32rem .7rem;color:var(--sk-body,#4a5568);
+}
+.sk-cap .sk-cap-chain span:last-child{background:var(--sk-navy,#1e386a);border-color:var(--sk-navy,#1e386a);color:#fff}
+.sk-cap .sk-cap-chain i{font-style:normal;color:var(--sk-teal-d,#4e9799);font-weight:700}
+
+/* ── what's inside: cover stack + bullets ─────────────────────────────────── */
+.sk-cap .sk-cap-inside{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.sk-cap .sk-cap-inside-list{list-style:none;padding:0;margin:0;display:grid;gap:1.35rem}
+.sk-cap .sk-cap-inside-list li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.sk-cap .sk-cap-inside-n{
+  flex:0 0 auto;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(140deg,rgba(121,189,190,.25),rgba(188,213,122,.3));
+  /* SANS here, deliberately: the display serif ships oldstyle figures and no lining set, so a
+     numeral in a circle sits at x-height and reads as tiny lowercase. Same fix as the product page. */
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:1.02rem;font-weight:700;line-height:1;color:var(--sk-navy,#1e386a);
+}
+.sk-cap .sk-cap-inside-list h3{margin-bottom:.3rem;font-size:1.16rem}
+.sk-cap .sk-cap-inside-list p{margin:0;font-size:.97rem}
+
+/* ── sample lunches strip ─────────────────────────────────────────────────── */
+.sk-cap .sk-cap-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,1.8vw,1.4rem)}
+.sk-cap .sk-cap-strip figure{margin:0;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--sk-line,#e3e8ef)}
+.sk-cap .sk-cap-strip img{aspect-ratio:3/2;object-fit:cover;width:100%}
+.sk-cap .sk-cap-strip figcaption{
+  padding:.85rem 1rem 1rem;font:600 .95rem/1.35 var(--sk-sans,Inter,system-ui,sans-serif);
+  color:var(--sk-ink,#16233d);
+}
+.sk-cap .sk-cap-strip figcaption small{display:block;font-weight:400;color:var(--sk-body,#4a5568);margin-top:.25rem}
+
+/* ── closing CTA band ─────────────────────────────────────────────────────── */
+.sk-cap .sk-cap-close{
+  background:linear-gradient(135deg,var(--sk-navy-d,#14284c) 0%,var(--sk-navy,#1e386a) 100%);
+  color:#fff;text-align:center;padding:clamp(3rem,6vw,4.5rem) 0;
+}
+.sk-cap .sk-cap-close h2{color:#fff;max-width:20ch;margin:0 auto}
+.sk-cap .sk-cap-close p{color:rgba(255,255,255,.85);max-width:52ch;margin:1.1rem auto 1.9rem}
+.sk-cap .sk-cap-close .sk-cap-btn{background:var(--sk-teal,#79bdbe);color:var(--sk-ink,#16233d)}
+.sk-cap .sk-cap-close .sk-cap-note{color:rgba(255,255,255,.7)}
+
+/* ── mobile CTA bar ───────────────────────────────────────────────────────────
+   FIXED, not sticky: a hosted block is one element inside the GHL page, so position:sticky
+   would pin the bar inside the block's own box and it would scroll away with it. Ships hidden;
+   capture.js reveals it once the hero CTA has left the TOP of the viewport. */
+.sk-cap .sk-cap-bar{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  align-items:center;gap:12px;padding:12px 16px;
+  background:var(--sk-navy,#1e386a);box-shadow:0 -6px 20px rgba(22,35,61,.24);
+}
+.sk-cap .sk-cap-bar[hidden]{display:none !important}
+.sk-cap .sk-cap-bar-name{
+  flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:#fff;font:600 .92rem/1.2 var(--sk-sans,Inter,system-ui,sans-serif);
+}
+/* opt out of the page-wide mobile full-width button rule, or the label collapses to zero */
+.sk-cap .sk-cap-bar .sk-cap-btn{flex:0 0 auto;width:auto;padding:.72rem 1.25rem;font-size:.9rem;
+  background:var(--sk-teal,#79bdbe);color:var(--sk-ink,#16233d);box-shadow:none}
+
+/* ── reveal ───────────────────────────────────────────────────────────────── */
+.sk-cap [data-sk-rev]{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.sk-cap [data-sk-rev].sk-cap-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .sk-cap [data-sk-rev]{opacity:1;transform:none;transition:none}
+  .sk-cap .sk-cap-btn{transition:none}
+}
+
+/* ── responsive ───────────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  .sk-cap .sk-cap-hero-grid,
+  .sk-cap .sk-cap-inside{grid-template-columns:1fr}
+  .sk-cap .sk-cap-hero-art{order:-1;max-width:340px;margin:0 auto}
+  .sk-cap .sk-cap-path{grid-template-columns:1fr}
+  .sk-cap .sk-cap-strip{grid-template-columns:1fr}
+  .sk-cap .sk-cap-bar{display:flex}
+  .sk-cap .sk-cap-bar[hidden]{display:none !important}
+  /* leave room so the fixed bar never covers the last CTA */
+  .sk-cap .sk-cap-close{padding-bottom:calc(clamp(3rem,6vw,4.5rem) + var(--sk-bar-h,0px))}
+  .sk-cap .sk-cap-btn{width:100%;text-align:center}
+}
+@media (max-width:560px){
+  .sk-cap h1{font-size:2.05rem}
+}

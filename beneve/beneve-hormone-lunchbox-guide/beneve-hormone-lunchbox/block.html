@@ -1,0 +1,144 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox
+  The Hormone Lunchbox opt-in page. Lead magnet for Beneve Glutathione+.
+
+  EVERY CTA OPENS THE PAGE POPUP, and none of them is a link. The opt-in form lives in the GHL
+  page's own popup (Jeff wires it there); each button carries `data-sk-open` and the shared
+  engine dispatches `customWidgetOpenPopup`, the no-argument window event GHL ships for this.
+  No popup id anywhere, so the block is account-agnostic and survives a snapshot install
+  (HOSTED-BLOCKS-SOP §7). Constraint that comes with it: ONE popup on this page.
+
+  Imagery is the REAL guide, not a stand-in: assets/cover.webp and assets/stack.webp are renders
+  of the actual PDF cover and two of its interior pages, so what the visitor is shown is what
+  they get. Lunch photos are three of the guide's own hero shots.
+
+  Copy follows the house rules: addressed to the avatar, no em-dashes, and no claim Beneve does
+  not already make. The DIM-from-cruciferous line is Beneve's own ingredient copy.
+  Design and behaviour live in _shared/capture/, scoped .sk-cap; block.css holds only the palette.
+-->
+<div class="sk-cap sk-cap-bnv-lunchbox">
+
+  <!-- Mobile CTA bar. Ships hidden; the shared engine reveals it once the hero CTA scrolls off
+       the top, so the page never shows two copies of the same button. -->
+  <div class="sk-cap-bar" hidden>
+    <span class="sk-cap-bar-name">The Hormone Lunchbox, free</span>
+    <button type="button" class="sk-cap-btn" data-sk-open>Send it to me</button>
+  </div>
+
+  <section class="sk-cap-hero">
+    <div class="sk-cap-wrap sk-cap-hero-grid">
+      <div class="sk-cap-hero-copy">
+        <span class="sk-cap-eyebrow">Free guide</span>
+        <h1>Ten packable lunches for hormone balance.</h1>
+        <p class="sk-cap-lede">Built on the vegetables your body turns into DIM, and the everyday
+          foods it turns into its own glutathione. One container each. All hold cold.</p>
+        <ul class="sk-cap-ticks">
+          <li>10 lunches you can make in under 15 minutes</li>
+          <li>A Sunday prep plan: three pans, five lunches</li>
+          <li>The master grocery list and a one-page cheat sheet</li>
+        </ul>
+        <button type="button" class="sk-cap-btn" data-sk-open data-sk-hero-cta>Send me the guide</button>
+        <p class="sk-cap-note">Free. Straight to your inbox.</p>
+      </div>
+      <div class="sk-cap-hero-art">
+        <img src="assets/cover.webp" width="900" height="1165"
+             alt="The Hormone Lunchbox guide cover" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec">
+    <div class="sk-cap-wrap">
+      <div class="sk-cap-head" data-sk-rev>
+        <span class="sk-cap-eyebrow">Why it works</span>
+        <h2>Two things your body makes, and the foods it makes them from</h2>
+        <p>Neither of these is something you swallow. They are both things your body manufactures,
+          and the raw material arrives on your plate.</p>
+      </div>
+      <div class="sk-cap-path" data-sk-rev>
+        <div class="sk-cap-path-card">
+          <div class="sk-cap-chain">
+            <span>Cruciferous</span><i>&rarr;</i><span>Glucosinolates</span><i>&rarr;</i><span>DIM</span>
+          </div>
+          <h3>Broccoli, cabbage and kale become DIM</h3>
+          <p>Chewing and digestion break the glucosinolates in cruciferous vegetables down into
+            indole-3-carbinol, and your stomach converts a share of that into DIM. The vegetable is
+            the raw material. Your own digestion does the manufacturing.</p>
+        </div>
+        <div class="sk-cap-path-card">
+          <div class="sk-cap-chain">
+            <span>Sulfur foods</span><i>&rarr;</i><span>Cysteine</span><i>&rarr;</i><span>Glutathione</span>
+          </div>
+          <h3>Eggs, garlic and onions become glutathione</h3>
+          <p>Your body builds glutathione from three amino acids, and cysteine is the bottleneck.
+            Cysteine rides in on sulfur-rich foods, which is why eggs, garlic, onions and the
+            cruciferous family keep showing up on the same list.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec sk-cap-mist">
+    <div class="sk-cap-wrap sk-cap-inside">
+      <div data-sk-rev>
+        <img src="assets/stack.webp" width="1400" height="1050"
+             alt="The Hormone Lunchbox guide, cover and interior pages" loading="lazy" decoding="async">
+      </div>
+      <div data-sk-rev>
+        <span class="sk-cap-eyebrow">What is inside</span>
+        <h2 style="margin:1rem 0 1.75rem">27 pages, and none of it filler</h2>
+        <ul class="sk-cap-inside-list">
+          <li><span class="sk-cap-inside-n">1</span>
+            <div><h3>The Cruciferous Ten</h3>
+              <p>Ten vegetables, with the one thing worth knowing about each. You do not need all
+                ten. You need two or three you actually like, on rotation.</p></div></li>
+          <li><span class="sk-cap-inside-n">2</span>
+            <div><h3>The Lunchbox Formula</h3>
+              <p>Cruciferous base, protein, sulfur ally, dressing, crunch. Once you see it you can
+                build your own forever and stop needing recipes.</p></div></li>
+          <li><span class="sk-cap-inside-n">3</span>
+            <div><h3>Ten packable lunches</h3>
+              <p>Every one fits a single container, holds cold, and needs no microwave. Each says
+                how many days it keeps.</p></div></li>
+          <li><span class="sk-cap-inside-n">4</span>
+            <div><h3>Sunday prep and the grocery list</h3>
+              <p>Forty minutes, three pans, and most of the week is done. Plus the full shopping
+                list and a one-page cheat sheet for the fridge door.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec">
+    <div class="sk-cap-wrap">
+      <div class="sk-cap-head" data-sk-rev>
+        <span class="sk-cap-eyebrow">A few of the ten</span>
+        <h2>Lunches you will actually look forward to</h2>
+        <p>Nobody has trouble believing broccoli is good for them. They have trouble eating it on a
+          Tuesday. That is the problem this guide is built to solve.</p>
+      </div>
+      <div class="sk-cap-strip" data-sk-rev>
+        <figure><img src="assets/lunch-1.webp" width="900" height="600"
+          alt="The Crunch Salad, shredded red cabbage and kale with chicken and almonds" loading="lazy" decoding="async">
+          <figcaption>The Crunch Salad<small>Keeps 3 days, and it is better on day two</small></figcaption></figure>
+        <figure><img src="assets/lunch-2.webp" width="900" height="600"
+          alt="Kale Caesar with roasted chickpeas" loading="lazy" decoding="async">
+          <figcaption>Kale Caesar<small>The only green that survives a dressing until noon</small></figcaption></figure>
+        <figure><img src="assets/lunch-3.webp" width="900" height="600"
+          alt="Cauliflower rice burrito bowl with black beans and avocado" loading="lazy" decoding="async">
+          <figcaption>Cauliflower Burrito Bowl<small>Cauliflower rice will not turn to paste</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-close">
+    <div class="sk-cap-wrap" data-sk-rev>
+      <h2>Pack the cabbage. It is the easiest change in here.</h2>
+      <p>Send yourself the guide, pick two lunches that sound good, and make them this week.
+        That is the whole ask.</p>
+      <button type="button" class="sk-cap-btn" data-sk-open>Send me the guide</button>
+      <p class="sk-cap-note">Free. No card, no catch.</p>
+    </div>
+  </section>
+
+</div>
