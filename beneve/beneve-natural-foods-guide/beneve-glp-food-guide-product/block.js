@@ -4,6 +4,7 @@
  * so a <script src> inside it never executes (HOSTED-BLOCKS-SOP). Everything here is vanilla and
  * runs off the loader's own script tag.
  *
+ *  0. buy       resolve the purchase CTAs onto the funnel's own redirect step
  *  1. reveal    IntersectionObserver, staggered by data-delay
  *  2. float     gentle parallax on the hero jar, rAF-throttled
  *  3. progress  the reading bar
@@ -18,6 +19,30 @@
   root.dataset.skBooted = "1";
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- 0. purchase CTAs ----------------------------------------------------
+  // Every buy button goes to the funnel's REDIRECT step rather than straight to the shop,
+  // because a pageview on that step is what fires Fire Lead. The step then forwards to the
+  // rep's buy link on its own. Authored sibling-relative so it works under any funnel path;
+  // resolved here to an absolute same-funnel URL so a trailing slash cannot shift it.
+  // If the page is not being served from inside the funnel (builder preview, a bare page
+  // URL), fall back to the buy link itself so the button is never dead.
+  (function () {
+    var step = root.getAttribute("data-buy-step");
+    var buy = root.getAttribute("data-cv-beneve_buy_link");
+    var btns = root.querySelectorAll("[data-buy]");
+    if (!btns.length) return;
+    var path = location.pathname.replace(/\/+$/, "");
+    var inFunnel = step && path && path.split("/").pop() !== "";
+    var href = null;
+    if (inFunnel && /\/preview\//.test(path) === false) {
+      href = path.replace(/[^\/]*$/, "") + step;
+    } else if (buy) {
+      href = "https://" + buy.replace(/^https?:\/\//, "");
+    }
+    if (!href) return;
+    for (var b = 0; b < btns.length; b++) btns[b].setAttribute("href", href);
+  })();
 
   // ---- 1. reveal on scroll -------------------------------------------------
   var targets = root.querySelectorAll("[data-rise],[data-slide]");

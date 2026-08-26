@@ -4,13 +4,20 @@
 
   INFO-CENTRIC, not a store page. There is no price, no quantity, no Add To Cart and no
   Subscribe & Save, because the purchase happens on beneve.com under the rep's own link and
-  that link is what earns the commission. Every CTA here points at
-  {{custom_values.beneve_buy_link}}, which is the rep's shop URL stored WITHOUT the protocol.
+  that link is what earns the commission.
+
+  Every purchase CTA points at the funnel's own REDIRECT step, not straight at the shop, so
+  the click is tracked: a pageview on that step fires the Fire Lead workflow, and the step
+  then forwards to https://{{custom_values.beneve_buy_link}} on its own. The href is written
+  sibling-relative so it survives whatever funnel path a buyer's account ends up with;
+  block.js resolves it to an absolute same-funnel URL, and falls back to the buy link itself
+  when the page is not being served from inside the funnel (builder preview).
 
   Copy is Beneve's own wherever they had any. Connective tissue follows the house rules:
   addressed to the avatar, no em-dashes, no claim Beneve does not already make.
 -->
 <div class="sk-bnv-gut"
+     data-buy-step="beneve-glp-food-guide-redirect"
      data-cv-beneve_buy_link="{{custom_values.beneve_buy_link}}"
      data-cv-beneve_rep_first_name="{{custom_values.beneve_rep_first_name}}">
 
@@ -41,7 +48,7 @@
         </ul>
 
         <div class="sk-bnv-cta-row" data-rise data-delay="4">
-          <a class="sk-bnv-btn" href="https://{{custom_values.beneve_buy_link}}" target="_blank" rel="noopener">
+          <a class="sk-bnv-btn" href="beneve-glp-food-guide-redirect" data-buy>
             Get Gut Advantage
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -220,7 +227,7 @@
       <p class="sk-bnv-sub" data-rise data-delay="1">
         The guide gave you the foods. Gut Advantage is the daily piece that works alongside them.
       </p>
-      <a class="sk-bnv-btn sk-bnv-btn-lg" href="https://{{custom_values.beneve_buy_link}}" target="_blank" rel="noopener" data-rise data-delay="2">
+      <a class="sk-bnv-btn sk-bnv-btn-lg" href="beneve-glp-food-guide-redirect" data-buy data-rise data-delay="2">
         Get Gut Advantage
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
