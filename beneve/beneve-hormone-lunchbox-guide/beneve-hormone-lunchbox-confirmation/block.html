@@ -1,0 +1,81 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation
+  The Confirmation step of the Hormone Lunchbox funnel: what the opt-in form redirects to.
+
+  Its two jobs, in order. FIRST tell them the guide is coming and where to look for it, because a
+  lead who never finds the email is a lead lost. THEN make the product offer, once, on the way out.
+  The shape is the shipped GLP Foods confirmation page, which is the proven one.
+
+  Design lives in _shared/confirm/, scoped .sk-conf, shared by every confirmation page in every
+  system. This file holds only markup; block.css holds only palette tokens.
+
+  Every CTA is a DOCUMENT-relative link to another step in this funnel (no leading slash), which
+  resolves with or without a connected domain. A root-relative href would 404 here. The product
+  CTAs go to the Product Tour Page, not straight at the shop: the tracked Redirect step sits behind
+  that page's own buttons and is what fires Fire Lead.
+-->
+<div class="sk-conf sk-conf-bnv">
+
+  <!-- ===================== BAND 1 · the confirmation ===================== -->
+  <section class="sk-conf-top">
+    <div class="sk-conf-wrap">
+      <span class="sk-conf-pill">Check your inbox</span>
+      <h1>Your Hormone Lunchbox Guide Is On Its Way...</h1>
+
+      <p class="sk-conf-note">
+        We have sent The Hormone Lunchbox to your email. It should arrive within the next two
+        minutes. If you do not see it, check your Promotions, Updates or Spam folder, because it
+        could be sitting in there.
+      </p>
+
+      <p class="sk-conf-lede">
+        While you wait: the vegetables those ten lunches are built on are the ones your body turns
+        into <span class="sk-conf-hl">DIM</span>. There is a capsule with the same compound in it.
+      </p>
+
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn" href="beneve-hormone-lunchbox-product">
+          Show me Glutathione+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="sk-conf-btn sk-conf-btn-ghost" href="beneve-hormone-lunchbox-read">
+          Read the guide online now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 2 · the bridge ===================== -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <hr class="sk-conf-rule">
+      <h2>Ten lunches is step one</h2>
+      <p class="sk-conf-body">
+        Packing lunch every day is the part that is hard to keep up. Some weeks the prep happens
+        and some weeks it does not.
+      </p>
+      <p class="sk-conf-body">
+        Glutathione+ is one capsule a day with DIM in it, the same compound the guide gets into you
+        through broccoli, cabbage and Brussels sprouts. It is formulated to support cellular health,
+        hormone support and overall wellness.
+      </p>
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn" href="beneve-hormone-lunchbox-product">
+          See Glutathione+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the disclaimer ===================== -->
+  <section class="sk-conf-foot">
+    <div class="sk-conf-wrap">
+      <p>The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+      <p>We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+      <p>Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+      <p>These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding hormone balance, weight, or any other outcome.</p>
+      <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+    </div>
+  </section>
+</div>
