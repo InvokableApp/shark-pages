@@ -167,10 +167,12 @@
 .sk-prod .sk-prod-use-n{
   flex:0 0 auto;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
   background:linear-gradient(140deg,rgba(121,189,190,.25),rgba(188,213,122,.3));
-  /* SANS here, deliberately. The display serif is Cormorant, which ships oldstyle figures and no
-     lining set, so "65" sat at x-height with descenders and read as tiny lowercase inside the
-     circle. font-variant-numeric cannot fix a face that has no lining figures; changing the face
-     can. */
+  /* SANS here, deliberately. The display serif is Cormorant, which DEFAULTS to oldstyle figures,
+     so "65" sat at x-height and read as tiny lowercase inside the circle.
+     CORRECTION (2026-08-26): an earlier note here said the face carries no lining set and that
+     font-variant-numeric could not help. That is wrong, it does and it can. The sans is still the
+     right call INSIDE a small circle, where a geometric numeral reads better, but for serif
+     HEADINGS the fix is `font-variant-numeric:lining-nums` (see _shared/capture). */
   font-family:var(--sk-sans,Inter,system-ui,sans-serif);
   font-size:1.15rem;font-weight:700;line-height:1;letter-spacing:-.01em;
   color:var(--sk-navy,#1e386a);
