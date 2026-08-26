@@ -30,7 +30,12 @@
   font-family:var(--sk-serif,Georgia,serif);
   color:var(--sk-ink,#16233d);
   font-weight:600;line-height:1.08;letter-spacing:-.01em;margin:0;
+  /* Cormorant defaults to OLDSTYLE figures, so "10 Packable Lunches" sets the 1 and 0 at
+     x-height and reads as "io". On a headline whose whole job is to say TEN that is a defect.
+     Verified: the face DOES carry a lining set and font-variant-numeric switches to it. */
+  font-variant-numeric:lining-nums;
 }
+.sk-cap .sk-cap-inside-list h3,.sk-cap .sk-cap-strip figcaption{font-variant-numeric:lining-nums}
 .sk-cap h1{font-size:clamp(2.3rem,5vw,4rem)}
 .sk-cap h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
 .sk-cap h3{font-size:clamp(1.15rem,1.9vw,1.4rem)}
