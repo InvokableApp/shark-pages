@@ -40,6 +40,30 @@
       "elementId": "custom-code-ajgnezv74r",
       "elementTitle": "Become an Influencer",
       "pattern": "A"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox",
+      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+      "pageId": "mM3U1kh9dENViXA16qxw",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "Hormone Lunchbox Opt-In",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+      "pageId": "3TPX9acNuwOxrgTpYHm1",
+      "elementId": "custom-code-br6mfc1x4y",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-product",
+      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+      "pageId": "fWF3jojxR5vazeFkw9mH",
+      "elementId": "custom-code-xoxrla0qvl",
+      "elementTitle": "Glutathione+",
+      "pattern": "A"
     }
   ]
 }
