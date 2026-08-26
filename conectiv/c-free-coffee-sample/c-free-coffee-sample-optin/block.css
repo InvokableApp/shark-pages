@@ -15,7 +15,7 @@
 @import url("https://invokableapp.github.io/shark-pages/_shared/product/product.css");
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
-.sk-ctv-sample{
+.sk-prod-ctv{
   --sk-navy:   #0f3b3d;
   --sk-navy-d: #082a2b;
   --sk-teal:   #1a9184;
@@ -34,52 +34,52 @@
 }
 
 /* the display face is a sans, so it needs a little more letterspacing than the serif default */
-.sk-ctv-sample .sk-prod-h1{font-weight:300;letter-spacing:-.015em}
+.sk-prod-ctv .sk-prod-h1{font-weight:300;letter-spacing:-.015em}
 /* the pill button has a drop shadow, so the ghost link next to it needs more than the shared gap */
-.sk-ctv-sample .sk-prod-cta-row{gap:1.1rem 1.6rem}
-.sk-ctv-sample .sk-prod-h2{font-weight:300;letter-spacing:-.01em}
+.sk-prod-ctv .sk-prod-cta-row{gap:1.1rem 1.6rem}
+.sk-prod-ctv .sk-prod-h2{font-weight:300;letter-spacing:-.01em}
 
 /* ============================ OFFER STRIP ============================ */
 /* Sits above the hero and does the RYZE promo-bar job: state the offer before anything else. */
-.sk-ctv-sample .sk-ctv-strip{
+.sk-prod-ctv .sk-prod-ctv-strip{
   position:relative;overflow:hidden;
   background:linear-gradient(100deg,var(--sk-navy-d),var(--sk-teal-d) 55%,var(--sk-teal));
   color:#fff;text-align:center;padding:.7rem 1rem;
   font-size:.83rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
 }
-.sk-ctv-sample .sk-ctv-strip::after{
+.sk-prod-ctv .sk-prod-ctv-strip::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);
   transform:translateX(-100%);
-  animation:sk-ctv-sample-sheen 5.5s var(--ctv-ease) infinite;
+  animation:sk-prod-ctv-sheen 5.5s var(--ctv-ease) infinite;
 }
-@keyframes sk-ctv-sample-sheen{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes sk-prod-ctv-sheen{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
 /* ============================ HERO EXTRAS ============================ */
 /* A free offer's single biggest objection is "what is the catch", so the price line answers it
    in the hero rather than 3 screens down: the value is struck through, the price is FREE. */
-.sk-ctv-sample .sk-ctv-price{
+.sk-prod-ctv .sk-prod-ctv-price{
   display:flex;align-items:baseline;gap:.7rem;margin:0 0 1.3rem;flex-wrap:wrap;
 }
-.sk-ctv-sample .sk-ctv-price b{
+.sk-prod-ctv .sk-prod-ctv-price b{
   font-family:var(--sk-serif);font-weight:400;font-size:clamp(2rem,4.4vw,2.8rem);
   line-height:1;color:var(--sk-teal-d);letter-spacing:-.02em;
 }
-.sk-ctv-sample .sk-ctv-price s{color:#93a3a5;font-size:1.05rem;text-decoration-thickness:1.5px}
-.sk-ctv-sample .sk-ctv-price em{font-style:normal;font-size:.9rem;color:var(--sk-body)}
+.sk-prod-ctv .sk-prod-ctv-price s{color:#93a3a5;font-size:1.05rem;text-decoration-thickness:1.5px}
+.sk-prod-ctv .sk-prod-ctv-price em{font-style:normal;font-size:.9rem;color:var(--sk-body)}
 
 /* the pack floats, and a soft ring behind it turns slowly so the hero is never fully static */
-.sk-ctv-sample .sk-ctv-ring{
+.sk-prod-ctv .sk-prod-ctv-ring{
   position:absolute;inset:4% 2%;border-radius:50%;
   border:1px dashed rgba(26,145,132,.32);
-  animation:sk-ctv-sample-spin 42s linear infinite;
+  animation:sk-prod-ctv-spin 42s linear infinite;
 }
-@keyframes sk-ctv-sample-spin{to{transform:rotate(360deg)}}
-.sk-ctv-sample .sk-prod-hero-shot img{animation:sk-ctv-sample-bob 7s var(--ctv-ease) infinite}
-@keyframes sk-ctv-sample-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes sk-prod-ctv-spin{to{transform:rotate(360deg)}}
+.sk-prod-ctv .sk-prod-hero-shot img{animation:sk-prod-ctv-bob 7s var(--ctv-ease) infinite}
+@keyframes sk-prod-ctv-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
 
 /* the free-sample seal, pinned to the pack */
-.sk-ctv-sample .sk-ctv-seal{
+.sk-prod-ctv .sk-prod-ctv-seal{
   position:absolute;right:4%;top:6%;z-index:2;
   display:grid;place-items:center;width:104px;height:104px;border-radius:50%;
   background:var(--sk-sage);color:#fff;text-align:center;line-height:1.15;
@@ -87,75 +87,75 @@
   box-shadow:0 14px 30px rgba(185,131,79,.38);
   transform:rotate(-9deg);
 }
-.sk-ctv-sample .sk-ctv-seal b{display:block;font-size:1.25rem;letter-spacing:.02em}
+.sk-prod-ctv .sk-prod-ctv-seal b{display:block;font-size:1.25rem;letter-spacing:.02em}
 
 /* ============================ COUNTERS ============================ */
-.sk-ctv-sample .sk-ctv-stats{
+.sk-prod-ctv .sk-prod-ctv-stats{
   display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
   border-top:1px solid var(--sk-line);border-bottom:1px solid var(--sk-line);
   padding:clamp(1.6rem,3vw,2.4rem) 0;
 }
-.sk-ctv-sample .sk-ctv-stat{text-align:center}
-.sk-ctv-sample .sk-ctv-stat b{
+.sk-prod-ctv .sk-prod-ctv-stat{text-align:center}
+.sk-prod-ctv .sk-prod-ctv-stat b{
   display:block;font-family:var(--sk-serif);font-weight:400;
   font-size:clamp(1.9rem,4vw,2.9rem);line-height:1;color:var(--sk-teal-d);
   font-variant-numeric:lining-nums;
 }
-.sk-ctv-sample .sk-ctv-stat span{
+.sk-prod-ctv .sk-prod-ctv-stat span{
   display:block;margin-top:.45rem;font-size:.74rem;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:#8798a0;
 }
 
 /* ============================ INGREDIENT GRID ============================ */
-.sk-ctv-sample .sk-ctv-ings{
+.sk-prod-ctv .sk-prod-ctv-ings{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:clamp(2rem,4vw,3rem);
 }
-.sk-ctv-sample .sk-ctv-ing{
+.sk-prod-ctv .sk-prod-ctv-ing{
   position:relative;overflow:hidden;background:#fff;border:1px solid var(--sk-line);
   border-radius:20px;padding:1.6rem 1.4rem;
   transition:transform .4s var(--ctv-ease),box-shadow .4s var(--ctv-ease),border-color .4s var(--ctv-ease);
 }
-.sk-ctv-sample .sk-ctv-ing::before{
+.sk-prod-ctv .sk-prod-ctv-ing::before{
   content:"";position:absolute;left:0;right:0;top:0;height:3px;
   background:linear-gradient(90deg,var(--sk-teal),var(--sk-sage));
   transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ctv-ease);
 }
-.sk-ctv-sample .sk-ctv-ing:hover{transform:translateY(-5px);box-shadow:0 18px 34px rgba(15,59,61,.1);border-color:rgba(26,145,132,.45)}
-.sk-ctv-sample .sk-ctv-ing:hover::before{transform:scaleX(1)}
-.sk-ctv-sample .sk-ctv-ing h3{
+.sk-prod-ctv .sk-prod-ctv-ing:hover{transform:translateY(-5px);box-shadow:0 18px 34px rgba(15,59,61,.1);border-color:rgba(26,145,132,.45)}
+.sk-prod-ctv .sk-prod-ctv-ing:hover::before{transform:scaleX(1)}
+.sk-prod-ctv .sk-prod-ctv-ing h3{
   margin:0 0 .45rem;font-family:var(--sk-serif);font-weight:500;
   font-size:1.12rem;color:var(--sk-navy);letter-spacing:.01em;
 }
-.sk-ctv-sample .sk-ctv-ing p{margin:0;font-size:.92rem}
-.sk-ctv-sample .sk-ctv-ing i{
+.sk-prod-ctv .sk-prod-ctv-ing p{margin:0;font-size:.92rem}
+.sk-prod-ctv .sk-prod-ctv-ing i{
   display:block;font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--sk-sage);margin-bottom:.6rem;
 }
 
 /* ============================ VERSUS ============================ */
-.sk-ctv-sample .sk-ctv-vs{padding:clamp(3rem,7vw,6rem) 0;background:var(--sk-mist)}
-.sk-ctv-sample .sk-ctv-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:clamp(1.8rem,4vw,2.8rem)}
-.sk-ctv-sample .sk-ctv-card{
+.sk-prod-ctv .sk-prod-ctv-vs{padding:clamp(3rem,7vw,6rem) 0;background:var(--sk-mist)}
+.sk-prod-ctv .sk-prod-ctv-vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:clamp(1.8rem,4vw,2.8rem)}
+.sk-prod-ctv .sk-prod-ctv-card{
   background:#fff;border:1px solid var(--sk-line);border-radius:22px;padding:1.8rem 1.6rem;
 }
-.sk-ctv-sample .sk-ctv-card.is-hero{
+.sk-prod-ctv .sk-prod-ctv-card.is-hero{
   background:linear-gradient(165deg,var(--sk-navy),var(--sk-navy-d));border-color:transparent;color:rgba(255,255,255,.82);
   box-shadow:0 22px 46px rgba(15,59,61,.22);
 }
-.sk-ctv-sample .sk-ctv-card h3{
+.sk-prod-ctv .sk-prod-ctv-card h3{
   margin:0 0 1.2rem;font-family:var(--sk-serif);font-weight:400;font-size:1.35rem;
   color:var(--sk-navy);letter-spacing:.01em;
 }
-.sk-ctv-sample .sk-ctv-card.is-hero h3{color:#fff}
-.sk-ctv-sample .sk-ctv-card ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
-.sk-ctv-sample .sk-ctv-card li{position:relative;padding-left:1.8rem;font-size:.97rem}
-.sk-ctv-sample .sk-ctv-card li::before{
+.sk-prod-ctv .sk-prod-ctv-card.is-hero h3{color:#fff}
+.sk-prod-ctv .sk-prod-ctv-card ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.sk-prod-ctv .sk-prod-ctv-card li{position:relative;padding-left:1.8rem;font-size:.97rem}
+.sk-prod-ctv .sk-prod-ctv-card li::before{
   content:"";position:absolute;left:0;top:.3em;width:19px;height:19px;border-radius:50%;
   background:#9fb0b2;
   -webkit-mask:center/11px 11px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E");
   mask:center/11px 11px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E");
 }
-.sk-ctv-sample .sk-ctv-card.is-hero li::before{
+.sk-prod-ctv .sk-prod-ctv-card.is-hero li::before{
   background:var(--sk-teal);width:19px;height:19px;top:.3em;
   -webkit-mask:center/10px 10px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12l6 6L20 6'/%3E%3C/svg%3E");
   mask:center/10px 10px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12l6 6L20 6'/%3E%3C/svg%3E");
@@ -164,53 +164,53 @@
 /* ============================ HOW THE SAMPLE WORKS ============================ */
 /* The load-bearing trust section on a free-sample funnel: say exactly what happens next,
    who ships it, and that no card is involved. (giveaway archetype.) */
-.sk-ctv-sample .sk-ctv-steps{
+.sk-prod-ctv .sk-prod-ctv-steps{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:clamp(2rem,4vw,3rem);
   position:relative;
 }
-.sk-ctv-sample .sk-ctv-step{
+.sk-prod-ctv .sk-prod-ctv-step{
   position:relative;background:#fff;border:1px solid var(--sk-line);border-radius:22px;
   padding:2.2rem 1.5rem 1.7rem;
 }
-.sk-ctv-sample .sk-ctv-step b{
+.sk-prod-ctv .sk-prod-ctv-step b{
   position:absolute;left:1.5rem;top:-20px;display:grid;place-items:center;
   width:40px;height:40px;border-radius:50%;
   background:linear-gradient(150deg,var(--sk-teal),var(--sk-teal-d));color:#fff;
   font-family:var(--sk-sans);font-size:1rem;font-weight:700;
   box-shadow:0 10px 22px rgba(18,112,107,.32);
 }
-.sk-ctv-sample .sk-ctv-step h3{
+.sk-prod-ctv .sk-prod-ctv-step h3{
   margin:0 0 .45rem;font-family:var(--sk-serif);font-weight:500;font-size:1.1rem;color:var(--sk-navy);
 }
-.sk-ctv-sample .sk-ctv-step p{margin:0;font-size:.93rem}
+.sk-prod-ctv .sk-prod-ctv-step p{margin:0;font-size:.93rem}
 
 /* ============================ FAQ ============================ */
-.sk-ctv-sample .sk-ctv-faq{max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
-.sk-ctv-sample .sk-ctv-q{border-bottom:1px solid var(--sk-line)}
-.sk-ctv-sample .sk-ctv-q summary{
+.sk-prod-ctv .sk-prod-ctv-faq{max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
+.sk-prod-ctv .sk-prod-ctv-q{border-bottom:1px solid var(--sk-line)}
+.sk-prod-ctv .sk-prod-ctv-q summary{
   cursor:pointer;list-style:none;padding:1.15rem .5rem 1.15rem 0;
   font-family:var(--sk-serif);font-weight:500;font-size:1.06rem;color:var(--sk-navy);
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
-.sk-ctv-sample .sk-ctv-q summary::-webkit-details-marker{display:none}
-.sk-ctv-sample .sk-ctv-q summary::after{
+.sk-prod-ctv .sk-prod-ctv-q summary::-webkit-details-marker{display:none}
+.sk-prod-ctv .sk-prod-ctv-q summary::after{
   content:"";flex:0 0 auto;width:11px;height:11px;
   border-right:2px solid var(--sk-teal);border-bottom:2px solid var(--sk-teal);
   transform:rotate(45deg) translateY(-3px);transition:transform .3s var(--ctv-ease);
 }
-.sk-ctv-sample .sk-ctv-q[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
-.sk-ctv-sample .sk-ctv-q p{margin:0 0 1.2rem;font-size:.96rem;padding-right:2rem}
+.sk-prod-ctv .sk-prod-ctv-q[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
+.sk-prod-ctv .sk-prod-ctv-q p{margin:0 0 1.2rem;font-size:.96rem;padding-right:2rem}
 
 /* ============================ RESPONSIVE ============================ */
 @media (max-width:900px){
-  .sk-ctv-sample .sk-ctv-ings,.sk-ctv-sample .sk-ctv-vs-grid,.sk-ctv-sample .sk-ctv-steps{grid-template-columns:1fr}
-  .sk-ctv-sample .sk-ctv-stats{grid-template-columns:repeat(2,1fr);gap:1.6rem 1rem}
-  .sk-ctv-sample .sk-ctv-price{justify-content:center}
-  .sk-ctv-sample .sk-ctv-seal{width:84px;height:84px;font-size:.62rem;right:2%}
-  .sk-ctv-sample .sk-ctv-seal b{font-size:1rem}
+  .sk-prod-ctv .sk-prod-ctv-ings,.sk-prod-ctv .sk-prod-ctv-vs-grid,.sk-prod-ctv .sk-prod-ctv-steps{grid-template-columns:1fr}
+  .sk-prod-ctv .sk-prod-ctv-stats{grid-template-columns:repeat(2,1fr);gap:1.6rem 1rem}
+  .sk-prod-ctv .sk-prod-ctv-price{justify-content:center}
+  .sk-prod-ctv .sk-prod-ctv-seal{width:84px;height:84px;font-size:.62rem;right:2%}
+  .sk-prod-ctv .sk-prod-ctv-seal b{font-size:1rem}
 }
 @media (prefers-reduced-motion:reduce){
-  .sk-ctv-sample .sk-ctv-strip::after,
-  .sk-ctv-sample .sk-ctv-ring,
-  .sk-ctv-sample .sk-prod-hero-shot img{animation:none}
+  .sk-prod-ctv .sk-prod-ctv-strip::after,
+  .sk-prod-ctv .sk-prod-ctv-ring,
+  .sk-prod-ctv .sk-prod-hero-shot img{animation:none}
 }

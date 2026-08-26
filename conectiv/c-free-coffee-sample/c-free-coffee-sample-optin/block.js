@@ -25,7 +25,7 @@
     document.head.appendChild(s);
   });
 
-  var root = document.querySelector(".sk-ctv-sample");
+  var root = document.querySelector(".sk-prod-ctv");
   if (!root || root.dataset.ctvBooted) return;
   root.dataset.ctvBooted = "1";
 
