@@ -206,3 +206,27 @@
 @media (max-width:640px){
   .sk-conf .sk-conf-step{padding:1rem 1.05rem;gap:.2rem .85rem}
 }
+
+/* ── full-bleed variant ────────────────────────────────────────────────────────
+   Add `sk-conf-bleed` to the block root to make the bands run edge to edge no
+   matter how wide GHL's container happens to be.
+
+   Why this exists rather than a container fix: ensure-slot.mjs applies a
+   "full-bleed recipe" to the section (zero padding, allowRowMaxWidth:true) and
+   GHL compiles that into `#section-x > .inner{max-width:100%}`. On 2026-08-27
+   the opt-in and confirmation pages of the same funnel were diffed field by
+   field and their stored documents were IDENTICAL apart from ids, yet GHL
+   emitted that rule for one page and not the other, leaving the confirmation
+   capped at 1170px and rendering 768px wide. So the container recipe is real but
+   NOT reliable, and a page whose whole design is full-width colour bands cannot
+   depend on it. This makes the block size itself off the viewport instead, which
+   is the same thing _shared/product gets for free from its 92vw wrap.
+
+   overflow-x:clip is load-bearing: without it the 100vw box can add a horizontal
+   scrollbar on pages that have a vertical one. */
+.sk-conf.sk-conf-bleed{
+  width:100vw;
+  max-width:100vw;
+  margin-left:calc(50% - 50vw);
+  overflow-x:clip;
+}
