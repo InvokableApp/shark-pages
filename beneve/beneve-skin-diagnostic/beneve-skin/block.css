@@ -26,4 +26,9 @@
   --sk-line:    #e8dfd2;
   --sk-serif:   var(--bnv-serif,"Cormorant Garamond",Georgia,serif);
   --sk-sans:    var(--bnv-sans,Inter,system-ui,-apple-system,sans-serif);
+
+  /* routine.webp is an overhead flat lay and the split frame crops it to a near-square. Anchored
+   * right of centre so the crop keeps the gold pen and the card's corner, which are the whole
+   * composition. Component default is 50% 46%. */
+  --sk-frame-pos: 60% 52%;
 }

@@ -191,14 +191,14 @@
    picture stops looking like a placeholder.
    It STRETCHES to the height of the column beside it. A fixed-aspect image next to a four-item
    list leaves a third of the column empty, which is exactly what makes a page read as default. */
-.sk-dcap .sk-dcap-frame{position:relative;margin:0;align-self:stretch;min-height:clamp(320px,42vw,560px)}
+.sk-dcap .sk-dcap-frame{position:relative;margin:0;align-self:stretch;min-height:clamp(300px,34vw,470px)}
 .sk-dcap .sk-dcap-frame::before{
   content:"";position:absolute;z-index:0;inset:20px -20px -20px 20px;
   border:1px solid var(--_tint);border-radius:3px;
 }
 .sk-dcap .sk-dcap-frame img{
   position:relative;z-index:1;border-radius:3px;
-  width:100%;height:100%;object-fit:cover;object-position:50% 46%;
+  width:100%;height:100%;object-fit:cover;object-position:var(--sk-frame-pos,50% 46%);
 }
 .sk-dcap .sk-dcap-list{list-style:none;margin:0;padding:0;counter-reset:sk-dcap-i}
 .sk-dcap .sk-dcap-list>li{
