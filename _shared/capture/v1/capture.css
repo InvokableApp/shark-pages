@@ -175,7 +175,7 @@
   background:linear-gradient(135deg,var(--sk-navy-d,#14284c) 0%,var(--sk-navy,#1e386a) 100%);
   color:#fff;text-align:center;padding:clamp(3rem,6vw,4.5rem) 0;
 }
-.sk-cap .sk-cap-close h2{color:#fff;max-width:20ch;margin:0 auto}
+.sk-cap .sk-cap-close h2{color:#fff;max-width:30ch;margin:0 auto;font-size:clamp(2.2rem,4.4vw,3.5rem);line-height:1.12}
 .sk-cap .sk-cap-close p{color:rgba(255,255,255,.85);max-width:52ch;margin:1.1rem auto 1.9rem}
 .sk-cap .sk-cap-close .sk-cap-btn{background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d)}
 .sk-cap .sk-cap-close .sk-cap-note{color:rgba(255,255,255,.7)}
