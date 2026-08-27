@@ -63,13 +63,17 @@
   display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;
 }
 .sk-prod .sk-prod-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
-.sk-prod .sk-prod-orb-a{width:38vw;height:38vw;left:-12vw;top:-8vw;background:rgba(121,189,190,.45)}
-.sk-prod .sk-prod-orb-b{width:30vw;height:30vw;right:-8vw;bottom:-12vw;background:rgba(188,213,122,.4)}
+/* The two hero glows were hardcoded teal and lime, which put a mint cast behind a gold product
+   on a warm page (Beneve Skin Diagnostic, 2026-08-27). Tokenized with the ORIGINAL values as
+   fallbacks, so every page that does not set them renders byte-identically to before. */
+.sk-prod .sk-prod-orb-a{width:38vw;height:38vw;left:-12vw;top:-8vw;background:var(--sk-orb-a,rgba(121,189,190,.45))}
+.sk-prod .sk-prod-orb-b{width:30vw;height:30vw;right:-8vw;bottom:-12vw;background:var(--sk-orb-b,rgba(188,213,122,.4))}
 
 .sk-prod .sk-prod-hero-shot{position:relative;margin:0;display:grid;place-items:center}
 .sk-prod .sk-prod-halo{
   position:absolute;inset:8% 6%;border-radius:50%;
-  background:radial-gradient(circle at 50% 45%,rgba(121,189,190,.38),rgba(121,189,190,0) 68%);
+  /* same reasoning as the orbs: tokenized with the original teal as the fallback. */
+  background:radial-gradient(circle at 50% 45%,var(--sk-halo,rgba(121,189,190,.38)),transparent 68%);
 }
 .sk-prod .sk-prod-hero-shot img{position:relative;width:min(460px,88%);filter:drop-shadow(0 30px 45px rgba(30,56,106,.18))}
 
@@ -118,10 +122,10 @@
   padding:1.7rem 1.4rem;
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
 }
-.sk-prod .sk-prod-pillar:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(30,56,106,.1);border-color:rgba(121,189,190,.6)}
+.sk-prod .sk-prod-pillar:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(30,56,106,.1);border-color:var(--sk-tint,rgba(121,189,190,.6))}
 .sk-prod .sk-prod-ico{
   display:grid;place-items:center;width:46px;height:46px;border-radius:14px;margin-bottom:1rem;
-  background:linear-gradient(140deg,rgba(121,189,190,.22),rgba(188,213,122,.28));
+  background:var(--sk-ico-bg,linear-gradient(140deg,rgba(121,189,190,.22),rgba(188,213,122,.28)));
   color:var(--sk-teal-d,#4e9799);
 }
 .sk-prod .sk-prod-ico svg{width:24px;height:24px}
@@ -151,7 +155,7 @@
 .sk-prod .sk-prod-row-copy h3{margin:0 0 .6rem;font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:600;color:var(--sk-navy,#1e386a);font-family:var(--sk-serif,serif)}
 .sk-prod .sk-prod-row-copy p{margin:0 0 .8rem}
 .sk-prod .sk-prod-note{
-  font-size:.94rem;color:#6b7a90;border-left:2px solid var(--sk-lime,#bcd57a);
+  font-size:.94rem;color:var(--sk-note,#6b7a90);border-left:2px solid var(--sk-lime,#bcd57a);
   padding-left:1rem;margin-bottom:0;
 }
 

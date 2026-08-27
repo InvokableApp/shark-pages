@@ -34,10 +34,16 @@
   --sk-line:   #e8dfd2;
   --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
   --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
-}
 
-/* The shared note colour is a cool blue-grey, which goes green against these warm neutrals. */
-.sk-prod-bnv-luxe .sk-prod-note{color:#7b7264}
+  /* the two blurred hero glows. Component default is teal and lime, which puts a mint cast
+   * behind a gold product on a warm page. */
+  --sk-orb-a:  rgba(201,169,106,.34);
+  --sk-halo:   rgba(201,169,106,.30);
+  --sk-tint:   #ddc79b;
+  --sk-ico-bg: linear-gradient(140deg,rgba(169,127,63,.16),rgba(221,199,155,.34));
+  --sk-orb-b:  rgba(221,199,155,.34);
+  --sk-note:   #7b7264;
+}
 
 /* ---------- cross-links to the funnel's other two products ---------- */
 /* Every product page in this funnel carries buttons to the other two, because the diagnostic
