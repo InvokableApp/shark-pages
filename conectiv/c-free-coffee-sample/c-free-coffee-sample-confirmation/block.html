@@ -1,0 +1,123 @@
+<!--
+  conectiv/c-free-coffee-sample/c-free-coffee-sample-confirmation
+  The Confirmation step of the Free Coffee Sample funnel: what the opt-in popup redirects to.
+
+  THIS IS NOT A LEAD-MAGNET CONFIRMATION, and the difference is the whole design. On a guide
+  funnel the page says "check your inbox" because a machine already sent the thing. Here nothing
+  has been sent, nothing is downloadable, and the next event in this person's life is A HUMAN
+  CONTACTING THEM to confirm where to post a physical object. So band 1 does not celebrate, it
+  SETS THE EXPECTATION: who reaches out, on which channel, roughly when, and what they will ask.
+
+  That is also the funnel's real failure mode. The rep ships out of the address on the form, so a
+  lead who ignores the rep's message, or who does not recognise the name when it arrives, is a
+  sample that never goes in the post. Every line in band 1 and band 2 is bought by that risk.
+
+  Design lives in _shared/confirm/, scoped .sk-conf, shared by every confirmation page in every
+  system. This file holds only markup; block.css holds only palette tokens.
+
+  ⚠️ NO PURCHASE CTA ON THIS PAGE, deliberately. The offer was a free sample with no card, and the
+  archetype's promise is that the rep owns the relationship from here. Pushing a buy link in the
+  same breath makes the free sample read as the bait it promised not to be. The purchase push
+  belongs in the nurture sequence, timed to arrival.
+
+  ⚠️ VIDEO SLOT IS LIVE BUT EMPTY. data-vimeo="" hides the whole section (confirm.js), so the page
+  is correct as it stands. When Jeff has the Vimeo id, put it in data-vimeo and, if there is one,
+  a poster URL in data-poster. That is the only edit; the section appears by itself.
+-->
+<div class="sk-conf sk-conf-ctv">
+
+  <!-- ===================== BAND 1 · the confirmation ===================== -->
+  <section class="sk-conf-top">
+    <div class="sk-conf-wrap">
+      <span class="sk-conf-pill">Request received</span>
+      <h1>Your Free Sample Is Reserved</h1>
+
+      <p class="sk-conf-note">
+        Nothing else is needed from you right now. Your Conectiv rep will reach out shortly to
+        confirm your shipping address, and then they will put your sample in the post themselves.
+      </p>
+
+      <p class="sk-conf-lede">
+        Keep an eye on your <span class="sk-conf-hl">texts and your email</span>. It will come from
+        a real person, not an automated system, so it may arrive from a name you do not recognise
+        yet.
+      </p>
+
+      <div class="sk-conf-steps">
+        <article class="sk-conf-step"><b>1</b>
+          <h3>We have your request</h3>
+          <p>Your details went straight to your Conectiv rep. There is no queue and no waiting list to join.</p>
+        </article>
+        <article class="sk-conf-step"><b>2</b>
+          <h3>Your rep confirms the address</h3>
+          <p>A quick message to check they are posting it to the right place. Reply to it and you are done.</p>
+        </article>
+        <article class="sk-conf-step"><b>3</b>
+          <h3>It goes in the mail</h3>
+          <p>Your rep covers the sample and sends it out, then lets you know it is on its way.</p>
+        </article>
+        <article class="sk-conf-step"><b>4</b>
+          <h3>You brew it and decide</h3>
+          <p>Hot water, sixty seconds, and see how the morning goes. You keep the sample either way.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEO · hidden until an id is set ===================== -->
+  <section class="sk-conf-video" hidden>
+    <div class="sk-conf-wrap">
+      <hr class="sk-conf-rule">
+      <h2>While you wait</h2>
+      <p class="sk-conf-body">
+        A quick look at what is in the cup, and the sixty seconds it takes to make one.
+      </p>
+
+      <div class="sk-conf-frame"
+           role="button"
+           tabindex="0"
+           aria-label="Play the video"
+           data-vimeo=""
+           data-poster="">
+        <span class="sk-conf-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 2 · what to expect ===================== -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <hr class="sk-conf-rule">
+      <h2>So you are not caught off guard</h2>
+      <p class="sk-conf-body">
+        Samples are shipped by an independent Conectiv representative rather than a warehouse,
+        which is why a person gets in touch instead of an order confirmation landing in your inbox.
+      </p>
+      <p class="sk-conf-body">
+        They are only confirming the address. There is no card to enter, no subscription attached
+        to this, and nothing to cancel afterwards.
+      </p>
+
+      <div class="sk-conf-steps">
+        <article class="sk-conf-step"><b>?</b>
+          <h3>Did not hear anything?</h3>
+          <p>Check your spam folder and your phone's filtered or unknown-sender messages. Replies from a new number often land there.</p>
+        </article>
+        <article class="sk-conf-step"><b>?</b>
+          <h3>Moved, or typed it wrong?</h3>
+          <p>Tell your rep when they message you. Nothing has shipped yet, so the address is easy to change.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the disclaimer ===================== -->
+  <section class="sk-conf-foot">
+    <div class="sk-conf-wrap">
+      <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease. Individual results may vary.</p>
+      <p>ALIVE is a product of MyLife Wellness. Samples are provided and shipped by an independent Conectiv representative. One sample per household, while supplies last.</p>
+    </div>
+  </section>
+</div>

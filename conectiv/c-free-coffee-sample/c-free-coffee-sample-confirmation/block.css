@@ -1,0 +1,32 @@
+/* conectiv / c-free-coffee-sample / c-free-coffee-sample-confirmation
+ *
+ * The design lives in _shared/confirm/confirm.css, scoped .sk-conf, shared by every confirmation
+ * page in every system. This file declares ONLY the palette, on the block's own scope class, and
+ * it cascades into the shared component. No GHL brand swatch is touched.
+ *
+ * Palette is identical to the opt-in lander, token for token, because a visitor arrives here two
+ * seconds after leaving that page and any drift reads as a different company. --sk-serif is a
+ * geometric sans (Jost) for the same reason it is there: ALIVE's wordmark is a wide light sans,
+ * not a serif.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/confirm.css");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+.sk-conf-ctv{
+  --sk-navy:   #0f3b3d;
+  --sk-navy-d: #082a2b;
+  --sk-teal:   #1a9184;
+  --sk-teal-d: #12706b;
+  --sk-sage:   #b9834f;
+  --sk-lime:   #e6c79b;
+  --sk-ink:    #16232b;
+  --sk-body:   #55636b;
+  --sk-cream:  #fcfbf8;
+  --sk-mist:   #f1f5f3;
+  --sk-line:   #e3ebe8;
+  --sk-serif:  Jost, "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --sk-sans:   Inter, system-ui, -apple-system, sans-serif;
+}
+
+/* the display face is a sans, so the shared serif weight and tracking are wrong for it */
+.sk-conf-ctv h1,.sk-conf-ctv h2{font-weight:300;letter-spacing:-.015em}

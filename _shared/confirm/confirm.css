@@ -116,3 +116,93 @@
   .sk-conf .sk-conf-btns{flex-direction:column;align-items:stretch}
   .sk-conf .sk-conf-btn{justify-content:center}
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VARIANTS (added 2026-08-27 for the Conectiv free-sample confirmation)
+
+   Both are additive and namespaced, so every page already on this component is
+   untouched. They exist because the free-SAMPLE confirmation is a different
+   mechanic from the free-GUIDE confirmation: nothing was emailed, a HUMAN is
+   about to make contact, and the wait is measured in days rather than minutes.
+   That changes what band 1 has to do, so band 1 gets two new pieces.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── video slot ────────────────────────────────────────────────────────────────
+   Click-to-load facade, same contract as _shared/howto: the markup ships a poster
+   and a play button and the vimeo player is only injected on click, so a page
+   carrying a video costs nothing until someone asks for it.
+
+   The slot HIDES ITSELF when data-vimeo is empty (confirm.js). That is deliberate:
+   a confirmation page has to be shippable before the video exists, and "video
+   coming soon" is a broken promise printed on the one page where you are asking
+   someone to trust that a stranger will post them something. Drop the id in later
+   and the section appears, one token, no other edit. */
+.sk-conf .sk-conf-video{padding:clamp(2.5rem,6vw,4rem) 0;background:var(--sk-mist,#f2f5f8)}
+.sk-conf .sk-conf-video[hidden]{display:none}
+.sk-conf .sk-conf-video .sk-conf-wrap{max-width:760px}
+.sk-conf .sk-conf-video h2{font-size:clamp(1.3rem,2.4vw,1.8rem)}
+.sk-conf .sk-conf-video .sk-conf-body{max-width:560px;margin:.9rem auto 0;font-size:1rem}
+
+.sk-conf .sk-conf-frame{
+  position:relative;display:block;width:100%;margin:1.9rem 0 0;
+  aspect-ratio:16/9;border:0;padding:0;overflow:hidden;
+  border-radius:14px;cursor:pointer;
+  background-color:var(--sk-navy-d,#14284c);
+  background-size:cover;background-position:center;
+  box-shadow:0 18px 44px -18px rgba(20,40,76,.5);
+}
+.sk-conf .sk-conf-frame::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,14,24,.12) 0%,rgba(8,14,24,.46) 100%);
+  transition:opacity .3s ease;
+}
+.sk-conf .sk-conf-frame:hover::after{opacity:.74}
+.sk-conf .sk-conf-play{
+  position:absolute;top:50%;left:50%;z-index:2;
+  display:grid;place-items:center;width:70px;height:70px;
+  transform:translate(-50%,-50%);border-radius:999px;
+  background:linear-gradient(122deg,var(--sk-teal,#79bdbe) 0%,var(--sk-teal-d,#4e9799) 90%);
+  box-shadow:0 12px 30px -8px rgba(8,14,24,.6);color:#fff;
+  transition:transform .28s cubic-bezier(.2,.7,.3,1);
+}
+.sk-conf .sk-conf-frame:hover .sk-conf-play{transform:translate(-50%,-50%) scale(1.07)}
+.sk-conf .sk-conf-frame:active .sk-conf-play{transform:translate(-50%,-50%) scale(.97)}
+.sk-conf .sk-conf-play svg{width:26px;height:26px;margin-left:3px}
+.sk-conf .sk-conf-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.sk-conf .sk-conf-frame[data-playing="true"]::after,
+.sk-conf .sk-conf-frame[data-playing="true"] .sk-conf-play{display:none}
+
+/* ── what happens next ─────────────────────────────────────────────────────────
+   A numbered sequence, not a bullet list. When a human is the next step, the
+   reader's real question is "who contacts me, how, and when", and a sequence
+   answers that in the order it will actually happen. */
+.sk-conf .sk-conf-steps{
+  display:grid;gap:1rem;margin:2.4rem auto 0;max-width:640px;text-align:left;
+}
+.sk-conf .sk-conf-step{
+  display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.1rem;align-items:start;
+  padding:1.15rem 1.35rem;border-radius:12px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+}
+.sk-conf .sk-conf-step b{
+  grid-row:1/3;
+  display:grid;place-items:center;width:34px;height:34px;border-radius:999px;
+  background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d);
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:.9rem;font-weight:700;font-variant-numeric:lining-nums;
+}
+.sk-conf .sk-conf-step h3{
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:1rem;font-weight:600;color:#fff;margin:.35rem 0 0;
+}
+.sk-conf .sk-conf-step p{
+  font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.78);margin:.35rem 0 0;
+}
+/* On a light band the same element inverts. */
+.sk-conf .sk-conf-mid .sk-conf-step{background:#fff;border-color:var(--sk-line,#e3e8ef)}
+.sk-conf .sk-conf-mid .sk-conf-step h3{color:var(--sk-ink,#16233d)}
+.sk-conf .sk-conf-mid .sk-conf-step p{color:var(--sk-body,#4a5568)}
+
+@media (max-width:640px){
+  .sk-conf .sk-conf-step{padding:1rem 1.05rem;gap:.2rem .85rem}
+}
