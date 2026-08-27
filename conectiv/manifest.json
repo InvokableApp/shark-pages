@@ -32,6 +32,14 @@
       "elementId": "custom-code-6mt9knqptt",
       "elementTitle": "free-sample-optin",
       "pattern": "A"
+    },
+    {
+      "path": "c-free-coffee-sample/c-free-coffee-sample-confirmation",
+      "funnelId": "twEEoBi5Jn31x1Hk9sK1",
+      "pageId": "58bbIluukQpB2ojSnuML",
+      "elementId": "custom-code-3cwxphfn91",
+      "elementTitle": "free-sample-confirmation",
+      "pattern": "A"
     }
   ],
   "installs": [
