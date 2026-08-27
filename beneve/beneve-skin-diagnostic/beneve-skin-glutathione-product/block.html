@@ -1,0 +1,267 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin-glutathione-product
+  Glutathione+, the systemic product of the Skin Diagnostic funnel.
+
+  ⚠️ FORKED from beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-product. The product and
+  its claims are identical, because they are Beneve's. What changes is the JOB the page does in
+  its funnel: the lunchbox page bridges from a food guide to a capsule, this one bridges from a
+  dull, tired complexion to the antioxidant lane. The scope class is sk-prod-bnv-SKIN-glut, not
+  the donor's sk-prod-bnv-glut, so the two pages can never share a palette by accident.
+
+  INFO-CENTRIC, not a store page. No price, no quantity, no Add To Cart and no Subscribe & Save,
+  because the purchase happens on beneve.com under the rep's own link and that link is what earns
+  the commission.
+
+  Every purchase CTA points at THIS funnel's own redirect step, not the donor's and not the shop,
+  so the click is measurable per product: a pageview on beneve-skin-glutathione-redirect is the
+  Fire Lead signal for Glutathione+ specifically, and the step then forwards to
+  https://{{custom_values.beneve_glutathione_link}} on its own. (HOSTED-BLOCKS-SOP §7b.)
+
+  Design and behaviour live in _shared/product/v1/, scoped under .sk-prod, and are shared by every
+  product page in every system. This file holds only markup; block.css holds only palette tokens.
+
+  Copy is Beneve's own wherever they had any: the description, the four lifestyle callouts, the
+  four ingredient write-ups and the benefit list are from their product page and its tabs. The
+  ONE piece of connective tissue this page adds is the bridge from the diagnostic, and it rests
+  on a claim Beneve already makes: radiance and a youthful appearance. Nothing here says this is
+  a skincare product, because it is not one. It is the systemic lane, and the page says so. No
+  claim appears here that Beneve does not already make. No em-dashes.
+-->
+<div class="sk-prod sk-prod-bnv-skin-glut"
+     data-buy-step="beneve-skin-glutathione-redirect"
+     data-buy-url="{{custom_values.beneve_glutathione_link}}">
+
+  <!-- reading progress, fixed to the top of the viewport -->
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- Mobile buy bar, standard on every product page (HOSTED-BLOCKS-SOP §8b). Ships hidden;
+       the shared engine reveals it once the hero CTA has scrolled off the top. -->
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Glutathione+</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="/beneve-skin-glutathione-redirect" data-buy>Get Glutathione+</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>The systemic lane of your routine</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Glutathione <span class="sk-prod-accent">+</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          An antioxidant blend featuring Glutathione, DIM, and Xanthohumol, formulated to support
+          cellular health, hormone support, and overall wellness.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>30 servings</li>
+          <li>One capsule a day</li>
+          <li>DIM, glutathione, xanthohumol</li>
+          <li>Non GMO</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="/beneve-skin-glutathione-redirect" data-buy>
+            Get Glutathione+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">See what is inside</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/bottle.webp"
+             alt="Beneve Glutathione+ Hormone Support, 30 capsules" loading="eager" decoding="async">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Scroll to read more">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== CLAIM ============================== -->
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>Perfect for every lifestyle</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Whether you are focused on everyday wellness, recovery, or foundational support,
+        Glutathione+ helps you elevate your health journey with clean, easy to take daily capsules.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6.4v5.1c0 4.4 3.1 8.1 7.5 9.5 4.4-1.4 7.5-5.1 7.5-9.5V6.4Z"/><path d="m9.2 12.1 2 2 3.6-3.9"/></svg>
+          </span>
+          <h3>Exceptional Antioxidant Blend</h3>
+          <p>A best-in-class formulation featuring DIM, Xanthohumol, and Opitac&trade; Glutathione, powerful antioxidants that help defend your body at the cellular level.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2.5-6 4 12L16 13h5"/></svg>
+          </span>
+          <h3>Supports Cellular Energy and Detox</h3>
+          <p>Ingredients work synergistically to help support AMP-activated protein kinase (AMP-K) activity, a key regulator of energy and metabolism.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v4.7l3 1.8"/></svg>
+          </span>
+          <h3>Everyday Wellness Made Simple</h3>
+          <p>One easy capsule per day fits effortlessly into your routine. No mixing, no measuring, no hassle.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c3.9 0 6-2.6 6-5.6 0-3.9-3.4-5.5-3.4-8.9 0-1.2.4-2.1.9-2.8-3.6.6-6.2 3.3-6.2 6.4 0 1.6.7 2.6.7 3.6 0 .9-.7 1.5-1.5 1.5-.9 0-1.6-.7-1.9-1.6-.4.9-.6 1.9-.6 2.9C6 18.3 8.1 21 12 21Z"/></svg>
+          </span>
+          <h3>Clean, Premium Formula</h3>
+          <p>Nut free, dairy free, gluten free, and non GMO, crafted with quality you can trust.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FORMULA ROWS ============================== -->
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>What makes it different</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Four ingredients in every capsule</h2>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/cruciferous.webp"
+               alt="Broccoli, kale, red cabbage, cauliflower and Brussels sprouts" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
+          <h3>Diindolylmethane (DIM)</h3>
+          <p>DIM is a compound derived from cruciferous vegetables, such as broccoli and kale. It has gained a wide array of attention for its potential support for the body's natural hormonal balance.</p>
+          <p class="sk-prod-note">
+            If your diagnostic pointed at dullness or at a hormonal shift, this is the ingredient
+            behind that lane. You can eat your way to DIM through broccoli, cabbage and Brussels
+            sprouts, and the free half of your routine tells you how. The capsule is the version
+            for the weeks the cooking does not happen.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/benefits.webp"
+               alt="Glutathione+ benefits, including balanced estrogen metabolism" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
+          <h3>Opitac&trade; Glutathione</h3>
+          <p>Glutathione, the superhero of antioxidants. Known for promoting overall well-being, as well as being an important player in maintaining hormonal balance, immune support, and detoxification.</p>
+          <p class="sk-prod-note">
+            Opitac is a branded, orally bioavailable form. That matters, because plain glutathione
+            is famously hard for the body to absorb.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/support.webp"
+               alt="A bottle of Glutathione+ on a tennis court" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
+          <h3>Xanthohumol</h3>
+          <p>A natural flavonoid found in hops, the same plant used in brewing. It has been studied for its ability to neutralize free radicals in the body, and to contribute to the body's overall health and support of the aging process.</p>
+          <p class="sk-prod-note">
+            It is the ingredient you are least likely to get from food, which is a large part of
+            why it is in here.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/ingredients.webp"
+               alt="The four active ingredients in Glutathione+" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
+          <h3>Black Pepper Fruit Extract</h3>
+          <p>The fourth active in the formula, alongside DIM, Opitac&trade; Glutathione and Xanthohumol.</p>
+          <p class="sk-prod-note">
+            Black pepper extract is in almost every serious supplement for one reason: it is there
+            to help the other three actually get absorbed rather than pass through.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Premium ingredients</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Explore what makes Glutathione+ exceptional</h2>
+        <p class="sk-prod-sub" data-rise data-delay="2">Glutathione+ is known to help support:</p>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>Radiance and a youthful appearance</li>
+          <li>The detoxification process</li>
+          <li>Energy, mood, cognitive and digestive system</li>
+          <li>A healthy immune system</li>
+          <li>Healthy liver function</li>
+          <li>Healthy weight management</li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">1</span>
+          <div>
+            <strong>Suggested use</strong>
+            <span>For adults, as a dietary supplement, take one capsule. For enhanced results,
+            take 2 to 3 capsules daily. Each bottle contains 30 servings.</span>
+          </div>
+        </div>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          If you are pregnant, nursing, taking medication or have a medical condition, talk to
+          your healthcare professional before taking this or any dietary supplement.
+        </p>
+      </div>
+
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
+        <img src="assets/supplement-facts.webp"
+             alt="Glutathione+ supplement facts panel" loading="lazy" decoding="async">
+        <figcaption>Full supplement facts</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSE ============================== -->
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>The lane nothing you put on your face can reach</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
+        A serum works on the surface and collagen works on the supply. Neither of them touches
+        the load: the stress, the short nights, the sun, the drink most evenings. That is the
+        lane this one is in, and it is one capsule a day.
+      </p>
+      <div class="sk-prod-cta-row" data-rise data-delay="2">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="/beneve-skin-glutathione-redirect" data-buy>
+          Get Glutathione+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="sk-prod-btn-alt" href="/beneve-skin-renew-product">See Renew, the topical half</a>
+        <a class="sk-prod-btn-alt" href="/beneve-skin-luxe-product">See Luxe, the inside half</a>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="3">
+        These statements have not been evaluated by the Food and Drug Administration. This
+        product is not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>

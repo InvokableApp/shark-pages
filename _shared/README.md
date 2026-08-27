@@ -37,6 +37,7 @@ confirmation page" are the same action, and nothing tells you which one you did.
 |---|---|---|
 | `capture/` | `.sk-cap` | lead-magnet capture page |
 | `confirm/` | `.sk-conf` | confirmation page (post opt-in) |
+| `diagnostic-result/` | `.sk-dres` | result page of a diagnostic funnel: meters, a free plan, a what-to-skip list, then a ranked product stack |
 | `howto/` | `.sk-howto` | "how to use this funnel" pages |
 | `product/` | `.sk-prod` | product / sales page |
 | `training/` | `.sk-train` | rep-facing training portal |

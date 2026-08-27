@@ -1,0 +1,179 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin-surface-first-result
+  "Surface First", one of the four routines the Skin Diagnostic routes to.
+
+  GENERATED. Do not hand-edit: run
+    node BENEVESHARK/campaigns/skin-diagnostic/build/06-build-result-blocks.mjs
+  and edit the copy in that file, where all four routines sit side by side and can be read
+  against each other.
+
+  Design lives in _shared/diagnostic-result/v1/ scoped under .sk-dres. This file is markup only;
+  block.css declares the gold and tan palette and nothing else.
+
+  SECTION ORDER IS THE ARGUMENT: meters, the free ninety-day plan, what not to buy, and only
+  then the products. The free plan is genuinely free and genuinely complete. Beneve is presented
+  as an accelerant on top of it, never as the plan itself.
+
+  The survey reaches this page by a conditionalLogic redirect, so the visitor arrives here with
+  no transition of any kind. The loader at the top is what turns that into a result being
+  calculated rather than a page being served. It is pure CSS for a reason: the survey renders
+  inside a popup and its footer JS does not run in that context.
+-->
+<div class="sk-dres sk-dres-bnv-skin">
+
+  <div class="sk-dres-loader" aria-hidden="true">
+    <div class="sk-dres-halo"><div class="sk-dres-orb"></div></div>
+    <div class="sk-dres-msgs">
+      <div class="sk-dres-msg sk-dres-msg--1">
+        <p class="sk-dres-msg-t">Reading your answers...</p>
+        <p class="sk-dres-msg-s">Separating what is on your skin from what is under it</p>
+      </div>
+      <div class="sk-dres-msg sk-dres-msg--2">
+        <p class="sk-dres-msg-t">Building your routine...</p>
+        <p class="sk-dres-msg-s">Ordering it so the free part does the heavy lifting first</p>
+      </div>
+    </div>
+    <div class="sk-dres-bar"><i></i></div>
+  </div>
+
+  <header class="sk-dres-head">
+    <div class="sk-dres-wrap">
+      <nav class="sk-dres-crumbs" aria-label="Breadcrumb">
+        <span>Skin Diagnostic</span><i>&rsaquo;</i><span>Surface</span><i>&rsaquo;</i><b>Your routine</b>
+      </nav>
+      <p class="sk-dres-eyebrow">Your routine</p>
+      <h1 class="sk-dres-title">Surface First</h1>
+      <p class="sk-dres-lede">Your answers point at the outside layer. That is the good news, because the surface is the fastest of the three to respond and the cheapest to fix.</p>
+    </div>
+  </header>
+
+  <section class="sk-dres-meters">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2">What your answers pointed at</h2>
+      <p class="sk-dres-sub">Three lanes. Almost everyone has one that leads, and the plan below is ordered by yours.</p>
+      
+        <div class="sk-dres-meter sk-dres-meter--lead" style="--sk-i:0">
+          <div class="sk-dres-meter-head"><span>Surface</span><em>Lead</em></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:82%"></div></div>
+          <p class="sk-dres-note">Texture, fine lines and barrier. This is where your answers concentrated, and it is the lane that responds to what you put on your skin.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:1">
+          <div class="sk-dres-meter-head"><span>Internal supply</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:46%"></div></div>
+          <p class="sk-dres-note">Moderate. You are getting some collagen in, so this is a supporting lane rather than the one to start with.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:2">
+          <div class="sk-dres-meter-head"><span>Systemic load</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:38%"></div></div>
+          <p class="sk-dres-note">Low. Stress, sun and alcohol are not the main story for you, which is why the plan below spends its energy elsewhere.</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-free">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker" data-rise>Start here, and start free</p>
+      <h2 class="sk-dres-h2" data-rise data-delay="1">The ninety days that cost nothing</h2>
+      <p class="sk-dres-sub" data-rise data-delay="2">Seven habits, in the order that matters. Every one of them is free, and together they do more for surface texture in twelve weeks than any product does on its own.</p>
+      <ol class="sk-dres-steps" data-rise data-delay="3">
+          <li>
+            <span class="sk-dres-when">Weeks 1 to 2</span>
+            <h3>Stop stripping it</h3>
+            <p>Swap the foaming cleanser for a non-foaming one and stop washing your face in hot water. A great deal of what reads as fine lines at the end of the day is a dehydrated barrier, and a barrier recovers in about two weeks once you stop taking it apart every morning.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Apply to damp skin, inside sixty seconds</h3>
+            <p>Pat, do not rub, and put the next layer on while your face is still slightly wet. Water is what plumps the skin. Everything you apply on top is the lid, and a lid works better on a full jar.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Sunscreen every morning, indoor days included</h3>
+            <p>Nothing else on this list comes close. Ultraviolet exposure is the single largest driver of the texture change you described, and window glass does not stop all of it.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Weeks 3 to 8</span>
+            <h3>Add ONE active, three nights a week</h3>
+            <p>One. Not three. Give it eight weeks before you decide anything. Stacking new actives together is how people end up irritated, unable to tell which one caused it, and convinced their skin is sensitive.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Neck and the backs of your hands</h3>
+            <p>Whatever goes on your face goes there too, in the same motion. They age faster than the face and get treated the least, and they are the two places people actually notice.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every night</span>
+            <h3>Change how you sleep on it</h3>
+            <p>Silk or satin pillowcase, and off your face. Eight hours a night of a cotton case pressing creases into one cheek shows up as asymmetry long before it shows up as ageing.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Day 1, then day 90</span>
+            <h3>Take the photo today</h3>
+            <p>Same window, same time of day, no makeup, no filter. You cannot see a twelve-week change in a mirror you look into every morning, and without the photo you will conclude nothing worked when something did.</p>
+          </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sk-dres-skip">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2" data-rise>What not to spend money on</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Being told what to skip is worth more than being told what to buy, and it is the part almost nobody puts on a page like this one.</p>
+      <ul class="sk-dres-skips" data-rise data-delay="2">
+          <li><strong>Anything promising results in a week</strong><span>Skin turns over in roughly a month, and the collagen story is measured in quarters. A seven-day claim is a claim about water, not about structure.</span></li>
+          <li><strong>A second expensive eye cream</strong><span>While the rest of your routine is a cleanser, an eye cream is the most expensive way to make almost no difference. Fix the whole face first.</span></li>
+          <li><strong>Toning and micro-current devices, for now</strong><span>They are not nothing, but they are the last five percent. Buying one before the basics are in place is buying the roof before the walls.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sk-dres-stack">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker sk-dres-center" data-rise>Optional, and in this order</p>
+      <h2 class="sk-dres-h2 sk-dres-center" data-rise data-delay="1">Where a product actually earns its place</h2>
+      <p class="sk-dres-sub sk-dres-center" data-rise data-delay="2">You do not need any of this to run the plan above. What a product buys you is speed and a ceiling, and for your profile that means the topical lane first.</p>
+      <div class="sk-dres-cards sk-dres-cards--2">
+          <article class="sk-dres-card sk-dres-card--lead" data-rise data-delay="1">
+            <span class="sk-dres-rank">Start here</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-renew-product/assets/bottle.webp" alt="Beneve Renew, a 45g hydrating serum in a cream airless pump bottle" loading="lazy" decoding="async"></figure>
+            <h3>Renew</h3>
+            <p class="sk-dres-why">Your lane, in one bottle. Renew is the topical half of Beneve's own inside-out pairing, and it is built on four peptide technologies rather than one.</p>
+            <ul class="sk-dres-pts">
+              <li>Beneve groups DMAE and hyaluronic acid under short-term hydration</li>
+              <li>Argireline and Matrixyl under mid-term texture</li>
+              <li>GHK-Cu and Matrixyl under long-term resilience</li>
+            </ul>
+            <a class="sk-dres-btn sk-dres-btn--gold" href="/beneve-skin-renew-product">See Renew<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="sk-dres-card" data-rise data-delay="2">
+            <span class="sk-dres-rank">If you want the other half</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-luxe-product/assets/bottle.webp" alt="Beneve Luxe Liquid Collagen Peptides, orange vanilla, 15.2 fl oz" loading="lazy" decoding="async"></figure>
+            <h3>Luxe Liquid Collagen Peptides</h3>
+            <p class="sk-dres-why">Your internal supply came back moderate rather than low, so this is optional for you. It becomes the obvious next step if the surface work plateaus around week eight.</p>
+            <ul class="sk-dres-pts">
+              <li>Two collagen types, 500mg per tablespoon</li>
+              <li>Hyaluronic acid 120mg, the same active your serum applies on top</li>
+              <li>Contains fish (cod)</li>
+            </ul>
+            <a class="sk-dres-btn" href="/beneve-skin-luxe-product">See Luxe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-close">
+    <div class="sk-dres-wrap sk-dres-center">
+      <h2 class="sk-dres-h2" data-rise>Ninety days, then look at the photo</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Run the seven habits whether or not you buy anything. Put the product on top of them, not instead of them, and judge the whole thing on day ninety against a photograph rather than against a memory.</p>
+      <p class="sk-dres-fine" data-rise data-delay="2">
+        This routine is general wellness information, not medical advice, and it is not a
+        diagnosis. If you are pregnant, nursing, taking medication or being treated for a
+        condition, talk to your healthcare professional before changing your routine or adding a
+        supplement. These statements have not been evaluated by the Food and Drug Administration.
+        These products are not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>

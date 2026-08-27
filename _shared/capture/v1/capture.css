@@ -86,6 +86,25 @@
   gap:clamp(2rem,5vw,4rem);align-items:center;
 }
 .sk-cap .sk-cap-hero-copy>*+*{margin-top:1.25rem}
+
+/* ADDITIVE, 2026-08-27, for the Beneve Skin Diagnostic (_shared/README.md rule 2).
+ * A DIAGNOSTIC lander has no lead magnet to show, so there is nothing to put in the art column
+ * and an empty half reads as a broken layout. This is one centred column instead. New classes
+ * only: `sk-cap-hero-grid--solo` and `sk-cap-meta` returned ZERO matches across every block.html
+ * in shark-pages before they were added, so no shipped page changes behaviour. */
+.sk-cap .sk-cap-hero-grid--solo{grid-template-columns:1fr;max-width:780px;margin:0 auto;text-align:center}
+.sk-cap .sk-cap-hero-grid--solo .sk-cap-ticks li{justify-content:center;text-align:left}
+/* the assessment's own facts (length, question count, cost), as pills under the hero copy */
+.sk-cap .sk-cap-meta{
+  list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+}
+.sk-cap .sk-cap-meta li{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.42rem .9rem;border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.07);
+  font-size:.82rem;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.9);
+}
+.sk-cap .sk-cap-meta li svg{width:15px;height:15px;flex:none;stroke:var(--sk-lime,#bcd57a)}
 .sk-cap .sk-cap-hero-art img{
   border-radius:8px;
   box-shadow:0 44px 90px rgba(0,0,0,.42),0 8px 22px rgba(0,0,0,.24);

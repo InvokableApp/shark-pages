@@ -1,0 +1,167 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin
+  The Skin Diagnostic lander. Ten questions, four routines, and the brand is not named once.
+
+  ⚠️ THIS PAGE MUST NOT SAY "BENEVE". Jeff, 2026-08-27: "do not name beneve till the result."
+  Nothing here mentions a brand, a product or a supplement, and the CTA promises a routine rather
+  than a recommendation. The reason is the offer itself: what is being given away is a ninety-day
+  plan that costs nothing, and a plan is not credible on a page that is visibly an ad. The result
+  page introduces the products, ranked, underneath the free plan. Keep it that way.
+
+  STRUCTURE follows the proven lead-mag lander (read off the live Beneve landers), with one
+  change: there is no lead magnet to picture, so the hero is a single centred column. That
+  variant, sk-cap-hero-grid--solo, was added to _shared/capture/v1 as an ADDITIVE change and
+  matched zero existing markup (_shared/README.md rule 2).
+
+  EVERY CTA OPENS THE PAGE POPUP and none of them is a link. The survey lives in the GHL page's
+  own popup; each button carries `data-sk-open` and the shared engine dispatches
+  `customWidgetOpenPopup`, the no-argument window event GHL ships for this. No popup id anywhere,
+  so the block is account-agnostic and survives a snapshot install (HOSTED-BLOCKS-SOP §7).
+  Constraint that comes with it: ONE popup on this page.
+
+  Design and behaviour live in _shared/capture/v1/, scoped .sk-cap; block.css holds only palette.
+  No em-dashes.
+-->
+<div class="sk-cap sk-cap-bnv-skin">
+
+  <!-- Mobile CTA bar. Ships hidden; the shared engine reveals it once the hero CTA scrolls off
+       the top, so the page never shows two copies of the same button. -->
+  <div class="sk-cap-bar" hidden>
+    <span class="sk-cap-bar-name">The Skin Diagnostic, free</span>
+    <button type="button" class="sk-cap-btn" data-sk-open>Start</button>
+  </div>
+
+  <section class="sk-cap-hero">
+    <div class="sk-cap-wrap sk-cap-hero-grid sk-cap-hero-grid--solo">
+      <div class="sk-cap-hero-copy">
+        <span class="sk-cap-eyebrow">The Skin Diagnostic</span>
+        <h1>Find out whether it is your skin, your supply, or your load</h1>
+        <p class="sk-cap-lede">Almost every routine fails for the same reason: it treats the wrong
+          one of the three. Ten questions sort which lane is actually driving what you see, and
+          you get a ninety-day routine built around it. The routine is free, and most of what is
+          in it costs nothing at all.</p>
+        <ul class="sk-cap-meta">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
+            2 minutes
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            10 questions
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6.4v5.1c0 4.4 3.1 8.1 7.5 9.5 4.4-1.4 7.5-5.1 7.5-9.5V6.4Z"/><path d="m9.2 12.1 2 2 3.6-3.9"/></svg>
+            No account needed
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>
+            Free
+          </li>
+        </ul>
+        <button type="button" class="sk-cap-btn" data-sk-open data-sk-hero-cta>Start The Diagnostic</button>
+        <p class="sk-cap-note">Your routine appears as soon as you finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec sk-cap-mist">
+    <div class="sk-cap-wrap">
+      <div class="sk-cap-head" data-sk-rev>
+        <span class="sk-cap-eyebrow">Sound familiar?</span>
+      </div>
+      <div class="sk-cap-pain" data-sk-rev>
+        <div class="sk-cap-pain-card">
+          <h3>A shelf of half-used bottles</h3>
+          <p>Three things started in the same month, all abandoned by week six, and no way of
+            knowing which one was working. That is not a discipline problem. It is a sequencing
+            problem, and it is the first thing the routine fixes.</p>
+        </div>
+        <div class="sk-cap-pain-card">
+          <h3>Rested, and still look tired</h3>
+          <p>Eight hours and a good routine, and the face in the mirror has a grey cast anyway.
+            When that happens it is usually not your skin at all, and nothing you apply to it
+            will reach the reason.</p>
+        </div>
+        <div class="sk-cap-pain-card">
+          <h3>It stopped bouncing back</h3>
+          <p>The same face, doing something different. Skin that creases and stays creased is
+            reporting on supply rather than on surface, which is why the expensive cream did not
+            change it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec">
+    <div class="sk-cap-wrap">
+      <div class="sk-cap-head" data-sk-rev>
+        <span class="sk-cap-eyebrow">What it measures</span>
+        <h2>Three lanes, and only one of them is on your bathroom shelf</h2>
+      </div>
+      <ul class="sk-cap-inside-list" data-sk-rev>
+        <li><span class="sk-cap-inside-n">1</span>
+          <div><h3>Surface</h3>
+            <p>Texture, fine lines, hydration and the state of your barrier. The fastest of the
+              three to respond, and the only one that answers to what you put on your face.</p></div></li>
+        <li><span class="sk-cap-inside-n">2</span>
+          <div><h3>Supply</h3>
+            <p>What your body has available to build with. It shows up in elasticity first, then
+              in hair and nails, and no topical reaches it.</p></div></li>
+        <li><span class="sk-cap-inside-n">3</span>
+          <div><h3>Load</h3>
+            <p>Stress, short nights, sun, alcohol. The lane that produces a dull, tired look on
+              a rested face, and the one people almost never test for.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sk-cap-sec sk-cap-mist">
+    <div class="sk-cap-wrap">
+      <div class="sk-cap-head" data-sk-rev>
+        <span class="sk-cap-eyebrow">What you get</span>
+        <h2>A ninety-day routine, in the order that matters</h2>
+      </div>
+      <ul class="sk-cap-inside-list" data-sk-rev>
+        <li><span class="sk-cap-inside-n">1</span>
+          <div><h3>Your three scores</h3>
+            <p>Which lane leads, which supports, and which one you can safely ignore for now.</p></div></li>
+        <li><span class="sk-cap-inside-n">2</span>
+          <div><h3>Seven habits, all of them free</h3>
+            <p>Phased across the twelve weeks, one at a time, so you can actually tell what each
+              one did. Most of them are changes to things you already do.</p></div></li>
+        <li><span class="sk-cap-inside-n">3</span>
+          <div><h3>What not to spend money on</h3>
+            <p>The specific things in your lane that are not worth buying, and why. This part is
+              usually worth more than the rest of it.</p></div></li>
+        <li><span class="sk-cap-inside-n">4</span>
+          <div><h3>Where a product would actually help</h3>
+            <p>At the end, underneath the free plan, and ranked. Optional, and the routine works
+              without it.</p></div></li>
+      </ul>
+      <div style="text-align:center;margin-top:clamp(2rem,4vw,3rem)" data-sk-rev>
+        <button type="button" class="sk-cap-btn" data-sk-open>Start The Diagnostic</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-cap-close">
+    <div class="sk-cap-wrap" data-sk-rev>
+      <span class="sk-cap-eyebrow" style="display:block;margin-bottom:1rem">Free, and it takes two minutes</span>
+      <h2>Stop treating the lane that was never the problem.</h2>
+      <p>Ten questions, and a routine you could start tomorrow morning without buying anything.</p>
+      <button type="button" class="sk-cap-btn" data-sk-open>Get My Routine</button>
+      <p class="sk-cap-note">Your routine appears as soon as you finish.</p>
+    </div>
+  </section>
+
+  <section class="sk-cap-foot">
+    <div class="sk-cap-wrap">
+      <p>This diagnostic is for educational and informational purposes only. It is not medical
+        advice, it is not a diagnosis, and it does not replace an assessment by a clinician.
+        Individual results vary with skin type, routine, lifestyle and consistency. If you are
+        pregnant, nursing, managing a skin or thyroid condition, or taking medication, talk to
+        your healthcare provider before changing your routine or adding a supplement.</p>
+    </div>
+  </section>
+
+</div>

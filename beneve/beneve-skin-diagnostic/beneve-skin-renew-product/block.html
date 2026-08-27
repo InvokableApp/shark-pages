@@ -1,0 +1,271 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin-renew-product
+  Renew, the topical product of the Skin Diagnostic funnel.
+
+  INFO-CENTRIC, not a store page. No quantity, no Add To Cart and no Subscribe & Save, because
+  the purchase happens on beneve.com under the rep's own link and that link is what earns the
+  commission. The price IS shown here, because Renew is the one product of the three whose page
+  publishes one and a $89.95 serum is not something to spring on someone after the click.
+
+  Every purchase CTA points at this funnel's OWN redirect step, not straight at the shop, so the
+  click is measurable: a pageview on beneve-skin-renew-redirect is the Fire Lead signal for THIS
+  product, and the step then forwards to https://{{custom_values.beneve_renew_link}} on its own.
+  Three products, three redirects, so the report says which one earned the click. (HOSTED-BLOCKS-SOP §7b.)
+
+  Design and behaviour live in _shared/product/v1/, scoped under .sk-prod, and are shared by every
+  product page in every system. This file holds only markup; block.css holds only palette tokens.
+
+  Every claim is Beneve's own, sourced from BENEVESHARK/product-pages/renew/product.json, which
+  was read off the PANEL rather than the page text. Where the two disagree the panel wins: the
+  page calls Renew a cream, the bottle says Hydrating Serum, and the directions here are the
+  panel's. Connective tissue follows the house rules: addressed to the avatar, no em-dashes, and
+  no claim Beneve does not already make.
+-->
+<div class="sk-prod sk-prod-bnv-renew"
+     data-buy-step="beneve-skin-renew-redirect"
+     data-buy-url="{{custom_values.beneve_renew_link}}">
+
+  <!-- reading progress, fixed to the top of the viewport -->
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- Mobile buy bar, standard on every product page (HOSTED-BLOCKS-SOP §8b). Ships hidden;
+       the shared engine reveals it once the hero CTA has scrolled off the top. -->
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Renew</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="/beneve-skin-renew-redirect" data-buy>Get Renew</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>The topical half of your routine</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Renew <span class="sk-prod-accent">Advanced Skin Renewal Complex</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          A face and neck serum built on four peptide technologies, formulated to visibly tighten,
+          smooth and hydrate, and intentionally designed to pair with Luxe Liquid Collagen for an
+          inside-out approach.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>Quad peptide formula</li>
+          <li>45g airless pump</li>
+          <li>Morning and evening</li>
+          <li>Cruelty free</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="/beneve-skin-renew-redirect" data-buy>
+            Get Renew
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">See what is inside</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/bottle.webp"
+             alt="Beneve Renew Advanced Skin Renewal Complex, 45g hydrating serum" loading="eager" decoding="async">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Scroll to read more">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== CLAIM ============================== -->
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>What Beneve says it supports</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Five things, in the brand's own words. Results vary with skin type, routine, lifestyle
+        and how consistent you are.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c3-5 13-5 16 0"/><path d="M4 9c3 5 13 5 16 0"/></svg>
+          </span>
+          <h3>Firm and smooth</h3>
+          <p>Helps support smoother, firmer-looking skin.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.4 6 10.4A6 6 0 0 1 6 13.4C6 9.4 12 3 12 3Z"/></svg>
+          </span>
+          <h3>Hydrate and balance</h3>
+          <p>Supports skin hydration and moisture balance.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c4-1 6-4 7-7M14 6c3 2 5 5 7 7"/><path d="M3 20h18"/></svg>
+          </span>
+          <h3>Line refining</h3>
+          <p>Helps improve the appearance of fine lines and wrinkles.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12a8 8 0 0 0 16 0"/><circle cx="12" cy="12" r="1.6"/></svg>
+          </span>
+          <h3>Elasticity</h3>
+          <p>Supports healthy-looking skin elasticity.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="5">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>
+          </span>
+          <h3>Youthful radiance</h3>
+          <p>Promotes a more radiant, youthful-looking complexion over time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FORMULA ROWS ============================== -->
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>The quad peptide complex</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Four peptide technologies, one formula</h2>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/ingredients.webp"
+               alt="Renew bottle with its six key actives labelled" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
+          <h3>GHK-Cu and Matrixyl 3000</h3>
+          <p>Beneve groups these two under long-term support: skin resilience and healthy-looking skin.</p>
+          <p class="sk-prod-note">
+            GHK-Cu is a naturally occurring copper-binding peptide, described by the brand as
+            supporting skin conditioning, barrier support, hydration retention and skin renewal.
+            This is the slow half of the formula, which is why the directions say consistently.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/benefits.webp"
+               alt="Renew serum with its five supported benefits labelled around the bottle" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
+          <h3>Argireline Amplified and DMAE</h3>
+          <p>The brand's mid-term group: texture and appearance support, alongside Matrixyl and hyaluronic acid.</p>
+          <p class="sk-prod-note">
+            Argireline is a trademark of The Lubrizol Corporation or its affiliates. Beneve's own
+            three-tier framing is worth reading before you judge week one: short term is hydration,
+            mid term is texture, long term is resilience.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/bottle.webp"
+               alt="Renew airless pump bottle" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
+          <h3>DMAE and hyaluronic acid</h3>
+          <p>The short-term pair. Beneve puts hydration and smoother-looking skin in this group.</p>
+          <p class="sk-prod-note">
+            This is the part you are most likely to notice first, and the reason the serum feels
+            like it is doing something before the peptides have had time to.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/supplement-facts.webp"
+               alt="Renew full ingredient list and recommended use panel" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
+          <h3>Designed to pair, not to work alone</h3>
+          <p>Renew was intentionally formulated to pair synergistically with Luxe Liquid Collagen.</p>
+          <p class="sk-prod-note">
+            That is Beneve's own sentence, not ours, and it is the honest caveat on a topical:
+            a serum works on the surface. If your diagnostic pointed at hydration and elasticity
+            from the inside as well, Luxe is the other half.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Premium ingredients</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">What makes Renew exceptional</h2>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>Copper Tripeptide-1, the GHK-Cu on the label</li>
+          <li>Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7, the Matrixyl 3000 pair</li>
+          <li>Acetyl Hexapeptide-8, the Argireline</li>
+          <li>Dimethylaminoethanol tartrate and sodium hyaluronate</li>
+          <li>Aloe barbadensis leaf juice and glycerin in the base</li>
+          <li>Cruelty free. 45g, 1.59oz, $89.95</li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">1</span>
+          <div>
+            <strong>Recommended use</strong>
+            <span>Apply 1 to 2 pumps morning and evening to clean, dry skin, face and neck, for
+            daily hydration and skin support.</span>
+          </div>
+        </div>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          For external use only. Results may vary based on individual skin type, skincare routine,
+          lifestyle, and consistency of use. If you are pregnant, nursing or under the care of a
+          physician, talk to your healthcare professional before adding a new active to your routine.
+        </p>
+      </div>
+
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
+        <img src="assets/supplement-facts.webp"
+             alt="Renew full ingredient panel, recommended use and manufacturer information" loading="lazy" decoding="async">
+        <figcaption>Full ingredient panel</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSE ============================== -->
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>Give it the ninety days</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
+        A peptide serum is not a week-one product, and Beneve's own three-tier framing says so.
+        Put it either side of the free routine you already have, morning and evening, and judge
+        it at the end of the ninety days rather than at the end of the week.
+      </p>
+      <div class="sk-prod-cta-row" data-rise data-delay="2">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="/beneve-skin-renew-redirect" data-buy>
+          Get Renew
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="sk-prod-btn-alt" href="/beneve-skin-luxe-product">See Luxe, the inside half</a>
+        <a class="sk-prod-btn-alt" href="/beneve-skin-glutathione-product">See Glutathione+</a>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="3">
+        These statements have not been evaluated by the Food and Drug Administration. This
+        product is not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>

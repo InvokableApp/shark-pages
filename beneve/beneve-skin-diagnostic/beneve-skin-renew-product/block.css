@@ -1,0 +1,58 @@
+/* beneve / beneve-skin-diagnostic / beneve-skin-renew-product
+ *
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared by
+ * every product page in every system. This file declares ONLY the palette and the two local
+ * overrides below, on this block's own scope class, and it cascades into the shared component.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+/* Gold and tan, on white. The palette is not invented: it is lifted off the products
+ * themselves. Renew is a cream bottle with an antique-gold wordmark, Luxe is a cream
+ * bottle with a solid gold cap, and both supplement panels are printed in the same two
+ * golds on sand. The Beneve navy and teal carry the other campaigns; this lane is the
+ * premium skincare lane and reads warm.
+ *
+ * These are LOCAL tokens on this block only. No brand swatch is touched.
+ *
+ *   gold-d  #a97f3f   antique gold, the primary. Buttons, kickers, rules.
+ *   gold    #c9a96a   light gold, the accent. Gradients, dark-section buttons.
+ *   bronze  #8a6f45   the deeper metal, for numerals and small caps.
+ *   tan     #ddc79b   the tint, for hairlines and quiet fills.
+ *   ink     #2b2721   a warm near-black, never a blue-black.
+ */
+.sk-prod-bnv-renew{
+  --sk-navy:   #2b2721;
+  --sk-navy-d: #1b1815;
+  --sk-teal:   #c9a96a;
+  --sk-teal-d: #a97f3f;
+  --sk-sage:   #8a6f45;
+  --sk-lime:   #ddc79b;
+  --sk-ink:    #2b2721;
+  --sk-body:   #6b6459;
+  --sk-cream:  #fffdfa;
+  --sk-mist:   #f8f3ea;
+  --sk-line:   #e8dfd2;
+  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
+  --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
+}
+
+/* The shared note colour is a cool blue-grey, which goes green against these warm neutrals. */
+.sk-prod-bnv-renew .sk-prod-note{color:#7b7264}
+
+/* ---------- cross-links to the funnel's other two products ---------- */
+/* Every product page in this funnel carries buttons to the other two, because the diagnostic
+ * routes to a ROUTINE and a routine can legitimately end up including more than one of them.
+ * They sit in the CLOSE section, which is dark, and the shared ghost style is dark-on-white and
+ * unreadable there. This is a light outline variant, declared block-locally so
+ * _shared/product/v1/ stays untouched. */
+.sk-prod-bnv-renew .sk-prod-close .sk-prod-cta-row{justify-content:center;flex-wrap:wrap}
+.sk-prod-bnv-renew .sk-prod-btn-alt{
+  display:inline-flex;align-items:center;gap:.55rem;
+  color:#fff;text-decoration:none;font-weight:600;font-size:1.02rem;
+  padding:1.05rem 1.9rem;border-radius:999px;
+  border:1.5px solid rgba(255,255,255,.42);
+  transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.sk-prod-bnv-renew .sk-prod-btn-alt:hover{
+  border-color:var(--sk-teal,#c9a96a);background:rgba(255,255,255,.08);transform:translateY(-2px);
+}

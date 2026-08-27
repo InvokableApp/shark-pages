@@ -1,0 +1,23 @@
+/* beneve / beneve-skin-diagnostic / beneve-skin-how-to
+ *
+ * The design lives in _shared/howto/, scoped under .sk-howto, and is shared by every
+ * howto page in every system. This file declares ONLY the palette, on the block's own scope
+ * class, and it cascades into the shared component. No brand swatch is touched.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/howto.css");
+
+.sk-howto-bnv{
+  --sk-navy:    var(--bnv-navy,#1e386a);
+  --sk-navy-d:  var(--bnv-navy-d,#14284c);
+  --sk-teal:    var(--bnv-teal,#79bdbe);
+  --sk-teal-d:  var(--bnv-teal-d,#4e9799);
+  --sk-sage:    var(--bnv-sage,#879b53);
+  --sk-lime:    var(--bnv-lime,#bcd57a);
+  --sk-ink:     var(--bnv-ink,#16233d);
+  --sk-body:    var(--bnv-body,#4a5568);
+  --sk-cream:   var(--bnv-cream,#fffdfb);
+  --sk-mist:    var(--bnv-mist,#f2f5f8);
+  --sk-line:    var(--bnv-line,#e3e8ef);
+  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
+  --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
+}

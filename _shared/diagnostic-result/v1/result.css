@@ -1,0 +1,262 @@
+/* _shared/diagnostic-result/v1/result.css
+ *
+ * The result page of a DIAGNOSTIC funnel: a quiz that routes to one of N routines rather than
+ * to one offer. Scoped under .sk-dres. Shared by every system, so nothing in here may name a
+ * brand, a product or a niche.
+ *
+ * The page has an opinion about ORDER, and the order is the design:
+ *
+ *   1. the loader       the result has to feel measured, not served
+ *   2. the meters       what their answers pointed at, in three axes
+ *   3. THE FREE PLAN    what to do for ninety days that costs nothing
+ *   4. what to skip     the part that buys the credibility for section 5
+ *   5. the stack        where the products fit, ranked, as accelerants
+ *
+ * Section 3 comes before section 5 on purpose. A result page that opens with a product is an
+ * ad with a quiz on the front. A result page that opens with a plan the reader could execute
+ * without ever buying anything has earned the right to make the recommendation underneath it.
+ *
+ * Tokens it expects (all have fallbacks, so a page that forgets one still renders):
+ *   --sk-brand --sk-brand-d --sk-accent --sk-tint --sk-ink --sk-body --sk-faint
+ *   --sk-paper --sk-card --sk-line --sk-serif --sk-sans
+ *
+ * Every section is OPTIONAL. A routine with nothing to skip omits .sk-dres-skip and the page
+ * still reads. Every card count from 1 to 3 lays out.
+ */
+
+.sk-dres, .sk-dres *, .sk-dres *::before, .sk-dres *::after { box-sizing: border-box; }
+
+.sk-dres{
+  --_brand: var(--sk-brand,#a97f3f);
+  --_brandd:var(--sk-brand-d,#8a6f45);
+  --_accent:var(--sk-accent,#c9a96a);
+  --_tint:  var(--sk-tint,#ddc79b);
+  --_ink:   var(--sk-ink,#2b2721);
+  --_body:  var(--sk-body,#6b6459);
+  --_faint: var(--sk-faint,#9a9184);
+  --_paper: var(--sk-paper,#ffffff);
+  --_card:  var(--sk-card,#ffffff);
+  --_line:  var(--sk-line,#e8dfd2);
+  --_serif: var(--sk-serif,"Cormorant Garamond",Georgia,serif);
+  --_sans:  var(--sk-sans,Inter,system-ui,-apple-system,sans-serif);
+  --_ease:  cubic-bezier(.22,.61,.36,1);
+
+  margin:0 auto; background:var(--_paper); color:var(--_ink);
+  font-family:var(--_sans); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.sk-dres .sk-dres-wrap{max-width:900px;margin:0 auto;padding:0 22px}
+
+/* ---------------------------------------------------------------- typography */
+.sk-dres .sk-dres-eyebrow{
+  margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--_brand);
+}
+.sk-dres .sk-dres-kicker{
+  margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--_brandd);
+}
+.sk-dres .sk-dres-title{
+  margin:0 0 18px;font-family:var(--_serif);font-weight:500;
+  font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-.015em;color:var(--_ink);
+}
+.sk-dres .sk-dres-h2{
+  margin:0 0 14px;font-family:var(--_serif);font-weight:500;
+  font-size:clamp(27px,3.6vw,40px);line-height:1.12;letter-spacing:-.01em;color:var(--_ink);
+}
+.sk-dres .sk-dres-lede{margin:0;font-size:clamp(17px,2vw,20px);line-height:1.55;color:var(--_body);max-width:62ch}
+.sk-dres .sk-dres-sub{margin:0 0 30px;color:var(--_body);max-width:62ch}
+.sk-dres .sk-dres-fine{margin:26px 0 0;font-size:12.5px;line-height:1.6;color:var(--_faint);max-width:66ch}
+.sk-dres .sk-dres-center{margin-left:auto;margin-right:auto;text-align:center}
+.sk-dres .sk-dres-center .sk-dres-lede,
+.sk-dres .sk-dres-center .sk-dres-sub,
+.sk-dres .sk-dres-center .sk-dres-fine{margin-left:auto;margin-right:auto}
+
+/* a hairline rule with a gold gradient, used under section headings */
+.sk-dres .sk-dres-rule{
+  width:64px;height:2px;border-radius:2px;margin:0 0 26px;
+  background:linear-gradient(90deg,var(--_brand),var(--_tint));
+}
+.sk-dres .sk-dres-center .sk-dres-rule{margin-left:auto;margin-right:auto}
+
+/* ---------------------------------------------------------------- header */
+.sk-dres .sk-dres-head{padding:clamp(46px,8vw,86px) 0 clamp(30px,5vw,52px)}
+.sk-dres .sk-dres-crumbs{
+  margin:0 0 22px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--_faint);
+}
+.sk-dres .sk-dres-crumbs i{font-style:normal;color:var(--_tint)}
+.sk-dres .sk-dres-crumbs b{color:var(--_ink);font-weight:600}
+
+/* ---------------------------------------------------------------- meters */
+.sk-dres .sk-dres-meters{padding:0 0 clamp(34px,6vw,64px)}
+.sk-dres .sk-dres-meter+.sk-dres-meter{margin-top:22px}
+.sk-dres .sk-dres-meter-head{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin:0 0 9px;
+  font-size:14px;font-weight:600;letter-spacing:.01em;
+}
+.sk-dres .sk-dres-meter-head em{font-style:normal;font-weight:600;color:var(--_brand);font-size:13px}
+.sk-dres .sk-dres-track{height:7px;border-radius:999px;background:#f2ece2;overflow:hidden}
+/* Bars grow from 0 to their value once the loader has cleared, so the score reads as something
+   being measured rather than a static graphic. The width is carried in --sk-w so the keyframe
+   can animate to it, and --sk-i staggers them. */
+.sk-dres .sk-dres-fill{
+  height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--_brandd),var(--_accent));
+  animation:sk-dres-meter .9s var(--_ease) forwards;
+  animation-delay:calc(3.15s + var(--sk-i,0) * .13s);
+}
+.sk-dres .sk-dres-meter--lead .sk-dres-fill{box-shadow:0 0 14px rgba(169,127,63,.4)}
+.sk-dres .sk-dres-note{margin:9px 0 0;font-size:13.5px;line-height:1.55;color:var(--_body)}
+@keyframes sk-dres-meter{to{width:var(--sk-w,60%)}}
+
+/* ---------------------------------------------------------------- the free plan */
+.sk-dres .sk-dres-free{
+  padding:clamp(40px,7vw,78px) 0;
+  background:linear-gradient(180deg,#fdfaf5,#fffdfa);
+  border-top:1px solid var(--_line);border-bottom:1px solid var(--_line);
+}
+.sk-dres .sk-dres-steps{list-style:none;margin:0;padding:0;counter-reset:sk-dres-step}
+.sk-dres .sk-dres-steps>li{
+  counter-increment:sk-dres-step;position:relative;
+  padding:22px 0 22px 62px;border-top:1px solid var(--_line);
+}
+.sk-dres .sk-dres-steps>li:first-child{border-top:0}
+.sk-dres .sk-dres-steps>li::before{
+  content:counter(sk-dres-step,decimal-leading-zero);
+  position:absolute;left:0;top:23px;
+  font-family:var(--_serif);font-size:22px;line-height:1;color:var(--_brand);
+  letter-spacing:.02em;
+}
+.sk-dres .sk-dres-steps h3{
+  margin:0 0 5px;font-size:1.06rem;font-weight:650;letter-spacing:-.005em;color:var(--_ink);
+}
+.sk-dres .sk-dres-steps p{margin:0;color:var(--_body);font-size:15.5px}
+.sk-dres .sk-dres-when{
+  display:inline-block;margin:0 0 7px;padding:3px 10px;border-radius:999px;
+  background:#f6efe3;border:1px solid var(--_line);
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--_brandd);
+}
+
+/* ---------------------------------------------------------------- what to skip */
+.sk-dres .sk-dres-skip{padding:clamp(40px,7vw,72px) 0}
+.sk-dres .sk-dres-skips{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.sk-dres .sk-dres-skips>li{
+  padding:18px 20px;border:1px solid var(--_line);border-radius:16px;background:var(--_card);
+}
+.sk-dres .sk-dres-skips>li strong{display:block;margin:0 0 4px;font-size:15.5px;color:var(--_ink)}
+.sk-dres .sk-dres-skips>li span{display:block;font-size:14.5px;color:var(--_body)}
+
+/* ---------------------------------------------------------------- the stack */
+.sk-dres .sk-dres-stack{
+  padding:clamp(44px,7vw,84px) 0;
+  background:#faf6f0;border-top:1px solid var(--_line);
+}
+.sk-dres .sk-dres-cards{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:760px){
+  .sk-dres .sk-dres-cards--2{grid-template-columns:1fr 1fr}
+  .sk-dres .sk-dres-cards--3{grid-template-columns:repeat(3,1fr)}
+}
+.sk-dres .sk-dres-card{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--_card);border:1px solid var(--_line);border-radius:22px;
+  padding:26px 24px 24px;
+  box-shadow:0 1px 2px rgba(43,39,33,.04),0 26px 54px -34px rgba(43,39,33,.34);
+}
+.sk-dres .sk-dres-card--lead{border-color:var(--_tint);box-shadow:0 1px 2px rgba(43,39,33,.05),0 30px 62px -32px rgba(169,127,63,.5)}
+.sk-dres .sk-dres-rank{
+  align-self:flex-start;margin:0 0 14px;padding:4px 11px;border-radius:999px;
+  font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:#f6efe3;color:var(--_brandd);border:1px solid var(--_line);
+}
+.sk-dres .sk-dres-card--lead .sk-dres-rank{background:linear-gradient(100deg,var(--_brand),var(--_accent));color:#fff;border-color:transparent}
+.sk-dres .sk-dres-shot{margin:0 0 16px;text-align:center}
+.sk-dres .sk-dres-shot img{max-width:100%;height:auto;max-height:190px;display:inline-block}
+.sk-dres .sk-dres-card h3{
+  margin:0 0 8px;font-family:var(--_serif);font-weight:500;font-size:1.62rem;line-height:1.15;color:var(--_ink);
+}
+.sk-dres .sk-dres-why{margin:0 0 14px;font-size:14.5px;color:var(--_body)}
+.sk-dres .sk-dres-pts{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.sk-dres .sk-dres-pts>li{position:relative;padding-left:22px;font-size:14px;color:var(--_body)}
+.sk-dres .sk-dres-pts>li::before{
+  content:"";position:absolute;left:0;top:8px;width:11px;height:6px;
+  border-left:1.6px solid var(--_brand);border-bottom:1.6px solid var(--_brand);
+  transform:rotate(-45deg);
+}
+.sk-dres .sk-dres-card .sk-dres-btn{margin-top:auto}
+
+/* ---------------------------------------------------------------- buttons */
+.sk-dres .sk-dres-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.95rem 1.6rem;border-radius:999px;
+  background:var(--_ink);color:#fff;text-decoration:none;
+  font-weight:600;font-size:.96rem;letter-spacing:.01em;
+  transition:background .25s var(--_ease),transform .25s var(--_ease),box-shadow .25s var(--_ease);
+}
+.sk-dres .sk-dres-btn:hover{background:#1b1815;transform:translateY(-2px);box-shadow:0 16px 32px rgba(43,39,33,.26)}
+.sk-dres .sk-dres-btn--gold{background:linear-gradient(100deg,var(--_brand),var(--_accent));color:#fff}
+.sk-dres .sk-dres-btn--gold:hover{background:linear-gradient(100deg,var(--_brandd),var(--_brand));box-shadow:0 16px 32px rgba(169,127,63,.36)}
+.sk-dres .sk-dres-btn svg{width:17px;height:17px;flex:none}
+.sk-dres .sk-dres-btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.95rem 1.5rem;border-radius:999px;border:1px solid var(--_line);
+  color:var(--_ink);text-decoration:none;font-weight:600;font-size:.94rem;
+  transition:border-color .25s var(--_ease),background .25s var(--_ease);
+}
+.sk-dres .sk-dres-btn-ghost:hover{border-color:var(--_tint);background:#fdfaf5}
+.sk-dres .sk-dres-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:0}
+
+/* ---------------------------------------------------------------- close */
+.sk-dres .sk-dres-close{padding:clamp(44px,7vw,80px) 0 clamp(56px,8vw,96px)}
+
+/* ---------------------------------------------------------------- loader */
+/* PURE CSS, no JS: the survey renders inside a popup and its footer script does not run in
+   that context, so the "scoring" moment lives on the RESULT page instead. CSS-only means it
+   also works with scripts blocked, and it travels in the snapshot like the rest of the block. */
+.sk-dres .sk-dres-loader{
+  position:fixed;inset:0;z-index:999;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:26px;
+  background:var(--_paper);
+  animation:sk-dres-loader-out .5s var(--_ease) 2.7s forwards;
+}
+.sk-dres .sk-dres-halo{
+  width:96px;height:96px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 50%,rgba(201,169,106,.22),transparent 68%);
+}
+.sk-dres .sk-dres-orb{
+  width:44px;height:44px;border-radius:50%;
+  border:2px solid #efe6d8;border-top-color:var(--_brand);
+  animation:sk-dres-spin 1s linear infinite;
+}
+.sk-dres .sk-dres-msgs{position:relative;height:64px;width:min(92vw,460px);text-align:center}
+.sk-dres .sk-dres-msg{position:absolute;inset:0;opacity:0}
+.sk-dres .sk-dres-msg--1{animation:sk-dres-msg 1.5s var(--_ease) 0s forwards}
+.sk-dres .sk-dres-msg--2{animation:sk-dres-msg 1.5s var(--_ease) 1.4s forwards}
+.sk-dres .sk-dres-msg-t{margin:0 0 5px;font-size:17px;font-weight:600;color:var(--_ink)}
+.sk-dres .sk-dres-msg-s{margin:0;font-size:14px;color:var(--_body)}
+.sk-dres .sk-dres-bar{width:min(82vw,320px);height:3px;border-radius:999px;background:#f2ece2;overflow:hidden}
+.sk-dres .sk-dres-bar i{
+  display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--_brandd),var(--_accent));
+  animation:sk-dres-barfill 2.7s var(--_ease) forwards;
+}
+@keyframes sk-dres-spin{to{transform:rotate(360deg)}}
+@keyframes sk-dres-barfill{to{width:100%}}
+@keyframes sk-dres-msg{0%{opacity:0;transform:translateY(7px)}18%,82%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-7px)}}
+@keyframes sk-dres-loader-out{to{opacity:0;visibility:hidden}}
+
+/* ---------------------------------------------------------------- reveal */
+/* Ships visible. result.js adds .sk-dres-js to the root and only then does anything hide, so a
+   blocked script leaves a readable page rather than a blank one. */
+.sk-dres.sk-dres-js [data-rise]{opacity:0;transform:translateY(16px)}
+.sk-dres.sk-dres-js [data-rise].sk-dres-in{
+  opacity:1;transform:none;
+  transition:opacity .7s var(--_ease) calc(var(--sk-d,0) * .09s),transform .7s var(--_ease) calc(var(--sk-d,0) * .09s);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sk-dres .sk-dres-loader{display:none}
+  .sk-dres .sk-dres-fill{animation:none;width:var(--sk-w,60%)}
+  .sk-dres.sk-dres-js [data-rise]{opacity:1;transform:none}
+  .sk-dres .sk-dres-orb{animation:none}
+}

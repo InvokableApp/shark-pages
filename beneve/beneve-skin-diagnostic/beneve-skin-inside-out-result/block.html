@@ -1,0 +1,180 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin-inside-out-result
+  "Inside Out", one of the four routines the Skin Diagnostic routes to.
+
+  GENERATED. Do not hand-edit: run
+    node BENEVESHARK/campaigns/skin-diagnostic/build/06-build-result-blocks.mjs
+  and edit the copy in that file, where all four routines sit side by side and can be read
+  against each other.
+
+  Design lives in _shared/diagnostic-result/v1/ scoped under .sk-dres. This file is markup only;
+  block.css declares the gold and tan palette and nothing else.
+
+  SECTION ORDER IS THE ARGUMENT: meters, the free ninety-day plan, what not to buy, and only
+  then the products. The free plan is genuinely free and genuinely complete. Beneve is presented
+  as an accelerant on top of it, never as the plan itself.
+
+  The survey reaches this page by a conditionalLogic redirect, so the visitor arrives here with
+  no transition of any kind. The loader at the top is what turns that into a result being
+  calculated rather than a page being served. It is pure CSS for a reason: the survey renders
+  inside a popup and its footer JS does not run in that context.
+-->
+<div class="sk-dres sk-dres-bnv-skin">
+
+  <div class="sk-dres-loader" aria-hidden="true">
+    <div class="sk-dres-halo"><div class="sk-dres-orb"></div></div>
+    <div class="sk-dres-msgs">
+      <div class="sk-dres-msg sk-dres-msg--1">
+        <p class="sk-dres-msg-t">Reading your answers...</p>
+        <p class="sk-dres-msg-s">Separating what is on your skin from what is under it</p>
+      </div>
+      <div class="sk-dres-msg sk-dres-msg--2">
+        <p class="sk-dres-msg-t">Building your routine...</p>
+        <p class="sk-dres-msg-s">Ordering it so the free part does the heavy lifting first</p>
+      </div>
+    </div>
+    <div class="sk-dres-bar"><i></i></div>
+  </div>
+
+  <header class="sk-dres-head">
+    <div class="sk-dres-wrap">
+      <nav class="sk-dres-crumbs" aria-label="Breadcrumb">
+        <span>Skin Diagnostic</span><i>&rsaquo;</i><span>Inside out</span><i>&rsaquo;</i><b>Your routine</b>
+      </nav>
+      <p class="sk-dres-eyebrow">Your routine</p>
+      <h1 class="sk-dres-title">Inside Out</h1>
+      <p class="sk-dres-lede">Your answers point past your face. Skin that has stopped bouncing back, alongside hair and nails, is a supply story rather than a surface one, and you cannot apply your way out of it.</p>
+    </div>
+  </header>
+
+  <section class="sk-dres-meters">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2">What your answers pointed at</h2>
+      <p class="sk-dres-sub">Three lanes. Almost everyone has one that leads, and the plan below is ordered by yours.</p>
+      
+        <div class="sk-dres-meter sk-dres-meter--lead" style="--sk-i:0">
+          <div class="sk-dres-meter-head"><span>Internal supply</span><em>Lead</em></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:84%"></div></div>
+          <p class="sk-dres-note">This is where your answers concentrated. Elasticity, hair and nails all draw on the same raw materials, and yours are being asked for more than they are getting.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:1">
+          <div class="sk-dres-meter-head"><span>Surface</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:52%"></div></div>
+          <p class="sk-dres-note">Moderate. Worth maintaining, but a serum applied over a supply gap is a lid on an empty jar.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:2">
+          <div class="sk-dres-meter-head"><span>Systemic load</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:41%"></div></div>
+          <p class="sk-dres-note">Low to moderate. Not the main driver for you, though it is the thing most likely to undo the work if it climbs.</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-free">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker" data-rise>Start here, and start free</p>
+      <h2 class="sk-dres-h2" data-rise data-delay="1">The ninety days that cost nothing</h2>
+      <p class="sk-dres-sub" data-rise data-delay="2">The first habit on this list outperforms every product on this page. It is also the one almost nobody does, which is why it is first.</p>
+      <ol class="sk-dres-steps" data-rise data-delay="3">
+          <li>
+            <span class="sk-dres-when">Every morning</span>
+            <h3>Twenty five to thirty grams of protein at breakfast</h3>
+            <p>Not at dinner. Structural tissue gets built from what is available across the day, and most people front-load carbohydrate and back-load protein. This one change is the highest-leverage thing on this page, and it is free.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Vitamin C in the same meal</h3>
+            <p>Collagen synthesis is vitamin C dependent. A kiwi, half a pepper or a handful of berries alongside the protein costs nothing and is the difference between raw material arriving and raw material being usable.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Twice a week</span>
+            <h3>Lift something heavy</h3>
+            <p>Resistance training is the strongest non-dietary signal your body has for building and holding connective tissue. Twice a week, forty minutes, is enough to change the trajectory.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Water with electrolytes, not just water</h3>
+            <p>Skin that has stopped bouncing back is often skin that is chronically under-hydrated at the cellular level. Plain water passes through. A pinch of salt in the first glass of the day changes how much of it stays.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Most days</span>
+            <h3>Eat the collagen, do not only drink it</h3>
+            <p>Bone broth, slow-cooked cuts on the bone, skin-on fish, chicken with the skin. This is where collagen came from before it came in a bottle, and it arrives with the cofactors attached.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Weeks 1 to 4</span>
+            <h3>Protect the sleep window</h3>
+            <p>Growth hormone release is concentrated in the first part of the night, and that is when repair happens. A consistent bedtime does more for elasticity than an extra hour on an irregular one.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Day 1, then day 90</span>
+            <h3>Take the photo today</h3>
+            <p>Same window, same time of day, no makeup, no filter. You cannot see a twelve-week change in a mirror you look into every morning, and without the photo you will conclude nothing worked when something did.</p>
+          </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sk-dres-skip">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2" data-rise>What not to spend money on</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Being told what to skip is worth more than being told what to buy, and it is the part almost nobody puts on a page like this one.</p>
+      <ul class="sk-dres-skips" data-rise data-delay="2">
+          <li><strong>High-dose biotin</strong><span>It is the default hair supplement and it has a real problem: high-dose biotin interferes with several common lab assays, including thyroid and cardiac tests. If your hair changed, that is a reason to get accurate labs, not to blur them.</span></li>
+          <li><strong>Collagen drinks that are mostly sugar</strong><span>Read the panel before the front of the bottle. If the collagen figure is buried under a sweetener list, you are buying a soft drink with a claim on it.</span></li>
+          <li><strong>Judging your hair before month three</strong><span>A follicle cycle is considerably longer than a skin cycle. Anything you start this week shows up in your hair in the autumn, not next month.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sk-dres-stack">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker sk-dres-center" data-rise>Optional, and in this order</p>
+      <h2 class="sk-dres-h2 sk-dres-center" data-rise data-delay="1">Where a product actually earns its place</h2>
+      <p class="sk-dres-sub sk-dres-center" data-rise data-delay="2">The plan above closes the gap slowly and cheaply. A supplement closes it faster and more consistently, which matters most on the weeks life gets in the way.</p>
+      <div class="sk-dres-cards sk-dres-cards--2">
+          <article class="sk-dres-card sk-dres-card--lead" data-rise data-delay="1">
+            <span class="sk-dres-rank">Start here</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-luxe-product/assets/bottle.webp" alt="Beneve Luxe Liquid Collagen Peptides, orange vanilla, 15.2 fl oz" loading="lazy" decoding="async"></figure>
+            <h3>Luxe Liquid Collagen Peptides</h3>
+            <p class="sk-dres-why">Your lane exactly. This is the internal supply, in a form Beneve built for absorption rather than for volume, and it is one tablespoon rather than another capsule to remember.</p>
+            <ul class="sk-dres-pts">
+              <li>Marine Type I and chicken Type II collagen, 500mg</li>
+              <li>Yuth spermidine 15mg, hyaluronic acid 120mg</li>
+              <li>Chondroitin and MCT oil for joints and absorption</li>
+              <li>Contains fish (cod). Refrigerate after opening</li>
+            </ul>
+            <a class="sk-dres-btn sk-dres-btn--gold" href="/beneve-skin-luxe-product">See Luxe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="sk-dres-card" data-rise data-delay="2">
+            <span class="sk-dres-rank">The other half</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-renew-product/assets/bottle.webp" alt="Beneve Renew, a 45g hydrating serum in a cream airless pump bottle" loading="lazy" decoding="async"></figure>
+            <h3>Renew</h3>
+            <p class="sk-dres-why">Beneve designed these two to pair, and said so on their own page. Once the supply side is moving, the topical is what makes the change visible sooner.</p>
+            <ul class="sk-dres-pts">
+              <li>Four peptide technologies, face and neck</li>
+              <li>Hyaluronic acid on the surface as well as in the dose</li>
+              <li>Morning and evening, 1 to 2 pumps</li>
+            </ul>
+            <a class="sk-dres-btn" href="/beneve-skin-renew-product">See Renew<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-close">
+    <div class="sk-dres-wrap sk-dres-center">
+      <h2 class="sk-dres-h2" data-rise>This one is a season, not a week</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Elasticity, hair and nails all move on the slow clock. Start the protein habit tomorrow morning, take the photo today, and give it the full ninety days before you decide whether it worked.</p>
+      <p class="sk-dres-fine" data-rise data-delay="2">
+        This routine is general wellness information, not medical advice, and it is not a
+        diagnosis. If you are pregnant, nursing, taking medication or being treated for a
+        condition, talk to your healthcare professional before changing your routine or adding a
+        supplement. These statements have not been evaluated by the Food and Drug Administration.
+        These products are not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>

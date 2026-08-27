@@ -1,0 +1,192 @@
+<!--
+  beneve/beneve-skin-diagnostic/beneve-skin-foundation-first-result
+  "Foundation First", one of the four routines the Skin Diagnostic routes to.
+
+  GENERATED. Do not hand-edit: run
+    node BENEVESHARK/campaigns/skin-diagnostic/build/06-build-result-blocks.mjs
+  and edit the copy in that file, where all four routines sit side by side and can be read
+  against each other.
+
+  Design lives in _shared/diagnostic-result/v1/ scoped under .sk-dres. This file is markup only;
+  block.css declares the gold and tan palette and nothing else.
+
+  SECTION ORDER IS THE ARGUMENT: meters, the free ninety-day plan, what not to buy, and only
+  then the products. The free plan is genuinely free and genuinely complete. Beneve is presented
+  as an accelerant on top of it, never as the plan itself.
+
+  The survey reaches this page by a conditionalLogic redirect, so the visitor arrives here with
+  no transition of any kind. The loader at the top is what turns that into a result being
+  calculated rather than a page being served. It is pure CSS for a reason: the survey renders
+  inside a popup and its footer JS does not run in that context.
+-->
+<div class="sk-dres sk-dres-bnv-skin">
+
+  <div class="sk-dres-loader" aria-hidden="true">
+    <div class="sk-dres-halo"><div class="sk-dres-orb"></div></div>
+    <div class="sk-dres-msgs">
+      <div class="sk-dres-msg sk-dres-msg--1">
+        <p class="sk-dres-msg-t">Reading your answers...</p>
+        <p class="sk-dres-msg-s">Separating what is on your skin from what is under it</p>
+      </div>
+      <div class="sk-dres-msg sk-dres-msg--2">
+        <p class="sk-dres-msg-t">Building your routine...</p>
+        <p class="sk-dres-msg-s">Ordering it so the free part does the heavy lifting first</p>
+      </div>
+    </div>
+    <div class="sk-dres-bar"><i></i></div>
+  </div>
+
+  <header class="sk-dres-head">
+    <div class="sk-dres-wrap">
+      <nav class="sk-dres-crumbs" aria-label="Breadcrumb">
+        <span>Skin Diagnostic</span><i>&rsaquo;</i><span>Foundation</span><i>&rsaquo;</i><b>Your routine</b>
+      </nav>
+      <p class="sk-dres-eyebrow">Your routine</p>
+      <h1 class="sk-dres-title">Foundation First</h1>
+      <p class="sk-dres-lede">A dull, tired look on rested skin is rarely a skincare problem. Your answers point at load: the things your body is spending its resources processing before any of it reaches your face.</p>
+    </div>
+  </header>
+
+  <section class="sk-dres-meters">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2">What your answers pointed at</h2>
+      <p class="sk-dres-sub">Three lanes. Almost everyone has one that leads, and the plan below is ordered by yours.</p>
+      
+        <div class="sk-dres-meter sk-dres-meter--lead" style="--sk-i:0">
+          <div class="sk-dres-meter-head"><span>Systemic load</span><em>Lead</em></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:79%"></div></div>
+          <p class="sk-dres-note">Stress, sleep debt, sun, alcohol. This is where your answers concentrated, and it is the one lane that nothing you apply to your face can reach.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:1">
+          <div class="sk-dres-meter-head"><span>Surface</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:55%"></div></div>
+          <p class="sk-dres-note">Moderate. Worth keeping simple until the load comes down, because irritated skin looks duller, not brighter.</p>
+        </div>
+        <div class="sk-dres-meter" style="--sk-i:2">
+          <div class="sk-dres-meter-head"><span>Internal supply</span></div>
+          <div class="sk-dres-track"><div class="sk-dres-fill" style="--sk-w:48%"></div></div>
+          <p class="sk-dres-note">Moderate. Supportive rather than urgent for you, and it becomes more important the longer the load stays high.</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-free">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker" data-rise>Start here, and start free</p>
+      <h2 class="sk-dres-h2" data-rise data-delay="1">The ninety days that cost nothing</h2>
+      <p class="sk-dres-sub" data-rise data-delay="2">Do not try to change all four loads at once. Pick the one you would genuinely keep, then let the rest of the list carry the weight.</p>
+      <ol class="sk-dres-steps" data-rise data-delay="3">
+          <li>
+            <span class="sk-dres-when">Week 1</span>
+            <h3>Pick one load, honestly</h3>
+            <p>Sleep, alcohol, sun or stress. Choose the one you would actually keep changed in three months rather than the one you think you should choose. A habit you abandon in week two contributes nothing.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Sunscreen, even on the grey days</h3>
+            <p>Uneven tone and a dull cast are the two things sun exposure reliably produces, and they are the two you described. This is the highest-return thirty seconds in the whole plan.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Most days</span>
+            <h3>Cruciferous vegetables on the plate</h3>
+            <p>Broccoli, cabbage, Brussels sprouts, kale, cauliflower. This is the food group your body draws DIM from, and it is the one most people skip entirely. Roasted with oil and salt is fine. It does not have to be virtuous to count.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every day</span>
+            <h3>Colour, not supplements</h3>
+            <p>Berries, leafy greens, peppers, tomatoes, anything deeply coloured. Antioxidant capacity from food arrives with everything else the plant had in it, which no capsule reproduces.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Weeks 1 to 4</span>
+            <h3>Two alcohol-free nights a week</h3>
+            <p>Not zero. Two. Alcohol costs you sleep quality and hydration on the same night, and those are the two inputs your complexion reads most directly. Two nights is a change people keep.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Every morning</span>
+            <h3>Ten minutes of daylight before screens</h3>
+            <p>It sets the clock that governs when you get tired, which governs the sleep that governs how you look. Standing outside with a coffee counts.</p>
+          </li>
+          <li>
+            <span class="sk-dres-when">Day 1, then day 90</span>
+            <h3>Take the photo today</h3>
+            <p>Same window, same time of day, no makeup, no filter. You cannot see a twelve-week change in a mirror you look into every morning, and without the photo you will conclude nothing worked when something did.</p>
+          </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sk-dres-skip">
+    <div class="sk-dres-wrap">
+      <div class="sk-dres-rule" aria-hidden="true"></div>
+      <h2 class="sk-dres-h2" data-rise>What not to spend money on</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Being told what to skip is worth more than being told what to buy, and it is the part almost nobody puts on a page like this one.</p>
+      <ul class="sk-dres-skips" data-rise data-delay="2">
+          <li><strong>Juice cleanses and detox teas</strong><span>Your liver and kidneys are the detox system. The teas that produce a visible result do it with a laxative, and the weight you lose is the water you needed.</span></li>
+          <li><strong>Brightening actives on irritated skin</strong><span>If the barrier is already struggling, a brightening acid makes the dullness worse before it makes it better. Get the load down and the routine simple first.</span></li>
+          <li><strong>A dermaroller, or anything that breaks the skin at home</strong><span>The risk profile at home is nothing like the risk profile in a clinic, and load-driven dullness is not a texture problem to begin with.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sk-dres-stack">
+    <div class="sk-dres-wrap">
+      <p class="sk-dres-kicker sk-dres-center" data-rise>Optional, and in this order</p>
+      <h2 class="sk-dres-h2 sk-dres-center" data-rise data-delay="1">Where a product actually earns its place</h2>
+      <p class="sk-dres-sub sk-dres-center" data-rise data-delay="2">The habits above lower the load. A supplement supports the systems that are doing the processing, which is a different job and a slower one to notice.</p>
+      <div class="sk-dres-cards sk-dres-cards--3">
+          <article class="sk-dres-card sk-dres-card--lead" data-rise data-delay="1">
+            <span class="sk-dres-rank">Start here</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-glutathione-product/assets/bottle.webp" alt="Beneve Glutathione+, 30 capsules" loading="lazy" decoding="async"></figure>
+            <h3>Glutathione+</h3>
+            <p class="sk-dres-why">The systemic lane, in one capsule. Beneve's own claim list for this one leads with radiance and a youthful appearance, and it is the only one of the three that is not about skin at all.</p>
+            <ul class="sk-dres-pts">
+              <li>Opitac glutathione 300mg, DIM 150mg</li>
+              <li>Xanthohumol from hops, 175mg</li>
+              <li>Black pepper extract for absorption</li>
+              <li>One capsule a day, thirty servings</li>
+            </ul>
+            <a class="sk-dres-btn sk-dres-btn--gold" href="/beneve-skin-glutathione-product">See Glutathione+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="sk-dres-card" data-rise data-delay="2">
+            <span class="sk-dres-rank">If hair and nails changed too</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-luxe-product/assets/bottle.webp" alt="Beneve Luxe Liquid Collagen Peptides, orange vanilla, 15.2 fl oz" loading="lazy" decoding="async"></figure>
+            <h3>Luxe Liquid Collagen Peptides</h3>
+            <p class="sk-dres-why">Load and supply often move together. If you also noticed thinner hair or brittle nails, this is the second lane rather than an upsell.</p>
+            <ul class="sk-dres-pts">
+              <li>Two collagen types plus hyaluronic acid</li>
+              <li>Yuth spermidine 15mg</li>
+              <li>Contains fish (cod)</li>
+            </ul>
+            <a class="sk-dres-btn" href="/beneve-skin-luxe-product">See Luxe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="sk-dres-card" data-rise data-delay="3">
+            <span class="sk-dres-rank">Once the load is down</span>
+            <figure class="sk-dres-shot"><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-skin-diagnostic/beneve-skin-renew-product/assets/bottle.webp" alt="Beneve Renew, a 45g hydrating serum in a cream airless pump bottle" loading="lazy" decoding="async"></figure>
+            <h3>Renew</h3>
+            <p class="sk-dres-why">Worth adding when the foundation work has had a month, not before. Topicals on top of a high load are the definition of running uphill.</p>
+            <ul class="sk-dres-pts">
+              <li>Four peptide technologies, face and neck</li>
+              <li>Morning and evening</li>
+              <li>45g, cruelty free</li>
+            </ul>
+            <a class="sk-dres-btn" href="/beneve-skin-renew-product">See Renew<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-dres-close">
+    <div class="sk-dres-wrap sk-dres-center">
+      <h2 class="sk-dres-h2" data-rise>Lower the load, then look again</h2>
+      <p class="sk-dres-sub" data-rise data-delay="1">Give the one habit you picked four full weeks before you add anything else. Most people who take this route are surprised by how much of what they read as ageing was actually load, and it is the cheapest thing on this page to test.</p>
+      <p class="sk-dres-fine" data-rise data-delay="2">
+        This routine is general wellness information, not medical advice, and it is not a
+        diagnosis. If you are pregnant, nursing, taking medication or being treated for a
+        condition, talk to your healthcare professional before changing your routine or adding a
+        supplement. These statements have not been evaluated by the Food and Drug Administration.
+        These products are not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+</div>
