@@ -1,0 +1,27 @@
+/* beneve / beneve-influencer-aptitude-test / beneve-aptitude-product
+ *
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared by
+ * every product page in every system. This file declares ONLY the palette, on the block's own
+ * scope class, and it cascades into the shared component.
+ *
+ * Beneve's navy and teal carry the brand; the warm brown and tan come from the product's own
+ * packaging, and are mapped onto the sage/lime slots so the accents read as coffee rather than
+ * greens. No brand swatch is touched: these are local tokens on this block only.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-bnv-coffee{
+  --sk-navy:   var(--bnv-navy,#1e386a);
+  --sk-navy-d: var(--bnv-navy-d,#14284c);
+  --sk-teal:   var(--bnv-teal,#79bdbe);
+  --sk-teal-d: var(--bnv-teal-d,#4e9799);
+  --sk-sage:   #7a5230;
+  --sk-lime:   #c9a227;
+  --sk-ink:    var(--bnv-ink,#16233d);
+  --sk-body:   var(--bnv-body,#4a5568);
+  --sk-cream:  #fffaf5;
+  --sk-mist:   #f6f1ea;
+  --sk-line:   #ece2d6;
+  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
+  --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
+}

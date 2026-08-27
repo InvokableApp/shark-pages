@@ -112,6 +112,22 @@
       "elementId": "custom-code-eRtyTF6U--",
       "elementTitle": "Custom Code",
       "pattern": "A"
+    },
+    {
+      "path": "beneve-influencer-aptitude-test/beneve-aptitude-opportunity",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "qqgZtMZw7LcSrXuD75U6",
+      "elementId": "custom-code-TUXrDNPRH3",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-influencer-aptitude-test/beneve-aptitude-product",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "E3fKv9wS3UssAV3X7LZz",
+      "elementId": "custom-code-6jjnc0hk0l",
+      "elementTitle": "Original Coffee Sticks",
+      "pattern": "A"
     }
   ]
 }
