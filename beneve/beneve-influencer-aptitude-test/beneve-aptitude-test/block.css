@@ -74,6 +74,15 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 44px;
   padding-top: 32px; border-top: 1px solid var(--sk-line);
 }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-test__lede {
+  /* No rule of its own: __body already carries a border-top directly below this. */
+  margin: 0 0 30px;
+  font-family: "Archivo", ui-sans-serif, sans-serif;
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: clamp(21px, 2.4vw, 30px); line-height: 1.22;
+  color: var(--sk-ink);
+}
+
 .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-test__h2 {
   margin: 0 0 14px;
   font-family: "Archivo", ui-sans-serif, sans-serif;
