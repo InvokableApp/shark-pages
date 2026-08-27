@@ -72,6 +72,46 @@
       "elementId": "custom-code-k7043skk96",
       "elementTitle": "Custom Code",
       "pattern": "A"
+    },
+    {
+      "path": "beneve-affiliate-aptitude-test/beneve-aptitude-test",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "PZm8MW2P2FDxfTRcH42Z",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-affiliate-aptitude-test/beneve-aptitude-trusted-voice",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "hilENBKLCKrqHlhWHsIP",
+      "elementId": "custom-code-X_4tHEMKN0",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-affiliate-aptitude-test/beneve-aptitude-natural-fit",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "eCftRIn4cwWzwZcO748a",
+      "elementId": "custom-code-hiKcRONmnk",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-affiliate-aptitude-test/beneve-aptitude-best-kept-secret",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "EX6KZkT9jKFahufXCrmK",
+      "elementId": "custom-code-D6gAuN9Dvc",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    },
+    {
+      "path": "beneve-affiliate-aptitude-test/beneve-aptitude-fresh-start",
+      "funnelId": "HBQyErwqvv5RrfQEqR2o",
+      "pageId": "dQiENF7dBNUnrdWSC6mS",
+      "elementId": "custom-code-eRtyTF6U--",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
     }
   ]
 }
