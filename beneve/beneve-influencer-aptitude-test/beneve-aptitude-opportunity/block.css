@@ -21,3 +21,20 @@
   --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
   --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
 }
+
+/* ---------- cross-link to the funnel's other offer ---------- */
+/* The Influencer Aptitude Test funnel puts the opportunity and the product side by side, so each
+ * page carries a secondary button to the other one. It sits in the CLOSE section, which is dark,
+ * and the shared ghost style is navy-on-white and unreadable there. This is a light outline
+ * variant, declared block-locally so _shared/product/v1/ stays untouched. */
+.sk-prod-bnv-opp .sk-prod-close .sk-prod-cta-row{justify-content:center}
+.sk-prod-bnv-opp .sk-prod-btn-alt{
+  display:inline-flex;align-items:center;gap:.55rem;
+  color:#fff;text-decoration:none;font-weight:600;font-size:1.08rem;
+  padding:1.1rem 2.2rem;border-radius:999px;
+  border:1.5px solid rgba(255,255,255,.42);
+  transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.sk-prod-bnv-opp .sk-prod-btn-alt:hover{
+  border-color:var(--sk-teal,#79bdbe);background:rgba(255,255,255,.08);transform:translateY(-2px);
+}
