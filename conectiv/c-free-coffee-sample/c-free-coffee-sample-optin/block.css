@@ -1,7 +1,7 @@
 /* conectiv / c-free-coffee-sample / c-free-coffee-sample-optin
  *
  * The free ALIVE sample opt-in lander. Structure, motion and the mobile bar come from
- * _shared/product/product.css (scoped .sk-prod). This file declares the ALIVE palette on the
+ * _shared/product/v1/product.css (scoped .sk-prod). This file declares the ALIVE palette on the
  * block's own root, plus the sections the shared component does not have yet: the offer strip,
  * the ingredient grid, the versus table, the sample-logistics timeline and the FAQ.
  *
@@ -12,7 +12,7 @@
  * --sk-serif is deliberately NOT a serif here. ALIVE's wordmark is a wide light geometric sans,
  * so the display face is Jost, which is the closest match we already use for Shark wordmarks.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/product/product.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
 .sk-prod-ctv{

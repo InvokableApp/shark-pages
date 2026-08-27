@@ -11,7 +11,7 @@
  *      icon font, never a remote sprite. An element writes data-sk-icon="play"
  *      and gets the stroke icon at whatever size its container sets.
  *
- * The scroll-reveal engine is shared separately (_shared/shark-reveal.js) and is
+ * The scroll-reveal engine is shared separately (_shared/shark-reveal/v1/shark-reveal.js) and is
  * pulled in by each block.js alongside this file.
  */
 (function () {

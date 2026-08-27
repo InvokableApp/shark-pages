@@ -1,7 +1,7 @@
-/* _shared/confirm/confirm.js
+/* _shared/confirm/v1/confirm.js
  *
  * The ONE confirmation-page behaviour file, for every campaign in every system, scoped .sk-conf.
- * Same contract as _shared/howto/howto.js: a page's block.js loads this and nothing else.
+ * Same contract as _shared/howto/v1/howto.js: a page's block.js loads this and nothing else.
  *
  * It does exactly two things.
  *

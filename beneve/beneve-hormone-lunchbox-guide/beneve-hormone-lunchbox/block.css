@@ -1,11 +1,11 @@
 /* beneve / beneve-hormone-lunchbox-guide / beneve-hormone-lunchbox
  *
- * The design lives in _shared/capture/capture.css, scoped under .sk-cap, and is shared by every
+ * The design lives in _shared/capture/v1/capture.css, scoped under .sk-cap, and is shared by every
  * lead-magnet capture page in every system. This file declares ONLY the palette, on the block's
  * own scope class, and it cascades into the shared component. Nothing else belongs here: a
  * per-page override means the shared component needs a variant.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/capture/capture.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/capture/v1/capture.css");
 
 .sk-cap-bnv-lunchbox{
   --sk-navy:   var(--bnv-navy,#1e386a);

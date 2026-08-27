@@ -1,6 +1,6 @@
 /* conectiv / c-free-coffee-sample / c-free-coffee-sample-confirmation
  *
- * The design lives in _shared/confirm/confirm.css, scoped .sk-conf, shared by every confirmation
+ * The design lives in _shared/confirm/v1/confirm.css, scoped .sk-conf, shared by every confirmation
  * page in every system. This file declares ONLY the palette, on the block's own scope class, and
  * it cascades into the shared component. No GHL brand swatch is touched.
  *
@@ -9,7 +9,7 @@
  * geometric sans (Jost) for the same reason it is there: ALIVE's wordmark is a wide light sans,
  * not a serif.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/confirm.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
 .sk-conf-ctv{

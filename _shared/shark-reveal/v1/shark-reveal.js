@@ -2,7 +2,7 @@
  *
  * Load it from a block's block.js:
  *   (function(){var s=document.createElement("script");
- *    s.src="https://invokableapp.github.io/shark-pages/_shared/shark-reveal.js";
+ *    s.src="https://invokableapp.github.io/shark-pages/_shared/shark-reveal/v1/shark-reveal.js";
  *    document.head.appendChild(s);})();
  *
  * It is declarative and design-agnostic: it only toggles classes and sets a

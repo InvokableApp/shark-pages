@@ -1,10 +1,10 @@
 /* beneve / beneve-side-hustle-quiz-funnel / beneve-opportunity-explained
  *
- * The design lives in _shared/product/product.css, scoped under .sk-prod, and is shared with the
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared with the
  * product pages so every long-form page in the system reads as one family. This file declares
  * ONLY the palette, on the block's own scope class.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/product/product.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
 
 .sk-prod-bnv-opp{
   --sk-navy:   var(--bnv-navy,#1e386a);

@@ -1,13 +1,13 @@
 /* VITAL / training / marketing-training
  *
- * The design lives in _shared/training/training.css, scoped under .sk-train and
+ * The design lives in _shared/training/v1/training.css, scoped under .sk-train and
  * shared by every training-portal page in every system. This file declares ONLY
  * the nine palette tokens, on this block's own scope class.
  *
  * Nothing else belongs here. A per-page override means the shared component
  * needs a variant, not that this file needs a rule.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/training/training.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/training/v1/training.css");
 
 .sk-vital-training-marketing-training {
   --sk-brand:      #8DB53C;

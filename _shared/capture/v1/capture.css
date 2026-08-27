@@ -1,8 +1,8 @@
-/* _shared/capture/capture.css
+/* _shared/capture/v1/capture.css
  *
  * The ONE lead-magnet capture-page design, for every campaign in every system, scoped .sk-cap.
  * A page's own block.css declares ONLY its palette tokens and @imports this file, the same
- * contract as _shared/product/ and _shared/howto/. Third page type, same rule: a per-page
+ * contract as _shared/product/v1/ and _shared/howto/v1/. Third page type, same rule: a per-page
  * override means the shared component needs a variant, not that this page is special.
  *
  * Expects these tokens on the block's scope class:

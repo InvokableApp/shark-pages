@@ -8,7 +8,7 @@
    .sk-train. The per-page block.css declares ONLY the nine palette tokens on
    that page's own scope class; they cascade into everything here.
 
-   Same contract as _shared/howto/howto.css: colour is per system, everything
+   Same contract as _shared/howto/v1/howto.css: colour is per system, everything
    else is per design system, and a component fix reaches every portal page in
    every account on one git push. No colour literals below the token block.
    ============================================================ */

@@ -1,11 +1,11 @@
 /* beneve / beneve-natural-foods-guide / beneve-glp-food-guide-product
  *
- * The design lives in _shared/product/product.css, scoped under .sk-prod, and is shared by
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared by
  * every product page in every system. This file declares ONLY the palette, on the block's own
  * scope class, and it cascades into the shared component. Nothing else belongs here: a
  * per-page override means the shared component needs a variant.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/product/product.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
 
 .sk-prod-bnv-gut{
   --sk-navy:   var(--bnv-navy,#1e386a);

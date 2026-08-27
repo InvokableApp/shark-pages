@@ -1,4 +1,4 @@
-/* _shared/product/product.css
+/* _shared/product/v1/product.css
  *
  * The one product-page design, shared by every product page in every system, scoped under
  * .sk-prod. A page's own block.css declares ONLY its palette tokens and @imports this file.

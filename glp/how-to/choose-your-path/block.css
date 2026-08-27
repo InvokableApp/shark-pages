@@ -1,6 +1,6 @@
 /* GLP / how-to / choose-your-path
  *
- * The design lives in _shared/howto/howto.css, scoped under .sk-howto, and is
+ * The design lives in _shared/howto/v1/howto.css, scoped under .sk-howto, and is
  * shared by every how-to page in every system. This file declares ONLY the nine
  * palette tokens, on the block's own scope class, and they cascade into the
  * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
@@ -8,7 +8,7 @@
  * Nothing else belongs here. A per-page override means the shared component
  * needs a variant, not that this file needs a rule.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/howto/howto.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
 
 .sk-glp-how-to-choose-your-path {
   --sk-brand:      #EC5E2A;

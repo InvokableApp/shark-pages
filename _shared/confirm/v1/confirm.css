@@ -1,8 +1,8 @@
-/* _shared/confirm/confirm.css
+/* _shared/confirm/v1/confirm.css
  *
  * The ONE lead-magnet CONFIRMATION-page design, for every campaign in every system, scoped .sk-conf.
  * A page's own block.css declares ONLY its palette tokens and @imports this file, the same contract
- * as _shared/capture/, _shared/product/, _shared/howto/ and _shared/training/. Fifth page type,
+ * as _shared/capture/v1/, _shared/product/v1/, _shared/howto/v1/ and _shared/training/v1/. Fifth page type,
  * same rule: a per-page override means the shared component needs a variant, not that this page
  * is special.
  *

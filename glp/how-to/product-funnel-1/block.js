@@ -5,7 +5,7 @@
  */
 (function () {
   var BASE = "https://invokableapp.github.io/shark-pages/";
-  ["_shared/howto/howto.js", "_shared/shark-reveal.js"].forEach(function (p) {
+  ["_shared/howto/v1/howto.js", "_shared/shark-reveal/v1/shark-reveal.js"].forEach(function (p) {
     if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
     var s = document.createElement("script");
     s.src = BASE + p;

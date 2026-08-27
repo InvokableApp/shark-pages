@@ -1,4 +1,4 @@
-/* _shared/capture/capture.js
+/* _shared/capture/v1/capture.js
  *
  * Behaviour for the shared lead-magnet capture page (.sk-cap). One file for every campaign in
  * every system; a page's block.js is a loader stub that appends this.

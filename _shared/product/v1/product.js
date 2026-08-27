@@ -1,4 +1,4 @@
-/* _shared/product/product.js
+/* _shared/product/v1/product.js
  *
  * Behaviour for every product page: the tracked buy CTAs, the mobile buy bar, the scroll
  * reveals, the hero parallax and the reading line. Shared, so one push fixes every page.

@@ -1,6 +1,6 @@
 /* beneve / beneve-hormone-lunchbox-guide / beneve-hormone-lunchbox-product
  *
- * The design lives in _shared/product/product.css, scoped under .sk-prod, and is shared by
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared by
  * every product page in every system. This file declares ONLY the palette, on the block's own
  * scope class, and it cascades into the shared component.
  *
@@ -8,7 +8,7 @@
  * the Glutathione+ label itself, which also happens to be the right colour for a guide about
  * cruciferous vegetables. No brand swatch is touched: these are local tokens on this block only.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/product/product.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
 
 .sk-prod-bnv-glut{
   --sk-navy:   var(--bnv-navy,#1e386a);
