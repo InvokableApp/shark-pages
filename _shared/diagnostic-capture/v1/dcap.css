@@ -146,6 +146,7 @@
 .sk-dcap .sk-dcap-pain{display:grid;gap:0;grid-template-columns:1fr}
 @media (min-width:820px){.sk-dcap .sk-dcap-pain{grid-template-columns:repeat(3,1fr)}}
 .sk-dcap .sk-dcap-pain>div{padding:2rem 0;border-top:1px solid var(--_line)}
+.sk-dcap .sk-dcap-pain{margin-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--_line);padding-top:clamp(2rem,4vw,3rem)}
 @media (min-width:820px){
   .sk-dcap .sk-dcap-pain>div{padding:0 2.4rem;border-top:0;border-left:1px solid var(--_line)}
   .sk-dcap .sk-dcap-pain>div:first-child{padding-left:0;border-left:0}
@@ -184,16 +185,21 @@
 }
 
 /* ── split: image one side, numbered list the other ───────────────────────── */
-.sk-dcap .sk-dcap-split{display:grid;gap:clamp(2.4rem,5vw,4.4rem);grid-template-columns:1fr;align-items:center}
-@media (min-width:900px){.sk-dcap .sk-dcap-split{grid-template-columns:.92fr 1.08fr}}
-/* the frame: the photograph, with a gold rule offset behind it. One border, one transform, and
-   the picture stops looking like a placeholder. */
-.sk-dcap .sk-dcap-frame{position:relative;margin:0}
+.sk-dcap .sk-dcap-split{display:grid;gap:clamp(2.4rem,5vw,4.6rem);grid-template-columns:1fr;align-items:stretch}
+@media (min-width:900px){.sk-dcap .sk-dcap-split{grid-template-columns:1fr 1fr}}
+/* the frame: the photograph, with a gold rule offset behind it. One border, one offset, and the
+   picture stops looking like a placeholder.
+   It STRETCHES to the height of the column beside it. A fixed-aspect image next to a four-item
+   list leaves a third of the column empty, which is exactly what makes a page read as default. */
+.sk-dcap .sk-dcap-frame{position:relative;margin:0;align-self:stretch;min-height:clamp(320px,42vw,560px)}
 .sk-dcap .sk-dcap-frame::before{
-  content:"";position:absolute;z-index:0;inset:18px -18px -18px 18px;
+  content:"";position:absolute;z-index:0;inset:20px -20px -20px 20px;
   border:1px solid var(--_tint);border-radius:3px;
 }
-.sk-dcap .sk-dcap-frame img{position:relative;z-index:1;border-radius:3px;width:100%}
+.sk-dcap .sk-dcap-frame img{
+  position:relative;z-index:1;border-radius:3px;
+  width:100%;height:100%;object-fit:cover;object-position:50% 46%;
+}
 .sk-dcap .sk-dcap-list{list-style:none;margin:0;padding:0;counter-reset:sk-dcap-i}
 .sk-dcap .sk-dcap-list>li{
   counter-increment:sk-dcap-i;position:relative;
@@ -212,7 +218,7 @@
 /* ── close band ───────────────────────────────────────────────────────────── */
 .sk-dcap .sk-dcap-close{position:relative;overflow:hidden;background:var(--_inkd);isolation:isolate;text-align:center}
 .sk-dcap .sk-dcap-close-bg{position:absolute;inset:0;z-index:0;opacity:.26}
-.sk-dcap .sk-dcap-close-bg img{width:100%;height:100%;object-fit:cover}
+.sk-dcap .sk-dcap-close-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .sk-dcap .sk-dcap-close::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:radial-gradient(58% 78% at 50% 46%,rgba(201,169,106,.2),transparent 66%);
