@@ -1,32 +1,29 @@
 /* beneve / beneve-skin-diagnostic / beneve-skin
  *
- * The design lives in _shared/capture/v1/capture.css, scoped under .sk-cap, and is shared by
- * every capture page in every system. This file declares ONLY the palette, on the block's own
- * scope class, and it cascades into the shared component. No brand swatch is touched.
+ * The design lives in _shared/diagnostic-capture/v1/dcap.css, scoped under .sk-dcap, and is
+ * shared by every diagnostic lander in every system. This file declares ONLY the palette, on the
+ * block's own scope class, and it cascades into the shared component. No brand swatch is touched.
  *
- * ⚠️ The scaffold that stamped this file emitted the scope class `.sk-capture` and an
- * UNVERSIONED shared import. Both were wrong: the real scope class is `.sk-cap`, and push-block
- * hard-fails a shared import with no version in the path. Fixed here and in the generator.
- *
- * Gold and tan, lifted off the products this funnel routes to rather than invented. The
- * component's hero is a dark radial gradient built from --sk-navy, so mapping that token to a
- * warm near-black gives a black-and-gold hero over white sections, which is the look the
- * operator asked for: white ground, high end, gold and tan rather than the Beneve navy and teal.
+ * Gold and tan, lifted off the products this funnel routes to rather than invented: Renew is a
+ * cream bottle with an antique-gold wordmark, Luxe is cream with a solid gold cap, and both
+ * panels are printed in these two golds on sand. The Beneve navy and teal carry the other
+ * campaigns. This one is the premium skincare lane and it reads warm: white ground, warm-black
+ * hero and close, gold everywhere the eye is meant to go.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/capture/v1/capture.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/diagnostic-capture/v1/dcap.css");
 
-.sk-cap-bnv-skin{
-  --sk-navy:   #2b2721;
-  --sk-navy-d: #17140f;
-  --sk-teal:   #c9a96a;
-  --sk-teal-d: #a97f3f;
-  --sk-sage:   #8a6f45;
-  --sk-lime:   #ddc79b;
-  --sk-ink:    #2b2721;
-  --sk-body:   #6b6459;
-  --sk-cream:  #ffffff;
-  --sk-mist:   #faf6f0;
-  --sk-line:   #e8dfd2;
-  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",Georgia,serif);
-  --sk-sans:   var(--bnv-sans,Inter,system-ui,-apple-system,sans-serif);
+.sk-dcap-bnv-skin{
+  --sk-brand:   #a97f3f;
+  --sk-brand-d: #8a6f45;
+  --sk-accent:  #c9a96a;
+  --sk-tint:    #ddc79b;
+  --sk-ink:     #2b2721;
+  --sk-ink-d:   #17140f;
+  --sk-body:    #6b6459;
+  --sk-faint:   #9a9184;
+  --sk-paper:   #ffffff;
+  --sk-warm:    #faf6f0;
+  --sk-line:    #e8dfd2;
+  --sk-serif:   var(--bnv-serif,"Cormorant Garamond",Georgia,serif);
+  --sk-sans:    var(--bnv-sans,Inter,system-ui,-apple-system,sans-serif);
 }
