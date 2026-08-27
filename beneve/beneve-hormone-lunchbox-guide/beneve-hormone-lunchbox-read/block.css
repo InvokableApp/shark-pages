@@ -379,6 +379,11 @@
 .sk-bnv-guide .extra-support .product-desc{ margin-bottom:16px; }
 .sk-bnv-guide .extra-support .product-btn{ margin-top:auto; }
 .sk-bnv-guide .page.divider{ min-height:44vh; }
+/* Web sections are ~44vh, far shorter than a print page, so the print scrim (which fades to 0 by 56%)
+   lands its transparent half right on the headline. Veil the whole section instead. Measured floor
+   is 5.3:1 behind the palest divider (the Formula wood-table shot). */
+.sk-bnv-guide .page.divider .divider-scrim{ background:linear-gradient(180deg, rgba(12,24,16,.72) 0%, rgba(12,24,16,.58) 38%, rgba(12,24,16,.56) 70%, rgba(12,24,16,.62) 100%); }
+.sk-bnv-guide .page.divider .divider-eyebrow,.sk-bnv-guide .page.divider .divider-title,.sk-bnv-guide .page.divider .divider-blurb{ text-shadow:0 1px 26px rgba(12,24,16,.6); }
 .sk-bnv-guide .page.recipe.has-photo{ padding-top:0 !important; }
 .sk-bnv-guide .recipe-photo{ height:250px !important; margin:0 -56px 28px !important; }
 .sk-bnv-guide .gnav{ position:sticky; top:0; z-index:60; display:flex; align-items:center; gap:15px; flex-wrap:wrap;
