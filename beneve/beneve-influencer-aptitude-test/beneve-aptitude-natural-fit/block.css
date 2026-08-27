@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap");
+
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit *, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit *::before, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit *::after { box-sizing: border-box; }
+
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit {
+  --sk-brand:#1B4AC4; --sk-brand-deep:#14379A;
+  --sk-ink:#0E1A33; --sk-ink-soft:#4A5670; --sk-ink-faint:#7C87A0;
+  --sk-paper:#F4F7FD; --sk-card:#FFFFFF; --sk-line:#E3E9F5;
+  margin:0 auto; padding:56px 20px 72px;
+  background:var(--sk-paper); color:var(--sk-ink);
+  font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:16px; line-height:1.6;
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__crumbs { max-width:820px; margin:0 auto 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:13px; color:var(--sk-ink-faint); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__crumbs i { font-style:normal; color:#C3CCE0; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__crumbs b { color:var(--sk-ink); font-weight:600; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__eyebrow { max-width:820px; margin:0 auto 8px; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--sk-brand); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__title { max-width:820px; margin:0 auto 28px; font-family:"Archivo",ui-sans-serif,sans-serif; font-weight:800; letter-spacing:-.035em; font-size:clamp(36px,5.6vw,64px); line-height:1; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__card { max-width:820px; margin:0 auto; background:var(--sk-card); border:1px solid var(--sk-line); border-radius:24px; padding:40px; box-shadow:0 1px 2px rgba(14,26,51,.04),0 24px 60px -28px rgba(14,26,51,.30); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__lede { margin:0 0 18px; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.25; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__p { margin:0 0 14px; color:var(--sk-ink-soft); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meters { margin:0; display:grid; gap:18px; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meter-head { display:flex; justify-content:space-between; font-size:14px; font-weight:600; margin-bottom:8px; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__track { height:8px; border-radius:999px; background:#E9EEF9; overflow:hidden; }
+/* Bars grow from 0 to their value once the loader has cleared (3.1s), so the score reads
+   as something being measured rather than a static graphic. Width is carried in --sk-w
+   so the keyframe can animate to it. */
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__fill { height:100%; width:0; border-radius:999px; background:var(--sk-brand); animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-meter .9s cubic-bezier(.22,.61,.36,1) forwards; animation-delay:calc(3.1s + var(--sk-i,0) * .12s); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meter--accent .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__fill { background:linear-gradient(90deg,#1B4AC4,#4E86F0); box-shadow:0 0 12px rgba(27,74,196,.35); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meter--accent .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meter-head span { color:var(--sk-brand); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__meter-note { margin:8px 0 0; font-size:13px; line-height:1.45; color:var(--sk-ink-faint); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__h2 { margin:34px 0 16px; padding-top:28px; border-top:1px solid var(--sk-line); font-family:"Archivo",ui-sans-serif,sans-serif; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--sk-ink-faint); }
+/* the four-profile map: 2x2 on desktop, stacked on narrow. The reader's own cell is the
+   only one that carries the brand colour, so the grid reads at a glance. */
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell { position:relative; padding:18px 16px; border:1px solid var(--sk-line); border-radius:14px; background:#FBFCFF; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell--you { border-color:var(--sk-brand); background:#F1F5FE; box-shadow:0 0 0 1px var(--sk-brand) inset; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__you { position:absolute; top:-9px; left:16px; padding:2px 9px; border-radius:999px; background:var(--sk-brand); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell-n { margin:0 0 4px; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:15px; font-weight:700; letter-spacing:-.01em; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell--you .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell-n { color:var(--sk-brand); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cell-a { margin:0; font-size:13px; line-height:1.4; color:var(--sk-ink-faint); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__steps { margin:0; padding:0; list-style:none; counter-reset:sk-s; display:grid; gap:12px; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__steps li { counter-increment:sk-s; position:relative; padding-left:42px; color:var(--sk-ink-soft); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__steps li::before { content:counter(sk-s); position:absolute; left:0; top:-1px; width:28px; height:28px; border-radius:50%; background:#EEF3FD; color:var(--sk-brand); font-family:"Archivo",ui-sans-serif,sans-serif; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__method { margin:28px 0 0; padding:16px 18px; border:1px solid var(--sk-line); border-radius:14px; background:#FBFCFF; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__method summary { cursor:pointer; font-size:13px; font-weight:600; color:var(--sk-ink); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__method summary::marker { color:var(--sk-ink-faint); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__method p { margin:12px 0 0; font-size:13px; line-height:1.55; color:var(--sk-ink-faint); }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-meter { to { width:var(--sk-w); } }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__cta { margin-top:32px; padding-top:28px; border-top:1px solid var(--sk-line); display:flex; flex-wrap:wrap; gap:14px; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__btn { display:inline-block; text-decoration:none; text-align:center; padding:18px 34px; border-radius:999px; background:var(--sk-brand); color:#fff; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:16px; font-weight:700; box-shadow:0 10px 26px -10px rgba(27,74,196,.7); transition:background .16s ease, transform .16s ease; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__btn:hover { background:var(--sk-brand-deep); transform:translateY(-2px); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__btn--ghost { background:transparent; color:var(--sk-brand); border:1.5px solid #C9D6F2; box-shadow:none; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__btn--ghost:hover { background:#EEF3FD; color:var(--sk-brand-deep); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__disclaimer { max-width:820px; margin:22px auto 0; font-size:12px; line-height:1.5; color:var(--sk-ink-faint); }
+/* ---- scoring loader (CSS only, keyframes namespaced to this block) ---- */
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__loader {
+  position:fixed; inset:0; z-index:9999; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:34px; background:var(--sk-paper);
+  animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-out .34s ease 2.62s forwards;
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__halo {
+  width:150px; height:150px; border-radius:50%; display:flex;
+  align-items:center; justify-content:center;
+  background:rgba(27,74,196,.10); animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-glow 1.7s ease-in-out infinite;
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__orb {
+  width:86px; height:86px; border-radius:50%;
+  background:linear-gradient(135deg,#1B4AC4,#4E86F0 53%,#2A5BD0);
+  box-shadow:0 0 26px rgba(27,74,196,.42), 0 0 60px rgba(27,74,196,.20);
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__bar {
+  width:min(90vw,460px); height:9px; border-radius:99px;
+  background:#E1E8F6; overflow:hidden;
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__barfill {
+  height:100%; width:0; border-radius:99px;
+  background:linear-gradient(90deg,#1B4AC4,#4E86F0 52%,#2A5BD0);
+  animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-fill 2.6s ease forwards;
+}
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msgs { position:relative; height:78px; width:min(90vw,460px); text-align:center; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msg { position:absolute; inset:0; opacity:0; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msg--1 { animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-m1 2.6s ease forwards; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msg--2 { animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-m2 2.6s ease forwards; }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msg-t { margin:0 0 8px; font-family:"Archivo",ui-sans-serif,sans-serif; font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--sk-ink); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__msg-s { margin:0; font-size:15px; color:var(--sk-ink-soft); }
+.sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__crumbs, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__eyebrow, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__title, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__card, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__disclaimer {
+  opacity:0; animation:sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-in .5s ease 2.96s forwards;
+}
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-glow { 0%,100%{ transform:scale(1); box-shadow:0 0 0 0 rgba(27,74,196,.05) } 50%{ transform:scale(1.04); box-shadow:0 0 0 14px rgba(27,74,196,.04) } }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-fill { from { width:0 } to { width:100% } }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-out  { to { opacity:0; visibility:hidden; pointer-events:none; } }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-in   { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-m1   { 0%{opacity:0} 6%{opacity:1} 44%{opacity:1} 52%{opacity:0} 100%{opacity:0} }
+@keyframes sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit-m2   { 0%{opacity:0} 52%{opacity:0} 60%{opacity:1} 100%{opacity:1} }
+/* respect reduced-motion: show the result immediately, no spin */
+@media (prefers-reduced-motion:reduce) {
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__loader { display:none; }
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__crumbs, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__eyebrow, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__title, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__card, .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__disclaimer { opacity:1; animation:none; }
+  /* The fill starts at width:0 and is animated to --sk-w. Killing the animation without
+     restoring the width would render every meter empty, which is worse than no motion. */
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__fill { width:var(--sk-w); animation:none; }
+}
+
+@media (max-width:860px) {
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit { padding:36px 16px 52px; }
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__card { padding:26px 20px; border-radius:20px; }
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__grid { grid-template-columns:1fr; }
+  .sk-beneve-beneve-influencer-aptitude-test-beneve-aptitude-natural-fit__btn { width:100%; }
+}
