@@ -48,6 +48,19 @@
      A cool-neutral system reads a warm shadow and a green footer as a bug, which
      is exactly what Beneve's navy rebrand surfaced. */
   --sk-shadow-rgb: 18,24,15;
+  /* RGB triplets, added 2026-08-28 alongside the tokens below. CSS cannot take an
+     alpha off a hex token, so every translucent surface in this file had been
+     written as a literal rgba() and every one of them carried the sage brand it
+     was forked from: 6 x rgba(135,155,83) for tints and focus rings, the sage-deep
+     shadow, the olive ink scrim, and three warm neutrals. They defaulted invisibly
+     under a green palette and read as stains under a blue one. Defaults are the
+     original literals, so nothing changed for a page that does not override them. */
+  --sk-brand-rgb:      135,155,83;
+  --sk-brand-deep-rgb: 51,59,32;
+  --sk-ink-rgb:        16,20,16;
+  --sk-paper-rgb:      245,245,240;
+  --sk-line-rgb:       230,224,218;
+  --sk-bar-rgb:        247,244,241;
   --sk-brand-deepest: var(--sk-brand-deep);
   --sk-wash:     #FDFBF9;
   --sk-wash-alt: #FDFAF7;
@@ -168,7 +181,7 @@
   width: 62px; height: 62px;
   border-radius: 50%;
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
-  box-shadow: 0 10px 26px -10px rgba(51,59,32,.8);
+  box-shadow: 0 10px 26px -10px rgba(var(--sk-brand-deep-rgb),.8);
   transition: transform .22s cubic-bezier(.2,.8,.3,1);
 }
 .sk-hub .sk-frame:hover .sk-play { transform: scale(1.06); }
@@ -229,7 +242,7 @@
   flex: none;
   width: 42px; height: 42px;
   border-radius: var(--sk-r-sm);
-  background: linear-gradient(140deg, rgba(135,155,83,.16), rgba(51,59,32,.10));
+  background: linear-gradient(140deg, rgba(var(--sk-brand-rgb),.16), rgba(var(--sk-brand-deep-rgb),.10));
   color: var(--sk-brand-deep);
   transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
 }
@@ -248,7 +261,7 @@
   gap: 12px;
   margin: 0 0 12px;
   padding: 14px 4px 12px;
-  background: linear-gradient(var(--sk-paper) 62%, rgba(245,245,240,0));
+  background: linear-gradient(var(--sk-paper) 62%, rgba(var(--sk-paper-rgb),0));
 }
 .sk-hub .sk-group-label {
   font-family: "Archivo", sans-serif;
@@ -262,7 +275,7 @@
 .sk-hub .sk-group-rule {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+  background: linear-gradient(90deg, var(--sk-line), rgba(var(--sk-line-rgb),0));
 }
 .sk-hub .sk-group-count {
   font-family: "JetBrains Mono", ui-monospace, monospace;
@@ -284,7 +297,7 @@
 .sk-hub .sk-card + .sk-card { margin-top: 10px; }
 
 .sk-hub .sk-card[data-open="true"] {
-  border-color: rgba(135,155,83,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
 }
 
@@ -388,7 +401,7 @@
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(135,155,83,.45);
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
   text-underline-offset: 2px;
   transition: text-decoration-color .2s ease;
 }
@@ -557,7 +570,7 @@
   grid-template-columns: 1fr min(560px, 100%) 1fr;
   margin: 0 -16px;
   padding: 0 16px;
-  background: rgba(247, 244, 241, .88);
+  background: rgba(var(--sk-bar-rgb), .88);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color .25s ease;
@@ -585,7 +598,7 @@
   -webkit-tap-highlight-color: transparent;
   transition: background .2s ease, opacity .2s ease;
 }
-.sk-hub .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-hub .sk-bar-btn:hover { background: rgba(var(--sk-ink-rgb),.05); }
 .sk-hub .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
 .sk-hub .sk-bar-btn[hidden] { display: none; }
 
@@ -663,7 +676,7 @@
   animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
 }
 .sk-hub .sk-dest:hover {
-  border-color: rgba(135,155,83,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }
@@ -757,7 +770,7 @@
 .sk-hub .sk-sheet-scrim {
   position: absolute;
   inset: 0;
-  background: rgba(16,20,16,.5);
+  background: rgba(var(--sk-ink-rgb),.5);
   backdrop-filter: blur(2px);
   animation: sk-hub-fade .22s ease both;
 }
@@ -935,7 +948,7 @@
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(135,155,83,.45);
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
   text-underline-offset: 2px;
 }
 .sk-hub .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
@@ -1025,7 +1038,7 @@
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
 }
 .sk-hub .sk-contact:hover {
-  border-color: rgba(135,155,83,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }

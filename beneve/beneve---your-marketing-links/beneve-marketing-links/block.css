@@ -37,4 +37,13 @@
   --sk-brand-deepest: #0C1830;    /* footer gradient far stop, was sage #333b20 */
   --sk-wash:          #FAFBFD;
   --sk-wash-alt:      #F8FAFC;
+
+  /* the same values as RGB triplets, for the translucent surfaces: tile
+     gradients, focus rings, the sticky bar, the scrim, the two fade-outs */
+  --sk-brand-rgb:      30,56,106;
+  --sk-brand-deep-rgb: 20,40,76;
+  --sk-ink-rgb:        22,35,61;
+  --sk-paper-rgb:      242,245,248;
+  --sk-line-rgb:       227,232,239;
+  --sk-bar-rgb:        246,248,251;
 }
