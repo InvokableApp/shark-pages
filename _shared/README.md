@@ -40,9 +40,24 @@ confirmation page" are the same action, and nothing tells you which one you did.
 | `diagnostic-capture/` | `.sk-dcap` | lander of a diagnostic funnel: full-bleed material photography, one CTA, no lead magnet to picture |
 | `diagnostic-result/` | `.sk-dres` | result page of a diagnostic funnel: meters, a free plan, a what-to-skip list, then a ranked product stack |
 | `howto/` | `.sk-howto` | "how to use this funnel" pages |
+| `links-hub/` | `.sk-hub` | the rep marketing-links hub. **Beneve only so far**: Vital, GLP and Conectiv are still forked copies and move onto it one at a time, each verified against a live rep account. |
 | `product/` | `.sk-prod` | product / sales page |
 | `training/` | `.sk-train` | rep-facing training portal |
 | `shark-reveal/` | n/a | scroll-reveal behaviour only, no styling |
 
 A page's own `block.css` declares **only its palette tokens** and `@import`s the component. A
 per-page override means the component needs a variant, not that the page is special.
+
+
+## A note on the forked components
+
+`links-hub/` exists because four systems were carrying four copies of the same
+page. Measured 2026-08-28 before splitting it out: remove each system's config
+block and normalise the names, and the engines differed by **6 to 8 lines out of
+~530** — and every one of those was config nobody had extracted (scope class, app
+title, theme colour). There was no behavioural difference to preserve.
+
+That is the shape to watch for. If you are about to copy a block folder to start a
+new system, the thing you are copying is almost certainly a component that has not
+been extracted yet. Extracting it later costs one careful migration per already
+installed system; extracting it now costs nothing.
