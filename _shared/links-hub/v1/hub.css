@@ -1,0 +1,1029 @@
+/* ============================================================
+   SHARED REP MARKETING-LINKS HUB  —  _shared/links-hub/v1/hub.css
+
+   ONE stylesheet for every system's rep hub. Scoped under .sk-hub, which every
+   hub block carries alongside its own .sk-{system}-{funnel}-{page} class. The
+   per-page block.css declares ONLY the palette tokens on that page class and
+   they cascade into everything here.
+
+   Forked out of the four near-identical copies on 2026-08-28. Measured before
+   the split: after removing each system's SYS config and normalising names, the
+   engines differed by 6 to 8 lines out of ~530, and every one of those was
+   config that had never been extracted (scope class, app title, theme colour).
+
+   Do not add colour literals below. A per-system value belongs in that page's
+   token block, not here. See _shared/README.md for the versioning rule.
+   ============================================================ */
+
+/* ============================================================
+   DAILY METHOD OF OPERATION
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE page per system. Two things change between systems and nothing else:
+     1. the nine palette tokens below
+     2. the wordmark in .sk-logo
+
+   Scope class is .sk-hub for this dial-in file. In the hosted block it becomes
+   .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+
+.sk-hub *,
+.sk-hub *::before,
+.sk-hub *::after { box-sizing: border-box; }
+
+.sk-hub {  /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
+     system section 2 table; swapping these nine is the whole reskin. */
+  /* structural tokens, identical in every system */
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+  /* full bleed ground, capped content. The measure is a grid column, never an
+     auto margin: components that set the margin shorthand would reset it. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-hub > * { grid-column: 2; }
+
+/* paper grain, keeps the flat off white from reading as an unstyled default */
+.sk-hub .sk-grain {
+  position: fixed;
+  inset: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+.sk-hub > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-hub .sk-head { padding: 40px 4px 8px; text-align: center; }
+
+/* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
+   page belongs to the next system. Inlined as a data URI here so the preview is
+   self contained; in the hosted block it points at _brand/{system}/logo.svg. */
+.sk-hub .sk-logo {
+  display: block;
+  width: 188px;
+  max-width: 64%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-hub-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  /* Sized to land on three lines at the full measure and four on a phone. The
+     width axis does part of that work: dropping from 112 to 100 fits more per
+     line than shrinking alone would, so the headline stays a headline. */
+  font-weight: 800;
+  font-variation-settings: "wdth" 100, "wght" 800;
+  font-size: clamp(21px, 5.4vw, 26px);
+  line-height: 1.12;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-hub-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the brand gradient sits on the two shouted words, same trick as the
+   marketing links title */
+.sk-hub .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* The gradient box is the inline advance width, and glyphs whose ink spills
+     past it lose the overhang: the upper right arm of a trailing Y is the one
+     that shows. Padding grows the paint box, the matching negative margin takes
+     the space back, so nothing on the line moves. */
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+/* ---------------- video facade ---------------- */
+
+.sk-hub .sk-vid {
+  margin-top: 26px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  animation: sk-hub-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  background: var(--sk-brand-tint);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+
+.sk-hub .sk-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 26px -10px rgba(51,59,32,.8);
+  transition: transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.sk-hub .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-hub .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-hub .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+
+/* ---------------- at a glance ---------------- */
+
+.sk-hub .sk-glance { margin-top: 44px; }
+
+.sk-hub .sk-h2 {
+  margin: 0 0 16px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 20px;
+  line-height: 1.16;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sk-hub .sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .sk-hub .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-hub .sk-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  text-align: center;
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-tile span {
+  font-size: 13.5px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+/* icon chip, the .sk-mark component */
+.sk-hub .sk-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(135,155,83,.16), rgba(51,59,32,.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
+}
+.sk-hub .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+
+/* ---------------- group header ---------------- */
+
+.sk-hub .sk-group { margin-top: 40px; }
+
+.sk-hub .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(245,245,240,0));
+}
+.sk-hub .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+.sk-hub .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+}
+.sk-hub .sk-group-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- accordion card ---------------- */
+
+.sk-hub .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-hub .sk-card[data-open="true"] {
+  border-color: rgba(135,155,83,.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-hub .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-hub .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-hub .sk-name {
+  display: block;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+  text-wrap: balance;
+}
+
+.sk-hub .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  transition: opacity .25s ease;
+}
+.sk-hub .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-hub .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-hub .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-hub .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
+   without a magic number. Never animate height or max-height here. */
+.sk-hub .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-hub .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-hub .sk-panel-inner { overflow: hidden; }
+.sk-hub .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+
+/* ---------------- panel contents ---------------- */
+
+/* the illustration. House style art, drawn in the palette, never a photo and
+   never a stock render. */
+.sk-hub .sk-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  overflow: hidden;
+}
+.sk-hub .sk-art svg { display: block; width: 100%; height: 100%; }
+
+.sk-hub .sk-desc {
+  margin: 0 0 12px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-desc:last-child { margin-bottom: 0; }
+
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-hub .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
+/* inline links inside body copy */
+.sk-hub .sk-desc a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(135,155,83,.45);
+  text-underline-offset: 2px;
+  transition: text-decoration-color .2s ease;
+}
+.sk-hub .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
+
+/* the lead in line that sits directly above a button */
+.sk-hub .sk-lead {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+
+/* primary action, the .sk-copy component */
+.sk-hub .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-hub .sk-copy:hover { filter: brightness(1.04); }
+.sk-hub .sk-copy:active { transform: scale(.985); }
+.sk-hub .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+
+/* Long label variant. Two CTAs are full sentences rather than the short shouted
+   label the component was tuned for, and uppercase plus .085em tracking turns
+   those into a three line block. Sentence case and tighter tracking keep them
+   readable without touching a word of the copy. */
+.sk-hub .sk-copy--long {
+  min-height: 56px;
+  padding: 14px 20px;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 14.5px;
+  letter-spacing: .005em;
+  line-height: 1.28;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* VIDEO SLOTS, HIDDEN UNTIL THE VIDEOS EXIST.
+   Joe asked for these off the page rather than pointing at nothing. The copy
+   and the buttons are still in the markup, so restoring them is deleting this
+   one rule and filling in the hrefs. Do not delete the markup. */
+.sk-hub .sk-videoslot { display: none; }
+
+/* secondary link, the .sk-chip component */
+.sk-hub .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFBF9;
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-chip:hover,
+.sk-hub .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-hub .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+/* ---------------- footer ---------------- */
+
+.sk-hub .sk-foot { margin-top: 44px; }
+
+.sk-hub .sk-foot-card {
+  padding: 30px var(--sk-pad) 28px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #333b20 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--sk-shadow-lift);
+}
+.sk-hub .sk-foot-eyebrow {
+  margin: 0 0 12px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.sk-hub .sk-foot-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(20px, 5.6vw, 25px);
+  line-height: 1.14;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-hub .sk-foot-copy {
+  margin: 16px auto 0;
+  max-width: 32ch;
+  font-size: 14.6px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+/* ---------------- focus ---------------- */
+
+.sk-hub a:focus-visible,
+.sk-hub button:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+}
+.sk-hub .sk-trigger:focus-visible { outline-offset: -3px; }
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-hub-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-hub *, .sk-hub *::before, .sk-hub *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   THE HUB SHELL
+   Home screen plus four destinations, per Joe's outline. One block, one URL,
+   hash routed, so the whole thing still travels inside a snapshot as a single
+   custom code socket.
+   ============================================================ */
+
+/* ---------------- top bar ---------------- */
+
+.sk-hub .sk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: rgba(247, 244, 241, .88);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.sk-hub[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+
+.sk-hub .sk-bar-in {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+}
+
+.sk-hub .sk-bar-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--sk-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s ease, opacity .2s ease;
+}
+.sk-hub .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-hub .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-hub .sk-bar-btn[hidden] { display: none; }
+
+/* the bar wordmark, shown on the destinations only. On home the big logo in
+   the page body is doing that job and a second one would just repeat it. */
+.sk-hub .sk-bar-mark {
+  justify-self: center;
+  height: 22px;
+  width: auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sk-hub:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+
+/* ---------------- screens ---------------- */
+
+.sk-hub .sk-screen { display: none; }
+.sk-hub .sk-screen[data-active="true"] { display: block; }
+
+/* ---------------- home ---------------- */
+
+.sk-hub .sk-home { padding: 26px 0 0; text-align: center; }
+
+.sk-hub .sk-home-logo {
+  display: block;
+  width: 224px;
+  max-width: 74%;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: sk-hub-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-ask {
+  margin: 0 auto 22px;
+  max-width: 18ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: clamp(23px, 6.6vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-hub-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-ask em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+.sk-hub .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* the four destination cards. Same grammar as the accordion trigger row, so
+   home reads as part of the same page rather than a different product. */
+.sk-hub .sk-dest {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-dest:hover {
+  border-color: rgba(135,155,83,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-hub .sk-dest:active { transform: translateY(0); }
+
+.sk-hub .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-hub .sk-dest:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+.sk-hub .sk-dest-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.006em;
+}
+.sk-hub .sk-dest-tease {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+}
+.sk-hub .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-hub .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-hub .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+
+/* utility pill, deliberately not gradient: it must not compete with the four */
+.sk-hub .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-hub .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-hub .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-hub .sk-a2hs:active { transform: translateY(1px); }
+
+/* ---------------- destination page head ---------------- */
+
+.sk-hub .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+
+.sk-hub .sk-page-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-hub .sk-page-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* ---------------- nav sheet ---------------- */
+
+.sk-hub .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-hub .sk-sheet[hidden] { display: none; }
+
+.sk-hub .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16,20,16,.5);
+  backdrop-filter: blur(2px);
+  animation: sk-hub-fade .22s ease both;
+}
+.sk-hub .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-hub-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-hub .sk-sheet { align-items: center; }
+  .sk-hub .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+.sk-hub .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-hub .sk-sheet-grip { display: none; } }
+
+.sk-hub .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sk-hub .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+}
+.sk-hub .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-hub .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+
+.sk-hub .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+
+.sk-hub .sk-nav {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: inherit;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 15.5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.sk-hub .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-hub .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-hub .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-hub .sk-nav[aria-current="page"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- route: leads ---------------- */
+
+.sk-hub .sk-route {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-hub .sk-route + .sk-route { margin-top: 10px; }
+.sk-hub .sk-route-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.sk-hub .sk-route-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.6px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-route-act { grid-column: 1 / -1; }
+
+/* numbered steps, CSS counter so the markup carries no numerals */
+.sk-hub .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sk-hub .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-hub .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+}
+.sk-hub .sk-steps b { font-weight: 700; }
+
+/* app store row */
+.sk-hub .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-hub .sk-store { flex-direction: row; } .sk-hub .sk-store a { flex: 1; } }
+
+/* the lede paragraphs. Left aligned on a ch measure, because centred body copy
+   stops being readable past about two lines. */
+.sk-hub .sk-lede { margin-top: 26px; }
+.sk-hub .sk-lede p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-lede p:first-child {
+  font-size: 16.4px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-hub .sk-lede p:last-child { margin-bottom: 0; }
+.sk-hub .sk-lede a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(135,155,83,.45);
+  text-underline-offset: 2px;
+}
+.sk-hub .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
+
+/* ---------------- route: links ---------------- */
+
+/* one dropdown per funnel, name left, copy right, exactly as the live page */
+.sk-hub .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFAF7;
+}
+.sk-hub .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-hub .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-hub .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-hub .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+.sk-hub .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sk-hub .sk-links .sk-chip { margin-top: 0; }
+
+.sk-hub .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+
+/* preview banner. Says plainly that the data is stand in, so nobody reviews
+   demo urls as if they were a rep's real ones. */
+.sk-hub .sk-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #E8DDB8;
+  border-radius: var(--sk-r-sm);
+  background: #FDF8E8;
+  color: #6B5F34;
+  font-size: 13.6px;
+  line-height: 1.45;
+}
+.sk-hub .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+
+/* ---------------- route: support ---------------- */
+
+.sk-hub .sk-support { display: flex; flex-direction: column; gap: 10px; }
+
+.sk-hub .sk-contact {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.sk-hub .sk-contact:hover {
+  border-color: rgba(135,155,83,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-hub .sk-contact:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- storefront tail ---------------- */
+
+.sk-hub .sk-tail { margin-top: 14px; }
+
+@keyframes sk-hub-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-hub-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
