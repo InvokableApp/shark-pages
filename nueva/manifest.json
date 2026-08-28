@@ -1,0 +1,15 @@
+{
+  "system": "nueva",
+  "blocks": [],
+  "installs": [
+    {
+      "path": "nueva---your-marketing-links/nueva-marketing-links",
+      "funnelId": "ZSoXULfLVi09SdWF7bBY",
+      "pageId": "BPtW8Oo2xU9EhaUI1g5e",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    }
+  ]
+}
