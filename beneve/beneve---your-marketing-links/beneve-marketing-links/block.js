@@ -12,7 +12,7 @@
  */
 window.SHARK_HUB = {
   appTitle:   'Beneve Shark',
-  themeColor: '#879b53',
+  themeColor: '#1E386A',
   brandDir:   'beneve',
   cvFolder:   'Beneve Funnel Links',
   nameCv: 'beneve_rep_first_name',

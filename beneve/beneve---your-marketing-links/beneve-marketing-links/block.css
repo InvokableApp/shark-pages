@@ -4,9 +4,16 @@
  * shared by every rep hub. This file declares ONLY the palette tokens, on the
  * block's own scope class, and they cascade into the shared component.
  *
- * Brand is the BeneveShark sage read off the wordmark, not the beneve.com
- * product palette: the hub should read as the system that sold them, not as the
- * supplement company. Deep and tint are derived from it, not picked by eye.
+ * NAVY, 2026-08-28. The first build made this page sage-green on the reasoning
+ * that the hub should read as the system that sold them rather than as the
+ * supplement company. That was wrong about Beneve's own brand, not just about
+ * the preference: sampling their og-logo.png gives 62,269px of navy #1E386A
+ * against 3,234px of sage #879B53, so navy IS the wordmark and sage is the leaf
+ * accent. shark-pages/_brand/beneve/tokens.css had already recorded that on
+ * 2026-08-26 and this page contradicted it.
+ *
+ * Every value below comes from that tokens file or is derived from it, none is
+ * picked by eye. Sage survives as the accent only, and only in the logo.
  *
  * Nothing else belongs here. A per-page override means the shared component
  * needs a variant, not that this file needs a rule.
@@ -14,14 +21,20 @@
 @import url("https://invokableapp.github.io/shark-pages/_shared/links-hub/v1/hub.css");
 
 .sk-beneve-beneve---your-marketing-links-beneve-marketing-links {
-  --sk-brand:      #879b53;
-  --sk-brand-deep: #333b20;
-  --sk-brand-tint: #f1f3ea;
-  --sk-ink:        #12180F;
-  --sk-ink-soft:   #5D6957;
-  --sk-ink-faint:  #8E9887;
-  --sk-paper:      #F5F5F0;
-  --sk-line:       #E2E3DA;
-  --sk-line-soft:  #EDEDE6;
+  --sk-brand:      #1E386A;   /* --bnv-navy   */
+  --sk-brand-deep: #14284C;   /* --bnv-navy-d */
+  --sk-brand-tint: #EDF0F6;   /* navy at 8% into white */
+  --sk-ink:        #16233D;   /* --bnv-ink    */
+  --sk-ink-soft:   #4A5568;   /* --bnv-body   */
+  --sk-ink-faint:  #8892A6;
+  --sk-paper:      #F2F5F8;   /* --bnv-mist   */
+  --sk-line:       #E3E8EF;   /* --bnv-line   */
+  --sk-line-soft:  #EDF1F6;
   --sk-card:       #ffffff;
+
+  /* the three shared-component tokens whose defaults carry an olive cast */
+  --sk-shadow-rgb:    22,35,61;   /* --bnv-ink, so shadows go cool not warm */
+  --sk-brand-deepest: #0C1830;    /* footer gradient far stop, was sage #333b20 */
+  --sk-wash:          #FAFBFD;
+  --sk-wash-alt:      #F8FAFC;
 }

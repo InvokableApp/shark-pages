@@ -201,5 +201,43 @@
       "elementTitle": "beneve-skin-how-to",
       "pattern": "A"
     }
+  ],
+  "installs": [
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+      "funnelId": "ZkBx2piCQl8UcfONX7o2",
+      "pageId": "NAmipZHZsp1SXDNrqavN",
+      "elementId": "custom-code-k7043skk96",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+      "funnelId": "ZkBx2piCQl8UcfONX7o2",
+      "pageId": "Ce1nMXjTPSCONQwZIYXt",
+      "elementId": "custom-code-br6mfc1x4y",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+      "funnelId": "szbPZHxMpl51YqhP3hVs",
+      "pageId": "l1ApYd20iSNW5Sr5Fq0u",
+      "elementId": "custom-code-ajgnezv74r",
+      "elementTitle": "Become an Influencer",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "beneve---your-marketing-links/beneve-marketing-links",
+      "funnelId": "ZSoXULfLVi09SdWF7bBY",
+      "pageId": "0Q9t0S91EOCIj6nH0F1w",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    }
   ]
 }
