@@ -1,0 +1,44 @@
+/* NUEVA / nueva---your-marketing-links / nueva-marketing-links
+ *
+ * ONE-OFF, 2026-08-28. A clone of the Beneve rep hub for Joe to screen-record as a
+ * NUEVA tease. There are no NUEVA funnels yet, so the cards still point at the Beneve
+ * campaign shapes. This is a demo skin, not a shippable system page.
+ *
+ * The design lives in _shared/links-hub/v1/hub.css, scoped under .sk-hub. This file
+ * declares ONLY the palette tokens, on the block's own scope class.
+ *
+ * Every value is sampled from nuevalife.com, not invented. Their stylesheet names
+ * #0ABAB5 as --nuevag33-teal and --promo-bg (124 uses across the site), #079F9B as the
+ * deep variant, #E8F8F6 as the tint, #071116 as --nuevasec2-ink, #F7FBFC and #D2D9DB as
+ * the paper and line. Their logo confirms the split: the wordmark in logo-dark.svg is
+ * #141313 and the mark in logon.png is #06BCB6, so the lockup is a near-black wordmark
+ * with a teal glyph, and NUEVASHARK is built the same way.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/links-hub/v1/hub.css");
+
+.sk-nueva-nueva---your-marketing-links-nueva-marketing-links {
+  --sk-brand:      #0ABAB5;   /* --nuevag33-teal / --promo-bg */
+  --sk-brand-deep: #079F9B;   /* their deep teal              */
+  --sk-brand-tint: #E8F8F6;   /* their teal wash              */
+  --sk-ink:        #071116;   /* --nuevasec2-ink              */
+  --sk-ink-soft:   #46595C;
+  --sk-ink-faint:  #8299A0;
+  --sk-paper:      #F7FBFC;   /* --nuevacustomerfavs-paper    */
+  --sk-line:       #D2D9DB;   /* --nuevacustomerfavs-line     */
+  --sk-line-soft:  #E4ECEE;
+  --sk-card:       #ffffff;
+
+  /* the shared component's three defaults carry an olive cast; override them */
+  --sk-shadow-rgb:    7,17,22;
+  --sk-brand-deepest: #04615F;
+  --sk-wash:          #F9FDFD;
+  --sk-wash-alt:      #F6FCFC;
+
+  /* the same values as RGB triplets, for the translucent surfaces */
+  --sk-brand-rgb:      10,186,181;
+  --sk-brand-deep-rgb: 7,159,155;
+  --sk-ink-rgb:        7,17,22;
+  --sk-paper-rgb:      247,251,252;
+  --sk-line-rgb:       210,217,219;
+  --sk-bar-rgb:        246,251,252;
+}
