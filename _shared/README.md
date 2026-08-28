@@ -48,6 +48,24 @@ confirmation page" are the same action, and nothing tells you which one you did.
 A page's own `block.css` declares **only its palette tokens** and `@import`s the component. A
 per-page override means the component needs a variant, not that the page is special.
 
+⚠️ **A component forked out of one system arrives full of that system's colour.**
+`links-hub/v1` shipped with 19 colour literals nobody noticed, because under the sage palette
+they were forked from they looked correct: a green footer-gradient stop, warm off-whites, warm
+shadow ink, and six `rgba()` tints for icon tiles and focus rings. Beneve's navy rebrand set
+every hex token and still rendered olive tiles over a green footer.
+
+Two rules came out of it:
+
+1. **Hex tokens are not enough.** CSS cannot take an alpha off a hex token, so every
+   translucent surface needs an RGB-triplet token beside it (`--sk-brand-rgb`, `--sk-ink-rgb`,
+   …). Ship them together or the alpha surfaces keep the old hue.
+2. **Verify a reskin by rendering it, not by grepping.** Walk every element under the scope
+   class and read the computed `backgroundColor` / `backgroundImage` / `borderColor`. A
+   literal inside a shorthand or a gradient stop survives a source grep intact.
+
+When forking the next component out of a system, do this sweep first, on the copy, before any
+second system adopts it.
+
 
 ## A note on the forked components
 
