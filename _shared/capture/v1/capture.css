@@ -224,6 +224,14 @@
 /* opt out of the page-wide mobile full-width button rule, or the label collapses to zero */
 .sk-cap .sk-cap-bar .sk-cap-btn{flex:0 0 auto;width:auto;padding:.72rem 1.25rem;font-size:.9rem;
   background:var(--sk-lime,#bcd57a);color:var(--sk-ink,#16233d);box-shadow:none}
+/* A CTA label long enough to say what the thing IS ("Get the free guide") eats the bar on a
+   narrow phone and ellipses the campaign name down to nothing. Tighten both sides below 400px
+   rather than shortening the button, because the button is the part doing the work. */
+@media (max-width:400px){
+  .sk-cap .sk-cap-bar{gap:10px;padding:12px 14px}
+  .sk-cap .sk-cap-bar-name{font-size:.85rem}
+  .sk-cap .sk-cap-bar .sk-cap-btn{padding:.7rem .95rem;font-size:.85rem}
+}
 
 /* ── legal foot ───────────────────────────────────────────────────────────── */
 .sk-cap .sk-cap-foot{padding:2rem 0 2.5rem;background:var(--sk-mist,#f2f5f8)}
