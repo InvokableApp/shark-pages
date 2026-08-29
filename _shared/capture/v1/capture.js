@@ -30,19 +30,28 @@
   });
 
   // ── mobile CTA bar ────────────────────────────────────────────────────────
+  // Docks at the TOP of the viewport, the house position for every opt-in.
+  //
   // Shown only once the hero CTA has scrolled off the TOP, so the page never shows two copies
   // of the same button. The boundingClientRect.top < 0 test is what distinguishes "hero is above
   // the viewport" from "hero is below it", i.e. the reader is still above the fold.
+  //
+  // The `hidden` attribute is the PRE-JS state only and gets dropped here on init: a bar that is
+  // display:none cannot transition into view, so visibility is carried by .sk-cap-bar-in and the
+  // CSS parks the bar at translateY(-100%) until then. Every early return below happens BEFORE
+  // the attribute comes off, so a browser without IntersectionObserver still shows nothing rather
+  // than a bar stuck across the top of the page.
   (function () {
     var bar = root.querySelector(".sk-cap-bar");
     var hero = root.querySelector("[data-sk-hero-cta]");
     if (!bar || !hero || !("IntersectionObserver" in window)) return;
+    bar.removeAttribute("hidden");
     var place = function () { root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px"); };
-    var show = function (on) { if (on) { bar.removeAttribute("hidden"); place(); } else bar.setAttribute("hidden", ""); };
+    var show = function (on) { bar.classList.toggle("sk-cap-bar-in", on); if (on) place(); };
     new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { show(!en.isIntersecting && en.boundingClientRect.top < 0); });
     }, { threshold: 0 }).observe(hero);
-    window.addEventListener("resize", function () { if (!bar.hasAttribute("hidden")) place(); }, { passive: true });
+    window.addEventListener("resize", function () { if (bar.classList.contains("sk-cap-bar-in")) place(); }, { passive: true });
   })();
 
   // ── reveal on scroll ──────────────────────────────────────────────────────

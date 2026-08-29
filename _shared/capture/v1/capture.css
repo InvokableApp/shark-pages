@@ -200,14 +200,22 @@
 .sk-cap .sk-cap-close .sk-cap-note{color:rgba(255,255,255,.7)}
 
 /* ── mobile CTA bar ───────────────────────────────────────────────────────────
+   DOCKS AT THE TOP. House standard for every opt-in: Joe wants the persistent CTA in the header
+   position, not floating over the bottom of the screen (Jeff, 2026-08-29).
+
    FIXED, not sticky: a hosted block is one element inside the GHL page, so position:sticky
-   would pin the bar inside the block's own box and it would scroll away with it. Ships hidden;
-   capture.js reveals it once the hero CTA has left the TOP of the viewport. */
+   would pin the bar inside the block's own box and it would scroll away with it.
+
+   It ships offscreen rather than display:none, so the entrance can transition. `hidden` is the
+   pre-JS state only, and capture.js drops it on init; after that the visible/invisible state is
+   the .sk-cap-bar-in class. The bar reveals once the hero CTA has left the TOP of the viewport. */
 .sk-cap .sk-cap-bar{
-  display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:none;position:fixed;left:0;right:0;top:0;z-index:60;
   align-items:center;gap:12px;padding:12px 16px;
-  background:var(--sk-navy,#1e386a);box-shadow:0 -6px 20px rgba(22,35,61,.24);
+  background:var(--sk-navy,#1e386a);box-shadow:0 6px 20px rgba(22,35,61,.24);
+  transform:translateY(-100%);transition:transform .28s ease;will-change:transform;
 }
+.sk-cap .sk-cap-bar.sk-cap-bar-in{transform:none}
 .sk-cap .sk-cap-bar[hidden]{display:none !important}
 .sk-cap .sk-cap-bar-name{
   flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
@@ -227,6 +235,7 @@
 @media (prefers-reduced-motion:reduce){
   .sk-cap [data-sk-rev]{opacity:1;transform:none;transition:none}
   .sk-cap .sk-cap-btn{transition:none}
+  .sk-cap .sk-cap-bar{transition:none}
 }
 
 /* ── responsive ───────────────────────────────────────────────────────────── */
@@ -239,9 +248,16 @@
   .sk-cap .sk-cap-strip{grid-template-columns:1fr}
   .sk-cap .sk-cap-bar{display:flex}
   .sk-cap .sk-cap-bar[hidden]{display:none !important}
-  /* leave room so the fixed bar never covers the last CTA */
-  .sk-cap .sk-cap-close{padding-bottom:calc(clamp(3rem,6vw,4.5rem) + var(--sk-bar-h,0px))}
   .sk-cap .sk-cap-btn{width:100%;text-align:center}
+
+  /* Sub-headings read smaller than they measure on a phone. The serif face carries a low
+     x-height, so a 1.16rem heading sits barely above 0.97rem body text, and the pain-card label
+     is uppercase and tracked out at .86rem, which shrinks it further. Both get lifted so the
+     hierarchy still reads at arm's length; the tracking comes in as the size goes up, because
+     uppercase needs less of it once the letters are bigger. (Jeff, 2026-08-29.) */
+  .sk-cap .sk-cap-pain-card h3{font-size:1.02rem;letter-spacing:.1em;margin-bottom:.6rem}
+  .sk-cap .sk-cap-inside-list h3{font-size:1.42rem;margin-bottom:.4rem}
+  .sk-cap .sk-cap-strip figcaption{font-size:1.05rem}
 }
 @media (max-width:560px){
   .sk-cap h1{font-size:2.05rem}
