@@ -1120,3 +1120,36 @@
 @media (prefers-reduced-motion: reduce) {
   .sk-vital-vital---your-funnel-links-vital-user-links-next .sk-more-pill { animation: none; }
 }
+
+/* ---------------- "Click to play" ----------------
+   The bare circle was not read as a control: Joe looked straight at a shipped card
+   and did not see it (2026-08-30). The icon assumes the viewer already knows the
+   convention; the words do not assume anything. The badge and the label are one
+   centred stack, so .sk-play drops out of its own absolute centring HERE ONLY and
+   the shared video-facade rule is left alone. */
+
+.sk-vital-vital---your-funnel-links-vital-user-links-next .sk-art--play .sk-play-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links-next .sk-art--play .sk-play { position: static; margin: 0; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links-next .sk-art--play .sk-play-label {
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 10.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  box-shadow: var(--sk-shadow);
+}
