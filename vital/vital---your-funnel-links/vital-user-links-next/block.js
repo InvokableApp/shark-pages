@@ -615,4 +615,109 @@ var SYS = {
     openBtn.hidden = false;
   })();
 
+
+  /* ---------- training video sheet ----------
+     One sheet, any number of buttons. Everything a video needs travels on the
+     button (id, title, natural pixel size), so the next one is markup only. */
+  (function () {
+    var sheet = root.querySelector('[data-video-sheet]');
+    if (!sheet) return;
+    var stage = sheet.querySelector('[data-video-stage]');
+    var head  = sheet.querySelector('[data-video-heading]');
+    var lastVideoFocus = null;
+
+    function closeVideo() {
+      /* dropping the iframe is what stops playback: pausing a cross origin player
+         is not something this page is allowed to do, and a sheet that closes while
+         audio keeps running is the add-to-home-screen bug all over again. */
+      stage.innerHTML = '';
+      stage.style.removeProperty('--sk-vid-ar');
+      stage.style.removeProperty('max-width');
+      sheet.hidden = true;
+      document.body.style.overflow = '';
+      if (lastVideoFocus && lastVideoFocus.focus) lastVideoFocus.focus();
+    }
+
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('[data-video]') : null;
+      if (!btn) return;
+      var id = btn.getAttribute('data-video');
+      if (!id) return;
+      lastVideoFocus = btn;
+
+      var w = parseFloat(btn.getAttribute('data-video-w')) || 16;
+      var h = parseFloat(btn.getAttribute('data-video-h')) || 9;
+      stage.style.setProperty('--sk-vid-ar', w + ' / ' + h);
+      // capped by HEIGHT, so a portrait clip fits the sheet instead of scrolling it
+      stage.style.maxWidth = 'calc(' + (w / h).toFixed(4) + ' * 62vh)';
+
+      head.textContent = btn.getAttribute('data-video-title') || 'Watch';
+
+      var f = document.createElement('iframe');
+      f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      f.title = head.textContent;
+      stage.appendChild(f);
+
+      sheet.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = sheet.querySelector('.sk-sheet-x');
+      if (x) x.focus();
+    });
+
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('[data-video-close]')) closeVideo();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !sheet.hidden) closeVideo();
+    });
+  })();
+
+  /* ---------- scroll cue ----------
+     Joe: the glance grid and the leads copy both end flush at the fold, so those
+     screens read as finished and everything under them got ignored.
+
+     MEASURED, never assumed. It appears only when the document really does
+     continue past the viewport, and it retires on the first scroll of a screen,
+     because once a rep has scrolled they know the page moves. Each route resets
+     it, since every screen is a fresh question. */
+  (function () {
+    var cue = root.querySelector('[data-more]');
+    if (!cue) return;
+    var MIN = 140;          // less than this below the fold is not worth a prompt
+    var MOVED = 24;         // a scroll this small still counts as "they know"
+    var armed = false;
+
+    function below() {
+      var doc = document.documentElement;
+      return Math.max(doc.scrollHeight, document.body.scrollHeight) -
+             window.innerHeight - (window.scrollY || window.pageYOffset || 0);
+    }
+    function paint() {
+      var show = armed &&
+                 (window.scrollY || window.pageYOffset || 0) < MOVED &&
+                 below() > MIN;
+      cue.hidden = !show;
+      cue.setAttribute('data-show', String(show));
+    }
+    function arm() {
+      armed = true;
+      paint();
+      // the screen it just switched to may still be settling its fonts and images
+      setTimeout(paint, 260);
+    }
+
+    window.addEventListener('scroll', function () {
+      if ((window.scrollY || window.pageYOffset || 0) >= MOVED) armed = false;
+      paint();
+    }, { passive: true });
+    window.addEventListener('resize', paint);
+    window.addEventListener('hashchange', arm);
+    // an accordion opening or closing changes the height under the fold
+    if (window.ResizeObserver) new ResizeObserver(paint).observe(root);
+
+    arm();
+  })();
+
 })();

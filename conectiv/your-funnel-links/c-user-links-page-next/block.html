@@ -90,10 +90,45 @@
   </section>
 
   <!-- ============ FUNNEL LINKS ============ -->
+  <!-- Scroll cue. Shown only when the screen really does continue past the
+       fold and the rep has not scrolled yet. -->
+  <div class="sk-more" data-more hidden>
+    <span class="sk-more-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <span>More below</span>
+    </span>
+  </div>
+
+  <!-- ============ training video sheet ============
+       ONE sheet serves every video on the page. The player is never in the
+       markup: the iframe is built on open and destroyed on close, so a page
+       carrying videos costs nothing until a rep asks for one, and nothing
+       keeps playing behind the scrim. -->
+  <div class="sk-sheet" data-video-sheet hidden>
+    <div class="sk-sheet-scrim" data-video-close></div>
+    <div class="sk-sheet-panel sk-vidpanel" role="dialog" aria-modal="true" aria-labelledby="sk-video-title" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-video-title" data-video-heading>Watch</h2>
+        <button class="sk-sheet-x" type="button" data-video-close aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sk-vidstage" data-video-stage></div>
+    </div>
+  </div>
+
   <section class="sk-screen" data-screen="links">
     <header class="sk-page-head">
       <h1 class="sk-page-title">Your Funnel Links</h1>
       <p class="sk-page-sub">Every funnel you can share. Tap one, copy the link, post it.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221839256"
+              data-video-title="View Your Funnel Links"
+              data-video-w="196" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
     </header>
     <div style="height:22px"></div>
     <div data-links></div>
@@ -104,6 +139,13 @@
     <header class="sk-page-head">
       <h1 class="sk-page-title">Your Leads</h1>
       <p class="sk-page-sub">One inbox for every lead, every funnel, on your phone.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221821167"
+              data-video-title="View My Leads"
+              data-video-w="240" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
     </header>
 
     <div class="sk-lede">
@@ -279,8 +321,8 @@
         <div class="sk-panel-inner">
           <div class="sk-panel-pad">
 
-            <div class="sk-art" aria-hidden="true">
-              <svg viewBox="0 0 320 180" role="img">
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
                 <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
                 <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
                 <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
@@ -297,13 +339,13 @@
                 <circle cx="169" cy="50" r="7" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
                 <rect x="181" y="47" width="34" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".14"/>
                 <rect x="161" y="64" width="68" height="60" rx="8" fill="url(#dmoG2)" opacity=".16"/>
-                <path d="M181 82l22 12-22 12z" fill="url(#dmoG2)"/>
                 <rect x="161" y="132" width="46" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
                 <circle cx="256" cy="42" r="11" fill="var(--sk-brand)"/>
                 <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
                 <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
               </svg>
-            </div>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
 
             <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
             <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
@@ -337,8 +379,8 @@
         <div class="sk-panel-inner">
           <div class="sk-panel-pad">
 
-            <div class="sk-art" aria-hidden="true">
-              <svg viewBox="0 0 320 180" role="img">
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
                 <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
                 <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
                 <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
@@ -358,7 +400,8 @@
                 </g>
                 <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
               </svg>
-            </div>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
 
             <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
             <p class="sk-desc">Remember, LIKES and COMMENTS = Leads!</p>

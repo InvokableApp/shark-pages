@@ -1090,3 +1090,112 @@
   padding: 0 13px;
   font-size: 11px;
 }
+
+/* ---------------- training video: button, play overlay, sheet ----------------
+   The button is the .sk-chip vocabulary (outline, brand-deep label, brand icon)
+   turned into a centred pill, so it reads as clearly secondary and never competes
+   with a Copy Funnel Link. On the social cards the ILLUSTRATION becomes the
+   button: it is already the biggest thing in an open card, so it is what a thumb
+   goes for, and a second control beside it would just be clutter.
+
+   The stage is sized from the video's OWN pixels, passed in on the button. That
+   matters: these are portrait phone recordings, and a portrait video forced into
+   the page's 16:9 facade letterboxes into a sliver. Width is capped by height so
+   a tall clip stays inside the sheet instead of pushing it into a scroll. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 17px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: inherit;
+  font-size: 13.2px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: background .2s ease, border-color .2s ease, transform .18s cubic-bezier(.2,.8,.3,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn:active { transform: scale(.98); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(16,20,16,.17) 0%, rgba(16,20,16,0) 60%);
+  pointer-events: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play .sk-play { z-index: 1; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play:hover .sk-play { transform: scale(1.06); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play:active .sk-play { transform: scale(.97); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidpanel { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidstage {
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: var(--sk-vid-ar, 16 / 9);
+  border-radius: var(--sk-r-sm);
+  overflow: hidden;
+  background: #0B0D0B;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidstage iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* ---------------- scroll cue ----------------
+   Some screens end on a tidy full width block (the glance grid, the leads copy)
+   that reads as the bottom of the page, so everything under it went unread. The
+   cue is shown ONLY while there is genuinely more below and the rep has not
+   scrolled yet, and it retires for good on the first scroll: a permanent arrow
+   is furniture, and furniture stops being read. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more[hidden] { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more[data-show="true"] { opacity: 1; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 12.6px;
+  font-weight: 600;
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-bob 1.9s ease-in-out infinite;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill { animation: none; }
+}
