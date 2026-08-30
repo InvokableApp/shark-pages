@@ -1,0 +1,2008 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>nueva/nueva---your-marketing-links/nueva-marketing-links — local preview (ucXosnBgZ6FxqeEBuApn)</title>
+<style>html,body{margin:0;padding:0;background:#f4f4f5}
+
+/* NUEVA / nueva---your-marketing-links / nueva-marketing-links
+ *
+ * ⚠️ THE REP NAME IS HARDCODED TO "John" IN block.html. See REVERT-ME.md in this
+ * folder. Set for a sales call, must go back to the merge field.
+ *
+ * ONE-OFF, 2026-08-28. A clone of the Beneve rep hub for Joe to screen-record as a
+ * NUEVA tease. There are no NUEVA funnels yet, so the cards still point at the Beneve
+ * campaign shapes. This is a demo skin, not a shippable system page.
+ *
+ * The design lives in _shared/links-hub/v1/hub.css, scoped under .sk-hub. This file
+ * declares ONLY the palette tokens, on the block's own scope class.
+ *
+ * Every value is sampled from nuevalife.com, not invented. Their stylesheet names
+ * #0ABAB5 as --nuevag33-teal and --promo-bg (124 uses across the site), #079F9B as the
+ * deep variant, #E8F8F6 as the tint, #071116 as --nuevasec2-ink, #F7FBFC and #D2D9DB as
+ * the paper and line. Their logo confirms the split: the wordmark in logo-dark.svg is
+ * #141313 and the mark in logon.png is #06BCB6, so the lockup is a near-black wordmark
+ * with a teal glyph, and NUEVASHARK is built the same way.
+ */
+/* inlined from _shared/links-hub/v1/hub.css */
+/* ============================================================
+   SHARED REP MARKETING-LINKS HUB  —  _shared/links-hub/v1/hub.css
+
+   ONE stylesheet for every system's rep hub. Scoped under .sk-hub, which every
+   hub block carries alongside its own .sk-{system}-{funnel}-{page} class. The
+   per-page block.css declares ONLY the palette tokens on that page class and
+   they cascade into everything here.
+
+   Forked out of the four near-identical copies on 2026-08-28. Measured before
+   the split: after removing each system's SYS config and normalising names, the
+   engines differed by 6 to 8 lines out of ~530, and every one of those was
+   config that had never been extracted (scope class, app title, theme colour).
+
+   Do not add colour literals below. A per-system value belongs in that page's
+   token block, not here. See _shared/README.md for the versioning rule.
+   ============================================================ */
+
+/* ============================================================
+   DAILY METHOD OF OPERATION
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE page per system. Two things change between systems and nothing else:
+     1. the nine palette tokens below
+     2. the wordmark in .sk-logo
+
+   Scope class is .sk-hub for this dial-in file. In the hosted block it becomes
+   .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+
+.sk-hub *,
+.sk-hub *::before,
+.sk-hub *::after { box-sizing: border-box; }
+
+.sk-hub {  /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
+     system section 2 table; swapping these nine is the whole reskin. */
+  /* structural tokens, identical in every system */
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  /* Three tokens added 2026-08-28. Each one replaces a colour LITERAL that had
+     been sitting in this shared file since the fork, carrying the olive cast of
+     the system it was written for. They default to those same values, so no
+     rendered pixel changed on any page that does not override them.
+       --sk-shadow-rgb  the ink the shadows are tinted with
+       --sk-brand-deepest  the far stop of the footer gradient (was #333b20)
+       --sk-wash / --sk-wash-alt  the two off-white insets (were #FDFBF9/#FDFAF7)
+     A cool-neutral system reads a warm shadow and a green footer as a bug, which
+     is exactly what Beneve's navy rebrand surfaced. */
+  --sk-shadow-rgb: 18,24,15;
+  /* RGB triplets, added 2026-08-28 alongside the tokens below. CSS cannot take an
+     alpha off a hex token, so every translucent surface in this file had been
+     written as a literal rgba() and every one of them carried the sage brand it
+     was forked from: 6 x rgba(135,155,83) for tints and focus rings, the sage-deep
+     shadow, the olive ink scrim, and three warm neutrals. They defaulted invisibly
+     under a green palette and read as stains under a blue one. Defaults are the
+     original literals, so nothing changed for a page that does not override them. */
+  --sk-brand-rgb:      135,155,83;
+  --sk-brand-deep-rgb: 51,59,32;
+  --sk-ink-rgb:        16,20,16;
+  --sk-paper-rgb:      245,245,240;
+  --sk-line-rgb:       230,224,218;
+  --sk-bar-rgb:        247,244,241;
+  --sk-brand-deepest: var(--sk-brand-deep);
+  --sk-wash:     #FDFBF9;
+  --sk-wash-alt: #FDFAF7;
+  --sk-shadow: 0 1px 2px rgba(var(--sk-shadow-rgb),.04), 0 8px 24px -12px rgba(var(--sk-shadow-rgb),.18);
+  --sk-shadow-lift: 0 2px 4px rgba(var(--sk-shadow-rgb),.05), 0 18px 40px -18px rgba(var(--sk-shadow-rgb),.28);
+  /* full bleed ground, capped content. The measure is a grid column, never an
+     auto margin: components that set the margin shorthand would reset it. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-hub > * { grid-column: 2; }
+
+/* paper grain, keeps the flat off white from reading as an unstyled default */
+.sk-hub .sk-grain {
+  position: fixed;
+  inset: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+.sk-hub > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-hub .sk-head { padding: 40px 4px 8px; text-align: center; }
+
+/* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
+   page belongs to the next system. Inlined as a data URI here so the preview is
+   self contained; in the hosted block it points at _brand/{system}/logo.svg. */
+.sk-hub .sk-logo {
+  display: block;
+  width: 188px;
+  max-width: 64%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-hub-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  /* Sized to land on three lines at the full measure and four on a phone. The
+     width axis does part of that work: dropping from 112 to 100 fits more per
+     line than shrinking alone would, so the headline stays a headline. */
+  font-weight: 800;
+  font-variation-settings: "wdth" 100, "wght" 800;
+  font-size: clamp(21px, 5.4vw, 26px);
+  line-height: 1.12;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-hub-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the brand gradient sits on the two shouted words, same trick as the
+   marketing links title */
+.sk-hub .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* The gradient box is the inline advance width, and glyphs whose ink spills
+     past it lose the overhang: the upper right arm of a trailing Y is the one
+     that shows. Padding grows the paint box, the matching negative margin takes
+     the space back, so nothing on the line moves. */
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+/* ---------------- video facade ---------------- */
+
+.sk-hub .sk-vid {
+  margin-top: 26px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  animation: sk-hub-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  background: var(--sk-brand-tint);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+
+.sk-hub .sk-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 26px -10px rgba(var(--sk-brand-deep-rgb),.8);
+  transition: transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.sk-hub .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-hub .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-hub .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+
+/* ---------------- at a glance ---------------- */
+
+.sk-hub .sk-glance { margin-top: 44px; }
+
+.sk-hub .sk-h2 {
+  margin: 0 0 16px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 20px;
+  line-height: 1.16;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sk-hub .sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .sk-hub .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-hub .sk-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  text-align: center;
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-tile span {
+  font-size: 13.5px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+/* icon chip, the .sk-mark component */
+.sk-hub .sk-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(var(--sk-brand-rgb),.16), rgba(var(--sk-brand-deep-rgb),.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
+}
+.sk-hub .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+
+/* ---------------- group header ---------------- */
+
+.sk-hub .sk-group { margin-top: 40px; }
+
+.sk-hub .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(var(--sk-paper-rgb),0));
+}
+.sk-hub .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+.sk-hub .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(var(--sk-line-rgb),0));
+}
+.sk-hub .sk-group-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- accordion card ---------------- */
+
+.sk-hub .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-hub .sk-card[data-open="true"] {
+  border-color: rgba(var(--sk-brand-rgb),.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-hub .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-hub .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-hub .sk-name {
+  display: block;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+  text-wrap: balance;
+}
+
+.sk-hub .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  transition: opacity .25s ease;
+}
+.sk-hub .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-hub .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-hub .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-hub .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
+   without a magic number. Never animate height or max-height here. */
+.sk-hub .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-hub .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-hub .sk-panel-inner { overflow: hidden; }
+.sk-hub .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+
+/* ---------------- panel contents ---------------- */
+
+/* the illustration. House style art, drawn in the palette, never a photo and
+   never a stock render. */
+.sk-hub .sk-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  overflow: hidden;
+}
+.sk-hub .sk-art svg { display: block; width: 100%; height: 100%; }
+
+.sk-hub .sk-desc {
+  margin: 0 0 12px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-desc:last-child { margin-bottom: 0; }
+
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-hub .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
+/* inline links inside body copy */
+.sk-hub .sk-desc a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
+  text-underline-offset: 2px;
+  transition: text-decoration-color .2s ease;
+}
+.sk-hub .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
+
+/* the lead in line that sits directly above a button */
+.sk-hub .sk-lead {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+
+/* primary action, the .sk-copy component */
+.sk-hub .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-hub .sk-copy:hover { filter: brightness(1.04); }
+.sk-hub .sk-copy:active { transform: scale(.985); }
+.sk-hub .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+
+/* Long label variant. Two CTAs are full sentences rather than the short shouted
+   label the component was tuned for, and uppercase plus .085em tracking turns
+   those into a three line block. Sentence case and tighter tracking keep them
+   readable without touching a word of the copy. */
+.sk-hub .sk-copy--long {
+  min-height: 56px;
+  padding: 14px 20px;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 14.5px;
+  letter-spacing: .005em;
+  line-height: 1.28;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* VIDEO SLOTS, HIDDEN UNTIL THE VIDEOS EXIST.
+   Joe asked for these off the page rather than pointing at nothing. The copy
+   and the buttons are still in the markup, so restoring them is deleting this
+   one rule and filling in the hrefs. Do not delete the markup. */
+.sk-hub .sk-videoslot { display: none; }
+
+/* secondary link, the .sk-chip component */
+.sk-hub .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-wash);
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-chip:hover,
+.sk-hub .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-hub .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+/* ---------------- footer ---------------- */
+
+.sk-hub .sk-foot { margin-top: 44px; }
+
+.sk-hub .sk-foot-card {
+  padding: 30px var(--sk-pad) 28px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, var(--sk-brand-deepest) 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--sk-shadow-lift);
+}
+.sk-hub .sk-foot-eyebrow {
+  margin: 0 0 12px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.sk-hub .sk-foot-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(20px, 5.6vw, 25px);
+  line-height: 1.14;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-hub .sk-foot-copy {
+  margin: 16px auto 0;
+  max-width: 32ch;
+  font-size: 14.6px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+/* ---------------- focus ---------------- */
+
+.sk-hub a:focus-visible,
+.sk-hub button:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+}
+.sk-hub .sk-trigger:focus-visible { outline-offset: -3px; }
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-hub-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-hub *, .sk-hub *::before, .sk-hub *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   THE HUB SHELL
+   Home screen plus four destinations, per Joe's outline. One block, one URL,
+   hash routed, so the whole thing still travels inside a snapshot as a single
+   custom code socket.
+   ============================================================ */
+
+/* ---------------- top bar ---------------- */
+
+.sk-hub .sk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: rgba(var(--sk-bar-rgb), .88);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.sk-hub[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+
+.sk-hub .sk-bar-in {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+}
+
+.sk-hub .sk-bar-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--sk-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s ease, opacity .2s ease;
+}
+.sk-hub .sk-bar-btn:hover { background: rgba(var(--sk-ink-rgb),.05); }
+.sk-hub .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-hub .sk-bar-btn[hidden] { display: none; }
+
+/* the bar wordmark, shown on the destinations only. On home the big logo in
+   the page body is doing that job and a second one would just repeat it. */
+.sk-hub .sk-bar-mark {
+  justify-self: center;
+  height: 22px;
+  width: auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sk-hub:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+
+/* ---------------- screens ---------------- */
+
+.sk-hub .sk-screen { display: none; }
+.sk-hub .sk-screen[data-active="true"] { display: block; }
+
+/* ---------------- home ---------------- */
+
+.sk-hub .sk-home { padding: 26px 0 0; text-align: center; }
+
+.sk-hub .sk-home-logo {
+  display: block;
+  width: 224px;
+  max-width: 74%;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: sk-hub-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-hub .sk-ask {
+  margin: 0 auto 22px;
+  max-width: 18ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: clamp(23px, 6.6vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-hub-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-ask em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+.sk-hub .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* the four destination cards. Same grammar as the accordion trigger row, so
+   home reads as part of the same page rather than a different product. */
+.sk-hub .sk-dest {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+  animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-hub .sk-dest:hover {
+  border-color: rgba(var(--sk-brand-rgb),.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-hub .sk-dest:active { transform: translateY(0); }
+
+.sk-hub .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-hub .sk-dest:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+.sk-hub .sk-dest-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.006em;
+}
+.sk-hub .sk-dest-tease {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+}
+.sk-hub .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-hub .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-hub .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+
+/* utility pill, deliberately not gradient: it must not compete with the four */
+.sk-hub .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-hub .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-hub .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-hub .sk-a2hs:active { transform: translateY(1px); }
+
+/* ---------------- destination page head ---------------- */
+
+.sk-hub .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+
+.sk-hub .sk-page-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-hub .sk-page-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* ---------------- nav sheet ---------------- */
+
+.sk-hub .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-hub .sk-sheet[hidden] { display: none; }
+
+.sk-hub .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--sk-ink-rgb),.5);
+  backdrop-filter: blur(2px);
+  animation: sk-hub-fade .22s ease both;
+}
+.sk-hub .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-hub-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-hub .sk-sheet { align-items: center; }
+  .sk-hub .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+.sk-hub .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-hub .sk-sheet-grip { display: none; } }
+
+.sk-hub .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sk-hub .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+}
+.sk-hub .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-hub .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+
+.sk-hub .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+
+.sk-hub .sk-nav {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: inherit;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 15.5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.sk-hub .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-hub .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-hub .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-hub .sk-nav[aria-current="page"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- route: leads ---------------- */
+
+.sk-hub .sk-route {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-hub .sk-route + .sk-route { margin-top: 10px; }
+.sk-hub .sk-route-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.sk-hub .sk-route-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.6px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-route-act { grid-column: 1 / -1; }
+
+/* numbered steps, CSS counter so the markup carries no numerals */
+.sk-hub .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sk-hub .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-hub .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+}
+.sk-hub .sk-steps b { font-weight: 700; }
+
+/* app store row */
+.sk-hub .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-hub .sk-store { flex-direction: row; } .sk-hub .sk-store a { flex: 1; } }
+
+/* the lede paragraphs. Left aligned on a ch measure, because centred body copy
+   stops being readable past about two lines. */
+.sk-hub .sk-lede { margin-top: 26px; }
+.sk-hub .sk-lede p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+}
+.sk-hub .sk-lede p:first-child {
+  font-size: 16.4px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-hub .sk-lede p:last-child { margin-bottom: 0; }
+.sk-hub .sk-lede a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
+  text-underline-offset: 2px;
+}
+.sk-hub .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
+
+/* ---------------- route: links ---------------- */
+
+/* one dropdown per funnel, name left, copy right, exactly as the live page */
+.sk-hub .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-wash-alt);
+}
+.sk-hub .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-hub .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-hub .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-hub .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+.sk-hub .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sk-hub .sk-links .sk-chip { margin-top: 0; }
+
+.sk-hub .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+
+/* preview banner. Says plainly that the data is stand in, so nobody reviews
+   demo urls as if they were a rep's real ones. */
+.sk-hub .sk-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #E8DDB8;
+  border-radius: var(--sk-r-sm);
+  background: #FDF8E8;
+  color: #6B5F34;
+  font-size: 13.6px;
+  line-height: 1.45;
+}
+.sk-hub .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+
+/* ---------------- route: support ---------------- */
+
+.sk-hub .sk-support { display: flex; flex-direction: column; gap: 10px; }
+
+.sk-hub .sk-contact {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.sk-hub .sk-contact:hover {
+  border-color: rgba(var(--sk-brand-rgb),.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-hub .sk-contact:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- storefront tail ---------------- */
+
+.sk-hub .sk-tail { margin-top: 14px; }
+
+@keyframes sk-hub-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-hub-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+/* ============================================================
+   PRODUCT LIST  (.sk-plist / .sk-prow)
+   Added 2026-08-28. The engine has always emitted these four classes and the
+   stylesheet never carried a rule for any of them, in ANY of the four forks, so
+   every rep hub has been rendering the product list as a default browser <ul>:
+   disc bullets, #0000EE underlined links, and a full-width 52px gradient button
+   under each row because .sk-copy--mini had no rule to shrink it.
+
+   Purely additive — no existing rule changes meaning, so v1 stays v1 per
+   _shared/README.md rule 2. Verified: zero of these selectors were styled
+   before, in the shared sheet or in any fork's block.css.
+   ============================================================ */
+
+.sk-hub .sk-plist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sk-hub .sk-prow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--sk-line-soft);
+}
+.sk-hub .sk-prow:last-child { border-bottom: 0; padding-bottom: 0; }
+.sk-hub .sk-prow:first-child { padding-top: 0; }
+
+.sk-hub .sk-prow-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--sk-ink);
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 14.5px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.sk-hub .sk-prow-name:hover { color: var(--sk-brand-deep); }
+
+/* The row's action sits beside the name, not under it: a full-width CTA per row
+   turns a five product list into five stacked buttons. */
+.sk-hub .sk-copy--mini {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 34px;
+  margin-top: 0;
+  padding: 0 13px;
+  gap: 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.sk-hub .sk-copy--mini svg { width: 14px; height: 14px; }
+
+.sk-hub .sk-chip--go {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 13px;
+  font-size: 11px;
+}
+
+/* ---------------- training video: button, play overlay, sheet ----------------
+   The button is the .sk-chip vocabulary (outline, brand-deep label, brand icon)
+   turned into a centred pill, so it reads as clearly secondary and never competes
+   with a Copy Funnel Link. On the social cards the ILLUSTRATION becomes the
+   button: it is already the biggest thing in an open card, so it is what a thumb
+   goes for, and a second control beside it would just be clutter.
+
+   The stage is sized from the video's OWN pixels, passed in on the button. That
+   matters: these are portrait phone recordings, and a portrait video forced into
+   the page's 16:9 facade letterboxes into a sliver. Width is capped by height so
+   a tall clip stays inside the sheet instead of pushing it into a scroll. */
+
+.sk-hub .sk-vidbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 17px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: inherit;
+  font-size: 13.2px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: background .2s ease, border-color .2s ease, transform .18s cubic-bezier(.2,.8,.3,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-vidbtn:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-hub .sk-vidbtn:active { transform: scale(.98); }
+.sk-hub .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+.sk-hub .sk-art--play {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-hub .sk-art--play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(16,20,16,.17) 0%, rgba(16,20,16,0) 60%);
+  pointer-events: none;
+}
+.sk-hub .sk-art--play .sk-play { z-index: 1; }
+.sk-hub .sk-art--play:hover .sk-play { transform: scale(1.06); }
+.sk-hub .sk-art--play:active .sk-play { transform: scale(.97); }
+
+.sk-hub .sk-vidpanel { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+
+.sk-hub .sk-vidstage {
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: var(--sk-vid-ar, 16 / 9);
+  border-radius: var(--sk-r-sm);
+  overflow: hidden;
+  background: #0B0D0B;
+}
+.sk-hub .sk-vidstage iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* ---------------- scroll cue ----------------
+   Some screens end on a tidy full width block (the glance grid, the leads copy)
+   that reads as the bottom of the page, so everything under it went unread. The
+   cue is shown ONLY while there is genuinely more below and the rep has not
+   scrolled yet, and it retires for good on the first scroll: a permanent arrow
+   is furniture, and furniture stops being read. */
+
+.sk-hub .sk-more {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.sk-hub .sk-more[hidden] { display: none; }
+.sk-hub .sk-more[data-show="true"] { opacity: 1; }
+
+.sk-hub .sk-more-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 12.6px;
+  font-weight: 600;
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-hub-bob 1.9s ease-in-out infinite;
+}
+.sk-hub .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+
+@keyframes sk-hub-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-hub .sk-more-pill { animation: none; }
+}
+
+
+.sk-nueva-nueva---your-marketing-links-nueva-marketing-links {
+  --sk-brand:      #0ABAB5;   /* --nuevag33-teal / --promo-bg */
+  --sk-brand-deep: #079F9B;   /* their deep teal              */
+  --sk-brand-tint: #E8F8F6;   /* their teal wash              */
+  --sk-ink:        #071116;   /* --nuevasec2-ink              */
+  --sk-ink-soft:   #46595C;
+  --sk-ink-faint:  #8299A0;
+  --sk-paper:      #F7FBFC;   /* --nuevacustomerfavs-paper    */
+  --sk-line:       #D2D9DB;   /* --nuevacustomerfavs-line     */
+  --sk-line-soft:  #E4ECEE;
+  --sk-card:       #ffffff;
+
+  /* the shared component's three defaults carry an olive cast; override them */
+  --sk-shadow-rgb:    7,17,22;
+  --sk-brand-deepest: #04615F;
+  --sk-wash:          #F9FDFD;
+  --sk-wash-alt:      #F6FCFC;
+
+  /* the same values as RGB triplets, for the translucent surfaces */
+  --sk-brand-rgb:      10,186,181;
+  --sk-brand-deep-rgb: 7,159,155;
+  --sk-ink-rgb:        7,17,22;
+  --sk-paper-rgb:      247,251,252;
+  --sk-line-rgb:       210,217,219;
+  --sk-bar-rgb:        246,251,252;
+}
+</style></head><body>
+
+<div class="sk-nueva-nueva---your-marketing-links-nueva-marketing-links sk-hub"
+     data-cv-beneve_main_url="thehealthshelf.info"
+     data-cv-beneve_rep_first_name="John"
+     data-cv-beneve_buy_link="beneve.com/maria/customer/shop"
+     data-cv-beneve_opportunity_url="beneve.com/maria/customer/become-an-influencer"
+     data-cv-beneve_gut_advantage_link="beneve.com/maria/customer/product-default/gut-advantage-capsules"
+     data-cv-beneve_glutathione_link="beneve.com/maria/customer/product-default/glutathione"
+     data-cv-beneve_original_coffee_link="beneve.com/maria/customer/product-default/original-coffee-sticks"
+     data-cv-beneveshark_affiliate_link="">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  
+  <div class="sk-bar">
+    <div class="sk-bar-in">
+      <button class="sk-bar-btn" type="button" data-back aria-label="Back to home" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <img class="sk-bar-mark" src="https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/151060bf-aa7c-4456-ad49-73f8447aed98.svg" alt="" aria-hidden="true">
+      <button class="sk-bar-btn" type="button" data-menu-open aria-label="Open menu" style="grid-column:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  <div class="sk-sheet" data-menu hidden>
+    <div class="sk-sheet-scrim" data-menu-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title">Go to</h2>
+        <button class="sk-sheet-x" type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="sk-navlist" data-navlist></nav>
+    </div>
+  </div>
+
+
+  
+  <div class="sk-sheet" data-a2hs-sheet hidden>
+    <div class="sk-sheet-scrim" data-a2hs-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sk-a2hs-title" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-a2hs-title">Keep this page one tap away</h2>
+        <button class="sk-sheet-x" type="button" data-a2hs-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sk-seg" role="group" aria-label="Choose your phone">
+        <button class="sk-seg-btn" type="button" data-os="ios" aria-pressed="false">iPhone</button>
+        <button class="sk-seg-btn" type="button" data-os="android" aria-pressed="false">Android</button>
+      </div>
+      <ol class="sk-steps" data-a2hs-steps></ol>
+      <details class="sk-watch">
+        <summary>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 6 3.5-6 3.5Z"/></svg>
+          <span>Watch it instead <em data-a2hs-size>(1 minute video)</em></span>
+        </summary>
+        <div class="sk-watch-body" data-a2hs-video></div>
+      </details>
+    </div>
+  </div>
+
+  
+  <section class="sk-screen sk-home" data-screen="home">
+    <img class="sk-home-logo" src="https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/151060bf-aa7c-4456-ad49-73f8447aed98.svg" alt="Nueva Shark, AI MARKETING SYSTEM">
+    <h1 class="sk-ask">What would you like to do<span data-comma></span><em data-name></em>?</h1>
+
+    <div class="sk-menu" data-menugrid></div>
+
+    <button class="sk-a2hs" type="button" data-a2hs-open hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
+      </svg>
+      <span data-a2hs-label>Add this page to your home screen</span>
+    </button>
+  </section>
+
+  
+  
+  <div class="sk-more" data-more hidden>
+    <span class="sk-more-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <span>More below</span>
+    </span>
+  </div>
+
+  
+  <div class="sk-sheet" data-video-sheet hidden>
+    <div class="sk-sheet-scrim" data-video-close></div>
+    <div class="sk-sheet-panel sk-vidpanel" role="dialog" aria-modal="true" aria-labelledby="sk-video-title" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-video-title" data-video-heading>Watch</h2>
+        <button class="sk-sheet-x" type="button" data-video-close aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sk-vidstage" data-video-stage></div>
+    </div>
+  </div>
+
+  <section class="sk-screen" data-screen="links">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Funnel Links</h1>
+      <p class="sk-page-sub">Every funnel you can share. Tap one, copy the link, post it.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221839256"
+              data-video-title="View Your Funnel Links"
+              data-video-w="196" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
+    </header>
+    <div style="height:22px"></div>
+    <div data-links></div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="leads">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Leads</h1>
+      <p class="sk-page-sub">One inbox for every lead, every funnel, on your phone.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221821167"
+              data-video-title="View My Leads"
+              data-video-w="240" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
+    </header>
+
+    <div class="sk-lede">
+      <p>Every person who fills in one of your funnels lands in your HighLevel account. That is where you talk to them, and it is the only place you need to check.</p>
+      <p>Download the HighLevel app and log in with the details you were sent when your account was set up. Every text, email and form reply, from every funnel you run, arrives in one inbox. You reply straight from your phone, and you get a notification the moment a new lead comes in, so you can answer while they are still paying attention.</p>
+      <p>Speed matters more than anything you say. A lead who hears back in five minutes is worth many times one you get to tomorrow, so turn notifications ON and reply from wherever you are.</p>
+      <p>Prefer a bigger screen? Log in at <a href="https://go.sharksuite.ai/" target="_blank" rel="noopener">go.sharksuite.ai</a>. Same inbox, same conversations, nothing separate to learn.</p>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Two ways in</span><span class="sk-group-rule"></span></div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.4"/><path d="M8 20.5h8"/><path d="M12 17v3.5"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your computer</span>
+          <span class="sk-route-copy">Log in and everything is on one screen.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://go.sharksuite.ai/" target="_blank" rel="noopener">Log in</a>
+        </span>
+      </div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your phone</span>
+          <span class="sk-route-copy">Get a notification the second a lead comes in.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://sharksuite.ai/shark-app" target="_blank" rel="noopener" style="min-height:46px;font-size:13px">Get the app</a>
+          <div class="sk-store">
+            <a class="sk-chip" href="https://apps.apple.com/us/app/highlevel/id1425004076" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg>
+              Download for iPhone
+            </a>
+            <a class="sk-chip" href="https://play.google.com/store/apps/details?id=com.gohighlevel" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9.5h14v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="m7.5 9.5 1.6-3M16.5 9.5l-1.6-3"/></svg>
+              Download for Android
+            </a>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Where to look</span><span class="sk-group-rule"></span></div>
+      <ol class="sk-steps">
+        <li><span>Open <b>Conversations</b>. Every text, email and form reply lands in one thread per person, so you never lose the history.</span></li>
+        <li><span>Open <b>Contacts</b> to see everyone who has ever opted in, and which funnel they came from.</span></li>
+        <li><span>Open <b>Opportunities</b> to see who is warm, who is hot, and who you still owe a follow up.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="promote">
+  
+  <header class="sk-head">
+    <h1 class="sk-title">If you want to generate <em>CONSISTENT</em> leads for your business, here&#8217;s what you need to do <em>DAILY</em>.</h1>
+  </header>
+
+  
+  <section class="sk-glance">
+    <h2 class="sk-h2">Your Daily Method Of Operation At A Glance:</h2>
+    <div class="sk-tiles">
+
+      <div class="sk-tile" style="animation-delay:.04s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>Text 2 people a day</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.08s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>Post twice on your stories</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.12s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>Post once to your feeds</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.16s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>Answer questions where people are asking questions</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.2s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>Follow up with prospects</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.24s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Run ads</span>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section class="sk-group">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Action Item</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">6</span>
+    </div>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>
+          <span class="sk-name">Text 2 People EVERY DAY!</span>
+          <span class="sk-tease">The one thing you fully control.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="66" fill="#fff" opacity=".6"/>
+                <rect x="122" y="26" width="76" height="128" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="150" y="34" width="20" height="3.5" rx="1.75" fill="var(--sk-ink)" opacity=".18"/>
+                <path d="M139 50h36a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-36a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)"/>
+                <rect x="133" y="80" width="38" height="17" rx="6" fill="var(--sk-ink)" opacity=".08"/>
+                <path d="M145 108h30a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-30a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)" opacity=".85"/>
+                <g fill="none" stroke="var(--sk-ink)" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round">
+                  <circle cx="56" cy="72" r="12"/><path d="M36 106a20 20 0 0 1 40 0"/>
+                  <circle cx="264" cy="72" r="12"/><path d="M244 106a20 20 0 0 1 40 0"/>
+                </g>
+                <g fill="var(--sk-brand)"><circle cx="56" cy="46" r="7"/><circle cx="264" cy="46" r="7"/></g>
+                <text x="56" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">1</text>
+                <text x="264" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">2</text>
+                <path d="M84 84 C 100 82, 108 84, 116 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+                <path d="M236 84 C 220 82, 212 84, 204 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is your <b>HIGHEST-PRIORITY</b> action item because it&#8217;s the single most important thing you can do. Why? Because you have <b>100% control</b> over how many people you reach.</p>
+            <p class="sk-desc">When you post on social media, there&#8217;s no guarantee how many people will actually see it. But if you personally message two people, ideally more, you know your message is reaching them.</p>
+            <p class="sk-desc">Follow the provided scripts, and we strongly recommend focusing on the opportunity-based scripts.</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to say?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>
+          <span class="sk-name">Post TWICE To Your META / IG STORIES!</span>
+          <span class="sk-tease">Twice a day, every day, no skipping.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
+                <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g opacity=".55">
+                  <rect x="74" y="40" width="72" height="112" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".14"/>
+                  <rect x="82" y="48" width="26" height="3" rx="1.5" fill="var(--sk-brand)"/>
+                  <rect x="112" y="48" width="26" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".14"/>
+                  <rect x="82" y="60" width="56" height="52" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+                  <rect x="82" y="120" width="40" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                </g>
+                <rect x="152" y="26" width="86" height="130" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
+                <rect x="161" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <rect x="197" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <circle cx="169" cy="50" r="7" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="181" y="47" width="34" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".14"/>
+                <rect x="161" y="64" width="68" height="60" rx="8" fill="url(#dmoG2)" opacity=".16"/>
+                <rect x="161" y="132" width="46" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                <circle cx="256" cy="42" r="11" fill="var(--sk-brand)"/>
+                <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
+                <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
+
+            <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
+            <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">And remember, most people need to see your message multiple times before they decide to reach out, buy, or join.</p>
+            <p class="sk-desc">Keep showing up. Keep posting. That&#8217;s the ticket. It&#8217;s not complicated. Just do it!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your stories?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>
+          <span class="sk-name">Post ONCE To Your META / IG FEEDS!</span>
+          <span class="sk-tease">Likes and comments turn into leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
+                <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="96" y="30" width="128" height="120" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <circle cx="116" cy="50" r="9" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="132" y="45" width="52" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".16"/>
+                <rect x="132" y="54" width="32" height="4" rx="2" fill="var(--sk-ink)" opacity=".1"/>
+                <rect x="106" y="68" width="108" height="46" rx="8" fill="url(#dmoG3)" opacity=".16"/>
+                <path d="M126 78h68a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V82a4 4 0 0 1 4-4z" fill="none" stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="1.6"/>
+                <circle cx="141" cy="90" r="4.5" fill="var(--sk-brand)" opacity=".7"/>
+                <path d="M122 106l18-14 14 11 12-8 32 17z" fill="url(#dmoG3)" opacity=".55"/>
+                <path d="M112 130c0-4 3-6.5 6-6.5 2 0 3.4 1 4.2 2.2.8-1.2 2.2-2.2 4.2-2.2 3 0 6 2.5 6 6.5 0 5.5-10.2 11-10.2 11S112 135.5 112 130z" fill="url(#dmoG3)"/>
+                <path d="M148 124h20a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-12l-5 4v-4a5 5 0 0 1-3-5v-5a5 5 0 0 1 5-5z" fill="none" stroke="var(--sk-ink)" stroke-opacity=".4" stroke-width="2"/>
+                <g stroke="var(--sk-brand)" stroke-width="2.6" stroke-linecap="round"><path d="M186 128h14M186 135h14"/></g>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="242" cy="118" r="9"/><path d="M228 142a14 14 0 0 1 28 0"/>
+                </g>
+                <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
+
+            <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">Remember, <b>LIKES</b> and <b>COMMENTS</b> = Leads!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your FEEDS?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>
+          <span class="sk-name">ANSWER Questions Where People Are ASKING Questions!</span>
+          <span class="sk-tease">Facebook, Reddit, Nextdoor, Quora.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="72" fill="#fff" opacity=".55"/>
+
+                
+                <g>
+                  <path d="M34 30h44a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9H50l-10 9v-9h-6a9 9 0 0 1-9-9V39a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M50 44.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="56.6" cy="60.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M236 26h44a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-26l-10 9v-9h-8a9 9 0 0 1-9-9V35a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M252 40.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="258.6" cy="56.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M28 112h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9H44l-10 9v-9h-6a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M43 126.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="49.6" cy="142.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M242 110h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-24l-10 9v-9h-8a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M257 124.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="263.6" cy="140.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+
+                
+                <path d="M118 62h84a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-56l-14 13v-13h-14a12 12 0 0 1-12-12V74a12 12 0 0 1 12-12z" fill="url(#dmoG4)"/>
+                <g stroke="#fff" stroke-linecap="round" stroke-width="3.4">
+                  <path d="M132 80h56" opacity=".95"/>
+                  <path d="M132 92h44" opacity=".65"/>
+                </g>
+                <path d="M132 103.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                
+                <g stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round" fill="none">
+                  <path d="M112 78 C 98 70, 92 64, 88 58"/>
+                  <path d="M216 74 C 228 66, 234 60, 238 54"/>
+                  <path d="M112 106 C 98 114, 92 118, 84 122"/>
+                  <path d="M216 106 C 228 112, 236 116, 244 120"/>
+                </g>
+              </svg>
+            </div>
+
+            <p class="sk-desc">Somewhere right now, someone is typing out the exact problem you solve, in public, and asking strangers for help. Your job is to find those people and be the most useful answer in the thread.</p>
+            <p class="sk-desc"><a href="https://www.facebook.com/groups/" target="_blank" rel="noopener">Facebook groups</a> are one of the <b>BEST</b> places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
+            <p class="sk-desc">Do not stop at Facebook. <a href="https://www.reddit.com" target="_blank" rel="noopener">REDDIT</a>, <a href="https://nextdoor.com" target="_blank" rel="noopener">NEXTDOOR</a>, and <a href="https://www.quora.com" target="_blank" rel="noopener">QUORA</a> are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
+            <p class="sk-desc">Then actually answer it. Give away the useful thing for free, in the thread, where everyone can read it. No pitch, no link drop. Being the person who helped is what makes someone check your profile, and your profile is what turns them into a lead.</p>
+            <p class="sk-desc">As mentioned in the previous section, consistency is <b>KEY</b>. You have to keep swinging if you want to get a hit. Show up every day and answer at least <b>ONE</b> real question, wherever you find it.</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>
+          <span class="sk-name">Run Ads On Facebook &amp; Instagram!</span>
+          <span class="sk-tease">The fastest way to a steady flow of fresh leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="66" y="38" width="120" height="104" rx="13" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="78" y="50" width="34" height="9" rx="4.5" fill="url(#dmoG5)"/>
+                <text x="95" y="57" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#fff">AD</text>
+                <rect x="78" y="68" width="96" height="40" rx="7" fill="url(#dmoG5)" opacity=".16"/>
+                <path d="M78 108l26-20 20 15 16-11 34 24z" fill="url(#dmoG5)" opacity=".45"/>
+                <rect x="78" y="118" width="96" height="12" rx="6" fill="url(#dmoG5)"/>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4">
+                  <circle cx="238" cy="76" r="30"/><circle cx="238" cy="76" r="18"/>
+                </g>
+                <circle cx="238" cy="76" r="7" fill="url(#dmoG5)"/>
+                <g fill="url(#dmoG5)">
+                  <rect x="206" y="140" width="14" height="16" rx="4" opacity=".45"/>
+                  <rect x="226" y="128" width="14" height="28" rx="4" opacity=".7"/>
+                  <rect x="246" y="114" width="14" height="42" rx="4"/>
+                </g>
+                <path d="M196 118 C 210 112, 220 104, 226 96" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">If your <b>SHARK</b> account includes access to advertising support, <b>TAKE ADVANTAGE OF IT AND RUN ADS!</b></p>
+            <p class="sk-desc">Paid advertising is one of the most cost-effective ways to generate a steady flow of fresh leads into your pipeline every day. When you combine ads with the other strategies on this page, you&#8217;ll never run short on conversations, &#8220;at-bats,&#8221; or opportunities.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click here to watch the training on why running ads can be such a powerful part of your growth strategy.
+            </a>
+            </div>
+
+            <p class="sk-desc" style="margin-top:16px">If you have access to the <b>ADS ENGINE</b> inside your <b>SHARK</b> account, watch the training and get your ads running! Have questions? Reach out to us anytime.</p>
+
+            <p class="sk-lead">Don&#8217;t have access to the <b>ADS ENGINE</b> but want it?</p>
+            <a class="sk-chip" href="https://sharksuite.ai/get-ads" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-5M12 8.2v.2"/></svg>
+              Click here to learn more.
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>
+          <span class="sk-name">FOLLOW UP With Your Prospects!</span>
+          <span class="sk-tease">80% of sales happen after the fourth follow up.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g>
+                  <circle cx="72" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="72" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">1</text>
+                  <circle cx="118" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="118" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">2</text>
+                  <circle cx="164" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="164" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">3</text>
+                  <circle cx="212" cy="90" r="22" fill="url(#dmoG6)"/>
+                  <text x="212" y="96" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="17" fill="#fff">4</text>
+                </g>
+                <g stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round">
+                  <path d="M89 90h12"/><path d="M135 90h12"/><path d="M181 90h9"/>
+                </g>
+                <path d="M242 90h14" stroke="var(--sk-brand)" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M262 84l7 8 14-16" fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g transform="translate(150 26)">
+                  <path d="M4 3.5h8l3 8-4 3a20 20 0 0 0 9 9l3-4 8 3v8a3.5 3.5 0 0 1-3.5 3.5A28 28 0 0 1 .5 7 3.5 3.5 0 0 1 4 3.5z" fill="#fff" stroke="var(--sk-brand)" stroke-width="1.8" stroke-linejoin="round"/>
+                </g>
+                <text x="160" y="152" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="11" letter-spacing="2.4" fill="var(--sk-brand-deep)" opacity=".75">80% OF SALES</text>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is arguably the <b>MOST IMPORTANT</b> thing you can do on a daily basis&#8230; Remember, the <b>FORTUNE</b> is in the <b>FOLLOW UP!</b> And&#8230; Did you know that <b>80%</b> of sales are made after the <b>FOURTH</b> follow up? Moral of the story, you <b>NEED</b> to follow up with your leads.</p>
+            <p class="sk-desc">Keep it simple&#8230; many times you are just hitting the person up again seeing if they looked at information, watched a video, accessed one of your free guides, etc.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video on EXACTLY how to follow up.
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <p class="sk-foot-eyebrow">Remember&#8230;</p>
+      <p class="sk-foot-title">The RESULTS that you&#8217;re looking for is in the WORK that you&#8217;re AVOIDING.</p>
+      <p class="sk-foot-copy">Get to work, this stuff works, but ONLY if you work the system. Let&#8217;s GO!</p>
+    </div>
+  </footer>
+    <div class="sk-tail">
+      <a class="sk-chip" href="https://sharksuite.ai/setup-my-ads" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></svg>
+        Want more people to talk to? Visit the lead storefront.
+      </a>
+    </div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="support">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Contact Support</h1>
+      <p class="sk-page-sub">Stuck on something? Pick whichever is easiest and we will come back to you.</p>
+    </header>
+    <div style="height:24px"></div>
+
+    <div class="sk-support">
+      <a class="sk-contact" href="https://sharksuite.ai/support" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/></svg></span>
+        <span>
+          <span class="sk-route-name">Get support</span>
+          <span class="sk-route-copy">Every way to reach us, in one place.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+
+      <a class="sk-contact" href="https://sharksuite.ai/training" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg></span>
+        <span>
+          <span class="sk-route-name">Training hub</span>
+          <span class="sk-route-copy">System training and marketing training.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+  </section>
+
+</div>
+
+<script>/* NUEVA / nueva---your-marketing-links / nueva-marketing-links
+ *
+ * THIS FILE IS THE CONFIG. Routing, card rendering, copy buttons, the product
+ * list and the affiliate card all live in _shared/links-hub/v1/hub.js and are
+ * shared by every rep hub. Only Nueva's own data is here.
+ *
+ * Link model: domain custom value plus a fixed slug per funnel (the Vital
+ * model). It was MEASURED before being chosen, not assumed: all five Nueva
+ * funnels sit on one domain and every step slug was verified serving.
+ * Re-measure before any Nueva rep install, because a single rep on two
+ * domains breaks the assumption for that rep. MARKETING-LINKS-PAGE-SOP §2.
+ */
+window.SHARK_HUB = {
+  appTitle:   'Nueva Shark',
+  themeColor: '#0ABAB5',
+  brandDir:   'nueva',
+  cvFolder:   'Beneve Funnel Links',
+  nameCv: 'beneve_rep_first_name',
+  domainCv: 'beneve_main_url',
+  groups: [
+    {
+      label: "Start a conversation",
+      items: [
+        { icon: "leaf", name: "Hormone Lunchbox Guide",
+          slug: "nueva-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
+          tease: "Free make ahead lunches",
+          desc: "A free guide with make ahead lunches built around the vegetables that support hormone balance. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
+        { icon: "chart", name: "Natural GLP Foods Guide",
+          slug: "nueva-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
+          tease: "Foods that support GLP naturally",
+          desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." },
+        { icon: "coffee", name: "Clean Iced Coffee Recipes",
+          slug: "nueva-clean-iced-coffee",
+          tease: "Iced coffee without the junk",
+          desc: "A free iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives, and it leads into Original Coffee Sticks." }
+      ]
+    },
+    {
+      label: "Quizzes and tools",
+      items: [
+        { icon: "quiz", name: "Side Hustle Quiz",
+          slug: "nueva-match-quiz", scripts: "https://sharksuite.ai/side-hustle-scripts",
+          tease: "Sorts them into the right fit",
+          desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Nueva fits. Use it when someone is interested but not ready to talk." },
+        { icon: "user", name: "Influencer Aptitude Test",
+          slug: "nueva-aptitude-test",
+          tease: "Is sharing Nueva a fit for them?",
+          desc: "A short test that tells someone whether sharing products on social is a fit for them. Each result page speaks to their type and hands them straight into the opportunity." }
+      ]
+    }
+  ],
+  lists: [
+    { label: 'Direct product links', icon: 'cart', name: 'Product links',
+      tease: 'Every product link, ready to copy', perRep: true, items: [
+    { cv: "nueva_buy_link",             name: "Nueva Shop" },
+    { cv: "nueva_opportunity_url",      name: "Become an Influencer" },
+    { cv: "nueva_gut_advantage_link",   name: "Gut Advantage Capsules" },
+    { cv: "nueva_glutathione_link",     name: "Glutathione+ with DIM" },
+    { cv: "nueva_original_coffee_link", name: "Original Coffee Sticks" }
+  ] }
+  ],
+  affiliate: { cv: 'beneveshark_affiliate_link', name: 'Your Nueva Shark affiliate link',
+    desc: 'This is your affiliate link for the Nueva Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
+};
+
+/* Load the shared engine. It reads window.SHARK_HUB, which is set above, so the
+   config must come first. Version is PINNED: editing v1 reaches every page
+   already on it, so a redesign forks v2 and pages move deliberately. */
+(function () {
+  var BASE = "https://invokableapp.github.io/shark-pages/";
+  ["_shared/links-hub/v1/hub.js"].forEach(function (p) {
+    if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
+    var s = document.createElement("script");
+    s.src = BASE + p;
+    s.async = false;
+    s.setAttribute("data-shark-shared", p);
+    document.head.appendChild(s);
+  });
+})();
+</script>
+</body></html>

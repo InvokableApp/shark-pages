@@ -1,0 +1,2619 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>vital/vital---your-funnel-links/vital-user-links — local preview (ksgk5Nl2YulGX80UPeyQ)</title>
+<style>html,body{margin:0;padding:0;background:#f4f4f5}
+
+
+/* ============================================================
+   DAILY METHOD OF OPERATION
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE page per system. Two things change between systems and nothing else:
+     1. the nine palette tokens below
+     2. the wordmark in .sk-logo
+
+   Scope class is .sk-vital-vital---your-funnel-links-vital-user-links for this dial-in file. In the hosted block it becomes
+   .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+
+.sk-vital-vital---your-funnel-links-vital-user-links *,
+.sk-vital-vital---your-funnel-links-vital-user-links *::before,
+.sk-vital-vital---your-funnel-links-vital-user-links *::after { box-sizing: border-box; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links {
+  /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
+     system section 2 table; swapping these nine is the whole reskin. */
+  --sk-brand:      #8DB53C;
+  --sk-brand-deep: #1B3C1A;
+  --sk-brand-tint: #EAF2DC;
+  --sk-ink:        #12180F;
+  --sk-ink-soft:   #5D6957;
+  --sk-ink-faint:  #8E9887;
+  --sk-paper:      #F5F5F0;
+  --sk-line:       #E2E3DA;
+  --sk-line-soft:  #EDEDE6;
+  --sk-card:       #ffffff;
+
+  /* structural tokens, identical in every system */
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  /* full bleed ground, capped content. The measure is a grid column, never an
+     auto margin: components that set the margin shorthand would reset it. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links > * { grid-column: 2; }
+
+/* paper grain, keeps the flat off white from reading as an unstyled default */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-grain {
+  position: fixed;
+  inset: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+.sk-vital-vital---your-funnel-links-vital-user-links > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-head { padding: 40px 4px 8px; text-align: center; }
+
+/* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
+   page belongs to the next system. Inlined as a data URI here so the preview is
+   self contained; in the hosted block it points at _brand/{system}/logo.svg. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-logo {
+  display: block;
+  width: 188px;
+  max-width: 64%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  /* Sized to land on three lines at the full measure and four on a phone. The
+     width axis does part of that work: dropping from 112 to 100 fits more per
+     line than shrinking alone would, so the headline stays a headline. */
+  font-weight: 800;
+  font-variation-settings: "wdth" 100, "wght" 800;
+  font-size: clamp(21px, 5.4vw, 26px);
+  line-height: 1.12;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the brand gradient sits on the two shouted words, same trick as the
+   marketing links title */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* The gradient box is the inline advance width, and glyphs whose ink spills
+     past it lose the overhang: the upper right arm of a trailing Y is the one
+     that shows. Padding grows the paint box, the matching negative margin takes
+     the space back, so nothing on the line moves. */
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+/* ---------------- video facade ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vid {
+  margin-top: 26px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  background: var(--sk-brand-tint);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 26px -10px rgba(27,60,26,.8);
+  transition: transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+
+/* ---------------- at a glance ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-glance { margin-top: 44px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-h2 {
+  margin: 0 0 16px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 20px;
+  line-height: 1.16;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  text-align: center;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tile span {
+  font-size: 13.5px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+/* icon chip, the .sk-mark component */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(141,181,60,.16), rgba(27,60,26,.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+
+/* ---------------- group header ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group { margin-top: 40px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(245,245,240,0));
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-group-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- accordion card ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] {
+  border-color: rgba(141,181,60,.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-name {
+  display: block;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+  text-wrap: balance;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  transition: opacity .25s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
+   without a magic number. Never animate height or max-height here. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel-inner { overflow: hidden; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+
+/* ---------------- panel contents ---------------- */
+
+/* the illustration. House style art, drawn in the palette, never a photo and
+   never a stock render. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  overflow: hidden;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art svg { display: block; width: 100%; height: 100%; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc {
+  margin: 0 0 12px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc:last-child { margin-bottom: 0; }
+
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
+/* inline links inside body copy */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(141,181,60,.45);
+  text-underline-offset: 2px;
+  transition: text-decoration-color .2s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
+
+/* the lead in line that sits directly above a button */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lead {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+
+/* primary action, the .sk-copy component */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy:hover { filter: brightness(1.04); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy:active { transform: scale(.985); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+
+/* Long label variant. Two CTAs are full sentences rather than the short shouted
+   label the component was tuned for, and uppercase plus .085em tracking turns
+   those into a three line block. Sentence case and tighter tracking keep them
+   readable without touching a word of the copy. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy--long {
+  min-height: 56px;
+  padding: 14px 20px;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 14.5px;
+  letter-spacing: .005em;
+  line-height: 1.28;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* VIDEO SLOTS, HIDDEN UNTIL THE VIDEOS EXIST.
+   Joe asked for these off the page rather than pointing at nothing. The copy
+   and the buttons are still in the markup, so restoring them is deleting this
+   one rule and filling in the hrefs. Do not delete the markup. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-videoslot { display: none; }
+
+/* secondary link, the .sk-chip component */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFBF9;
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip:hover,
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+/* ---------------- footer ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot { margin-top: 44px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-card {
+  padding: 30px var(--sk-pad) 28px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #1B3C1A 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--sk-shadow-lift);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-eyebrow {
+  margin: 0 0 12px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(20px, 5.6vw, 25px);
+  line-height: 1.14;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-foot-copy {
+  margin: 16px auto 0;
+  max-width: 32ch;
+  font-size: 14.6px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+/* ---------------- focus ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links a:focus-visible,
+.sk-vital-vital---your-funnel-links-vital-user-links button:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-trigger:focus-visible { outline-offset: -3px; }
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-vital-vital---your-funnel-links-vital-user-links *, .sk-vital-vital---your-funnel-links-vital-user-links *::before, .sk-vital-vital---your-funnel-links-vital-user-links *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   THE HUB SHELL
+   Home screen plus four destinations, per Joe's outline. One block, one URL,
+   hash routed, so the whole thing still travels inside a snapshot as a single
+   custom code socket.
+   ============================================================ */
+
+/* ---------------- top bar ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: rgba(247, 244, 241, .88);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-in {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--sk-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s ease, opacity .2s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-btn[hidden] { display: none; }
+
+/* the bar wordmark, shown on the destinations only. On home the big logo in
+   the page body is doing that job and a second one would just repeat it. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-bar-mark {
+  justify-self: center;
+  height: 22px;
+  width: auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+
+/* ---------------- screens ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-screen { display: none; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-screen[data-active="true"] { display: block; }
+
+/* ---------------- home ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-home { padding: 26px 0 0; text-align: center; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-home-logo {
+  display: block;
+  width: 224px;
+  max-width: 74%;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-ask {
+  margin: 0 auto 22px;
+  max-width: 18ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: clamp(23px, 6.6vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-ask em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* the four destination cards. Same grammar as the accordion trigger row, so
+   home reads as part of the same page rather than a different product. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest:hover {
+  border-color: rgba(141,181,60,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest:active { transform: translateY(0); }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.006em;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest-tease {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+
+/* utility pill, deliberately not gradient: it must not compete with the four */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-a2hs:active { transform: translateY(1px); }
+
+/* ---------------- destination page head ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-page-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-page-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* ---------------- nav sheet ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet[hidden] { display: none; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16,20,16,.5);
+  backdrop-filter: blur(2px);
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-fade .22s ease both;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet { align-items: center; }
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-grip { display: none; } }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-nav {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: inherit;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 15.5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-nav[aria-current="page"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- route: leads ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-route {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-route + .sk-route { margin-top: 10px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-route-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-route-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.6px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-route-act { grid-column: 1 / -1; }
+
+/* numbered steps, CSS counter so the markup carries no numerals */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-steps b { font-weight: 700; }
+
+/* app store row */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-vital-vital---your-funnel-links-vital-user-links .sk-store { flex-direction: row; } .sk-vital-vital---your-funnel-links-vital-user-links .sk-store a { flex: 1; } }
+
+/* the lede paragraphs. Left aligned on a ch measure, because centred body copy
+   stops being readable past about two lines. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede { margin-top: 26px; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede p:first-child {
+  font-size: 16.4px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede p:last-child { margin-bottom: 0; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(141,181,60,.45);
+  text-underline-offset: 2px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
+
+/* ---------------- route: links ---------------- */
+
+/* one dropdown per funnel, name left, copy right, exactly as the live page */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFAF7;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-links .sk-chip { margin-top: 0; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+
+/* preview banner. Says plainly that the data is stand in, so nobody reviews
+   demo urls as if they were a rep's real ones. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #E8DDB8;
+  border-radius: var(--sk-r-sm);
+  background: #FDF8E8;
+  color: #6B5F34;
+  font-size: 13.6px;
+  line-height: 1.45;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+
+/* ---------------- route: support ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-support { display: flex; flex-direction: column; gap: 10px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-contact {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-contact:hover {
+  border-color: rgba(141,181,60,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-contact:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- storefront tail ---------------- */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-tail { margin-top: 14px; }
+
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+/* ============================================================
+   PRODUCT LIST  (.sk-plist / .sk-prow)
+   Added 2026-08-28. The engine has always emitted these four classes and this
+   stylesheet has never carried a rule for any of them, so the product list has
+   been rendering as a default browser <ul>: disc bullets, #0000EE underlined
+   links, and a full-width 52px gradient button under every row because
+   .sk-copy--mini had no rule to shrink it.
+
+   Cosmetic fix only, transplanted from _shared/links-hub/v1/hub.css where
+   Beneve already runs it. This fork is NOT being migrated onto the shared
+   component; that is a separate, deliberate move. Purely additive: no existing
+   rule changes meaning.
+   ============================================================ */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-plist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-prow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--sk-line-soft);
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-prow:last-child { border-bottom: 0; padding-bottom: 0; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-prow:first-child { padding-top: 0; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-prow-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--sk-ink);
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 14.5px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-prow-name:hover { color: var(--sk-brand-deep); }
+
+/* The row's action sits beside the name, not under it: a full-width CTA per row
+   turns a long product list into a column of stacked buttons. */
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy--mini {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 34px;
+  margin-top: 0;
+  padding: 0 13px;
+  gap: 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-copy--mini svg { width: 14px; height: 14px; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-chip--go {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 13px;
+  font-size: 11px;
+}
+
+/* ---------------- training video: button, play overlay, sheet ----------------
+   The button is the .sk-chip vocabulary (outline, brand-deep label, brand icon)
+   turned into a centred pill, so it reads as clearly secondary and never competes
+   with a Copy Funnel Link. On the social cards the ILLUSTRATION becomes the
+   button: it is already the biggest thing in an open card, so it is what a thumb
+   goes for, and a second control beside it would just be clutter.
+
+   The stage is sized from the video's OWN pixels, passed in on the button. That
+   matters: these are portrait phone recordings, and a portrait video forced into
+   the page's 16:9 facade letterboxes into a sliver. Width is capped by height so
+   a tall clip stays inside the sheet instead of pushing it into a scroll. */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 17px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: inherit;
+  font-size: 13.2px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: background .2s ease, border-color .2s ease, transform .18s cubic-bezier(.2,.8,.3,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidbtn:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidbtn:active { transform: scale(.98); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art--play {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art--play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(16,20,16,.17) 0%, rgba(16,20,16,0) 60%);
+  pointer-events: none;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art--play .sk-play { z-index: 1; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art--play:hover .sk-play { transform: scale(1.06); }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-art--play:active .sk-play { transform: scale(.97); }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidpanel { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidstage {
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: var(--sk-vid-ar, 16 / 9);
+  border-radius: var(--sk-r-sm);
+  overflow: hidden;
+  background: #0B0D0B;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-vidstage iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* ---------------- scroll cue ----------------
+   Some screens end on a tidy full width block (the glance grid, the leads copy)
+   that reads as the bottom of the page, so everything under it went unread. The
+   cue is shown ONLY while there is genuinely more below and the rep has not
+   scrolled yet, and it retires for good on the first scroll: a permanent arrow
+   is furniture, and furniture stops being read. */
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-more {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-more[hidden] { display: none; }
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-more[data-show="true"] { opacity: 1; }
+
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-more-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 12.6px;
+  font-weight: 600;
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-vital-vital---your-funnel-links-vital-user-links-bob 1.9s ease-in-out infinite;
+}
+.sk-vital-vital---your-funnel-links-vital-user-links .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+
+@keyframes sk-vital-vital---your-funnel-links-vital-user-links-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-vital-vital---your-funnel-links-vital-user-links .sk-more-pill { animation: none; }
+}
+</style></head><body>
+
+<div class="sk-vital-vital---your-funnel-links-vital-user-links"
+     data-cv-main_vital_url="dont-guess-test.com"
+     data-cv-vital_age_collagen_url="vitalhealthglobal.com/products/vitalage-collagen?refID=200672"
+     data-cv-vital_asculax_url="vitalhealthglobal.com/products/v-asculax?refID=200672"
+     data-cv-vital_control_url="vitalhealthglobal.com/products/v-control?refID=200672"
+     data-cv-vital_curcumax_url="vitalhealthglobal.com/products/v-curcumax?refID=200672"
+     data-cv-vital_daily_url="vitalhealthglobal.com/products/v-daily?refID=200672"
+     data-cv-vital_dfenz_url="vitalhealthglobal.com/products/dfence-kids?refID=200672"
+     data-cv-vital_fortyflora_url="vitalhealthglobal.com/products/v-fortyflora?refID=200672"
+     data-cv-vital_genius_shake_url="vitalhealthglobal.com/products/genius-shake?refID=200672"
+     data-cv-vital_glutation_plus_url="vitalhealthglobal.com/products/v-glutation-plus?refID=200672"
+     data-cv-vital_glutation_url="vitalhealthglobal.com/products/v-glutation?refID=200672"
+     data-cv-vital_itadol_url="vitalhealthglobal.com/products/v-itadol?refID=200672"
+     data-cv-vital_italay_url="vitalhealthglobal.com/products/v-italay?refID=200672"
+     data-cv-vital_italboost_url="vitalhealthglobal.com/products/vitalboost?refID=200672"
+     data-cv-vital_itaren_url="vitalhealthglobal.com/products/v-itaren?refID=200672"
+     data-cv-vital_lattekaffe_url="vitalhealthglobal.com/products/lattekaffe?refID=200672"
+     data-cv-vital_lovkafe_url="vitalhealthglobal.com/products/v-lovekafe?refID=200672"
+     data-cv-vital_neurokafe_url="vitalhealthglobal.com/products/v-neurokafe?refID=200672"
+     data-cv-vital_nitro_url="vitalhealthglobal.com/products/v-nitro?refID=200672"
+     data-cv-vital_nourish_url="vitalhealthglobal.com/products/nourish?refID=200672"
+     data-cv-vital_nrgy_tropical_url="vitalhealthglobal.com/products/v-nrgy?refID=200672"
+     data-cv-vital_omega_3_url="vitalhealthglobal.com/products/v-omega-3?refID=200672"
+     data-cv-vital_opportunity_url="vitalhealthglobal.com/pages/become-an-affiliate?refID=200672"
+     data-cv-vital_organex_url="vitalhealthglobal.com/products/v-organex?refID=200672"
+     data-cv-vital_performance_url="vitalhealthglobal.com/products/performance?refID=200672"
+     data-cv-vital_pro_url="vitalhealthglobal.com/products/vitalpro?refID=200672"
+     data-cv-vital_product_url_retail="vitalhealthglobal.com/?refID=200672"
+     data-cv-vital_product_url_retail_kids_collection="vitalhealthglobal.com/collections/kids-collection?refID=200672"
+     data-cv-vital_product_url_sub="vitalhealthglobal.com/?refID=200672"
+     data-cv-vital_rep_first_name="Amanda"
+     data-cv-vital_s_balance_url="vitalhealthglobal.com/products/s-balance?refID=200672"
+     data-cv-vital_smart_biotics_url="vitalhealthglobal.com/products/smartbiotics?refID=200672"
+     data-cv-vital_te_detox_url="vitalhealthglobal.com/products/v-tedetox?refID=200672"
+     data-cv-vital_thermokafe_url="vitalhealthglobal.com/products/v-thermokafe?refID=200672"
+     data-cv-vitalshark_affiliate_link="https://vitalshark.io/learn?am_id=amanda3481">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  
+  <div class="sk-bar">
+    <div class="sk-bar-in">
+      <button class="sk-bar-btn" type="button" data-back aria-label="Back to home" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <img class="sk-bar-mark" src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml" alt="" aria-hidden="true">
+      <button class="sk-bar-btn" type="button" data-menu-open aria-label="Open menu" style="grid-column:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  <div class="sk-sheet" data-menu hidden>
+    <div class="sk-sheet-scrim" data-menu-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title">Go to</h2>
+        <button class="sk-sheet-x" type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="sk-navlist" data-navlist></nav>
+    </div>
+  </div>
+
+
+  
+  <div class="sk-sheet" data-a2hs-sheet hidden>
+    <div class="sk-sheet-scrim" data-a2hs-close></div>
+    <div class="sk-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sk-a2hs-title" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-a2hs-title">Keep this page one tap away</h2>
+        <button class="sk-sheet-x" type="button" data-a2hs-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sk-seg" role="group" aria-label="Choose your phone">
+        <button class="sk-seg-btn" type="button" data-os="ios" aria-pressed="false">iPhone</button>
+        <button class="sk-seg-btn" type="button" data-os="android" aria-pressed="false">Android</button>
+      </div>
+      <ol class="sk-steps" data-a2hs-steps></ol>
+      <details class="sk-watch">
+        <summary>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m10 8.5 6 3.5-6 3.5Z"/></svg>
+          <span>Watch it instead <em data-a2hs-size>(1 minute video)</em></span>
+        </summary>
+        <div class="sk-watch-body" data-a2hs-video></div>
+      </details>
+    </div>
+  </div>
+
+  
+  <section class="sk-screen sk-home" data-screen="home">
+    <img class="sk-home-logo" src="https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/66e3db74-4a09-44b3-a865-d86591f57ea9.svg+xml" alt="Vital Shark, AI Marketing System">
+    <h1 class="sk-ask">What would you like to do<span data-comma></span><em data-name></em>?</h1>
+
+    <div class="sk-menu" data-menugrid></div>
+
+    <button class="sk-a2hs" type="button" data-a2hs-open hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M12 7v6"/><path d="m9.5 10.5 2.5-3 2.5 3"/><path d="M10.6 18.6h2.8"/>
+      </svg>
+      <span data-a2hs-label>Add this page to your home screen</span>
+    </button>
+  </section>
+
+  
+  
+  <div class="sk-more" data-more hidden>
+    <span class="sk-more-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <span>More below</span>
+    </span>
+  </div>
+
+  
+  <div class="sk-sheet" data-video-sheet hidden>
+    <div class="sk-sheet-scrim" data-video-close></div>
+    <div class="sk-sheet-panel sk-vidpanel" role="dialog" aria-modal="true" aria-labelledby="sk-video-title" tabindex="-1">
+      <div class="sk-sheet-grip" aria-hidden="true"></div>
+      <div class="sk-sheet-head">
+        <h2 class="sk-sheet-title" id="sk-video-title" data-video-heading>Watch</h2>
+        <button class="sk-sheet-x" type="button" data-video-close aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="sk-vidstage" data-video-stage></div>
+    </div>
+  </div>
+
+  <section class="sk-screen" data-screen="links">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Funnel Links</h1>
+      <p class="sk-page-sub">Every funnel you can share. Tap one, copy the link, post it.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221839256"
+              data-video-title="View Your Funnel Links"
+              data-video-w="196" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
+    </header>
+    <div style="height:22px"></div>
+    <div data-links></div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="leads">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Your Leads</h1>
+      <p class="sk-page-sub">One inbox for every lead, every funnel, on your phone.</p>
+      <button class="sk-vidbtn" type="button"
+              data-video="1221821167"
+              data-video-title="View My Leads"
+              data-video-w="240" data-video-h="426">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="m10.2 8.6 5.6 3.4-5.6 3.4Z"/></svg>
+        <span>Watch a video about this page</span>
+      </button>
+    </header>
+
+    <div class="sk-lede">
+      <p>Every person who fills in one of your funnels lands in your HighLevel account. That is where you talk to them, and it is the only place you need to check.</p>
+      <p>Download the HighLevel app and log in with the details you were sent when your account was set up. Every text, email and form reply, from every funnel you run, arrives in one inbox. You reply straight from your phone, and you get a notification the moment a new lead comes in, so you can answer while they are still paying attention.</p>
+      <p>Speed matters more than anything you say. A lead who hears back in five minutes is worth many times one you get to tomorrow, so turn notifications ON and reply from wherever you are.</p>
+      <p>Prefer a bigger screen? Log in at <a href="https://go.sharksuite.ai/" target="_blank" rel="noopener">go.sharksuite.ai</a>. Same inbox, same conversations, nothing separate to learn.</p>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Two ways in</span><span class="sk-group-rule"></span></div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.4"/><path d="M8 20.5h8"/><path d="M12 17v3.5"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your computer</span>
+          <span class="sk-route-copy">Log in and everything is on one screen.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://go.sharksuite.ai/" target="_blank" rel="noopener">Log in</a>
+        </span>
+      </div>
+
+      <div class="sk-route">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg></span>
+        <span>
+          <span class="sk-route-name">On your phone</span>
+          <span class="sk-route-copy">Get a notification the second a lead comes in.</span>
+        </span>
+        <span class="sk-route-act">
+          <a class="sk-copy" href="https://vitalshark.io/shark-app" target="_blank" rel="noopener" style="min-height:46px;font-size:13px">Get the app</a>
+          <div class="sk-store">
+            <a class="sk-chip" href="https://apps.apple.com/us/app/highlevel/id1425004076" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.8 18.6h2.4"/></svg>
+              Download for iPhone
+            </a>
+            <a class="sk-chip" href="https://play.google.com/store/apps/details?id=com.gohighlevel" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9.5h14v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="m7.5 9.5 1.6-3M16.5 9.5l-1.6-3"/></svg>
+              Download for Android
+            </a>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="sk-group">
+      <div class="sk-group-head"><span class="sk-group-label">Where to look</span><span class="sk-group-rule"></span></div>
+      <ol class="sk-steps">
+        <li><span>Open <b>Conversations</b>. Every text, email and form reply lands in one thread per person, so you never lose the history.</span></li>
+        <li><span>Open <b>Contacts</b> to see everyone who has ever opted in, and which funnel they came from.</span></li>
+        <li><span>Open <b>Opportunities</b> to see who is warm, who is hot, and who you still owe a follow up.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="promote">
+  
+  <header class="sk-head">
+    <h1 class="sk-title">If you want to generate <em>CONSISTENT</em> leads for your business, here&#8217;s what you need to do <em>DAILY</em>.</h1>
+  </header>
+
+  
+  <section class="sk-glance">
+    <h2 class="sk-h2">Your Daily Method Of Operation At A Glance:</h2>
+    <div class="sk-tiles">
+
+      <div class="sk-tile" style="animation-delay:.04s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>Text 2 people a day</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.08s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>Post twice on your stories</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.12s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>Post once to your feeds</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.16s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>Answer questions where people are asking questions</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.2s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>Follow up with prospects</span>
+      </div>
+
+      <div class="sk-tile" style="animation-delay:.24s">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Run ads</span>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section class="sk-group">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Action Item</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">6</span>
+    </div>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span>
+          <span class="sk-name">Text 2 People EVERY DAY!</span>
+          <span class="sk-tease">The one thing you fully control.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="66" fill="#fff" opacity=".6"/>
+                <rect x="122" y="26" width="76" height="128" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="150" y="34" width="20" height="3.5" rx="1.75" fill="var(--sk-ink)" opacity=".18"/>
+                <path d="M139 50h36a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-36a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)"/>
+                <rect x="133" y="80" width="38" height="17" rx="6" fill="var(--sk-ink)" opacity=".08"/>
+                <path d="M145 108h30a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-30a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="url(#dmoG1)" opacity=".85"/>
+                <g fill="none" stroke="var(--sk-ink)" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round">
+                  <circle cx="56" cy="72" r="12"/><path d="M36 106a20 20 0 0 1 40 0"/>
+                  <circle cx="264" cy="72" r="12"/><path d="M244 106a20 20 0 0 1 40 0"/>
+                </g>
+                <g fill="var(--sk-brand)"><circle cx="56" cy="46" r="7"/><circle cx="264" cy="46" r="7"/></g>
+                <text x="56" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">1</text>
+                <text x="264" y="49.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff">2</text>
+                <path d="M84 84 C 100 82, 108 84, 116 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+                <path d="M236 84 C 220 82, 212 84, 204 88" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is your <b>HIGHEST-PRIORITY</b> action item because it&#8217;s the single most important thing you can do. Why? Because you have <b>100% control</b> over how many people you reach.</p>
+            <p class="sk-desc">When you post on social media, there&#8217;s no guarantee how many people will actually see it. But if you personally message two people, ideally more, you know your message is reaching them.</p>
+            <p class="sk-desc">Follow the provided scripts, and we strongly recommend focusing on the opportunity-based scripts.</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to say?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M4 7v10M20 7v10"/></svg></span>
+        <span>
+          <span class="sk-name">Post TWICE To Your META / IG STORIES!</span>
+          <span class="sk-tease">Twice a day, every day, no skipping.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
+                <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g opacity=".55">
+                  <rect x="74" y="40" width="72" height="112" rx="12" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".14"/>
+                  <rect x="82" y="48" width="26" height="3" rx="1.5" fill="var(--sk-brand)"/>
+                  <rect x="112" y="48" width="26" height="3" rx="1.5" fill="var(--sk-ink)" opacity=".14"/>
+                  <rect x="82" y="60" width="56" height="52" rx="7" fill="var(--sk-ink)" opacity=".08"/>
+                  <rect x="82" y="120" width="40" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                </g>
+                <rect x="152" y="26" width="86" height="130" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18"/>
+                <rect x="161" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <rect x="197" y="35" width="31" height="3.5" rx="1.75" fill="url(#dmoG2)"/>
+                <circle cx="169" cy="50" r="7" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="181" y="47" width="34" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".14"/>
+                <rect x="161" y="64" width="68" height="60" rx="8" fill="url(#dmoG2)" opacity=".16"/>
+                <rect x="161" y="132" width="46" height="6" rx="3" fill="var(--sk-ink)" opacity=".12"/>
+                <circle cx="256" cy="42" r="11" fill="var(--sk-brand)"/>
+                <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
+                <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
+
+            <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
+            <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">And remember, most people need to see your message multiple times before they decide to reach out, buy, or join.</p>
+            <p class="sk-desc">Keep showing up. Keep posting. That&#8217;s the ticket. It&#8217;s not complicated. Just do it!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your stories?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 15h3"/></svg></span>
+        <span>
+          <span class="sk-name">Post ONCE To Your META / IG FEEDS!</span>
+          <span class="sk-tease">Likes and comments turn into leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
+                <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="96" y="30" width="128" height="120" rx="14" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <circle cx="116" cy="50" r="9" fill="var(--sk-brand-tint)" stroke="var(--sk-brand)" stroke-width="1.6"/>
+                <rect x="132" y="45" width="52" height="5" rx="2.5" fill="var(--sk-ink)" opacity=".16"/>
+                <rect x="132" y="54" width="32" height="4" rx="2" fill="var(--sk-ink)" opacity=".1"/>
+                <rect x="106" y="68" width="108" height="46" rx="8" fill="url(#dmoG3)" opacity=".16"/>
+                <path d="M126 78h68a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V82a4 4 0 0 1 4-4z" fill="none" stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="1.6"/>
+                <circle cx="141" cy="90" r="4.5" fill="var(--sk-brand)" opacity=".7"/>
+                <path d="M122 106l18-14 14 11 12-8 32 17z" fill="url(#dmoG3)" opacity=".55"/>
+                <path d="M112 130c0-4 3-6.5 6-6.5 2 0 3.4 1 4.2 2.2.8-1.2 2.2-2.2 4.2-2.2 3 0 6 2.5 6 6.5 0 5.5-10.2 11-10.2 11S112 135.5 112 130z" fill="url(#dmoG3)"/>
+                <path d="M148 124h20a5 5 0 0 1 5 5v5a5 5 0 0 1-5 5h-12l-5 4v-4a5 5 0 0 1-3-5v-5a5 5 0 0 1 5-5z" fill="none" stroke="var(--sk-ink)" stroke-opacity=".4" stroke-width="2"/>
+                <g stroke="var(--sk-brand)" stroke-width="2.6" stroke-linecap="round"><path d="M186 128h14M186 135h14"/></g>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="242" cy="118" r="9"/><path d="M228 142a14 14 0 0 1 28 0"/>
+                </g>
+                <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+              <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
+
+            <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
+            <p class="sk-desc">Remember, <b>LIKES</b> and <b>COMMENTS</b> = Leads!</p>
+
+            <div class="sk-videoslot">
+            <p class="sk-lead">Curious to know WHAT to post to your FEEDS?</p>
+            <a class="sk-copy" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video!
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M10.4 8.6a2.1 2.1 0 0 1 4.1.6c0 1.4-2 1.6-2 2.9"/><path d="M12.5 14.4v.1"/></svg></span>
+        <span>
+          <span class="sk-name">ANSWER Questions Where People Are ASKING Questions!</span>
+          <span class="sk-tease">Facebook, Reddit, Nextdoor, Quora.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="72" fill="#fff" opacity=".55"/>
+
+                
+                <g>
+                  <path d="M34 30h44a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9H50l-10 9v-9h-6a9 9 0 0 1-9-9V39a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M50 44.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="56.6" cy="60.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M236 26h44a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-26l-10 9v-9h-8a9 9 0 0 1-9-9V35a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M252 40.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="258.6" cy="56.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M28 112h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9H44l-10 9v-9h-6a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M43 126.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="49.6" cy="142.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+                <g>
+                  <path d="M242 110h42a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-24l-10 9v-9h-8a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9z" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".18" stroke-width="1.8"/>
+                  <path d="M257 124.5a6.5 6.5 0 0 1 12.8 1.8c0 4.2-6.2 4.8-6.2 8.7" fill="none" stroke="var(--sk-ink)" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="263.6" cy="140.5" r="1.8" fill="var(--sk-ink)" opacity=".45"/>
+                </g>
+
+                
+                <path d="M118 62h84a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-56l-14 13v-13h-14a12 12 0 0 1-12-12V74a12 12 0 0 1 12-12z" fill="url(#dmoG4)"/>
+                <g stroke="#fff" stroke-linecap="round" stroke-width="3.4">
+                  <path d="M132 80h56" opacity=".95"/>
+                  <path d="M132 92h44" opacity=".65"/>
+                </g>
+                <path d="M132 103.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                
+                <g stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round" fill="none">
+                  <path d="M112 78 C 98 70, 92 64, 88 58"/>
+                  <path d="M216 74 C 228 66, 234 60, 238 54"/>
+                  <path d="M112 106 C 98 114, 92 118, 84 122"/>
+                  <path d="M216 106 C 228 112, 236 116, 244 120"/>
+                </g>
+              </svg>
+            </div>
+
+            <p class="sk-desc">Somewhere right now, someone is typing out the exact problem you solve, in public, and asking strangers for help. Your job is to find those people and be the most useful answer in the thread.</p>
+            <p class="sk-desc"><a href="https://www.facebook.com/groups/" target="_blank" rel="noopener">Facebook groups</a> are one of the <b>BEST</b> places to start. There are hundreds, if not thousands, of relevant groups you can tap into, but you need to approach them strategically. Be sure to watch the video in this section for the complete training.</p>
+            <p class="sk-desc">Do not stop at Facebook. <a href="https://www.reddit.com" target="_blank" rel="noopener">REDDIT</a>, <a href="https://nextdoor.com" target="_blank" rel="noopener">NEXTDOOR</a>, and <a href="https://www.quora.com" target="_blank" rel="noopener">QUORA</a> are full of the same conversations, and most people in your industry are not showing up in any of them. Search your topic, sort by recent, and look for the posts that end in a question mark.</p>
+            <p class="sk-desc">Then actually answer it. Give away the useful thing for free, in the thread, where everyone can read it. No pitch, no link drop. Being the person who helped is what makes someone check your profile, and your profile is what turns them into a lead.</p>
+            <p class="sk-desc">As mentioned in the previous section, consistency is <b>KEY</b>. You have to keep swinging if you want to get a hit. Show up every day and answer at least <b>ONE</b> real question, wherever you find it.</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>
+          <span class="sk-name">Run Ads On Facebook &amp; Instagram!</span>
+          <span class="sk-tease">The fastest way to a steady flow of fresh leads.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <rect x="66" y="38" width="120" height="104" rx="13" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".16"/>
+                <rect x="78" y="50" width="34" height="9" rx="4.5" fill="url(#dmoG5)"/>
+                <text x="95" y="57" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#fff">AD</text>
+                <rect x="78" y="68" width="96" height="40" rx="7" fill="url(#dmoG5)" opacity=".16"/>
+                <path d="M78 108l26-20 20 15 16-11 34 24z" fill="url(#dmoG5)" opacity=".45"/>
+                <rect x="78" y="118" width="96" height="12" rx="6" fill="url(#dmoG5)"/>
+                <g fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4">
+                  <circle cx="238" cy="76" r="30"/><circle cx="238" cy="76" r="18"/>
+                </g>
+                <circle cx="238" cy="76" r="7" fill="url(#dmoG5)"/>
+                <g fill="url(#dmoG5)">
+                  <rect x="206" y="140" width="14" height="16" rx="4" opacity=".45"/>
+                  <rect x="226" y="128" width="14" height="28" rx="4" opacity=".7"/>
+                  <rect x="246" y="114" width="14" height="42" rx="4"/>
+                </g>
+                <path d="M196 118 C 210 112, 220 104, 226 96" fill="none" stroke="var(--sk-brand)" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <p class="sk-desc">If your <b>SHARK</b> account includes access to advertising support, <b>TAKE ADVANTAGE OF IT AND RUN ADS!</b></p>
+            <p class="sk-desc">Paid advertising is one of the most cost-effective ways to generate a steady flow of fresh leads into your pipeline every day. When you combine ads with the other strategies on this page, you&#8217;ll never run short on conversations, &#8220;at-bats,&#8221; or opportunities.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click here to watch the training on why running ads can be such a powerful part of your growth strategy.
+            </a>
+            </div>
+
+            <p class="sk-desc" style="margin-top:16px">If you have access to the <b>ADS ENGINE</b> inside your <b>SHARK</b> account, watch the training and get your ads running! Have questions? Reach out to us anytime.</p>
+
+            <p class="sk-lead">Don&#8217;t have access to the <b>ADS ENGINE</b> but want it?</p>
+            <a class="sk-chip" href="https://vitalshark.io/get-ads" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-5M12 8.2v.2"/></svg>
+              Click here to learn more.
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="sk-card" data-open="false">
+      <button class="sk-trigger" type="button" aria-expanded="false">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.5v9a1.5 1.5 0 0 1-2.2 1.3L14 13.5H6a3 3 0 0 1 0-6h8l4.8-2.3A1.5 1.5 0 0 1 21 5.5z"/><path d="M8 13.5V19"/></svg></span>
+        <span>
+          <span class="sk-name">FOLLOW UP With Your Prospects!</span>
+          <span class="sk-tease">80% of sales happen after the fourth follow up.</span>
+        </span>
+        <span class="sk-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="sk-panel">
+        <div class="sk-panel-inner">
+          <div class="sk-panel-pad">
+
+            <div class="sk-art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" role="img">
+                <defs><linearGradient id="dmoG6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
+                <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
+                <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
+                <g>
+                  <circle cx="72" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="72" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">1</text>
+                  <circle cx="118" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="118" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">2</text>
+                  <circle cx="164" cy="90" r="17" fill="#fff" stroke="var(--sk-ink)" stroke-opacity=".2" stroke-width="1.8"/>
+                  <text x="164" y="95" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--sk-ink)" opacity=".4">3</text>
+                  <circle cx="212" cy="90" r="22" fill="url(#dmoG6)"/>
+                  <text x="212" y="96" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="17" fill="#fff">4</text>
+                </g>
+                <g stroke="var(--sk-brand)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round">
+                  <path d="M89 90h12"/><path d="M135 90h12"/><path d="M181 90h9"/>
+                </g>
+                <path d="M242 90h14" stroke="var(--sk-brand)" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M262 84l7 8 14-16" fill="none" stroke="var(--sk-brand-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g transform="translate(150 26)">
+                  <path d="M4 3.5h8l3 8-4 3a20 20 0 0 0 9 9l3-4 8 3v8a3.5 3.5 0 0 1-3.5 3.5A28 28 0 0 1 .5 7 3.5 3.5 0 0 1 4 3.5z" fill="#fff" stroke="var(--sk-brand)" stroke-width="1.8" stroke-linejoin="round"/>
+                </g>
+                <text x="160" y="152" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="11" letter-spacing="2.4" fill="var(--sk-brand-deep)" opacity=".75">80% OF SALES</text>
+              </svg>
+            </div>
+
+            <p class="sk-desc">This is arguably the <b>MOST IMPORTANT</b> thing you can do on a daily basis&#8230; Remember, the <b>FORTUNE</b> is in the <b>FOLLOW UP!</b> And&#8230; Did you know that <b>80%</b> of sales are made after the <b>FOURTH</b> follow up? Moral of the story, you <b>NEED</b> to follow up with your leads.</p>
+            <p class="sk-desc">Keep it simple&#8230; many times you are just hitting the person up again seeing if they looked at information, watched a video, accessed one of your free guides, etc.</p>
+
+            <div class="sk-videoslot">
+            <a class="sk-copy sk-copy--long" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+              Click HERE to watch a video on EXACTLY how to follow up.
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  
+  <footer class="sk-foot">
+    <div class="sk-foot-card">
+      <p class="sk-foot-eyebrow">Remember&#8230;</p>
+      <p class="sk-foot-title">The RESULTS that you&#8217;re looking for is in the WORK that you&#8217;re AVOIDING.</p>
+      <p class="sk-foot-copy">Get to work, this stuff works, but ONLY if you work the system. Let&#8217;s GO!</p>
+    </div>
+  </footer>
+    <div class="sk-tail">
+      <a class="sk-chip" href="https://vitalshark.io/setup-my-ads" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></svg>
+        Want more people to talk to? Visit the lead storefront.
+      </a>
+    </div>
+  </section>
+
+  
+  <section class="sk-screen" data-screen="support">
+    <header class="sk-page-head">
+      <h1 class="sk-page-title">Contact Support</h1>
+      <p class="sk-page-sub">Stuck on something? Pick whichever is easiest and we will come back to you.</p>
+    </header>
+    <div style="height:24px"></div>
+
+    <div class="sk-support">
+      <a class="sk-contact" href="https://vitalshark.io/support" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/></svg></span>
+        <span>
+          <span class="sk-route-name">Get support</span>
+          <span class="sk-route-copy">Every way to reach us, in one place.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+
+
+      <a class="sk-contact" href="https://vitalshark.io/training" target="_blank" rel="noopener">
+        <span class="sk-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5A4.5 4.5 0 0 1 16.5 2H21v13.5H16.5A4.5 4.5 0 0 0 12 20a4.5 4.5 0 0 0-4.5-4.5H3V2h4.5A4.5 4.5 0 0 1 12 6.5Z"/><path d="M12 6.5V20"/></svg></span>
+        <span>
+          <span class="sk-route-name">Training hub</span>
+          <span class="sk-route-copy">System training and marketing training.</span>
+        </span>
+        <span class="sk-dest-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+      </a>
+  </section>
+
+</div>
+
+<script>(function () {
+var SYS = {
+  nameCv: 'vital_rep_first_name',
+  domainCv: 'main_vital_url',
+  groups: [
+    {
+      label: "Start a conversation",
+      items: [
+        { icon: "leaf", name: "High Protein Recipe Guide",
+          slug: "vital-protein-first", canva: "https://canva.link/glkotdv7npi40hl", howto: "https://vitalshark.io/vital-protein-first-training",
+          tease: "Free recipes and grocery list",
+          desc: "A free high protein recipe guide and grocery list. Your best cold opener for anyone who wants to lose weight without giving up food they actually like." },
+        { icon: "chart", name: "GLP Recipe Guide",
+          slug: "vital-free-glp-recipe-guide", howto: "https://vitalshark.io/vital-glp-recipe-training",
+          tease: "Built for people on GLP medications",
+          desc: "A free recipe and shopping list guide written for people taking GLP medications. Strong opener for the weight loss conversation, and it leads into Nourish+." },
+        { icon: "coffee", name: "Clean Coffee Recipes",
+          slug: "vital-clean-iced-coffee", canva: "https://canva.link/reyh5ko5e8260am", howto: "https://vitalshark.io/vital-clean-brew-training",
+          tease: "Iced coffee without the junk",
+          desc: "A free clean iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives." },
+        { icon: "kids", name: "Einstein Kids Meal Guide",
+          slug: "vital-einstein-kids", canva: "https://canva.link/65wch4c5w1he7ma", howto: "https://vitalshark.io/vital-einstein-kids-training",
+          tease: "Kid friendly meals for parents",
+          desc: "A free kid friendly meal guide for parents. Works well in mom groups, school communities and family pages." }
+      ]
+    },
+    {
+      label: "Quizzes and tools",
+      items: [
+        { icon: "scan", name: "Health Scanner",
+          slug: "vital-health-scan", canva: "https://canva.link/8r9y6jcyifb3002", howto: "https://vitalshark.io/vital-health-scan-training",
+          tease: "Free face scan in about a minute",
+          desc: "Sends them to a free face scan that reads key wellness markers in about a minute. High curiosity, low commitment, and it hands you the follow up." },
+        { icon: "quiz", name: "Side Hustle Quiz",
+          slug: "vital-match-quiz", canva: "https://canva.link/iei2zd7bavlwksq", howto: "https://vitalshark.io/vital-side-hustle-training",
+          tease: "Sorts them into the right fit",
+          desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Vital fits. Use it when someone is interested but not ready to talk." }
+      ]
+    },
+    {
+      label: "Explain Vital",
+      items: [
+        { icon: "info", name: "What Is Vital",
+          slug: "", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/what-is-vital-training",
+          tease: "Your main site, the simple version",
+          desc: "The plain explainer. Send it the moment someone asks what Vital actually is, so you are not answering the same question by text every week. This one is your domain on its own." },
+        { icon: "chart", name: "Opportunity One Pager",
+          slug: "vital-opportunity-explainer", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/vital-opportunity-training",
+          tease: "The business side, on one page",
+          desc: "One page that lays out the business side start to finish. Best for people who have already told you they want to hear more." }
+      ]
+    },
+    {
+      label: "Your own pages",
+      items: [
+        { icon: "user", name: "Personal Branded Site",
+          slug: "vital-personal-site", howto: "https://vitalshark.io/vital-personal-branded-training",
+          tease: "Your name, your contact details",
+          desc: "Your own branded page carrying your name and contact details. Use it as the link in your bio and on your business card." },
+        { icon: "link", name: "Social Links Page",
+          slug: "vital-social-links", howto: "https://vitalshark.io/vital-social-links-training",
+          tease: "One link that holds all your links",
+          desc: "One link that holds every other link. Put it in your Instagram and TikTok bio so you are never editing a bio again." }
+      ]
+    }
+  ],
+  lists: [
+    { label: 'Direct product links', icon: 'cart', name: 'Product links',
+      tease: 'Every product link, ready to copy', perRep: true, items: [
+    { cv: "vital_product_url_retail",                 name: "Vital Shop" },
+    { cv: "vital_product_url_sub",                    name: "Subscription / Autoship" },
+    { cv: "vital_opportunity_url",                    name: "Business Opportunity" },
+    { cv: "vital_product_url_retail_kids_collection", name: "Kids Collection" },
+    { cv: "vital_nourish_url",        name: "Nourish+" },
+    { cv: "vital_genius_shake_url",   name: "Genius Shake" },
+    { cv: "vital_dfenz_url",          name: "D-Fenz" },
+    { cv: "vital_smart_biotics_url",  name: "Smart Biotics" },
+    { cv: "vital_pro_url",            name: "Vital Pro" },
+    { cv: "vital_daily_url",          name: "V-Daily" },
+    { cv: "vital_age_collagen_url",   name: "VitalAge Collagen" },
+    { cv: "vital_performance_url",    name: "Performance+" },
+    { cv: "vital_glutation_plus_url", name: "Glutation Plus+" },
+    { cv: "vital_glutation_url",      name: "V-Glutation" },
+    { cv: "vital_omega_3_url",        name: "V-Omega 3" },
+    { cv: "vital_curcumax_url",       name: "V-Curcumax" },
+    { cv: "vital_fortyflora_url",     name: "V-Fortyflora" },
+    { cv: "vital_control_url",        name: "V-Control" },
+    { cv: "vital_s_balance_url",      name: "S-Balance" },
+    { cv: "vital_nitro_url",          name: "V-Nitro" },
+    { cv: "vital_organex_url",        name: "V-Organex" },
+    { cv: "vital_te_detox_url",       name: "V-TE Detox" },
+    { cv: "vital_asculax_url",        name: "V-Asculax" },
+    { cv: "vital_itaren_url",         name: "V-Itaren" },
+    { cv: "vital_itadol_url",         name: "V-Itadol" },
+    { cv: "vital_italay_url",         name: "V-Italay" },
+    { cv: "vital_italboost_url",      name: "V-Italboost" },
+    { cv: "vital_lattekaffe_url",     name: "LatteKafe" },
+    { cv: "vital_thermokafe_url",     name: "V-ThermoKafe" },
+    { cv: "vital_neurokafe_url",      name: "V-NeuroKafe" },
+    { cv: "vital_lovkafe_url",        name: "V-LovKafe" },
+    { cv: "vital_nrgy_tropical_url",  name: "V-NRGY Tropical" }
+  ] }
+  ],
+  affiliate: { cv: 'vitalshark_affiliate_link', name: 'Your Vital Shark affiliate link',
+    desc: 'This is your affiliate link for the Vital Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
+};
+  var root = document.querySelector('.sk-vital-vital---your-funnel-links-vital-user-links');
+  if (!root) return;
+
+  /* ---------- typeface ----------
+     The block styles Archivo on the VARIABLE axes, wdth and wght, but it never
+     loaded the font: it inherited whatever the host GHL page happened to
+     request. GHL asks for static weights, and against a static face
+     font-variation-settings is ignored outright, so every weight in the design
+     silently collapsed to one. Load the variable file ourselves so the block
+     owns its own typography instead of borrowing the page's.
+     No IIFE here: the build appends the extra script at the first '})();'. */
+  var FONT_HREF = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap';
+  if (!document.querySelector('link[href^="https://fonts.googleapis.com/css2?family=Archivo:wdth"]')) {
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = FONT_HREF;
+    document.head.appendChild(fontLink);
+  }
+
+  /* ---------- icons ----------
+     Inline path data in one map, 24x24, fill none, stroke currentColor. Never an
+     icon font, never a remote sprite. */
+  var I = {
+    link:    '<path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/>',
+    inbox:   '<path d="M2.5 13.5h5l1.6 2.6h5.8l1.6-2.6h5"/><path d="M4.6 5.4 2.5 13.5v3.6a2.4 2.4 0 0 0 2.4 2.4h14.2a2.4 2.4 0 0 0 2.4-2.4v-3.6L19.4 5.4A2.4 2.4 0 0 0 17.2 4H6.8a2.4 2.4 0 0 0-2.2 1.4z"/>',
+    rocket:  '<path d="M13.5 4.5c3.4-2.2 6-2 6-2s.2 2.6-2 6c-2.5 3.9-6.4 5.6-6.4 5.6l-3.2-3.2S9.6 7 13.5 4.5z"/><path d="M8 15.5 5 18M6.5 11.5 4 12.8l1.8 1.8M12.5 17.5l1.3-2.5 1.8 1.8"/>',
+    life:    '<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/>',
+    leaf:    '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    dumbbell:'<path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><path d="M3.5 9v6"/><path d="M20.5 9v6"/><path d="M6.5 12h11"/>',
+    quiz:    '<path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/>',
+    drop:    '<path d="M12 2.7s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.1 12 2.7 12 2.7Z"/>',
+    info:    '<circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5"/><path d="M12 8h.01"/>',
+    user:    '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+    users:   '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
+    compass: '<circle cx="12" cy="12" r="9.5"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2Z"/>',
+    copy:    '<rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/>',
+    check:   '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+    out:     '<path d="M14 4h6v6"/><path d="M20 4 10.5 13.5"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>',
+    play:    '<path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/>',
+    chev:    '<path d="m9 5 7 7-7 7"/>',
+    down:    '<path d="m6 9 6 6 6-6"/>',
+    scan:    '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="11" r="3"/><path d="M7 17c1-2 2.9-3 5-3s4 1 5 3"/>',
+    coffee:  '<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2v3"/><path d="M11 2v3"/>',
+    kids:    '<circle cx="12" cy="8.5" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M8.5 3.5 12 1l3.5 2.5"/>',
+    chart:   '<path d="M3 20h18"/><rect x="5" y="11" width="3.5" height="6" rx="1"/><rect x="10.2" y="7" width="3.5" height="10" rx="1"/><rect x="15.5" y="13" width="3.5" height="4" rx="1"/>',
+    image:   '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/>',
+    cart:    '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>',
+    share:   '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>'
+  };
+  function icon(k, w) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' +
+      (w || 1.7) + '" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
+  }
+
+  /* ---------- custom values ----------
+     Empty, unsubstituted, and the "Paste the full link" placeholder all count as
+     not filled, exactly as the live marketing links block treats them. */
+  function cv(key) {
+    var v = (root.getAttribute('data-cv-' + key) || '').trim();
+    if (!v || v.indexOf('{') !== -1 || /^(paste|enter|add)\b/i.test(v)) return '';
+    return v;
+  }
+  function href(v) { return /^https?:\/\//i.test(v) ? v : 'https://' + v.replace(/^\/+/, ''); }
+
+  /* ---------- the four destinations ---------- */
+  var DEST = [
+    { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
+    { id: 'leads',   icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
+    { id: 'promote', icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
+    { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or send us a message.' }
+  ];
+
+  /* ---------- link building ----------
+     Two models across the fleet, and the difference is deliberate.
+       cv   : one custom value per funnel holding a FULL url. GLP reps run
+              several domains per account and their slugs drift per install, so
+              an assembled url silently serves the 404 fallback with a 200.
+       slug : one domain custom value plus a fixed slug per funnel. Vital and
+              Conectiv installs are uniform, so the slugs hold.
+     A slug starting with http is absolute and used verbatim, which is how the
+     central how-to pages sit alongside a rep's own domain. */
+  var domain = SYS.domainCv
+    ? cv(SYS.domainCv).replace(/^https?:\/\//i, '').replace(/\/+$/, '')
+    : '';
+
+  function funnelUrl(it) {
+    if (SYS.domainCv) {
+      if (!domain) return '';
+      if (/^https?:/i.test(it.slug || '')) return it.slug;
+      return 'https://' + domain + (it.slug ? '/' + it.slug : '');
+    }
+    var v = cv(it.cv);
+    return v ? href(v) : '';
+  }
+
+  /* ---------- greeting ---------- */
+  var firstName = cv(SYS.nameCv);
+  var nameEl = root.querySelector('[data-name]');
+  if (nameEl) nameEl.textContent = firstName;
+  var commaEl = root.querySelector('[data-comma]');
+  if (commaEl) commaEl.textContent = firstName ? ', ' : '';
+
+  /* ---------- home destinations ---------- */
+  var grid = root.querySelector('[data-menugrid]');
+  grid.innerHTML = DEST.map(function (d, i) {
+    return '<a class="sk-dest" href="#/' + d.id + '" style="animation-delay:' + (0.1 + i * 0.05) + 's">' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span><span class="sk-dest-name">' + d.name + '</span>' +
+      '<span class="sk-dest-tease">' + d.tease + '</span></span>' +
+      '<span class="sk-dest-go" aria-hidden="true">' + icon('chev', 2) + '</span></a>';
+  }).join('');
+
+  /* ---------- nav sheet ---------- */
+  var navlist = root.querySelector('[data-navlist]');
+  navlist.innerHTML = [{ id: 'home', icon: 'compass', name: 'Home' }].concat(DEST).map(function (d) {
+    return '<a class="sk-nav" href="#/' + d.id + '">' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span>' + d.name + '</span></a>';
+  }).join('');
+
+  /* ---------- funnel links ---------- */
+  var linksHost = root.querySelector('[data-links]');
+  var html = '';
+  var liveCount = 0;
+  SYS.groups.forEach(function (g) {
+    var rows = g.items.map(function (it) {
+      var full = funnelUrl(it);
+      if (!full) return '';
+      var url = full.replace(/^https?:\/\//, '');
+      return '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(it.icon) + '</span>' +
+          '<span><span class="sk-name">' + it.name + '</span>' +
+          '<span class="sk-tease">' + it.tease + '</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<p class="sk-desc">' + it.desc + '</p>' +
+          '<button class="sk-copy" type="button" data-copy="' + full + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+          '<div class="sk-url"><span class="sk-url-text">' + url + '</span>' +
+            '<a class="sk-open" href="' + full + '" target="_blank" rel="noopener" aria-label="Open ' + it.name + '">' + icon('out', 1.8) + '</a></div>' +
+          ((it.howto || it.canva) ? '<div class="sk-links">' +
+            (it.howto ? '<a class="sk-chip" href="' + it.howto + '" target="_blank" rel="noopener">' +
+              icon('play', 1.7) + 'How to use this funnel</a>' : '') +
+            (it.canva ? '<a class="sk-chip" href="' + it.canva + '" target="_blank" rel="noopener">' +
+              icon('image', 1.7) + 'Images for social posts</a>' : '') +
+            '</div>' : '') +
+        '</div></div></div></article>';
+    }).join('');
+    if (!rows) return;
+    liveCount += rows.split('<article').length - 1;
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">' + g.label + '</span>' +
+      '<span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + g.items.length + '</span></div>' + rows + '</div>';
+  });
+  /* Extra groups: a row list of name plus link, used for the social image
+     library, product and buy links, and anything else that is a directory
+     rather than a funnel. Static entries carry a url, per rep entries carry a
+     custom value and drop out when it is empty. */
+  (SYS.lists || []).forEach(function (L) {
+    /* A library that is ONE destination rather than a directory. A dropdown
+       holding a single row costs two taps to reach one link, so it renders as
+       a card with a primary button instead. */
+    if (L.single) {
+      html += '<div class="sk-group"><div class="sk-group-head">' +
+        '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+        '<span class="sk-group-count">1</span></div>' +
+        '<article class="sk-card" data-open="false">' +
+          '<button class="sk-trigger" type="button" aria-expanded="false">' +
+            '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+            '<span><span class="sk-name">' + L.name + '</span>' +
+            '<span class="sk-tease">' + L.tease + '</span></span>' +
+            '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<p class="sk-desc">' + L.single.desc + '</p>' +
+            '<a class="sk-copy" href="' + L.single.url + '" target="_blank" rel="noopener">' +
+              icon('image', 1.8) + L.single.cta + '</a>' +
+          '</div></div></div></article></div>';
+      return;
+    }
+    var rows = L.items.map(function (x) {
+      var u = x.url || (x.cv ? cv(x.cv) : '');
+      if (!u) return '';
+      u = href(u);
+      return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
+        x.name + '</a>' + (x.url
+          ? '<a class="sk-chip sk-chip--go" href="' + u + '" target="_blank" rel="noopener">Open</a>'
+          : '<button class="sk-copy sk-copy--mini" type="button" data-copy="' + u + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy</span></button>') + '</li>';
+    }).filter(Boolean);
+    if (!rows.length) return;
+    if (L.perRep) liveCount += rows.length;
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + rows.length + '</span></div>' +
+      '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+          '<span><span class="sk-name">' + L.name + '</span>' +
+          '<span class="sk-tease">' + L.tease + '</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<ul class="sk-plist">' + rows.join('') + '</ul>' +
+        '</div></div></div></article></div>';
+  });
+
+  /* Refer the system. The affiliate link is per rep, so a missing one renders
+     nothing rather than a dead link or, worse, someone else's. */
+  var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
+  if (affiliate) {
+    liveCount++;
+    var au = href(affiliate);
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">1</span></div>' +
+      '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
+          '<span><span class="sk-name">' + SYS.affiliate.name + '</span>' +
+          '<span class="sk-tease">Share the Shark marketing system</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<p class="sk-desc">' + SYS.affiliate.desc + '</p>' +
+          '<button class="sk-copy" type="button" data-copy="' + au + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+          '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
+            '<a class="sk-open" href="' + au + '" target="_blank" rel="noopener" aria-label="Open your affiliate link">' + icon('out', 1.8) + '</a></div>' +
+        '</div></div></div></article></div>';
+  }
+
+  linksHost.innerHTML = html;
+
+  /* ---------- copy to clipboard ----------
+     Idle to done state machine: the label swaps to a confirmation for 1.9s and
+     then restores, so the tap is acknowledged without a toast. */
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-copy]') : null;
+    if (!btn) return;
+    var url = btn.getAttribute('data-copy');
+    var label = btn.querySelector('.sk-copy-label');
+    function done() {
+      btn.setAttribute('data-state', 'done');
+      if (label) label.textContent = 'Copied';
+      setTimeout(function () {
+        btn.removeAttribute('data-state');
+        if (label) label.textContent = 'Copy my link';
+      }, 1900);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, done);
+    } else {
+      var t = document.createElement('textarea');
+      t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(t);
+      done();
+    }
+  });
+
+  /* ---------- accordions ----------
+     State lives in data-open on the card, mirrored to aria-expanded on the
+     trigger. One open at a time, per group of cards on the active screen. */
+  root.addEventListener('click', function (e) {
+    var trigger = e.target.closest ? e.target.closest('.sk-trigger') : null;
+    if (!trigger) return;
+    var card = trigger.closest('.sk-card');
+    var screen = trigger.closest('.sk-screen');
+    var willOpen = card.getAttribute('data-open') !== 'true';
+    screen.querySelectorAll('.sk-card').forEach(function (c) {
+      c.setAttribute('data-open', 'false');
+      var t = c.querySelector('.sk-trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      card.setAttribute('data-open', 'true');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  /* ---------- video facade ----------
+     The player is never in the markup: data-vimeo holds the numeric id and the
+     iframe is injected on click, so a page carrying videos costs nothing until
+     a viewer asks for one. */
+  root.addEventListener('click', function (e) {
+    var frame = e.target.closest ? e.target.closest('.sk-frame') : null;
+    if (!frame) return;
+    var id = frame.getAttribute('data-vimeo');
+    if (!id) return;
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:relative;width:100%;aspect-ratio:16/9';
+    var f = document.createElement('iframe');
+    f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0';
+    f.allow = 'autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen = true;
+    f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+    wrap.appendChild(f);
+    frame.replaceWith(wrap);
+  });
+
+  /* ---------- menu sheet ---------- */
+  var sheet = root.querySelector('[data-menu]');
+  var lastFocus = null;
+  function openMenu() {
+    lastFocus = document.activeElement;
+    sheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    sheet.querySelector('.sk-sheet-panel').focus();
+  }
+  function closeMenu() {
+    sheet.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  root.querySelector('[data-menu-open]').addEventListener('click', openMenu);
+  sheet.querySelectorAll('[data-menu-close]').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !sheet.hidden) closeMenu();
+  });
+
+  /* ---------- router ----------
+     Hash routed so the whole hub is one block at one URL, which is what lets it
+     travel inside a snapshot as a single custom code socket. */
+  var screens = root.querySelectorAll('.sk-screen');
+  var backBtn = root.querySelector('[data-back]');
+  var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1 };
+
+  function route() {
+    var id = (location.hash || '').replace(/^#\/?/, '') || 'home';
+    if (!VALID[id]) id = 'home';
+    screens.forEach(function (s) {
+      s.setAttribute('data-active', String(s.getAttribute('data-screen') === id));
+    });
+    root.setAttribute('data-route', id);
+    backBtn.hidden = (id === 'home');
+    navlist.querySelectorAll('.sk-nav').forEach(function (a) {
+      if (a.getAttribute('href') === '#/' + id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    if (!sheet.hidden) closeMenu();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  backBtn.addEventListener('click', function () { location.hash = '#/home'; });
+  route();
+
+  /* the bar grows a hairline once the page has moved, so it separates from the
+     content without drawing a permanent line across the top */
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      root.setAttribute('data-scrolled', String(window.scrollY > 4));
+      ticking = false;
+    });
+  }, { passive: true });
+
+
+  /* ---------- setup state ----------
+     An account with nothing filled in yet gets told what to do, not an empty
+     screen. Shown INSTEAD of the funnel list, per the design system. */
+  if (!liveCount) {
+    linksHost.innerHTML =
+      '<div class="sk-setup"><h2>Finish your setup first</h2>' +
+      '<p>Your funnel links have not been added yet. Paste each one into the GLP ' +
+      'Funnel Links custom values and this page fills in automatically.</p></div>';
+  }
+
+  /* ---------- home screen icon ----------
+     Reps are told to add this to their home screen. Without an apple-touch-icon
+     iOS screenshots the page and uses that as the icon, which looks broken.
+     GHL always emits its own <link rel="icon"> pointing at the HighLevel
+     default, so "skip if one exists" silently loses every time: drop the
+     platform default first, then add ours, and leave anything deliberate. */
+  (function () {
+    var ICON = 'https://invokableapp.github.io/shark-pages/_brand/vital/';
+    function head(tag, attrs) {
+      if (attrs.rel) {
+        var existing = document.head.querySelectorAll(tag + '[rel="' + attrs.rel + '"]');
+        for (var i = 0; i < existing.length; i++) {
+          if (/leadconnectorhq|stcdn/.test(existing[i].getAttribute('href') || '')) existing[i].remove();
+          else return;
+        }
+      }
+      var el = document.createElement(tag);
+      for (var a in attrs) el.setAttribute(a, attrs[a]);
+      document.head.appendChild(el);
+    }
+    head('link', { rel: 'apple-touch-icon', sizes: '180x180', href: ICON + 'icon-180.png' });
+    head('link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: ICON + 'icon-512.png' });
+    head('meta', { name: 'apple-mobile-web-app-title', content: 'Vital Shark' });
+    head('meta', { name: 'theme-color', content: '#8DB53C' });
+  })();
+
+  /* ---------- add to home screen ----------
+     CAN THIS BE AUTOMATIC? Only partly, and only on Android.
+       iOS: Safari exposes NO API. Add to Home Screen is Share then Add, a manual
+            gesture no script can trigger or fake, so instructions lead.
+       Android: Chrome MAY fire beforeinstallprompt, a real one tap install. It
+            is not guaranteed, so it is a bonus: when it fires the button
+            installs directly and the sheet never opens. */
+  (function () {
+    var openBtn = root.querySelector('[data-a2hs-open]');
+    var sheet   = root.querySelector('[data-a2hs-sheet]');
+    if (!openBtn || !sheet) return;
+
+    // already installed: the button would be pure noise, so it never appears
+    var installed = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+                    window.navigator.standalone === true;
+    if (installed) return;
+
+    var label   = openBtn.querySelector('[data-a2hs-label]');
+    var stepsEl = sheet.querySelector('[data-a2hs-steps]');
+    var videoEl = sheet.querySelector('[data-a2hs-video]');
+    var watch   = sheet.querySelector('.sk-watch');
+
+    /* One walkthrough per platform. The runtimes differ, so the hint is per
+       platform rather than one static claim. */
+    var VIDEO = {
+      ios:     { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85cfbf005891114d29ddef.mp4', hint: '(1 minute video)' },
+      android: { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85d91f9cca634f084ab692.mp4', hint: '(2 minute video)' }
+    };
+    var share = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8.5 6.5 3.5-3.5 3.5 3.5"/><path d="M6 11H4.8A1.8 1.8 0 0 0 3 12.8v6.4A1.8 1.8 0 0 0 4.8 21h14.4a1.8 1.8 0 0 0 1.8-1.8v-6.4A1.8 1.8 0 0 0 19.2 11H18"/></svg>Share</span>';
+    var kebab = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>menu</span>';
+
+    var STEPS = {
+      ios: [
+        'Tap the ' + share + ' button at the bottom of Safari.',
+        'Scroll down the list and tap <b>Add to Home Screen</b>.',
+        'Tap <b>Add</b> in the top right. The icon appears with your other apps.'
+      ],
+      android: [
+        'Tap the ' + kebab + ' in the top right of Chrome.',
+        'Tap <b>Install app</b>, or <b>Add to Home screen</b> if you do not see it.',
+        'Confirm with <b>Install</b>. The icon appears with your other apps.'
+      ]
+    };
+    /* Opening from inside another app's browser makes the real steps impossible,
+       and it is common: reps reach this from a Facebook or Instagram message.
+       Naming it saves the "it isn't there" support message. */
+    var INAPP = /FBAN|FBAV|Instagram|Line\/|Twitter|LinkedInApp/i.test(navigator.userAgent || '');
+    var ua = navigator.userAgent || '';
+    var guess = (/iPad|iPhone|iPod/.test(ua) || (ua.indexOf('Mac') > -1 && navigator.maxTouchPoints > 1))
+      ? 'ios' : (/Android/i.test(ua) ? 'android' : 'ios');
+
+    function paint(os) {
+      sheet.querySelectorAll('.sk-seg-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-os') === os));
+      });
+      var list = STEPS[os].map(function (t) { return '<li><span>' + t + '</span></li>'; }).join('');
+      if (INAPP) {
+        list = '<li><span>You opened this inside another app. Tap that app’s menu and choose ' +
+               '<b>Open in ' + (os === 'ios' ? 'Safari' : 'Chrome') + '</b> first.</span></li>' + list;
+      }
+      stepsEl.innerHTML = list;
+      /* Rebuilt on every switch so only the platform being viewed is fetched,
+         and preload="none" keeps even that at zero bytes until play. These files
+         are ~23MB each; preloading both would cost a rep 46MB for nothing. */
+      videoEl.innerHTML = '<video controls playsinline preload="none" src="' + VIDEO[os].src + '"></video>';
+      var hint = sheet.querySelector('[data-a2hs-size]');
+      if (hint) hint.textContent = VIDEO[os].hint;
+      if (watch) watch.open = false;
+    }
+
+    var lastA2hsFocus = null;
+    function openSheet() {
+      lastA2hsFocus = document.activeElement;
+      paint(guess);
+      sheet.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = sheet.querySelector('.sk-sheet-x');
+      if (x) x.focus();
+    }
+    function closeSheet() {
+      // stop playback and drop the buffer, or audio keeps going behind the sheet
+      var v = sheet.querySelector('video');
+      if (v) { try { v.pause(); } catch (e) {} }
+      videoEl.innerHTML = '';
+      sheet.hidden = true;
+      document.body.style.overflow = '';
+      if (lastA2hsFocus && lastA2hsFocus.focus) lastA2hsFocus.focus();
+    }
+
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('[data-a2hs-close]')) { closeSheet(); return; }
+      var seg = e.target.closest('.sk-seg-btn');
+      if (seg) { guess = seg.getAttribute('data-os'); paint(guess); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !sheet.hidden) closeSheet();
+    });
+
+    // Android's real install prompt, when the browser offers one
+    var deferred = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferred = e;
+      label.textContent = 'Add this page to your home screen';
+    });
+    window.addEventListener('appinstalled', function () { openBtn.hidden = true; deferred = null; });
+
+    openBtn.addEventListener('click', function () {
+      if (deferred) {
+        deferred.prompt();
+        deferred.userChoice.then(function (r) {
+          if (r && r.outcome === 'accepted') openBtn.hidden = true;
+          /* dismissed: the browser will not re-offer, so fall back to the written
+             steps rather than leaving a button that silently does nothing */
+          else { deferred = null; label.textContent = 'How to add this to your home screen'; }
+        });
+        deferred = null;
+        return;
+      }
+      openSheet();
+    });
+
+    label.textContent = 'How to add this to your home screen';
+    openBtn.hidden = false;
+  })();
+
+
+  /* ---------- training video sheet ----------
+     One sheet, any number of buttons. Everything a video needs travels on the
+     button (id, title, natural pixel size), so the next one is markup only. */
+  (function () {
+    var sheet = root.querySelector('[data-video-sheet]');
+    if (!sheet) return;
+    var stage = sheet.querySelector('[data-video-stage]');
+    var head  = sheet.querySelector('[data-video-heading]');
+    var lastVideoFocus = null;
+
+    function closeVideo() {
+      /* dropping the iframe is what stops playback: pausing a cross origin player
+         is not something this page is allowed to do, and a sheet that closes while
+         audio keeps running is the add-to-home-screen bug all over again. */
+      stage.innerHTML = '';
+      stage.style.removeProperty('--sk-vid-ar');
+      stage.style.removeProperty('max-width');
+      sheet.hidden = true;
+      document.body.style.overflow = '';
+      if (lastVideoFocus && lastVideoFocus.focus) lastVideoFocus.focus();
+    }
+
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('[data-video]') : null;
+      if (!btn) return;
+      var id = btn.getAttribute('data-video');
+      if (!id) return;
+      lastVideoFocus = btn;
+
+      var w = parseFloat(btn.getAttribute('data-video-w')) || 16;
+      var h = parseFloat(btn.getAttribute('data-video-h')) || 9;
+      stage.style.setProperty('--sk-vid-ar', w + ' / ' + h);
+      // capped by HEIGHT, so a portrait clip fits the sheet instead of scrolling it
+      stage.style.maxWidth = 'calc(' + (w / h).toFixed(4) + ' * 62vh)';
+
+      head.textContent = btn.getAttribute('data-video-title') || 'Watch';
+
+      var f = document.createElement('iframe');
+      f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      f.title = head.textContent;
+      stage.appendChild(f);
+
+      sheet.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = sheet.querySelector('.sk-sheet-x');
+      if (x) x.focus();
+    });
+
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('[data-video-close]')) closeVideo();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !sheet.hidden) closeVideo();
+    });
+  })();
+
+  /* ---------- scroll cue ----------
+     Joe: the glance grid and the leads copy both end flush at the fold, so those
+     screens read as finished and everything under them got ignored.
+
+     MEASURED, never assumed. It appears only when the document really does
+     continue past the viewport, and it retires on the first scroll of a screen,
+     because once a rep has scrolled they know the page moves. Each route resets
+     it, since every screen is a fresh question. */
+  (function () {
+    var cue = root.querySelector('[data-more]');
+    if (!cue) return;
+    var MIN = 140;          // less than this below the fold is not worth a prompt
+    var MOVED = 24;         // a scroll this small still counts as "they know"
+    var armed = false;
+
+    function below() {
+      var doc = document.documentElement;
+      return Math.max(doc.scrollHeight, document.body.scrollHeight) -
+             window.innerHeight - (window.scrollY || window.pageYOffset || 0);
+    }
+    function paint() {
+      var show = armed &&
+                 (window.scrollY || window.pageYOffset || 0) < MOVED &&
+                 below() > MIN;
+      cue.hidden = !show;
+      cue.setAttribute('data-show', String(show));
+    }
+    function arm() {
+      armed = true;
+      paint();
+      // the screen it just switched to may still be settling its fonts and images
+      setTimeout(paint, 260);
+    }
+
+    window.addEventListener('scroll', function () {
+      if ((window.scrollY || window.pageYOffset || 0) >= MOVED) armed = false;
+      paint();
+    }, { passive: true });
+    window.addEventListener('resize', paint);
+    window.addEventListener('hashchange', arm);
+    // an accordion opening or closing changes the height under the fold
+    if (window.ResizeObserver) new ResizeObserver(paint).observe(root);
+
+    arm();
+  })();
+
+})();
+</script>
+</body></html>
