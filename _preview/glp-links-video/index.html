@@ -731,6 +731,74 @@
   text-wrap: balance;
 }
 
+/* ---------------- play overlay on an illustration ----------------
+   The illustration BECOMES the button rather than growing a second control
+   beside it: the art is already the biggest thing in an open card, so it is
+   the target a thumb goes for. The badge reuses .sk-play from the video
+   facade, and the soft radial keeps it readable over the busiest art. */
+
+.sk-glp-your-marketing-links-marketing-links .sk-art--play {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-art--play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(16,20,16,.17) 0%, rgba(16,20,16,0) 60%);
+  pointer-events: none;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-art--play .sk-play { z-index: 1; }
+.sk-glp-your-marketing-links-marketing-links .sk-art--play:hover .sk-play { transform: scale(1.06); }
+.sk-glp-your-marketing-links-marketing-links .sk-art--play:active .sk-play { transform: scale(.97); }
+
+/* ---------------- scroll cue ----------------
+   Some screens end on a tidy full width block (the glance grid, the leads
+   copy) that reads as the bottom of the page, so everything under it went
+   unread. The cue is shown ONLY while there is genuinely more below and the
+   rep has not scrolled yet, and it retires for good on the first scroll:
+   a permanent arrow would be furniture, and furniture stops being read. */
+
+.sk-glp-your-marketing-links-marketing-links .sk-more {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-more[hidden] { display: none; }
+.sk-glp-your-marketing-links-marketing-links .sk-more[data-show="true"] { opacity: 1; }
+
+.sk-glp-your-marketing-links-marketing-links .sk-more-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 12.6px;
+  font-weight: 600;
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-glp-your-marketing-links-marketing-links-bob 1.9s ease-in-out infinite;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+
+@keyframes sk-glp-your-marketing-links-marketing-links-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-glp-your-marketing-links-marketing-links .sk-more-pill { animation: none; }
+}
+
 /* ---------------- training video: button + sheet ----------------
    The button is the .sk-chip vocabulary (outline, brand-deep label, brand icon)
    turned into a centred pill, so it reads as clearly secondary to the cards
@@ -1218,6 +1286,14 @@
   </div>
 
   
+  <div class="sk-more" data-more hidden>
+    <span class="sk-more-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <span>More below</span>
+    </span>
+  </div>
+
+  
   <div class="sk-sheet" data-video-sheet hidden>
     <div class="sk-sheet-scrim" data-video-close></div>
     <div class="sk-sheet-panel sk-vidpanel" role="dialog" aria-modal="true" aria-labelledby="sk-video-title" tabindex="-1">
@@ -1452,8 +1528,8 @@
         <div class="sk-panel-inner">
           <div class="sk-panel-pad">
 
-            <div class="sk-art" aria-hidden="true">
-              <svg viewBox="0 0 320 180" role="img">
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
                 <defs><linearGradient id="dmoG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
                 <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
                 <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
@@ -1476,7 +1552,8 @@
                 <text x="256" y="46.5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="13" fill="#fff">2</text>
                 <path d="M64 128 C 52 112, 54 92, 66 78" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
               </svg>
-            </div>
+            <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
 
             <p class="sk-desc">The key is consistency. Do not miss or skip a day.</p>
             <p class="sk-desc">Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
@@ -1510,8 +1587,8 @@
         <div class="sk-panel-inner">
           <div class="sk-panel-pad">
 
-            <div class="sk-art" aria-hidden="true">
-              <svg viewBox="0 0 320 180" role="img">
+            <button class="sk-art sk-art--play" type="button" data-video="1221845136" data-video-title="What To Post (Stories AND Static)" data-video-w="196" data-video-h="426" aria-label="Watch: what to post to your stories and feeds">
+              <svg viewBox="0 0 320 180" aria-hidden="true">
                 <defs><linearGradient id="dmoG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--sk-brand)"/><stop offset="1" stop-color="var(--sk-brand-deep)"/></linearGradient></defs>
                 <rect width="320" height="180" fill="var(--sk-brand-tint)"/>
                 <circle cx="160" cy="90" r="70" fill="#fff" opacity=".55"/>
@@ -1531,7 +1608,8 @@
                 </g>
                 <path d="M262 76 C 276 84, 278 98, 268 108" fill="none" stroke="var(--sk-brand)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
               </svg>
-            </div>
+            <span class="sk-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            </button>
 
             <p class="sk-desc">We&#8217;re going to say the same thing here that we said above&#8230; Because its relevant: Social media algorithms reward accounts that post consistently. The more often you show up, the better your chances of increasing your organic reach, getting more views, catching people&#8217;s attention, and creating content that takes off.</p>
             <p class="sk-desc">Remember, <b>LIKES</b> and <b>COMMENTS</b> = Leads!</p>
@@ -2448,6 +2526,53 @@ var SYS = {
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !sheet.hidden) closeVideo();
     });
+  })();
+
+  /* ---------- scroll cue ----------
+     Joe: the glance grid and the leads copy both end flush at the fold, so the
+     screen reads as finished and everything under it gets ignored.
+
+     The cue is MEASURED, never assumed. It appears only when the document
+     really does continue past the viewport by more than a token amount, and it
+     retires on the first scroll of that screen, because once a rep has scrolled
+     they know the page moves and a permanent arrow is just furniture. Each
+     route resets it, since every screen is a fresh question. */
+  (function () {
+    var cue = root.querySelector('[data-more]');
+    if (!cue) return;
+    var MIN = 140;          // less than this below the fold is not worth a prompt
+    var MOVED = 24;         // a scroll this small still counts as "they know"
+    var armed = false;
+
+    function below() {
+      var doc = document.documentElement;
+      return Math.max(doc.scrollHeight, document.body.scrollHeight) -
+             window.innerHeight - (window.scrollY || window.pageYOffset || 0);
+    }
+    function paint() {
+      var show = armed &&
+                 (window.scrollY || window.pageYOffset || 0) < MOVED &&
+                 below() > MIN;
+      cue.hidden = !show;
+      cue.setAttribute('data-show', String(show));
+    }
+    function arm() {
+      armed = true;
+      paint();
+      // the screen it just switched to may still be settling its images and fonts
+      setTimeout(paint, 260);
+    }
+
+    window.addEventListener('scroll', function () {
+      if ((window.scrollY || window.pageYOffset || 0) >= MOVED) armed = false;
+      paint();
+    }, { passive: true });
+    window.addEventListener('resize', paint);
+    window.addEventListener('hashchange', arm);
+    // an accordion opening or closing changes the height under the fold
+    if (window.ResizeObserver) new ResizeObserver(paint).observe(root);
+
+    arm();
   })();
 
 })();
