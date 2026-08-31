@@ -1313,3 +1313,37 @@
   border: 1px solid var(--sk-line);
   background: #000;
 }
+
+
+/* ---------------- setup state, and the copied pop ----------------
+   RESTORED 2026-08-31, same cause as the block above: dropped by 6866987 while the
+   markup and JS that use them came across. Found by class-audit.mjs.
+
+   .sk-setup is the card a rep sees when their custom values are not filled in, so
+   it is the FIRST thing a brand new account renders. It has been showing as bare
+   unstyled text since 2026-08-25. Verbatim from 6866987^. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup {
+  margin: 8px 0 24px;
+  padding: 22px var(--sk-pad);
+  border: 1px solid #e8ddb8;
+  border-radius: var(--sk-r);
+  background: #fdf8e8;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup h2 {
+  margin: 0 0 6px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 105, "wght" 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup p { margin: 0; font-size: 14.5px; color: #6b5f34; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] .sk-copy-label {
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-pop .35s cubic-bezier(.2,.9,.3,1) both;
+}
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-pop {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: none; }
+}

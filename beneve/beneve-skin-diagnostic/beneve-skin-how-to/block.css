@@ -1,10 +1,10 @@
 /* beneve / beneve-skin-diagnostic / beneve-skin-how-to
  *
- * The design lives in _shared/howto/, scoped under .sk-howto, and is shared by every
+ * The design lives in _shared/howto/v1/, scoped under .sk-howto, and is shared by every
  * howto page in every system. This file declares ONLY the palette, on the block's own scope
  * class, and it cascades into the shared component. No brand swatch is touched.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/howto/howto.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
 
 .sk-howto-bnv{
   --sk-navy:    var(--bnv-navy,#1e386a);
