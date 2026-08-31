@@ -1153,3 +1153,84 @@
   text-transform: uppercase;
   box-shadow: var(--sk-shadow);
 }
+
+
+/* ---------------- add-to-home-screen sheet: platform toggle, step glyphs, video ----
+   RESTORED 2026-08-31. These rules were dropped by 6866987 while the markup they
+   style came across with it, so the sheet has been rendering unstyled on every
+   system since 2026-08-25. Verbatim from 6866987^, not a rewrite.
+
+   The .sk-gl svg size is the one that looks cosmetic and is not: an inline svg
+   with no width/height has no intrinsic size, so without it the Share glyph fills
+   its container and the step becomes a full-width arrow. */
+
+/* ---- platform toggle ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 18px;
+  border: 1px solid var(--sk-line);
+  border-radius: 12px;
+  background: var(--sk-card);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-seg-btn {
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 13.5px;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-seg-btn[aria-pressed="true"] {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+}
+
+/* ---- the inline glyph inside a written step ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-steps .sk-gl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px 1px 4px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-steps .sk-gl svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+/* ---- optional video ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch { margin-top: 16px; }
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch summary::-webkit-details-marker { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch summary svg { width: 18px; height: 18px; flex: none; color: var(--sk-brand); stroke-width: 1.7; }
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch summary em { font-style: normal; font-weight: 500; color: var(--sk-ink-faint); }
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch-body { padding-top: 12px; }
+.sk-conectiv-your-funnel-links-c-user-links-page-next .sk-watch video {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  border-radius: var(--sk-r-sm);
+  border: 1px solid var(--sk-line);
+  background: #000;
+}

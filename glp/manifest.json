@@ -793,6 +793,33 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "fBG1cjoo1o0h15WgGvXx",
+      "pageId": "3kLDcQrOOSILJH3KcXEj",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "0URPNW3l1OBxc6frHxsb"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "tMGpr6ODWSvo2Mf4QTin",
+      "pageId": "ztAmvykqrEcJVsFExxXd",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "PAXKeUu0hSfLSiJWaClA"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "6JldPkHmxTPU7POmPJpN",
+      "pageId": "i1XrVF3VWia7L6AU0pFZ",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "bNN86mDO5dMDcxXPXPEZ"
     }
   ]
 }
