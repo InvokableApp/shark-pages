@@ -41,7 +41,60 @@
     window.dispatchEvent(new Event("customWidgetOpenPopup"));
   }, true);
 
-  // ---- 2. stat counters ----------------------------------------------------
+  // ---- 2. offer countdown --------------------------------------------------
+  // Evergreen, per visitor. The deadline is stamped once in localStorage and read back on
+  // every later view, so the clock keeps falling across reloads and across pages instead
+  // of resetting to 57:00 on each load, which is what makes a timer read as fake.
+  //
+  // The markup ships `hidden`. It is only revealed once a real deadline exists, so a
+  // visitor with JS off or blocked storage sees no timer rather than a frozen one.
+  //
+  // Past the deadline the pill switches to "Last call" instead of sitting on 00:00, which
+  // looks like a broken clock. A deadline older than a day is treated as a new visit and
+  // restarted, otherwise anyone returning next week meets a permanently dead offer.
+  (function () {
+    var el = root.querySelector("[data-offer-timer]");
+    if (!el) return;
+    var clock = el.querySelector(".sk-prod-ig-timer-clock");
+    var KEY = "ignyt-offer-deadline";
+    var WINDOW_MS = 57 * 60 * 1000;
+    var STALE_MS = 24 * 60 * 60 * 1000;
+
+    // Safari in private mode throws on localStorage rather than returning null, so every
+    // access is guarded and falls back to a memory-only deadline for this page view.
+    var store = {
+      get: function () { try { return parseInt(window.localStorage.getItem(KEY) || "0", 10) || 0; } catch (e) { return 0; } },
+      set: function (v) { try { window.localStorage.setItem(KEY, String(v)); } catch (e) { /* memory only */ } },
+    };
+
+    var now = Date.now();
+    var deadline = store.get();
+    if (!deadline || now - deadline > STALE_MS) {
+      deadline = now + WINDOW_MS;
+      store.set(deadline);
+    }
+
+    var pad = function (n) { return n < 10 ? "0" + n : String(n); };
+    var timer = null;
+
+    function tick() {
+      var left = deadline - Date.now();
+      if (left <= 0) {
+        el.setAttribute("data-expired", "");
+        clock.textContent = "Last call";
+        if (timer) clearInterval(timer);
+        return;
+      }
+      var total = Math.floor(left / 1000);
+      clock.textContent = pad(Math.floor(total / 60)) + ":" + pad(total % 60);
+    }
+
+    tick();
+    el.removeAttribute("hidden");
+    timer = setInterval(tick, 1000);
+  })();
+
+  // ---- 3. stat counters ----------------------------------------------------
   var nums = root.querySelectorAll("[data-count]");
   if (!nums.length) return;
   if (reduce || !("IntersectionObserver" in window)) return;   // markup already holds the value

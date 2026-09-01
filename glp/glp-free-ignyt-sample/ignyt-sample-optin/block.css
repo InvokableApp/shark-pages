@@ -565,9 +565,10 @@
 }
 .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{padding:.7rem 1.3rem;font-size:.76rem}
 
-@media (max-width:900px){
-  /* Two rows on a phone: identity + CTA, then the links as a scroll strip. Jeff asked for
-     the nav on mobile too, and hiding the links would have made it a CTA bar again. */
+@media (max-width:1100px){
+  /* Two rows: identity + timer + CTA, then the links as a scroll strip. Jeff asked for the
+     nav on mobile too, so the links collapse into a scroller rather than being dropped.
+     1100 rather than 900 because the timer widened the single row. */
   .sk-prod-ig{ --ig-nav-h:96px; }
   .sk-prod-ig .sk-prod-ig-nav-in{
     height:auto;flex-wrap:wrap;padding-top:.6rem;gap:.5rem 1rem;
@@ -582,4 +583,57 @@
   .sk-prod-ig .sk-prod-ig-nav-links::-webkit-scrollbar{display:none}
   .sk-prod-ig .sk-prod-ig-cta-slim > div{padding:.95rem 0}
   .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{width:100%;justify-content:center}
+}
+
+/* ============================ OFFER COUNTDOWN ============================ */
+/* Evergreen per-visitor countdown. The deadline is stamped in localStorage on first view,
+   so it keeps running across reloads instead of snapping back to 57:00 every time, which
+   is the thing that makes these read as fake. */
+.sk-prod-ig .sk-prod-ig-timer{
+  display:flex;align-items:center;gap:.5rem;flex:0 0 auto;
+  padding:.42rem .8rem;border-radius:999px;
+  border:1px solid rgba(250,67,0,.38);
+  background:rgba(250,67,0,.10);
+}
+.sk-prod-ig .sk-prod-ig-timer[hidden]{display:none}
+.sk-prod-ig .sk-prod-ig-timer-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--ig-ember);flex:0 0 auto;
+  animation:sk-prod-ig-pulse 2.4s var(--ig-ease) infinite;
+}
+@keyframes sk-prod-ig-pulse{
+  0%{box-shadow:0 0 0 0 rgba(250,67,0,.55)}
+  70%{box-shadow:0 0 0 7px rgba(250,67,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(250,67,0,0)}
+}
+.sk-prod-ig .sk-prod-ig-timer-label{
+  color:var(--ig-flare);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 68,"wght" 700;
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+}
+.sk-prod-ig .sk-prod-ig-timer-clock{
+  color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 800;
+  font-size:.92rem;letter-spacing:.04em;
+  /* tabular figures, or every tick reflows the pill by a pixel or two */
+  font-variant-numeric:tabular-nums;
+  min-width:4.4ch;text-align:center;
+}
+.sk-prod-ig .sk-prod-ig-timer[data-expired] .sk-prod-ig-timer-clock{
+  color:var(--ig-spark);letter-spacing:.1em;font-size:.74rem;min-width:0;
+}
+.sk-prod-ig .sk-prod-ig-timer[data-expired] .sk-prod-ig-timer-label{display:none}
+
+@media (max-width:1100px){
+  /* On a phone the wordmark text goes and the flame carries the identity, which buys the
+     row enough width for the timer and the CTA to sit beside it. */
+  .sk-prod-ig .sk-prod-ig-mark span{display:none}
+  .sk-prod-ig .sk-prod-ig-mark{flex:0 0 auto}
+  .sk-prod-ig .sk-prod-ig-timer-label{display:none}
+  .sk-prod-ig .sk-prod-ig-timer{padding:.36rem .62rem;margin-left:auto}
+  .sk-prod-ig .sk-prod-ig-nav-cta{order:2;margin-left:.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .sk-prod-ig .sk-prod-ig-timer-dot{animation:none}
 }

@@ -64,6 +64,15 @@
         <a href="#faq">FAQ</a>
       </nav>
 
+      <!-- Ships `hidden` and is only revealed once block.js has a real deadline. If the
+           script never runs, a visitor sees no timer at all instead of a frozen one
+           claiming the offer ends at a time that never moves. -->
+      <div class="sk-prod-ig-timer" data-offer-timer hidden>
+        <i class="sk-prod-ig-timer-dot" aria-hidden="true"></i>
+        <span class="sk-prod-ig-timer-label">Offer good for</span>
+        <span class="sk-prod-ig-timer-clock" role="timer" aria-live="off">57:00</span>
+      </div>
+
       <a class="sk-prod-btn sk-prod-ig-nav-cta" href="#claim" data-optin>Claim free sample</a>
     </div>
     <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
