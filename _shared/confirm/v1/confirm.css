@@ -230,3 +230,235 @@
   margin-left:calc(50% - 50vw);
   overflow-x:clip;
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VARIANTS (added 2026-09-01 for the Beneve Hormone Lunchbox confirmation)
+
+   Additive and namespaced. Nothing above this line changes, so the two pages
+   already on this component render byte-identically.
+
+   Why a second confirmation SHAPE exists at all: the dark band-1 above is the
+   "here is what you asked for, and by the way" shape. This one is the
+   "here is what you asked for, and here is ONE offer, decide now" shape, read
+   off Joe's live page. The difference is not cosmetic. A dark hero followed by
+   two prose bands and three CTAs spreads the decision out; this puts the whole
+   offer in a single card the reader can take in without scrolling twice, which
+   is what a limited-time trial pack needs.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── light hero ────────────────────────────────────────────────────────────────
+   Add `sk-conf-light` to the block root. Band 1 flips from the navy gradient to
+   a warm cream wash: the offer card below is the only thing on the page allowed
+   to carry colour weight, and a dark hero above it competes for that job.
+
+   Optional tokens, all with fallbacks, so a system that sets none still renders:
+     --sk-accent --sk-accent-d   the brand's deep accent (buttons, the italic)
+     --sk-glow-a --sk-glow-b     the two corner washes
+     --sk-panel  --sk-badge      offer-card right panel, offer-card badge */
+.sk-conf-light .sk-conf-top{
+  background:
+    radial-gradient(85% 70% at 100% 0%, var(--sk-glow-a,rgba(250,206,166,.55)) 0%, rgba(255,255,255,0) 62%),
+    radial-gradient(70% 62% at 0% 0%,   var(--sk-glow-b,rgba(253,240,190,.5))  0%, rgba(255,255,255,0) 64%),
+    var(--sk-cream,#fffdfb);
+  padding:clamp(3rem,6.5vw,4.75rem) 0 clamp(2.25rem,5vw,3.25rem);
+}
+.sk-conf-light .sk-conf-top h1,
+.sk-conf-light .sk-conf-top h2{color:var(--sk-ink,#16233d)}
+
+/* The pill is a raised white chip here, not a hairline outline: on a pale wash a
+   1px border at 42% white is invisible. */
+.sk-conf-light .sk-conf-top .sk-conf-pill{
+  background:#fff;border:0;border-radius:999px;
+  padding:.6rem 1.4rem;margin-bottom:1.9rem;
+  font-size:.8rem;font-weight:600;letter-spacing:.005em;text-transform:none;
+  color:var(--sk-accent,#2e5233);
+  box-shadow:0 3px 14px -4px rgba(30,35,25,.18), 0 1px 3px rgba(30,35,25,.06);
+}
+.sk-conf-light .sk-conf-top .sk-conf-note{color:var(--sk-body,#4a5568);font-size:1.06rem;margin-top:1.6rem}
+.sk-conf-light .sk-conf-top .sk-conf-note b,
+.sk-conf-light .sk-conf-top .sk-conf-note strong{color:var(--sk-ink,#16233d)}
+.sk-conf-light .sk-conf-top .sk-conf-lede{color:var(--sk-body,#4a5568)}
+
+/* the italic clause inside the headline, and the "read below" kicker under it */
+.sk-conf .sk-conf-em{font-style:italic;color:var(--sk-accent,#2e5233)}
+.sk-conf .sk-conf-kicker{
+  max-width:620px;margin:.85rem auto 0;
+  font-size:1.08rem;font-weight:700;font-style:italic;
+  color:var(--sk-accent,#2e5233);
+}
+
+/* ── the offer card ────────────────────────────────────────────────────────────
+   One band, one card, two cells: the thing on the left, the offer on the right.
+   Deliberately NOT the .sk-conf-mid prose bridge. The media cell takes either a
+   still or the click-to-load video facade above, unchanged, so swapping the
+   product shot for a video is a markup edit and nothing else. */
+.sk-conf .sk-conf-offer{padding:clamp(1.5rem,4vw,2.5rem) 0 clamp(3rem,7vw,4.5rem);background:var(--sk-cream,#fffdfb)}
+.sk-conf .sk-conf-offer .sk-conf-wrap{max-width:1180px}
+
+.sk-conf .sk-conf-card{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-radius:18px;overflow:hidden;text-align:left;
+  background:#fff;border:1px solid var(--sk-line,#e3e8ef);
+  box-shadow:0 26px 60px -34px rgba(30,40,30,.34);
+}
+.sk-conf .sk-conf-card-media{
+  display:flex;flex-direction:column;justify-content:center;gap:1.1rem;
+  padding:clamp(1.5rem,3vw,2.4rem);
+}
+.sk-conf .sk-conf-card-media img{margin:0 auto;max-height:420px;width:auto}
+/* the video facade, when this cell carries one instead of a still */
+.sk-conf .sk-conf-card-media .sk-conf-frame{margin:0}
+.sk-conf .sk-conf-card-cap{
+  font-size:.82rem;font-weight:600;letter-spacing:.01em;
+  color:var(--sk-body,#4a5568);margin:0;
+}
+
+.sk-conf .sk-conf-card-copy{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(1.75rem,3.2vw,2.75rem);
+  background:var(--sk-panel,#fdfaf0);
+  border-left:1px solid var(--sk-line,#e3e8ef);
+}
+.sk-conf .sk-conf-badge{
+  display:inline-block;align-self:flex-start;margin:0 0 1.15rem;
+  background:var(--sk-badge,#fbf0cf);color:var(--sk-accent,#2e5233);
+  border-radius:999px;padding:.5rem 1.1rem;
+  font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  font-variant-numeric:lining-nums;
+}
+.sk-conf .sk-conf-card-copy h2{font-size:clamp(1.5rem,2.6vw,2.15rem)}
+.sk-conf .sk-conf-card-copy p{margin:1.15rem 0 0;font-size:1.02rem}
+/* the ask, immediately above the button, underlined in the accent so the eye
+   lands on it on the way down to the CTA */
+.sk-conf .sk-conf-ask{font-weight:700;color:var(--sk-ink,#16233d)}
+.sk-conf .sk-conf-ask u{text-decoration:none;border-bottom:2px solid var(--sk-accent,#2e5233);padding-bottom:1px}
+
+.sk-conf .sk-conf-card-copy .sk-conf-btns{margin-top:1.6rem}
+.sk-conf .sk-conf-card-copy .sk-conf-btn{
+  width:100%;justify-content:center;text-align:center;
+  background:var(--sk-accent,#2e5233);color:#fff;
+  padding:1.15rem 1.5rem;font-size:1.05rem;font-weight:700;
+}
+.sk-conf .sk-conf-card-copy .sk-conf-btn:hover{background:var(--sk-accent-d,#23401f)}
+
+@media (max-width:860px){
+  .sk-conf .sk-conf-card{grid-template-columns:1fr}
+  .sk-conf .sk-conf-card-copy{border-left:0;border-top:1px solid var(--sk-line,#e3e8ef)}
+  .sk-conf .sk-conf-card-media img{max-height:300px}
+}
+
+/* ── portrait video ───────────────────────────────────────────────────────────
+   The facade above assumes 16/9. A phone-shot talking head is 9/16, and forcing
+   one into a landscape box either letterboxes it or crops the speaker's head off.
+   `sk-conf-frame-portrait` turns the frame the other way up and caps it, so it
+   sits beside a column of copy without driving the card two screens tall.
+
+   The native <video> injected by confirm.js is positioned like the vimeo iframe,
+   plus object-fit:contain so a clip whose real ratio is not exactly 9/16 pillars
+   rather than crops. */
+/* the selector is this specific on purpose: .sk-conf-card-media .sk-conf-frame above
+   sets margin:0, which is right for a landscape frame that fills the cell and wrong
+   for a portrait one that has to sit in the middle of it. */
+.sk-conf .sk-conf-card-media .sk-conf-frame-portrait{
+  aspect-ratio:9/16;
+  width:100%;max-width:300px;max-height:520px;
+  margin:0 auto;
+}
+.sk-conf .sk-conf-frame video{
+  position:absolute;inset:0;width:100%;height:100%;
+  border:0;z-index:3;background:#000;object-fit:contain;
+}
+.sk-conf .sk-conf-frame[data-playing="true"]{cursor:default}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SAMPLE-REQUEST variant (added 2026-09-01, Beneve Hormone Lunchbox)
+
+   The second confirmation in a funnel that has two: the reader has asked for a
+   physical sample and the next thing that must happen is a reply to an SMS. That
+   is a different job from "your PDF is coming", and the whole page hangs on one
+   instruction the reader has to carry out in a different app. So the card is
+   mirrored, copy first, and the media cell shows the exact exchange they are
+   about to go and look for. A screenshot of the thing beats a description of it.
+
+   It is the SAME .sk-conf-card, not a second card component.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* copy on the left, media on the right */
+.sk-conf .sk-conf-card-flip .sk-conf-card-copy{order:1;border-left:0;border-right:1px solid var(--sk-line,#e3e8ef)}
+.sk-conf .sk-conf-card-flip .sk-conf-card-media{order:2}
+@media (max-width:860px){
+  .sk-conf .sk-conf-card-flip .sk-conf-card-copy{border-right:0}
+}
+
+/* a copy cell with no offer panel behind it: this one is not selling anything */
+.sk-conf .sk-conf-card-copy-plain{background:transparent}
+.sk-conf .sk-conf-card-copy-plain h2{font-size:clamp(1.7rem,3.1vw,2.5rem)}
+
+/* the icon chip above the headline */
+.sk-conf .sk-conf-chip{
+  display:grid;place-items:center;align-self:flex-start;
+  width:52px;height:52px;margin:0 0 1.5rem;
+  border-radius:14px;background:var(--sk-badge,#fbf0cf);color:var(--sk-accent,#2e5233);
+}
+.sk-conf .sk-conf-chip svg{width:26px;height:26px}
+
+/* the closing instruction, and the promotion footnote under it */
+.sk-conf .sk-conf-do{margin-top:1.4rem;font-weight:700;color:var(--sk-ink,#16233d)}
+.sk-conf .sk-conf-fine{
+  margin-top:1.1rem;font-size:.86rem;font-style:italic;
+  color:var(--sk-body,#4a5568);opacity:.85;
+}
+
+/* ── the SMS mockup ───────────────────────────────────────────────────────────
+   Deliberately NOT a photograph of a phone. A drawn one inherits the page's own
+   type and palette, stays sharp at any density, weighs nothing, and can carry the
+   real words the reader is about to receive, which a stock photo cannot. */
+.sk-conf .sk-conf-phone{
+  width:100%;max-width:280px;margin:0 auto;
+  border-radius:34px;padding:10px;
+  background:linear-gradient(160deg,#2b3038 0%,#14171c 100%);
+  box-shadow:0 26px 50px -22px rgba(20,25,20,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+.sk-conf .sk-conf-phone-screen{
+  border-radius:26px;overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;min-height:290px;
+}
+.sk-conf .sk-conf-phone-bar{
+  position:relative;padding:1.5rem .9rem .7rem;text-align:center;
+  background:#f6f6f8;border-bottom:1px solid #e6e6ea;
+}
+/* the notch */
+.sk-conf .sk-conf-phone-bar::before{
+  content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:74px;height:19px;border-radius:999px;background:#14171c;
+}
+.sk-conf .sk-conf-phone-who{
+  display:block;font-size:.82rem;font-weight:600;color:#1c1c1e;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+}
+.sk-conf .sk-conf-phone-body{
+  display:flex;flex-direction:column;gap:.55rem;
+  padding:.95rem .8rem 1.1rem;background:#fff;flex:1;
+}
+.sk-conf .sk-conf-bub{
+  max-width:82%;padding:.6rem .85rem;border-radius:17px;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:.83rem;line-height:1.4;text-align:left;
+}
+.sk-conf .sk-conf-bub-in{align-self:flex-start;background:#e9e9eb;color:#1c1c1e;border-bottom-left-radius:5px}
+.sk-conf .sk-conf-bub-out{align-self:flex-end;background:#34c759;color:#fff;border-bottom-right-radius:5px;font-weight:600}
+.sk-conf .sk-conf-phone-cap{
+  margin:.9rem 0 0;text-align:center;
+  font-size:.8rem;font-weight:600;color:var(--sk-body,#4a5568);
+}
+
+/* the offer band when it LEADS the page rather than following a hero: it needs its own
+   top air, which the version under a hero deliberately does not have */
+.sk-conf .sk-conf-offer-lead{padding-top:clamp(3rem,7vw,4.5rem)}
+
+/* On the light page the play button is the accent, not the teal: the reader has already
+   learned on this page that forest green means "press this". A second action colour on
+   the same screen just asks them to learn it twice. */
+.sk-conf-light .sk-conf-play{
+  background:linear-gradient(122deg,var(--sk-accent,#2e5233) 0%,var(--sk-accent-d,#23401f) 90%);
+}

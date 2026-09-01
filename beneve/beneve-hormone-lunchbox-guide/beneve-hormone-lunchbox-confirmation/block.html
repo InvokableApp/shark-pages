@@ -2,77 +2,95 @@
   beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation
   The Confirmation step of the Hormone Lunchbox funnel: what the opt-in form redirects to.
 
-  Its two jobs, in order. FIRST tell them the guide is coming and where to look for it, because a
-  lead who never finds the email is a lead lost. THEN make the product offer, once, on the way out.
-  The shape is the shipped GLP Foods confirmation page, which is the proven one.
+  REBUILT 2026-09-01 to Joe's live page, from screenshots. The previous version was the shipped
+  GLP Foods shape: dark hero, a DIM explainer, a prose bridge band, three CTAs. Joe's is one
+  screen and one decision. Two prose bands and three competing links are what a reader skims
+  past on a page they only opened to check an email arrived, so the offer is now a single card
+  carrying the whole thing: what it is, why it is here, and one button.
 
-  Design lives in _shared/confirm/v1/, scoped .sk-conf, shared by every confirmation page in every
-  system. This file holds only markup; block.css holds only palette tokens.
+  Design lives in _shared/confirm/v1/, scoped .sk-conf. `sk-conf-light` flips band 1 to the warm
+  cream wash; `sk-conf-offer` is the card band. Both are additive variants, so the two other
+  pages on this component are untouched. This file holds only markup; block.css holds only the
+  palette tokens.
 
-  Every CTA is a DOCUMENT-relative link to another step in this funnel (no leading slash), which
-  resolves with or without a connected domain. A root-relative href would 404 here. The product
-  CTAs go to the Product Tour Page, not straight at the shop: the tracked Redirect step sits behind
-  that page's own buttons and is what fires Fire Lead.
+  The CTA is a DOCUMENT-relative link to another step in this funnel (no leading slash), which
+  resolves with or without a connected domain. A root-relative href would 404 here.
+
+  It goes to the SAMPLE REQUEST step, not the Product Tour Page. That step is the one that says
+  a request has been received and to reply CONFIRM by text, so the click on this button IS the
+  request. Nothing here records it: a funnel-pageview trigger on that step is what has to send
+  the SMS, the same mechanic the Redirect step already uses to fire Fire Lead.
+
+  No em-dashes. Joe's page has three; they are rewritten, not copied.
 -->
-<div class="sk-conf sk-conf-bnv">
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-bnv">
 
   <!-- ===================== BAND 1 · the confirmation ===================== -->
   <section class="sk-conf-top">
     <div class="sk-conf-wrap">
-      <span class="sk-conf-pill">Check your inbox</span>
-      <h1>Your Hormone Lunchbox Guide Is On Its Way...</h1>
+      <span class="sk-conf-pill">☀️ Your PDF is on the way. Special offer below...</span>
+
+      <h1>
+        Your Hormone Balancing Recipe Guide<br>
+        Is Being Sent <span class="sk-conf-em">In 2 Minutes.</span>
+      </h1>
 
       <p class="sk-conf-note">
-        We have sent The Hormone Lunchbox to your email. It should arrive within the next two
-        minutes. If you do not see it, check your Promotions, Updates or Spam folder, because it
-        could be sitting in there.
+        Check your email. If you do not see it there, check your <b>SPAM</b> folder.
       </p>
 
-      <p class="sk-conf-lede">
-        While you wait, here is the thing those ten lunches are actually built on. Eat broccoli,
-        cabbage or Brussels sprouts and your body breaks down a compound in them and turns it into
-        <span class="sk-conf-hl">DIM</span>, short for diindolylmethane. DIM is the reason
-        cruciferous vegetables come up in almost every conversation about hormones, and getting more
-        of it into your week is the whole point of the guide.
-      </p>
-
-      <p class="sk-conf-lede">
-        It is also why Beneve makes a capsule. Glutathione+ carries 150mg of that same DIM, so a
-        week where the prep does not happen is still a week you get it.
-      </p>
-
-      <div class="sk-conf-btns">
-        <a class="sk-conf-btn" href="beneve-hormone-lunchbox-product">
-          Show me the hormone balancing capsule
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="sk-conf-btn sk-conf-btn-ghost" href="beneve-hormone-lunchbox-read">
-          Read the guide online now
-        </a>
-      </div>
+      <p class="sk-conf-kicker">Read below for a special, limited time offer...</p>
     </div>
   </section>
 
-  <!-- ===================== BAND 2 · the bridge ===================== -->
-  <section class="sk-conf-mid">
+  <!-- ===================== BAND 2 · the offer card ===================== -->
+  <section class="sk-conf-offer">
     <div class="sk-conf-wrap">
-      <hr class="sk-conf-rule">
-      <h2>The lunches are step one</h2>
-      <p class="sk-conf-body">
-        Packing lunch every day is the part that is hard to keep up. Some weeks the prep happens
-        and some weeks it does not.
-      </p>
-      <p class="sk-conf-body">
-        Glutathione+ is one capsule a day carrying 150mg of DIM, the same compound the guide gets
-        into you through broccoli, cabbage and Brussels sprouts, alongside Opitac Glutathione and
-        Xanthohumol. It is formulated to support cellular health, hormone support and overall
-        wellness.
-      </p>
-      <div class="sk-conf-btns">
-        <a class="sk-conf-btn" href="beneve-hormone-lunchbox-product">
-          See Glutathione+
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+      <div class="sk-conf-card">
+
+        <!-- ── media cell ──────────────────────────────────────────────────────
+             Click-to-load facade, wired by _shared/confirm/v1/confirm.js. The clip is a
+             44MB file, so preload is off and nothing is fetched until someone presses
+             play; until then this is one 90KB poster.
+
+             data-video, not data-vimeo: the file is self-hosted on GHL's CDN. It is H.264
+             video and AAC audio in an MP4 container, merely NAMED .mov, which is why the
+             src carries no <source type> hint. The server calls it video/quicktime and a
+             type hint would be the one thing that could stop a browser trying it.
+
+             Portrait, because the clip is 720x1280. -->
+        <div class="sk-conf-card-media">
+          <button class="sk-conf-frame sk-conf-frame-portrait"
+                  data-video="https://assets.cdn.filesafe.space/ucXosnBgZ6FxqeEBuApn/media/6a96edf028f06327141f87cd.mov"
+                  data-poster="https://invokableapp.github.io/shark-pages/beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation/assets/video-poster.jpg"
+                  aria-label="Watch: about the Beneve trial pack">
+            <span class="sk-conf-play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- ── offer cell ────────────────────────────────────────────────── -->
+        <div class="sk-conf-card-copy">
+          <span class="sk-conf-badge">🔥 Limited-time offer (50 available)</span>
+
+          <h2>Beneve 4 Day Hormone Balance Trial Pack</h2>
+
+          <p>
+            For a limited time, our recommended partner, <b>Beneve</b>, is offering a 4 day sample
+            pack of <b>Glutathione+</b>, an antioxidant blend featuring Glutathione, DIM and
+            Xanthohumol, formulated to support cellular health, hormone health and overall wellness.
+          </p>
+
+          <p class="sk-conf-ask">Want to try it? <u>Click YES to claim this offer...</u></p>
+
+          <div class="sk-conf-btns">
+            <a class="sk-conf-btn" href="beneve-hormone-lunchbox-sample">
+              YEAH! I want to claim a trial pack!
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

@@ -24,6 +24,25 @@
 
   function playVideo(frame) {
     if (frame.getAttribute("data-playing") === "true") return;
+
+    /* A SELF-HOSTED file (data-video) plays in a native <video>, no third party involved.
+       Added 2026-09-01: Beneve's confirmation video is an H.264/AAC file on GHL's own CDN,
+       served as video/quicktime because it is named .mov. The `src` is set bare, with no
+       <source type>, precisely so no browser gates playback on that wrong mime type. */
+    var file = frame.getAttribute("data-video");
+    if (file) {
+      var v = document.createElement("video");
+      v.src = file;
+      v.controls = true;
+      v.autoplay = true;
+      v.setAttribute("playsinline", "");
+      v.setAttribute("preload", "none");
+      v.setAttribute("title", frame.getAttribute("aria-label") || "Video");
+      frame.setAttribute("data-playing", "true");
+      frame.appendChild(v);
+      return;
+    }
+
     var id = frame.getAttribute("data-vimeo");
     if (!id) return;
     var f = document.createElement("iframe");
@@ -38,10 +57,10 @@
   }
 
   function wire(scope) {
-    var frames = scope.querySelectorAll("[data-vimeo]");
+    var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
     for (var i = 0; i < frames.length; i++) {
       (function (frame) {
-        var id = (frame.getAttribute("data-vimeo") || "").trim();
+        var id = (frame.getAttribute("data-vimeo") || frame.getAttribute("data-video") || "").trim();
         var section = frame.closest ? frame.closest(".sk-conf-video") : null;
 
         /* no id yet: hide the section and wire nothing */
