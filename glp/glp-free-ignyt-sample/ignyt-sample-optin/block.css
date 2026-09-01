@@ -646,9 +646,9 @@
      1100 rather than 900 because the timer widened the single row. */
   /* ⚠️ KEEP THIS IN STEP WITH WHAT THE HEADER ACTUALLY MEASURES. --ig-nav-h feeds the
      scroll-margin-top on every anchor target, so if it under-reports, a nav tap lands the
-     heading underneath the sticky header. Measured at 390px after the tap-target pass: 99.
+     heading underneath the sticky header. Measured at 390px after the mobile type pass: 100.
      Re-measure whenever anything in this row changes height. */
-  .sk-prod-ig{ --ig-nav-h:99px; }
+  .sk-prod-ig{ --ig-nav-h:100px; }
   .sk-prod-ig .sk-prod-ig-nav-in{
     height:auto;flex-wrap:wrap;padding-top:.3rem;gap:.2rem 1rem;
   }
