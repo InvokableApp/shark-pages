@@ -1,0 +1,135 @@
+<!--
+  glp/glp-free-ignyt-sample/ignyt-sample-confirmation
+  Step 2 of the Free IGNYT Sample funnel. Shares the optin's ember theme and
+  _shared/product/v1, minus everything a converted visitor no longer needs: no nav links,
+  no countdown, no CTA bands, no lifestyle grid.
+
+  THE MECHANIC IS DIFFERENT FROM THE ARCHETYPE. references/campaign-archetypes/giveaway.md
+  assumes the rep ships straight off the notification. Here (Jeff, 2026-09-01) the rep
+  TEXTS OR CALLS FIRST to verify the address, and only then ships. So this page has exactly
+  one job: get the visitor to expect and answer an unknown number. Everything on it serves
+  that. The rep's name and number are shown so the call is not cold, and the numbered
+  sequence exists because it genuinely is one.
+
+  There is deliberately NO purchase CTA here. The rep's call is the next step in this
+  campaign, and a buy button competes with it.
+
+  ⚠️ THE REP MERGE FIELDS RENDER AS INSTRUCTION TEXT ON THE SNAPSHOT. rep_full_name holds
+  "Enter Your Full Name Here" until a buyer fills it at onboarding. That is correct for a
+  snapshot account, not a bug (CLAUDE.md, Account TYPES).
+
+  No em-dashes anywhere in shipped copy.
+-->
+<div class="sk-prod sk-prod-ig sk-prod-igc">
+
+  <div class="sk-prod-ig-grain" aria-hidden="true"></div>
+
+  <!-- Identity only. A converted visitor has nowhere else to go from here. -->
+  <header class="sk-prod-igc-bar">
+    <span class="sk-prod-ig-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+      <span>IGNYT</span>
+    </span>
+  </header>
+
+  <!-- ============================ CONFIRMED ============================ -->
+  <section class="sk-prod-igc-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-wrap">
+
+      <div class="sk-prod-igc-tick" data-rise aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+      </div>
+
+      <p class="sk-prod-eyebrow" data-rise data-delay="1">Request received</p>
+      <h1 class="sk-prod-h1" data-rise data-delay="2">You're in.<br><span class="sk-prod-accent">Watch your phone.</span></h1>
+
+      <p class="sk-prod-igc-lede" data-rise data-delay="3">
+        {{custom_values.rep_full_name}} will text or call you to check we have your address
+        right. Once it's confirmed, your three day trial goes in the mail.
+      </p>
+
+      <!-- Shown so the call is not from an unknown number. This is the single thing on the
+           page most likely to move the answer rate. -->
+      <div class="sk-prod-igc-card" data-rise data-delay="4">
+        <p class="sk-prod-igc-card-k">Who is calling</p>
+        <p class="sk-prod-igc-card-n">{{custom_values.rep_full_name}}</p>
+        <p class="sk-prod-igc-card-c">
+          <span>{{custom_values.rep_phone}}</span>
+          <i aria-hidden="true"></i>
+          <span>{{custom_values.rep_email}}</span>
+        </p>
+        <p class="sk-prod-igc-card-t">Save the number so you know it's us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT HAPPENS NEXT ============================ -->
+  <!-- Numbered because it is genuinely a sequence the reader is now inside. -->
+  <section class="sk-prod-igc-next">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>What happens next</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Three steps, and one of them is ours.</h2>
+
+      <ol class="sk-prod-igc-steps">
+        <li data-rise data-delay="1">
+          <span class="sk-prod-igc-n">01</span>
+          <h3>We text or call</h3>
+          <p>Usually within a day. It takes a minute and it's only to confirm where the
+            sample is going.</p>
+        </li>
+        <li data-rise data-delay="2">
+          <span class="sk-prod-igc-n">02</span>
+          <h3>Your trial ships</h3>
+          <p>Three single serve sticks, packed and mailed to the address you confirmed.</p>
+        </li>
+        <li data-rise data-delay="3">
+          <span class="sk-prod-igc-n">03</span>
+          <h3>Three mornings</h3>
+          <p>One stick into 8oz of water, once a day. Better over ice.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT YOU'RE GETTING ============================ -->
+  <section class="sk-prod-igc-what">
+    <div class="sk-prod-wrap sk-prod-igc-what-grid">
+      <figure class="sk-prod-igc-shot" data-rise>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/ignyt-pack.webp" alt="The IGNYT pouch with single serve sticks and a prepared glass over ice" loading="lazy" width="720" height="695">
+      </figure>
+      <div>
+        <p class="sk-prod-kicker" data-rise>While you wait</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">What's actually in the envelope.</h2>
+        <p class="sk-prod-igc-p" data-rise data-delay="2">
+          IGNYT is ORYGN's powdered metabolic booster, built on patented bioactive peptides
+          made to the ORYGN PURE standard. It supports three receptor pathways rather than
+          one: GLP-1, GLP-2 and GIP.
+        </p>
+        <ul class="sk-prod-checks sk-prod-igc-checks" data-rise data-delay="3">
+          <li>Burn fat naturally</li>
+          <li>Preserve lean muscle</li>
+          <li>Reduce food noise</li>
+          <li>Support healthy energy and blood sugar</li>
+        </ul>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          It's a light citrus drink, not a chalky shake. Most people take it cold with ice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOT ============================ -->
+  <section class="sk-prod-igc-foot">
+    <div class="sk-prod-wrap sk-prod-center">
+      <p class="sk-prod-igc-foot-h" data-rise>Keep an eye on your phone and your inbox.</p>
+      <p class="sk-prod-fine" data-rise data-delay="1">
+        One trial per household while supplies last. These statements have not been evaluated
+        by the Food and Drug Administration. This product is not intended to diagnose, treat,
+        cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+
+</div>

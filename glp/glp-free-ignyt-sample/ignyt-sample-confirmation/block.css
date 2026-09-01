@@ -1,0 +1,249 @@
+/* glp / glp-free-ignyt-sample / ignyt-sample-confirmation
+ *
+ * The free IGNYT sample opt-in lander. Structure, motion, the reading line and the mobile
+ * bar come from _shared/product/v1/product.css (scoped .sk-prod). That component is built
+ * LIGHT: cream ground, navy headings, white cards. This file does two jobs.
+ *
+ *   1. Re-points the shared tokens at IGNYT's own dark palette, which flips most of the
+ *      component in one move.
+ *   2. Overrides the handful of places the shared CSS hardcodes a light value (#fff cards,
+ *      #fff tag pills, the navy drop shadow, the teal number colour) because a token
+ *      cannot reach those.
+ *
+ * PALETTE IS THE REAL BRAND, NOT AN INVENTED ONE. #FA4300 was sampled straight off the
+ * IGNYT flame mark and the stick packs in ORYGN's own product sheet (assets/ignyt-pack.webp
+ * is a crop of it). The ground is pure black for the same reason: the product photograph is
+ * shot on black, so the hero image composites with mix-blend-mode:screen and needs no alpha
+ * cutout. Nothing here touches a GHL brand swatch, these are local tokens on this block only.
+ *
+ * TYPE. Display is Archivo on its width axis, run narrow and heavy (wdth 88 / wght 800) in
+ * caps: hard and technical, which is the register a metabolic product wants, and not the
+ * Inter-bold every landing page defaults to. Body is Instrument Sans, humanist enough to
+ * keep the long copy readable against that. The small label face is the SAME Archivo pulled
+ * to wdth 62 with wide tracking, so the clinical caption voice costs no extra font request.
+ *
+ * SIGNATURE. The reading-progress line is themed as a heat gauge: it runs ash to ember to
+ * spark as the reader moves down the page. It is the one flourish, and it is the only place
+ * the full ember ramp appears at once.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..600&display=swap");
+
+.sk-prod-ig{
+  /* -- the real IGNYT ramp, sampled from the brand's own artwork -- */
+  --ig-ember:  #FA4300;
+  --ig-flare:  #FF7A2E;
+  --ig-spark:  #FFB627;
+  --ig-ash:    #4A1503;
+
+  --ig-black:  #07070A;
+  --ig-panel:  #0D0E13;
+  --ig-card:   #14151C;
+  --ig-frost:  #F2F4F8;
+  --ig-body:   #9AA3B2;
+  --ig-faint:  #6E7683;
+  --ig-hair:   rgba(242,244,248,.10);
+
+  /* -- shared-component tokens, re-pointed -- */
+  --sk-cream:  var(--ig-black);
+  --sk-mist:   var(--ig-panel);
+  --sk-navy:   var(--ig-frost);
+  --sk-navy-d: #ffffff;
+  --sk-ink:    var(--ig-frost);
+  --sk-body:   var(--ig-body);
+  --sk-note:   var(--ig-body);
+  --sk-line:   var(--ig-hair);
+  --sk-teal:   var(--ig-ember);
+  --sk-teal-d: var(--ig-flare);
+  --sk-sage:   var(--ig-spark);
+  --sk-lime:   var(--ig-ember);
+  --sk-tint:   rgba(250,67,0,.55);
+  --sk-halo:   rgba(250,67,0,.30);
+  --sk-orb-a:  rgba(250,67,0,.26);
+  --sk-orb-b:  rgba(255,182,39,.13);
+  --sk-ico-bg: linear-gradient(140deg,rgba(250,67,0,.24),rgba(255,182,39,.12));
+
+  --sk-serif:  Archivo, "Arial Narrow", system-ui, sans-serif;
+  --sk-sans:   "Instrument Sans", system-ui, -apple-system, sans-serif;
+
+  --ig-ease:   cubic-bezier(.22,.61,.36,1);
+  --ig-display: Archivo, "Arial Narrow", system-ui, sans-serif;
+
+  background:var(--ig-black);
+  color-scheme:dark;
+}
+
+/* ============================ TYPE ============================ */
+/* Archivo is variable on wdth AND wght. The display voice is narrow and heavy in caps; the
+   label voice is the same family pulled much narrower and tracked out. */
+.sk-prod-ig .sk-prod-h1,
+.sk-prod-ig .sk-prod-h2,
+.sk-prod-ig .sk-prod-close-h{
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 88,"wght" 800;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:-.025em;
+  line-height:.94;
+  color:var(--ig-frost);
+  text-wrap:balance;
+}
+.sk-prod-ig .sk-prod-h1{font-size:clamp(2.9rem,7.4vw,5.4rem);margin:0 0 1.1rem}
+.sk-prod-ig .sk-prod-h2{font-size:clamp(2rem,4.4vw,3.3rem);margin:0 0 .9rem}
+.sk-prod-ig .sk-prod-close-h{font-size:clamp(2.3rem,5.4vw,4rem);margin:0 0 1.1rem}
+
+/* The accent word is the only place the ramp runs inside type. Solid ember is the fallback
+   for engines that will not clip a gradient to text. */
+.sk-prod-ig .sk-prod-accent{
+  color:var(--ig-ember);
+  background:linear-gradient(96deg,var(--ig-ember),var(--ig-spark));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.sk-prod-ig .sk-prod-eyebrow,
+.sk-prod-ig .sk-prod-kicker{
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 62,"wght" 700;
+  font-weight:700;
+  font-size:.76rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.sk-prod-ig .sk-prod-eyebrow{color:var(--ig-flare);margin:0 0 1rem}
+.sk-prod-ig .sk-prod-kicker{color:var(--ig-spark);margin:0 0 .7rem}
+
+.sk-prod-ig .sk-prod-lede,
+.sk-prod-ig .sk-prod-sub{color:var(--ig-body)}
+.sk-prod-ig .sk-prod-sub{margin-inline:0;margin-bottom:2.2rem;max-width:40em}
+.sk-prod-ig .sk-prod-center .sk-prod-sub{margin-inline:auto}
+
+/* ============================ FILM GRAIN ============================ */
+.sk-prod-igc .sk-prod-ig-grain{
+  position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================ IDENTITY BAR ============================ */
+/* Static, not sticky. There is no nav and no CTA to keep in reach on this page. */
+.sk-prod-igc .sk-prod-igc-bar{
+  display:flex;align-items:center;justify-content:center;
+  height:62px;border-bottom:1px solid var(--ig-hair);
+}
+.sk-prod-igc .sk-prod-ig-mark{display:inline-flex;align-items:center;gap:.55rem;color:var(--ig-frost)}
+.sk-prod-igc .sk-prod-ig-mark svg{width:20px;height:20px;color:var(--ig-ember)}
+.sk-prod-igc .sk-prod-ig-mark span{
+  font-family:var(--ig-display);font-variation-settings:"wdth" 108,"wght" 500;
+  font-size:1.02rem;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;
+}
+
+/* ============================ CONFIRMED ============================ */
+.sk-prod-igc .sk-prod-igc-hero{
+  position:relative;overflow:hidden;text-align:center;
+  padding:clamp(2.8rem,7vw,5rem) 0 clamp(2.4rem,5vw,3.6rem);
+}
+/* Same trap as the opt-in hero: the orb is position:absolute in the shared CSS, so this
+   targets the WRAP only. A blanket `> *` would drop a 38vw blur into the flow. */
+.sk-prod-igc .sk-prod-igc-hero > .sk-prod-wrap{position:relative;z-index:2}
+.sk-prod-igc .sk-prod-igc-hero > .sk-prod-orb{z-index:1;opacity:.42}
+
+.sk-prod-igc .sk-prod-igc-tick{
+  width:62px;height:62px;margin:0 auto 1.4rem;border-radius:50%;
+  display:grid;place-items:center;color:#fff;
+  background:linear-gradient(140deg,var(--ig-ember),var(--ig-flare));
+  box-shadow:0 14px 40px -10px rgba(250,67,0,.75);
+}
+.sk-prod-igc .sk-prod-igc-tick svg{width:28px;height:28px}
+.sk-prod-igc .sk-prod-h1{font-size:clamp(2.4rem,6vw,4.2rem)}
+.sk-prod-igc .sk-prod-igc-lede{
+  margin:0 auto 2rem;max-width:36em;color:var(--ig-body);
+  font-size:clamp(1.02rem,1.5vw,1.14rem);
+}
+
+/* The rep card. Deliberately the brightest object on the page after the tick. */
+.sk-prod-igc .sk-prod-igc-card{
+  max-width:30rem;margin:0 auto;padding:1.4rem 1.5rem;
+  border:1px solid rgba(250,67,0,.34);border-radius:20px;
+  background:linear-gradient(160deg,rgba(250,67,0,.12),rgba(20,21,28,.9));
+  text-align:left;
+}
+.sk-prod-igc .sk-prod-igc-card-k{
+  margin:0 0 .35rem;color:var(--ig-flare);
+  font-family:var(--ig-display);font-variation-settings:"wdth" 62,"wght" 700;
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+}
+.sk-prod-igc .sk-prod-igc-card-n{
+  margin:0 0 .5rem;color:var(--ig-frost);
+  font-family:var(--ig-display);font-variation-settings:"wdth" 88,"wght" 700;
+  font-size:1.4rem;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;
+}
+.sk-prod-igc .sk-prod-igc-card-c{
+  margin:0 0 .6rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  color:var(--ig-frost);font-size:.95rem;
+}
+.sk-prod-igc .sk-prod-igc-card-c i{width:4px;height:4px;border-radius:50%;background:var(--ig-ember);flex:0 0 auto}
+.sk-prod-igc .sk-prod-igc-card-t{margin:0;color:var(--ig-faint);font-size:.84rem}
+
+/* ============================ NEXT STEPS ============================ */
+.sk-prod-igc .sk-prod-igc-next{
+  padding:clamp(2.8rem,6vw,4.5rem) 0;
+  border-top:1px solid var(--ig-hair);background:var(--ig-panel);
+}
+.sk-prod-igc .sk-prod-igc-steps{
+  list-style:none;margin:1.8rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+}
+.sk-prod-igc .sk-prod-igc-steps li{
+  padding:1.5rem 1.35rem;background:var(--ig-card);
+  border:1px solid var(--ig-hair);border-top:2px solid var(--ig-ember);
+  border-radius:4px 4px 18px 18px;
+}
+.sk-prod-igc .sk-prod-igc-n{
+  display:block;margin-bottom:.6rem;color:var(--ig-ember);
+  font-family:var(--ig-display);font-variation-settings:"wdth" 62,"wght" 900;
+  font-size:2.1rem;line-height:1;
+}
+.sk-prod-igc .sk-prod-igc-steps h3{
+  margin:0 0 .4rem;color:var(--ig-frost);font-size:1rem;
+  font-family:var(--ig-display);font-variation-settings:"wdth" 84,"wght" 700;
+  text-transform:uppercase;
+}
+.sk-prod-igc .sk-prod-igc-steps p{margin:0;color:var(--ig-body);font-size:.94rem}
+
+/* ============================ WHAT YOU GET ============================ */
+.sk-prod-igc .sk-prod-igc-what{padding:clamp(2.8rem,6vw,4.5rem) 0;border-top:1px solid var(--ig-hair)}
+.sk-prod-igc .sk-prod-igc-what-grid{
+  display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.6rem,4vw,3.2rem);align-items:center;
+}
+.sk-prod-igc .sk-prod-igc-shot{position:relative;margin:0;display:grid;place-items:center}
+/* Alpha is baked into this asset, same as the opt-in hero, so it needs no blend mode. */
+.sk-prod-igc .sk-prod-igc-shot img{position:relative;width:min(420px,92%)}
+.sk-prod-igc .sk-prod-halo{
+  position:absolute;width:120%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 52%,rgba(250,67,0,.34),rgba(255,182,39,.10) 42%,transparent 70%);
+}
+.sk-prod-igc .sk-prod-igc-p{margin:0 0 1.2rem;color:var(--ig-body)}
+.sk-prod-igc .sk-prod-igc-checks li{color:var(--ig-frost)}
+.sk-prod-igc .sk-prod-igc-checks li::before{background:var(--ig-ember);border-color:var(--ig-ember)}
+.sk-prod-igc .sk-prod-note{
+  color:var(--ig-body);border-left:2px solid var(--ig-ember);
+  background:rgba(250,67,0,.06);padding:.8rem 1rem;font-size:.94rem;margin:1.3rem 0 0;
+}
+
+/* ============================ FOOT ============================ */
+.sk-prod-igc .sk-prod-igc-foot{
+  padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--ig-hair);
+  background:radial-gradient(90% 130% at 50% 100%,rgba(250,67,0,.20),transparent 62%),var(--ig-black);
+}
+.sk-prod-igc .sk-prod-igc-foot-h{
+  margin:0 0 1rem;color:var(--ig-frost);
+  font-family:var(--ig-display);font-variation-settings:"wdth" 86,"wght" 700;
+  font-size:clamp(1.1rem,2.2vw,1.5rem);text-transform:uppercase;letter-spacing:-.01em;
+}
+.sk-prod-igc .sk-prod-fine{color:#828B99;font-size:.8rem;line-height:1.55;max-width:52em;margin:0 auto}
+
+@media (max-width:900px){
+  .sk-prod-igc .sk-prod-igc-steps{grid-template-columns:1fr}
+  .sk-prod-igc .sk-prod-igc-what-grid{grid-template-columns:1fr}
+  .sk-prod-igc .sk-prod-igc-shot{order:2;margin-top:1.4rem}
+}
