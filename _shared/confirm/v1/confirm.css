@@ -414,14 +414,19 @@
    type and palette, stays sharp at any density, weighs nothing, and can carry the
    real words the reader is about to receive, which a stock photo cannot. */
 .sk-conf .sk-conf-phone{
-  width:100%;max-width:280px;margin:0 auto;
-  border-radius:34px;padding:10px;
+  width:100%;max-width:262px;margin:0 auto;
+  border-radius:38px;padding:9px;
   background:linear-gradient(160deg,#2b3038 0%,#14171c 100%);
   box-shadow:0 26px 50px -22px rgba(20,25,20,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
 }
+/* A REAL handset ratio. The first cut sized the screen by a min-height, which at this width
+   came out nearly square: it read as a broken image rather than a phone, and the two bubbles
+   sat marooned in the empty half. A phone is about 9:19.5, and stating that as an
+   aspect-ratio means the frame is correct at any width the card gives it. min-height:auto is
+   implied, so a longer conversation still grows the screen instead of clipping. */
 .sk-conf .sk-conf-phone-screen{
-  border-radius:26px;overflow:hidden;background:#fff;
-  display:flex;flex-direction:column;min-height:290px;
+  border-radius:30px;overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;aspect-ratio:9/19.5;
 }
 .sk-conf .sk-conf-phone-bar{
   position:relative;padding:1.5rem .9rem .7rem;text-align:center;
@@ -437,13 +442,33 @@
   font-family:var(--sk-sans,Inter,system-ui,sans-serif);
 }
 .sk-conf .sk-conf-phone-body{
-  display:flex;flex-direction:column;gap:.55rem;
-  padding:.95rem .8rem 1.1rem;background:#fff;flex:1;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:.5rem;
+  padding:.85rem .75rem .6rem;background:#fff;flex:1;
+}
+/* The date divider and the input bar are not decoration: three bubbles in a 9:19.5 frame
+   leave a lot of white, and the honest way to fill it is with the two things a real
+   Messages screen actually has at the top and bottom of a fresh thread. Pinning the
+   bubbles to the bottom instead just moved the empty space. */
+.sk-conf .sk-conf-phone-day{
+  margin:0 0 .3rem;text-align:center;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:.66rem;font-weight:600;color:#8e8e93;letter-spacing:.01em;
+}
+.sk-conf .sk-conf-phone-input{
+  display:flex;align-items:center;gap:.4rem;
+  margin:auto .1rem 0;padding:.42rem .7rem;
+  border:1px solid #e2e2e6;border-radius:999px;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:.75rem;color:#a8a8ad;background:#fff;
+}
+.sk-conf .sk-conf-phone-input::after{
+  content:"";margin-left:auto;width:19px;height:19px;border-radius:999px;
+  background:#34c759;flex:0 0 auto;
 }
 .sk-conf .sk-conf-bub{
-  max-width:82%;padding:.6rem .85rem;border-radius:17px;
+  max-width:84%;padding:.55rem .8rem;border-radius:17px;
   font-family:var(--sk-sans,Inter,system-ui,sans-serif);
-  font-size:.83rem;line-height:1.4;text-align:left;
+  font-size:.8rem;line-height:1.4;text-align:left;
 }
 .sk-conf .sk-conf-bub-in{align-self:flex-start;background:#e9e9eb;color:#1c1c1e;border-bottom-left-radius:5px}
 .sk-conf .sk-conf-bub-out{align-self:flex-end;background:#34c759;color:#fff;border-bottom-right-radius:5px;font-weight:600}
