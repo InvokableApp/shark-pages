@@ -115,7 +115,8 @@
 
 .sk-prod-ig .sk-prod-lede,
 .sk-prod-ig .sk-prod-sub{color:var(--ig-body)}
-.sk-prod-ig .sk-prod-sub{margin-bottom:2.6rem}
+.sk-prod-ig .sk-prod-sub{margin-inline:0;margin-bottom:2.2rem;max-width:40em}
+.sk-prod-ig .sk-prod-center .sk-prod-sub{margin-inline:auto}
 
 /* ============================ OFFER STRIP ============================ */
 .sk-prod-ig .sk-prod-ig-strip{
@@ -207,7 +208,7 @@
   border-top:1px solid var(--ig-hair);
   border-bottom:1px solid var(--ig-hair);
 }
-.sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(5,1fr)}
+.sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(5,1fr);gap:.85rem}
 .sk-prod-ig .sk-prod-pillar{
   background:var(--ig-card);
   border:1px solid var(--ig-hair);
@@ -256,14 +257,14 @@
   background:var(--ig-card);
   border:1px solid var(--ig-hair);
   border-top:2px solid var(--ig-ember);
-  border-radius:0 0 18px 18px;
+  border-radius:4px 4px 18px 18px;
 }
 .sk-prod-ig .sk-prod-ig-path-n{
-  display:block;margin-bottom:.9rem;
+  display:block;margin-bottom:.7rem;
   font-family:var(--ig-display);
-  font-variation-settings:"wdth" 62,"wght" 800;
-  font-size:2.4rem;line-height:1;
-  color:transparent;-webkit-text-stroke:1px var(--ig-ember);
+  font-variation-settings:"wdth" 62,"wght" 900;
+  font-size:2.1rem;line-height:1;
+  color:var(--ig-ember);
 }
 .sk-prod-ig .sk-prod-ig-paths h3{
   margin:0 0 .45rem;font-size:1.02rem;color:var(--ig-frost);
@@ -356,13 +357,29 @@
 .sk-prod-ig .sk-prod-ig-faq-list details p{margin:.8rem 0 0;color:var(--ig-body);font-size:.95rem}
 
 /* ============================ CLOSE ============================ */
+/* The close is the last thing before the form opens, so it carries the most heat. The
+   ember plate is a real photograph of drifting powder, screened under a radial glow. The
+   url() is relative and resolves against this stylesheet's own location on GitHub Pages,
+   which is the same folder as the asset. */
 .sk-prod-ig .sk-prod-close{
+  position:relative;
   padding:clamp(3.4rem,8vw,6.5rem) 0;
   background:
-    radial-gradient(90% 120% at 50% 100%,rgba(250,67,0,.24),transparent 64%),
+    radial-gradient(90% 120% at 50% 100%,rgba(250,67,0,.26),transparent 64%),
     var(--ig-black);
   border-top:1px solid var(--ig-hair);
+  overflow:hidden;
 }
+.sk-prod-ig .sk-prod-close::before{
+  content:"";position:absolute;inset:0;
+  background:url("assets/texture-ember.webp") center/cover no-repeat;
+  opacity:.5;
+  /* the plate is shot on black, so screen drops its ground and leaves only the embers.
+     Safe here: this pseudo-element is never transformed, unlike the hero shot. */
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.sk-prod-ig .sk-prod-close > *{position:relative;z-index:1}
 .sk-prod-ig .sk-prod-ig-cta-center{justify-content:center}
 .sk-prod-ig .sk-prod-fine{margin-top:1.8rem;color:#828B99;font-size:.82rem;line-height:1.55;max-width:52em;margin-inline:auto}
 
@@ -403,4 +420,69 @@
   .sk-prod-ig .sk-prod-hero-shot img{transform:none!important}
   .sk-prod-ig .sk-prod-btn,
   .sk-prod-ig .sk-prod-pillar{transition:none}
+}
+
+
+/* ============================ FILM GRAIN ============================ */
+/* The page was flat black and read cold. One fixed grain plate over the whole block adds
+   the tooth that a photographed page has. Fixed rather than per-section so it cannot tile
+   out of register across a section seam, and pointer-events:none so it never eats a click
+   on a CTA sitting under it. */
+.sk-prod-ig .sk-prod-ig-grain{
+  position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================ WHO DRINKS IT ============================ */
+.sk-prod-ig .sk-prod-ig-people{
+  padding:clamp(3rem,7vw,6rem) 0;
+  border-bottom:1px solid var(--ig-hair);
+  background:
+    radial-gradient(70% 90% at 12% 0%,rgba(250,67,0,.10),transparent 60%),
+    var(--ig-black);
+}
+.sk-prod-ig .sk-prod-ig-people-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;
+}
+.sk-prod-ig .sk-prod-ig-people-grid figure{
+  margin:0;position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid var(--ig-hair);background:var(--ig-card);
+  aspect-ratio:3/4;
+}
+.sk-prod-ig .sk-prod-ig-people-grid img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--ig-ease);
+}
+.sk-prod-ig .sk-prod-ig-people-grid figure:hover img{transform:scale(1.05)}
+/* The scrim is what keeps the caption readable over an unpredictable photograph. Without
+   it a bright frame swallows white text and only some of the three break. */
+.sk-prod-ig .sk-prod-ig-people-grid figcaption{
+  position:absolute;inset:auto 0 0 0;padding:1.6rem 1.2rem 1.1rem;
+  background:linear-gradient(to top,rgba(7,7,10,.93) 30%,rgba(7,7,10,.7) 60%,transparent);
+}
+.sk-prod-ig .sk-prod-ig-people-grid figcaption b{
+  display:block;color:var(--ig-frost);margin-bottom:.2rem;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 700;
+  text-transform:uppercase;letter-spacing:.02em;font-size:.95rem;
+}
+.sk-prod-ig .sk-prod-ig-people-grid figcaption span{
+  display:block;color:#B3BCC9;font-size:.86rem;line-height:1.4;
+}
+
+/* ============================ RITUAL SHOT ============================ */
+.sk-prod-ig .sk-prod-ig-ritual{
+  margin:0;border-radius:20px;overflow:hidden;
+  border:1px solid var(--ig-hair);
+  box-shadow:0 30px 70px -30px rgba(250,67,0,.45);
+}
+.sk-prod-ig .sk-prod-ig-ritual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* The taste column now carries the steps too, so it needs the steps to breathe. */
+.sk-prod-ig .sk-prod-ig-steps{margin-top:1.6rem}
+
+@media (max-width:900px){
+  .sk-prod-ig .sk-prod-ig-people-grid{grid-template-columns:1fr;gap:.8rem}
+  .sk-prod-ig .sk-prod-ig-people-grid figure{aspect-ratio:4/3}
+  .sk-prod-ig .sk-prod-ig-ritual{margin-top:1.6rem}
 }
