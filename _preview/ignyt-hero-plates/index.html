@@ -1,0 +1,59 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IGNYT hero plate options</title>
+<style>
+  :root{--ink:#F2F4F8;--body:#9AA3B2;--ember:#FA4300;--hair:rgba(242,244,248,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;background:#07070A;color:var(--body);
+       font:16px/1.5 "Instrument Sans",system-ui,-apple-system,sans-serif}
+  .wrap{width:min(1180px,92vw);margin:0 auto;padding:2.5rem 0 4rem}
+  h1{color:var(--ink);font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 .4rem;letter-spacing:-.02em}
+  .sub{margin:0 0 2rem;max-width:46em}
+  figure{margin:0 0 2.6rem;border:1px solid var(--hair);border-radius:14px;overflow:hidden;background:#0D0E13}
+  figcaption{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap;padding:.9rem 1.1rem;border-bottom:1px solid var(--hair)}
+  .name{color:var(--ink);font-weight:600;font-size:1.05rem}
+  .pick{color:var(--ember);font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+  .note{font-size:.9rem}
+  img{width:100%;display:block}
+  table{border-collapse:collapse;width:100%;margin:0 0 2.4rem;font-size:.92rem}
+  th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--hair)}
+  th{color:var(--ink);font-weight:600}
+  td b{color:var(--ember)}
+</style>
+<div class="wrap">
+  <h1>IGNYT hero plate: four options</h1>
+  <p class="sub">Same hero, same 17% opacity and the same radial mask. Only the photograph
+    changes. At 17% over a black page only the brightest pixels survive, so the
+    "pixels over 220" column is the one that predicts whether a plate reads as shape or
+    as grey wash.</p>
+
+  <table>
+    <tr><th>Plate</th><th>pixels &gt;180</th><th>pixels &gt;220</th><th>read</th></tr>
+    <tr><td><b>wave</b></td><td>18.5%</td><td><b>6.4%</b></td><td>most true white, over double the rest</td></tr>
+    <tr><td>splash</td><td>8.5%</td><td>4.0%</td><td>mostly black, may read sparse</td></tr>
+    <tr><td>surge</td><td>26.7%</td><td>3.0%</td><td>mid-grey not white, risks a flat wash</td></tr>
+    <tr><td>family</td><td>13.9%</td><td>2.7%</td><td>the one on the live page now</td></tr>
+  </table>
+
+  <figure>
+    <figcaption><span class="name">1. Wave</span><span class="pick">my pick</span>
+      <span class="note">breaking crest, backlit, spray off the lip</span></figcaption>
+    <img src="hero-wave.webp" alt="Hero with the breaking wave plate">
+  </figure>
+  <figure>
+    <figcaption><span class="name">2. Splash</span>
+      <span class="note">high-speed splash crown on black</span></figcaption>
+    <img src="hero-splash.webp" alt="Hero with the splash crown plate">
+  </figure>
+  <figure>
+    <figcaption><span class="name">3. Surge</span>
+      <span class="note">churning whitewater, diagonal movement</span></figcaption>
+    <img src="hero-surge.webp" alt="Hero with the churning whitewater plate">
+  </figure>
+  <figure>
+    <figcaption><span class="name">4. Family</span>
+      <span class="note">currently live, the one that reads sad</span></figcaption>
+    <img src="hero-family.webp" alt="Hero with the current family plate">
+  </figure>
+</div>
