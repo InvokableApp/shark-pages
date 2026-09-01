@@ -222,6 +222,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "siOsdbrcDcQWbFmlDJiq"
+    },
+    {
+      "path": "c-free-coffee-sample/c-free-coffee-sample-confirmation",
+      "funnelId": "MQQl4qm2oGj2PWmOFT8T",
+      "pageId": "Wfbm8HHR9RaUU4GGUVZp",
+      "elementId": "custom-code-874jblvq9m",
+      "elementTitle": "free-sample-confirmation",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "c-free-coffee-sample/c-free-coffee-sample-optin",
+      "funnelId": "MQQl4qm2oGj2PWmOFT8T",
+      "pageId": "ozMGMMe2Lg7soS6i2aI8",
+      "elementId": "custom-code-nwd2p9tl4k",
+      "elementTitle": "free-sample-optin",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
     }
   ]
 }

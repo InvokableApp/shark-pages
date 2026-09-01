@@ -279,3 +279,19 @@
 @media (max-width:900px){
   .sk-prod .sk-prod-prog{ top:var(--sk-bar-h,0px); }
 }
+
+/* ── full-bleed variant (opt-in) ───────────────────────────────────────────────
+   Added 2026-09-01. A hosted block renders inside whatever container the host page
+   gives it, and that width is an ACCOUNT-level setting, not part of the page: the
+   identical page document renders 1280 wide in the Conectiv snapshot and 1170 in
+   Shark Lead Gen. Section backgrounds then stop short of the viewport edges in one
+   account and not the other, from the same git file.
+
+   This makes the band backgrounds span the viewport regardless of the host container,
+   so one design looks the same in every account it is installed into. Opt in by adding
+   `sk-prod-bleed` to the block's root element; pages that do not carry the class are
+   completely unaffected.
+
+   `overflow-x:clip` is already set on .sk-prod, which is what keeps 100vw from
+   introducing a horizontal scrollbar when the vertical one is present. */
+.sk-prod.sk-prod-bleed{width:100vw;margin-inline:calc(50% - 50vw)}

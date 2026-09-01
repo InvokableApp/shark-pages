@@ -1,0 +1,997 @@
+<!doctype html><html><head><meta charset="utf-8"><title>howto preview</title><style>html,body{margin:0;background:#f4f4f5}
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SHARED "HOW TO USE THIS FUNNEL" STYLESHEET
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE stylesheet for every how-to page in every system. It is scoped under
+   .sk-howto, which every how-to block carries alongside its own mandated
+   .sk-{system}-{funnel}-{page} class. The per-page block.css declares only the
+   nine palette tokens on that page class, and they cascade into everything here.
+
+   So: colour is per system, everything else is per design system. Changing a
+   component here changes every how-to page in every account on one git push.
+
+   Do not add colour literals below. If a value is not in the token block, it is
+   an ink/paper mix and belongs in the per-page tokens instead.
+   ============================================================ */
+
+.sk-howto *,
+.sk-howto *::before,
+.sk-howto *::after { box-sizing: border-box; }
+
+.sk-howto {
+  /* structural tokens: identical in every system, per design system 7.2 */
+  --sk-r: 18px;
+  --sk-r-sm: 12px;
+  --sk-pad: 20px;
+  --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
+  --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
+
+  /* FULL-BLEED GROUND, CAPPED CONTENT.
+     The paper colour is painted by the block itself, so the block must span the
+     whole browser or the GHL section shows through at the sides and the page
+     reads as a stripe. Capping .sk-howto and centring it was exactly that bug:
+     no section setting can fix it, because the narrow background belongs to the
+     block. So the block stays full width and its CHILDREN carry the measure,
+     via the three-column grid below. Section still needs the HOSTED-BLOCKS-SOP
+     §6 container recipe (padding 0, allowRowMaxWidth true) or GHL adds its own
+     gutters.
+
+     THE MEASURE IS A GRID COLUMN, NOT AN AUTO MARGIN. `margin-inline: auto` on
+     the children looks equivalent and is not: .sk-group and .sk-card set
+     `margin` as a SHORTHAND, which silently resets margin-inline to 0 and drops
+     them against the left edge. The header, having no margin shorthand, stayed
+     centred, so the page half-worked in a way that reads as a mystery. Placing
+     children in column 2 cannot be undone by any margin a component sets. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* paper grain, keeps flat off-white from reading as an unstyled default */
+.sk-howto .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-howto > *:not(.sk-grain) {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------- header ---------------- */
+
+.sk-howto .sk-head {
+  padding: 38px 4px 22px;
+  text-align: center;
+}
+
+.sk-howto .sk-logo {
+  display: block;
+  width: 168px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 22px;
+}
+
+.sk-howto .sk-title {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sk-howto .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-howto .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* the funnel this page belongs to, set as data rather than prose */
+.sk-howto .sk-funnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 7px 13px 7px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+  text-align: left;
+}
+
+.sk-howto .sk-funnel svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--sk-brand);
+}
+
+/* ---------------- group header ---------------- */
+
+.sk-howto .sk-group {
+  margin: 0 0 26px;
+}
+
+.sk-howto .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 0 13px;
+  padding: 14px 2px 11px;
+  background: linear-gradient(var(--sk-paper) 62%, transparent);
+}
+
+.sk-howto .sk-group-label {
+  flex: none;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-ink);
+}
+
+.sk-howto .sk-group-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--sk-line);
+}
+
+.sk-howto .sk-group-count {
+  flex: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-howto .sk-card {
+  margin: 0 0 12px;
+  padding: var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+
+.sk-howto .sk-card:last-child { margin-bottom: 0; }
+
+.sk-howto .sk-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.sk-howto .sk-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand);
+}
+
+.sk-howto .sk-mark svg { width: 21px; height: 21px; }
+
+.sk-howto .sk-card-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  letter-spacing: -.005em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+.sk-howto .sk-card-tease {
+  margin: 5px 0 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+
+.sk-howto .sk-card-body {
+  margin: 14px 0 0;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.52;
+}
+
+.sk-howto .sk-card-body p { margin: 0 0 10px; }
+.sk-howto .sk-card-body p:last-child { margin-bottom: 0; }
+.sk-howto .sk-card-body strong { color: var(--sk-ink); font-weight: 600; }
+
+/* an inline token reproducing a UI element named in prose, design system 4 */
+.sk-howto .sk-gl {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------------- video card ---------------- */
+
+.sk-howto .sk-vid { padding: 0; overflow: hidden; }
+
+.sk-howto .sk-vid .sk-card-head { padding: var(--sk-pad) var(--sk-pad) 15px; }
+
+/* click-to-load facade: the vimeo player is only fetched once the rep asks for it,
+   so a page with three videos still loads like a page with none */
+.sk-howto .sk-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-top: 1px solid var(--sk-line-soft);
+  padding: 0;
+  display: block;
+  background-color: var(--sk-ink);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sk-howto .sk-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 8, .1) 0%, rgba(8, 10, 8, .42) 100%);
+  transition: opacity .3s ease;
+}
+
+.sk-howto .sk-frame:hover::after { opacity: .72; }
+
+.sk-howto .sk-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 28px -8px rgba(8, 10, 8, .55);
+  color: #fff;
+  transition: transform .28s cubic-bezier(.2, .7, .3, 1);
+}
+
+.sk-howto .sk-frame:hover .sk-play { transform: translate(-50%, -50%) scale(1.07); }
+.sk-howto .sk-frame:active .sk-play { transform: translate(-50%, -50%) scale(.97); }
+
+.sk-howto .sk-play svg { width: 25px; height: 25px; margin-left: 3px; }
+
+.sk-howto .sk-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sk-howto .sk-frame[data-playing="true"] { cursor: default; }
+.sk-howto .sk-frame[data-playing="true"]::after,
+.sk-howto .sk-frame[data-playing="true"] .sk-play { display: none; }
+
+/* ---------------- buttons ---------------- */
+
+.sk-howto .sk-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 15px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .12s ease;
+}
+
+.sk-howto .sk-btn:hover { box-shadow: var(--sk-shadow-lift); }
+.sk-howto .sk-btn:active { transform: translateY(1px); }
+.sk-howto .sk-btn svg { flex: none; width: 17px; height: 17px; }
+
+.sk-howto .sk-btn--ghost {
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  color: var(--sk-ink);
+}
+
+.sk-howto .sk-btn--ghost:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+/* ---------------- AskAI prompt ----------------
+   A block of prose the rep copies and pastes into Ask AI. It is content to be
+   TAKEN, not read, so it gets a container that reads as a quotation and a copy
+   button rather than a link. Selectable text is kept (some reps will highlight
+   it by hand) and the button is the fast path, not the only one. */
+
+.sk-howto .sk-prompt {
+  margin: 14px 0 0;
+  padding: 15px 17px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-size: 14.4px;
+  line-height: 1.55;
+}
+
+.sk-howto .sk-prompt p { margin: 0 0 9px; }
+.sk-howto .sk-prompt p:last-child { margin-bottom: 0; }
+
+/* idle / done state machine, per design system §4 */
+.sk-howto .sk-copy[data-done="true"] { background: var(--sk-brand-deep); }
+
+/* ---------------- split (copy beside a screenshot) ----------------
+   One column on a phone, two side by side once there is room. The wrapper
+   exists at every width so the desktop rules only change grid-template-columns
+   and never restructure the DOM. */
+
+.sk-howto .sk-split { display: grid; gap: 0; }
+.sk-howto .sk-split-copy { display: flex; flex-direction: column; }
+.sk-howto .sk-shot-fig { margin: 0; }
+
+/* ---------------- screenshot ---------------- */
+
+.sk-howto .sk-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+}
+
+.sk-howto .sk-shot-cap {
+  margin: 8px 0 0;
+  color: var(--sk-ink-faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ---------------- footer ---------------- */
+
+.sk-howto .sk-foot {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sk-line);
+  color: var(--sk-ink-faint);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ---------------- focus, always visible ---------------- */
+
+.sk-howto a:focus-visible,
+.sk-howto button:focus-visible,
+.sk-howto [tabindex]:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------------- entry motion ----------------
+   Hidden states are guarded by .sk-motion, which the shared reveal engine adds to
+   <html> only once it actually runs. Without the guard, a slow Pages build or a
+   blocked script renders a blank page. Design system 5 / hosted-blocks SOP 9. */
+
+@keyframes sk-howto-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sk-howto .sk-head > * {
+  animation: sk-howto-rise .55s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.sk-howto .sk-logo   { animation-delay: .02s; }
+.sk-howto .sk-title  { animation-delay: .08s; }
+.sk-howto .sk-sub    { animation-delay: .14s; }
+.sk-howto .sk-funnel { animation-delay: .20s; }
+
+.sk-motion .sk-howto [data-sk-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s cubic-bezier(.2, .7, .3, 1), transform .5s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--sk-i, 0) * .05s);
+}
+
+.sk-motion .sk-howto [data-sk-reveal].sk-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-howto .sk-head > * { animation: none; }
+  .sk-motion .sk-howto [data-sk-reveal] { opacity: 1; transform: none; transition: none; }
+  .sk-howto .sk-play,
+  .sk-howto .sk-btn,
+  .sk-howto .sk-frame::after { transition: none; }
+}
+
+/* ---------------- wider than a phone ---------------- */
+
+@media (min-width: 560px) {
+  .sk-howto { padding-bottom: 64px; }
+  .sk-howto .sk-head { padding-top: 52px; }
+  .sk-howto .sk-card-tease,
+  .sk-howto .sk-sub { max-width: 44ch; }
+}
+
+/* ---------------- desktop ----------------
+   Reps read this on a phone, but they also open it on the laptop they run the
+   business from, and a 560px column stranded in the middle of a 1440px screen
+   reads as broken rather than as restraint. So the column widens and the groups
+   become grids: videos two across, assets three, the ads card split.
+
+   Column count is DECLARED, not inferred: data-cols on each group. A 16:9 video
+   in a third of the width is a thumbnail, so the generator caps videos at two
+   whatever the count. Auto-fit would not know that.
+
+   Equal-height cards come from .sk-card-head absorbing the slack rather than
+   from margin-top:auto on the button. Auto margin would bottom-align the button
+   correctly and then collapse its 15px gap to zero on the tallest card, which
+   only shows up on the one card that happens to be tallest. */
+
+@media (min-width: 900px) {
+  .sk-howto {
+    grid-template-columns: 1fr min(1120px, 100%) 1fr;
+    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .sk-howto .sk-head { padding: 64px 4px 30px; }
+  .sk-howto .sk-logo { width: 208px; margin-bottom: 26px; }
+  .sk-howto .sk-title { font-size: 46px; letter-spacing: -.016em; }
+  .sk-howto .sk-sub { margin-top: 14px; font-size: 16.5px; max-width: 52ch; }
+
+  /* groups become grids, with the sticky header spanning every column */
+  .sk-howto .sk-group {
+    display: grid;
+    gap: 18px;
+    align-items: stretch;
+    margin-bottom: 34px;
+  }
+
+  .sk-howto .sk-group-head {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 18px 2px 12px;
+  }
+
+  .sk-howto .sk-group[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sk-howto .sk-group[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .sk-howto .sk-card { margin: 0; display: flex; flex-direction: column; }
+  .sk-howto .sk-card-head { flex: 1 1 auto; }
+  .sk-howto .sk-card-tease { max-width: none; }
+
+  /* the video frame sits at the foot of the card, so frames line up across a row
+     even when one title wraps to two lines and its neighbour does not */
+  .sk-howto .sk-vid .sk-frame { margin-top: auto; }
+
+  /* A LONE VIDEO IS A HERO, NOT A BILLBOARD. At the full 1180 measure a 16:9
+     frame is 663px tall and swallows the page; capped it reads as the primary
+     thing without pushing everything else below the fold. Many funnels ship one
+     training rather than two, so this is a common shape, not an edge case.
+     justify-self, not an auto margin: .sk-card sets `margin` as a shorthand at
+     this width and would reset it. */
+  .sk-howto .sk-group[data-cols="1"] .sk-vid {
+    width: 100%;
+    max-width: 860px;
+    justify-self: center;
+  }
+
+  /* ads card: copy and button on the left, the screenshot beside it.
+     STRETCH, not start: the screenshot column is much taller than the copy, and
+     letting the copy column shrink to its content leaves a slab of dead white
+     under the button. Stretched, the button drops to the foot of the card and
+     the two columns finish together. */
+  .sk-howto .sk-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 26px;
+    align-items: stretch;
+  }
+
+  .sk-howto .sk-split .sk-btn { margin-top: auto; }
+  .sk-howto .sk-shot { margin-top: 0; }
+
+  .sk-howto .sk-foot { margin-top: 12px; font-size: 13px; }
+}
+
+@media (min-width: 1240px) {
+  .sk-howto { grid-template-columns: 1fr min(1180px, 100%) 1fr; }
+  .sk-howto .sk-title { font-size: 52px; }
+}
+
+/* VITAL / how-to / vital-facial-health-scan
+ *
+ * The design lives in _shared/howto/v1/howto.css, scoped under .sk-howto, and is
+ * shared by every how-to page in every system. This file declares ONLY the nine
+ * palette tokens, on the block's own scope class, and they cascade into the
+ * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
+
+.sk-vital-how-to-vital-facial-health-scan {
+  --sk-brand:      #8DB53C;
+  --sk-brand-deep: #1B3C1A;
+  --sk-brand-tint: #EAF2DC;
+  --sk-ink:        #12180F;
+  --sk-ink-soft:   #5D6957;
+  --sk-ink-faint:  #8E9887;
+  --sk-paper:      #F5F5F0;
+  --sk-line:       #E2E3DA;
+  --sk-line-soft:  #EDEDE6;
+  --sk-card:       #FFFFFF;
+}
+</style></head><body>
+<!--
+  VITAL / how-to / vital-facial-health-scan
+  "How to use this funnel" for Health Scanner.
+
+  THIS FILE IS THE CONFIG. The design, components and behaviour are shared and
+  live in _shared/howto/v1/. Only this funnel's content is here.
+  Generated by web/scripts/shark-pages/new-howto-page.mjs.
+  See references/HOW-TO-FUNNEL-PAGE-SOP.md.
+-->
+<div class="sk-vital-how-to-vital-facial-health-scan sk-howto">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo" src="https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg" alt="Vital Shark">
+    <h1 class="sk-title">How to use <em>this funnel</em></h1>
+    <p class="sk-sub">Watch the training, grab the assets, then start sending traffic.</p>
+    <span class="sk-funnel"><i data-sk-icon="funnel"></i>Health Scanner</span>
+  </header>
+
+
+  <section class="sk-group" data-sk-stagger data-cols="1">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Watch first</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">1</span>
+    </div>
+
+    <article class="sk-card sk-vid" data-sk-reveal>
+      <div class="sk-card-head">
+        <span class="sk-mark" data-sk-icon="book"></span>
+        <div>
+          <h2 class="sk-card-name">How this funnel works</h2>
+          <p class="sk-card-tease">A quick breakdown of this funnel, how it works &amp; what your leads experience.</p>
+        </div>
+      </div>
+      <div class="sk-frame"
+           data-vimeo="1216187987"
+           data-poster="https://i.vimeocdn.com/video/2187552050-332429a652193495473c63cca8fcfe3a5665a995d4f02f1ac1cc0d5023be83e8-d_1280"
+           role="button" tabindex="0" aria-label="Play: How this funnel works">
+        <span class="sk-play" data-sk-icon="play"></span>
+      </div>
+    </article>
+  </section>
+
+  <section class="sk-group" data-sk-stagger data-cols="3">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Assets and training</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">3</span>
+    </div>
+
+    <article class="sk-card" data-sk-reveal>
+      <div class="sk-card-head">
+        <span class="sk-mark" data-sk-icon="chat"></span>
+        <div>
+          <h2 class="sk-card-name">Scripts and follow-up</h2>
+          <p class="sk-card-tease">What to say to leads who come through this funnel, and how to follow up so they answer.</p>
+        </div>
+      </div>
+      <a class="sk-btn" href="https://vitalshark.io/scanner-lead-follow-up-scripts" target="_blank" rel="noopener">
+        Open the scripts <i data-sk-icon="arrow"></i>
+      </a>
+    </article>
+
+    <article class="sk-card" data-sk-reveal>
+      <div class="sk-card-head">
+        <span class="sk-mark" data-sk-icon="image"></span>
+        <div>
+          <h2 class="sk-card-name">Social imagery and ads</h2>
+          <p class="sk-card-tease">Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.</p>
+        </div>
+      </div>
+      <a class="sk-btn sk-btn--ghost" href="https://canva.link/8r9y6jcyifb3002" target="_blank" rel="noopener">
+        Open the image library <i data-sk-icon="ext"></i>
+      </a>
+    </article>
+
+    <article class="sk-card" data-sk-reveal>
+      <div class="sk-card-head">
+        <span class="sk-mark" data-sk-icon="school"></span>
+        <div>
+          <h2 class="sk-card-name">Training hub</h2>
+          <p class="sk-card-tease">Every training for your marketing system in one place, not just this funnel.</p>
+        </div>
+      </div>
+      <a class="sk-btn sk-btn--ghost" href="https://vitalshark.io/training-hub" target="_blank" rel="noopener">
+        Open the training hub <i data-sk-icon="ext"></i>
+      </a>
+    </article>
+  </section>
+
+  <section class="sk-group" data-sk-stagger data-cols="1">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Run ads to it</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">1</span>
+    </div>
+
+    <article class="sk-card" data-sk-reveal>
+      <div class="sk-card-head">
+        <span class="sk-mark" data-sk-icon="mega"></span>
+        <div>
+          <h2 class="sk-card-name">This is a great funnel to run ads to</h2>
+          <p class="sk-card-tease">Done for you ad creative and a launch walkthrough, if your plan includes it.</p>
+        </div>
+      </div>
+      <div class="sk-split">
+        <div class="sk-split-copy">
+          <div class="sk-card-body">
+            <p><strong>PRO members:</strong> the proven ads for this funnel are already built for you, along with training on exactly how to launch the campaign and generate customer-centric leads. Look in your sidebar for the <span class="sk-gl">Ads Training</span> tab. The sidebar is desktop only, so log in to your system on a computer to find it.</p>
+            <p>Not on PRO yet? Upgrade and the ad creative plus the launch training unlock for this funnel.</p>
+          </div>
+          <a class="sk-btn" href="https://vitalshark.io/get-ads" target="_blank" rel="noopener">
+            Upgrade to run ads <i data-sk-icon="arrow"></i>
+          </a>
+        </div>
+        <figure class="sk-shot-fig">
+          <img class="sk-shot" src="https://invokableapp.github.io/shark-pages/_shared/howto/v1/assets/ads-sidebar.webp" alt="The Ads Training tab in the sidebar of your marketing system" loading="lazy">
+          <figcaption class="sk-shot-cap">Sidebar / Ads Training</figcaption>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <footer class="sk-foot">
+    Questions on any of this? Open the <span class="sk-gl">Support</span> tab inside your marketing system.
+  </footer>
+</div>
+
+<script>/* howto.js — shared behaviour for every "how to use this funnel" page.
+ *
+ * Loaded from each block's block.js. Two jobs, nothing else:
+ *
+ *   1. VIDEO FACADE. Markup ships a poster + a play button, never an iframe. The
+ *      vimeo player is only injected on click, so a page carrying three videos
+ *      costs nothing until a rep asks for one. The vimeo id lives in a data
+ *      attribute, so swapping a video for a new funnel is a one-token edit.
+ *
+ *   2. ICONS. Inline SVG path data from one map, per design system 4: never an
+ *      icon font, never a remote sprite. An element writes data-sk-icon="play"
+ *      and gets the stroke icon at whatever size its container sets.
+ *
+ * The scroll-reveal engine is shared separately (_shared/shark-reveal/v1/shark-reveal.js) and is
+ * pulled in by each block.js alongside this file.
+ */
+(function () {
+  if (window.__sharkHowto) return;
+  window.__sharkHowto = true;
+
+  var NS = "http://www.w3.org/2000/svg";
+
+  /* 24x24 viewBox, fill none, stroke currentColor. Keep new entries in this shape. */
+  var I = {
+    play:   "M7 4.5v15l13-7.5z",
+    funnel: "M3 4h18l-7 8v7l-4 2v-9z",
+    info:   "M12 21a9 9 0 100-18 9 9 0 000 18zM12 11v5M12 7.6v.4",
+    eye:    "M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12zM12 14.8a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6z",
+    chat:   "M20.5 12.4c0 4-3.8 7.2-8.5 7.2a10 10 0 01-2.6-.34L4 21l1.2-3.4A6.9 6.9 0 013.5 12.4c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2z",
+    image:  "M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 3-3L20 16M9 9.5a1 1 0 100-2 1 1 0 000 2z",
+    school: "M12 4l9 4.5-9 4.5-9-4.5zM7 11v4.6c0 1.4 2.2 2.4 5 2.4s5-1 5-2.4V11",
+    book:   "M4.5 5.2A1.7 1.7 0 016.2 3.5H19v13.2H6.2a1.7 1.7 0 00-1.7 1.7zM4.5 18.4a1.7 1.7 0 001.7 1.7H19v-3.4M8.2 7.6h6.6M8.2 11h4.4",
+    mega:   "M4 10.2v3.6a1 1 0 001 1h2.2l7.3 3.9V5.3L7.2 9.2H5a1 1 0 00-1 1zM18.4 9.4a3.6 3.6 0 010 5.2M7.2 15.2V19a1 1 0 001 1h1.4a1 1 0 001-1v-2.2",
+    target: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM12 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z",
+    arrow:  "M5 12h14M13 6l6 6-6 6",
+    ext:    "M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5",
+    spark:  "M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z",
+    copy:   "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z",
+    pdf:    "M12 3v11M8.2 10.4L12 14.2l3.8-3.8M4.5 17v2.5A1.5 1.5 0 006 21h12a1.5 1.5 0 001.5-1.5V17"
+  };
+
+  function icon(name) {
+    var d = I[name];
+    if (!d) return null;
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.7");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.setAttribute("aria-hidden", "true");
+    var p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    /* the play triangle reads as a solid mark, not an outline */
+    if (name === "play") { p.setAttribute("fill", "currentColor"); svg.setAttribute("stroke-width", "1"); }
+    svg.appendChild(p);
+    return svg;
+  }
+
+  function paintIcons(scope) {
+    var els = scope.querySelectorAll("[data-sk-icon]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.firstElementChild) continue;
+      var svg = icon(el.getAttribute("data-sk-icon"));
+      if (svg) el.appendChild(svg);
+    }
+  }
+
+  function playVideo(frame) {
+    if (frame.getAttribute("data-playing") === "true") return;
+    var id = frame.getAttribute("data-vimeo");
+    if (!id) return;
+    var f = document.createElement("iframe");
+    f.src = "https://player.vimeo.com/video/" + encodeURIComponent(id) +
+            "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
+    f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("title", frame.getAttribute("aria-label") || "Training video");
+    f.setAttribute("loading", "lazy");
+    frame.setAttribute("data-playing", "true");
+    frame.appendChild(f);
+  }
+
+  /* Copy the prompt. The label swaps to a confirmation for 1.9s, then restores,
+     so the rep gets feedback without a toast or a layout shift. execCommand is
+     the fallback: the clipboard API needs a secure context, and a GHL page on a
+     buyer's not-yet-SSL domain is exactly where this would otherwise fail
+     silently. */
+  function copyText(text, btn) {
+    var label = btn.querySelector("[data-copy-label]") || btn;
+    var was = label.textContent;
+    var done = function () {
+      btn.setAttribute("data-done", "true");
+      label.textContent = btn.getAttribute("data-copy-done") || "Copied";
+      setTimeout(function () { btn.removeAttribute("data-done"); label.textContent = was; }, 1900);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacy(text, done); });
+    } else legacy(text, done);
+  }
+
+  function legacy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* nothing else to try */ }
+    document.body.removeChild(ta);
+  }
+
+  function wire(scope) {
+    paintIcons(scope);
+
+    var copiers = scope.querySelectorAll("[data-sk-copy]");
+    for (var c = 0; c < copiers.length; c++) {
+      (function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var src = btn.closest(".sk-card").querySelector(".sk-prompt");
+          if (src) copyText(src.innerText.trim(), btn);
+        });
+      })(copiers[c]);
+    }
+    var frames = scope.querySelectorAll("[data-vimeo]");
+    for (var i = 0; i < frames.length; i++) {
+      (function (frame) {
+        /* the poster is a background-image so it never counts as a broken <img>
+           in a headless check and never reflows the card while loading */
+        var poster = frame.getAttribute("data-poster");
+        if (poster) frame.style.backgroundImage = "url('" + poster + "')";
+        frame.addEventListener("click", function () { playVideo(frame); });
+        frame.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVideo(frame); }
+        });
+      })(frames[i]);
+    }
+  }
+
+  function boot() {
+    var blocks = document.querySelectorAll(".sk-howto");
+    for (var i = 0; i < blocks.length; i++) wire(blocks[i]);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+<script>/* shark-reveal.js — shared scroll-effects engine for hosted blocks.
+ *
+ * Load it from a block's block.js:
+ *   (function(){var s=document.createElement("script");
+ *    s.src="https://invokableapp.github.io/shark-pages/_shared/shark-reveal/v1/shark-reveal.js";
+ *    document.head.appendChild(s);})();
+ *
+ * It is declarative and design-agnostic: it only toggles classes and sets a
+ * --sk-i index. The block's own CSS decides what the motion looks like.
+ *
+ *   data-sk-reveal            element animates in when it enters the viewport (once)
+ *   data-sk-stagger           on a PARENT: its data-sk-reveal children get --sk-i 0,1,2…
+ *   data-sk-count="4200"      number counts up to this value the first time it is seen
+ *   data-sk-count-suffix="+"  appended after the counted number
+ *   data-sk-parallax="0.12"   translates on scroll by (progress * strength * height)
+ *
+ * PROGRESSIVE ENHANCEMENT, deliberately: this script adds `sk-motion` to <html>,
+ * and the hiding CSS is written as `.sk-motion [data-sk-reveal]{opacity:0}`. So if
+ * Pages is slow, the file 404s, or JS is off, every element renders fully visible.
+ * Never write the hidden state without the .sk-motion guard.
+ *
+ * Honours prefers-reduced-motion: everything is revealed at once, counters jump to
+ * their final value, parallax is skipped.
+ */
+(function () {
+  if (window.__sharkReveal) return;
+  window.__sharkReveal = true;
+
+  var root = document.documentElement;
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var io = "IntersectionObserver" in window;
+
+  if (calm || !io) { root.classList.add("sk-motion-off"); finishAll(); return; }
+  root.classList.add("sk-motion");
+
+  function finishAll() {
+    each("[data-sk-reveal]", function (el) { el.classList.add("sk-in"); });
+    each("[data-sk-count]", function (el) { el.textContent = fmt(+el.getAttribute("data-sk-count")) + suffix(el); });
+  }
+  function each(sel, fn) {
+    var n = document.querySelectorAll(sel);
+    for (var i = 0; i < n.length; i++) fn(n[i], i);
+  }
+  function suffix(el) { return el.getAttribute("data-sk-count-suffix") || ""; }
+  function fmt(v) { return v >= 1000 ? v.toLocaleString("en-US") : String(v); }
+
+  // stagger: index each revealing child of a data-sk-stagger parent
+  each("[data-sk-stagger]", function (p) {
+    var kids = p.querySelectorAll("[data-sk-reveal]");
+    for (var i = 0; i < kids.length; i++) kids[i].style.setProperty("--sk-i", i);
+  });
+
+  var revealer = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("sk-in");
+      revealer.unobserve(e.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  each("[data-sk-reveal]", function (el) { revealer.observe(el); });
+
+  // count-up, eased, ~1.1s
+  var counter = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      counter.unobserve(e.target);
+      run(e.target);
+    }
+  }, { threshold: 0.4 });
+  each("[data-sk-count]", function (el) {
+    el.textContent = "0" + suffix(el);
+    counter.observe(el);
+  });
+
+  function run(el) {
+    var target = +el.getAttribute("data-sk-count");
+    var dp = (el.getAttribute("data-sk-count-decimals") | 0);
+    var sfx = suffix(el), t0 = null, DUR = 1100;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var v = target * eased;
+      el.textContent = (dp ? v.toFixed(dp) : fmt(Math.round(v))) + sfx;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = (dp ? target.toFixed(dp) : fmt(target)) + sfx;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // parallax — transform only, batched into one rAF, never touches layout
+  var pxs = document.querySelectorAll("[data-sk-parallax]");
+  if (pxs.length) {
+    var ticking = false;
+    var tick = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      for (var i = 0; i < pxs.length; i++) {
+        var el = pxs[i], r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;
+        var progress = (r.top + r.height / 2 - vh / 2) / vh;   // -1 … 1 through the viewport
+        var strength = parseFloat(el.getAttribute("data-sk-parallax")) || 0.1;
+        el.style.transform = "translate3d(0," + (-progress * strength * r.height).toFixed(2) + "px,0)";
+      }
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    tick();
+  }
+})();
+</script></body></html>

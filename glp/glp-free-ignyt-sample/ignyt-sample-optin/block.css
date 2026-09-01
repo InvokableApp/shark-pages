@@ -793,3 +793,69 @@
      control jumps from 66px to 96px tall. Back off just enough to hold one line. */
   .sk-prod-ig .sk-prod-btn-lg{font-size:1.04rem;letter-spacing:.04em}
 }
+
+/* ============================ MOBILE TYPE SCALE ============================ */
+/* Jeff, 2026-09-01, after the button pass: "seeing the pattern? just needs to be more
+   legible across the board on mobile."
+ *
+ * He is right and it is one problem, not a list of them. The shared component's scale is
+ * desktop-first, and on a 390px screen it collapsed into a band with no hierarchy left in
+ * it. Measured every text node on the page at 390: card SUBHEADS came out 15.2 to 16.3px
+ * and the body under them 13.8 to 15.2px, so a heading outranked its own paragraph by as
+ * little as 0.5px. Nothing read as a heading, and most of the body sat under the 16px
+ * floor that phone reading wants.
+ *
+ * So this is a ladder, not a set of nudges. Five steps, each clearly apart from the next:
+ *
+ *     18.4   card subheads      (pillars, pathways, steps, people captions, FAQ questions)
+ *     17.6   section leads      (.sk-prod-sub, the hero lede, the taste opener)
+ *     16.3   body               (card copy, FAQ answers, check lists, caption body)
+ *     15.2   labels and asides  (tag pills, stat captions, notes, the no-card line)
+ *     13.1   kickers            (eyebrows and section kickers, which SHOULD stay small)
+ *
+ * Section h2 (32px) and the stat numerals (38px) are already loud and are left alone.
+ *
+ * ⚠️ Same placement rule as the button block above: this has to sit at the END of the
+ * file, because most of these selectors set their own font-size earlier at equal
+ * specificity and a media query buys no extra weight.
+ */
+@media (max-width:900px){
+  /* 18.4 — card subheads */
+  .sk-prod-ig .sk-prod-pillar h3,
+  .sk-prod-ig .sk-prod-ig-paths h3,
+  .sk-prod-ig .sk-prod-ig-steps h3,
+  .sk-prod-ig .sk-prod-ig-people-grid figcaption b,
+  .sk-prod-ig .sk-prod-ig-faq summary{font-size:1.15rem}
+
+  /* 17.6 — section leads */
+  .sk-prod-ig .sk-prod-sub,
+  .sk-prod-ig .sk-prod-ig-taste-p{font-size:1.1rem}
+
+  /* 16.3 — body */
+  .sk-prod-ig .sk-prod-pillar p,
+  .sk-prod-ig .sk-prod-ig-paths p,
+  .sk-prod-ig .sk-prod-ig-steps p,
+  .sk-prod-ig .sk-prod-ig-faq details p,   /* details p, not faq p: a bare .sk-prod-ig-faq p
+                                              outranks the kicker rule below and blew the
+                                              section kicker up to body size */
+  .sk-prod-ig .sk-prod-checks li,
+  .sk-prod-ig .sk-prod-ig-people-grid figcaption span{font-size:1.02rem}
+
+  /* 15.2 — labels and asides */
+  .sk-prod-ig .sk-prod-hero-tags li,
+  .sk-prod-ig .sk-prod-ig-stats > div > span,
+  .sk-prod-ig .sk-prod-note,
+  .sk-prod-ig .sk-prod-ig-covered,
+  .sk-prod-ig .sk-prod-fine{font-size:.95rem}
+
+  /* 13.1 — kickers, and the nav strip that reads at the same rank */
+  .sk-prod-ig .sk-prod-kicker,
+  .sk-prod-ig .sk-prod-eyebrow,
+  .sk-prod-ig .sk-prod-ig-nav-links a{font-size:.82rem}
+  /* The top strip is deliberately NOT in this tier. It is a marquee of three short phrases
+     sized to hold one line, and at .82rem it wraps to two at 360px, which grows the chrome
+     above the fold by 35px to make three words easier to read that nobody reads. */
+
+  /* the step numeral has to keep pace with the subhead beside it */
+  .sk-prod-ig .sk-prod-ig-step-n{font-size:1.05rem}
+}

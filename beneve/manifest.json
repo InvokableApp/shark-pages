@@ -301,6 +301,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+    },
+    {
+      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+      "funnelId": "jX3jk7UErtgaRjYjcrKl",
+      "pageId": "gZDt6U9VOEN8DGu1mFR4",
+      "elementId": "custom-code-ajgnezv74r",
+      "elementTitle": "Become an Influencer",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
     }
   ]
 }

@@ -820,6 +820,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "bNN86mDO5dMDcxXPXPEZ"
+    },
+    {
+      "path": "glp-free-ignyt-sample/ignyt-sample-optin",
+      "funnelId": "THsns1ySiqDPQzNIYaiU",
+      "pageId": "Rb3n5Jz0rarEX4SyLAzf",
+      "elementId": "custom-code-cktjhk3ofj",
+      "elementTitle": "ignyt-sample-optin",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-free-ignyt-sample/ignyt-sample-confirmation",
+      "funnelId": "THsns1ySiqDPQzNIYaiU",
+      "pageId": "mnMqx2fLFrN2F4B09WoJ",
+      "elementId": "custom-code-ut8ghkhppd",
+      "elementTitle": "ignyt-sample-confirmation",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
