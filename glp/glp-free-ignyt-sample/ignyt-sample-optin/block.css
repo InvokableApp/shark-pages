@@ -486,3 +486,100 @@
   .sk-prod-ig .sk-prod-ig-people-grid figure{aspect-ratio:4/3}
   .sk-prod-ig .sk-prod-ig-ritual{margin-top:1.6rem}
 }
+
+/* ============================ STICKY HEADER ============================ */
+/* Sticky, not fixed. Fixed would sit over the whole viewport including anything GHL
+   renders outside this block; sticky is scoped to the block's own flow and still pins
+   for the entire page because the block IS the page. Verified pinned at top:0 in the
+   live GHL preview, not assumed. */
+.sk-prod-ig{ --ig-nav-h:64px; }
+
+.sk-prod-ig .sk-prod-ig-nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(7,7,10,.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-ig-nav-in{
+  height:var(--ig-nav-h);
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+}
+
+/* Wordmark. Archivo pulled wide and light with heavy tracking is the closest match we
+   already load to ORYGN's own IGNYT lockup. Swap in the real logo asset when we have it. */
+.sk-prod-ig .sk-prod-ig-mark{
+  display:inline-flex;align-items:center;gap:.55rem;flex:0 0 auto;
+  color:var(--ig-frost);text-decoration:none;
+}
+.sk-prod-ig .sk-prod-ig-mark svg{width:20px;height:20px;color:var(--ig-ember)}
+.sk-prod-ig .sk-prod-ig-mark span{
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 108,"wght" 500;
+  font-size:1.02rem;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;
+}
+
+.sk-prod-ig .sk-prod-ig-nav-links{display:flex;align-items:center;gap:1.6rem;min-width:0}
+.sk-prod-ig .sk-prod-ig-nav-links a{
+  color:var(--ig-body);text-decoration:none;white-space:nowrap;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 74,"wght" 600;
+  font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.35rem 0;border-bottom:1px solid transparent;
+  transition:color .2s var(--ig-ease),border-color .2s var(--ig-ease);
+}
+.sk-prod-ig .sk-prod-ig-nav-links a:hover{color:var(--ig-frost);border-bottom-color:var(--ig-ember)}
+
+.sk-prod-ig .sk-prod-ig-nav-cta{
+  flex:0 0 auto;padding:.72rem 1.35rem;font-size:.78rem;letter-spacing:.06em;
+  box-shadow:0 6px 18px -6px rgba(250,67,0,.7);
+}
+
+/* The reading gauge is nested INSIDE the header, so it rides along as the bottom rule.
+   The shared rule makes it position:sticky/top:0, which has to be undone here or it
+   detaches and the header covers it. */
+.sk-prod-ig .sk-prod-ig-nav .sk-prod-prog{
+  position:absolute;left:0;right:0;bottom:-1px;top:auto;height:2px;z-index:1;
+}
+
+/* Anchor targets must clear the header or a nav click lands the heading underneath it. */
+.sk-prod-ig [id]{scroll-margin-top:calc(var(--ig-nav-h) + 14px)}
+
+/* ============================ SLIM CTA ============================ */
+/* Second CTA shape. With this many claim points a single repeated band would read as one
+   design element stuttering down the page. */
+.sk-prod-ig .sk-prod-ig-cta-slim{
+  border-top:1px solid var(--ig-hair);
+  border-bottom:1px solid var(--ig-hair);
+  background:linear-gradient(90deg,rgba(250,67,0,.09),transparent 55%);
+}
+.sk-prod-ig .sk-prod-ig-cta-slim > div{
+  display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;
+  padding:1.05rem 0;
+}
+.sk-prod-ig .sk-prod-ig-cta-slim p{
+  margin:0;color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 600;
+  font-size:1rem;letter-spacing:.01em;
+}
+.sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{padding:.7rem 1.3rem;font-size:.76rem}
+
+@media (max-width:900px){
+  /* Two rows on a phone: identity + CTA, then the links as a scroll strip. Jeff asked for
+     the nav on mobile too, and hiding the links would have made it a CTA bar again. */
+  .sk-prod-ig{ --ig-nav-h:96px; }
+  .sk-prod-ig .sk-prod-ig-nav-in{
+    height:auto;flex-wrap:wrap;padding-top:.6rem;gap:.5rem 1rem;
+  }
+  .sk-prod-ig .sk-prod-ig-mark{flex:1 1 auto}
+  .sk-prod-ig .sk-prod-ig-nav-cta{order:2;padding:.6rem 1rem;font-size:.72rem}
+  .sk-prod-ig .sk-prod-ig-nav-links{
+    order:3;flex:1 0 100%;gap:1.15rem;
+    overflow-x:auto;padding-bottom:.55rem;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .sk-prod-ig .sk-prod-ig-nav-links::-webkit-scrollbar{display:none}
+  .sk-prod-ig .sk-prod-ig-cta-slim > div{padding:.95rem 0}
+  .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{width:100%;justify-content:center}
+}

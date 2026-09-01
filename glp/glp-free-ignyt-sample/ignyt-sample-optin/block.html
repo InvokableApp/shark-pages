@@ -44,18 +44,33 @@
     <span>We mail it to you</span>
   </div>
 
-  <!-- reading progress, pinned to the top of the viewport. Themed as a heat gauge:
-       it runs ash to ember to spark as the reader moves down the page. -->
-  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+  <!-- ============================ STICKY HEADER ============================ -->
+  <!-- Replaces the shared .sk-prod-bar, which only existed under 900px and only appeared
+       after the hero CTA scrolled past, so desktop carried no persistent CTA. This sticks
+       on every breakpoint. The reading gauge is nested inside it as the header's bottom
+       rule: a separate sticky element would just get covered by the header. -->
+  <header class="sk-prod-ig-nav">
+    <div class="sk-prod-wrap sk-prod-ig-nav-in">
+      <a class="sk-prod-ig-mark" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        <span>IGNYT</span>
+      </a>
 
-  <!-- mobile CTA bar, standard on every opt-in lander (HOSTED-BLOCKS-SOP section 8b) -->
-  <div class="sk-prod-bar" hidden>
-    <span class="sk-prod-bar-name">Free 3 day trial</span>
-    <a class="sk-prod-btn sk-prod-bar-btn" href="#claim" data-optin>Claim now</a>
-  </div>
+      <nav class="sk-prod-ig-nav-links">
+        <a href="#what-it-does">What it does</a>
+        <a href="#pathways">Pathways</a>
+        <a href="#proof">The science</a>
+        <a href="#taste">Taste</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="sk-prod-btn sk-prod-ig-nav-cta" href="#claim" data-optin>Claim free sample</a>
+    </div>
+    <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+  </header>
 
   <!-- ============================ HERO ============================ -->
-  <section class="sk-prod-hero">
+  <section class="sk-prod-hero" id="top">
     <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
     <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
 
@@ -189,6 +204,16 @@
     </div>
   </section>
 
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Same three days, whoever you are.</p>
+      <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- ============================ TRI PATHWAY ============================ -->
   <!-- The only numbered block on the page. The three are real and load bearing: they are
        the three receptor pathways ORYGN names, and they are why the company is called
@@ -222,6 +247,16 @@
     </div>
   </section>
 
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>The trial is free and we don't ask for a card.</p>
+      <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- ============================ THE PATENT ============================ -->
   <section class="sk-prod-facts" id="proof">
     <div class="sk-prod-wrap">
@@ -239,6 +274,17 @@
         <li>Hypoallergenic small Dalton peptides</li>
         <li>Scientifically proven GLP-1 and GIP receptor agonist. It's printed on the pouch.</li>
       </ul>
+    </div>
+  </section>
+
+
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Try it before you take anyone's word for it.</p>
+      <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+        Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </section>
 
@@ -309,6 +355,16 @@
       </div>
     </div>
   </section>
+
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Still here? The form takes about a minute.</p>
+      <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
 
   <!-- ============================ CLOSE ============================ -->
   <section class="sk-prod-close" id="claim">
