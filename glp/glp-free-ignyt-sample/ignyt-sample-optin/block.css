@@ -1,0 +1,406 @@
+/* glp / glp-free-ignyt-sample / ignyt-sample-optin
+ *
+ * The free IGNYT sample opt-in lander. Structure, motion, the reading line and the mobile
+ * bar come from _shared/product/v1/product.css (scoped .sk-prod). That component is built
+ * LIGHT: cream ground, navy headings, white cards. This file does two jobs.
+ *
+ *   1. Re-points the shared tokens at IGNYT's own dark palette, which flips most of the
+ *      component in one move.
+ *   2. Overrides the handful of places the shared CSS hardcodes a light value (#fff cards,
+ *      #fff tag pills, the navy drop shadow, the teal number colour) because a token
+ *      cannot reach those.
+ *
+ * PALETTE IS THE REAL BRAND, NOT AN INVENTED ONE. #FA4300 was sampled straight off the
+ * IGNYT flame mark and the stick packs in ORYGN's own product sheet (assets/ignyt-pack.webp
+ * is a crop of it). The ground is pure black for the same reason: the product photograph is
+ * shot on black, so the hero image composites with mix-blend-mode:screen and needs no alpha
+ * cutout. Nothing here touches a GHL brand swatch, these are local tokens on this block only.
+ *
+ * TYPE. Display is Archivo on its width axis, run narrow and heavy (wdth 88 / wght 800) in
+ * caps: hard and technical, which is the register a metabolic product wants, and not the
+ * Inter-bold every landing page defaults to. Body is Instrument Sans, humanist enough to
+ * keep the long copy readable against that. The small label face is the SAME Archivo pulled
+ * to wdth 62 with wide tracking, so the clinical caption voice costs no extra font request.
+ *
+ * SIGNATURE. The reading-progress line is themed as a heat gauge: it runs ash to ember to
+ * spark as the reader moves down the page. It is the one flourish, and it is the only place
+ * the full ember ramp appears at once.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..600&display=swap");
+
+.sk-prod-ig{
+  /* -- the real IGNYT ramp, sampled from the brand's own artwork -- */
+  --ig-ember:  #FA4300;
+  --ig-flare:  #FF7A2E;
+  --ig-spark:  #FFB627;
+  --ig-ash:    #4A1503;
+
+  --ig-black:  #07070A;
+  --ig-panel:  #0D0E13;
+  --ig-card:   #14151C;
+  --ig-frost:  #F2F4F8;
+  --ig-body:   #9AA3B2;
+  --ig-faint:  #6E7683;
+  --ig-hair:   rgba(242,244,248,.10);
+
+  /* -- shared-component tokens, re-pointed -- */
+  --sk-cream:  var(--ig-black);
+  --sk-mist:   var(--ig-panel);
+  --sk-navy:   var(--ig-frost);
+  --sk-navy-d: #ffffff;
+  --sk-ink:    var(--ig-frost);
+  --sk-body:   var(--ig-body);
+  --sk-note:   var(--ig-body);
+  --sk-line:   var(--ig-hair);
+  --sk-teal:   var(--ig-ember);
+  --sk-teal-d: var(--ig-flare);
+  --sk-sage:   var(--ig-spark);
+  --sk-lime:   var(--ig-ember);
+  --sk-tint:   rgba(250,67,0,.55);
+  --sk-halo:   rgba(250,67,0,.30);
+  --sk-orb-a:  rgba(250,67,0,.26);
+  --sk-orb-b:  rgba(255,182,39,.13);
+  --sk-ico-bg: linear-gradient(140deg,rgba(250,67,0,.24),rgba(255,182,39,.12));
+
+  --sk-serif:  Archivo, "Arial Narrow", system-ui, sans-serif;
+  --sk-sans:   "Instrument Sans", system-ui, -apple-system, sans-serif;
+
+  --ig-ease:   cubic-bezier(.22,.61,.36,1);
+  --ig-display: Archivo, "Arial Narrow", system-ui, sans-serif;
+
+  background:var(--ig-black);
+  color-scheme:dark;
+}
+
+/* ============================ TYPE ============================ */
+/* Archivo is variable on wdth AND wght. The display voice is narrow and heavy in caps; the
+   label voice is the same family pulled much narrower and tracked out. */
+.sk-prod-ig .sk-prod-h1,
+.sk-prod-ig .sk-prod-h2,
+.sk-prod-ig .sk-prod-close-h{
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 88,"wght" 800;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:-.025em;
+  line-height:.94;
+  color:var(--ig-frost);
+  text-wrap:balance;
+}
+.sk-prod-ig .sk-prod-h1{font-size:clamp(2.9rem,7.4vw,5.4rem);margin:0 0 1.1rem}
+.sk-prod-ig .sk-prod-h2{font-size:clamp(2rem,4.4vw,3.3rem);margin:0 0 .9rem}
+.sk-prod-ig .sk-prod-close-h{font-size:clamp(2.3rem,5.4vw,4rem);margin:0 0 1.1rem}
+
+/* The accent word is the only place the ramp runs inside type. Solid ember is the fallback
+   for engines that will not clip a gradient to text. */
+.sk-prod-ig .sk-prod-accent{
+  color:var(--ig-ember);
+  background:linear-gradient(96deg,var(--ig-ember),var(--ig-spark));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.sk-prod-ig .sk-prod-eyebrow,
+.sk-prod-ig .sk-prod-kicker{
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 62,"wght" 700;
+  font-weight:700;
+  font-size:.76rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.sk-prod-ig .sk-prod-eyebrow{color:var(--ig-flare);margin:0 0 1rem}
+.sk-prod-ig .sk-prod-kicker{color:var(--ig-spark);margin:0 0 .7rem}
+
+.sk-prod-ig .sk-prod-lede,
+.sk-prod-ig .sk-prod-sub{color:var(--ig-body)}
+.sk-prod-ig .sk-prod-sub{margin-bottom:2.6rem}
+
+/* ============================ OFFER STRIP ============================ */
+.sk-prod-ig .sk-prod-ig-strip{
+  display:flex;align-items:center;justify-content:center;gap:.85rem;flex-wrap:wrap;
+  padding:.7rem 1.2rem;
+  background:linear-gradient(90deg,var(--ig-ash),var(--ig-ember) 45%,var(--ig-flare));
+  color:#fff;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 68,"wght" 700;
+  font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+}
+.sk-prod-ig .sk-prod-ig-strip i{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.6)}
+
+/* ============================ READING GAUGE (signature) ============================ */
+.sk-prod-ig .sk-prod-prog{background:rgba(242,244,248,.06)}
+.sk-prod-ig .sk-prod-prog i{
+  background:linear-gradient(90deg,var(--ig-ash),var(--ig-ember) 42%,var(--ig-flare) 74%,var(--ig-spark));
+  box-shadow:0 0 14px rgba(250,67,0,.7);
+}
+
+/* ============================ HERO ============================ */
+.sk-prod-ig .sk-prod-hero{padding-top:clamp(2.6rem,6vw,5rem)}
+/* The product shot is photographed on pure black. The ALPHA IS BAKED INTO THE ASSET
+   (un-premultiplied against black, which is the same math a `screen` blend performs), so it
+   drops onto the page with no rectangle and no blend mode.
+   ⚠️ Do NOT "simplify" this back to mix-blend-mode:screen on the img. It looks equivalent
+   and is not: the shared engine writes an inline `transform` on [data-float] every scroll
+   frame for the hero parallax, a transform creates a stacking context, and a stacking
+   context isolates the element from its backdrop, which turns the blend into a no-op. The
+   shot then renders as a hard black box. A `filter` on the img does the same thing, which
+   is why there is no drop-shadow here either. The glow is .sk-prod-halo, a sibling behind. */
+.sk-prod-ig .sk-prod-hero-shot img{
+  width:min(560px,100%);
+}
+.sk-prod-ig .sk-prod-halo{
+  background:radial-gradient(circle at 50% 52%,rgba(250,67,0,.42),rgba(255,182,39,.12) 42%,transparent 70%);
+}
+
+/* pills: the shared component paints these #fff */
+.sk-prod-ig .sk-prod-hero-tags li{
+  background:rgba(242,244,248,.05);
+  border:1px solid var(--ig-hair);
+  color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 76,"wght" 600;
+  letter-spacing:.06em;
+}
+
+.sk-prod-ig .sk-prod-ig-covered{
+  margin:0 0 1.5rem;padding:.75rem 1rem;
+  border-left:2px solid var(--ig-ember);
+  background:rgba(250,67,0,.07);
+  color:var(--ig-frost);font-size:.95rem;
+}
+
+/* ============================ BUTTONS ============================ */
+.sk-prod-ig .sk-prod-btn{
+  background:var(--ig-ember);color:#fff;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 82,"wght" 800;
+  font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+  box-shadow:0 10px 30px -8px rgba(250,67,0,.6);
+}
+.sk-prod-ig .sk-prod-btn:hover{
+  background:var(--ig-flare);
+  box-shadow:0 18px 40px -10px rgba(250,67,0,.75);
+}
+.sk-prod-ig .sk-prod-btn-lg{font-size:1.02rem;padding:1.15rem 2.3rem}
+.sk-prod-ig .sk-prod-btn-ghost{
+  color:var(--ig-frost);border-bottom-color:var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-btn-ghost:hover{border-bottom-color:var(--ig-ember);color:var(--ig-flare)}
+
+/* mobile bar */
+.sk-prod-ig .sk-prod-bar{
+  background:rgba(7,7,10,.94);
+  border-bottom:1px solid var(--ig-hair);
+  backdrop-filter:blur(10px);
+}
+.sk-prod-ig .sk-prod-bar-name{
+  color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 70,"wght" 700;
+  letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;
+}
+
+/* ============================ PILLARS ============================ */
+.sk-prod-ig .sk-prod-claim{
+  border-top:1px solid var(--ig-hair);
+  border-bottom:1px solid var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(5,1fr)}
+.sk-prod-ig .sk-prod-pillar{
+  background:var(--ig-card);
+  border:1px solid var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-pillar:hover{
+  border-color:var(--sk-tint);
+  box-shadow:0 18px 40px -18px rgba(250,67,0,.5);
+}
+.sk-prod-ig .sk-prod-pillar h3{
+  color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 700;
+  text-transform:uppercase;letter-spacing:.01em;font-size:.95rem;
+}
+.sk-prod-ig .sk-prod-pillar p{color:var(--ig-body)}
+.sk-prod-ig .sk-prod-ico{color:var(--ig-flare)}
+
+/* ============================ INLINE CTA BANDS ============================ */
+.sk-prod-ig .sk-prod-ig-cta{
+  padding:clamp(2.4rem,5vw,3.6rem) 0;
+  background:
+    radial-gradient(120% 160% at 50% 0%,rgba(250,67,0,.16),transparent 62%),
+    var(--ig-black);
+  border-bottom:1px solid var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-ig-cta-in{
+  display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap;
+}
+.sk-prod-ig .sk-prod-ig-cta-in p{
+  margin:0;max-width:24em;
+  color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 88,"wght" 700;
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;
+  font-size:clamp(1.25rem,2.6vw,1.9rem);
+}
+
+/* ============================ TRI PATHWAY ============================ */
+.sk-prod-ig .sk-prod-ig-paths{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+}
+.sk-prod-ig .sk-prod-ig-paths li{
+  position:relative;
+  padding:1.6rem 1.4rem 1.5rem;
+  background:var(--ig-card);
+  border:1px solid var(--ig-hair);
+  border-top:2px solid var(--ig-ember);
+  border-radius:0 0 18px 18px;
+}
+.sk-prod-ig .sk-prod-ig-path-n{
+  display:block;margin-bottom:.9rem;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 62,"wght" 800;
+  font-size:2.4rem;line-height:1;
+  color:transparent;-webkit-text-stroke:1px var(--ig-ember);
+}
+.sk-prod-ig .sk-prod-ig-paths h3{
+  margin:0 0 .45rem;font-size:1.02rem;color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 700;
+  text-transform:uppercase;
+}
+.sk-prod-ig .sk-prod-ig-paths p{margin:0;font-size:.94rem;color:var(--ig-body)}
+
+/* ============================ PROOF ============================ */
+.sk-prod-ig .sk-prod-facts{border-top:1px solid var(--ig-hair)}
+.sk-prod-ig .sk-prod-ig-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+  margin:2rem 0 2.2rem;
+}
+.sk-prod-ig .sk-prod-ig-stats div{
+  padding:1.4rem 1.2rem;
+  border:1px solid var(--ig-hair);border-radius:18px;
+  background:linear-gradient(160deg,rgba(250,67,0,.10),transparent 70%);
+}
+.sk-prod-ig .sk-prod-ig-stats b{
+  display:block;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 72,"wght" 900;
+  font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;
+  color:var(--ig-ember);
+  margin-bottom:.5rem;
+}
+.sk-prod-ig .sk-prod-ig-stats > div > span{font-size:.9rem;color:var(--ig-body);display:block}
+.sk-prod-ig .sk-prod-ig-checks li{color:var(--ig-frost)}
+.sk-prod-ig .sk-prod-ig-checks li::before{background:var(--ig-ember);border-color:var(--ig-ember)}
+
+/* ============================ TASTE ============================ */
+.sk-prod-ig .sk-prod-ig-taste{padding:clamp(3rem,7vw,6rem) 0;border-top:1px solid var(--ig-hair)}
+.sk-prod-ig .sk-prod-ig-taste-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;
+}
+.sk-prod-ig .sk-prod-ig-taste-p{margin:0 0 1.3rem;color:var(--ig-body)}
+.sk-prod-ig .sk-prod-note{
+  color:var(--ig-body);
+  border-left-color:var(--ig-ember);
+  background:rgba(250,67,0,.06);
+  padding:.8rem 1rem;
+}
+
+.sk-prod-ig .sk-prod-ig-steps{
+  list-style:none;margin:0;padding:0;display:grid;gap:.8rem;
+}
+.sk-prod-ig .sk-prod-ig-steps li{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.1rem 1.2rem;
+  background:var(--ig-card);border:1px solid var(--ig-hair);border-radius:16px;
+}
+.sk-prod-ig .sk-prod-ig-step-n{
+  flex:0 0 34px;height:34px;display:grid;place-items:center;border-radius:50%;
+  background:var(--ig-ember);color:#fff;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 80,"wght" 800;
+  font-size:.95rem;
+}
+.sk-prod-ig .sk-prod-ig-steps h3{
+  margin:0 0 .2rem;font-size:.98rem;color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 84,"wght" 700;
+  text-transform:uppercase;
+}
+.sk-prod-ig .sk-prod-ig-steps p{margin:0;font-size:.9rem;color:var(--ig-body)}
+
+/* ============================ FAQ ============================ */
+.sk-prod-ig .sk-prod-ig-faq{padding:clamp(3rem,7vw,6rem) 0;background:var(--ig-panel);border-top:1px solid var(--ig-hair)}
+.sk-prod-ig .sk-prod-ig-faq-list{display:grid;gap:.7rem;margin-top:1.6rem}
+.sk-prod-ig .sk-prod-ig-faq-list details{
+  background:var(--ig-card);border:1px solid var(--ig-hair);border-radius:14px;
+  padding:1rem 1.2rem;
+}
+.sk-prod-ig .sk-prod-ig-faq-list summary{
+  cursor:pointer;list-style:none;color:var(--ig-frost);
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 86,"wght" 700;
+  text-transform:uppercase;font-size:.95rem;letter-spacing:.01em;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.sk-prod-ig .sk-prod-ig-faq-list summary::-webkit-details-marker{display:none}
+.sk-prod-ig .sk-prod-ig-faq-list summary::after{
+  content:"";flex:0 0 10px;height:10px;
+  border-right:2px solid var(--ig-ember);border-bottom:2px solid var(--ig-ember);
+  transform:rotate(45deg);transition:transform .25s var(--ig-ease);
+}
+.sk-prod-ig .sk-prod-ig-faq-list details[open] summary::after{transform:rotate(-135deg)}
+.sk-prod-ig .sk-prod-ig-faq-list details p{margin:.8rem 0 0;color:var(--ig-body);font-size:.95rem}
+
+/* ============================ CLOSE ============================ */
+.sk-prod-ig .sk-prod-close{
+  padding:clamp(3.4rem,8vw,6.5rem) 0;
+  background:
+    radial-gradient(90% 120% at 50% 100%,rgba(250,67,0,.24),transparent 64%),
+    var(--ig-black);
+  border-top:1px solid var(--ig-hair);
+}
+.sk-prod-ig .sk-prod-ig-cta-center{justify-content:center}
+.sk-prod-ig .sk-prod-fine{margin-top:1.8rem;color:#828B99;font-size:.82rem;line-height:1.55;max-width:52em;margin-inline:auto}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:1040px){
+  .sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:900px){
+  .sk-prod-ig .sk-prod-ig-paths,
+  .sk-prod-ig .sk-prod-ig-stats{grid-template-columns:1fr}
+  .sk-prod-ig .sk-prod-ig-taste-grid{grid-template-columns:1fr}
+  .sk-prod-ig .sk-prod-ig-cta-in{flex-direction:column;align-items:flex-start}
+  /* The headline is the one thing that must not run to five words a line on a phone. */
+  .sk-prod-ig .sk-prod-h1{font-size:clamp(2.5rem,10vw,3.4rem)}
+
+  /* The shared component is built for PRODUCT pages, so on mobile it puts the product shot
+     ABOVE the copy (order:1 / order:2). On an opt-in lander that buries the headline under a
+     full screen of photograph, and the headline is the whole job of the page (CLAUDE.md
+     "opt-in and quiz page headlines say what the page is"). Flip it back and cap the shot so
+     it supports the copy rather than replacing it. Block-local: no other page is affected. */
+  .sk-prod-ig .sk-prod-hero-copy{order:1;text-align:left}
+  .sk-prod-ig .sk-prod-hero-shot{order:2;margin-top:2rem}
+  .sk-prod-ig .sk-prod-hero-shot img{width:min(420px,92%)}
+  .sk-prod-ig .sk-prod-lede{margin-inline:0;font-size:1.02rem}
+  .sk-prod-ig .sk-prod-hero-tags,
+  .sk-prod-ig .sk-prod-cta-row{justify-content:flex-start}
+}
+@media (max-width:640px){
+  .sk-prod-ig .sk-prod-pillars{grid-template-columns:1fr 1fr}
+  .sk-prod-ig .sk-prod-ig-strip{font-size:.66rem;gap:.6rem;letter-spacing:.1em}
+  .sk-prod-ig .sk-prod-btn-lg{width:100%;justify-content:center}
+  .sk-prod-ig .sk-prod-ig-cta-center{width:100%}
+}
+
+/* Motion is decoration here, so it goes away entirely when asked. The gauge keeps working
+   because it is driven by scroll position, not by an animation. */
+@media (prefers-reduced-motion:reduce){
+  .sk-prod-ig .sk-prod-hero-shot img{transform:none!important}
+  .sk-prod-ig .sk-prod-btn,
+  .sk-prod-ig .sk-prod-pillar{transition:none}
+}

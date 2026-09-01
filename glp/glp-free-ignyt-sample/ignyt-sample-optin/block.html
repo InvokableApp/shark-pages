@@ -1,0 +1,301 @@
+<!--
+  glp/glp-free-ignyt-sample/ignyt-sample-optin
+  The free IGNYT sample opt-in lander. Structure comes from _shared/product/v1 (scoped
+  .sk-prod); the ember theme and the sections the shared component does not have live in
+  this folder's block.css.
+
+  CAPTURE: this page has no form of its own. Every CTA carries data-optin and block.js fires
+  GHL's own customWidgetOpenPopup event, so the native popup form on the page collects the
+  name, email, phone and MAILING ADDRESS. Design stays on git, capture stays native, and it
+  is account-agnostic because the event takes no popup id. (HOSTED-BLOCKS-SOP section 7.)
+
+  EVERY claim on this page is one ORYGN already makes in its own materials: read off the
+  pouch ("BURN FAT. PRESERVE MUSCLE. IGNITE RESULTS.", "Patented Bioactive Peptides",
+  "Scientifically Proven GLP-1 & GIP Receptor Agonist"), off the IGNYT product sheet
+  (ORYGN PURE standard, tri-pathway GLP-1 / GLP-2 / GIP support, hypoallergenic small
+  Daltons, stir into 8oz of water, no prep, no measuring), or off 0.orygn.co/ignyt
+  ($50M+ in clinical research, over a decade of research, the five benefit lines).
+  Nothing here is invented, and there is deliberately NO comparison to prescription GLP-1
+  drugs anywhere on the page.
+
+  The numbers agree everywhere, per the opt-in headline rule: 3 days, 3 sticks, 3 pathways.
+
+  No em-dashes anywhere in shipped copy.
+-->
+<div class="sk-prod sk-prod-ig">
+
+  <!-- ============================ OFFER STRIP ============================ -->
+  <div class="sk-prod-ig-strip">
+    <span>Free 3 day trial</span>
+    <i aria-hidden="true"></i>
+    <span>No card required</span>
+    <i aria-hidden="true"></i>
+    <span>We ship it to you</span>
+  </div>
+
+  <!-- reading progress, pinned to the top of the viewport. Themed as a heat gauge:
+       it runs ash to ember to spark as the reader moves down the page. -->
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- mobile CTA bar, standard on every opt-in lander (HOSTED-BLOCKS-SOP section 8b) -->
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Free 3 day trial</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="#claim" data-optin>Claim now</a>
+  </div>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Free 3 day trial &middot; We ship it to you</p>
+
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Try IGNYT <span class="sk-prod-accent">free</span><br>for 3 days.
+        </h1>
+
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          IGNYT is a powdered metabolic booster from ORYGN, built on patented bioactive
+          peptides. One stick into 8oz of water, no prep and no measuring, and it tastes
+          like something you would actually want to drink. Tell us where to send it and
+          three days are on the way.
+        </p>
+
+        <p class="sk-prod-ig-covered" data-rise data-delay="3">
+          The trial is on us. There is no card field on the form and nothing to cancel.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="4">
+          <li>Patented peptides</li>
+          <li>GLP-1 &middot; GLP-2 &middot; GIP</li>
+          <li>Hypoallergenic</li>
+          <li>No measuring</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="5">
+          <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin data-hero-cta>
+            Claim free sample now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#taste">What does it taste like?</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-rise data-delay="2">
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/ignyt-pack.webp" alt="The IGNYT pouch with four single serve sticks and a prepared glass over ice" data-float width="720" height="695">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IT DOES ============================ -->
+  <section class="sk-prod-claim" id="what-it-does">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Off the pouch</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Burn fat. Preserve muscle. Ignite results.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        IGNYT works with the signalling your body already uses, rather than pushing it with
+        stimulants. Five things ORYGN builds it to support.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+          </span>
+          <h3>Burn fat naturally</h3>
+          <p>Metabolic support that works with your body's own signalling.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg>
+          </span>
+          <h3>Preserve lean muscle</h3>
+          <p>The goal is losing fat, not the muscle you worked for.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 3 10 2.5-7 1.8 4H21"/></svg>
+          </span>
+          <h3>Reduce food noise</h3>
+          <p>Quieter appetite signals, so eating well takes less willpower.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          </span>
+          <h3>Support healthy energy</h3>
+          <p>Steady through the afternoon, without a stimulant spike.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="5">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3>Support healthy blood sugar</h3>
+          <p>Part of the same metabolic picture, not a separate project.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 2 ============================ -->
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Three days of IGNYT, free, shipped to your door.</p>
+      <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+        Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================ TRI PATHWAY ============================ -->
+  <!-- The only numbered block on the page. The three are real and load bearing: they are
+       the three receptor pathways ORYGN names, and they are why the company is called
+       triGLP. Numbering anything else here would be decoration. -->
+  <section class="sk-prod-formula" id="pathways">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Why "tri"</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Three pathways, one stick.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Most metabolic products speak to one receptor. IGNYT's peptides are built to support
+        three, which is where the tri in triGLP comes from.
+      </p>
+
+      <ol class="sk-prod-ig-paths">
+        <li data-rise data-delay="1">
+          <span class="sk-prod-ig-path-n">01</span>
+          <h3>GLP-1 receptor support</h3>
+          <p>The appetite and satiety pathway. The one most people have heard of.</p>
+        </li>
+        <li data-rise data-delay="2">
+          <span class="sk-prod-ig-path-n">02</span>
+          <h3>GLP-2 receptor support</h3>
+          <p>The gut lining pathway, where absorption and digestive comfort live.</p>
+        </li>
+        <li data-rise data-delay="3">
+          <span class="sk-prod-ig-path-n">03</span>
+          <h3>GIP receptor support</h3>
+          <p>The insulin and fat handling pathway that works alongside GLP-1.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ THE PATENT ============================ -->
+  <section class="sk-prod-facts" id="proof">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>The proof is in the patent</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Not a new idea with a new label.</h2>
+
+      <div class="sk-prod-ig-stats">
+        <div data-rise data-delay="1"><b>$<span data-count="50">50</span>M+</b><span>In clinical research behind the peptide science</span></div>
+        <div data-rise data-delay="2"><b><span data-count="10">10</span>+</b><span>Years of published research, not a launch year</span></div>
+        <div data-rise data-delay="3"><b>3</b><span>Receptor pathways supported by one formula</span></div>
+      </div>
+
+      <ul class="sk-prod-checks sk-prod-ig-checks" data-rise data-delay="2">
+        <li>Patented bioactive peptides, made to the ORYGN PURE standard</li>
+        <li>Hypoallergenic small Dalton peptides, built to be body friendly</li>
+        <li>Scientifically proven GLP-1 and GIP receptor agonist, printed on the pouch</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ TASTE AND FORMAT ============================ -->
+  <section class="sk-prod-ig-taste" id="taste">
+    <div class="sk-prod-wrap sk-prod-ig-taste-grid">
+      <div>
+        <p class="sk-prod-kicker" data-rise>The part nobody expects</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">It tastes good. That is the whole reason it works.</h2>
+        <p data-rise data-delay="2" class="sk-prod-ig-taste-p">
+          A supplement you dread is a supplement you stop taking. IGNYT is a single serve
+          stick that dissolves into 8oz of water and comes out light and citrus bright,
+          better over ice. No shaker, no scoop, no chalk.
+        </p>
+        <p class="sk-prod-note" data-rise data-delay="3">
+          Three days is enough to find out whether you would actually keep drinking it.
+          That is exactly why the trial is three days and not one.
+        </p>
+      </div>
+
+      <ol class="sk-prod-ig-steps" data-rise data-delay="2">
+        <li><span class="sk-prod-ig-step-n">1</span><div><h3>Tear one stick</h3><p>Single serve. Nothing to measure.</p></div></li>
+        <li><span class="sk-prod-ig-step-n">2</span><div><h3>Stir into 8oz of water</h3><p>Cold water and ice is how most people take it.</p></div></li>
+        <li><span class="sk-prod-ig-step-n">3</span><div><h3>Drink it</h3><p>About a minute, once a day, for three days.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 3 ============================ -->
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Tell us where to send it. That is the entire ask.</p>
+      <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+        Claim free sample now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="sk-prod-ig-faq" id="faq">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Before you ask</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">The honest answers.</h2>
+
+      <div class="sk-prod-ig-faq-list">
+        <details data-rise data-delay="1">
+          <summary>Is it actually free?</summary>
+          <p>Yes. Three single serve sticks, shipped to you, at no cost. There is no card
+            field on the form, no subscription to start and nothing to cancel.</p>
+        </details>
+        <details data-rise data-delay="2">
+          <summary>Why do you need my address?</summary>
+          <p>Because this is a physical product and somebody has to put it in the post. Your
+            address is used to ship the trial and nothing else.</p>
+        </details>
+        <details data-rise data-delay="3">
+          <summary>When will it arrive?</summary>
+          <p>It ships by hand rather than out of a warehouse, so give it a few days. You will
+            get an email as soon as it is on its way.</p>
+        </details>
+        <details data-rise data-delay="4">
+          <summary>What happens after the three days?</summary>
+          <p>Nothing automatic. If you want more, you order it. If you do not, you have three
+            days of IGNYT and we are square.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CLOSE ============================ -->
+  <section class="sk-prod-close" id="claim">
+    <div class="sk-prod-wrap sk-prod-center">
+      <p class="sk-prod-eyebrow" data-rise>Free 3 day trial</p>
+      <h2 class="sk-prod-close-h" data-rise data-delay="1">Three days. Three sticks.<br>Nothing to cancel.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Enter your details and where to send it. The trial goes out to you, and you find out
+        in three days whether IGNYT is worth a place in your morning.
+      </p>
+      <div class="sk-prod-cta-row sk-prod-ig-cta-center" data-rise data-delay="3">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="4">
+        One trial per household while supplies last. These statements have not been evaluated
+        by the Food and Drug Administration. This product is not intended to diagnose, treat,
+        cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+
+</div>
