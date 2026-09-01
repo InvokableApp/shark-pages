@@ -42,56 +42,57 @@
   }, true);
 
   // ---- 2. offer countdown --------------------------------------------------
-  // Evergreen, per visitor. The deadline is stamped once in localStorage and read back on
-  // every later view, so the clock keeps falling across reloads and across pages instead
-  // of resetting to 57:00 on each load, which is what makes a timer read as fake.
+  // A LOOPING urgency clock, not a real deadline (Jeff, 2026-09-01: "its just manufactured
+  // urgency not a real countdown"). Nothing actually changes when it reaches zero, so it
+  // rolls forward another window and keeps running rather than pretending the offer died.
   //
-  // The markup ships `hidden`. It is only revealed once a real deadline exists, so a
-  // visitor with JS off or blocked storage sees no timer rather than a frozen one.
+  // A new visitor starts at a full 57:00. The deadline is stamped in localStorage so the
+  // clock keeps falling across reloads instead of snapping back to 57:00 on every page view,
+  // which is the thing that makes these obvious. A returning visitor whose deadline has
+  // passed gets it rolled forward in WHOLE windows, so it is always mid-countdown and never
+  // sits on 00:00 or on a dead "expired" state.
   //
-  // Past the deadline the pill switches to "Last call" instead of sitting on 00:00, which
-  // looks like a broken clock. A deadline older than a day is treated as a new visit and
-  // restarted, otherwise anyone returning next week meets a permanently dead offer.
+  // The markup ships `hidden`. It is only revealed once a deadline exists, so a visitor with
+  // JS off never sees a frozen clock.
   (function () {
     var el = root.querySelector("[data-offer-timer]");
     if (!el) return;
     var clock = el.querySelector(".sk-prod-ig-timer-clock");
     var KEY = "ignyt-offer-deadline";
     var WINDOW_MS = 57 * 60 * 1000;
-    var STALE_MS = 24 * 60 * 60 * 1000;
 
-    // Safari in private mode throws on localStorage rather than returning null, so every
+    // Safari in private mode THROWS on localStorage rather than returning null, so every
     // access is guarded and falls back to a memory-only deadline for this page view.
     var store = {
       get: function () { try { return parseInt(window.localStorage.getItem(KEY) || "0", 10) || 0; } catch (e) { return 0; } },
       set: function (v) { try { window.localStorage.setItem(KEY, String(v)); } catch (e) { /* memory only */ } },
     };
 
-    var now = Date.now();
-    var deadline = store.get();
-    if (!deadline || now - deadline > STALE_MS) {
-      deadline = now + WINDOW_MS;
+    var deadline = store.get() || (Date.now() + WINDOW_MS);
+
+    // Roll forward in whole windows. A plain `deadline = now + WINDOW` here would hand every
+    // returning visitor a fresh 57:00, which is the reset that gives the trick away.
+    function normalise() {
+      var now = Date.now();
+      if (deadline <= now) {
+        deadline += Math.ceil((now - deadline + 1) / WINDOW_MS) * WINDOW_MS;
+      }
       store.set(deadline);
     }
+    normalise();
 
     var pad = function (n) { return n < 10 ? "0" + n : String(n); };
-    var timer = null;
 
     function tick() {
       var left = deadline - Date.now();
-      if (left <= 0) {
-        el.setAttribute("data-expired", "");
-        clock.textContent = "Last call";
-        if (timer) clearInterval(timer);
-        return;
-      }
-      var total = Math.floor(left / 1000);
+      if (left <= 0) { normalise(); left = deadline - Date.now(); }
+      var total = Math.max(0, Math.floor(left / 1000));
       clock.textContent = pad(Math.floor(total / 60)) + ":" + pad(total % 60);
     }
 
     tick();
     el.removeAttribute("hidden");
-    timer = setInterval(tick, 1000);
+    setInterval(tick, 1000);
   })();
 
   // ---- 3. stat counters ----------------------------------------------------

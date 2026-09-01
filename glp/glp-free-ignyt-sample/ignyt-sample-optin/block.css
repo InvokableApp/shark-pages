@@ -586,9 +586,9 @@
 }
 
 /* ============================ OFFER COUNTDOWN ============================ */
-/* Evergreen per-visitor countdown. The deadline is stamped in localStorage on first view,
-   so it keeps running across reloads instead of snapping back to 57:00 every time, which
-   is the thing that makes these read as fake. */
+/* Looping urgency clock. The deadline is stamped in localStorage on first view so it keeps
+   running across reloads instead of snapping back to 57:00 every time, and it rolls forward
+   a whole window at zero rather than expiring. See block.js for why. */
 .sk-prod-ig .sk-prod-ig-timer{
   display:flex;align-items:center;gap:.5rem;flex:0 0 auto;
   padding:.42rem .8rem;border-radius:999px;
@@ -620,10 +620,6 @@
   font-variant-numeric:tabular-nums;
   min-width:4.4ch;text-align:center;
 }
-.sk-prod-ig .sk-prod-ig-timer[data-expired] .sk-prod-ig-timer-clock{
-  color:var(--ig-spark);letter-spacing:.1em;font-size:.74rem;min-width:0;
-}
-.sk-prod-ig .sk-prod-ig-timer[data-expired] .sk-prod-ig-timer-label{display:none}
 
 @media (max-width:1100px){
   /* On a phone the wordmark text goes and the flame carries the identity, which buys the
