@@ -1,18 +1,24 @@
 <!--
   beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample
-  The Sample Request step of the Hormone Lunchbox funnel: what the "claim a trial pack"
-  button on the Confirmation step goes to. Built 2026-09-01 from Joe's screenshot.
+  The Sample Request step of the Hormone Lunchbox funnel: what the "I want the discounted
+  sample" button on the Confirmation step goes to. Built 2026-09-01 from Joe's screenshot.
 
-  ⚠️ THIS PAGE MAKES A CLAIM THE PAGE ITSELF CANNOT KEEP, AND THE AUTOMATION IS NOT BUILT
-  YET (2026-09-01). It says a request has been received and an SMS is on its way. A link
-  click records nothing on its own.
+  The page says a request has been received and an SMS is on its way. A link click records
+  nothing on its own, so what makes that true is the workflow "Beneve - Hormone Lunchbox -
+  Sample Request": a funnel-pageview trigger on THIS step fires an internal notification that
+  hands the lead to the rep, who makes contact. Same trigger type the Redirect step uses for
+  Fire Lead. Built and published 2026-09-01, in Shark Lead Gen and in Maria's account.
 
-  Decided mechanic: a funnel-pageview trigger on THIS step fires an INTERNAL NOTIFICATION
-  that hands the lead's details to the rep, who is the one who makes contact. Same trigger
-  type the Redirect step already uses to fire Fire Lead.
+  ⚠️ IF THIS PAGE IS INSTALLED SOMEWHERE THAT WORKFLOW IS NOT, every word here is false and
+  the visitor waits for a message nobody sent. Build the workflow with
+  BENEVESHARK/_build/build-lunchbox-sample-notify.mjs --target <acct> before taking traffic.
 
-  Until that workflow exists, every word on this page is false and the visitor waits for a
-  message nobody sent. Build it before this funnel takes real traffic.
+  OFFER PIVOT, 2026-09-01 (Jeff). Was a FREE sample posted out by the rep; now a DISCOUNTED
+  sample the reader buys themselves through the rep's Beneve sampler link. So the rep sends a
+  LINK, not a parcel, and the shipping-address beat that used to be the second half of this
+  conversation is gone. Both the copy and the drawn exchange had to move with the mechanic:
+  leaving the address question here would have had the rep asking for something they no longer
+  need and the reader expecting a delivery nobody is making.
 
   Design lives in _shared/confirm/v1/, scoped .sk-conf. It reuses the SAME card as the
   Confirmation step, mirrored (`sk-conf-card-flip`) with an unfilled copy cell
@@ -40,14 +46,14 @@
           </span>
 
           <h2>
-            We have received your request for sample information...
+            We have received your request for the discounted sample...
             <span class="sk-conf-em">Your next step is simple:</span>
           </h2>
 
           <p>
             Please check your text messages (check your <b>SPAM / unknown senders</b>) and reply
-            back with <b>CONFIRM</b> to verify you're human. From there, we can get you information
-            on claiming your sample!
+            back with <b>CONFIRM</b> to verify you're human. We will text you the link to claim
+            your 4 day sample at the discounted rate.
           </p>
 
           <p class="sk-conf-do">Check your texts now.</p>
@@ -60,23 +66,24 @@
                by asking where to post the sample, so showing that here means nobody is
                surprised by the question, and nobody has to be told twice. -->
           <div class="sk-conf-phone" role="img"
-               aria-label="A text asking you to reply CONFIRM, a reply reading CONFIRM, and a reply asking for your shipping address.">
+               aria-label="A text asking you to reply CONFIRM, a reply reading CONFIRM, and a reply containing your discount link.">
             <div class="sk-conf-phone-screen">
               <div class="sk-conf-phone-bar"><span class="sk-conf-phone-who">Messages</span></div>
               <div class="sk-conf-phone-body">
                 <p class="sk-conf-phone-day">Today</p>
                 <p class="sk-conf-bub sk-conf-bub-in">
-                  Reply CONFIRM to verify you're human and we'll get your Beneve sample on its way.
+                  Reply CONFIRM to verify you're human and we'll send your discount link for the
+                  Beneve 4 day sample.
                 </p>
                 <p class="sk-conf-bub sk-conf-bub-out">CONFIRM</p>
                 <p class="sk-conf-bub sk-conf-bub-in">
-                  Perfect. What is the best address to send it to?
+                  Perfect. Here is your link to claim the 4 day sample at the discounted rate.
                 </p>
                 <p class="sk-conf-phone-input">Text Message</p>
               </div>
             </div>
           </div>
-          <p class="sk-conf-phone-cap">Reply CONFIRM, then send your address.</p>
+          <p class="sk-conf-phone-cap">Reply CONFIRM, then tap your link.</p>
         </div>
 
       </div>
