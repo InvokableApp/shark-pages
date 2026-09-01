@@ -768,3 +768,28 @@
     mask-image:radial-gradient(95% 46% at 50% 78%,#000 0%,rgba(0,0,0,.55) 40%,transparent 72%);
   }
 }
+
+/* ============================ BUTTON TEXT ON PHONES ============================ */
+/* Jeff, 2026-09-01: "a little hard to read". The px values were not the whole story. This
+   face is Archivo run CONDENSED at wdth 82, set in caps with positive tracking, so it
+   reads a size smaller than it measures. The slim-band buttons were the worst of it:
+   12.16px of condensed caps stretched across a 359px wide button.
+   ⚠️ THIS SECTION HAS TO LIVE AT THE END OF THE FILE. The per-component rules above
+   (.sk-prod-ig-cta-slim .sk-prod-btn, .sk-prod-ig-nav-cta) set their own font-size at the
+   same specificity, and a media query carries no extra weight, so an identical block
+   placed earlier is simply overruled and silently does nothing. First attempt did exactly
+   that and measured unchanged at 12.16px. */
+@media (max-width:900px){
+  .sk-prod-ig .sk-prod-btn-lg{font-size:1.16rem;letter-spacing:.055em}
+  .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{font-size:.95rem;padding:.85rem 1.3rem}
+}
+@media (max-width:1100px){
+  /* The header pill keeps sharing one row with the flame mark and the timer, so it gets a
+     smaller lift than the page buttons. */
+  .sk-prod-ig .sk-prod-ig-nav-cta{font-size:.79rem}
+}
+@media (max-width:380px){
+  /* At 1.16rem "CLAIM FREE SAMPLE NOW" wraps to two lines on a 331px button and the
+     control jumps from 66px to 96px tall. Back off just enough to hold one line. */
+  .sk-prod-ig .sk-prod-btn-lg{font-size:1.04rem;letter-spacing:.04em}
+}
