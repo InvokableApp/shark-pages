@@ -462,3 +462,11 @@
 .sk-conf-light .sk-conf-play{
   background:linear-gradient(122deg,var(--sk-accent,#2e5233) 0%,var(--sk-accent-d,#23401f) 90%);
 }
+
+/* The light hero's headline is written to sit on TWO lines, with an explicit break before
+   the closing clause. At the shared 860px wrap the first half wrapped again and it landed
+   on three, which reads as a mistake rather than a shape. The band gets its own wider
+   measure so the intended break is the only one. text-wrap:balance evens the two lines
+   where supported and is inert where it is not. */
+.sk-conf-light .sk-conf-top .sk-conf-wrap{max-width:1080px}
+.sk-conf-light .sk-conf-top h1{text-wrap:balance}
