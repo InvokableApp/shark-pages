@@ -24,7 +24,7 @@ window.SHARK_HUB = {
         { icon: "leaf", name: "Hormone Lunchbox Guide",
           slug: "beneve-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
           tease: "Free make ahead lunches",
-          desc: "A free guide with make ahead lunches built around the vegetables that support hormone balance. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
+          desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
           slug: "beneve-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
           tease: "Foods that support GLP naturally",
