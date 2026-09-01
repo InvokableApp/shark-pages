@@ -379,7 +379,24 @@
   mix-blend-mode:screen;
   pointer-events:none;
 }
+/* ⚠️ THE SHARED CLOSE SECTION PAINTS A TEAL BLOB AND IT IS NOT TOKENIZED. The orbs and
+   the halo in _shared/product/v1 take --sk-orb-a / --sk-orb-b / --sk-halo, which this
+   block already re-points at the ember ramp. .sk-prod-close::after does NOT: it hardcodes
+   radial-gradient(circle,rgba(121,189,190,.3),...), which on this page rendered a cold
+   cyan glow measuring rgb(33,50,53) in the top right corner of an all-ember section. The
+   fix belongs here rather than in the shared file, because editing v1 would repaint the
+   close section of every other system on its next load. */
+.sk-prod-ig .sk-prod-close::after{
+  background:radial-gradient(circle,rgba(250,67,0,.30),rgba(250,67,0,0) 66%);
+}
 .sk-prod-ig .sk-prod-close > *{position:relative;z-index:1}
+
+/* ⚠️ COMPLIANCE TEXT NEVER WAITS ON THE REVEAL OBSERVER. The FDA disclaimer is the last
+   element on the page, and the shared engine's observer has a negative bottom rootMargin,
+   so an element inside the final ~15% of the document never crosses the line. Measured on
+   a 390px viewport after scrolling to the very bottom: .sk-prod-fine was the ONE element
+   on the page still sitting at opacity 0. It was invisible to every phone reader. */
+.sk-prod-ig .sk-prod-fine[data-rise]{opacity:1;transform:none}
 .sk-prod-ig .sk-prod-ig-cta-center{justify-content:center}
 .sk-prod-ig .sk-prod-fine{margin-top:1.8rem;color:#828B99;font-size:.82rem;line-height:1.55;max-width:52em;margin-inline:auto}
 
@@ -395,23 +412,81 @@
   /* The headline is the one thing that must not run to five words a line on a phone. */
   .sk-prod-ig .sk-prod-h1{font-size:clamp(2.5rem,10vw,3.4rem)}
 
-  /* The shared component is built for PRODUCT pages, so on mobile it puts the product shot
-     ABOVE the copy (order:1 / order:2). On an opt-in lander that buries the headline under a
-     full screen of photograph, and the headline is the whole job of the page (CLAUDE.md
-     "opt-in and quiz page headlines say what the page is"). Flip it back and cap the shot so
-     it supports the copy rather than replacing it. Block-local: no other page is affected. */
-  .sk-prod-ig .sk-prod-hero-copy{order:1;text-align:left}
-  .sk-prod-ig .sk-prod-hero-shot{order:2;margin-top:2rem}
-  .sk-prod-ig .sk-prod-hero-shot img{width:min(420px,92%)}
-  .sk-prod-ig .sk-prod-lede{margin-inline:0;font-size:1.02rem}
+  /* MOBILE HERO ORDER. The shared component is built for PRODUCT pages, so on mobile it
+     puts the product shot ABOVE the copy (order:1 / order:2), which buries the headline
+     under a full screen of photograph. The headline is the whole job of an opt-in page
+     (CLAUDE.md "opt-in and quiz page headlines say what the page is"), so it goes first.
+     But dropping the shot to the bottom pushed the product about 1,100px down, past the
+     lede, the no-card note, the tag pills and the button, so a phone reader met the whole
+     pitch before ever seeing the thing being offered (Jeff, 2026-09-01: "we can move the
+     product image up under the headline on mobile").
+
+     Final order: eyebrow, headline, PRODUCT, lede, no-card note, tags, button.
+
+     The shot is a SIBLING of the entire copy block, so no amount of reordering can slot it
+     between two of that block's children. display:contents dissolves the copy wrapper's own
+     box and promotes its children to grid items in their own right, which is what makes the
+     interleave possible. Inherited properties still pass through a display:contents element,
+     so the text-align below still reaches the copy. Desktop is untouched: there the wrapper
+     is a real two-column grid item. */
+  .sk-prod-ig .sk-prod-hero-copy{display:contents;text-align:left}
+  /* Rhythm goes back to each element's own margins. Left at the shared clamp, the grid
+     would insert its ~24px gap between all seven promoted children and stretch the hero. */
+  .sk-prod-ig .sk-prod-hero-grid{gap:0}
+  .sk-prod-ig .sk-prod-eyebrow{order:1}
+  .sk-prod-ig .sk-prod-h1{order:2}
+  .sk-prod-ig .sk-prod-hero-shot{order:3;margin:.35rem 0 1.2rem}
+  .sk-prod-ig .sk-prod-lede{order:4}
+  .sk-prod-ig .sk-prod-ig-covered{order:5}
+  /* The pills swap BELOW the button on a phone, which desktop does not do. Above it they
+     cost about 110px between the no-card note and the CTA, and that was the difference
+     between the button being on the first screen and being off it. They are scannable
+     credibility the reader passes on the way down, so they lose the argument to the button;
+     the no-card note stays above it, because it answers the one objection this offer has
+     right where the objection gets made. */
+  .sk-prod-ig .sk-prod-cta-row{order:6}
+  .sk-prod-ig .sk-prod-hero-tags{order:7;margin:1.4rem 0 0}
+  /* Smaller than it was at the bottom of the hero. Sitting between the headline and the
+     lede it is punctuation, not a full-bleed product shot, and every pixel it gains here
+     pushes the button further from the fold. */
+  .sk-prod-ig .sk-prod-hero-shot img{width:min(250px,62%)}
+  .sk-prod-ig .sk-prod-lede{margin-inline:0;margin-bottom:1.1rem;font-size:1.02rem}
+  /* ⚠️ THE HERO BUTTON MUST NEVER WAIT ON THE REVEAL OBSERVER. Reordering pushed the CTA
+     row to y=794 on a 844px screen, and the shared engine only adds .sk-prod-in once an
+     element crosses its threshold, so the primary button sat at opacity 0 on the first
+     screen and appeared only after a scroll. Measured, not guessed: opacity stayed "0" at
+     400ms, 1.5s and 3s with 50px of the button in view. On an opt-in page the button is
+     the job, so on mobile it is visible from paint. The rest of the hero keeps the staged
+     entrance, and desktop is unchanged. */
+  .sk-prod-ig .sk-prod-hero .sk-prod-cta-row[data-rise]{opacity:1;transform:none}
+
+  /* Whitespace tuned by measuring against the 844px fold, not by eye. These three trims
+     move the button from 824 (a 20px sliver) to comfortably on the first screen, without
+     shrinking the product any further. */
+  .sk-prod-ig .sk-prod-hero{padding-top:1.7rem}
+  .sk-prod-ig .sk-prod-ig-covered{margin-bottom:.9rem}
   .sk-prod-ig .sk-prod-hero-tags,
   .sk-prod-ig .sk-prod-cta-row{justify-content:flex-start}
 }
 @media (max-width:640px){
   .sk-prod-ig .sk-prod-pillars{grid-template-columns:1fr 1fr}
+  /* There are five pillars, so a two-up grid leaves the fifth alone in a half-width box
+     with a hole beside it. Letting the last one span both columns closes the block. */
+  .sk-prod-ig .sk-prod-pillars > :last-child{grid-column:1/-1}
   .sk-prod-ig .sk-prod-ig-strip{font-size:.66rem;gap:.6rem;letter-spacing:.1em}
   .sk-prod-ig .sk-prod-btn-lg{width:100%;justify-content:center}
   .sk-prod-ig .sk-prod-ig-cta-center{width:100%}
+}
+
+/* Small phones (iPhone SE / mini class, 360x780 and down). The lede grows to six lines at
+   this width, which alone pushed the hero button to y=778 on a 780px screen: two pixels
+   of it in view. These three trims are the difference between the button being on the
+   first screen and not. Measured, not assumed. */
+@media (max-width:380px){
+  .sk-prod-ig .sk-prod-hero{padding-top:1.1rem}
+  .sk-prod-ig .sk-prod-hero-shot{margin:.25rem 0 .9rem}
+  .sk-prod-ig .sk-prod-hero-shot img{width:min(210px,56%)}
+  .sk-prod-ig .sk-prod-lede{font-size:.98rem;margin-bottom:.9rem}
 }
 
 /* Motion is decoration here, so it goes away entirely when asked. The gauge keeps working
@@ -569,18 +644,33 @@
   /* Two rows: identity + timer + CTA, then the links as a scroll strip. Jeff asked for the
      nav on mobile too, so the links collapse into a scroller rather than being dropped.
      1100 rather than 900 because the timer widened the single row. */
-  .sk-prod-ig{ --ig-nav-h:96px; }
+  /* ⚠️ KEEP THIS IN STEP WITH WHAT THE HEADER ACTUALLY MEASURES. --ig-nav-h feeds the
+     scroll-margin-top on every anchor target, so if it under-reports, a nav tap lands the
+     heading underneath the sticky header. Measured at 390px after the tap-target pass: 99.
+     Re-measure whenever anything in this row changes height. */
+  .sk-prod-ig{ --ig-nav-h:99px; }
   .sk-prod-ig .sk-prod-ig-nav-in{
-    height:auto;flex-wrap:wrap;padding-top:.6rem;gap:.5rem 1rem;
+    height:auto;flex-wrap:wrap;padding-top:.3rem;gap:.2rem 1rem;
   }
   .sk-prod-ig .sk-prod-ig-mark{flex:1 1 auto}
   .sk-prod-ig .sk-prod-ig-nav-cta{order:2;padding:.6rem 1rem;font-size:.72rem}
   .sk-prod-ig .sk-prod-ig-nav-links{
     order:3;flex:1 0 100%;gap:1.15rem;
-    overflow-x:auto;padding-bottom:.55rem;
+    overflow-x:auto;padding-bottom:.35rem;
     scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    /* The strip scrolls and the last item is cut mid-word, which on a phone reads as a
+       layout bug rather than as "there is more". The fade says scrollable without adding
+       an affordance to tap. Measured: the row is 359px wide and its content is wider. */
+    -webkit-mask-image:linear-gradient(90deg,#000 84%,transparent 100%);
+    mask-image:linear-gradient(90deg,#000 84%,transparent 100%);
   }
   .sk-prod-ig .sk-prod-ig-nav-links::-webkit-scrollbar{display:none}
+  /* Thumb targets. The links measured 32px tall and the flame mark 20x20, both under the
+     44px floor, and this row is the one piece of chrome present on every screen of the
+     page. The extra height is taken out of the row's own padding, so the header does not
+     get taller. */
+  .sk-prod-ig .sk-prod-ig-nav-links a{padding-block:.62rem;display:inline-flex;align-items:center}
+  .sk-prod-ig .sk-prod-ig-mark{min-width:44px;min-height:44px;justify-content:center}
   .sk-prod-ig .sk-prod-ig-cta-slim > div{padding:.95rem 0}
   .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{width:100%;justify-content:center}
 }
