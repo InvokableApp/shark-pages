@@ -238,6 +238,51 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+      "funnelId": "ZkBx2piCQl8UcfONX7o2",
+      "pageId": "64FwD8jl36LTB44so5iH",
+      "elementId": "custom-code-0fpaud2hz2",
+      "elementTitle": "Sample Request",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+      "funnelId": "482iSmJ08IqRNNEbNzGK",
+      "pageId": "TDlQDBNSxEI8v2l8IcV2",
+      "elementId": "custom-code-k7043skk96",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+      "funnelId": "482iSmJ08IqRNNEbNzGK",
+      "pageId": "WncayoIAZOeTp8Sulcbp",
+      "elementId": "custom-code-0fpaud2hz2",
+      "elementTitle": "Sample Request",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+      "funnelId": "482iSmJ08IqRNNEbNzGK",
+      "pageId": "6383DClsL9ZN6x8zi0iU",
+      "elementId": "custom-code-br6mfc1x4y",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "beneve---your-marketing-links/beneve-marketing-links",
+      "funnelId": "uHIjjFKCpVbVZ6PDPZP5",
+      "pageId": "WhS7UyELw7RFVyQ2h6vG",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
     }
   ]
 }
