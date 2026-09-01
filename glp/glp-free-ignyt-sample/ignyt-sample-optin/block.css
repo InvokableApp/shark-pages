@@ -782,6 +782,10 @@
 @media (max-width:900px){
   .sk-prod-ig .sk-prod-btn-lg{font-size:1.16rem;letter-spacing:.055em}
   .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-btn{font-size:.95rem;padding:.85rem 1.3rem}
+  /* The line above the slim-band button was 16px, the same as body copy, in a band whose
+     whole job is to restate the offer next to a CTA. It reads as an aside when it should
+     read as a prompt. */
+  .sk-prod-ig .sk-prod-ig-cta-slim p{font-size:1.1rem}
 }
 @media (max-width:1100px){
   /* The header pill keeps sharing one row with the flame mark and the timer, so it gets a
