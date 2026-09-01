@@ -645,14 +645,23 @@
    competing with the headline.
    The mask is the whole trick: without it the photo ends on a hard rectangle edge and reads
    as a pasted-in card. The radial dissolves it into the page on every side.
-   Shipped already greyscale, so the filter is only there to deepen it. */
+   Shipped already greyscale, so the filter is only there to deepen it.
+   ⚠️ THE ASSET IS MIRRORED ON PURPOSE. The wave's bright mass sat at 20-60% across, which
+   is behind the HEADLINE, and background-position-x cannot move it: this image is wider in
+   aspect than the hero, so `cover` scales it to fill the width exactly and there is no
+   horizontal slack left to slide. Flipping the file moves the bright peak to 50-80%, which
+   is where the product floats, and leaves the headline side dark. */
 .sk-prod-ig .sk-prod-hero::before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url("assets/hero-wave.webp") 68% 45%/cover no-repeat;
+  background:url("assets/hero-wave.webp") 50% 52%/cover no-repeat;
   filter:grayscale(1) contrast(1.3) brightness(.92);
-  opacity:.15;
-  -webkit-mask-image:radial-gradient(115% 105% at 70% 42%,#000 0%,rgba(0,0,0,.7) 40%,transparent 74%);
-  mask-image:radial-gradient(115% 105% at 70% 42%,#000 0%,rgba(0,0,0,.7) 40%,transparent 74%);
+  /* Mask tightness picked by measuring, not by eye. At the original 115%/105% the plate was
+     so wide it lifted the HEADLINE band by +9.3 luminance while giving the product region
+     only +4.3, which is backwards. Pulling it to 58%/85% centred at 80% drops headline
+     interference to +0.55 and keeps +3.89 behind the product. */
+  opacity:.18;
+  -webkit-mask-image:radial-gradient(58% 85% at 80% 50%,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);
+  mask-image:radial-gradient(58% 85% at 80% 50%,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);
 }
 /* The hero content has to out-stack the plate, or the copy sits behind it.
    ⚠️ Target the WRAP, never `> *`. The two .sk-prod-orb blurs are position:absolute in the
@@ -666,8 +675,10 @@
   /* On a phone the plate sits under body copy rather than beside it, so it comes down
      further and shifts to centre. */
   .sk-prod-ig .sk-prod-hero::before{
-    background-position:58% 40%;opacity:.11;
-    -webkit-mask-image:radial-gradient(130% 70% at 50% 30%,#000 0%,rgba(0,0,0,.65) 42%,transparent 76%);
-    mask-image:radial-gradient(130% 70% at 50% 30%,#000 0%,rgba(0,0,0,.65) 42%,transparent 76%);
+    /* On a phone the plate sits under the copy, not beside it, so it drops low and stays
+       weak enough that the lede never fights it. */
+    background-position:58% 62%;opacity:.13;
+    -webkit-mask-image:radial-gradient(95% 46% at 50% 78%,#000 0%,rgba(0,0,0,.55) 40%,transparent 72%);
+    mask-image:radial-gradient(95% 46% at 50% 78%,#000 0%,rgba(0,0,0,.55) 40%,transparent 72%);
   }
 }
