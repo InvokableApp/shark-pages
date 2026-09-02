@@ -448,6 +448,17 @@
       ios:     { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85cfbf005891114d29ddef.mp4', hint: '(1 minute video)' },
       android: { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85d91f9cca634f084ab692.mp4', hint: '(2 minute video)' }
     };
+    /* A system may record its own walkthrough (its own branding on screen), so
+       the page config can override either platform. Omitted platforms keep the
+       shared recording above, which is why this is additive and safe for the
+       pages that never set it. */
+    if (SYS.a2hsVideo) {
+      ['ios', 'android'].forEach(function (os) {
+        var o = SYS.a2hsVideo[os];
+        if (!o || !o.src) return;
+        VIDEO[os] = { src: o.src, hint: o.hint || VIDEO[os].hint };
+      });
+    }
     var share = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8.5 6.5 3.5-3.5 3.5 3.5"/><path d="M6 11H4.8A1.8 1.8 0 0 0 3 12.8v6.4A1.8 1.8 0 0 0 4.8 21h14.4a1.8 1.8 0 0 0 1.8-1.8v-6.4A1.8 1.8 0 0 0 19.2 11H18"/></svg>Share</span>';
     var kebab = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>menu</span>';
 

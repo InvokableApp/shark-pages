@@ -59,6 +59,11 @@ window.SHARK_HUB = {
     { cv: "beneve_original_coffee_link", name: "Original Coffee Sticks" }
   ] }
   ],
+  /* Beneve records its own iPhone walkthrough, so it overrides the shared iOS
+     recording. Android is not overridden and keeps the shared one. */
+  a2hsVideo: {
+    ios: { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a98637a8a50b9d88a1b76ff.mp4', hint: '(1 minute video)' }
+  },
   affiliate: { cv: 'beneveshark_affiliate_link', name: 'Your Beneve Shark affiliate link',
     desc: 'This is your affiliate link for the Beneve Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
 };
