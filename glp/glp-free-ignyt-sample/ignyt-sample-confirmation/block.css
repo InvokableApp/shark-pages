@@ -156,13 +156,19 @@
 .sk-prod-igc .sk-prod-igc-tick svg{width:28px;height:28px}
 .sk-prod-igc .sk-prod-h1{font-size:clamp(2.4rem,6vw,4.2rem)}
 .sk-prod-igc .sk-prod-igc-lede{
-  margin:0 auto 2rem;max-width:36em;color:var(--ig-body);
+  margin:0 auto 1.4rem;max-width:36em;color:var(--ig-body);
   font-size:clamp(1.02rem,1.5vw,1.14rem);
 }
 
 /* The rep card. Deliberately the brightest object on the page after the tick. */
+/* WIDTH AND GAP ARE MATCHED TO THE BUTTON ON PURPOSE (fixed 2026-09-02). The card is the
+   button's caption: it repeats the number for anyone whose tap does nothing. Shipped at
+   30rem against a 420px button, with a 7px gap under the button and 58px above it, so the
+   rhythm read backwards: the button floated away from the sentence that asks for the text
+   and sat glued to the card, and the card overhung it on both sides. Same width, and a gap
+   under the button roughly half the one above it, reads as one control with its footnote. */
 .sk-prod-igc .sk-prod-igc-card{
-  max-width:30rem;margin:0 auto;padding:1.4rem 1.5rem;
+  max-width:min(420px,100%);margin:1.25rem auto 0;padding:1.4rem 1.5rem;
   border:1px solid rgba(250,67,0,.34);border-radius:20px;
   background:linear-gradient(160deg,rgba(250,67,0,.12),rgba(20,21,28,.9));
   text-align:left;
@@ -270,7 +276,7 @@
    to open the messaging app with the word already in it. Sized like the lander's primary CTA
    so a visitor arriving from that page recognises it as the same button. */
 .sk-prod-igc .sk-prod-igc-text{
-  margin:1.6rem 0 .4rem;
+  margin:.75rem 0 0;
   width:min(420px,100%);justify-content:center;
 }
 @media (max-width:900px){
