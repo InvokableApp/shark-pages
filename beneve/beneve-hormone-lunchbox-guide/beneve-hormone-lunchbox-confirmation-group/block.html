@@ -17,7 +17,7 @@
   _shared/confirm/v1 (`sk-conf-phone`, built for the sample-request page), showing the group the
   reader is being invited into. It is markup, so it weighs nothing, stays sharp, inherits the
   page palette, and says what the group IS better than a stock photo of strangers would. With no
-  video there is no behaviour on this page, so it ships without a block.js.
+  video there is no behaviour on this page, the only script it needs is the popup trigger.
 
   ⚠️ CTA is DOCUMENT-relative, `b-hormone-group-join-redirect`, no leading slash. That step
   exists in the funnel ("Group Join Redirect"). A root-relative `/b-hormone-group-join-redirect`
@@ -104,8 +104,19 @@
 
           <p class="sk-conf-ask">Want in? <u>Click below and we will add you...</u></p>
 
+          <!-- The button OPENS THE PAGE POPUP rather than navigating. The popup carries the
+               rep's name, which the reader has to give as their referral when Facebook asks
+               who sent them, and it has to come from the account rather than from this file.
+               `data-sk-open` is the house attribute (_shared/capture/v1 uses the same one) and
+               _shared/confirm/v1/confirm.js dispatches the no-argument customWidgetOpenPopup
+               event GHL ships for custom widgets. No popup id anywhere: ids are minted per
+               page and per account, so naming one would break on the next install.
+
+               The href STAYS. If the script never runs the button is a working link to the
+               next step instead of dead markup: it skips the referral prompt, which is the
+               mild failure rather than the bad one. -->
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" href="b-hormone-group-join-redirect">
+            <a class="sk-conf-btn" href="b-hormone-group-join-redirect" data-sk-open>
               JOIN OUR PRIVATE GROUP
             </a>
           </div>

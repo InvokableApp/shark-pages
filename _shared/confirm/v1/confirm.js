@@ -3,7 +3,7 @@
  * The ONE confirmation-page behaviour file, for every campaign in every system, scoped .sk-conf.
  * Same contract as _shared/howto/v1/howto.js: a page's block.js loads this and nothing else.
  *
- * It does exactly two things.
+ * It does three things.
  *
  *   1. VIDEO FACADE. The markup ships a poster and a play button, never an iframe. The vimeo
  *      player is only injected on click, so a confirmation page carrying a video still loads
@@ -15,6 +15,20 @@
  *      worst on exactly this page: it is the one screen where you are asking someone to believe
  *      a stranger will put something in the post, and an unkept promise in the middle of it is
  *      the wrong first impression. Paste the id in later and the section appears by itself.
+ *
+ *   3. POPUP CTA. A CTA carrying `data-sk-open` opens the GHL page's own popup instead of
+ *      navigating. Added 2026-09-02 for the Beneve Hormone Lunchbox split test, whose B page
+ *      asks the reader to note the rep's name before joining the group, and that ask lives in
+ *      the page popup rather than in this block so the rep's name comes from the account.
+ *
+ *      Same attribute and same mechanic as _shared/capture/v1: the no-argument window event
+ *      GHL ships for custom widgets. It is the ONLY account-agnostic trigger channel, because
+ *      it names no popup id, and ids are `hl_main_popup-<random>`, minted per page
+ *      (HOSTED-BLOCKS-SOP §7). Constraint that rides along: ONE popup per page, since a
+ *      no-id emit resolves to popupList[0].
+ *
+ *      ADDITIVE. Every .sk-conf page shipped before this date has zero [data-sk-open] nodes
+ *      (checked across all four), so this binds nothing on them.
  *
  * ES5 only, no build step, no dependencies. GHL injects blocks with innerHTML, which does not
  * execute <script>, so the socket loader is what calls boot() (see HOSTED-BLOCKS-SOP).
@@ -57,6 +71,24 @@
   }
 
   function wire(scope) {
+    /* ── popup CTA ──────────────────────────────────────────────────────────────
+       Delegated from the block root so a button added to the markup later needs no
+       rebinding. preventDefault only fires for a real [data-sk-open] target, which
+       leaves every other CTA on the component navigating as it always has.
+
+       The anchor keeps its href on purpose: if this script never runs, the button is
+       still a working link to the next step rather than dead markup. It skips the
+       popup in that case, which is the mild failure, not the bad one. */
+    if (!scope.getAttribute("data-sk-popup-wired")) {
+      scope.setAttribute("data-sk-popup-wired", "1");
+      scope.addEventListener("click", function (e) {
+        var t = e.target.closest ? e.target.closest("[data-sk-open]") : null;
+        if (!t || !scope.contains(t)) return;
+        e.preventDefault();
+        window.dispatchEvent(new Event("customWidgetOpenPopup"));
+      });
+    }
+
     var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
     for (var i = 0; i < frames.length; i++) {
       (function (frame) {
