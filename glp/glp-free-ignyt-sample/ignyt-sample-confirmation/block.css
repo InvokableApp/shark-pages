@@ -247,3 +247,32 @@
   .sk-prod-igc .sk-prod-igc-what-grid{grid-template-columns:1fr}
   .sk-prod-igc .sk-prod-igc-shot{order:2;margin-top:1.4rem}
 }
+
+/* ⚠️ THIS PAGE HAD NO BUTTON UNTIL TODAY, so it never carried a button rule, and the shared
+   component's default is a LIGHT pill. The first render of the text-now control was white
+   type on a white pill: invisible, and invisible in a way a screenshot at thumbnail size
+   does not obviously show. Mirrors the optin's ember button rather than importing it,
+   because these two blocks still have no shared campaign theme file (open item). */
+.sk-prod-igc .sk-prod-btn{
+  background:var(--ig-ember);color:#fff;
+  font-family:var(--ig-display);
+  font-variation-settings:"wdth" 82,"wght" 800;
+  font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+  box-shadow:0 10px 30px -8px rgba(250,67,0,.6);
+}
+.sk-prod-igc .sk-prod-btn:hover{
+  background:var(--ig-flare);
+  box-shadow:0 18px 40px -10px rgba(250,67,0,.75);
+}
+.sk-prod-igc .sk-prod-btn svg{width:1.1em;height:1.1em;stroke:#fff}
+
+/* The text-now control. It is a real link, not a form control, because the page's one ask is
+   to open the messaging app with the word already in it. Sized like the lander's primary CTA
+   so a visitor arriving from that page recognises it as the same button. */
+.sk-prod-igc .sk-prod-igc-text{
+  margin:1.6rem 0 .4rem;
+  width:min(420px,100%);justify-content:center;
+}
+@media (max-width:900px){
+  .sk-prod-igc .sk-prod-igc-text{width:100%;font-size:1.16rem}
+}

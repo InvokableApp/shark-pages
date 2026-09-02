@@ -4,12 +4,19 @@
   _shared/product/v1, minus everything a converted visitor no longer needs: no nav links,
   no countdown, no CTA bands, no lifestyle grid.
 
-  THE MECHANIC IS DIFFERENT FROM THE ARCHETYPE. references/campaign-archetypes/giveaway.md
-  assumes the rep ships straight off the notification. Here (Jeff, 2026-09-01) the rep
-  TEXTS OR CALLS FIRST to verify the address, and only then ships. So this page has exactly
-  one job: get the visitor to expect and answer an unknown number. Everything on it serves
-  that. The rep's name and number are shown so the call is not cold, and the numbered
-  sequence exists because it genuinely is one.
+  THE MECHANIC IS DIFFERENT FROM THE ARCHETYPE, AND IT CHANGED AGAIN ON 2026-09-02.
+  references/campaign-archetypes/giveaway.md assumes the rep ships straight off the
+  notification. The 09-01 version had the REP text or call first to verify the address.
+  Joe's version, which is what is built here, reverses who moves: the VISITOR texts the word
+  SAMPLE to the rep, and that inbound message is what confirms both that they are a human
+  and that the address is right.
+  So this page has exactly one job now: get one text sent, immediately. Everything on it
+  serves that, the number appears three times, and the primary control is an sms: link that
+  prefills the word.
+
+  ⚠️ NOTHING IS LISTENING FOR THAT TEXT YET. The campaign has a Meta event and a rep
+  notification and no inbound-SMS keyword workflow, so today the rep just sees the message
+  in their own inbox. Flagged to Jeff 2026-09-02.
 
   There is deliberately NO purchase CTA here. The rep's call is the next step in this
   campaign, and a buy button competes with it.
@@ -37,29 +44,38 @@
     <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
     <div class="sk-prod-wrap">
 
+      <!-- A TICK WOULD BE WRONG HERE. It reads as "done", and the entire point of this page
+           is that one thing is not done yet. A message glyph names the action instead. -->
       <div class="sk-prod-igc-tick" data-rise aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
       </div>
 
-      <p class="sk-prod-eyebrow" data-rise data-delay="1">Request received</p>
-      <h1 class="sk-prod-h1" data-rise data-delay="2">You're in.<br><span class="sk-prod-accent">Watch your phone.</span></h1>
+      <p class="sk-prod-eyebrow" data-rise data-delay="1">One more step</p>
+      <h1 class="sk-prod-h1" data-rise data-delay="2">Confirm your shipping<br><span class="sk-prod-accent">information with us.</span></h1>
 
       <p class="sk-prod-igc-lede" data-rise data-delay="3">
-        {{custom_values.rep_full_name}} will text or call you to check we have your address
-        right. Once it's confirmed, your three day trial goes in the mail.
+        To do this, please text SAMPLE to {{custom_values.rep_phone}} right now. This will
+        allow us to confirm you're a human and confirm your shipping address.
       </p>
 
-      <!-- Shown so the call is not from an unknown number. This is the single thing on the
-           page most likely to move the answer rate. -->
-      <div class="sk-prod-igc-card" data-rise data-delay="4">
-        <p class="sk-prod-igc-card-k">Who is calling</p>
-        <p class="sk-prod-igc-card-n">{{custom_values.rep_full_name}}</p>
-        <p class="sk-prod-igc-card-c">
-          <span>{{custom_values.rep_phone}}</span>
-          <i aria-hidden="true"></i>
-          <span>{{custom_values.rep_email}}</span>
-        </p>
-        <p class="sk-prod-igc-card-t">Save the number so you know it's us.</p>
+      <!-- ON A PHONE THIS IS A ONE TAP ACTION, and that is the whole point: the page asks
+           for a text, so the page hands them the text. sms: with a prefilled body is
+           supported on iOS and Android; the ?&body= form is the one that works on both
+           (iOS wants ?body= after a number with no other params, Android wants ?body=, and
+           this shape degrades to a plain compose on anything that ignores it).
+           The number is still printed above in case the tap does nothing, which is what
+           happens on a desktop with no messaging app. -->
+      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-igc-text" data-rise data-delay="4"
+         href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">
+        Text SAMPLE now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="sk-prod-igc-card" data-rise data-delay="5">
+        <p class="sk-prod-igc-card-k">Text the word SAMPLE to</p>
+        <p class="sk-prod-igc-card-n">{{custom_values.rep_phone}}</p>
+        <p class="sk-prod-igc-card-t">That's it. Text us now to confirm. We are pumped for
+          you to try IGNYT.</p>
       </div>
     </div>
   </section>
@@ -74,13 +90,13 @@
       <ol class="sk-prod-igc-steps">
         <li data-rise data-delay="1">
           <span class="sk-prod-igc-n">01</span>
-          <h3>We text or call</h3>
-          <p>Usually within a day. It takes a minute and it's only to confirm where the
-            sample is going.</p>
+          <h3>You text SAMPLE</h3>
+          <p>To {{custom_values.rep_phone}}, right now. It confirms you are a real person and
+            it confirms where the sample is going.</p>
         </li>
         <li data-rise data-delay="2">
           <span class="sk-prod-igc-n">02</span>
-          <h3>Your trial ships</h3>
+          <h3>Your sample ships</h3>
           <p>Three single serve sticks, packed and mailed to the address you confirmed.</p>
         </li>
         <li data-rise data-delay="3">
@@ -123,9 +139,9 @@
   <!-- ============================ FOOT ============================ -->
   <section class="sk-prod-igc-foot">
     <div class="sk-prod-wrap sk-prod-center">
-      <p class="sk-prod-igc-foot-h" data-rise>Keep an eye on your phone.</p>
+      <p class="sk-prod-igc-foot-h" data-rise>Text SAMPLE now and we will get it in the mail.</p>
       <p class="sk-prod-fine" data-rise data-delay="1">
-        One trial per household while supplies last. These statements have not been evaluated
+        * Subject to sample availability. One trial per household while supplies last. These statements have not been evaluated
         by the Food and Drug Administration. This product is not intended to diagnose, treat,
         cure or prevent any disease.
       </p>

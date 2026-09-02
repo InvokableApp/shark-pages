@@ -863,3 +863,21 @@
   /* the step numeral has to keep pace with the subhead beside it */
   .sk-prod-ig .sk-prod-ig-step-n{font-size:1.05rem}
 }
+
+/* ============================ SAMPLE AVAILABILITY NOTE ============================ */
+/* Joe, 2026-09-02: "* subject to sample availability" on all the buttons and in the page.
+   It is a qualifier on the offer, so it sits directly under each CTA where the promise is
+   made, not only in the footer. Quiet enough to read as a footnote rather than a warning:
+   any louder and it argues with the button it is under.
+   The sticky nav pill is the one CTA that does NOT carry it. A fine-print line inside a
+   100px sticky header would grow the chrome on every screen of the page, and the note is
+   already visible at the fold, in every band, and in the fine print. */
+.sk-prod-ig .sk-prod-ig-avail{
+  margin:.6rem 0 0;
+  color:var(--ig-faint);
+  font-size:.78rem;letter-spacing:.01em;line-height:1.4;
+}
+.sk-prod-ig .sk-prod-center .sk-prod-ig-avail{text-align:center}
+@media (max-width:900px){
+  .sk-prod-ig .sk-prod-ig-avail{font-size:.82rem;margin-top:.55rem}
+}
