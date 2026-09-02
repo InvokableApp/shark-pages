@@ -638,3 +638,58 @@
   .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btns{margin-top:.75rem}
   .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btn{padding:.95rem 1.1rem;font-size:.98rem}
 }
+
+/* ── 5. DESKTOP tightening for a card-led page ────────────────────────────────
+   `sk-conf-top-tight` used to be mobile-only, on the assumption that only a fold
+   needs defending. Wrong for a page whose CARD is the whole sell: at 1440 the hero
+   filled the screen and the offer began below it, so the thing being sold was never
+   on screen with the thing introducing it. The confirmation line still comes first,
+   it just stops being the headline act. */
+@media (min-width:861px){
+  .sk-conf-top-tight .sk-conf-top{padding:2.4rem 0 1.6rem}
+  .sk-conf-top-tight .sk-conf-top h1{font-size:clamp(1.6rem,2.5vw,2.1rem)}
+  .sk-conf-top-tight .sk-conf-top .sk-conf-pill{margin-bottom:1.1rem;padding:.45rem 1.1rem;font-size:.74rem}
+  .sk-conf-top-tight .sk-conf-top .sk-conf-note{margin-top:.9rem;font-size:.97rem}
+  .sk-conf-top-tight .sk-conf-kicker{margin-top:.6rem;font-size:1rem}
+  .sk-conf-top-tight .sk-conf-offer{padding-top:1.4rem;padding-bottom:2.6rem}
+  .sk-conf-top-tight .sk-conf-card-media{padding:1.6rem}
+  .sk-conf-top-tight .sk-conf-card-copy{padding:1.9rem 2rem}
+  .sk-conf-top-tight .sk-conf-card-copy p{margin-top:.9rem}
+}
+
+/* ── 6. the thread must FIT the handset ───────────────────────────────────────
+   `.sk-conf-phone-screen` takes its height from aspect-ratio:9/19.5, which is a
+   FIXED box, while the bubbles are content and size themselves. At the 208px width
+   the mobile cap gives it, four messages plus the date and the input bar came to
+   512px inside a 412px screen and the last two rendered outside the phone.
+
+   The fix is to shrink the CONTENT, not the frame: dropping the ratio would make a
+   drawn phone that is not phone shaped, and hiding a bubble would quietly change
+   what the mockup says. Type and spacing come down instead, so all four messages
+   survive at a real handset ratio. If you add a fifth bubble, re-measure: the
+   constraint is scrollHeight <= clientHeight on .sk-conf-phone-screen. */
+@media (max-width:860px){
+  .sk-conf-card-cta-first .sk-conf-phone-bar{padding:1.15rem .7rem .5rem}
+  .sk-conf-card-cta-first .sk-conf-phone-bar::before{width:58px;height:15px;top:6px}
+  .sk-conf-card-cta-first .sk-conf-phone-who{font-size:.7rem}
+  .sk-conf-card-cta-first .sk-conf-phone-body{gap:.34rem;padding:.55rem .5rem .45rem}
+  .sk-conf-card-cta-first .sk-conf-phone-day{font-size:.58rem;margin-bottom:.15rem}
+  .sk-conf-card-cta-first .sk-conf-bub{font-size:.66rem;line-height:1.32;padding:.4rem .58rem;border-radius:13px}
+  .sk-conf-card-cta-first .sk-conf-phone-input{font-size:.62rem;padding:.3rem .5rem;margin-top:auto}
+  .sk-conf-card-cta-first .sk-conf-phone-input::after{width:14px;height:14px}
+}
+
+/* ── 7. the CTA order is not a mobile concern ─────────────────────────────────
+   Lifting the ask + button above the body paragraphs was written as a fold fix and
+   scoped to phones. On a card-led page it is right at every width: at 1440 the
+   button sat at 838px with two paragraphs above it, so the offer's own control was
+   the last thing on the card. Same flex `order`, now unscoped. The cell swap (copy
+   before mockup) stays mobile-only, because on desktop they are side by side and
+   there is no reading order to fix. */
+.sk-conf-card-cta-first .sk-conf-card-copy{display:flex;flex-direction:column}
+.sk-conf-card-cta-first .sk-conf-badge{order:1}
+.sk-conf-card-cta-first .sk-conf-card-copy h2{order:2}
+.sk-conf-card-cta-first .sk-conf-ask{order:3;margin-top:.9rem}
+.sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btns{order:4;margin-top:1rem}
+.sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask){order:5}
+.sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask):first-of-type{margin-top:1.3rem}
