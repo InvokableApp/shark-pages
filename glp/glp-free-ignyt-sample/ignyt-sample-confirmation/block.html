@@ -66,8 +66,8 @@
            The number is still printed above in case the tap does nothing, which is what
            happens on a desktop with no messaging app. -->
       <a class="sk-prod-btn sk-prod-btn-lg sk-prod-igc-text" data-rise data-delay="4"
-         href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">
-        Text SAMPLE now
+         data-sms-cta href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">
+        <span data-sms-label>Text SAMPLE to <span data-rep-phone>{{custom_values.rep_phone}}</span></span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
 

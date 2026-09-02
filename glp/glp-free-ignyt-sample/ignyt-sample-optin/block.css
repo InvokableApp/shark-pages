@@ -881,11 +881,13 @@
    it also rendered huge and uppercase. Wrapping button + note in .sk-prod-ig-claim makes
    "under the button" structural instead of a layout accident, and the note is now addressed
    through that wrapper so it outranks the band's own paragraph rule everywhere. */
+/* The stack is shrink-to-fit inside every one of its parents (all three are flex rows), so
+   its width IS the button's width. Centring on that axis puts the note under the middle of
+   the button without moving the button itself, in the left-aligned hero and bands as much
+   as in the centred closer. Left-justified under a pill just reads as a stray line. */
 .sk-prod-ig .sk-prod-ig-claim{
-  display:flex;flex-direction:column;align-items:flex-start;gap:0;
+  display:flex;flex-direction:column;align-items:center;gap:0;
 }
-.sk-prod-ig .sk-prod-center .sk-prod-ig-claim,
-.sk-prod-ig .sk-prod-ig-cta-center .sk-prod-ig-claim{align-items:center}
 
 /* One selector list, deliberately: every context that styles its own paragraphs has to be
    named here or it wins on specificity. */
@@ -896,7 +898,7 @@
   font-family:var(--sk-sans,Inter,system-ui,sans-serif);
   font-variation-settings:normal;font-weight:400;
   text-transform:none;letter-spacing:.01em;line-height:1.4;
-  font-size:.78rem;color:var(--ig-faint);text-align:inherit;
+  font-size:.78rem;color:var(--ig-faint);text-align:center;
 }
 @media (max-width:900px){
   .sk-prod-ig .sk-prod-ig-claim .sk-prod-ig-avail,
