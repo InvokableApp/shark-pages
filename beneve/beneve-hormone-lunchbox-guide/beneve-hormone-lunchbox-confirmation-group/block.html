@@ -1,0 +1,129 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation-group
+
+  SPLIT TEST B of the Hormone Lunchbox confirmation step. Variant A is
+  ../beneve-hormone-lunchbox-confirmation and is unchanged: this is a second page on the same
+  step, not an edit of the first.
+
+  THE ONLY VARIABLE IS THE OFFER. Band 1 and band 3 are copied from A verbatim, the palette file
+  is identical, and the card is the same .sk-conf-card in the same orientation. A puts a
+  discounted product sample in front of the reader; B puts a free private group in front of them.
+  Anything else that differed would make the result unreadable, because a lift could then be the
+  headline, the colour or the layout rather than the offer.
+
+  Deliberately NO video. A's card carries a 44MB clip about the sample pack, which is the wrong
+  film for this page, and shipping the same video under a different offer is the exact confound
+  the paragraph above rules out. The media cell instead carries the drawn phone from
+  _shared/confirm/v1 (`sk-conf-phone`, built for the sample-request page), showing the group the
+  reader is being invited into. It is markup, so it weighs nothing, stays sharp, inherits the
+  page palette, and says what the group IS better than a stock photo of strangers would. With no
+  video there is no behaviour on this page, so it ships without a block.js.
+
+  ⚠️ CTA is DOCUMENT-relative, `b-hormone-group-join-redirect`, no leading slash. That step
+  exists in the funnel ("Group Join Redirect"). A root-relative `/b-hormone-group-join-redirect`
+  resolves only while a domain is connected and 404s on a preview or an un-domained buyer
+  account, which is why every CTA on this component drops the slash. (NOTES §Linking to another
+  funnel STEP.)
+
+  ⚠️ Claim language. This page names no supplement, so it makes no structure/function claim, and
+  the FDA statement that closes A is therefore NOT repeated here: it would be a statement about a
+  product that does not appear. The four guide disclaimers stay, and one line is ADDED covering
+  the group itself, because peer-to-peer posts are the one thing on this page we do not write.
+  "Hormone support", never "hormone balancing" (compliance, 2026-09-01).
+
+  No em-dashes.
+-->
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-bnv">
+
+  <!-- ===================== BAND 1 · the confirmation =====================
+       Copied from variant A without a word changed. See the header. -->
+  <section class="sk-conf-top">
+    <div class="sk-conf-wrap">
+      <span class="sk-conf-pill">☀️ Your PDF is on the way. One more thing below...</span>
+
+      <h1>
+        Your Hormone Support Recipe Guide<br>
+        Is Being Sent <span class="sk-conf-em">In 2 Minutes.</span>
+      </h1>
+
+      <p class="sk-conf-note">
+        Check your email. If you do not see it there, check your <b>SPAM</b> folder.
+      </p>
+
+      <p class="sk-conf-kicker">While you wait, come and meet the other women doing this.</p>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 2 · the group invitation ===================== -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+
+        <!-- ── media cell · the drawn group thread ──────────────────────────
+             `sk-conf-phone` from _shared/confirm/v1. Three messages, in the order a
+             newcomer would actually read them: someone struggling, someone a few
+             months ahead answering, and a win. That is the whole pitch for a support
+             group, so it is shown rather than described. -->
+        <div class="sk-conf-card-media">
+          <div class="sk-conf-phone">
+            <div class="sk-conf-phone-screen">
+              <div class="sk-conf-phone-bar">
+                <span class="sk-conf-phone-who">The Hormone Lunchbox Group</span>
+              </div>
+              <div class="sk-conf-phone-body">
+                <p class="sk-conf-phone-day">Today</p>
+                <div class="sk-conf-bub sk-conf-bub-in">3pm crash again. Does this ever get easier or am I just doing it wrong? 😩</div>
+                <div class="sk-conf-bub sk-conf-bub-in">It gets easier. Move your protein earlier. That one change did it for me.</div>
+                <div class="sk-conf-bub sk-conf-bub-out">Week 6 and I packed lunch every single day. Never thought I would say that 🙌</div>
+                <div class="sk-conf-phone-input">Message</div>
+              </div>
+            </div>
+          </div>
+          <p class="sk-conf-phone-cap">Real women, real weeks, no selling.</p>
+        </div>
+
+        <!-- ── copy cell · the invitation ────────────────────────────────── -->
+        <div class="sk-conf-card-copy">
+          <span class="sk-conf-badge">🌿 Free to join · Private group</span>
+
+          <h2>The Recipes Are Easier When You Are Not Doing It Alone.</h2>
+
+          <p>
+            Your guide gives you the food. The part it cannot give you is the other women in the
+            same week you are in, which is usually what decides whether any of this sticks past
+            the first fortnight.
+          </p>
+
+          <p>
+            We run a private group for women working on their hormone health through diet and
+            lifestyle. It is where the honest bits go: what is not working, what finally did, the
+            weeks that fall apart, the small wins that do not feel big enough to tell anyone else.
+            No pressure to post, and nothing is for sale in there.
+          </p>
+
+          <p class="sk-conf-ask">Want in? <u>Click below and we will add you...</u></p>
+
+          <div class="sk-conf-btns">
+            <a class="sk-conf-btn" href="b-hormone-group-join-redirect">
+              JOIN OUR PRIVATE GROUP
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the disclaimer =====================
+       A's four guide lines, plus one for the group. A's closing FDA statement is
+       deliberately absent: no product is named on this page. -->
+  <section class="sk-conf-foot">
+    <div class="sk-conf-wrap">
+      <p>The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+      <p>We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+      <p>Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+      <p>These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding hormone support, weight, or any other outcome.</p>
+      <p>Our private group is a peer community. Comments and experiences shared by members are their own and are not endorsed by us, are not medical advice, and should not be relied on in place of care from your own provider.</p>
+    </div>
+  </section>
+</div>
