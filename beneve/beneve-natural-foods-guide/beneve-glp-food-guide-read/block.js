@@ -50,7 +50,7 @@
   var cssText = null;
   function guideCss() {
     if (cssText !== null) return Promise.resolve(cssText);
-    var link = document.querySelector('link[data-shark$="-css"][href*="beneve-glp-food-guide-read"]');
+    var link = document.querySelector('link[data-shark$="-css"][href*="b-glp-food-guide-read"]');
     if (!link) { cssText = ""; return Promise.resolve(cssText); }
     return fetch(link.href).then(function (r) { return r.ok ? r.text() : ""; })
       .catch(function () { return ""; })

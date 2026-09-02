@@ -22,15 +22,15 @@ window.SHARK_HUB = {
       label: "Start a conversation",
       items: [
         { icon: "leaf", name: "Hormone Lunchbox Guide",
-          slug: "beneve-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
+          slug: "b-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
           tease: "Free make ahead lunches",
           desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
-          slug: "beneve-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
+          slug: "b-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
           tease: "Foods that support GLP naturally",
           desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." },
         { icon: "coffee", name: "Clean Iced Coffee Recipes",
-          slug: "beneve-clean-iced-coffee",
+          slug: "b-clean-iced-coffee",
           tease: "Iced coffee without the junk",
           desc: "A free iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives, and it leads into Original Coffee Sticks." }
       ]
@@ -39,11 +39,11 @@ window.SHARK_HUB = {
       label: "Quizzes and tools",
       items: [
         { icon: "quiz", name: "Side Hustle Quiz",
-          slug: "beneve-match-quiz", scripts: "https://sharksuite.ai/side-hustle-scripts",
+          slug: "b-match-quiz", scripts: "https://sharksuite.ai/side-hustle-scripts",
           tease: "Sorts them into the right fit",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Beneve fits. Use it when someone is interested but not ready to talk." },
         { icon: "user", name: "Influencer Aptitude Test",
-          slug: "beneve-aptitude-test",
+          slug: "b-aptitude-test",
           tease: "Is sharing Beneve a fit for them?",
           desc: "A short test that tells someone whether sharing products on social is a fit for them. Each result page speaks to their type and hands them straight into the opportunity." }
       ]
