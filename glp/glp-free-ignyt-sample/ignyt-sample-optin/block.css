@@ -871,13 +871,40 @@
    any louder and it argues with the button it is under.
    The sticky nav pill is the one CTA that does NOT carry it. A fine-print line inside a
    100px sticky header would grow the chrome on every screen of the page, and the note is
-   already visible at the fold, in every band, and in the fine print. */
-.sk-prod-ig .sk-prod-ig-avail{
-  margin:.6rem 0 0;
-  color:var(--ig-faint);
-  font-size:.78rem;letter-spacing:.01em;line-height:1.4;
+   already visible at the fold, in every band, and in the fine print.
+
+   ⚠️ IT IS A CHILD OF THE BUTTON'S OWN STACK, NOT A LOOSE SIBLING (fixed 2026-09-02).
+   Shipped first as a bare <p> next to the button, which put it at the mercy of whatever
+   the parent happened to be: the CTA bands and the slim bands lay their children out in a
+   ROW, so it landed beside the button or in the far column, and both of those parents style
+   `p` as the band headline (.sk-prod-ig-cta-in p is 0,2,1 and beat this rule at 0,2,0), so
+   it also rendered huge and uppercase. Wrapping button + note in .sk-prod-ig-claim makes
+   "under the button" structural instead of a layout accident, and the note is now addressed
+   through that wrapper so it outranks the band's own paragraph rule everywhere. */
+.sk-prod-ig .sk-prod-ig-claim{
+  display:flex;flex-direction:column;align-items:flex-start;gap:0;
 }
-.sk-prod-ig .sk-prod-center .sk-prod-ig-avail{text-align:center}
+.sk-prod-ig .sk-prod-center .sk-prod-ig-claim,
+.sk-prod-ig .sk-prod-ig-cta-center .sk-prod-ig-claim{align-items:center}
+
+/* One selector list, deliberately: every context that styles its own paragraphs has to be
+   named here or it wins on specificity. */
+.sk-prod-ig .sk-prod-ig-claim .sk-prod-ig-avail,
+.sk-prod-ig .sk-prod-ig-cta-in .sk-prod-ig-avail,
+.sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-ig-avail{
+  margin:.55rem 0 0;max-width:none;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-variation-settings:normal;font-weight:400;
+  text-transform:none;letter-spacing:.01em;line-height:1.4;
+  font-size:.78rem;color:var(--ig-faint);text-align:inherit;
+}
 @media (max-width:900px){
-  .sk-prod-ig .sk-prod-ig-avail{font-size:.82rem;margin-top:.55rem}
+  .sk-prod-ig .sk-prod-ig-claim .sk-prod-ig-avail,
+  .sk-prod-ig .sk-prod-ig-cta-in .sk-prod-ig-avail,
+  .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-ig-avail{font-size:.8rem;margin-top:.5rem}
+}
+/* The slim band gives the button the full width on a phone, so the stack has to take it
+   too or the note aligns to a 0-width column. */
+@media (max-width:1100px){
+  .sk-prod-ig .sk-prod-ig-cta-slim .sk-prod-ig-claim{width:100%;align-items:center}
 }
