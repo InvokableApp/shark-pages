@@ -70,6 +70,58 @@
     frame.appendChild(f);
   }
 
+
+  /* ── THE SMS ASK ─ additive 2026-09-02 ──────────────────────────────────────
+     The giveaway confirmation now asks the VISITOR to send the first text. The
+     prefill is the MARKUP, not this function: href="sms:{number}?&body=CONFIRM"
+     does the work and keeps working with JS off. The `?&` is not a typo, Android
+     wants ?body= and iOS wants &body=, and this shape satisfies both.
+
+     What a merge field breaks, and what this fixes, is two things:
+
+       1. THE NUMBER IS A HUMAN STRING, AN sms: URI IS NOT. A rep types
+          "(555) 123-4567" into the CV at onboarding. Spaces and parens inside the
+          URI are where prefill quietly stops working on some handsets. GHL
+          substitutes server-side, so by the time this runs the real value is in
+          the DOM and can be normalised to digits.
+
+       2. ON A SNAPSHOT THE CV IS INSTRUCTION TEXT. conectiv__your_phone holds
+          "Enter your phone number" until a buyer fills it, which is CORRECT for a
+          snapshot account (CLAUDE.md, Account TYPES). With no usable number the
+          button stops pretending to be a link rather than opening Messages
+          addressed to a sentence.
+
+     Ported from glp-free-ignyt-sample's block.js, which is where the mechanic was
+     first built. It lives here now so the next giveaway inherits it. */
+  function wireSms(scope) {
+    var cta = scope.querySelector("[data-sms-cta]");
+    if (!cta) return;
+    var word = (cta.getAttribute("data-sms-body") || "CONFIRM").trim();
+    var slot = scope.querySelector("[data-rep-phone]");
+    var raw = slot ? slot.textContent : "";
+    var digits = raw.replace(/[^\d+]/g, "");
+    var plus = digits.charAt(0) === "+";
+    var nums = digits.replace(/\D/g, "");
+
+    /* 10 digits is the bare US number, 11 starting with 1 is the same number with its
+       country code. Anything else is left alone rather than guessed at: a wrong
+       normalisation sends the text to nobody, which is worse than an unformatted one
+       the handset can still parse. */
+    var e164 = plus ? "+" + nums
+      : nums.length === 10 ? "+1" + nums
+      : nums.length === 11 && nums.charAt(0) === "1" ? "+" + nums
+      : nums;
+
+    if (nums.length < 10) {
+      var label = cta.querySelector("[data-sms-label]");
+      if (label) label.textContent = "Text " + word + " now";
+      cta.removeAttribute("href");
+      cta.setAttribute("role", "text");
+      return;
+    }
+    cta.setAttribute("href", "sms:" + e164 + "?&body=" + encodeURIComponent(word));
+  }
+
   function wire(scope) {
     /* ── popup CTA ──────────────────────────────────────────────────────────────
        Delegated from the block root so a button added to the markup later needs no
@@ -88,6 +140,8 @@
         window.dispatchEvent(new Event("customWidgetOpenPopup"));
       });
     }
+
+    wireSms(scope);
 
     var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
     for (var i = 0; i < frames.length; i++) {

@@ -495,3 +495,54 @@
    where supported and is inert where it is not. */
 .sk-conf-light .sk-conf-top .sk-conf-wrap{max-width:1080px}
 .sk-conf-light .sk-conf-top h1{text-wrap:balance}
+
+/* ── THE SMS ASK ─ additive 2026-09-02 ────────────────────────────────────────
+   The giveaway archetype changed shape. It used to be REP-FIRST: the page told the
+   reader to expect a text, and the rep opened the conversation. Joe's IGNYT build
+   inverted it, and this is now the house mechanic: the VISITOR sends the first text,
+   and that inbound message is what proves they are a human and confirms the address
+   in one move. It converts better for the obvious reason, which is that a page can
+   ask for an action now and cannot make a stranger answer a number they do not know.
+
+   So the ask needs to be the loudest thing on the confirmation screen, and it needs
+   to survive being read on a laptop where sms: does nothing. Hence two pieces: a
+   large primary control (sk-conf-btn-lg) and the number PRINTED in full underneath
+   (sk-conf-num), which is the fallback for every device the tap does not work on.
+
+   ADDITIVE. Both selectors are net-new: zero matches across the three Beneve pages
+   and the Conectiv one, checked before shipping. Nothing already published moves. */
+.sk-conf .sk-conf-btn-lg{
+  font-size:1.06rem;padding:1.05rem 2.1rem;border-radius:999px;
+}
+@media (max-width:560px){
+  .sk-conf .sk-conf-btn-lg{width:100%;justify-content:center;font-size:1rem;padding:1rem 1.4rem}
+}
+
+/* The number plaque. Big, selectable, and readable with no JS and no messaging app,
+   because on a desktop this is the only way the reader can act at all. */
+.sk-conf .sk-conf-num{
+  max-width:420px;margin:1.6rem auto 0;padding:1.15rem 1.3rem;
+  border-radius:18px;text-align:center;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+}
+.sk-conf .sk-conf-num-k{
+  margin:0;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sk-lime,#bcd57a);
+}
+.sk-conf .sk-conf-num-n{
+  margin:.35rem 0 0;font-family:var(--sk-serif,Georgia,serif);
+  font-size:clamp(1.5rem,4.4vw,2.05rem);font-weight:600;letter-spacing:-.01em;
+  color:#fff;line-height:1.15;overflow-wrap:anywhere;
+}
+.sk-conf .sk-conf-num-t{margin:.55rem 0 0;font-size:.88rem;color:rgba(255,255,255,.72)}
+
+/* On a light band the plaque has to invert or it disappears into the page. */
+.sk-conf .sk-conf-mid .sk-conf-num,
+.sk-conf-light .sk-conf-num{background:var(--sk-mist,#f4f6f9);border-color:var(--sk-line,#e3e8ef)}
+.sk-conf .sk-conf-mid .sk-conf-num-k,
+.sk-conf-light .sk-conf-num-k{color:var(--sk-accent,#2e5233)}
+.sk-conf .sk-conf-mid .sk-conf-num-n,
+.sk-conf-light .sk-conf-num-n{color:var(--sk-ink,#16233d)}
+.sk-conf .sk-conf-mid .sk-conf-num-t,
+.sk-conf-light .sk-conf-num-t{color:var(--sk-body,#4a5568)}

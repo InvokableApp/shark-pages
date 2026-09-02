@@ -2,62 +2,123 @@
   conectiv/c-free-coffee-sample/c-free-coffee-sample-confirmation
   The Confirmation step of the Free Coffee Sample funnel: what the opt-in popup redirects to.
 
-  THIS IS NOT A LEAD-MAGNET CONFIRMATION, and the difference is the whole design. On a guide
-  funnel the page says "check your inbox" because a machine already sent the thing. Here nothing
-  has been sent, nothing is downloadable, and the next event in this person's life is A HUMAN
-  CONTACTING THEM to confirm where to post a physical object. So band 1 does not celebrate, it
-  SETS THE EXPECTATION: who reaches out, on which channel, roughly when, and what they will ask.
+  THE MECHANIC INVERTED ON 2026-09-02 (Jeff), AND THAT IS THE WHOLE REWRITE. The previous
+  version was REP-FIRST: it told the reader a MyLifeWellness team member would text or call to
+  confirm the address, and spent four steps, a "so you are not caught off guard" band and two
+  troubleshooting cards managing the wait. Jeff's read of it was that nobody would get to the
+  end of that. He is right, and the deeper problem is that a page cannot make a stranger
+  answer a number they do not recognise, so every word spent on the wait was spent on the
+  failure mode instead of preventing it.
 
-  That is also the funnel's real failure mode. The rep ships out of the address on the form, so a
-  lead who ignores the rep's message, or who does not recognise the name when it arrives, is a
-  sample that never goes in the post. Every line in band 1 and band 2 is bought by that risk.
+  It is now VISITOR-FIRST, matching Joe's IGNYT build (glp/glp-free-ignyt-sample): the reader
+  texts the word CONFIRM to the rep, and that one inbound message proves they are a human and
+  confirms the address in the same move. So the page has exactly ONE job, get one text sent,
+  and everything that did not serve that is gone. The number appears three times.
 
-  Design lives in _shared/confirm/v1/, scoped .sk-conf, shared by every confirmation page in every
-  system. This file holds only markup; block.css holds only palette tokens.
+  ⚠️ NOTHING IS LISTENING FOR THAT TEXT YET. This campaign has a submission workflow, a rep
+  notification and a Meta Lead event, and no inbound-SMS keyword workflow. Today the rep just
+  sees the message land in their own GHL inbox, which works because a human reads it, but it
+  is not automated and CONFIRM earns no tag. Same gap Joe's IGNYT page has. Flagged 2026-09-02.
 
-  ⚠️ NO PURCHASE CTA ON THIS PAGE, deliberately. The offer was a free sample with no card, and the
-  archetype's promise is that the rep owns the relationship from here. Pushing a buy link in the
-  same breath makes the free sample read as the bait it promised not to be. The purchase push
-  belongs in the nurture sequence, timed to arrival.
+  ⚠️ ON THE SHARK LEAD GEN COPY THE NUMBER RENDERS AS THE WORD "undefined".
+  conectiv__your_phone exists in that account with the literal value "undefined" (as do 15
+  other conectiv__ CVs), because Lead Gen distributes through the lead router rather than
+  through a rep's own CVs. block.js degrades the button to "Text CONFIRM now" with no link,
+  so it is not broken, but it is not usable either. Lead Gen needs a decision about whose
+  number this is before that copy takes traffic.
 
-  ⚠️ VIDEO SLOT IS LIVE BUT EMPTY. data-vimeo="" hides the whole section (confirm.js), so the page
-  is correct as it stands. When Jeff has the Vimeo id, put it in data-vimeo and, if there is one,
-  a poster URL in data-poster. That is the only edit; the section appears by itself.
+  ⚠️ THE MERGE FIELD RENDERS AS INSTRUCTION TEXT ON THE SNAPSHOT. conectiv__your_phone holds
+  "Enter your phone number" until a buyer fills it at onboarding. Correct for a snapshot
+  account, not a bug (CLAUDE.md, Account TYPES).
+
+  Joe's rep-reaches-out paragraph, added 2026-09-01, is deliberately NOT here any more: under
+  this mechanic the rep replies to the visitor rather than opening the conversation, so it now
+  describes something that does not happen. Raised with Jeff.
+
+  Design lives in _shared/confirm/v1/, scoped .sk-conf, shared by every confirmation page in
+  every system. This file holds only markup; block.css holds only palette tokens.
+
+  ⚠️ NO PURCHASE CTA ON THIS PAGE, deliberately. The offer was a free sample with no card, and
+  a buy link in the same breath makes it read as the bait it promised not to be. It also
+  competes with the one action this page exists to get.
+
+  ⚠️ VIDEO SLOT IS LIVE BUT EMPTY. data-vimeo="" hides the whole section (confirm.js), so the
+  page is correct as it stands. When Jeff has the Vimeo id, put it in data-vimeo and a poster
+  URL in data-poster. That is the only edit; the section appears by itself.
+
+  No em-dashes anywhere in shipped copy.
 -->
 <div class="sk-conf sk-conf-bleed sk-conf-ctv">
 
-  <!-- ===================== BAND 1 · the confirmation ===================== -->
+  <!-- ===================== BAND 1 · the one ask ===================== -->
   <section class="sk-conf-top">
     <div class="sk-conf-wrap">
-      <span class="sk-conf-pill">Request received</span>
-      <h1>Your Free Sample Is Reserved</h1>
-
-      <p class="sk-conf-note">
-        A MyLifeWellness team member will reach out shortly to confirm your shipping address, and
-        then they will put your sample in the post themselves.
-      </p>
+      <span class="sk-conf-pill">One more step</span>
+      <h1>Text us to confirm and your sample goes out</h1>
 
       <p class="sk-conf-lede">
-        They will reach out to you via a <span class="sk-conf-hl">text and / or phone call</span>.
-        Please be sure to check your "spam" or "unknown" folder in your text message app. It's
-        possible the text to confirm your address lands there.
+        We cannot wait for you to try ALIVE. One more thing first: text the word
+        <span class="sk-conf-hl">CONFIRM</span> to
+        <span class="sk-conf-hl"><span data-rep-phone>{{custom_values.conectiv__your_phone}}</span></span>
+        so we know you are not a bot and we have the right address.
       </p>
+
+      <!-- ON A PHONE THIS IS A ONE TAP ACTION, and that is the point: the page asks for a
+           text, so the page hands them the text with the word already typed. sms: with a
+           prefilled body works on iOS and Android and degrades to a plain compose window
+           anywhere that ignores the parameter. What no page can do is press send for them,
+           which is why the number is also printed below in full. -->
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn sk-conf-btn-lg" data-sms-cta data-sms-body="CONFIRM"
+           href="sms:{{custom_values.conectiv__your_phone}}?&body=CONFIRM">
+          <span data-sms-label>Text CONFIRM now</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="sk-conf-num">
+        <p class="sk-conf-num-k">Text the word CONFIRM to</p>
+        <p class="sk-conf-num-n">{{custom_values.conectiv__your_phone}}</p>
+        <p class="sk-conf-num-t">That is it. Your rep posts the sample out from there.</p>
+      </div>
+
+      <!-- The exchange drawn out, so nobody is surprised by the reply and nobody has to be
+           told twice what to send. Drawn rather than photographed: it inherits the page's
+           own type, weighs nothing, and can carry the real words. -->
+      <div class="sk-conf-phone" role="img"
+           aria-label="A text reading CONFIRM, and a reply confirming the sample is going in the post.">
+        <div class="sk-conf-phone-screen">
+          <div class="sk-conf-phone-bar"><span class="sk-conf-phone-who">Messages</span></div>
+          <div class="sk-conf-phone-body">
+            <p class="sk-conf-phone-day">Today</p>
+            <p class="sk-conf-bub sk-conf-bub-out">CONFIRM</p>
+            <p class="sk-conf-bub sk-conf-bub-in">
+              Got it, thank you. Posting your ALIVE sample out to the address you gave us.
+            </p>
+            <p class="sk-conf-phone-input">Text Message</p>
+          </div>
+        </div>
+      </div>
+      <p class="sk-conf-phone-cap">Send CONFIRM. We take it from there.</p>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 2 · three steps, not four ===================== -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <h2>What happens next</h2>
 
       <div class="sk-conf-steps">
         <article class="sk-conf-step"><b>1</b>
-          <h3>We have your request</h3>
-          <p>Your details went straight to your Conectiv rep. There is no queue and no waiting list to join.</p>
+          <h3>You text CONFIRM</h3>
+          <p>Right now, while you are here. It confirms you are a real person and confirms where the sample is going.</p>
         </article>
         <article class="sk-conf-step"><b>2</b>
-          <h3>Your rep confirms the address</h3>
-          <p>A quick message to check they are posting it to the right place. Reply to it and you are done.</p>
+          <h3>Your rep posts it</h3>
+          <p>Single serve sticks of ALIVE, mailed out by hand. No card, no subscription, nothing to cancel.</p>
         </article>
         <article class="sk-conf-step"><b>3</b>
-          <h3>It goes in the mail</h3>
-          <p>Your rep covers the sample and sends it out, then lets you know it is on its way.</p>
-        </article>
-        <article class="sk-conf-step"><b>4</b>
-          <h3>You brew it and decide</h3>
+          <h3>You brew one</h3>
           <p>Hot water, sixty seconds, and see how the morning goes. You keep the sample either way.</p>
         </article>
       </div>
@@ -82,33 +143,6 @@
         <span class="sk-conf-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BAND 2 · what to expect ===================== -->
-  <section class="sk-conf-mid">
-    <div class="sk-conf-wrap">
-      <hr class="sk-conf-rule">
-      <h2>So you are not caught off guard</h2>
-      <p class="sk-conf-body">
-        Samples are shipped by an independent Conectiv representative rather than a warehouse,
-        which is why a person gets in touch instead of an order confirmation landing in your inbox.
-      </p>
-      <p class="sk-conf-body">
-        They are only confirming the address. There is no card to enter, no subscription attached
-        to this, and nothing to cancel afterwards.
-      </p>
-
-      <div class="sk-conf-steps">
-        <article class="sk-conf-step"><b>?</b>
-          <h3>Did not hear anything?</h3>
-          <p>Give it a day or two. The call will come from a number you do not have saved, so it is worth answering even if you do not recognise it.</p>
-        </article>
-        <article class="sk-conf-step"><b>?</b>
-          <h3>Moved, or typed it wrong?</h3>
-          <p>Tell your rep when they message you. Nothing has shipped yet, so the address is easy to change.</p>
-        </article>
       </div>
     </div>
   </section>
