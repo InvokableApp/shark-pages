@@ -1,0 +1,24 @@
+/* BETA / shark-beta-scripts / hormone-recipe-scripts
+ *
+ * The design lives in _shared/scripts/v1/scripts.css, scoped under .sk-scripts,
+ * and is shared by every scripts page in every system. This file declares ONLY
+ * the nine palette tokens, on the block's own scope class, and they cascade into
+ * the shared components. Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/scripts/v1/scripts.css");
+
+.sk-beta-shark-beta-scripts-hormone-recipe-scripts {
+  --sk-brand:      #7B2AEE;
+  --sk-brand-deep: #5715C0;
+  --sk-brand-tint: #F0E8FD;
+  --sk-ink:        #130C1F;
+  --sk-ink-soft:   #5D5570;
+  --sk-ink-faint:  #8E86A0;
+  --sk-paper:      #F7F4FC;
+  --sk-line:       #E5DFEF;
+  --sk-line-soft:  #EEEAF6;
+  --sk-card:       #FFFFFF;
+}

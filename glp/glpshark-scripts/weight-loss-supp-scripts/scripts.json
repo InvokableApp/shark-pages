@@ -1,0 +1,61 @@
+{
+ "system": "glp",
+ "funnel": "glpshark-scripts",
+ "page": "weight-loss-supp-scripts",
+ "funnelId": "FhLNjPPS4ByNOv4DpYHK",
+ "pageId": "2pgQv23DNKNP7fs1BAPq",
+ "stepName": "Weight Loss Supplement Quiz Scripts",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark AI Marketing System",
+ "title": "How to follow up with your Weight Loss Supplement Quiz leads",
+ "titleHtml": "How to follow up with your <em>Weight Loss Supplement Quiz</em> leads",
+ "sub": "Use these scripts immediately after receiving a new quiz lead.",
+ "funnelLabel": "Weight Loss Supplement Quiz Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you took our \"Which Weight Loss Supplement Is Right For You?\" quiz, and I wanted to follow up with you about your recommendation.",
+    "Your result pointed toward an all-natural, needle-free product designed to support your body's natural GLP pathways. I'm going to text you now, and if you're curious about why it was recommended, just reply back. No pressure at all.",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, its usually three little lines. On an Android, look for the three-dot menu. You should be able to find any filtered messages there which is where my text to you might be.",
+    "Okay, that's all for now! Let me know if you received the text. Talk soon!"
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. I saw you took the \"Which Weight Loss Supplement Is Right For You?\" quiz, and your results pointed toward an all-natural, needle-free product designed to support your body's natural GLP pathways.",
+    "Quick question - when it comes to weight loss support, is avoiding injections and going with something more natural important to you? If so, I think you'll want to see why this one came up for you.",
+    "Just reply <strong>INFO</strong> and I'll send you the details!"
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't respond within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on my text above! 👆 Did you want me to send you some more info on the all-natural GLP support product your quiz recommended? If you're still curious about it, shoot me a text back and I'll send it over!"
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. The quiz link is already in the text script - just hit Copy script and send it as-is.",
+ "footer": "Weight Loss Supplement Quiz follow-up · Quick reference · Keep this handy by your phone"
+}

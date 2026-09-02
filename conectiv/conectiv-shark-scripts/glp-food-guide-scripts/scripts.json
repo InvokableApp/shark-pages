@@ -1,0 +1,60 @@
+{
+ "system": "conectiv",
+ "funnel": "conectiv-shark-scripts",
+ "page": "glp-food-guide-scripts",
+ "funnelId": "3VKpfMlZb4qTClQJ6NPj",
+ "pageId": "cCxZ9FC6nObR2260pg7N",
+ "stepName": "GLP Food Guide Scripts",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv Shark AI Marketing System",
+ "title": "How to follow up with your GLP Recipe Guide leads",
+ "titleHtml": "How to follow up with your <em>GLP Recipe Guide</em> leads",
+ "sub": "Use these scripts immediately after receiving a new recipe guide lead.",
+ "funnelLabel": "GLP Recipe Guide Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1219189144",
+  "title": "GLP recipe guide lead follow-up training video",
+  "poster": "https://i.vimeocdn.com/video/2191496965-b93c13b816c7c4c42e040c1772f779ad61701e6aee80855d1deed62ae623d9ce-d_1280",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you requested our free recipe guide featuring foods that may support your body's natural GLP-1 release. I'm going to text you the link now so you have it handy.",
+    "I can also send you information about some wellness products designed to support natural GLP-1 activity. If you're interested, just reply back to my text. No pressure at all.",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, its usually three little lines. On an Android, look for the three-dot menu. You should be able to find any filtered messages there which is where my text to you might be.",
+    "Okay, that's all for now! Let me know if you received the text. Talk soon!"
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail - Here is the link to recipe guide you requested so you have it handy - <a href=\"https://assets.cdn.filesafe.space/uNxituXahyZtAIqwdVJI/media/74d54020-663d-48f4-8050-96f267436633.pdf\" target=\"_blank\" rel=\"noopener\" class=\"script-link\">https://assets.cdn.filesafe.space/uNxituXahyZtAIqwdVJI/media/74d54020-663d-48f4-8050-96f267436633.pdf</a>",
+    "Also - did you want to take a free look at a powder designed to support your body's natural GLP-1, GLP-2 &amp; GIP activity? These products are pretty awesome - Just reply INFO and I'll hook you up."
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't respond within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on the above! 👆 Were you able to get the recipe guide? Want some info on the natural GLP-1 support products? Shoot me a text back - I can hook you up!"
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. The recipe guide link is already in the text script - just hit Copy script and send it as-is.",
+ "footer": "GLP Recipe Guide follow-up · Quick reference · Keep this handy by your phone"
+}

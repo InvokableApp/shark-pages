@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>beta · glp-foods-guide-scripts</title>
+<style>
+html,body{margin:0;padding:0;background:#e9e9ec}
+/* stands in for the GHL section the block is embedded into */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SHARED "FUNNEL SCRIPTS" STYLESHEET
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE stylesheet for every scripts page in every system. Scoped under
+   .sk-scripts, which every scripts block carries alongside its own mandated
+   .sk-{system}-{funnel}-{page} class. The per-page block.css declares only the
+   nine palette tokens on that page class, and they cascade into everything here.
+
+   WHAT THIS PAGE IS. A rep just got a lead. They open this on a phone, read
+   what to do, hit Copy, and paste into their messages app. So the script text
+   is not decoration, it is the payload: it gets the most contrast, the widest
+   measure and the primary action. Everything else recedes.
+
+   Replaces 18 hand forked copies of a generic Inter card design that lived
+   inline in the GHL pages. Colour is per system, everything else is per design
+   system. Changing a component here changes every scripts page on one git push.
+
+   Do not add colour literals below. If a value is not in the token block, it is
+   an ink/paper mix and belongs in the per-page tokens instead.
+   ============================================================ */
+
+.sk-scripts *,
+.sk-scripts *::before,
+.sk-scripts *::after { box-sizing: border-box; }
+
+.sk-scripts {
+  /* structural tokens: identical in every system, per design system 7.2 */
+  --sk-r: 18px;
+  --sk-r-sm: 12px;
+  --sk-pad: 20px;
+  --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
+  --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
+
+  /* Full bleed ground, capped content, measure as a grid column. Same reasoning
+     as the how-to pages: the block paints the paper, so capping the block itself
+     leaves the GHL section showing through at the sides, and `margin-inline:auto`
+     on the children is silently reset by the `margin` shorthand the cards set. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-scripts .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-scripts > *:not(.sk-grain) {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------- header ---------------- */
+
+.sk-scripts .sk-head {
+  padding: 38px 4px 20px;
+  text-align: center;
+}
+
+.sk-scripts .sk-logo {
+  display: block;
+  width: 168px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 22px;
+}
+
+.sk-scripts .sk-title {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sk-scripts .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-scripts .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* which funnel's leads these scripts are for, set as data rather than prose */
+.sk-scripts .sk-funnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 7px 13px 7px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+  text-align: left;
+}
+
+.sk-scripts .sk-funnel svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--sk-brand);
+}
+
+/* ---------------- utility row ----------------
+   Print is a real need here: reps tape this to the wall or keep it in the truck.
+   It is still a UTILITY, so per design system 4 it stays understated and never
+   takes the gradient. Copy is the primary action on this page and nothing else
+   may compete with it. */
+
+.sk-scripts .sk-util {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 22px;
+}
+
+.sk-scripts .sk-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.sk-scripts .sk-print:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+.sk-scripts .sk-print:active { transform: translateY(1px); }
+.sk-scripts .sk-print svg { flex: none; width: 15px; height: 15px; }
+
+/* ---------------- group header ---------------- */
+
+.sk-scripts .sk-group { margin: 0 0 26px; }
+
+.sk-scripts .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 0 13px;
+  padding: 14px 2px 11px;
+  background: linear-gradient(var(--sk-paper) 62%, transparent);
+}
+
+.sk-scripts .sk-group-label {
+  flex: none;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-ink);
+}
+
+.sk-scripts .sk-group-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--sk-line);
+}
+
+.sk-scripts .sk-group-count {
+  flex: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-scripts .sk-card {
+  margin: 0 0 12px;
+  padding: var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+
+.sk-scripts .sk-card:last-child { margin-bottom: 0; }
+
+/* ---------------- video facade ----------------
+   The player is never in the markup: data-vimeo plus a poster, the iframe is
+   injected on click. Design system 4. */
+
+.sk-scripts .sk-vid { padding: 0; overflow: hidden; }
+
+.sk-scripts .sk-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  display: block;
+  background-color: var(--sk-ink);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sk-scripts .sk-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 8, .1) 0%, rgba(8, 10, 8, .42) 100%);
+  transition: opacity .3s ease;
+}
+
+.sk-scripts .sk-frame:hover::after { opacity: .72; }
+
+.sk-scripts .sk-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 28px -8px rgba(8, 10, 8, .55);
+  color: #fff;
+  transition: transform .28s cubic-bezier(.2, .7, .3, 1);
+}
+
+.sk-scripts .sk-frame:hover .sk-play { transform: translate(-50%, -50%) scale(1.07); }
+.sk-scripts .sk-frame:active .sk-play { transform: translate(-50%, -50%) scale(.97); }
+.sk-scripts .sk-play svg { width: 25px; height: 25px; margin-left: 3px; }
+
+.sk-scripts .sk-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sk-scripts .sk-frame[data-playing="true"] { cursor: default; }
+.sk-scripts .sk-frame[data-playing="true"]::after,
+.sk-scripts .sk-frame[data-playing="true"] .sk-play { display: none; }
+
+.sk-scripts .sk-vid-cap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px var(--sk-pad);
+  border-top: 1px solid var(--sk-line-soft);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+}
+
+.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color: var(--sk-brand); }
+
+/* ---------------- the steps ----------------
+   A numbered sequence, because the order is the instruction: call, then text,
+   then follow up. Numerals are data, so they are mono on a tint chip. */
+
+.sk-scripts .sk-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-scripts .sk-step { margin: 0 0 12px; }
+.sk-scripts .sk-step:last-child { margin-bottom: 0; }
+
+.sk-scripts .sk-step-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.sk-scripts .sk-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sk-scripts .sk-step-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  letter-spacing: -.005em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+.sk-scripts .sk-step-lead {
+  margin: 5px 0 0;
+  max-width: 38ch;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+
+/* ---------------- the script itself ----------------
+   The payload. Content to be TAKEN rather than read, so it gets the quotation
+   treatment the how-to pages give an Ask AI prompt: a brand rule down the left,
+   paper ground so it separates from the card, full ink for contrast because a
+   rep is reading it aloud off a phone. Text stays selectable. The button is the
+   fast path, not the only one. */
+
+.sk-scripts .sk-script {
+  margin: 14px 0 0;
+  padding: 16px 17px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.sk-scripts .sk-script p { margin: 0 0 11px; }
+.sk-scripts .sk-script p:last-child { margin-bottom: 0; }
+.sk-scripts .sk-script strong { font-weight: 600; }
+
+/* A raw asset URL inside a script is a thing to be SENT, not clicked, and some
+   of them are 120 characters of CDN path. Wrapping beats truncating: the rep
+   sometimes reads it back to check the paste landed. */
+.sk-scripts .sk-script a {
+  color: var(--sk-brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+/* The bracketed slots the rep must personalise, marked so they cannot be missed.
+   The negative inline margin matters: a padded inline pill pushes the character
+   after it away, so "Hey [Name], it's" renders as "Hey [Name] , it's" and reads
+   as a typo in the script the rep is about to send. The margin pulls the pill
+   back over its own padding and the punctuation sits tight again. */
+.sk-scripts .sk-slot {
+  display: inline;
+  padding: 1px 3px;
+  margin: 0 -3px;
+  border-radius: 5px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .88em;
+  white-space: nowrap;
+}
+
+/* ---------------- primary action ---------------- */
+
+.sk-scripts .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .12s ease, background .2s ease;
+}
+
+.sk-scripts .sk-copy:hover { box-shadow: var(--sk-shadow-lift); }
+.sk-scripts .sk-copy:active { transform: translateY(1px); }
+.sk-scripts .sk-copy svg { flex: none; width: 17px; height: 17px; }
+.sk-scripts .sk-copy[data-done="true"] { background: var(--sk-brand-deep); }
+
+/* ---------------- tip ---------------- */
+
+.sk-scripts .sk-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 20px 0 0;
+  padding: 15px 17px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-ink);
+  font-size: 14.4px;
+  line-height: 1.5;
+}
+
+.sk-scripts .sk-tip svg { flex: none; width: 17px; height: 17px; margin-top: 2px; color: var(--sk-brand-deep); }
+.sk-scripts .sk-tip strong { font-weight: 600; }
+
+/* ---------------- footer ---------------- */
+
+.sk-scripts .sk-foot {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sk-line);
+  color: var(--sk-ink-faint);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ---------------- focus, always visible ---------------- */
+
+.sk-scripts a:focus-visible,
+.sk-scripts button:focus-visible,
+.sk-scripts [tabindex]:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------------- entry motion ---------------- */
+
+@keyframes sk-scripts-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sk-scripts .sk-head > * {
+  animation: sk-scripts-rise .55s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.sk-scripts .sk-logo   { animation-delay: .02s; }
+.sk-scripts .sk-title  { animation-delay: .08s; }
+.sk-scripts .sk-sub    { animation-delay: .14s; }
+.sk-scripts .sk-funnel { animation-delay: .20s; }
+
+.sk-motion .sk-scripts [data-sk-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s cubic-bezier(.2, .7, .3, 1), transform .5s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--sk-i, 0) * .05s);
+}
+
+.sk-motion .sk-scripts [data-sk-reveal].sk-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-scripts .sk-head > * { animation: none; }
+  .sk-motion .sk-scripts [data-sk-reveal] { opacity: 1; transform: none; transition: none; }
+  .sk-scripts .sk-play,
+  .sk-scripts .sk-copy,
+  .sk-scripts .sk-frame::after { transition: none; }
+}
+
+/* ---------------- wider than a phone ---------------- */
+
+@media (min-width: 560px) {
+  .sk-scripts { padding-bottom: 64px; }
+  .sk-scripts .sk-head { padding-top: 52px; }
+  .sk-scripts .sk-sub { max-width: 44ch; }
+  .sk-scripts .sk-step-lead { max-width: 52ch; }
+}
+
+/* ---------------- desktop ----------------
+   Reps read this on a phone, but they also work from a laptop. The column
+   widens, and it stops at 720px rather than the how-to pages' 1180: this page
+   is a column of prose to be read aloud, and script text at 1180px is a wall.
+   Nothing here becomes a grid, because the steps are a SEQUENCE and putting
+   step 3 beside step 1 would break the one instruction the page carries. */
+
+@media (min-width: 900px) {
+  .sk-scripts {
+    grid-template-columns: 1fr min(720px, 100%) 1fr;
+    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .sk-scripts .sk-head { padding: 64px 4px 26px; }
+  .sk-scripts .sk-logo { width: 200px; margin-bottom: 26px; }
+  .sk-scripts .sk-title { font-size: 44px; letter-spacing: -.016em; }
+  .sk-scripts .sk-sub { margin-top: 14px; font-size: 16.5px; max-width: 52ch; }
+  .sk-scripts .sk-script { font-size: 15.5px; padding: 18px 20px; }
+}
+
+/* ---------------- print ----------------
+   A rep keeps this by the phone, so the printed sheet is a real deliverable and
+   not an afterthought. Ground goes white, the page furniture that cannot be
+   acted on paper goes away (video, buttons, grain, sticky headers), and each
+   step is kept whole across a page break. Link targets are printed after the
+   text, because a URL a rep cannot see is a URL they cannot dial back to. */
+
+@media print {
+  .sk-scripts {
+    display: block;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    font-size: 11.5pt;
+  }
+
+  /* the whole video BAND goes, group header included: hiding only the card left
+     a titled "Watch first" rule with nothing under it on the printed sheet */
+  .sk-scripts .sk-grain,
+  .sk-scripts .sk-util,
+  .sk-scripts .sk-copy,
+  .sk-scripts .sk-group--vid,
+  .sk-scripts .no-print { display: none !important; }
+
+  .sk-scripts .sk-head { padding: 0 0 14pt; text-align: left; }
+  .sk-scripts .sk-logo { width: 128pt; margin: 0 0 12pt; }
+  .sk-scripts .sk-title { font-size: 20pt; }
+  .sk-scripts .sk-title em { color: #000; -webkit-text-fill-color: #000; background: none; }
+  .sk-scripts .sk-sub { max-width: none; margin-left: 0; }
+
+  .sk-scripts .sk-group-head { position: static; background: none; padding: 10pt 0 6pt; }
+  .sk-scripts .sk-group-count { display: none; }
+
+  .sk-scripts .sk-card,
+  .sk-scripts .sk-step {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border-color: #bbb;
+  }
+
+  .sk-scripts .sk-num { background: none; border: 1pt solid #000; color: #000; }
+  .sk-scripts .sk-script { background: #fff; border-color: #999; border-left: 2pt solid #000; }
+  .sk-scripts .sk-slot { background: none; color: #000; font-weight: 600; }
+  .sk-scripts .sk-tip { background: none; border-color: #bbb; }
+
+  /* Print the address behind a link, because paper has no click. A link whose
+     text already IS the address is marked .sk-url and skips this, otherwise the
+     sheet carries the same 100 character CDN path twice in a row. */
+  .sk-scripts .sk-script a { color: #000; }
+  .sk-scripts .sk-script a:not(.sk-url)::after {
+    content: " (" attr(href) ")";
+    font-size: .82em;
+    overflow-wrap: anywhere;
+  }
+
+  .sk-scripts .sk-head > *,
+  .sk-motion .sk-scripts [data-sk-reveal] { animation: none; opacity: 1; transform: none; }
+}
+
+/* BETA / shark-beta-scripts / glp-foods-guide-scripts
+ *
+ * The design lives in _shared/scripts/v1/scripts.css, scoped under .sk-scripts,
+ * and is shared by every scripts page in every system. This file declares ONLY
+ * the nine palette tokens, on the block's own scope class, and they cascade into
+ * the shared components. Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+
+
+.sk-beta-shark-beta-scripts-glp-foods-guide-scripts {
+  --sk-brand:      #7B2AEE;
+  --sk-brand-deep: #5715C0;
+  --sk-brand-tint: #F0E8FD;
+  --sk-ink:        #130C1F;
+  --sk-ink-soft:   #5D5570;
+  --sk-ink-faint:  #8E86A0;
+  --sk-paper:      #F7F4FC;
+  --sk-line:       #E5DFEF;
+  --sk-line-soft:  #EEEAF6;
+  --sk-card:       #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+<!--
+  BETA / shark-beta-scripts / glp-foods-guide-scripts
+  Follow-up scripts for GLP Recipe Guide Leads.
+
+  THIS BLOCK IS GENERATED. The content is scripts.json in this folder; the
+  design, components and behaviour are shared and live in _shared/scripts/v1/.
+  Regenerate with web/scripts/shark-pages/new-scripts-page.mjs, do not hand edit.
+  See references/FUNNEL-SCRIPTS-PAGE-SOP.md.
+-->
+<div class="sk-beta-shark-beta-scripts-glp-foods-guide-scripts sk-scripts">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo" src="https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg" alt="Shark AI Marketing System">
+    <h1 class="sk-title">How to follow up with your <em>GLP Recipe Guide</em> leads</h1>
+    <p class="sk-sub">Use these scripts immediately after receiving a new recipe guide lead.</p>
+    <span class="sk-funnel"><i data-sk-icon="funnel"></i>GLP Recipe Guide Leads</span>
+  </header>
+
+  <div class="sk-util no-print">
+    <button type="button" class="sk-print" data-sk-print aria-label="Print this page or save it as a PDF">
+      <i data-sk-icon="printer"></i>Print or save as PDF
+    </button>
+  </div>
+
+  <section class="sk-group sk-group--vid" aria-label="Training video">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Watch first</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">1</span>
+    </div>
+
+    <article class="sk-card sk-vid" data-sk-reveal>
+      <div class="sk-frame" data-vimeo="1223424023" data-poster="https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280"
+           role="button" tabindex="0" aria-label="Funnel scripts training video">
+        <span class="sk-play"><i data-sk-icon="play"></i></span>
+      </div>
+      <p class="sk-vid-cap"><i data-sk-icon="eye"></i>Watch this before you start calling.</p>
+    </article>
+  </section>
+
+  <section class="sk-group" aria-label="What to do">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Do this, in order</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">3</span>
+    </div>
+
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
+      <div class="sk-step-head">
+        <span class="sk-num">1</span>
+        <div>
+          <h3 class="sk-step-name">Call them</h3>
+          <p class="sk-step-lead">They probably won't pick up, so leave this voicemail:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Hey <span class="sk-slot">[Name]</span>, it's <span class="sk-slot">[Your Name]</span>!</p>
+        <p>I saw you requested our free recipe guide featuring foods that may support your body's natural GLP-1 release. I'm going to text you the link now so you have it handy.</p>
+        <p>I can also send you information about some wellness products designed to support natural GLP-1 activity. If you're interested, just reply back to my text. No pressure at all.</p>
+        <p>If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, its usually three little lines. On an Android, look for the three-dot menu. You should be able to find any filtered messages there which is where my text to you might be.</p>
+        <p>Okay, that's all for now! Let me know if you received the text. Talk soon!</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the voicemail script">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy voicemail</span>
+      </button>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
+      <div class="sk-step-head">
+        <span class="sk-num">2</span>
+        <div>
+          <h3 class="sk-step-name">Text them</h3>
+          <p class="sk-step-lead">As soon as you hang up, send this:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Hey <span class="sk-slot">[Name]</span>, it's <span class="sk-slot">[Your Name]</span>! 👋 Just left you a quick voicemail - Here is the link to recipe guide you requested so you have it handy - <a href="https://assets.cdn.filesafe.space/DS2WOWmJ3mmZ0vCsxv8H/media/a6bd0d17-b134-4aff-b48f-7adde0e96fbe.pdf" target="_blank" rel="noopener" class="script-link" class="sk-url">https://assets.cdn.filesafe.space/DS2WOWmJ3mmZ0vCsxv8H/media/a6bd0d17-b134-4aff-b48f-7adde0e96fbe.pdf</a></p>
+        <p>Also - did you want to take a free look at Gut Advantage, a daily capsule designed to support a healthier gut? Since gut health can play an important role in your body's natural GLP-1 activity, it pairs perfectly with what you just learned in the guide. Just reply INFO and I'll hook you up.</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the text message script">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy text</span>
+      </button>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:3">
+      <div class="sk-step-head">
+        <span class="sk-num">3</span>
+        <div>
+          <h3 class="sk-step-name">Follow up in 24 hrs</h3>
+          <p class="sk-step-lead">If they don't respond within 24 hours, text again:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p><span class="sk-slot">[Name]</span>! Just following up on the above! 👆 Were you able to get the recipe guide? Want some info on the natural GLP-1 support products? Shoot me a text back - I can hook you up!</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the follow-up script">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy follow-up</span>
+      </button>
+    </li>
+    </ol>
+  </section>
+
+  <aside class="sk-tip" data-sk-reveal>
+    <i data-sk-icon="bulb"></i>
+    <div><strong>Tip:</strong> Personalize <span class="sk-slot">[Name]</span> and <span class="sk-slot">[Your Name]</span> every time. The recipe guide link is already in the text script - just hit Copy script and send it as-is.</div>
+  </aside>
+
+  <footer class="sk-foot">GLP Recipe Guide follow-up · Quick reference · Keep this handy by your phone</footer>
+
+</div>
+
+<script>/* shark-reveal.js — shared scroll-effects engine for hosted blocks.
+ *
+ * Load it from a block's block.js:
+ *   (function(){var s=document.createElement("script");
+ *    s.src="https://invokableapp.github.io/shark-pages/_shared/shark-reveal/v1/shark-reveal.js";
+ *    document.head.appendChild(s);})();
+ *
+ * It is declarative and design-agnostic: it only toggles classes and sets a
+ * --sk-i index. The block's own CSS decides what the motion looks like.
+ *
+ *   data-sk-reveal            element animates in when it enters the viewport (once)
+ *   data-sk-stagger           on a PARENT: its data-sk-reveal children get --sk-i 0,1,2…
+ *   data-sk-count="4200"      number counts up to this value the first time it is seen
+ *   data-sk-count-suffix="+"  appended after the counted number
+ *   data-sk-parallax="0.12"   translates on scroll by (progress * strength * height)
+ *
+ * PROGRESSIVE ENHANCEMENT, deliberately: this script adds `sk-motion` to <html>,
+ * and the hiding CSS is written as `.sk-motion [data-sk-reveal]{opacity:0}`. So if
+ * Pages is slow, the file 404s, or JS is off, every element renders fully visible.
+ * Never write the hidden state without the .sk-motion guard.
+ *
+ * Honours prefers-reduced-motion: everything is revealed at once, counters jump to
+ * their final value, parallax is skipped.
+ */
+(function () {
+  if (window.__sharkReveal) return;
+  window.__sharkReveal = true;
+
+  var root = document.documentElement;
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var io = "IntersectionObserver" in window;
+
+  if (calm || !io) { root.classList.add("sk-motion-off"); finishAll(); return; }
+  root.classList.add("sk-motion");
+
+  function finishAll() {
+    each("[data-sk-reveal]", function (el) { el.classList.add("sk-in"); });
+    each("[data-sk-count]", function (el) { el.textContent = fmt(+el.getAttribute("data-sk-count")) + suffix(el); });
+  }
+  function each(sel, fn) {
+    var n = document.querySelectorAll(sel);
+    for (var i = 0; i < n.length; i++) fn(n[i], i);
+  }
+  function suffix(el) { return el.getAttribute("data-sk-count-suffix") || ""; }
+  function fmt(v) { return v >= 1000 ? v.toLocaleString("en-US") : String(v); }
+
+  // stagger: index each revealing child of a data-sk-stagger parent
+  each("[data-sk-stagger]", function (p) {
+    var kids = p.querySelectorAll("[data-sk-reveal]");
+    for (var i = 0; i < kids.length; i++) kids[i].style.setProperty("--sk-i", i);
+  });
+
+  var revealer = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("sk-in");
+      revealer.unobserve(e.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  each("[data-sk-reveal]", function (el) { revealer.observe(el); });
+
+  // count-up, eased, ~1.1s
+  var counter = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      counter.unobserve(e.target);
+      run(e.target);
+    }
+  }, { threshold: 0.4 });
+  each("[data-sk-count]", function (el) {
+    el.textContent = "0" + suffix(el);
+    counter.observe(el);
+  });
+
+  function run(el) {
+    var target = +el.getAttribute("data-sk-count");
+    var dp = (el.getAttribute("data-sk-count-decimals") | 0);
+    var sfx = suffix(el), t0 = null, DUR = 1100;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var v = target * eased;
+      el.textContent = (dp ? v.toFixed(dp) : fmt(Math.round(v))) + sfx;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = (dp ? target.toFixed(dp) : fmt(target)) + sfx;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // parallax — transform only, batched into one rAF, never touches layout
+  var pxs = document.querySelectorAll("[data-sk-parallax]");
+  if (pxs.length) {
+    var ticking = false;
+    var tick = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      for (var i = 0; i < pxs.length; i++) {
+        var el = pxs[i], r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;
+        var progress = (r.top + r.height / 2 - vh / 2) / vh;   // -1 … 1 through the viewport
+        var strength = parseFloat(el.getAttribute("data-sk-parallax")) || 0.1;
+        el.style.transform = "translate3d(0," + (-progress * strength * r.height).toFixed(2) + "px,0)";
+      }
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    tick();
+  }
+})();
+</script>
+<script>/* scripts.js: shared behaviour for every "funnel scripts" page.
+ *
+ * Loaded from each block's block.js. Four jobs, nothing else:
+ *
+ *   1. COPY. The reason the page exists. A rep taps Copy and pastes the script
+ *      into their messages app, so what lands on the clipboard has to be what
+ *      they would have typed: plain text, blank line between paragraphs, the
+ *      bracketed slots intact, and any link as a bare URL rather than as link
+ *      text. Never innerHTML, never a trailing "Copy script" label.
+ *
+ *   2. VIDEO FACADE. Markup ships a poster and a play button, never an iframe.
+ *      The vimeo player is only injected on click. Design system 4.
+ *
+ *   3. PRINT. Reps keep this sheet by the phone. The button just calls print();
+ *      the whole deliverable is the @media print block in scripts.css.
+ *
+ *   4. ICONS. Inline SVG path data from one map, per design system 4: never an
+ *      icon font, never a remote sprite.
+ *
+ * The scroll-reveal engine is shared separately (_shared/shark-reveal/v1/shark-reveal.js)
+ * and is pulled in by each block.js alongside this file.
+ */
+(function () {
+  if (window.__sharkScripts) return;
+  window.__sharkScripts = true;
+
+  var NS = "http://www.w3.org/2000/svg";
+
+  /* 24x24 viewBox, fill none, stroke currentColor. Keep new entries in this shape. */
+  var I = {
+    play:    "M7 4.5v15l13-7.5z",
+    funnel:  "M3 4h18l-7 8v7l-4 2v-9z",
+    copy:    "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z",
+    check:   "M4.5 12.5l5 5 10-11",
+    printer: "M7 8.5V4h10v4.5M7 17.5H5.5A1.5 1.5 0 014 16v-5a1.5 1.5 0 011.5-1.5h13A1.5 1.5 0 0120 11v5a1.5 1.5 0 01-1.5 1.5H17M7 14h10v6H7z",
+    bulb:    "M9.5 17.5h5M10 20.5h4M12 3.5a5.5 5.5 0 00-3.2 9.97c.5.36.8.94.8 1.56v.47h4.8v-.47c0-.62.3-1.2.8-1.56A5.5 5.5 0 0012 3.5z",
+    eye:     "M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12zM12 14.8a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6z"
+  };
+
+  function icon(name) {
+    var d = I[name];
+    if (!d) return null;
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.7");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.setAttribute("aria-hidden", "true");
+    var p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    /* the play triangle reads as a solid mark, not an outline */
+    if (name === "play") { p.setAttribute("fill", "currentColor"); svg.setAttribute("stroke-width", "1"); }
+    svg.appendChild(p);
+    return svg;
+  }
+
+  function paintIcons(scope) {
+    var els = scope.querySelectorAll("[data-sk-icon]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.firstElementChild) continue;
+      var svg = icon(el.getAttribute("data-sk-icon"));
+      if (svg) el.appendChild(svg);
+    }
+  }
+
+  /* Paragraph to plain text.
+     innerText alone is nearly right and wrong in one place that matters: a link
+     whose visible text is not its URL would paste as words with the address
+     dropped, and the address IS the thing the lead needs. So an anchor gives up
+     its href whenever the two differ. */
+  function paraText(p) {
+    var out = "";
+    var walk = function (node) {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        var n = node.childNodes[i];
+        if (n.nodeType === 3) { out += n.nodeValue; continue; }
+        if (n.nodeType !== 1) continue;
+        if (n.tagName === "BR") { out += "\n"; continue; }
+        if (n.tagName === "A") {
+          var txt = (n.textContent || "").trim();
+          var href = n.getAttribute("href") || "";
+          out += (txt && href && txt.replace(/\/$/, "") !== href.replace(/\/$/, "")) ? txt + " " + href : (txt || href);
+          continue;
+        }
+        walk(n);
+      }
+    };
+    walk(p);
+    return out.replace(/[ \t]+/g, " ").trim();
+  }
+
+  function scriptText(box) {
+    var ps = box.querySelectorAll("p");
+    var parts = [];
+    for (var i = 0; i < ps.length; i++) {
+      var t = paraText(ps[i]);
+      if (t) parts.push(t);
+    }
+    /* blank line between paragraphs: this is how it reads in a messages app */
+    return parts.join("\n\n");
+  }
+
+  /* Label swaps to a confirmation for 1.9s, then restores, so the rep gets
+     feedback without a toast or a layout shift. execCommand is the fallback:
+     the clipboard API needs a secure context, and a GHL page on a not-yet-SSL
+     domain is exactly where this would otherwise fail silently. */
+  function copyText(text, btn) {
+    var label = btn.querySelector("[data-copy-label]") || btn;
+    var was = label.textContent;
+    var done = function () {
+      btn.setAttribute("data-done", "true");
+      label.textContent = btn.getAttribute("data-copy-done") || "Copied";
+      setTimeout(function () { btn.removeAttribute("data-done"); label.textContent = was; }, 1900);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacy(text, done); });
+    } else legacy(text, done);
+  }
+
+  function legacy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* nothing else to try */ }
+    document.body.removeChild(ta);
+  }
+
+  function playVideo(frame) {
+    if (frame.getAttribute("data-playing") === "true") return;
+    var id = frame.getAttribute("data-vimeo");
+    if (!id) return;
+    var f = document.createElement("iframe");
+    f.src = "https://player.vimeo.com/video/" + encodeURIComponent(id) +
+            "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
+    f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("title", frame.getAttribute("aria-label") || "Training video");
+    f.setAttribute("loading", "lazy");
+    frame.setAttribute("data-playing", "true");
+    frame.appendChild(f);
+  }
+
+  function wire(scope) {
+    paintIcons(scope);
+
+    var copiers = scope.querySelectorAll("[data-sk-copy]");
+    for (var c = 0; c < copiers.length; c++) {
+      (function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var step = btn.closest(".sk-step") || scope;
+          var src = step.querySelector(".sk-script");
+          if (src) copyText(scriptText(src), btn);
+        });
+      })(copiers[c]);
+    }
+
+    var printers = scope.querySelectorAll("[data-sk-print]");
+    for (var p = 0; p < printers.length; p++) {
+      printers[p].addEventListener("click", function (e) { e.preventDefault(); window.print(); });
+    }
+
+    var frames = scope.querySelectorAll("[data-vimeo]");
+    for (var i = 0; i < frames.length; i++) {
+      (function (frame) {
+        /* the poster is a background-image so it never counts as a broken <img>
+           in a headless check and never reflows the card while loading */
+        var poster = frame.getAttribute("data-poster");
+        if (poster) frame.style.backgroundImage = "url('" + poster + "')";
+        frame.addEventListener("click", function () { playVideo(frame); });
+        frame.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVideo(frame); }
+        });
+      })(frames[i]);
+    }
+  }
+
+  function boot() {
+    var blocks = document.querySelectorAll(".sk-scripts");
+    for (var i = 0; i < blocks.length; i++) wire(blocks[i]);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+</body>
+</html>

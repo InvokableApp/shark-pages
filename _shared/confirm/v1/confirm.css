@@ -554,3 +554,87 @@
    frame instead of letting the emptiness accumulate. Opt-in, on the phone element itself,
    so nothing already published changes. */
 .sk-conf .sk-conf-phone-short .sk-conf-phone-screen{aspect-ratio:9/13.5}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   MOBILE ABOVE-THE-FOLD CTA (added 2026-09-02, Beneve Hormone Lunchbox split test B)
+
+   Measured, not guessed. On the group confirmation the button sat at 1879px on a
+   393x852 iPhone, 1027px BELOW the fold, and 1337px below it on a 360x640. The
+   cause is structural rather than cosmetic: the card's media cell is a 9:19.5 phone
+   mockup, so on a single-column mobile layout an entire handset stands between the
+   reader and the thing you want them to press.
+
+   Three additive variants, all namespaced, all mobile-only. Every page already on
+   this component renders byte-identically because none of them carries these
+   classes, and nothing here touches the desktop layout at any width.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. tight hero: `sk-conf-top-tight` on the block root ──────────────────────
+   The confirmation line still has to be the first thing read (someone is checking
+   an email arrived), so it is shrunk rather than moved or dropped. Desktop keeps
+   the full-size hero: there is no fold problem there. */
+@media (max-width:860px){
+  .sk-conf-top-tight .sk-conf-top{padding:1.9rem 0 1.5rem}
+  .sk-conf-top-tight .sk-conf-top h1{font-size:1.55rem;line-height:1.15}
+  .sk-conf-top-tight .sk-conf-top .sk-conf-pill{
+    margin-bottom:1rem;padding:.45rem 1rem;font-size:.72rem;
+  }
+  .sk-conf-top-tight .sk-conf-top .sk-conf-note{margin-top:.9rem;font-size:.94rem}
+  .sk-conf-top-tight .sk-conf-kicker{margin-top:.6rem;font-size:.98rem}
+  .sk-conf-top-tight .sk-conf-offer{padding-top:1.1rem}
+}
+
+/* ── 2. CTA first: `sk-conf-card-cta-first` on the card ────────────────────────
+   Two reorderings, both mobile-only, both by flex `order` so the DOM keeps its
+   reading order for screen readers and for the desktop layout:
+     a) the copy cell comes before the media cell (say the offer, then show it)
+     b) inside the copy cell the ask + button jump above the body paragraphs
+   The paragraphs are not hidden or truncated. They sit under the button, which is
+   where someone who wants the detail will look anyway. */
+@media (max-width:860px){
+  .sk-conf-card-cta-first{display:flex;flex-direction:column}
+  .sk-conf-card-cta-first .sk-conf-card-copy{order:1;border-left:0;border-top:0}
+  .sk-conf-card-cta-first .sk-conf-card-media{
+    order:2;border-top:1px solid var(--sk-line,#e3e8ef);padding-top:1.5rem;
+  }
+  .sk-conf-card-cta-first .sk-conf-card-copy{display:flex;flex-direction:column}
+  .sk-conf-card-cta-first .sk-conf-badge{order:1}
+  .sk-conf-card-cta-first .sk-conf-card-copy h2{order:2}
+  .sk-conf-card-cta-first .sk-conf-ask{order:3;margin-top:.9rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btns{order:4;margin-top:.9rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask){order:5}
+  .sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask):first-of-type{margin-top:1.3rem}
+}
+
+/* ── 3. the mockup is PROOF, so it may shrink ─────────────────────────────────
+   Below the button it only has to be recognisable as a group thread. Capping it
+   also stops a 9:19.5 box from adding a second screen of scroll on a small phone. */
+@media (max-width:860px){
+  .sk-conf-card-cta-first .sk-conf-phone{max-width:208px}
+  .sk-conf-card-cta-first .sk-conf-phone-cap{font-size:.76rem}
+}
+
+/* ── 4. small phones need more than the 860px tier gives ──────────────────────
+   At 375x667 and 360x640 the button still started at 629px and 647px, i.e. its
+   top was on screen but its body was cut by the fold. "Above the fold" has to mean
+   the whole control is visible and pressable, so the target is
+   top + height <= viewport, not top <= viewport.
+
+   Everything below trims the run-up (hero, badge, headline) rather than the ask
+   line, which sits directly above the button and is doing the persuading. */
+@media (max-width:400px){
+  .sk-conf-top-tight .sk-conf-top{padding:1.4rem 0 1.1rem}
+  .sk-conf-top-tight .sk-conf-top h1{font-size:1.32rem}
+  .sk-conf-top-tight .sk-conf-top .sk-conf-pill{
+    margin-bottom:.75rem;padding:.38rem .85rem;font-size:.67rem;
+  }
+  .sk-conf-top-tight .sk-conf-top .sk-conf-note{margin-top:.7rem;font-size:.88rem}
+  .sk-conf-top-tight .sk-conf-kicker{margin-top:.5rem;font-size:.92rem}
+  .sk-conf-top-tight .sk-conf-offer{padding-top:.75rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy{padding:1.25rem 1.15rem}
+  .sk-conf-card-cta-first .sk-conf-badge{margin-bottom:.7rem;padding:.4rem .85rem;font-size:.7rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy h2{font-size:1.42rem}
+  .sk-conf-card-cta-first .sk-conf-ask{margin-top:.7rem;font-size:.95rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btns{margin-top:.75rem}
+  .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btn{padding:.95rem 1.1rem;font-size:.98rem}
+}

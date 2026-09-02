@@ -1,0 +1,64 @@
+{
+ "system": "conectiv",
+ "funnel": "conectiv-shark-scripts",
+ "page": "investment-quiz-scripts",
+ "funnelId": "3VKpfMlZb4qTClQJ6NPj",
+ "pageId": "FfOuIgwDRJEjbbYEFmf0",
+ "stepName": "Investment Quiz Scripts",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv Shark AI Marketing System",
+ "title": "How to follow up with your Investing Quiz leads",
+ "titleHtml": "How to follow up with your <em>Investing Quiz</em> leads",
+ "sub": "Use these scripts immediately after receiving a new investing quiz lead.",
+ "funnelLabel": "Investing Quiz Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you took our investing quiz, so I wanted to follow up and send you some information you may find useful.",
+    "Since you were exploring whether investing might be right for you, I thought you might be interested in a way to <strong>learn more about investing while getting real-time alerts on market opportunities and activity</strong>.",
+    "It's designed to help you stay informed and learn as you go, rather than trying to figure everything out on your own.",
+    "If you're curious about how it works, just reply back to my text and I'll send you the details. No pressure at all!",
+    "If you don't see my text, check your <strong>Unknown Senders or Spam folder</strong>. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app. On an Android, look for the three-dot menu. You should be able to find any filtered messages there, which is where my text might be.",
+    "Okay, that's all for now! Let me know if you got the text. Talk soon!"
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. I saw you took our investing quiz, so I wanted to send you some information you may find useful.",
+    "Since you were exploring whether investing might be right for you, I thought you might be interested in a way to <strong>learn more about investing while getting real-time alerts on market opportunities and activity</strong>.",
+    "It's designed to help you stay informed and learn as you go, rather than trying to figure everything out on your own.",
+    "If you're curious about how it works, just reply <strong>INVESTING</strong> and I'll send you the details!"
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't respond within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on the above! 👆 Were you able to check out the information I sent over? If you're interested in learning more about investing and getting real-time alerts on market opportunities and activity, shoot me a text back and I'll send you the details!"
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. The investing follow-up copy is already in the scripts - just hit Copy script and send it as-is.",
+ "footer": "Investing Quiz follow-up · Quick reference · Keep this handy by your phone"
+}

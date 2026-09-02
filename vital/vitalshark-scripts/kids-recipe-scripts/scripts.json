@@ -1,0 +1,63 @@
+{
+ "system": "vital",
+ "funnel": "vitalshark-scripts",
+ "page": "kids-recipe-scripts",
+ "funnelId": "cAQy2RlDVpgf1r0cUVAv",
+ "pageId": "AARIOg3zaFtTIPDV5tc1",
+ "stepName": "Einstein Kids Recipe Follow Up Scripts",
+ "logo": "https://assets.cdn.filesafe.space/iJXzpXuRGM6dHvyhTJkj/media/a06793d0-76e6-4ba4-9f23-fc483cf7e47e.svg",
+ "logoAlt": "Vital Shark AI Marketing System",
+ "title": "How to follow up with your Kids Recipe Guide leads",
+ "titleHtml": "How to follow up with your <em>Kids Recipe Guide</em> leads",
+ "sub": "Use these scripts immediately after receiving a new recipe guide lead.",
+ "funnelLabel": "Kids Recipe Guide Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you requested our free kids recipe guide. I'm going to text you the link now so you have it handy and can check out all the recipes.",
+    "Also, since you're looking for healthy ideas for your kids, I can send you some info on a kids wellness line I've been really excited about lately. It includes supplements and nutrition products designed specifically with kids in mind.",
+    "If you're curious about it, just reply back to my text and I'll send you the details. No pressure at all!",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app. On an Android, look for the three-dot menu. You should be able to find any filtered messages there, which is where my text might be.",
+    "Okay, that's all for now! Let me know if you got the text. Talk soon!"
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. Here's the link to the kids recipe guide you requested so you have it handy:",
+    "<a href=\"https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/2f7dd4a8-c73e-4910-adca-4a7f65263405.pdf\" target=\"_blank\" rel=\"noopener\">https://assets.cdn.filesafe.space/FARA5f6fZAfOIsNbABzr/media/2f7dd4a8-c73e-4910-adca-4a7f65263405.pdf</a>",
+    "Have you ever looked at your child's plate and thought, <strong>\"Are they actually getting everything they need?\"</strong> 🤔 Between picky eating, skipped meals and kids suddenly deciding they hate foods they used to love, keeping their nutrition on track can be frustrating. I've been looking at a <strong>kids wellness line with nutrition and supplement options designed specifically for children</strong>, and I thought you might want to check it out.",
+    "<strong>Reply KIDS and I'll send you a quick look.</strong>"
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't respond within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on the above! 👆 Were you able to get the recipe guide? Want some info on the kids vitamins I mentioned? Shoot me a text back - I can hook you up!"
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. The recipe guide link is already in the text script - just hit Copy script and send it as-is.",
+ "footer": "Kids Recipe Guide follow-up · Quick reference · Keep this handy by your phone"
+}

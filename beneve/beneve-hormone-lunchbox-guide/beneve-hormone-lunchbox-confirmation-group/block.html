@@ -21,6 +21,16 @@
   group is not a perimenopause group, and a woman in her thirties with the same complaints has
   to read this and see herself in it.
 
+  MOBILE: THE BUTTON MUST BE ABOVE THE FOLD (Jeff, 2026-09-02). It was at 1879px on a 393x852
+  iPhone, 1027px below it, because the 9:19.5 phone mockup stands between the reader and the CTA
+  on a single-column layout. Fixed with `sk-conf-top-tight` + `sk-conf-card-cta-first` from
+  _shared/confirm/v1, which shrink the hero and reorder the card on mobile only. If you edit the
+  copy here, RE-MEASURE: a third headline line or an extra sentence in the ask puts it back under.
+
+  "Free" is BACK, and only in this context. The standing rule (shark-brand-voice) is that "free"
+  claims no ground on a Facebook group, since they all are. As a BONUS sitting beside a paid
+  product that reading flips: it is naming which half costs nothing. Jeff ruled it in, 2026-09-02.
+
   ⚠️ NEVER SELL THE GROUP BY DOWNGRADING THE GUIDE. This card said the group is where "the
   honest bits" go, which tells a reader holding our PDF that the PDF is not the honest bit. Any
   comparative that lifts the group by lowering the guide is out. It is somewhere to go, not
@@ -72,7 +82,7 @@
 
   No em-dashes.
 -->
-<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-bnv">
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-top-tight sk-conf-bnv">
 
   <!-- ===================== BAND 1 · the confirmation =====================
        Copied from variant A without a word changed. See the header. -->
@@ -96,7 +106,7 @@
   <!-- ===================== BAND 2 · the group invitation ===================== -->
   <section class="sk-conf-offer">
     <div class="sk-conf-wrap">
-      <div class="sk-conf-card">
+      <div class="sk-conf-card sk-conf-card-cta-first">
 
         <!-- ── media cell · the drawn group thread ──────────────────────────
              `sk-conf-phone` from _shared/confirm/v1. Four messages, in the order a
@@ -129,9 +139,11 @@
 
         <!-- ── copy cell · the invitation ────────────────────────────────── -->
         <div class="sk-conf-card-copy">
-          <span class="sk-conf-badge">🌿 Private support group</span>
+          <span class="sk-conf-badge">🎁 Bonus offer</span>
 
-          <h2>You Are Not The Only One Whose Hormones Stopped Cooperating.</h2>
+          <h2>Join Our Free Facebook Support Group.</h2>
+
+          <p class="sk-conf-ask">Where we support each other in our holistic approach to navigating our hormonal struggles. <u>Click below and we will add you...</u></p>
 
           <p>
             Your guide gives you the food. What it cannot give you is the other women dealing with
@@ -140,14 +152,11 @@
           </p>
 
           <p>
-            We run a private support group for women learning to manage their hormones through
-            diet and lifestyle. It is where the day to day goes: the 3pm crash, the 3am wake ups,
-            the weight that moved and will not move back, what somebody tried last month that
-            actually helped. No pressure to post, nobody telling you it is all in your head, and
-            plenty worth reading even on the weeks you say nothing.
+            It is where the day to day goes: the 3pm crash, the 3am wake ups, the weight that
+            moved and will not move back, what somebody tried last month that actually helped. No
+            pressure to post, nobody telling you it is all in your head, and plenty worth reading
+            even on the weeks you say nothing.
           </p>
-
-          <p class="sk-conf-ask">Want in? <u>Click below and we will add you...</u></p>
 
           <!-- The button OPENS THE PAGE POPUP rather than navigating. The popup carries the
                rep's name, which the reader has to give as their referral when Facebook asks

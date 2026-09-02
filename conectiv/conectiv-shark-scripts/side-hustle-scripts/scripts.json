@@ -1,0 +1,63 @@
+{
+ "system": "conectiv",
+ "funnel": "conectiv-shark-scripts",
+ "page": "side-hustle-scripts",
+ "funnelId": "3VKpfMlZb4qTClQJ6NPj",
+ "pageId": "wQKZ5OjrXiCSR5ZQCVMJ",
+ "stepName": "Side Hustle Quiz Scripts",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv Shark AI Marketing System",
+ "title": "How to follow up with your Side Hustle Quiz leads",
+ "titleHtml": "How to follow up with your <em>Side Hustle Quiz</em> leads",
+ "sub": "Use these scripts immediately after receiving a new side hustle quiz lead.",
+ "funnelLabel": "Side Hustle Quiz Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you took our \"What Side Hustle Is Right For You?\" quiz, and Conectiv came up as your result.",
+    "What I think is really interesting is how simple the sharing side can be. You have physical wellness products to share, plus digital benefits like travel perks and financial education. You also have your own referral links and a compensation plan with multiple ways to earn based on product sales and building a customer or affiliate network. If you're open to it, I can text you a quick overview.",
+    "If you're curious, just reply back to my text and I'll send you the details. No pressure at all!",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app. On an Android, look for the three-dot menu. You should be able to find any filtered messages there, which is where my text might be.",
+    "Okay, that's all for now! Let me know if you got the text. Talk soon!"
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. I saw you took the \"What Side Hustle Is Right For You?\" quiz, and Conectiv came up as your result.",
+    "Quick question - would you be open to seeing how the compensation plan works? What caught my attention is that there's more than one thing you can share, from physical wellness products to digital benefits like travel perks and financial education. You have your own referral links, and the plan includes multiple ways to earn from product sales and building a customer or affiliate network. I can send you a quick overview if you're curious.",
+    "If you're curious, just reply <strong>INFO</strong> and I'll send you the quick overview!"
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't respond within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on my text above! 👆 You probably haven't had a chance to see the Conectiv compensation plan yet, but it's actually one of the things that makes this opportunity pretty interesting. There are multiple ways to earn, and you have a mix of physical wellness products and digital benefits like travel perks and financial education that you can share with people.",
+    "If you want, I can send you a quick look at how it works. Just text me back <strong>INFO</strong> and I'll send it over!"
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. Keep it conversational and focus on the simple sharing model, variety of physical and digital products, and compensation plan rather than trying to explain everything at once.",
+ "footer": "Side Hustle Quiz follow-up · Quick reference · Keep this handy by your phone"
+}
