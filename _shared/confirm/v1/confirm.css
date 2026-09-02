@@ -546,3 +546,11 @@
 .sk-conf-light .sk-conf-num-n{color:var(--sk-ink,#16233d)}
 .sk-conf .sk-conf-mid .sk-conf-num-t,
 .sk-conf-light .sk-conf-num-t{color:var(--sk-body,#4a5568)}
+
+/* A SHORT EXCHANGE NEEDS A SHORTER PHONE ─ additive 2026-09-02.
+   The 9:19.5 frame is a real handset and is right for the three-bubble conversations it
+   was built for. A two-bubble exchange in it is two thirds empty, and at this width that
+   reads as a rendering fault rather than as a fresh thread. This variant states a shorter
+   frame instead of letting the emptiness accumulate. Opt-in, on the phone element itself,
+   so nothing already published changes. */
+.sk-conf .sk-conf-phone-short .sk-conf-phone-screen{aspect-ratio:9/13.5}
