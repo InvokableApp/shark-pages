@@ -1,0 +1,28 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-free-coffee-sample",
+ "funnelName": "Free ALIVE Sample",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv",
+ "videos": [],
+ "links": [
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "This funnel does not deliver anything by itself. You post the sample, so the scripts are the funnel. Call, text, confirm the address, then follow up once it lands.",
+   "label": "Open the scripts",
+   "url": "https://conectivshark.com/free-coffee-sample-scripts",
+   "primary": true
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Read how this one differs, grab the scripts, then start sending traffic."
+}
