@@ -240,6 +240,24 @@
       "elementTitle": "free-sample-optin",
       "pattern": "A",
       "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "conectiv-shark-scripts/free-coffee-sample-scripts",
+      "funnelId": "3VKpfMlZb4qTClQJ6NPj",
+      "pageId": "bWvstm4FHXKfEpmfMGGk",
+      "elementId": "custom-code-guOFVBHfbl",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/c-free-coffee-sample",
+      "funnelId": "NxhMaUT78Iqooq67MnHX",
+      "pageId": "F2awLkDdigXmpujQQGt9",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }

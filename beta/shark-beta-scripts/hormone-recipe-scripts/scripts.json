@@ -9,9 +9,9 @@
  "logoAlt": "Shark AI Marketing System",
  "title": "How to follow up with your Hormone Lunchbox Recipe Guide leads",
  "titleHtml": "How to follow up with your <em>Hormone Lunchbox Recipe Guide</em> leads",
- "sub": "Use these scripts immediately after receiving a new Hormone Lunchbox Recipe Guide lead.",
+ "sub": "Two scripts. Send the one that matches what your lead just did.",
  "funnelLabel": "Hormone Lunchbox Recipe Guide Leads",
- "stepsLabel": "Do this, in order",
+ "stepsLabel": "Pick the one that fits your lead",
  "video": {
   "vimeo": "1223424023",
   "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
@@ -21,40 +21,27 @@
  "steps": [
   {
    "num": "1",
-   "title": "Call them",
-   "lead": "They probably won't pick up, so leave this voicemail:",
+   "title": "They downloaded the guide",
+   "lead": "Most of your leads. Text this soon after they opt in:",
    "script": [
-    "Hey [Name], it's [Your Name]!",
-    "I saw you requested our free Hormone Lunchbox Recipe Guide featuring recipes designed to help support your hormones. I'm going to text you the link now so you have it handy.",
-    "I can also send you information about Glutathione, a wellness product that can be a great addition to your daily hormone-support routine. If you're interested, just reply back to my text. No pressure at all.",
-    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, its usually three little lines. On an Android, look for the three-dot menu. You should be able to find any filtered messages there which is where my text to you might be.",
-    "Okay, that's all for now! Let me know if you received the text. Talk soon!"
+    "Hey [Name], this is [Your Name]! I made the Hormone Lunchbox Recipe Guide you just got in your email, let me know if you have any questions!",
+    "BTW, I also run a Facebook group that is a support system for people who are using holistic methods to improve their life. Would love to have you there! [your Facebook group link]"
    ],
-   "copyButton": "Copy voicemail",
-   "copyLabel": "Copy the voicemail script"
+   "copyButton": "Copy this text",
+   "copyLabel": "Copy the script for a lead who downloaded the guide"
   },
   {
    "num": "2",
-   "title": "Text them",
-   "lead": "As soon as you hang up, send this:",
+   "title": "They clicked to join your Facebook group",
+   "lead": "You get a text the moment this happens. Reply while they are still on their phone:",
    "script": [
-    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail - Here is the link to the Hormone Lunchbox Recipe Guide you requested so you have it handy - <a href=\"https://assets.cdn.filesafe.space/DS2WOWmJ3mmZ0vCsxv8H/media/80846291-63b4-45ed-8593-575603003dbf.pdf\" target=\"_blank\" rel=\"noopener\" class=\"script-link\">https://assets.cdn.filesafe.space/DS2WOWmJ3mmZ0vCsxv8H/media/80846291-63b4-45ed-8593-575603003dbf.pdf</a>",
-    "Also - did you want to take a free look at Glutathione, a wellness product that can be a great addition to your daily hormone-support routine? If things like low energy, stubborn weight, mood changes, or just not feeling quite like yourself have been frustrating you, this may be worth checking out. Just reply <strong>INFO</strong> and I'll hook you up."
+    "Hey [Name], this is [Your Name], just saw you clicked to join the Facebook group I run. I'll check now and add you.",
+    "Feel free to reach out to me here if you have any questions about the Hormone Lunchbox Recipe Guide. Would love for you to introduce yourself in the group as well, we love meeting new people and hearing their stories!"
    ],
-   "copyButton": "Copy text",
-   "copyLabel": "Copy the text message script"
-  },
-  {
-   "num": "3",
-   "title": "Follow up in 24 hrs",
-   "lead": "If they don't respond within 24 hours, text again:",
-   "script": [
-    "[Name]! Just following up on the above! 👆 Were you able to get the Hormone Lunchbox Recipe Guide? Want some info on the Glutathione I mentioned? Shoot me a text back - I can hook you up!"
-   ],
-   "copyButton": "Copy follow-up",
-   "copyLabel": "Copy the follow-up script"
+   "copyButton": "Copy this text",
+   "copyLabel": "Copy the script for a lead who asked to join the group"
   }
  ],
- "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name] every time. The Hormone Lunchbox Recipe Guide link is already in the text script - just hit Copy script and send it as-is.",
+ "tip": "<strong>Tip:</strong> Swap [Name], [Your Name] and [your Facebook group link] every time. Paste your own group link once, save the script in your phone, and it is a two second reply after that.",
  "footer": "Hormone Lunchbox Recipe Guide follow-up · Quick reference · Keep this handy by your phone"
 }
