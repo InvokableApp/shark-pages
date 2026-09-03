@@ -1,0 +1,21 @@
+{
+ "system": "funnelshark",
+ "blocks": [
+  {
+   "path": "r-private-briefing/r-private-briefing",
+   "funnelId": "Fjz34o0dXjwh5WEPQagB",
+   "pageId": "K2fsyp8QC68kgRW6efYW",
+   "elementId": "custom-code-yfsaozwgim",
+   "elementTitle": "r-private-briefing",
+   "pattern": "A"
+  },
+  {
+   "path": "r-private-briefing/r-private-briefing-next-step",
+   "funnelId": "Fjz34o0dXjwh5WEPQagB",
+   "pageId": "4iSmaAndTDCJQxwO6Tks",
+   "elementId": "custom-code-ifolnixhma",
+   "elementTitle": "r-private-briefing-next-step",
+   "pattern": "A"
+  }
+ ]
+}

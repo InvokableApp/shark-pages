@@ -1,0 +1,92 @@
+<!--
+  funnelshark/r-private-briefing/r-private-briefing
+  The private business briefing opt-in page. Recruiting lander for the referral opportunity.
+
+  STRUCTURE IS READ OFF keepingitbeal.com (2026-09-03), not invented, and cleaned up in three
+  ways Jeff asked for:
+    1. THE FORM IS GONE FROM THE PAGE. It lives in the GHL page's own popup now. Every CTA here
+       carries `data-sk-open` and the shared engine dispatches `customWidgetOpenPopup`, the
+       no-argument window event GHL ships for this. No popup id anywhere, so the block is
+       account-agnostic and survives a snapshot install (HOSTED-BLOCKS-SOP section 7).
+       Constraint that comes with it: ONE popup on this page.
+    2. NO SOURCE BRANDING. The header wordmark and the footer name the REP, never a company.
+    3. The hero video is a click-to-load facade instead of an eager YouTube iframe.
+
+  EVERYTHING PERSONAL IS A CUSTOM VALUE, so one design serves every rep:
+    br_rep_full_name       the rep's name, in the header, the eyebrow and the footer
+    br_briefing_video_id   their briefing video. Bare id or any YouTube url; the engine parses it.
+  Both render as ABSENT when unfilled, never as a placeholder, so a buyer can see what still
+  needs filling (HOSTED-BLOCKS-SOP section 4).
+
+  Design and behaviour live in _shared/brief/v1/, scoped .sk-brf; block.css holds only the palette.
+-->
+<div class="sk-brf sk-brf-private-briefing">
+
+  <header class="sk-brf-head">
+    <span class="sk-brf-mark">Private Business Briefing</span>
+    <span class="sk-brf-by" data-sk-needs="{{custom_values.br_rep_full_name}}">{{custom_values.br_rep_full_name}}</span>
+  </header>
+
+  <section class="sk-brf-hero">
+
+    <p class="sk-brf-eyebrow">
+      <i aria-hidden="true"></i>
+      <span data-sk-needs="{{custom_values.br_rep_full_name}}">A private overview from {{custom_values.br_rep_full_name}}</span>
+      <span data-sk-else="{{custom_values.br_rep_full_name}}" hidden>A private overview</span>
+      <i aria-hidden="true"></i>
+    </p>
+
+    <h1>What if you could build residual income without selling anything?</h1>
+
+    <p class="sk-brf-lede">If you know businesses or people who work with businesses, you need to
+      see this.</p>
+
+    <!-- Ships hidden. The engine fills the poster and reveals it, or removes the frame
+         entirely when the video custom value is unfilled. -->
+    <div class="sk-brf-video" data-sk-video hidden
+         data-yt="{{custom_values.br_briefing_video_id}}"
+         data-title="Private business briefing"></div>
+
+    <ul class="sk-brf-nolist" aria-label="What is not required">
+      <li><i aria-hidden="true"></i>No products to sell</li>
+      <li><i aria-hidden="true"></i>No services to sell</li>
+      <li><i aria-hidden="true"></i>Nothing to buy</li>
+      <li><i aria-hidden="true"></i>No autoships</li>
+      <li><i aria-hidden="true"></i>No team building required</li>
+      <li><i aria-hidden="true"></i>No money out of pocket to get started</li>
+    </ul>
+
+    <div class="sk-brf-explain">
+      <p>You simply help connect businesses to a program designed to <strong>help them save money
+        and provide valuable benefits to their employees.</strong></p>
+    </div>
+
+    <p class="sk-brf-stat">You make the connection. You can create recurring income.</p>
+
+    <button type="button" class="sk-brf-cta" data-sk-open>
+      Show me how it works <i aria-hidden="true">&rarr;</i>
+    </button>
+
+  </section>
+
+  <section class="sk-brf-access" aria-labelledby="sk-brf-access-title">
+    <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Private access<i aria-hidden="true"></i></p>
+    <h2 id="sk-brf-access-title">This is where it gets interesting.</h2>
+    <span class="sk-brf-access-lede">Enter your information and you get the private presentation
+      straight away: exactly how this works, how you can participate, and what the next steps
+      look like.</span>
+    <strong class="sk-brf-nopressure">No purchase. No obligation. Earnings are not guaranteed and
+      depend on individual activity and results.</strong>
+    <button type="button" class="sk-brf-cta" data-sk-open>
+      Unlock the private presentation <i aria-hidden="true">&rarr;</i>
+    </button>
+    <p class="sk-brf-note">Takes about 30 seconds.</p>
+  </section>
+
+  <footer class="sk-brf-foot">
+    <span>&copy; <span data-sk-year>2026</span> <span data-sk-needs="{{custom_values.br_rep_full_name}}">{{custom_values.br_rep_full_name}}</span></span>
+    <span>Becoming an agent does not require a purchase. Earnings are not guaranteed and depend on
+      individual activity and results.</span>
+  </footer>
+
+</div>

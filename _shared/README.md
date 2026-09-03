@@ -35,6 +35,9 @@ confirmation page" are the same action, and nothing tells you which one you did.
 
 | Component | Scope class | What it is |
 |---|---|---|
+| `brief/` | `.sk-brf` | private-briefing opt-in page: an opportunity/recruiting lander with a
+video briefing instead of a downloadable magnet, so it carries editorial serif type and hairline
+rules rather than product imagery. Form lives in the page popup. |
 | `capture/` | `.sk-cap` | lead-magnet capture page |
 | `confirm/` | `.sk-conf` | confirmation page (post opt-in) |
 | `diagnostic-capture/` | `.sk-dcap` | lander of a diagnostic funnel: full-bleed material photography, one CTA, no lead magnet to picture |

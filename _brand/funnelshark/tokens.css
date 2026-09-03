@@ -1,0 +1,39 @@
+/* funnelshark brand tokens.
+ *
+ * Sampled from keepingitbeal.com 2026-09-03, not invented: ivory #f5f1e8 is the page ground,
+ * paper #fbf9f4 the raised surfaces, paper-deep #eee7da the tinted band, charcoal #20201d the
+ * type and the solid button, and bronze #987b4d / #6d5531 the single accent metal.
+ *
+ * The 11 key names are the house schema and are ROLES, not hues: navy = primary/darkest,
+ * teal = accent, sage = tinted band, mist = page ground, cream = raised paper.
+ *
+ * RGB triplets ship beside the hexes because CSS cannot take an alpha off a hex token, and every
+ * hairline, tint and shadow in this system is translucent. Setting the hexes alone leaves the
+ * old hue on those surfaces (_shared/README.md).
+ *
+ * The type is load-bearing, so the faces are fetched here rather than left to the GHL page theme:
+ * this design is a serif editorial page and it collapses into a generic funnel in a fallback sans.
+ * Google Fonts is the one external host GHL pages already load from across this fleet.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root{
+  --brf-navy:#20201d;
+  --brf-navy-d:#2e2e29;
+  --brf-teal:#987b4d;
+  --brf-teal-d:#6d5531;
+  --brf-sage:#eee7da;
+  --brf-lime:#cdbb99;
+  --brf-ink:#20201d;
+  --brf-body:#57544d;
+  --brf-cream:#fbf9f4;
+  --brf-mist:#f5f1e8;
+  --brf-line:#ded5c5;
+
+  --brf-teal-rgb:152,123,77;
+  --brf-ink-rgb:32,32,29;
+  --brf-line-rgb:82,68,45;
+
+  --brf-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --brf-sans:Manrope,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}

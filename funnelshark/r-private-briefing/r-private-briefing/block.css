@@ -1,0 +1,33 @@
+/* funnelshark / br-private-briefing / br-private-briefing
+ *
+ * The design lives in _shared/brief/v1/brief.css, scoped under .sk-brf, and is shared by every
+ * private-briefing opt-in page in every system. This file declares ONLY the palette, on the
+ * block's own scope class, and it cascades into the shared component. Nothing else belongs here:
+ * a per-page override means the shared component needs a variant.
+ *
+ * RGB triplets sit beside the hex tokens on purpose. CSS cannot take an alpha off a hex token,
+ * so every translucent surface in the component (hairlines, tints, shadows, the video scrim)
+ * needs one, and shipping the hexes alone leaves the old hue on those surfaces.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+
+.sk-brf-private-briefing{
+  --sk-navy:     var(--brf-navy,#20201d);      /* solid button        */
+  --sk-navy-d:   var(--brf-navy-d,#2e2e29);    /* button hover        */
+  --sk-teal:     var(--brf-teal,#987b4d);      /* accent, bronze      */
+  --sk-teal-d:   var(--brf-teal-d,#6d5531);    /* accent, deep        */
+  --sk-sage:     var(--brf-sage,#eee7da);      /* tinted band         */
+  --sk-lime:     var(--brf-lime,#cdbb99);
+  --sk-ink:      var(--brf-ink,#20201d);       /* headings            */
+  --sk-body:     var(--brf-body,#57544d);      /* body copy           */
+  --sk-cream:    var(--brf-cream,#fbf9f4);     /* raised paper        */
+  --sk-mist:     var(--brf-mist,#f5f1e8);      /* page ground         */
+  --sk-line:     var(--brf-line,#ded5c5);      /* hairline            */
+
+  --sk-teal-rgb: var(--brf-teal-rgb,152,123,77);
+  --sk-ink-rgb:  var(--brf-ink-rgb,32,32,29);
+  --sk-line-rgb: var(--brf-line-rgb,82,68,45);
+
+  --sk-serif:    var(--brf-serif,"Cormorant Garamond",Georgia,serif);
+  --sk-sans:     var(--brf-sans,Manrope,system-ui,-apple-system,sans-serif);
+}

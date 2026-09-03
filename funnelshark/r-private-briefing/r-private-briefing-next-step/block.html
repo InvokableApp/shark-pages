@@ -1,0 +1,128 @@
+<!--
+  funnelshark/r-private-briefing/r-private-briefing-next-step
+  Step 2 of the briefing funnel: the page the lead lands on after the opt-in. Video, then the
+  enrollment sequence as two ordered actions.
+
+  READ OFF THE LIVE INSIDE PAGE (2026-09-03 screenshot), cleaned up in four ways:
+    1. NO SOURCE BRANDING. Header, footer and body name the REP, never a company.
+    2. ONE PALETTE ACROSS THE FUNNEL. The source runs navy + blue + gold in here and ivory +
+       bronze on the lander, which reads as two different sites.
+    3. THE EMAIL IS NOT RETYPED BY HAND. One button opens the lead's mail app with the whole
+       message written, and each field has its own copy control for anyone who would rather
+       paste. The source printed the text and left them to it.
+    4. The ordering rule is stated once, in the section head, instead of per card.
+
+  CUSTOM VALUES, so one design serves every rep:
+    br_rep_full_name       the rep's name, in the header, the lede and the footer
+    br_inside_video_id     the inside-overview video. Bare id or any YouTube url.
+    br_affiliate_link      the agent-portal link the CREATE MY ACCOUNT button opens. This is
+                           the attribution-carrying link: bare domain or full url both work.
+    br_onboarding_email    where the lead sends the NDA / community request.
+  Every one renders as ABSENT when unfilled, never as a placeholder, EXCEPT the portal button,
+  which stays visible but inert and dimmed: a dead link that looks live is worse than one that
+  says it is not set yet (HOSTED-BLOCKS-SOP section 4).
+
+  Design and behaviour live in _shared/brief/v1/, scoped .sk-brf; block.css holds only the palette.
+-->
+<div class="sk-brf sk-brf-next-step">
+
+  <header class="sk-brf-head">
+    <span class="sk-brf-mark">Private next step</span>
+    <span class="sk-brf-by" data-sk-needs="{{custom_values.br_rep_full_name}}">{{custom_values.br_rep_full_name}}</span>
+  </header>
+
+  <div class="sk-brf-next">
+
+    <section class="sk-brf-next-hero">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Information received<i aria-hidden="true"></i></p>
+      <h1>Here is what happens next. <em>And how it works.</em></h1>
+      <p class="sk-brf-next-lede">
+        <span data-sk-needs="{{custom_values.br_rep_full_name}}">Watch {{custom_values.br_rep_full_name}}'s private business briefing first.</span>
+        <span data-sk-else="{{custom_values.br_rep_full_name}}" hidden>Watch the private business briefing first.</span>
+        Then follow the enrollment and onboarding sequence below, in that order.
+      </p>
+    </section>
+
+    <!-- Ships hidden. The engine fills the poster and reveals it, or removes the frame
+         entirely when the video custom value is unfilled. -->
+    <div class="sk-brf-video" data-sk-video hidden
+         data-yt="{{custom_values.br_inside_video_id}}"
+         data-title="Inside overview: the program, the opportunity, the income model"></div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Correct enrollment sequence<i aria-hidden="true"></i></p>
+      <h2>Two steps. In this order.</h2>
+      <p class="sk-brf-seq-sub">Create your account. Then email onboarding. They handle the rest.</p>
+      <small>Onboarding will email you the NDA and the community instructions. If you need help,
+        ask your sponsor. If no reply arrives within one business day, email onboarding again.</small>
+    </div>
+
+    <div class="sk-brf-steps">
+
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top">
+          <span class="sk-brf-step-n">01</span>
+          <span class="sk-brf-step-when">Start here</span>
+        </p>
+        <h3>Create your agent account</h3>
+        <p>Use the portal link below to create your free agent account. Do this before you contact
+          onboarding: they cannot process you without an account.</p>
+        <ul class="sk-brf-facts">
+          <li>Free to create</li>
+          <li>Nothing to buy at this step</li>
+          <li>Takes about a minute</li>
+        </ul>
+        <a class="sk-brf-cta" data-sk-primary data-sk-portal
+           data-url="{{custom_values.br_affiliate_link}}">
+          Create my account <i aria-hidden="true">&rarr;</i>
+        </a>
+      </section>
+
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top">
+          <span class="sk-brf-step-n">02</span>
+          <span class="sk-brf-step-when">After your account</span>
+        </p>
+        <h3>Complete your onboarding</h3>
+        <p>Using the same email address you used to create your agent account, send the message
+          below. Onboarding will reply with your NDA and your community instructions.</p>
+
+        <div class="sk-brf-mail">
+          <div class="sk-brf-mail-row">
+            <span class="sk-brf-mail-lab">Send to
+              <button type="button" class="sk-brf-copy" data-sk-copy="to">Copy</button></span>
+            <p class="sk-brf-mail-val" data-sk-field="to">{{custom_values.br_onboarding_email}}</p>
+          </div>
+          <div class="sk-brf-mail-row">
+            <span class="sk-brf-mail-lab">Subject
+              <button type="button" class="sk-brf-copy" data-sk-copy="subject">Copy</button></span>
+            <p class="sk-brf-mail-val" data-sk-field="subject">Agent account created, NDA and community access</p>
+          </div>
+          <div class="sk-brf-mail-row">
+            <span class="sk-brf-mail-lab">Message
+              <button type="button" class="sk-brf-copy" data-sk-copy="body">Copy</button></span>
+            <p class="sk-brf-mail-val sk-brf-mail-body" data-sk-field="body">Hello, I created my agent
+              account and I am ready to complete the NDA. Please send me the NDA and the
+              instructions for receiving my invitation to the community.</p>
+          </div>
+        </div>
+
+        <a class="sk-brf-cta" data-sk-mailto>
+          Open this in my email <i aria-hidden="true">&rarr;</i>
+        </a>
+
+        <p class="sk-brf-next-note">Complete the NDA and the setup instructions they send you, then
+          reply to their email when you are finished. Once you are verified, your invitation to the
+          training community follows.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="sk-brf-foot">
+    <span>&copy; <span data-sk-year>2026</span> <span data-sk-needs="{{custom_values.br_rep_full_name}}">{{custom_values.br_rep_full_name}}</span></span>
+    <span>Becoming an agent does not require a purchase. Earnings are not guaranteed and depend on
+      individual activity and results.</span>
+  </footer>
+
+</div>

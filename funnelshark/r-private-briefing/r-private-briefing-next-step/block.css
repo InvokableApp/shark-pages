@@ -1,0 +1,29 @@
+/* funnelshark / br-private-briefing / br-next-step
+ *
+ * Step 2 of the briefing funnel. Design lives in _shared/brief/v1/brief.css, scoped .sk-brf, and
+ * this page adds .sk-brf-next on top of it. This file declares ONLY the palette, identical to the
+ * opt-in page's, because the two are one funnel: the source ran ivory + bronze on the lander and
+ * navy + blue + gold in here, which reads as two different sites.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+
+.sk-brf-next-step{
+  --sk-navy:     var(--brf-navy,#20201d);
+  --sk-navy-d:   var(--brf-navy-d,#2e2e29);
+  --sk-teal:     var(--brf-teal,#987b4d);
+  --sk-teal-d:   var(--brf-teal-d,#6d5531);
+  --sk-sage:     var(--brf-sage,#eee7da);
+  --sk-lime:     var(--brf-lime,#cdbb99);
+  --sk-ink:      var(--brf-ink,#20201d);
+  --sk-body:     var(--brf-body,#57544d);
+  --sk-cream:    var(--brf-cream,#fbf9f4);
+  --sk-mist:     var(--brf-mist,#f5f1e8);
+  --sk-line:     var(--brf-line,#ded5c5);
+
+  --sk-teal-rgb: var(--brf-teal-rgb,152,123,77);
+  --sk-ink-rgb:  var(--brf-ink-rgb,32,32,29);
+  --sk-line-rgb: var(--brf-line-rgb,82,68,45);
+
+  --sk-serif:    var(--brf-serif,"Cormorant Garamond",Georgia,serif);
+  --sk-sans:     var(--brf-sans,Manrope,system-ui,-apple-system,sans-serif);
+}
