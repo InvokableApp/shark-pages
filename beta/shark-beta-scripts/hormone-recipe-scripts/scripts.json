@@ -12,12 +12,6 @@
  "sub": "Two scripts. Send the one that matches what your lead just did.",
  "funnelLabel": "Hormone Lunchbox Recipe Guide Leads",
  "stepsLabel": "Pick the one that fits your lead",
- "video": {
-  "vimeo": "1223424023",
-  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
-  "title": "Funnel scripts training video",
-  "caption": "Watch this before you start calling."
- },
  "steps": [
   {
    "num": "1",
