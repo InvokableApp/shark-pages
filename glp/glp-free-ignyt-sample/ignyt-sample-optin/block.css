@@ -278,8 +278,9 @@
 
 /* ============================ PROOF ============================ */
 .sk-prod-ig .sk-prod-facts{border-top:1px solid var(--ig-hair)}
+/* FOUR stats since 2026-09-03. Three columns stranded the new one alone. */
 .sk-prod-ig .sk-prod-ig-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;
   margin:2rem 0 2.2rem;
 }
 .sk-prod-ig .sk-prod-ig-stats div{
@@ -408,7 +409,7 @@
 }
 @media (max-width:900px){
   .sk-prod-ig .sk-prod-ig-paths,
-  .sk-prod-ig .sk-prod-ig-stats{grid-template-columns:1fr}
+  .sk-prod-ig .sk-prod-ig-stats{grid-template-columns:1fr 1fr}
   .sk-prod-ig .sk-prod-ig-taste-grid{grid-template-columns:1fr}
   .sk-prod-ig .sk-prod-ig-cta-in{flex-direction:column;align-items:flex-start}
   /* The headline is the one thing that must not run to five words a line on a phone. */
