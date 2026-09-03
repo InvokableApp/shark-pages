@@ -1,0 +1,136 @@
+{
+ "system": "conectiv",
+ "funnel": "conectiv-shark-scripts",
+ "page": "free-coffee-sample-scripts",
+ "funnelId": "3VKpfMlZb4qTClQJ6NPj",
+ "pageId": "bWvstm4FHXKfEpmfMGGk",
+ "stepName": "Free Coffee Sample Scripts",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv Shark AI Marketing System",
+ "title": "How to follow up with your Free ALIVE Sample leads",
+ "titleHtml": "How to follow up with your <em>Free ALIVE Sample</em> leads",
+ "sub": "Use these scripts the same day a sample request comes in.",
+ "funnelLabel": "Free ALIVE Sample Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Check your texts first",
+   "lead": "The confirmation page asks them to text you the word CONFIRM, so a lot of leads have already opened the conversation before you get to them. Look before you dial:",
+   "script": [
+    "If they already texted CONFIRM, skip step 2. Reply to the thread they started, confirm the address, and ship it.",
+    "If nothing came through, check your Unknown Senders or Spam folder in Messages. Their text may be sitting in there.",
+    "Then work through the steps below in order."
+   ],
+   "copyButton": "Copy this reminder",
+   "copyLabel": "Copy the check-your-texts reminder"
+  },
+  {
+   "num": "2",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you just requested a free sample of ALIVE, and I'm the one getting it in the mail to you.",
+    "I only need one thing before it goes out, and that's to make sure I have the right address. I'm going to text you now, so just reply to that and I'll get it sent.",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, it's usually three little lines. On an Android, look for the three-dot menu. Any filtered messages land there, which is where my text to you might be.",
+    "Okay, that's all for now! Talk soon."
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "3",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. You requested a free sample of ALIVE and I want to get it in the mail to you today.",
+    "Can you confirm this is where I'm sending it? [Address]",
+    "Reply <strong>YES</strong> and it goes out. It's a couple of single serve sticks, one in hot water, ready in about sixty seconds."
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "4",
+   "title": "Email them too",
+   "lead": "Send this the same day. Plenty of people read email before they answer an unknown number:",
+   "script": [
+    "<strong>Subject: Confirming where to send your ALIVE sample</strong>",
+    "Hi [Name],",
+    "You requested a free sample of ALIVE and I'm getting it packed up for you. Before it goes out, can you confirm this address is right? [Address]",
+    "Just reply to this email and I'll drop it in the mail. Samples are limited, so the sooner you confirm the sooner yours ships.",
+    "[Your Name]"
+   ],
+   "copyButton": "Copy email",
+   "copyLabel": "Copy the email script"
+  },
+  {
+   "num": "5",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't confirm within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on my text above! 👆 I still have your ALIVE sample set aside. Send me a quick yes on the address and I'll get it out to you today."
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  },
+  {
+   "num": "6",
+   "title": "Tell them it shipped",
+   "lead": "Send this the day it actually goes in the mail. Not before:",
+   "script": [
+    "Hey [Name], it's [Your Name]! Just letting you know your ALIVE sample is in the mail and on its way to you. 📦",
+    "Can't wait to hear what you think. One stick in hot water, give it about a minute, and drink it the way you'd drink your normal coffee."
+   ],
+   "copyButton": "Copy shipped text",
+   "copyLabel": "Copy the shipped notice text"
+  },
+  {
+   "num": "7",
+   "title": "Email the same notice",
+   "lead": "Send this alongside the text, so it is in both places when they go looking:",
+   "script": [
+    "<strong>Subject: Your ALIVE sample is on its way</strong>",
+    "Hi [Name],",
+    "Your free ALIVE sample went in the mail today and is on its way to you.",
+    "When it lands, tear a stick into hot water and give it about a minute. It's real Arabica coffee, so treat it like your normal cup. Black, or with whatever you usually add.",
+    "I'll check in once you've had a chance to try it. Anything you want to know before then, just reply to this.",
+    "[Your Name]"
+   ],
+   "copyButton": "Copy shipped email",
+   "copyLabel": "Copy the shipped notice email"
+  },
+  {
+   "num": "8",
+   "title": "Check in a few days later",
+   "lead": "Give it time to arrive and be tried. Five to seven days after you shipped it:",
+   "script": [
+    "Hey [Name]! Did your ALIVE sample land ok? 👋",
+    "What did you think? I want to hear the honest answer, good or bad."
+   ],
+   "copyButton": "Copy check-in",
+   "copyLabel": "Copy the check-in text"
+  },
+  {
+   "num": "9",
+   "title": "Offer them the pouch",
+   "lead": "Only once they've told you they liked it. This is the step the whole sample was for:",
+   "script": [
+    "Love that. If you want to keep going, the full pouch is 30 sticks, so it's a month of mornings.",
+    "Here's my link: [Your ALIVE Link]",
+    "Order through that and I'm still the one you text if anything comes up."
+   ],
+   "copyButton": "Copy the offer",
+   "copyLabel": "Copy the buy-link offer"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name], [Your Name] and [Your ALIVE Link], and paste their real address into [Address] before you send. Steps 6 to 9 only happen once the sample is physically in the mail, so send them on your own timing, not the same day the lead comes in. Never send step 9 before they have actually tried it. The sample is what earns the ask.",
+ "footer": "Free ALIVE Sample follow-up · Quick reference · Keep this handy by your phone"
+}
