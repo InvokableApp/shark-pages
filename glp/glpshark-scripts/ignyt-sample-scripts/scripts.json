@@ -68,8 +68,45 @@
    ],
    "copyButton": "Copy follow-up",
    "copyLabel": "Copy the follow-up script"
+  },
+  {
+   "num": "5",
+   "title": "Tell them it shipped",
+   "lead": "Send this the day it actually goes in the mail. Not before:",
+   "script": [
+    "Hey [Name], it's [Your Name]! Just letting you know your IGNYT sample is in the mail and on its way to you. 📦",
+    "Can't wait to hear how you like it. One stick in 8oz of water, once a day, for three days. Better over ice."
+   ],
+   "copyButton": "Copy shipped text",
+   "copyLabel": "Copy the shipped notice text"
+  },
+  {
+   "num": "6",
+   "title": "Email the same notice",
+   "lead": "Send this alongside the text, so it is in both places when they go looking:",
+   "script": [
+    "<strong>Subject: Your IGNYT sample is on its way</strong>",
+    "Hi [Name],",
+    "Your free 3 day IGNYT sample went in the mail today and is on its way to you.",
+    "When it lands, tear open one stick into 8oz of water, once a day, for three days. Most people take it cold over ice. It comes out like a light citrus drink, not a chalky shake.",
+    "I'll check in once you have had a chance to try it. Anything you want to know before then, just reply to this.",
+    "[Your Name]"
+   ],
+   "copyButton": "Copy shipped email",
+   "copyLabel": "Copy the shipped notice email"
+  },
+  {
+   "num": "7",
+   "title": "Check in a few days later",
+   "lead": "Give it time to arrive and be tried. Five to seven days after you shipped it:",
+   "script": [
+    "Hey [Name]! Did your IGNYT sample land ok? 👋",
+    "What did you think? I want to hear the honest answer, good or bad."
+   ],
+   "copyButton": "Copy check-in",
+   "copyLabel": "Copy the check-in text"
   }
  ],
- "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name], and paste their real address into [Address] before you send. Some people will have already texted you the word SAMPLE from the confirmation page, so check your messages first. If they have, you only need to confirm the address and ship it.",
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name], and paste their real address into [Address] before you send. Some people will have already texted you the word SAMPLE from the confirmation page, so check your messages first. If they have, you only need to confirm the address and ship it. Steps 5 to 7 only happen once the sample is physically in the mail, so send them on your own timing, not the same day the lead comes in.",
  "footer": "Free IGNYT Sample follow-up · Quick reference · Keep this handy by your phone"
 }

@@ -838,6 +838,24 @@
       "elementTitle": "ignyt-sample-confirmation",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glpshark-scripts/ignyt-sample-scripts",
+      "funnelId": "FhLNjPPS4ByNOv4DpYHK",
+      "pageId": "QUEtOMX2l85sZfe6pvFZ",
+      "elementId": "custom-code-h5Ch-O6DF0",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/glp-free-ignyt-sample",
+      "funnelId": "SzMXnTKYSJyOsUmZoItg",
+      "pageId": "xuEFigWHY6hBd8y8fNgl",
+      "elementId": "custom-code-w94j0xy66e",
+      "elementTitle": "glp-free-ignyt-sample",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }
