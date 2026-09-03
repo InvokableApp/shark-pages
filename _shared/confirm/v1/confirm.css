@@ -693,3 +693,33 @@
 .sk-conf-card-cta-first .sk-conf-card-copy .sk-conf-btns{order:4;margin-top:1rem}
 .sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask){order:5}
 .sk-conf-card-cta-first .sk-conf-card-copy p:not(.sk-conf-ask):first-of-type{margin-top:1.3rem}
+
+/* The number plaque inside a CARD ─ additive 2026-09-03.
+   The plaque was written for the dark hero band, so its white-on-translucent treatment
+   vanishes on the card's light copy cell. Same inversion the mid band and the light page
+   already get, extended to the one place it was missing. */
+.sk-conf .sk-conf-card-copy .sk-conf-num{
+  /* order 4 TIES WITH THE BUTTON, and a tie resolves by DOM order, so the plaque lands
+     directly under the control it is the fallback for. Without an explicit order it
+     defaults to 0 and jumps to the top of the cell, above the badge: variant 7 above
+     orders every other child unconditionally, so any new child has to declare one too. */
+  order:4;
+  margin:1.2rem 0 0;background:var(--sk-mist,#f4f6f9);border-color:var(--sk-line,#e3e8ef);
+}
+.sk-conf .sk-conf-card-copy .sk-conf-num-k{color:var(--sk-teal-d,#2e5233)}
+.sk-conf .sk-conf-card-copy .sk-conf-num-n{color:var(--sk-ink,#16233d)}
+.sk-conf .sk-conf-card-copy .sk-conf-num-t{color:var(--sk-body,#4a5568)}
+
+/* A portrait video needs a CAPTION UNDER IT, not floating in the middle of the cell. The
+   media cell centres its children, which is right for a product still and wrong for a
+   video with a one-line instruction beneath it. */
+.sk-conf .sk-conf-card-media .sk-conf-card-cap{text-align:center}
+
+/* A PORTRAIT VIDEO ON A PHONE must not eat the whole screen ─ additive 2026-09-03.
+   The desktop cap (520px) is a sensible height beside a column of copy. On a 414-wide
+   phone the same frame runs to the full 520 and pushes everything under it a screen
+   further down. Capping by viewport height keeps the clip large enough to read a face
+   in while leaving the next instruction visible under it. */
+@media (max-width:860px){
+  .sk-conf .sk-conf-card-media .sk-conf-frame-portrait{max-height:min(520px,58vh);max-width:270px}
+}
