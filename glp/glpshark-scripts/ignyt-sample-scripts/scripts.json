@@ -33,8 +33,7 @@
      "lead": "Answer where they reached out, in the message thread or right under their comment, while it is still open:",
      "script": [
       "Hey [Name]! 👋 Happy to send you a free 3 day sample.",
-      "Just fill out the form here and I'll get it in the mail: [Your funnel link]",
-      "It only asks where to send it, takes a few seconds."
+      "Just fill out the form here and I'll get it in the mail: [Your funnel link]"
      ],
      "copyButton": "Copy the reply",
      "copyLabel": "Copy the reply"
