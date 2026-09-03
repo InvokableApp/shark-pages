@@ -32,19 +32,19 @@
      "title": "Reply and send them the link",
      "lead": "Answer where they reached out, in the message thread or right under their comment, while it is still open:",
      "script": [
-      "So glad you asked! 👋 I can get a free 3 day sample out to you.",
-      "Here is the link, it just asks where to send it: [Your funnel link]",
-      "Fill that in and I'll drop it in the mail."
+      "Hey [Name]! 👋 Happy to send you a free 3 day sample.",
+      "Just fill out the form here and I'll get it in the mail: [Your funnel link]",
+      "It only asks where to send it, takes a few seconds."
      ],
      "copyButton": "Copy the reply",
-     "copyLabel": "Copy the DM reply"
+     "copyLabel": "Copy the reply"
     },
     {
      "num": "2",
      "title": "If they don't fill it in",
      "lead": "Give it a day. People mean to and then their phone rings:",
      "script": [
-      "Hey [Name], did you get a chance to put your address in? 👆 Takes about a minute and then I can get your sample out.",
+      "Hey [Name], did you get a chance to fill in the form? Takes about a minute and then I can get your sample out.",
       "If it's easier, just send me the address here and I'll do it for you."
      ],
      "copyButton": "Copy the nudge",
