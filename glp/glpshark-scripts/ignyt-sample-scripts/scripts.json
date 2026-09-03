@@ -17,20 +17,20 @@
   "title": "Funnel scripts training video",
   "caption": "Watch this before you start calling."
  },
- "tip": "<strong>Tip:</strong> If they messaged you, send the link rather than asking for the address in the thread. The link is what files them in your pipeline and starts their emails. An address typed into a DM exists nowhere. Personalize [Name] and [Your Name] every time, and remember some people will already have texted you the word SAMPLE from the confirmation page.",
+ "tip": "<strong>Tip:</strong> If they messaged you or commented, send the link rather than asking for the address in the thread. The link is what files them in your pipeline and starts their emails. An address typed into a DM exists nowhere. Personalize [Name] and [Your Name] every time, and remember some people will already have texted you the word SAMPLE from the confirmation page.",
  "footer": "Free IGNYT Sample follow-up · Quick reference · Keep this handy by your phone",
  "tracksQuestion": "Where did this lead come from?",
  "tracks": [
   {
    "key": "warm",
-   "label": "They messaged me",
-   "hint": "They saw your post or story and asked. You know them, or they came to you.",
+   "label": "They messaged or commented",
+   "hint": "They saw your post or story and messaged you, or commented on it. You know them, or they came to you.",
    "stepsLabel": "Do this, in order",
    "steps": [
     {
      "num": "1",
      "title": "Reply and send them the link",
-     "lead": "Answer in the same thread they messaged you in, while it is still open:",
+     "lead": "Answer where they reached out, in the message thread or right under their comment, while it is still open:",
      "script": [
       "So glad you asked! 👋 I can get a free 3 day sample out to you.",
       "Here is the link, it just asks where to send it: [Your funnel link]",
