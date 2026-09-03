@@ -1,0 +1,15 @@
+{
+  "system": "beta",
+  "blocks": [],
+  "installs": [
+    {
+      "path": "shark-beta-scripts/hormone-recipe-scripts",
+      "funnelId": "Emv9objtSpBVx7sVM3jm",
+      "pageId": "fgZoJL7NBU3OtDLqLPlR",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    }
+  ]
+}

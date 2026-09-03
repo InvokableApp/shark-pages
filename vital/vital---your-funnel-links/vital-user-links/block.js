@@ -53,10 +53,6 @@ var SYS = {
     {
       label: "Your own pages",
       items: [
-        { icon: "user", name: "Personal Branded Site",
-          slug: "vital-personal-site", howto: "https://vitalshark.io/vital-personal-branded-training",
-          tease: "Your name, your contact details",
-          desc: "Your own branded page carrying your name and contact details. Use it as the link in your bio and on your business card." },
         { icon: "link", name: "Social Links Page",
           slug: "vital-social-links", howto: "https://vitalshark.io/vital-social-links-training",
           tease: "One link that holds all your links",

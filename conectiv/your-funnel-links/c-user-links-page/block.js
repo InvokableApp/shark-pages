@@ -33,9 +33,6 @@ var SYS = {
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
     { label:"Your own pages", items:[
-      { slug:"c-personal-branded-page", howto:"https://conectivshark.com/c-personal-branded-training", icon:"user", name:"Personal Branded One Pager",
-        tease:"Your name, your contact details",
-        desc:"Your own branded page with your name and details. Use it as your link in bio." },
       { slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}

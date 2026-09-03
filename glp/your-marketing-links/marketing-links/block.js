@@ -56,12 +56,7 @@ var SYS = {
         desc: 'The business explained, for people who have already told you they want to hear more.' },
       { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
         tease: 'For cold traffic',
-        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
-
-    { label: 'Your own pages', items: [
-      { cv: 'personal_branded_funnel_link', icon: 'user', name: 'Personal Branded One Pager',
-        tease: 'Your name, your contact details',
-        desc: 'Your own branded page with your name and details. Use it as your link in bio.' } ]}
+        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]}
   ],
   lists: [
     { label: 'Social content', icon: 'image', name: 'Ready to post images',
