@@ -1133,7 +1133,16 @@ html,body{margin:0;padding:0;background:#e9e9ec}
     }
     var groups = root.querySelectorAll(".sk-group[data-track]");
     for (var j = 0; j < groups.length; j++) {
-      groups[j].classList.toggle("sk-on", groups[j].getAttribute("data-track") === key);
+      var on = groups[j].getAttribute("data-track") === key;
+      groups[j].classList.toggle("sk-on", on);
+      // ⚠️ A HIDDEN CARD NEVER INTERSECTS, so the reveal observer never fires for it and it
+      // is still at opacity 0 when its track is switched on. Measured on the live page:
+      // 4 cards stuck invisible, and switching to that track showed an EMPTY group, which
+      // reads as a broken page rather than a missing animation. Reveal on reveal.
+      if (on) {
+        var cards = groups[j].querySelectorAll("[data-sk-reveal]");
+        for (var c = 0; c < cards.length; c++) cards[c].classList.add("sk-in");
+      }
     }
   }
 
