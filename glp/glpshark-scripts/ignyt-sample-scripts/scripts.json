@@ -40,7 +40,7 @@
    "script": [
     "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. You requested a free 3 day sample of IGNYT and I want to get it in the mail to you today.",
     "Can you confirm this is where I'm sending it? [Address]",
-    "Reply <strong>YES</strong> and it goes out. It's 3 single serve sticks, one a day in 8oz of water, and it comes out like a light citrus drink."
+    "Reply <strong>YES</strong> and it goes out. It's 3 single serve sticks, one a day in 8oz of water, and it comes out cran-apple."
    ],
    "copyButton": "Copy text",
    "copyLabel": "Copy the text message script"
@@ -75,7 +75,7 @@
    "lead": "Send this the day it actually goes in the mail. Not before:",
    "script": [
     "Hey [Name], it's [Your Name]! Just letting you know your IGNYT sample is in the mail and on its way to you. 📦",
-    "Can't wait to hear how you like it. One stick in 8oz of water, once a day, for three days. Better over ice."
+    "Can't wait to hear how you like it. One stick in 8oz of water, once a day, for three days. Use a shaker bottle or a coffee frother, it doesn't mix with a spoon. Better over ice."
    ],
    "copyButton": "Copy shipped text",
    "copyLabel": "Copy the shipped notice text"
@@ -88,7 +88,7 @@
     "<strong>Subject: Your IGNYT sample is on its way</strong>",
     "Hi [Name],",
     "Your free 3 day IGNYT sample went in the mail today and is on its way to you.",
-    "When it lands, tear open one stick into 8oz of water, once a day, for three days. Most people take it cold over ice. It comes out like a light citrus drink, not a chalky shake.",
+    "When it lands, tear open one stick into 8oz of water, once a day, for three days. Shake it in a shaker bottle or use a small coffee frother, it will not dissolve with a spoon. Most people take it cold over ice. It comes out cran-apple, not a chalky shake.",
     "I'll check in once you have had a chance to try it. Anything you want to know before then, just reply to this.",
     "[Your Name]"
    ],
