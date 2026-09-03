@@ -40,11 +40,74 @@
     </article>
   </section>
 
-  <section class="sk-group" aria-label="What to do">
+  <div class="sk-tracks no-print" role="group" aria-label="Which situation is this?">
+    <p class="sk-tracks-q">Where did this lead come from?</p>
+    <div class="sk-tracks-btns">
+      <button type="button" class="sk-track-btn" data-sk-track="warm" aria-pressed="true">
+        <b>They messaged me</b><span>They saw your post or story and asked. You know them, or they came to you.</span>
+      </button>
+      <button type="button" class="sk-track-btn" data-sk-track="cold" aria-pressed="false">
+        <b>They opted in and I don't know them</b><span>They came through an ad or a shared link. You have their address already.</span>
+      </button>
+    </div>
+  </div>
+
+  <section class="sk-group" data-track="warm" aria-label="They messaged me">
     <div class="sk-group-head">
       <span class="sk-group-label">Do this, in order</span>
       <span class="sk-group-rule"></span>
-      <span class="sk-group-count">7</span>
+      <span class="sk-group-count">2</span>
+    </div>
+
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
+      <div class="sk-step-head">
+        <span class="sk-num">1</span>
+        <div>
+          <h3 class="sk-step-name">Reply and send them the link</h3>
+          <p class="sk-step-lead">Answer in the same thread they messaged you in, while it is still open:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>So glad you asked! 👋 I can get a free 3 day sample out to you.</p>
+        <p>Here is the link, it just asks where to send it: <span class="sk-slot">[Your funnel link]</span></p>
+        <p>Fill that in and I'll drop it in the mail.</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the DM reply">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the reply</span>
+      </button>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
+      <div class="sk-step-head">
+        <span class="sk-num">2</span>
+        <div>
+          <h3 class="sk-step-name">If they don't fill it in</h3>
+          <p class="sk-step-lead">Give it a day. People mean to and then their phone rings:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Hey <span class="sk-slot">[Name]</span>, did you get a chance to put your address in? 👆 Takes about a minute and then I can get your sample out.</p>
+        <p>If it's easier, just send me the address here and I'll do it for you.</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the follow-up nudge">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the nudge</span>
+      </button>
+    </li>
+    </ol>
+  </section>
+
+  <section class="sk-group" data-track="cold" aria-label="They opted in and I don't know them">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Do this, in order</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">4</span>
     </div>
 
     <ol class="sk-steps">
@@ -133,10 +196,20 @@
         <i data-sk-icon="copy"></i><span data-copy-label>Copy follow-up</span>
       </button>
     </li>
+    </ol>
+  </section>
 
-    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:5">
+  <section class="sk-group" aria-label="Once it is in the mail, either way">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Once it is in the mail, either way</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">3</span>
+    </div>
+
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
       <div class="sk-step-head">
-        <span class="sk-num">5</span>
+        <span class="sk-num">1</span>
         <div>
           <h3 class="sk-step-name">Tell them it shipped</h3>
           <p class="sk-step-lead">Send this the day it actually goes in the mail. Not before:</p>
@@ -144,7 +217,7 @@
       </div>
 
       <div class="sk-script">
-        <p>Hey <span class="sk-slot">[Name]</span>, it's <span class="sk-slot">[Your Name]</span>! Just letting you know your IGNYT sample is in the mail and on its way to you. 📦</p>
+        <p>Hey <span class="sk-slot">[Name]</span>! I shipped yours today, look out for it. 📦</p>
         <p>Can't wait to hear how you like it. One stick in 8oz of water, once a day, for three days. Use a shaker bottle or a coffee frother, it doesn't mix with a spoon. Better over ice.</p>
       </div>
 
@@ -154,9 +227,9 @@
       </button>
     </li>
 
-    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:6">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
       <div class="sk-step-head">
-        <span class="sk-num">6</span>
+        <span class="sk-num">2</span>
         <div>
           <h3 class="sk-step-name">Email the same notice</h3>
           <p class="sk-step-lead">Send this alongside the text, so it is in both places when they go looking:</p>
@@ -178,9 +251,9 @@
       </button>
     </li>
 
-    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:7">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:3">
       <div class="sk-step-head">
-        <span class="sk-num">7</span>
+        <span class="sk-num">3</span>
         <div>
           <h3 class="sk-step-name">Check in a few days later</h3>
           <p class="sk-step-lead">Give it time to arrive and be tried. Five to seven days after you shipped it:</p>
@@ -202,7 +275,7 @@
 
   <aside class="sk-tip" data-sk-reveal>
     <i data-sk-icon="bulb"></i>
-    <div><strong>Tip:</strong> Personalize <span class="sk-slot">[Name]</span> and <span class="sk-slot">[Your Name]</span>, and paste their real address into <span class="sk-slot">[Address]</span> before you send. Some people will have already texted you the word SAMPLE from the confirmation page, so check your messages first. If they have, you only need to confirm the address and ship it. Steps 5 to 7 only happen once the sample is physically in the mail, so send them on your own timing, not the same day the lead comes in.</div>
+    <div><strong>Tip:</strong> If they messaged you, send the link rather than asking for the address in the thread. The link is what files them in your pipeline and starts their emails. An address typed into a DM exists nowhere. Personalize <span class="sk-slot">[Name]</span> and <span class="sk-slot">[Your Name]</span> every time, and remember some people will already have texted you the word SAMPLE from the confirmation page.</div>
   </aside>
 
   <footer class="sk-foot">Free IGNYT Sample follow-up · Quick reference · Keep this handy by your phone</footer>

@@ -600,6 +600,56 @@ html,body{margin:0;padding:0;background:#e9e9ec}
   .sk-motion .sk-scripts [data-sk-reveal] { animation: none; opacity: 1; transform: none; }
 }
 
+/* ============================ TRACKS (added 2026-09-03) ============================
+   Some funnels are worked two different ways and the difference is the FIRST MOVE, not a
+   detail. Free IGNYT Sample is the first: a stranger who opted in from an ad needs the
+   voicemail, the text and the chase, while someone who replied to the rep's own social
+   post needs a link and nothing else. A single flat list makes the second rep read past
+   four steps that do not apply, which is how a rep decides the page is not worth opening.
+
+   ADDITIVE TO v1 ON PURPOSE. Every selector here is new, so the 18 pages that carry no
+   `tracks` in their config match none of it (verified by querying these selectors against
+   the siblings, expecting zero). Per _shared/README.md an additive edit to a published
+   version is allowed; changing an existing rule would have needed a v2 fork.
+
+   NO-JS DEGRADES TO EVERYTHING VISIBLE. The hiding is gated on .sk-has-tracks, which only
+   the script adds, so a reader with no JS gets both tracks in full rather than a page with
+   its content missing. */
+.sk-scripts .sk-tracks{ margin: 0 0 22px; }
+.sk-scripts .sk-tracks-q{
+  margin: 0 0 10px; font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--sk-ink-faint);
+}
+.sk-scripts .sk-tracks-btns{ display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 620px){ .sk-scripts .sk-tracks-btns{ grid-template-columns: 1fr; } }
+
+.sk-scripts .sk-track-btn{
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  padding: 14px 16px; border-radius: 12px;
+  border: 1px solid var(--sk-line); background: var(--sk-paper); color: var(--sk-ink);
+  font: inherit; transition: border-color .15s, background .15s, box-shadow .15s;
+}
+.sk-scripts .sk-track-btn b{ display: block; font-size: 15px; font-weight: 700; }
+.sk-scripts .sk-track-btn span{
+  display: block; margin-top: 3px; font-size: 13px; line-height: 1.4; color: var(--sk-ink-soft);
+}
+.sk-scripts .sk-track-btn:hover{ border-color: var(--sk-brand); }
+.sk-scripts .sk-track-btn:focus-visible{ outline: 2px solid var(--sk-brand); outline-offset: 2px; }
+.sk-scripts .sk-track-btn[aria-pressed="true"]{
+  border-color: var(--sk-brand); background: var(--sk-tint);
+  box-shadow: inset 0 0 0 1px var(--sk-brand);
+}
+
+/* Only the script hides anything. */
+.sk-scripts.sk-has-tracks .sk-group[data-track]{ display: none; }
+.sk-scripts.sk-has-tracks .sk-group[data-track].sk-on{ display: block; }
+
+/* The printed sheet carries BOTH tracks. A rep pins this by the phone and will meet both
+   situations; a sheet that silently omits one is worse than a longer sheet. */
+@media print{
+  .sk-scripts.sk-has-tracks .sk-group[data-track]{ display: block !important; }
+}
+
 /* GLP / glpshark-scripts / side-hustle-scripts
  *
  * The design lives in _shared/scripts/v1/scripts.css, scoped under .sk-scripts,
@@ -1058,6 +1108,39 @@ html,body{margin:0;padding:0;background:#e9e9ec}
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
+})();
+
+/* ---- TRACKS (added 2026-09-03) -------------------------------------------
+   Pages whose config declares `tracks` render one .sk-group per track plus the
+   shared block. This shows one track at a time.
+
+   The root only gets .sk-has-tracks once this runs, so the CSS that hides a
+   track cannot apply before the script does. With JS off, or if this file fails
+   to load, every track stays visible: a longer page, never an empty one.
+
+   Nothing here runs on a page without track buttons, which is all 18 others. */
+(function () {
+  var root = document.querySelector(".sk-scripts");
+  if (!root) return;
+  var btns = root.querySelectorAll("[data-sk-track]");
+  if (!btns.length) return;
+
+  root.classList.add("sk-has-tracks");
+
+  function show(key) {
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", String(btns[i].getAttribute("data-sk-track") === key));
+    }
+    var groups = root.querySelectorAll(".sk-group[data-track]");
+    for (var j = 0; j < groups.length; j++) {
+      groups[j].classList.toggle("sk-on", groups[j].getAttribute("data-track") === key);
+    }
+  }
+
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-track")); });
+  }
+  show(btns[0].getAttribute("data-sk-track"));
 })();
 </script>
 </body>

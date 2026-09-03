@@ -189,3 +189,36 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
+
+/* ---- TRACKS (added 2026-09-03) -------------------------------------------
+   Pages whose config declares `tracks` render one .sk-group per track plus the
+   shared block. This shows one track at a time.
+
+   The root only gets .sk-has-tracks once this runs, so the CSS that hides a
+   track cannot apply before the script does. With JS off, or if this file fails
+   to load, every track stays visible: a longer page, never an empty one.
+
+   Nothing here runs on a page without track buttons, which is all 18 others. */
+(function () {
+  var root = document.querySelector(".sk-scripts");
+  if (!root) return;
+  var btns = root.querySelectorAll("[data-sk-track]");
+  if (!btns.length) return;
+
+  root.classList.add("sk-has-tracks");
+
+  function show(key) {
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", String(btns[i].getAttribute("data-sk-track") === key));
+    }
+    var groups = root.querySelectorAll(".sk-group[data-track]");
+    for (var j = 0; j < groups.length; j++) {
+      groups[j].classList.toggle("sk-on", groups[j].getAttribute("data-track") === key);
+    }
+  }
+
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-track")); });
+  }
+  show(btns[0].getAttribute("data-sk-track"));
+})();
