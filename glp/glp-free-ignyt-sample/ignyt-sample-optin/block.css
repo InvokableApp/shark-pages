@@ -208,7 +208,9 @@
   border-top:1px solid var(--ig-hair);
   border-bottom:1px solid var(--ig-hair);
 }
-.sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(5,1fr);gap:.85rem}
+/* SIX tiles since 2026-09-03 (the gut one). 3x2 rather than the old 5-across, which
+   left a single orphan tile on its own row. */
+.sk-prod-ig .sk-prod-pillars{grid-template-columns:repeat(3,1fr);gap:.85rem}
 .sk-prod-ig .sk-prod-pillar{
   background:var(--ig-card);
   border:1px solid var(--ig-hair);
@@ -470,9 +472,10 @@
 }
 @media (max-width:640px){
   .sk-prod-ig .sk-prod-pillars{grid-template-columns:1fr 1fr}
-  /* There are five pillars, so a two-up grid leaves the fifth alone in a half-width box
-     with a hole beside it. Letting the last one span both columns closes the block. */
-  .sk-prod-ig .sk-prod-pillars > :last-child{grid-column:1/-1}
+  /* The last-child full-width span was the fix for an ODD tile count. Six divides by
+     two, so it now strands the last row instead of tidying it. Kept as a reminder, not
+     a rule: restore it only if the grid goes back to an odd number.
+  .sk-prod-ig .sk-prod-pillars > :last-child{grid-column:1/-1} */
   .sk-prod-ig .sk-prod-ig-strip{font-size:.66rem;gap:.6rem;letter-spacing:.1em}
   .sk-prod-ig .sk-prod-btn-lg{width:100%;justify-content:center}
   .sk-prod-ig .sk-prod-ig-cta-center{width:100%}
