@@ -1,0 +1,75 @@
+{
+ "system": "glp",
+ "funnel": "glpshark-scripts",
+ "page": "ignyt-sample-scripts",
+ "funnelId": "FhLNjPPS4ByNOv4DpYHK",
+ "pageId": "QUEtOMX2l85sZfe6pvFZ",
+ "stepName": "IGNYT Free Sample Scripts",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark AI Marketing System",
+ "title": "How to follow up with your Free IGNYT Sample leads",
+ "titleHtml": "How to follow up with your <em>Free IGNYT Sample</em> leads",
+ "sub": "Use these scripts the same day a sample request comes in.",
+ "funnelLabel": "Free IGNYT Sample Leads",
+ "stepsLabel": "Do this, in order",
+ "video": {
+  "vimeo": "1223424023",
+  "poster": "https://i.vimeocdn.com/video/2196637926-3d8be6577c2595dce3b7b1dc19858a87d868a29615569ca543d1d2e849f0747f-d_1280",
+  "title": "Funnel scripts training video",
+  "caption": "Watch this before you start calling."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Call them",
+   "lead": "They probably won't pick up, so leave this voicemail:",
+   "script": [
+    "Hey [Name], it's [Your Name]!",
+    "I saw you just requested a free 3 day sample of IGNYT, and I'm the one getting it in the mail to you.",
+    "I only need one thing before it goes out, and that's to make sure I have the right address. I'm going to text you now, so just reply to that and I'll get it sent.",
+    "If you don't see my text, check your Unknown Senders or Spam folder. On an iPhone, look for the filter or menu icon in the top right corner of your Messages app, its usually three little lines. On an Android, look for the three-dot menu. You should be able to find any filtered messages there which is where my text to you might be.",
+    "Okay, that's all for now! Talk soon."
+   ],
+   "copyButton": "Copy voicemail",
+   "copyLabel": "Copy the voicemail script"
+  },
+  {
+   "num": "2",
+   "title": "Text them",
+   "lead": "As soon as you hang up, send this:",
+   "script": [
+    "Hey [Name], it's [Your Name]! 👋 Just left you a quick voicemail. You requested a free 3 day sample of IGNYT and I want to get it in the mail to you today.",
+    "Can you confirm this is where I'm sending it? [Address]",
+    "Reply <strong>YES</strong> and it goes out. It's 3 single serve sticks, one a day in 8oz of water, and it comes out like a light citrus drink."
+   ],
+   "copyButton": "Copy text",
+   "copyLabel": "Copy the text message script"
+  },
+  {
+   "num": "3",
+   "title": "Email them too",
+   "lead": "Send this the same day. Plenty of people read email before they answer an unknown number:",
+   "script": [
+    "<strong>Subject: Confirming where to send your IGNYT sample</strong>",
+    "Hi [Name],",
+    "You requested a free 3 day sample of IGNYT and I'm getting it packed up for you. Before it goes out, can you confirm this address is right? [Address]",
+    "Just reply to this email and I'll drop it in the mail. Samples are limited, so the sooner you confirm the sooner yours ships.",
+    "[Your Name]"
+   ],
+   "copyButton": "Copy email",
+   "copyLabel": "Copy the email script"
+  },
+  {
+   "num": "4",
+   "title": "Follow up in 24 hrs",
+   "lead": "If they don't confirm within 24 hours, text again:",
+   "script": [
+    "[Name]! Just following up on my text above! 👆 I still have your IGNYT sample set aside. Send me a quick yes on the address and I'll get it out to you today."
+   ],
+   "copyButton": "Copy follow-up",
+   "copyLabel": "Copy the follow-up script"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Personalize [Name] and [Your Name], and paste their real address into [Address] before you send. Some people will have already texted you the word SAMPLE from the confirmation page, so check your messages first. If they have, you only need to confirm the address and ship it.",
+ "footer": "Free IGNYT Sample follow-up · Quick reference · Keep this handy by your phone"
+}
