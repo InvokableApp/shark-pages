@@ -122,17 +122,33 @@
   /* ── 4. the next-step page: outbound link, mailto, copy ────────────────
      Only present on .sk-brf-next; every lookup below no-ops on the opt-in page. */
 
-  /* The agent-portal button. The custom value may hold a bare domain or a full url
-     depending on how the rep pastes it, so normalise rather than trusting either.
-     Unfilled, the button stays VISIBLE but inert and flagged: a buyer has to be able
-     to see that the value still needs filling, and a dead link that looks live is
-     worse than one that says so. */
+  /* The agent-portal button.
+
+     TWO ATTRIBUTES, TWO JOBS, and they are deliberately not the same value:
+
+       data-url  the rep's portal custom value. Read ONLY to decide whether the button
+                 is live. Unfilled, the button stays VISIBLE but inert and flagged, because
+                 a buyer has to be able to see that the value still needs filling and a dead
+                 link that looks live is worse than one that says so.
+       data-go   where the click actually goes: the funnel's own tracked redirect step.
+
+     Why the click does not go straight to data-url: an outbound click to another domain is
+     invisible to GHL, so nothing could fire the Fire Lead alert Joe asked for. The redirect
+     step registers the pageview, the workflow fires, and its native minute-timer forwards to
+     the same custom value half a second later. Keeping the fill test on data-url means a
+     buyer who has not pasted their link yet can never be sent into a redirect that goes
+     nowhere. Without data-go the button behaves exactly as it did before.
+
+     New tab: the instructions for step 02 are on this page and the lead needs them AFTER
+     creating their account. Same domain, so GHL's contact cookie travels and the pageview is
+     still attributed. */
   (function () {
     var a = root.querySelector("[data-sk-portal]");
     if (!a) return;
     var v = fill(a.getAttribute("data-url"));
     if (!v) { a.setAttribute("aria-disabled", "true"); a.removeAttribute("href"); a.setAttribute("data-unset", ""); return; }
-    a.href = url(v);
+    var go = (a.getAttribute("data-go") || "").trim();
+    a.href = go || url(v);
     a.target = "_blank";
     a.rel = "noopener";
   })();

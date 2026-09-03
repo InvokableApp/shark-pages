@@ -15,6 +15,11 @@
   CUSTOM VALUES, so one design serves every rep:
     br_rep_full_name       the rep's name, in the header, the lede and the footer
     br_inside_video_id     the inside-overview video. Bare id or any YouTube url.
+    data-go on the CTA     the funnel's tracked redirect step (/r-private-briefing-go), NOT the
+                           portal itself. The step's minute-timer forwards to br_affiliate_link
+                           after the pageview fires the Fire Lead alert. The STEP SLUG is what
+                           routes publicly, so this path carries no funnel path in front of it.
+
     br_affiliate_link      the agent-portal link the CREATE MY ACCOUNT button opens. This is
                            the attribution-carrying link: bare domain or full url both work.
     br_onboarding_email    where the lead sends the NDA / community request.
@@ -73,7 +78,8 @@
           <li>Takes about a minute</li>
         </ul>
         <a class="sk-brf-cta" data-sk-primary data-sk-portal
-           data-url="{{custom_values.br_affiliate_link}}">
+           data-url="{{custom_values.br_affiliate_link}}"
+           data-go="/r-private-briefing-go">
           Create my account <i aria-hidden="true">&rarr;</i>
         </a>
       </section>
