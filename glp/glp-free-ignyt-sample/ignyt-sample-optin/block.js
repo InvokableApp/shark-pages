@@ -46,8 +46,9 @@
   // urgency not a real countdown"). Nothing actually changes when it reaches zero, so it
   // rolls forward another window and keeps running rather than pretending the offer died.
   //
-  // A new visitor starts at a full 57:00. The deadline is stamped in localStorage so the
-  // clock keeps falling across reloads instead of snapping back to 57:00 on every page view,
+  // A new visitor starts at a full 29:00 (Jeff, 2026-09-03; it was 57). The deadline is
+  // stamped in localStorage so the clock keeps falling across reloads instead of snapping
+  // back to 29:00 on every page view,
   // which is the thing that makes these obvious. A returning visitor whose deadline has
   // passed gets it rolled forward in WHOLE windows, so it is always mid-countdown and never
   // sits on 00:00 or on a dead "expired" state.
@@ -58,8 +59,12 @@
     var el = root.querySelector("[data-offer-timer]");
     if (!el) return;
     var clock = el.querySelector(".sk-prod-ig-timer-clock");
-    var KEY = "ignyt-offer-deadline";
-    var WINDOW_MS = 57 * 60 * 1000;
+    // ⚠️ THE KEY IS VERSIONED WITH THE WINDOW. A returning visitor carries a deadline
+    // stamped under the old 57 minute window, and roll-forward only adds whole windows to
+    // it, so without a new key they would keep seeing a clock as high as 57:00 while the
+    // page is now built around 29. Change the suffix whenever WINDOW_MS changes.
+    var KEY = "ignyt-offer-deadline-29";
+    var WINDOW_MS = 29 * 60 * 1000;
 
     // Safari in private mode THROWS on localStorage rather than returning null, so every
     // access is guarded and falls back to a memory-only deadline for this page view.
@@ -71,7 +76,7 @@
     var deadline = store.get() || (Date.now() + WINDOW_MS);
 
     // Roll forward in whole windows. A plain `deadline = now + WINDOW` here would hand every
-    // returning visitor a fresh 57:00, which is the reset that gives the trick away.
+    // returning visitor a fresh 29:00, which is the reset that gives the trick away.
     function normalise() {
       var now = Date.now();
       if (deadline <= now) {
