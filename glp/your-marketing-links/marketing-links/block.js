@@ -16,7 +16,12 @@ var SYS = {
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
-        desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' } ]},
+        desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
+      { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Free IGNYT Sample',
+        tease: 'A free 3 day trial, in the mail',
+        howto: 'https://glpshark.com/ignyt-sample-training',
+        canva: 'https://canva.link/qtfm73vucfijq5z',
+        desc: 'Sends a free 3 day IGNYT trial to their door. They hand you an address and expect you to make contact to confirm it, so every request is a conversation you are invited into.' } ]},
 
     { label: 'Quizzes and tools', items: [
       { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
@@ -105,6 +110,7 @@ var SYS = {
     dumbbell:'<path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><path d="M3.5 9v6"/><path d="M20.5 9v6"/><path d="M6.5 12h11"/>',
     quiz:    '<path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/>',
     drop:    '<path d="M12 2.7s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.1 12 2.7 12 2.7Z"/>',
+    gift:    '<rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 13.5h18"/><path d="M12 9v11"/><path d="M12 9S10.6 5 8.6 5a2.5 2.5 0 0 0 0 5"/><path d="M12 9s1.4-4 3.4-4a2.5 2.5 0 0 1 0 5"/>',
     info:    '<circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5"/><path d="M12 8h.01"/>',
     user:    '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
     users:   '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
@@ -225,11 +231,12 @@ var SYS = {
         '</div></div></div></article>';
     }).join('');
     if (!rows) return;
-    liveCount += rows.split('<article').length - 1;
+    var shown = rows.split('<article').length - 1;
+    liveCount += shown;
     html += '<div class="sk-group"><div class="sk-group-head">' +
       '<span class="sk-group-label">' + g.label + '</span>' +
       '<span class="sk-group-rule"></span>' +
-      '<span class="sk-group-count">' + g.items.length + '</span></div>' + rows + '</div>';
+      '<span class="sk-group-count">' + shown + '</span></div>' + rows + '</div>';
   });
   /* Extra groups: a row list of name plus link, used for the social image
      library, product and buy links, and anything else that is a directory
