@@ -9,7 +9,11 @@ var SYS = {
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
       { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
         tease:"Free recipe guide",
-        desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." } ]},
+        desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." },
+      { slug:"c-free-coffee-sample-optin", gateCv:"conectiv__free_sample_live",
+        howto:"https://conectivshark.com/c-free-coffee-sample-training", icon:"coffee", name:"Free ALIVE Sample",
+        tease:"You post them a real sample",
+        desc:"They ask for a free ALIVE sample and you put it in the post yourself. Nothing is delivered automatically, so this one lives or dies on you calling and texting. The scripts are on the how to page." } ]},
 
     { label:"Quizzes and tools", items:[
       { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
@@ -139,7 +143,14 @@ var SYS = {
     ? cv(SYS.domainCv).replace(/^https?:\/\//i, '').replace(/\/+$/, '')
     : '';
 
+  /* gateCv: render this funnel ONLY on accounts where that custom value is filled.
+     This block is ONE file served to every Conectiv buyer, so a new entry would otherwise
+     appear on all of their hubs and link to a page that only exists on some. cv() already
+     returns '' for an unsubstituted merge field ({...}) and for the "Paste your..." instruction
+     text a snapshot ships, so an account without the CV hides the card with no extra work.
+     Remove the gate once a funnel is installed fleet-wide. */
   function funnelUrl(it) {
+    if (it.gateCv && !cv(it.gateCv)) return '';
     if (SYS.domainCv) {
       if (!domain) return '';
       if (/^https?:/i.test(it.slug || '')) return it.slug;
