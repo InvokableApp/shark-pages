@@ -1,0 +1,42 @@
+/* glp / glp-orygn-opportunity-2 / opportunity2-optin
+ *
+ * The design lives in _shared/brief/v1/brief.css, scoped under .sk-brf, and is shared by every
+ * private-briefing opt-in page in every system. This file declares ONLY the palette, on the
+ * block's own scope class, and it cascades into the shared component. Nothing else belongs here:
+ * a per-page override means the shared component needs a variant.
+ *
+ * PALETTE IS THE REAL BRAND. #1B4AC4 is ORYGN's blue, already shipped on the GLP affiliate
+ * aptitude pages, so the two funnels read as one system. Ground is near-white rather than the
+ * source page's dark mode: this lander is long-form reading with no product photography to
+ * carry, and the component is built light.
+ *
+ * TYPE. Newsreader for display: an editorial serif that reads as a business briefing rather than
+ * a supplement ad. Manrope for body, which is what the component already expects.
+ *
+ * RGB triplets sit beside the hex tokens on purpose. CSS cannot take an alpha off a hex token,
+ * so every translucent surface in the component (hairlines, tints, shadows) needs one, and
+ * shipping the hexes alone leaves the donor hue on those surfaces.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Manrope:wght@400..850&display=swap");
+
+.sk-brf-opportunity2{
+  --sk-navy:     #0E1A33;      /* solid button        */
+  --sk-navy-d:   #1B2A4A;      /* button hover        */
+  --sk-teal:     #1B4AC4;      /* accent, ORYGN blue  */
+  --sk-teal-d:   #14379A;      /* accent, deep        */
+  --sk-sage:     #EEF3FD;      /* tinted band         */
+  --sk-lime:     #4E86F0;
+  --sk-ink:      #0E1A33;      /* headings            */
+  --sk-body:     #4A5670;      /* body copy           */
+  --sk-cream:    #FFFFFF;      /* raised paper        */
+  --sk-mist:     #FBFCFF;      /* page ground         */
+  --sk-line:     #E3E9F5;      /* hairline            */
+
+  --sk-teal-rgb: 27,74,196;
+  --sk-ink-rgb:  14,26,51;
+  --sk-line-rgb: 124,135,160;
+
+  --sk-serif:    Newsreader,Georgia,serif;
+  --sk-sans:     Manrope,system-ui,-apple-system,sans-serif;
+}

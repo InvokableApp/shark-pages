@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORYGN Opportunity 2 — opt-in</title>
+<style>html,body{margin:0;padding:0}
+/* glp / glp-orygn-opportunity-2 / opportunity2-optin
+ *
+ * The design lives in _shared/brief/v1/brief.css, scoped under .sk-brf, and is shared by every
+ * private-briefing opt-in page in every system. This file declares ONLY the palette, on the
+ * block's own scope class, and it cascades into the shared component. Nothing else belongs here:
+ * a per-page override means the shared component needs a variant.
+ *
+ * PALETTE IS THE REAL BRAND. #1B4AC4 is ORYGN's blue, already shipped on the GLP affiliate
+ * aptitude pages, so the two funnels read as one system. Ground is near-white rather than the
+ * source page's dark mode: this lander is long-form reading with no product photography to
+ * carry, and the component is built light.
+ *
+ * TYPE. Newsreader for display: an editorial serif that reads as a business briefing rather than
+ * a supplement ad. Manrope for body, which is what the component already expects.
+ *
+ * RGB triplets sit beside the hex tokens on purpose. CSS cannot take an alpha off a hex token,
+ * so every translucent surface in the component (hairlines, tints, shadows) needs one, and
+ * shipping the hexes alone leaves the donor hue on those surfaces.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Manrope:wght@400..850&display=swap");
+
+.sk-brf-opportunity2{
+  --sk-navy:     #0E1A33;      /* solid button        */
+  --sk-navy-d:   #1B2A4A;      /* button hover        */
+  --sk-teal:     #1B4AC4;      /* accent, ORYGN blue  */
+  --sk-teal-d:   #14379A;      /* accent, deep        */
+  --sk-sage:     #EEF3FD;      /* tinted band         */
+  --sk-lime:     #4E86F0;
+  --sk-ink:      #0E1A33;      /* headings            */
+  --sk-body:     #4A5670;      /* body copy           */
+  --sk-cream:    #FFFFFF;      /* raised paper        */
+  --sk-mist:     #FBFCFF;      /* page ground         */
+  --sk-line:     #E3E9F5;      /* hairline            */
+
+  --sk-teal-rgb: 27,74,196;
+  --sk-ink-rgb:  14,26,51;
+  --sk-line-rgb: 124,135,160;
+
+  --sk-serif:    Newsreader,Georgia,serif;
+  --sk-sans:     Manrope,system-ui,-apple-system,sans-serif;
+}
+</style>
+</head><body>
+<!--
+  glp/glp-orygn-opportunity-2/opportunity2-optin
+  Step 1 of the ORYGN Opportunity 2 funnel. A BLIND recruiting lander: it sells the market and
+  the entry cost, and it does not name the company or the products. The reveal is step 2.
+
+  Structure is the same shape as funnelshark's private briefing (both were read off Beal's
+  pages), refined per Jeff 2026-09-04:
+    1. NOTHING IS NAMED HERE. No ORYGN, no triGLP, no IGNYT, no product photography. Curiosity
+       first, then the breakdown on /blueprint.
+    2. THE FORM IS IN THE PAGE POPUP, not on the page. Every CTA carries `data-sk-open` and the
+       shared engine dispatches `customWidgetOpenPopup`, GHL's own no-argument window event, so
+       the block holds no popup id and survives a snapshot install (HOSTED-BLOCKS-SOP section 7).
+       Constraint that comes with it: ONE popup on this page.
+    3. NO SOURCE BRANDING. The header and footer name the REP, never a company.
+
+  EVERYTHING PERSONAL IS A CUSTOM VALUE, so one design serves every rep:
+    rep_full_name          header, the personal section and the footer
+    glp__income_disclaimer the account's own disclosure text
+  Both render as ABSENT when unfilled, never as a placeholder (HOSTED-BLOCKS-SOP section 4).
+
+  Design and behaviour live in _shared/brief/v1/, scoped .sk-brf; block.css holds only the palette.
+  `.sk-brf-next` is used here purely as the component's max-width container for the card rows.
+-->
+<div class="sk-brf sk-brf-opportunity2">
+
+  <header class="sk-brf-head">
+    <span class="sk-brf-mark">Private Overview</span>
+    <span class="sk-brf-by" data-sk-needs="Mike Beal">Mike Beal</span>
+  </header>
+
+  <section class="sk-brf-hero">
+
+    <p class="sk-brf-eyebrow">
+      <i aria-hidden="true"></i>
+      <span data-sk-needs="Mike Beal">A private overview from Mike Beal</span>
+            <i aria-hidden="true"></i>
+    </p>
+
+    <h1>Pharma spent billions building this market. It costs $74.95 to sell into it.</h1>
+
+    <p class="sk-brf-lede">Two products, one patented ingredient nobody else in direct sales can
+      sell, and it is free to enroll. The full breakdown is on the next page.</p>
+
+    <ul class="sk-brf-nolist" aria-label="What is not required">
+      <li><i aria-hidden="true"></i>No kit</li>
+      <li><i aria-hidden="true"></i>No licence</li>
+      <li><i aria-hidden="true"></i>No stock in your garage</li>
+    </ul>
+
+    <div class="sk-brf-explain">
+      <p>You sell <strong>two products into a market people are already searching for.</strong></p>
+    </div>
+
+    <p class="sk-brf-stat">$0 to enroll. $74.95 to start.</p>
+
+    <button type="button" class="sk-brf-cta" data-sk-open>
+      Show me the breakdown <i aria-hidden="true">&rarr;</i>
+    </button>
+
+  </section>
+
+  <div class="sk-brf-next">
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Why this one<i aria-hidden="true"></i></p>
+      <h2>Four things worth knowing before you look.</h2>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">The market</span></p>
+        <h3>It is already here</h3>
+        <p>GLP-1 is the most talked about thing in weight loss. People search for it on their own.
+          You are not explaining a new category to anybody.</p>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">The product</span></p>
+        <h3>One patented ingredient</h3>
+        <p>A patented Norwegian peptide, licensed exclusively into this channel. No other company
+          in direct sales can put it in a bottle.</p>
+      </section>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">03</span><span class="sk-brf-step-when">The cost</span></p>
+        <h3>$0 to enroll</h3>
+        <p>Enrolling is free. Starting costs $74.95, which is your own first order.</p>
+        <ul class="sk-brf-facts">
+          <li>No kit</li>
+          <li>No licence</li>
+          <li>No minimum team</li>
+        </ul>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">04</span><span class="sk-brf-step-when">The work</span></p>
+        <h3>Two customers. Two builders.</h3>
+        <p>Get two customers who reorder. Find two people who want to build. Help them do the
+          same. A new person can repeat that in week one.</p>
+      </section>
+    </div>
+
+  </div>
+
+  <section class="sk-brf-access" aria-labelledby="sk-brf-access-title">
+    <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>The breakdown<i aria-hidden="true"></i></p>
+    <h2 id="sk-brf-access-title">See the whole thing.</h2>
+    <span class="sk-brf-access-lede">The company, the two products, the four ways to start, both
+      bonuses, and what you do in your first 48 hours. It is one page and it opens as soon as you
+      enter your details.</span>
+    <strong class="sk-brf-nopressure">No purchase. Earnings are not guaranteed and depend on
+      individual activity and results.</strong>
+    <button type="button" class="sk-brf-cta" data-sk-open>
+      Show me the breakdown <i aria-hidden="true">&rarr;</i>
+    </button>
+    <p class="sk-brf-note">Takes about 30 seconds.</p>
+  </section>
+
+  <footer class="sk-brf-foot">
+    <span>&copy; <span data-sk-year>2026</span> <span data-sk-needs="Mike Beal">Mike Beal</span></span>
+    <span data-sk-needs="Most people in direct sales earn modest amounts or nothing at all. Nothing on this page is a promise or guarantee of income.">Most people in direct sales earn modest amounts or nothing at all. Nothing on this page is a promise or guarantee of income.</span>
+      </footer>
+
+</div>
+
+<script src="https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.js" defer></script>
+</body></html>

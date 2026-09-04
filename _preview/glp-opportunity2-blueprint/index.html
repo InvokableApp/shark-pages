@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORYGN Opportunity 2 — blueprint</title>
+<style>html,body{margin:0;padding:0}
+/* glp / glp-orygn-opportunity-2 / opportunity2-blueprint
+ *
+ * The design lives in _shared/brief/v1/brief.css, scoped under .sk-brf, and is shared by every
+ * private-briefing opt-in page in every system. This file declares ONLY the palette, on the
+ * block's own scope class, and it cascades into the shared component. Nothing else belongs here:
+ * a per-page override means the shared component needs a variant.
+ *
+ * PALETTE IS THE REAL BRAND. #1B4AC4 is ORYGN's blue, already shipped on the GLP affiliate
+ * aptitude pages, so the two funnels read as one system. Ground is near-white rather than the
+ * source page's dark mode: this lander is long-form reading with no product photography to
+ * carry, and the component is built light.
+ *
+ * TYPE. Newsreader for display: an editorial serif that reads as a business briefing rather than
+ * a supplement ad. Manrope for body, which is what the component already expects.
+ *
+ * RGB triplets sit beside the hex tokens on purpose. CSS cannot take an alpha off a hex token,
+ * so every translucent surface in the component (hairlines, tints, shadows) needs one, and
+ * shipping the hexes alone leaves the donor hue on those surfaces.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Manrope:wght@400..850&display=swap");
+
+.sk-brf-opportunity2{
+  --sk-navy:     #0E1A33;      /* solid button        */
+  --sk-navy-d:   #1B2A4A;      /* button hover        */
+  --sk-teal:     #1B4AC4;      /* accent, ORYGN blue  */
+  --sk-teal-d:   #14379A;      /* accent, deep        */
+  --sk-sage:     #EEF3FD;      /* tinted band         */
+  --sk-lime:     #4E86F0;
+  --sk-ink:      #0E1A33;      /* headings            */
+  --sk-body:     #4A5670;      /* body copy           */
+  --sk-cream:    #FFFFFF;      /* raised paper        */
+  --sk-mist:     #FBFCFF;      /* page ground         */
+  --sk-line:     #E3E9F5;      /* hairline            */
+
+  --sk-teal-rgb: 27,74,196;
+  --sk-ink-rgb:  14,26,51;
+  --sk-line-rgb: 124,135,160;
+
+  --sk-serif:    Newsreader,Georgia,serif;
+  --sk-sans:     Manrope,system-ui,-apple-system,sans-serif;
+}
+</style>
+</head><body>
+<!--
+  glp/glp-orygn-opportunity-2/opportunity2-blueprint
+  Step 2 of the ORYGN Opportunity 2 funnel: the page the lead lands on after the opt-in, and the
+  first place the company and the products are named. Step 1 is deliberately blind.
+
+  Simplified against the source inside page (2026-09-04):
+    1. THE DRAGGABLE PAY WIDGET IS GONE. The two bonuses are stated as numbers. A visitor
+       deciding whether to enroll needs the range and the cap, not a slider.
+    2. FOUR FAQs, NOT NINE. The five that were answered elsewhere on the page came out.
+    3. ONE PALETTE ACROSS THE FUNNEL, same tokens as the lander.
+
+  Every CTA points at the funnel's REDIRECT STEP (/go), never at the enrollment link directly:
+  the pageview on that step is the fire-lead measurement point, and its own native minute-timer
+  forwards to {{custom_values.distributor_buy_link}} (LEAD-MAGNET-CAMPAIGN-SOP, funnel
+  architecture). The STEP SLUG is what routes publicly, so this path carries no funnel path.
+
+  CUSTOM VALUES, so one design serves every rep:
+    rep_full_name          header and footer
+    glp__income_disclaimer the account's own disclosure text
+  Both render as ABSENT when unfilled, never as a placeholder (HOSTED-BLOCKS-SOP section 4).
+
+  Design and behaviour live in _shared/brief/v1/, scoped .sk-brf; block.css holds only the palette.
+-->
+<div class="sk-brf sk-brf-opportunity2">
+
+  <header class="sk-brf-head">
+    <span class="sk-brf-mark">The Breakdown</span>
+    <span class="sk-brf-by" data-sk-needs="Mike Beal">Mike Beal</span>
+  </header>
+
+  <div class="sk-brf-next">
+
+    <section class="sk-brf-next-hero">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>The company is ORYGN<i aria-hidden="true"></i></p>
+      <h1>$0 to join. $74.95 to start. <em>Paid weekly.</em></h1>
+      <p class="sk-brf-next-lede">What you sell, what it costs, what you earn.</p>
+    </section>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>What you sell<i aria-hidden="true"></i></p>
+      <h2>Two products.</h2>
+      <p class="sk-brf-seq-sub">Both built on the patented Norwegian peptide licensed to ORYGN.</p>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">Sublingual drops</span></p>
+        <h3>triGLP</h3>
+        <p>Drops you hold under the tongue.</p>
+        <ul class="sk-brf-facts">
+          <li>9ml bottle</li>
+          <li>36 servings</li>
+        </ul>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Daily sachets</span></p>
+        <h3>IGNYT</h3>
+        <p>A drink sachet you mix with water.</p>
+        <ul class="sk-brf-facts">
+          <li>30 count box</li>
+          <li>One a day</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>What it costs<i aria-hidden="true"></i></p>
+      <h2>Enrolling is free.</h2>
+      <p class="sk-brf-seq-sub">Your first order is the only thing you pay for.</p>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">Four ways to start</span></p>
+        <h3>$74.95 to $389.95</h3>
+        <ul class="sk-brf-facts">
+          <li>One product $74.95</li>
+          <li>Both products $129.95</li>
+          <li>Four units, mixed $259.95</li>
+          <li>Six units $389.95</li>
+        </ul>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Not required</span></p>
+        <h3>What you never buy</h3>
+        <ul class="sk-brf-facts">
+          <li>No kit</li>
+          <li>No licence</li>
+          <li>No stock to hold</li>
+          <li>No website fee</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>How you get paid<i aria-hidden="true"></i></p>
+      <h2>Two bonuses.</h2>
+      <p class="sk-brf-seq-sub">Both paid on published numbers, weekly or monthly by type.</p>
+      <small>Most people in direct sales earn modest amounts or nothing at all. These figures are
+        the plan's published maximums, not what you should expect to earn.</small>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">Monthly</span></p>
+        <h3>Lifestyle Bonus</h3>
+        <p>Paid on the shape of your team, from two people on each side up to five.</p>
+        <ul class="sk-brf-facts">
+          <li>2x2 pays $100 a month</li>
+          <li>5x5 pays $700 a month</li>
+        </ul>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Weekly</span></p>
+        <h3>Two Team Pay</h3>
+        <p>Paid on your smaller team's volume each week, at a percentage set by your rank.</p>
+        <ul class="sk-brf-facts">
+          <li>8% to 20% by rank</li>
+          <li>Up to $20,000 a week</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>The move<i aria-hidden="true"></i></p>
+      <h2>Get 2. Help your 2 get 2.</h2>
+      <p class="sk-brf-seq-sub">Then teach the four people under you to do the same thing.</p>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">You</span></p>
+        <h3>Two customers</h3>
+        <p>Two people who order and reorder. That is the whole customer target.</p>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Your two</span></p>
+        <h3>Two builders</h3>
+        <p>Two people who want to earn from it, doing exactly what you did.</p>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Your first 48 hours<i aria-hidden="true"></i></p>
+      <h2>Four things, in this order.</h2>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">Today</span></p>
+        <h3>Enroll and order</h3>
+        <p>Create your free account, then pick your starting order. You are your own first
+          customer.</p>
+        <a class="sk-brf-cta" data-sk-primary href="/go">
+          Create my account <i aria-hidden="true">&rarr;</i>
+        </a>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Next 48 hours</span></p>
+        <h3>Tell two people</h3>
+        <p>Send this page to two people who would use the product, and book your call with your
+          sponsor.</p>
+        <ul class="sk-brf-facts">
+          <li>Two names, not twenty</li>
+          <li>Book the team call</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Straight answers<i aria-hidden="true"></i></p>
+      <h2>The four questions everybody asks.</h2>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <h3>Is this an MLM?</h3>
+        <p>It is direct sales. You earn on what you sell and on what the people you enroll sell.
+          The plan and the percentages are published.</p>
+      </section>
+      <section class="sk-brf-step">
+        <h3>Do I hold stock?</h3>
+        <p>No. Orders ship from the company to the customer.</p>
+      </section>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <h3>What if I have never done this?</h3>
+        <p>There are two products and one thing to say about each. Your sponsor walks you through
+          the first two conversations.</p>
+      </section>
+      <section class="sk-brf-step">
+        <h3>What if I stop?</h3>
+        <p>Nothing to cancel and nothing owed. There is no contract and no minimum term.</p>
+      </section>
+    </div>
+
+    <div class="sk-brf-seq-head">
+      <p class="sk-brf-eyebrow"><i aria-hidden="true"></i>Your next move<i aria-hidden="true"></i></p>
+      <h2>Create your account.</h2>
+      <p class="sk-brf-seq-sub">Free, and it takes about a minute.</p>
+    </div>
+
+    <div class="sk-brf-steps">
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">01</span><span class="sk-brf-step-when">Start here</span></p>
+        <h3>Enroll with ORYGN</h3>
+        <p>Your account is free to create. Your first order is the $74.95 you saw above.</p>
+        <a class="sk-brf-cta" data-sk-primary href="/go">
+          Create my account <i aria-hidden="true">&rarr;</i>
+        </a>
+      </section>
+      <section class="sk-brf-step">
+        <p class="sk-brf-step-top"><span class="sk-brf-step-n">02</span><span class="sk-brf-step-when">Questions first</span></p>
+        <h3>Talk to your sponsor</h3>
+        <p data-sk-needs="Mike Beal">Mike Beal sent you
+          this page and can answer anything on it before you enroll.</p>
+                <ul class="sk-brf-facts">
+          <li>No pressure</li>
+          <li>No cost to ask</li>
+        </ul>
+      </section>
+    </div>
+
+  </div>
+
+  <footer class="sk-brf-foot">
+    <span>&copy; <span data-sk-year>2026</span> <span data-sk-needs="Mike Beal">Mike Beal</span></span>
+    <span data-sk-needs="Most people in direct sales earn modest amounts or nothing at all. Nothing on this page is a promise or guarantee of income.">Most people in direct sales earn modest amounts or nothing at all. Nothing on this page is a promise or guarantee of income.</span>
+      </footer>
+
+</div>
+
+<script src="https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.js" defer></script>
+</body></html>
