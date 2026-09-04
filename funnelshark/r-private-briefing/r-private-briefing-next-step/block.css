@@ -27,3 +27,31 @@
   --sk-serif:    var(--brf-serif,"Cormorant Garamond",Georgia,serif);
   --sk-sans:     var(--brf-sans,Manrope,system-ui,-apple-system,sans-serif);
 }
+
+/* ── the CREATE MY ACCOUNT button ────────────────────────────────────────────
+ * This is now the ONLY action on the page (the "open this in my email" button was removed
+ * 2026-09-04), so it gets the page's strongest treatment rather than the softer secondary one.
+ *
+ * ⚠️ WHY THIS LIVES HERE AND NOT IN THE SHARED COMPONENT. `brief/v1` styles
+ * `[data-sk-primary]` as bronze-on-bronze, which is quieter than the dark pill the hero and
+ * access CTAs use, and quieter is the opposite of what this button needs. But GLP's
+ * `opportunity2-blueprint` page imports the SAME brief/v1 and carries two `data-sk-primary`
+ * buttons of its own, so editing the shared rule would silently restyle a live GLP page.
+ * Scoping the override to .sk-brf-next-step keeps the blast radius at this one page.
+ * (_shared/README.md: within a version, one push changes every page that imports it.)
+ */
+.sk-brf-next-step .sk-brf-step .sk-brf-cta[data-sk-primary]{
+  background:var(--sk-navy);border-color:var(--sk-navy-d);color:var(--sk-cream);
+  min-height:4.75rem;
+  font-size:clamp(.6rem,1.05vw,.7rem);
+  box-shadow:0 1.25rem 3rem rgba(var(--sk-line-rgb),.32);
+}
+.sk-brf-next-step .sk-brf-step .sk-brf-cta[data-sk-primary]:hover{
+  background:var(--sk-navy-d);
+  box-shadow:0 1.6rem 3.6rem rgba(var(--sk-line-rgb),.4);
+}
+/* the bronze disc returns as the accent, the way it reads on every other CTA in the funnel */
+.sk-brf-next-step .sk-brf-step .sk-brf-cta[data-sk-primary] i{
+  background:var(--sk-teal);width:3.9rem;height:3.9rem;flex-basis:3.9rem;
+}
+
