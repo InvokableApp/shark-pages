@@ -9,13 +9,19 @@
  * block's own scope class, and it cascades into the shared component. Nothing else belongs here:
  * a per-page override means the shared component needs a variant.
  *
- * PALETTE IS THE REAL BRAND. #1B4AC4 is ORYGN's blue, already shipped on the GLP affiliate
- * aptitude pages, so the two funnels read as one system. Ground is near-white rather than the
- * source page's dark mode: this lander is long-form reading with no product photography to
- * carry, and the component is built light.
+ * PALETTE IS THE REAL BRAND, NOT AN INVENTED ONE. Every value below was sampled out of the
+ * source page's own stylesheet (orygyn-story-builder.lovable.app/assets/styles-BoyXwVa9.css,
+ * 2026-09-04), which ships its tokens in oklch: the accent is oklch(56% .185 33) and the flare
+ * oklch(68% .175 38), converted here to the hex the component expects.
+ *
+ * The GROUND is light where the source runs dark. This is long-form reading with no product
+ * photography to carry, the component is built light, and the orange holds against warm paper.
+ * Flipping to the source's dark mode is a change to --sk-mist / --sk-cream / --sk-ink here and
+ * nowhere else.
  *
  * TYPE. Newsreader for display: an editorial serif that reads as a business briefing rather than
- * a supplement ad. Manrope for body, which is what the component already expects.
+ * a supplement ad. Manrope for body, which is what the component already expects and what the
+ * source page loads too.
  *
  * RGB triplets sit beside the hex tokens on purpose. CSS cannot take an alpha off a hex token,
  * so every translucent surface in the component (hairlines, tints, shadows) needs one, and
@@ -25,21 +31,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Manrope:wght@400..850&display=swap");
 
 .sk-brf-opportunity2{
-  --sk-navy:     #0E1A33;      /* solid button        */
-  --sk-navy-d:   #1B2A4A;      /* button hover        */
-  --sk-teal:     #1B4AC4;      /* accent, ORYGN blue  */
-  --sk-teal-d:   #14379A;      /* accent, deep        */
-  --sk-sage:     #EEF3FD;      /* tinted band         */
-  --sk-lime:     #4E86F0;
-  --sk-ink:      #0E1A33;      /* headings            */
-  --sk-body:     #4A5670;      /* body copy           */
-  --sk-cream:    #FFFFFF;      /* raised paper        */
-  --sk-mist:     #FBFCFF;      /* page ground         */
-  --sk-line:     #E3E9F5;      /* hairline            */
+  --sk-navy:     #18130E;      /* solid button, warm near-black */
+  --sk-navy-d:   #2C2520;      /* button hover                  */
+  --sk-teal:     #CA3A1E;      /* accent, Beal's burnt orange   */
+  --sk-teal-d:   #A62D14;      /* accent, deep                  */
+  --sk-sage:     #F7EFE9;      /* tinted band                   */
+  --sk-lime:     #EF6A3F;      /* flare                         */
+  --sk-ink:      #18130E;      /* headings                      */
+  --sk-body:     #5A5049;      /* body copy                     */
+  --sk-cream:    #FFFFFF;      /* raised paper                  */
+  --sk-mist:     #FDFCF9;      /* page ground                   */
+  --sk-line:     #E7DED5;      /* hairline                      */
 
-  --sk-teal-rgb: 27,74,196;
-  --sk-ink-rgb:  14,26,51;
-  --sk-line-rgb: 124,135,160;
+  --sk-teal-rgb: 202,58,30;
+  --sk-ink-rgb:  24,19,14;
+  --sk-line-rgb: 175,170,163;
 
   --sk-serif:    Newsreader,Georgia,serif;
   --sk-sans:     Manrope,system-ui,-apple-system,sans-serif;
