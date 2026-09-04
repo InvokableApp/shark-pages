@@ -2,40 +2,106 @@
  "system": "beta",
  "funnel": "shark-beta-scripts",
  "page": "hormone-recipe-scripts",
+ "palette": "beneve",
  "funnelId": "Emv9objtSpBVx7sVM3jm",
  "pageId": "fgZoJL7NBU3OtDLqLPlR",
  "stepName": "Hormone Lunchbox Recipe Guide Scripts",
- "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
- "logoAlt": "Shark AI Marketing System",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
  "title": "How to follow up with your Hormone Lunchbox Recipe Guide leads",
  "titleHtml": "How to follow up with your <em>Hormone Lunchbox Recipe Guide</em> leads",
- "sub": "Two scripts. Send the one that matches what your lead just did.",
+ "sub": "Every lead here is going one place: your Facebook group.",
  "funnelLabel": "Hormone Lunchbox Recipe Guide Leads",
- "stepsLabel": "Pick the one that fits your lead",
- "steps": [
+ "tracksQuestion": "What did this lead just do?",
+ "tracks": [
   {
-   "num": "1",
-   "title": "They downloaded the guide",
-   "lead": "Most of your leads. Text this soon after they opt in:",
-   "script": [
-    "Hey [Name], this is [Your Name]! I made the Hormone Lunchbox Recipe Guide you just got in your email, let me know if you have any questions!",
-    "BTW, I also run a Facebook group that is a support system for people who are using holistic methods to improve their life. Would love to have you there! [your Facebook group link]"
-   ],
-   "copyButton": "Copy this text",
-   "copyLabel": "Copy the script for a lead who downloaded the guide"
+   "key": "guide",
+   "label": "They downloaded the guide",
+   "hint": "Most of your leads. They opted in for the recipe guide and that is all you know about them so far.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Send this soon after they opt in, while the guide is still open on their phone:",
+     "script": [
+      "Hey [Name], this is [Your Name]! I made the Hormone Lunchbox Recipe Guide you just got in your email, let me know if you have any questions!",
+      "BTW, I also run a Facebook group that is a support system for people who are using holistic methods to improve their life. Would love to have you there! [your Facebook group link]"
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the text for a lead who downloaded the guide"
+    },
+    {
+     "num": "2",
+     "title": "If they don't answer",
+     "lead": "Give it two days. Most people mean to reply and then their week starts:",
+     "script": [
+      "Hey [Name], did you get a chance to look at the guide? Let me know which one you try first.",
+      "My group is there whenever you want it, we talk through this stuff daily: [your Facebook group link]"
+     ],
+     "copyButton": "Copy the nudge",
+     "copyLabel": "Copy the two day follow-up nudge"
+    }
+   ]
   },
   {
-   "num": "2",
-   "title": "They clicked to join your Facebook group",
-   "lead": "You get a text the moment this happens. Reply while they are still on their phone:",
-   "script": [
-    "Hey [Name], this is [Your Name], just saw you clicked to join the Facebook group I run. I'll check now and add you.",
-    "Feel free to reach out to me here if you have any questions about the Hormone Lunchbox Recipe Guide. Would love for you to introduce yourself in the group as well, we love meeting new people and hearing their stories!"
-   ],
-   "copyButton": "Copy this text",
-   "copyLabel": "Copy the script for a lead who asked to join the group"
+   "key": "group",
+   "label": "They clicked to join your group",
+   "hint": "They asked to join off the confirmation page. You get a text the moment it happens.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Reply while they are still on their phone",
+     "lead": "You have a minute or two here, so use it. They just tapped your button:",
+     "script": [
+      "Hey [Name], this is [Your Name], just saw you clicked to join the Facebook group I run. I'll check now and add you.",
+      "Feel free to reach out to me here if you have any questions about the Hormone Lunchbox Recipe Guide. Would love for you to introduce yourself in the group as well, we love meeting new people and hearing their stories!"
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the text for a lead who asked to join the group"
+    },
+    {
+     "num": "2",
+     "title": "Go approve them",
+     "lead": "Do it now, not tonight. Facebook asks new members who referred them, so your name will be sitting on their request:",
+     "script": [
+      "Open your group, go to <strong>Member requests</strong>, and approve them.",
+      "If the request is not there yet, they did not finish on Facebook's side. Reply to your own text: \"Looks like Facebook hasn't sent your request through yet, tap the link one more time and I'll get you straight in.\""
+     ],
+     "copyButton": "Copy the not-there-yet reply",
+     "copyLabel": "Copy the reply for a request that has not come through"
+    }
+   ]
   }
  ],
- "tip": "<strong>Tip:</strong> Swap [Name], [Your Name] and [your Facebook group link] every time. Paste your own group link once, save the script in your phone, and it is a two second reply after that.",
+ "shared": {
+  "label": "Once they are in the group, either way",
+  "steps": [
+   {
+    "num": "1",
+    "title": "Welcome them by name",
+    "lead": "Post it in the group the day you approve them, so the first thing they see is somebody expecting them:",
+    "script": [
+     "Welcome [Name]! 👋 Tell us a bit about yourself and what you are working on right now, we all started somewhere.",
+     "Anyone here dealing with the same thing, jump in and say hi."
+    ],
+    "copyButton": "Copy the welcome post",
+    "copyLabel": "Copy the welcome post"
+   },
+   {
+    "num": "2",
+    "title": "Check in a few days later",
+    "lead": "Five to seven days after they join. Ask about the guide, not about the group:",
+    "script": [
+     "Hey [Name]! Did you get a chance to try anything out of the recipe guide yet?",
+     "Tell me the honest answer, good or bad. It helps me know what to put in the next one."
+    ],
+    "copyButton": "Copy the check-in",
+    "copyLabel": "Copy the check-in text"
+   }
+  ]
+ },
+ "tip": "<strong>Tip:</strong> Send your own group link, never anyone else's. Paste it into both scripts once, save them in your phone, and every lead after that is a two second reply. Approve member requests daily: somebody who asked to join on Tuesday and got let in on Saturday has already forgotten who you are.",
  "footer": "Hormone Lunchbox Recipe Guide follow-up · Quick reference · Keep this handy by your phone"
 }

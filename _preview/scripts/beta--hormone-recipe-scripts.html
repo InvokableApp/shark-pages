@@ -663,15 +663,15 @@ html,body{margin:0;padding:0;background:#e9e9ec}
 
 
 .sk-beta-shark-beta-scripts-hormone-recipe-scripts {
-  --sk-brand:      #7B2AEE;
-  --sk-brand-deep: #5715C0;
-  --sk-brand-tint: #F0E8FD;
-  --sk-ink:        #130C1F;
-  --sk-ink-soft:   #5D5570;
-  --sk-ink-faint:  #8E86A0;
-  --sk-paper:      #F7F4FC;
-  --sk-line:       #E5DFEF;
-  --sk-line-soft:  #EEEAF6;
+  --sk-brand:      #1E386A;
+  --sk-brand-deep: #14284C;
+  --sk-brand-tint: #EAEEF6;
+  --sk-ink:        #16233D;
+  --sk-ink-soft:   #4A5568;
+  --sk-ink-faint:  #8792A8;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DDE4EE;
+  --sk-line-soft:  #E9EEF5;
   --sk-card:       #FFFFFF;
 }
 
@@ -692,9 +692,9 @@ html,body{margin:0;padding:0;background:#e9e9ec}
   <div class="sk-grain" aria-hidden="true"></div>
 
   <header class="sk-head">
-    <img class="sk-logo" src="https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg" alt="Shark AI Marketing System">
+    <img class="sk-logo" src="https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg" alt="Beneve Shark, AI Marketing System">
     <h1 class="sk-title">How to follow up with your <em>Hormone Lunchbox Recipe Guide</em> leads</h1>
-    <p class="sk-sub">Two scripts. Send the one that matches what your lead just did.</p>
+    <p class="sk-sub">Every lead here is going one place: your Facebook group.</p>
     <span class="sk-funnel"><i data-sk-icon="funnel"></i>Hormone Lunchbox Recipe Guide Leads</span>
   </header>
 
@@ -704,9 +704,21 @@ html,body{margin:0;padding:0;background:#e9e9ec}
     </button>
   </div>
 
-  <section class="sk-group" aria-label="What to do">
+  <div class="sk-tracks no-print" role="group" aria-label="Which situation is this?">
+    <p class="sk-tracks-q">What did this lead just do?</p>
+    <div class="sk-tracks-btns">
+      <button type="button" class="sk-track-btn" data-sk-track="guide" aria-pressed="true">
+        <b>They downloaded the guide</b><span>Most of your leads. They opted in for the recipe guide and that is all you know about them so far.</span>
+      </button>
+      <button type="button" class="sk-track-btn" data-sk-track="group" aria-pressed="false">
+        <b>They clicked to join your group</b><span>They asked to join off the confirmation page. You get a text the moment it happens.</span>
+      </button>
+    </div>
+  </div>
+
+  <section class="sk-group" data-track="guide" aria-label="They downloaded the guide">
     <div class="sk-group-head">
-      <span class="sk-group-label">Pick the one that fits your lead</span>
+      <span class="sk-group-label">Do this, in order</span>
       <span class="sk-group-rule"></span>
       <span class="sk-group-count">2</span>
     </div>
@@ -716,8 +728,8 @@ html,body{margin:0;padding:0;background:#e9e9ec}
       <div class="sk-step-head">
         <span class="sk-num">1</span>
         <div>
-          <h3 class="sk-step-name">They downloaded the guide</h3>
-          <p class="sk-step-lead">Most of your leads. Text this soon after they opt in:</p>
+          <h3 class="sk-step-name">Text them the same day</h3>
+          <p class="sk-step-lead">Send this soon after they opt in, while the guide is still open on their phone:</p>
         </div>
       </div>
 
@@ -727,7 +739,7 @@ html,body{margin:0;padding:0;background:#e9e9ec}
       </div>
 
       <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
-              aria-label="Copy the script for a lead who downloaded the guide">
+              aria-label="Copy the text for a lead who downloaded the guide">
         <i data-sk-icon="copy"></i><span data-copy-label>Copy this text</span>
       </button>
     </li>
@@ -736,8 +748,38 @@ html,body{margin:0;padding:0;background:#e9e9ec}
       <div class="sk-step-head">
         <span class="sk-num">2</span>
         <div>
-          <h3 class="sk-step-name">They clicked to join your Facebook group</h3>
-          <p class="sk-step-lead">You get a text the moment this happens. Reply while they are still on their phone:</p>
+          <h3 class="sk-step-name">If they don't answer</h3>
+          <p class="sk-step-lead">Give it two days. Most people mean to reply and then their week starts:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Hey <span class="sk-slot">[Name]</span>, did you get a chance to look at the guide? Let me know which one you try first.</p>
+        <p>My group is there whenever you want it, we talk through this stuff daily: <span class="sk-slot">[your Facebook group link]</span></p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the two day follow-up nudge">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the nudge</span>
+      </button>
+    </li>
+    </ol>
+  </section>
+
+  <section class="sk-group" data-track="group" aria-label="They clicked to join your group">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Do this, in order</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">2</span>
+    </div>
+
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
+      <div class="sk-step-head">
+        <span class="sk-num">1</span>
+        <div>
+          <h3 class="sk-step-name">Reply while they are still on their phone</h3>
+          <p class="sk-step-lead">You have a minute or two here, so use it. They just tapped your button:</p>
         </div>
       </div>
 
@@ -747,8 +789,78 @@ html,body{margin:0;padding:0;background:#e9e9ec}
       </div>
 
       <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
-              aria-label="Copy the script for a lead who asked to join the group">
+              aria-label="Copy the text for a lead who asked to join the group">
         <i data-sk-icon="copy"></i><span data-copy-label>Copy this text</span>
+      </button>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
+      <div class="sk-step-head">
+        <span class="sk-num">2</span>
+        <div>
+          <h3 class="sk-step-name">Go approve them</h3>
+          <p class="sk-step-lead">Do it now, not tonight. Facebook asks new members who referred them, so your name will be sitting on their request:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Open your group, go to <strong>Member requests</strong>, and approve them.</p>
+        <p>If the request is not there yet, they did not finish on Facebook's side. Reply to your own text: "Looks like Facebook hasn't sent your request through yet, tap the link one more time and I'll get you straight in."</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the reply for a request that has not come through">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the not-there-yet reply</span>
+      </button>
+    </li>
+    </ol>
+  </section>
+
+  <section class="sk-group" aria-label="Once they are in the group, either way">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Once they are in the group, either way</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">2</span>
+    </div>
+
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
+      <div class="sk-step-head">
+        <span class="sk-num">1</span>
+        <div>
+          <h3 class="sk-step-name">Welcome them by name</h3>
+          <p class="sk-step-lead">Post it in the group the day you approve them, so the first thing they see is somebody expecting them:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Welcome <span class="sk-slot">[Name]</span>! 👋 Tell us a bit about yourself and what you are working on right now, we all started somewhere.</p>
+        <p>Anyone here dealing with the same thing, jump in and say hi.</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the welcome post">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the welcome post</span>
+      </button>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
+      <div class="sk-step-head">
+        <span class="sk-num">2</span>
+        <div>
+          <h3 class="sk-step-name">Check in a few days later</h3>
+          <p class="sk-step-lead">Five to seven days after they join. Ask about the guide, not about the group:</p>
+        </div>
+      </div>
+
+      <div class="sk-script">
+        <p>Hey <span class="sk-slot">[Name]</span>! Did you get a chance to try anything out of the recipe guide yet?</p>
+        <p>Tell me the honest answer, good or bad. It helps me know what to put in the next one.</p>
+      </div>
+
+      <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+              aria-label="Copy the check-in text">
+        <i data-sk-icon="copy"></i><span data-copy-label>Copy the check-in</span>
       </button>
     </li>
     </ol>
@@ -756,7 +868,7 @@ html,body{margin:0;padding:0;background:#e9e9ec}
 
   <aside class="sk-tip" data-sk-reveal>
     <i data-sk-icon="bulb"></i>
-    <div><strong>Tip:</strong> Swap <span class="sk-slot">[Name]</span>, <span class="sk-slot">[Your Name]</span> and <span class="sk-slot">[your Facebook group link]</span> every time. Paste your own group link once, save the script in your phone, and it is a two second reply after that.</div>
+    <div><strong>Tip:</strong> Send your own group link, never anyone else's. Paste it into both scripts once, save them in your phone, and every lead after that is a two second reply. Approve member requests daily: somebody who asked to join on Tuesday and got let in on Saturday has already forgotten who you are.</div>
   </aside>
 
   <footer class="sk-foot">Hormone Lunchbox Recipe Guide follow-up · Quick reference · Keep this handy by your phone</footer>

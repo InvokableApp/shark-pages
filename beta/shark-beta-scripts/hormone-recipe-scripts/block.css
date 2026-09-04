@@ -11,14 +11,14 @@
 @import url("https://invokableapp.github.io/shark-pages/_shared/scripts/v1/scripts.css");
 
 .sk-beta-shark-beta-scripts-hormone-recipe-scripts {
-  --sk-brand:      #7B2AEE;
-  --sk-brand-deep: #5715C0;
-  --sk-brand-tint: #F0E8FD;
-  --sk-ink:        #130C1F;
-  --sk-ink-soft:   #5D5570;
-  --sk-ink-faint:  #8E86A0;
-  --sk-paper:      #F7F4FC;
-  --sk-line:       #E5DFEF;
-  --sk-line-soft:  #EEEAF6;
+  --sk-brand:      #1E386A;
+  --sk-brand-deep: #14284C;
+  --sk-brand-tint: #EAEEF6;
+  --sk-ink:        #16233D;
+  --sk-ink-soft:   #4A5568;
+  --sk-ink-faint:  #8792A8;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DDE4EE;
+  --sk-line-soft:  #E9EEF5;
   --sk-card:       #FFFFFF;
 }
