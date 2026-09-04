@@ -55,6 +55,59 @@
 }
 @keyframes sk-prod-ctv-sheen{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
+/* ============================ HERO BACKGROUND ============================ */
+/* The hero was flat cream behind the headline and flat cream behind the pack, so the only
+   thing carrying the subject was the pack itself (Jeff, 2026-09-04: "its plain").
+
+   Shape of the fix: a photographic coffee splash sits behind the PRODUCT on the right, and a
+   cream gradient runs back over it to solid on the left, so the headline, lede and buttons
+   still sit on flat colour and nothing about their contrast changes. The picture is only ever
+   allowed in the half of the hero that has no text in it.
+
+   Two details that matter:
+   - The overlay is a hardcoded rgba of --sk-cream (#fcfbf8) rather than the token, because a
+     gradient stop needs alpha and the token is opaque. If the cream token ever changes, this
+     value has to change with it.
+   - The shared teal/lime orbs are dialled right down inside this hero. At their normal
+     strength a blurred mint glow sits on top of a warm brown photograph and turns it grey.
+
+   The asset is served from this block's own assets/ folder. Relative url() in this file
+   resolves against the stylesheet on GitHub Pages, so no rewrite is needed here (unlike the
+   markup, which the loader rewrites). */
+.sk-prod-ctv .sk-prod-ctv-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url("assets/hero-coffee.webp") no-repeat right center/cover;
+}
+/* the veil: solid cream on the left, clear by the time it reaches the pack */
+.sk-prod-ctv .sk-prod-ctv-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,#fcfbf8 0,#fcfbf8 34%,rgba(252,251,248,.82) 50%,rgba(252,251,248,.10) 82%),
+    linear-gradient(180deg,rgba(252,251,248,.45),rgba(252,251,248,0) 28%,rgba(252,251,248,.92));
+}
+/* everything in the hero has to sit above the picture */
+.sk-prod-ctv .sk-prod-hero > .sk-prod-wrap{position:relative;z-index:1}
+.sk-prod-ctv .sk-prod-hero .sk-prod-orb{opacity:.16}
+/* the pack's own halo would haze the photograph, so it softens where the picture is strongest */
+.sk-prod-ctv .sk-prod-halo{opacity:.55}
+
+/* Mobile stacks the grid, which puts the copy directly over the picture. The veil goes
+   vertical there and the image drops back, so the headline never loses its ground. */
+/* `background-size:auto 62%` left the picture at its own height inside a taller box, so the
+   bottom of the photograph landed as a HARD HORIZONTAL EDGE straight across the hero. Cover
+   plus a radial mask means the image has no edge to show: it fades out on every side before
+   it runs out of picture. */
+@media (max-width:820px){
+  .sk-prod-ctv .sk-prod-ctv-bg{
+    background-position:center 32%;background-size:cover;
+    -webkit-mask-image:radial-gradient(125% 58% at 50% 28%,#000 38%,transparent 80%);
+            mask-image:radial-gradient(125% 58% at 50% 28%,#000 38%,transparent 80%);
+  }
+  .sk-prod-ctv .sk-prod-ctv-bg::after{
+    background:linear-gradient(180deg,rgba(252,251,248,.52),rgba(252,251,248,.70) 38%,#fcfbf8 60%,#fcfbf8);
+  }
+}
+
 /* ============================ HERO EXTRAS ============================ */
 /* A free offer's biggest objection is "what is the catch", so the hero answers it directly.
    This used to anchor against the $65 full bag with a strikethrough. That was removed
