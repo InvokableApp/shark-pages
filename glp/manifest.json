@@ -865,6 +865,24 @@
       "elementTitle": "glp-free-ignyt-sample",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-orygn-opportunity-2/opportunity2-optin",
+      "funnelId": "296EQmRdEHtQdgOwsu6Q",
+      "pageId": "6n7bJukOPMreCaTxHeXz",
+      "elementId": "custom-code-hwm76v9h72",
+      "elementTitle": "opportunity2-optin",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-orygn-opportunity-2/opportunity2-blueprint",
+      "funnelId": "296EQmRdEHtQdgOwsu6Q",
+      "pageId": "kurvDGpcmIUgwxOkHhjD",
+      "elementId": "custom-code-q7m7u6mg2u",
+      "elementTitle": "opportunity2-blueprint",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
