@@ -2,6 +2,418 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ORYGN Opportunity 2 — opt-in</title>
 <style>html,body{margin:0;padding:0}
+/* _shared/brief/v1/brief.css — the PRIVATE BRIEFING opt-in page, scope .sk-brf
+ *
+ * A recruiting/opportunity lander, not a lead-magnet lander. The difference is what the page
+ * offers: .sk-cap offers a downloadable guide and pictures it, .sk-brf offers a private video
+ * briefing and has nothing to photograph, so the design carries the weight instead - editorial
+ * serif, wide hairline rules, one accent metal, no cards and no stock imagery.
+ *
+ * Read off keepingitbeal.com (2026-09-03), cleaned up: the embedded form is gone (it lives in
+ * the GHL page popup now, HOSTED-BLOCKS-SOP section 7), the video is a click-to-load facade
+ * instead of an eager YouTube iframe, and every CTA is the same button.
+ *
+ * A page's block.css declares ONLY the palette tokens below. A per-page override means this
+ * component needs a variant.
+ *
+ *   --sk-ink    headings          --sk-cream  raised paper
+ *   --sk-body   body copy         --sk-mist   page ground
+ *   --sk-teal   accent (metal)    --sk-sage   tinted band
+ *   --sk-teal-d accent, deep      --sk-line   hairline
+ *   --sk-navy   solid button      --sk-navy-d button hover
+ *   --sk-teal-rgb / --sk-line-rgb   RGB triplets, because CSS cannot take an alpha off a hex
+ *                                   token and every translucent surface here needs one.
+ */
+
+.sk-brf{
+  --sk-ease:cubic-bezier(.22,1,.36,1);
+  --sk-hair:1px solid rgba(var(--sk-line-rgb),.55);
+  position:relative;
+  background:var(--sk-mist);
+  color:var(--sk-ink);
+  font-family:var(--sk-sans);
+  -webkit-font-smoothing:antialiased;
+}
+.sk-brf *{box-sizing:border-box}
+.sk-brf a{color:inherit;text-decoration:none}
+/* a CTA authored as <a> must not inherit body colour from the rule above */
+.sk-brf a.sk-brf-cta{color:var(--sk-cream)}
+.sk-brf :focus-visible{outline:2px solid var(--sk-teal);outline-offset:4px}
+
+/* ── header ─────────────────────────────────────────────────────────────── */
+.sk-brf-head{
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  min-height:5.5rem;max-width:88rem;margin:0 auto;
+  padding:0 clamp(1.25rem,5vw,5rem);
+  border-bottom:var(--sk-hair);
+}
+.sk-brf-mark{
+  color:var(--sk-teal-d);
+  font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+}
+.sk-brf-by{
+  color:rgba(var(--sk-ink-rgb),.46);
+  font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  text-align:right;
+}
+.sk-brf-by:empty{display:none}
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.sk-brf-hero{
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
+  max-width:82rem;margin:0 auto;
+  padding:clamp(3.5rem,8vw,8rem) clamp(1.25rem,5vw,5rem) clamp(5rem,10vw,10rem);
+}
+.sk-brf-hero>*{grid-column:2/12}
+
+.sk-brf-eyebrow{
+  grid-column:1/13;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin-bottom:clamp(1.75rem,3.8vw,3.5rem);
+  color:var(--sk-teal-d);
+  font-size:.58rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  text-align:center;line-height:1.5;
+}
+.sk-brf-eyebrow i{display:block;width:3.5rem;height:1px;flex:0 0 3.5rem;background:var(--sk-teal)}
+
+.sk-brf-hero h1{
+  max-width:14ch;margin:0 auto;
+  font-family:var(--sk-serif);font-weight:500;
+  font-size:clamp(2.9rem,6.6vw,6.6rem);letter-spacing:-.05em;line-height:.95;
+  text-align:center;text-wrap:balance;
+}
+.sk-brf-lede{
+  grid-column:3/11;max-width:42rem;
+  margin:clamp(1.75rem,3vw,2.75rem) auto 0;padding-top:1.4rem;
+  border-top:var(--sk-hair);
+  color:var(--sk-body);font-family:var(--sk-serif);
+  font-size:clamp(1.25rem,1.9vw,1.8rem);line-height:1.38;text-align:center;
+}
+
+/* ── video facade ───────────────────────────────────────────────────────
+   Ships hidden. brief.js removes it outright when the video-id custom value is
+   empty (a buyer must see an unfilled CV as absent, never as a placeholder) and
+   reveals it otherwise. Nothing loads from YouTube until the poster is clicked. */
+.sk-brf-video{
+  position:relative;display:block;width:100%;aspect-ratio:16/9;
+  margin-top:clamp(2.5rem,6vw,5.5rem);padding:clamp(.35rem,.8vw,.65rem);
+  overflow:hidden;
+  border:1px solid rgba(var(--sk-teal-rgb),.3);
+  background:var(--sk-cream) center/cover no-repeat;
+  box-shadow:0 2.5rem 5rem rgba(var(--sk-line-rgb),.16),inset 0 1px rgba(255,255,255,.9);
+}
+.sk-brf-video[hidden]{display:none}
+.sk-brf-video-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sk-brf-video iframe{position:relative;display:block;width:100%;height:100%;border:0}
+.sk-brf-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  width:100%;height:100%;padding:0;border:0;cursor:pointer;
+  background:linear-gradient(180deg,rgba(var(--sk-ink-rgb),.18),rgba(var(--sk-ink-rgb),.42));
+  transition:background .4s var(--sk-ease);
+}
+.sk-brf-play:hover{background:linear-gradient(180deg,rgba(var(--sk-ink-rgb),.1),rgba(var(--sk-ink-rgb),.34))}
+.sk-brf-play i{
+  display:grid;place-items:center;width:clamp(3.4rem,7vw,4.6rem);aspect-ratio:1;
+  border-radius:50%;background:var(--sk-cream);color:var(--sk-ink);
+  box-shadow:0 1rem 2.4rem rgba(var(--sk-line-rgb),.35);
+  transition:transform .4s var(--sk-ease);
+}
+.sk-brf-play:hover i{transform:scale(1.06)}
+.sk-brf-play svg{width:38%;height:38%;margin-left:12%;fill:currentColor}
+
+/* ── the "no" grid ──────────────────────────────────────────────────────── */
+.sk-brf-nolist{
+  grid-column:1/13;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  margin:clamp(3.25rem,8vw,7rem) 0 0;padding:0;
+  border-top:var(--sk-hair);border-bottom:var(--sk-hair);
+  list-style:none;
+}
+.sk-brf-nolist li{
+  display:flex;align-items:center;gap:1.15rem;
+  min-height:6.5rem;padding:1.5rem clamp(1.1rem,2.5vw,2.4rem);
+  border-right:var(--sk-hair);border-bottom:var(--sk-hair);
+  color:var(--sk-ink);
+  font-size:clamp(.84rem,1.1vw,1rem);font-weight:750;letter-spacing:.035em;
+  line-height:1.4;text-transform:uppercase;
+  transition:background .5s var(--sk-ease),transform .5s var(--sk-ease);
+}
+.sk-brf-nolist li:nth-child(3n){border-right:0}
+.sk-brf-nolist li:nth-last-child(-n+3){border-bottom:0}
+.sk-brf-nolist li:hover{background:rgba(var(--sk-teal-rgb),.055);transform:translateY(-2px)}
+.sk-brf-nolist i{
+  width:.5rem;height:.5rem;flex:0 0 .5rem;border-radius:50%;
+  border:1px solid var(--sk-teal);
+  box-shadow:0 0 0 .32rem rgba(var(--sk-teal-rgb),.09);
+}
+
+/* ── explanation + stat ─────────────────────────────────────────────────── */
+.sk-brf-explain{
+  grid-column:3/11;max-width:49rem;
+  margin:clamp(4rem,10vw,9rem) auto 0;text-align:center;
+}
+.sk-brf-explain p{
+  margin:0;color:var(--sk-body);
+  font-family:var(--sk-serif);font-size:clamp(1.75rem,4vw,3.5rem);
+  letter-spacing:-.025em;line-height:1.16;text-wrap:balance;
+}
+.sk-brf-explain strong{color:var(--sk-ink);font-weight:500}
+.sk-brf-stat{
+  grid-column:3/11;margin:2rem 0 0;
+  color:var(--sk-teal-d);font-family:var(--sk-serif);font-style:italic;
+  font-size:clamp(1.25rem,2.3vw,2rem);text-align:center;
+}
+
+/* ── the button, used everywhere ────────────────────────────────────────── */
+.sk-brf-cta{
+  display:inline-flex;align-items:center;gap:clamp(1.1rem,2.5vw,2.6rem);
+  min-height:4.15rem;padding:.25rem .3rem .25rem clamp(1.15rem,2vw,1.75rem);
+  border:1px solid var(--sk-navy-d);border-radius:100px;
+  background:var(--sk-navy);color:var(--sk-cream);
+  font-family:inherit;font-size:clamp(.56rem,1vw,.64rem);font-weight:850;
+  letter-spacing:.15em;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 1rem 2.4rem rgba(var(--sk-line-rgb),.2);
+  transition:transform .5s var(--sk-ease),box-shadow .5s var(--sk-ease),background .5s var(--sk-ease);
+}
+.sk-brf-cta i{
+  display:grid;place-items:center;width:3.5rem;height:3.5rem;flex:0 0 3.5rem;
+  border-radius:50%;background:var(--sk-teal);color:#fff;font-size:1.05rem;font-style:normal;
+  transition:transform .5s var(--sk-ease);
+}
+.sk-brf-cta:hover{transform:translateY(-3px);background:var(--sk-navy-d);box-shadow:0 1.35rem 3rem rgba(var(--sk-line-rgb),.28)}
+.sk-brf-cta:hover i{transform:translateX(2px)}
+.sk-brf-cta:active{transform:translateY(0) scale(.985)}
+
+.sk-brf-hero .sk-brf-cta{grid-column:1/13;justify-self:center;margin-top:2.75rem}
+
+/* ── access band ────────────────────────────────────────────────────────
+   Was a two-column copy + embedded FORM. The form moved into the page popup, so a
+   card holding one lone button read as an empty box: this is a single centered
+   column instead, which is what the section is now actually made of. */
+.sk-brf-access{
+  max-width:52rem;margin:0 auto;
+  padding:clamp(4.5rem,11vw,10rem) clamp(1.25rem,5vw,5rem) clamp(5rem,12vw,11rem);
+  background:var(--sk-sage);
+  box-shadow:0 0 0 100vmax var(--sk-sage);clip-path:inset(0 -100vmax);
+  text-align:center;
+}
+.sk-brf-access .sk-brf-eyebrow{margin:0 0 1.85rem;animation:none}
+.sk-brf-access h2{
+  max-width:15ch;margin:0 auto 1.85rem;color:var(--sk-ink);
+  font-family:var(--sk-serif);font-weight:500;
+  font-size:clamp(2.7rem,6vw,5.6rem);letter-spacing:-.05em;line-height:.95;text-wrap:balance;
+}
+.sk-brf-access-lede{
+  max-width:34rem;margin:0 auto;color:var(--sk-body);font-size:.95rem;line-height:1.8;
+}
+.sk-brf-nopressure{
+  display:block;max-width:34rem;margin:1.85rem auto 0;padding-top:1.4rem;
+  border-top:var(--sk-hair);
+  color:var(--sk-ink);font-family:var(--sk-serif);font-weight:500;
+  font-size:1.06rem;line-height:1.55;
+}
+.sk-brf-access .sk-brf-cta{margin-top:2.5rem}
+.sk-brf-note{max-width:30rem;margin:1.35rem auto 0;color:rgba(var(--sk-ink-rgb),.5);font-size:.72rem;line-height:1.6}
+
+/* ── footer ─────────────────────────────────────────────────────────────── */
+.sk-brf-foot{
+  display:flex;justify-content:space-between;gap:1.5rem;
+  max-width:88rem;margin:0 auto;
+  padding:1.85rem clamp(1.25rem,5vw,5rem);
+  border-top:var(--sk-hair);
+  color:rgba(var(--sk-ink-rgb),.46);
+  font-size:.56rem;letter-spacing:.1em;line-height:1.7;text-transform:uppercase;
+}
+.sk-brf-foot span:last-child{max-width:46rem;text-align:right;text-transform:none;letter-spacing:.04em}
+
+/* ── entrance ───────────────────────────────────────────────────────────── */
+@keyframes sk-brf-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.sk-brf-eyebrow,.sk-brf-hero h1,.sk-brf-lede,.sk-brf-video{animation:sk-brf-in .95s var(--sk-ease) both}
+.sk-brf-hero h1{animation-delay:80ms}
+.sk-brf-lede{animation-delay:160ms}
+.sk-brf-video{animation-delay:240ms}
+
+/* ── responsive ─────────────────────────────────────────────────────────── */
+@media (max-width:1050px){
+  .sk-brf-hero>*,.sk-brf-hero h1{grid-column:1/13}
+  .sk-brf-lede,.sk-brf-explain,.sk-brf-stat{grid-column:2/12}
+  .sk-brf-nolist{grid-template-columns:repeat(2,1fr)}
+  .sk-brf-nolist li:nth-child(3n){border-right:var(--sk-hair)}
+  .sk-brf-nolist li:nth-child(2n){border-right:0}
+  .sk-brf-nolist li:nth-last-child(-n+3){border-bottom:var(--sk-hair)}
+  .sk-brf-nolist li:nth-last-child(-n+2){border-bottom:0}
+}
+@media (max-width:680px){
+  .sk-brf-head{min-height:4.5rem}
+  .sk-brf-by{display:none}
+  .sk-brf-hero{display:block}
+  .sk-brf-eyebrow i{width:1.75rem;flex-basis:1.75rem}
+  .sk-brf-hero h1{max-width:13ch;margin-inline:auto}
+  .sk-brf-lede{max-width:24rem;margin-inline:auto}
+  .sk-brf-nolist{grid-template-columns:1fr}
+  .sk-brf-nolist li{
+    min-height:auto;gap:1rem;padding:1.15rem .5rem;font-size:.82rem;
+    border-right:0!important;border-bottom:var(--sk-hair)!important;
+  }
+  .sk-brf-nolist li:last-child{border-bottom:0!important}
+  .sk-brf-nolist li:hover{transform:none}
+  .sk-brf-cta{width:100%;justify-content:space-between;gap:1rem}
+  .sk-brf-cta i{width:3.1rem;height:3.1rem;flex-basis:3.1rem}
+  .sk-brf-foot{flex-direction:column;gap:.7rem}
+  .sk-brf-foot span:last-child{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  .sk-brf-eyebrow,.sk-brf-hero h1,.sk-brf-lede,.sk-brf-video{animation:none}
+  .sk-brf-cta,.sk-brf-cta i,.sk-brf-nolist li,.sk-brf-play,.sk-brf-play i{transition:none!important}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE NEXT-STEP PAGE  (.sk-brf-next)
+   Step 2 of the briefing funnel: what the lead sees after the opt-in. Video, then
+   the enrollment sequence as two ordered actions.
+
+   Read off the live inside page 2026-09-03. Cleaned up in three ways:
+     - the source runs navy + blue + gold here and ivory + bronze on the opt-in, which
+       reads as two different sites. One palette across the funnel.
+     - the email step was copy to retype by hand. It is now a mailto button plus a
+       copy control on each field.
+     - the ordering is stated once, in the section head, not repeated per card.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sk-brf-next{max-width:82rem;margin:0 auto;padding:clamp(3rem,7vw,6.5rem) clamp(1.25rem,5vw,5rem) clamp(4rem,9vw,8rem)}
+
+/* ── hero: left aligned, against the opt-in's centred hero ─────────────────── */
+.sk-brf-next-hero{max-width:62rem}
+.sk-brf-next-hero .sk-brf-eyebrow{justify-content:flex-start;margin-bottom:1.5rem;text-align:left}
+.sk-brf-next-hero .sk-brf-eyebrow i:last-child{display:none}
+.sk-brf-next-hero h1{
+  max-width:18ch;margin:0;
+  font-family:var(--sk-serif);font-weight:500;
+  font-size:clamp(2.6rem,6vw,5.4rem);letter-spacing:-.045em;line-height:.98;
+  text-align:left;text-wrap:balance;
+}
+.sk-brf-next-hero h1 em{display:block;color:var(--sk-teal-d);font-style:italic}
+.sk-brf-next-lede{
+  max-width:36rem;margin:clamp(1.5rem,3vw,2.25rem) 0 0;
+  color:var(--sk-body);font-size:clamp(.98rem,1.4vw,1.1rem);line-height:1.7;
+}
+
+.sk-brf-next .sk-brf-video{max-width:64rem;margin-inline:auto}
+
+/* ── section head ─────────────────────────────────────────────────────────── */
+.sk-brf-seq-head{max-width:44rem;margin:clamp(3.5rem,8vw,7rem) auto clamp(2rem,4vw,3.25rem);text-align:center}
+.sk-brf-seq-head h2{
+  margin:0;color:var(--sk-ink);
+  font-family:var(--sk-serif);font-weight:500;
+  font-size:clamp(2.2rem,5vw,3.9rem);letter-spacing:-.04em;line-height:1.02;text-wrap:balance;
+}
+.sk-brf-seq-sub{
+  margin:1rem 0 0;color:var(--sk-body);
+  font-family:var(--sk-serif);font-size:clamp(1.1rem,2vw,1.55rem);line-height:1.4;
+}
+.sk-brf-seq-head small{
+  display:block;max-width:38rem;margin:1.5rem auto 0;
+  color:rgba(var(--sk-ink-rgb),.5);font-size:.76rem;line-height:1.65;
+}
+
+/* ── the two steps ────────────────────────────────────────────────────────── */
+.sk-brf-steps{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  border:1px solid rgba(var(--sk-line-rgb),.28);
+  background:var(--sk-cream);
+}
+.sk-brf-step{
+  display:flex;flex-direction:column;
+  padding:clamp(1.5rem,3.2vw,2.75rem);
+  border-right:1px solid rgba(var(--sk-line-rgb),.28);
+}
+.sk-brf-step:last-child{border-right:0}
+.sk-brf-step-top{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  margin-bottom:1.5rem;
+  font-size:.58rem;font-weight:850;letter-spacing:.2em;text-transform:uppercase;
+}
+.sk-brf-step-n{color:var(--sk-teal)}
+.sk-brf-step-when{color:rgba(var(--sk-ink-rgb),.42)}
+.sk-brf-step h3{
+  margin:0 0 1rem;color:var(--sk-ink);
+  font-family:var(--sk-serif);font-weight:500;
+  font-size:clamp(1.6rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.1;text-transform:uppercase;
+}
+.sk-brf-step>p{margin:0;color:var(--sk-body);font-size:.92rem;line-height:1.7}
+.sk-brf-step .sk-brf-cta{align-self:stretch;justify-content:space-between}
+.sk-brf-step .sk-brf-cta[data-sk-portal]{margin-top:auto}
+.sk-brf-step .sk-brf-cta[data-sk-mailto]{margin-top:1.25rem}
+.sk-brf-step .sk-brf-cta[data-sk-primary]{background:var(--sk-teal);border-color:var(--sk-teal-d);color:#fff}
+.sk-brf-step .sk-brf-cta[data-sk-primary]:hover{background:var(--sk-teal-d)}
+.sk-brf-step .sk-brf-cta[data-sk-primary] i{background:rgba(255,255,255,.16)}
+/* the portal link with its custom value still unfilled: visible, inert, and obviously
+   incomplete. A buyer must be able to SEE that it needs filling. */
+.sk-brf-cta[data-unset]{opacity:.4;cursor:not-allowed;pointer-events:none}
+
+/* Step 01 has one action and little to say, so it ran a tall empty gap beside the
+   email panel. These are the facts already promised on the lander, restated where
+   the lead is deciding whether to click. */
+.sk-brf-facts{margin:1.5rem 0 0;padding:0;list-style:none}
+.sk-brf-facts li{
+  display:flex;align-items:center;gap:.85rem;padding:.7rem 0;
+  border-bottom:1px solid rgba(var(--sk-line-rgb),.2);
+  color:var(--sk-ink);font-size:.78rem;font-weight:750;letter-spacing:.05em;text-transform:uppercase;
+}
+.sk-brf-facts li:before{
+  content:"";width:.45rem;height:.45rem;flex:0 0 .45rem;border-radius:50%;
+  border:1px solid var(--sk-teal);box-shadow:0 0 0 .3rem rgba(var(--sk-teal-rgb),.09);
+}
+
+/* Product shot inside a step card (ADDITIVE to v1, 2026-09-04, GLP ORYGN Opportunity 2).
+   A new class no existing markup references: verified zero matches across the two funnelshark
+   briefing pages before publishing, per _shared/README rule 2. Sits above the step's kicker so
+   the card reads image, then name, then spec. `contain` because these are packshots on their
+   own ground, not crops. */
+.sk-brf-shot{
+  display:block;width:100%;max-width:17rem;height:auto;
+  margin:0 auto clamp(1rem,2vw,1.5rem);
+  object-fit:contain;
+}
+@media (max-width:820px){
+  .sk-brf-shot{max-width:13rem}
+}
+
+/* ── the onboarding email panel ───────────────────────────────────────────── */
+.sk-brf-mail{
+  margin:1.5rem 0 0;padding:clamp(1rem,2vw,1.4rem);
+  border:1px solid rgba(var(--sk-teal-rgb),.22);
+  background:rgba(var(--sk-teal-rgb),.05);
+}
+.sk-brf-mail-row+.sk-brf-mail-row{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(var(--sk-line-rgb),.2)}
+.sk-brf-mail-lab{
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.35rem;
+  color:var(--sk-teal-d);font-size:.55rem;font-weight:850;letter-spacing:.18em;text-transform:uppercase;
+}
+.sk-brf-mail-val{margin:0;color:var(--sk-ink);font-size:.88rem;font-weight:600;line-height:1.6;word-break:break-word}
+.sk-brf-mail-row p.sk-brf-mail-val+p{margin-top:.5rem}
+.sk-brf-mail-body{font-weight:400!important;color:var(--sk-body)!important}
+.sk-brf-copy{
+  padding:.3rem .6rem;border:1px solid rgba(var(--sk-teal-rgb),.35);border-radius:100px;
+  background:transparent;color:var(--sk-teal-d);cursor:pointer;
+  font-family:inherit;font-size:.5rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase;
+  transition:background .3s var(--sk-ease),color .3s var(--sk-ease);
+}
+.sk-brf-copy:hover{background:var(--sk-teal);color:#fff}
+.sk-brf-copy[data-done]{background:var(--sk-teal);color:#fff;border-color:var(--sk-teal)}
+
+.sk-brf-next-note{
+  margin:1.25rem 0 0;padding-top:1.25rem;border-top:1px solid rgba(var(--sk-line-rgb),.2);
+  color:rgba(var(--sk-ink-rgb),.55);font-size:.78rem;line-height:1.65;
+}
+
+@media (max-width:820px){
+  .sk-brf-steps{grid-template-columns:1fr}
+  .sk-brf-step{border-right:0;border-bottom:1px solid rgba(var(--sk-line-rgb),.28)}
+  .sk-brf-step:last-child{border-bottom:0}
+  .sk-brf-next-hero h1{max-width:14ch}
+}
+
 /* glp / glp-orygn-opportunity-2 / opportunity2-optin
  *
  * The design lives in _shared/brief/v1/brief.css, scoped under .sk-brf, and is shared by every
@@ -27,7 +439,7 @@
  * so every translucent surface in the component (hairlines, tints, shadows) needs one, and
  * shipping the hexes alone leaves the donor hue on those surfaces.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/brief/v1/brief.css");
+
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Manrope:wght@400..850&display=swap");
 
 .sk-brf-opportunity2{

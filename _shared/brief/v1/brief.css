@@ -361,6 +361,20 @@
   border:1px solid var(--sk-teal);box-shadow:0 0 0 .3rem rgba(var(--sk-teal-rgb),.09);
 }
 
+/* Product shot inside a step card (ADDITIVE to v1, 2026-09-04, GLP ORYGN Opportunity 2).
+   A new class no existing markup references: verified zero matches across the two funnelshark
+   briefing pages before publishing, per _shared/README rule 2. Sits above the step's kicker so
+   the card reads image, then name, then spec. `contain` because these are packshots on their
+   own ground, not crops. */
+.sk-brf-shot{
+  display:block;width:100%;max-width:17rem;height:auto;
+  margin:0 auto clamp(1rem,2vw,1.5rem);
+  object-fit:contain;
+}
+@media (max-width:820px){
+  .sk-brf-shot{max-width:13rem}
+}
+
 /* ── the onboarding email panel ───────────────────────────────────────────── */
 .sk-brf-mail{
   margin:1.5rem 0 0;padding:clamp(1rem,2vw,1.4rem);
