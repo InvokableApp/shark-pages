@@ -74,6 +74,16 @@
 @media (max-width:520px){
   .sk-dcap-bnv-dis .sk-dcap-hero-in{padding-top:3.5rem;padding-bottom:3rem}
   .sk-dcap-bnv-dis .sk-dcap-meta{margin-top:1.35rem}
+  /* The component's scrim runs LEFT to RIGHT, which is right on a wide hero where the type sits in
+     the left half and the photograph is allowed to show on the right. On a phone the column is the
+     full width, so the type's last third sits over the lit part of the picture. Phone-only: a
+     top-down scrim over the component's, heavy enough to read against and still let the kitchen
+     through. Scoped to this block, the shared component is untouched. */
+  .sk-dcap-bnv-dis .sk-dcap-hero-bg::after{
+    background:linear-gradient(180deg,rgba(23,20,15,.90) 0%,rgba(23,20,15,.86) 45%,rgba(23,20,15,.80) 100%),
+               radial-gradient(80% 60% at 70% 22%,rgba(201,169,106,.16),transparent 64%);
+  }
+  .sk-dcap-bnv-dis .sk-dcap-hero-bg img{filter:saturate(.92) brightness(.94)}
 }
 
 /* the hero lede is two paragraphs now: the problem, then the relief. The component's lede carries
