@@ -58,6 +58,10 @@
    which is what made the sage accent hard to read. Lighter accent too, #9caf88 -> #c9d8b8. */
 .sk-dcap-bnv-dis .sk-dcap-hero h1{font-weight:500}
 .sk-dcap-bnv-dis .sk-dcap-hero h1 em{font-style:normal;color:#c9d8b8}
+/* the one bolded clause in the hero. Figtree's 600 is the readable step over the lede's 400 on a
+   dark ground; 700 goes chunky at this size. Slightly brighter than the lede's own colour so the
+   weight reads as emphasis rather than as a rendering artefact. */
+.sk-dcap-bnv-dis .sk-dcap-hero-in .sk-dcap-lede strong{font-weight:600;color:#f2f0e9}
 /* the arcs are the component's gold ornament. Sage here, and dialled back: the photograph is
    doing the decorating now. */
 .sk-dcap-bnv-dis .sk-dcap-arcs{opacity:.22}
