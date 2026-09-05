@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <section class="sk-dcap-sec sk-dcap-pain sk-grain">
+  <section class="sk-dcap-sec sk-grain">
     <div class="sk-dcap-wrap">
       <div class="sk-pair">
         <div>
@@ -62,27 +62,42 @@
 
   <section class="sk-dcap-sec sk-grain">
     <div class="sk-dcap-wrap sk-dcap-narrow">
-      <!-- ⚠️ EACH LANE NEEDS ITS <figure>. .sk-dcap-lane-n is absolutely positioned to sit at the
-           bottom-left OF THE IMAGE. Without a figure it lands on the body copy instead, which is
-           exactly what the first version of this page shipped: a ghost "1" over "your daily
-           routine". The figure is not decoration, it is what the numeral is anchored to. -->
-      <ol class="sk-dcap-lanes">
-        <li class="sk-dcap-lane">
-          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-1.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <span class="sk-dcap-lane-n">1</span>
-          <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">6 questions</span>
-          <p>How you've been feeling, how long it's been, and what's still in your daily routine.</p></div></li>
-        <li class="sk-dcap-lane">
-          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-2.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <span class="sk-dcap-lane-n">2</span>
-          <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">Your 3 swaps</span>
-          <p>Named, with what to do and when. Some take a minute.</p></div></li>
-        <li class="sk-dcap-lane">
-          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-3.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <span class="sk-dcap-lane-n">3</span>
-          <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">The full guide</span>
-          <p>9 swaps over 3 days, if you want the rest of it.</p></div></li>
-      </ol>
+      <!-- ⚠️ THE NUMERAL GOES INSIDE THE <figure>. .sk-dcap-lane-n is absolutely positioned and
+           the figure is the positioned ancestor; as a SIBLING of the figure it anchors to the whole
+           card instead and lands on the last line of body copy. Shipped that way once. Structure
+           copied from the Skin Diagnostic, which is the working reference for this component. -->
+      <div class="sk-dcap-lanes">
+        <article class="sk-dcap-lane" data-rise data-delay="1">
+          <figure>
+            <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-1.jpg" alt="Water poured into a plain glass beside a sprig of rosemary" loading="lazy" decoding="async">
+            <span class="sk-dcap-lane-n" aria-hidden="true">01</span>
+          </figure>
+          <div class="sk-dcap-lane-body">
+            <span class="sk-dcap-lane-tag">6 questions</span>
+            <p>How you've been feeling, how long it's been, and what's still in your daily routine.</p>
+          </div>
+        </article>
+        <article class="sk-dcap-lane" data-rise data-delay="2">
+          <figure>
+            <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-2.jpg" alt="Glass storage jars and a potted herb on a simple wooden shelf" loading="lazy" decoding="async">
+            <span class="sk-dcap-lane-n" aria-hidden="true">02</span>
+          </figure>
+          <div class="sk-dcap-lane-body">
+            <span class="sk-dcap-lane-tag">Your 3 swaps</span>
+            <p>Named, with what to do and when. Some take a minute.</p>
+          </div>
+        </article>
+        <article class="sk-dcap-lane" data-rise data-delay="3">
+          <figure>
+            <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-3.jpg" alt="Folded unbleached linen beside a glass bottle of water" loading="lazy" decoding="async">
+            <span class="sk-dcap-lane-n" aria-hidden="true">03</span>
+          </figure>
+          <div class="sk-dcap-lane-body">
+            <span class="sk-dcap-lane-tag">The full guide</span>
+            <p>9 swaps over 3 days, if you want the rest of it.</p>
+          </div>
+        </article>
+      </div>
       <div class="sk-dcap-center">
         <button type="button" class="sk-dcap-btn" data-sk-open>Take The 2 Minute Quiz</button>
       </div>
