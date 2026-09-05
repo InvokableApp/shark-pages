@@ -18,6 +18,12 @@
   </div>
 
   <section class="sk-dcap-hero sk-dcap-grain">
+    <!-- The component is BUILT for a photographic hero: .sk-dcap-hero-bg carries its own linear +
+         radial scrims. The first version of this page omitted the image entirely, so the hero was
+         a flat near-black box and the whole lander read as a tech page. -->
+    <div class="sk-dcap-hero-bg" aria-hidden="true">
+      <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/hero.jpg" alt="" loading="eager" decoding="async">
+    </div>
     <div class="sk-dcap-arcs" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="sk-dcap-wrap">
       <div class="sk-dcap-hero-in">
@@ -40,25 +46,40 @@
     </div>
   </section>
 
-  <section class="sk-dcap-sec sk-dcap-pain">
-    <div class="sk-dcap-wrap sk-dcap-narrow">
-      <h2>Most endocrine disruptor lists run to forty items with no order to them.</h2>
-      <p class="sk-dcap-lede">This one asks where you're starting and gives you three. Two people
-        who answer differently get different swaps, because the thing worth doing first depends on
-        what you've already done.</p>
+  <section class="sk-dcap-sec sk-dcap-pain sk-grain">
+    <div class="sk-dcap-wrap">
+      <div class="sk-pair">
+        <div>
+          <h2>Most endocrine disruptor lists run to forty items with no order to them.</h2>
+          <p class="sk-dcap-lede">This one asks where you're starting and gives you three. Two people
+            who answer differently get different swaps, because the thing worth doing first depends on
+            what you've already done.</p>
+        </div>
+        <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-2.jpg" alt="" loading="lazy" decoding="async"></figure>
+      </div>
     </div>
   </section>
 
-  <section class="sk-dcap-sec">
+  <section class="sk-dcap-sec sk-grain">
     <div class="sk-dcap-wrap sk-dcap-narrow">
+      <!-- ⚠️ EACH LANE NEEDS ITS <figure>. .sk-dcap-lane-n is absolutely positioned to sit at the
+           bottom-left OF THE IMAGE. Without a figure it lands on the body copy instead, which is
+           exactly what the first version of this page shipped: a ghost "1" over "your daily
+           routine". The figure is not decoration, it is what the numeral is anchored to. -->
       <ol class="sk-dcap-lanes">
-        <li class="sk-dcap-lane"><span class="sk-dcap-lane-n">1</span>
+        <li class="sk-dcap-lane">
+          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-1.jpg" alt="" loading="lazy" decoding="async"></figure>
+          <span class="sk-dcap-lane-n">1</span>
           <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">6 questions</span>
           <p>How you've been feeling, how long it's been, and what's still in your daily routine.</p></div></li>
-        <li class="sk-dcap-lane"><span class="sk-dcap-lane-n">2</span>
+        <li class="sk-dcap-lane">
+          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-2.jpg" alt="" loading="lazy" decoding="async"></figure>
+          <span class="sk-dcap-lane-n">2</span>
           <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">Your 3 swaps</span>
           <p>Named, with what to do and when. Some take a minute.</p></div></li>
-        <li class="sk-dcap-lane"><span class="sk-dcap-lane-n">3</span>
+        <li class="sk-dcap-lane">
+          <figure><img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz/assets/lane-3.jpg" alt="" loading="lazy" decoding="async"></figure>
+          <span class="sk-dcap-lane-n">3</span>
           <div class="sk-dcap-lane-body"><span class="sk-dcap-lane-tag">The full guide</span>
           <p>9 swaps over 3 days, if you want the rest of it.</p></div></li>
       </ol>
