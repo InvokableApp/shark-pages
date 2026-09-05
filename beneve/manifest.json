@@ -1,315 +1,381 @@
 {
-  "system": "beneve",
-  "blocks": [
-    {
-      "path": "beneve-natural-foods-guide/beneve-glp-food-guide-product",
-      "funnelId": "yW0Y2XmjC9QPMkpPFR0s",
-      "pageId": "Zw2EumRnX9oVXmN4wqw4",
-      "elementId": "custom-code-4iwok1zft5",
-      "elementTitle": "Gut Advantage",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-natural-foods-guide/beneve-glp-food-guide-read",
-      "funnelId": "yW0Y2XmjC9QPMkpPFR0s",
-      "pageId": "Q35f25w5ST9EDxENZj7H",
-      "elementId": "custom-code-8di8XCNqb2",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-product",
-      "funnelId": "13IhXSPjIGwhekSn3rqz",
-      "pageId": "ntDBjhaVHPhTeW4rAHdh",
-      "elementId": "custom-code-6jjnc0hk0l",
-      "elementTitle": "Original Coffee Sticks",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-guide",
-      "funnelId": "13IhXSPjIGwhekSn3rqz",
-      "pageId": "diEPsrHnkdQMQCXOVMqQ",
-      "elementId": "custom-code-RLEKVsQUAr",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
-      "funnelId": "Frmmnxl7BhFmAfL2QJfh",
-      "pageId": "JXgI0XTB5lDB5YQx84of",
-      "elementId": "custom-code-ajgnezv74r",
-      "elementTitle": "Become an Influencer",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox",
-      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
-      "pageId": "mM3U1kh9dENViXA16qxw",
-      "elementId": "custom-code-wfk4jc17jw",
-      "elementTitle": "Hormone Lunchbox Opt-In",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
-      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
-      "pageId": "3TPX9acNuwOxrgTpYHm1",
-      "elementId": "custom-code-br6mfc1x4y",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-product",
-      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
-      "pageId": "fWF3jojxR5vazeFkw9mH",
-      "elementId": "custom-code-xoxrla0qvl",
-      "elementTitle": "Glutathione+",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
-      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
-      "pageId": "crTI1kIQ7ATnChqUOoYK",
-      "elementId": "custom-code-k7043skk96",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-test",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "PZm8MW2P2FDxfTRcH42Z",
-      "elementId": "custom-code-cN11uc782t",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-trusted-voice",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "hilENBKLCKrqHlhWHsIP",
-      "elementId": "custom-code-X_4tHEMKN0",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-natural-fit",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "eCftRIn4cwWzwZcO748a",
-      "elementId": "custom-code-hiKcRONmnk",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-best-kept-secret",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "EX6KZkT9jKFahufXCrmK",
-      "elementId": "custom-code-D6gAuN9Dvc",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-fresh-start",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "dQiENF7dBNUnrdWSC6mS",
-      "elementId": "custom-code-eRtyTF6U--",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-opportunity",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "qqgZtMZw7LcSrXuD75U6",
-      "elementId": "custom-code-TUXrDNPRH3",
-      "elementTitle": "Custom Code",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-influencer-aptitude-test/beneve-aptitude-product",
-      "funnelId": "HBQyErwqvv5RrfQEqR2o",
-      "pageId": "E3fKv9wS3UssAV3X7LZz",
-      "elementId": "custom-code-6jjnc0hk0l",
-      "elementTitle": "Original Coffee Sticks",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "N19Em4mJrnAyrAbWFA2X",
-      "elementId": "custom-code-9904rgz68h",
-      "elementTitle": "beneve-skin",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-surface-first-result",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "CJAg3giR1xHULRIlxcjg",
-      "elementId": "custom-code-ji4ta4xe89",
-      "elementTitle": "beneve-skin-surface-first-result",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-inside-out-result",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "BU7TetVYtkwr1ZUQ1Lwh",
-      "elementId": "custom-code-21d9f6b9je",
-      "elementTitle": "beneve-skin-inside-out-result",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-foundation-first-result",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "3w0DZpBS3uPJEpxS5Nsi",
-      "elementId": "custom-code-69uug8i401",
-      "elementTitle": "beneve-skin-foundation-first-result",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-full-ritual-result",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "q3ZQqqbHgbljGx2vNm6x",
-      "elementId": "custom-code-e3u8knvc90",
-      "elementTitle": "beneve-skin-full-ritual-result",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-renew-product",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "anbY66sTcZ30gw6TsHpJ",
-      "elementId": "custom-code-qkk6cijr4d",
-      "elementTitle": "beneve-skin-renew-product",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-luxe-product",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "FYgK3Aawq7qNltWnGXph",
-      "elementId": "custom-code-7bp0fb9vqd",
-      "elementTitle": "beneve-skin-luxe-product",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-glutathione-product",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "VcwDKjvZTg3B8aQWDp8R",
-      "elementId": "custom-code-cruc8dp6c3",
-      "elementTitle": "beneve-skin-glutathione-product",
-      "pattern": "A"
-    },
-    {
-      "path": "beneve-skin-diagnostic/beneve-skin-how-to",
-      "funnelId": "M6RkS0dnRFxlszqElUaj",
-      "pageId": "zIt7abpoKJAfYXfdJERM",
-      "elementId": "custom-code-b6zamobm4a",
-      "elementTitle": "beneve-skin-how-to",
-      "pattern": "A"
-    }
-  ],
-  "installs": [
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
-      "funnelId": "ZkBx2piCQl8UcfONX7o2",
-      "pageId": "NAmipZHZsp1SXDNrqavN",
-      "elementId": "custom-code-k7043skk96",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "ucXosnBgZ6FxqeEBuApn"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
-      "funnelId": "ZkBx2piCQl8UcfONX7o2",
-      "pageId": "Ce1nMXjTPSCONQwZIYXt",
-      "elementId": "custom-code-br6mfc1x4y",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "ucXosnBgZ6FxqeEBuApn"
-    },
-    {
-      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
-      "funnelId": "szbPZHxMpl51YqhP3hVs",
-      "pageId": "l1ApYd20iSNW5Sr5Fq0u",
-      "elementId": "custom-code-ajgnezv74r",
-      "elementTitle": "Become an Influencer",
-      "pattern": "A",
-      "locationId": "ucXosnBgZ6FxqeEBuApn"
-    },
-    {
-      "path": "beneve---your-marketing-links/beneve-marketing-links",
-      "funnelId": "ZSoXULfLVi09SdWF7bBY",
-      "pageId": "0Q9t0S91EOCIj6nH0F1w",
-      "elementId": "custom-code-8di8XCNqb2",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "ucXosnBgZ6FxqeEBuApn"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
-      "funnelId": "ZkBx2piCQl8UcfONX7o2",
-      "pageId": "64FwD8jl36LTB44so5iH",
-      "elementId": "custom-code-0fpaud2hz2",
-      "elementTitle": "Sample Request",
-      "pattern": "A",
-      "locationId": "ucXosnBgZ6FxqeEBuApn"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
-      "funnelId": "482iSmJ08IqRNNEbNzGK",
-      "pageId": "TDlQDBNSxEI8v2l8IcV2",
-      "elementId": "custom-code-k7043skk96",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "cK1GiCXygEx16yqyzeFe"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
-      "funnelId": "482iSmJ08IqRNNEbNzGK",
-      "pageId": "WncayoIAZOeTp8Sulcbp",
-      "elementId": "custom-code-0fpaud2hz2",
-      "elementTitle": "Sample Request",
-      "pattern": "A",
-      "locationId": "cK1GiCXygEx16yqyzeFe"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
-      "funnelId": "482iSmJ08IqRNNEbNzGK",
-      "pageId": "6383DClsL9ZN6x8zi0iU",
-      "elementId": "custom-code-br6mfc1x4y",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "cK1GiCXygEx16yqyzeFe"
-    },
-    {
-      "path": "beneve---your-marketing-links/beneve-marketing-links",
-      "funnelId": "uHIjjFKCpVbVZ6PDPZP5",
-      "pageId": "WhS7UyELw7RFVyQ2h6vG",
-      "elementId": "custom-code-8di8XCNqb2",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "cK1GiCXygEx16yqyzeFe"
-    },
-    {
-      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
-      "funnelId": "jiYcxeCBNxwHpzfmT0dT",
-      "pageId": "4GYCpjQJPIbKWYhTW5oi",
-      "elementId": "custom-code-0fpaud2hz2",
-      "elementTitle": "Sample Request",
-      "pattern": "A",
-      "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
-    },
-    {
-      "path": "beneve---your-marketing-links/beneve-marketing-links",
-      "funnelId": "Tk6bkixAVVYt3U7J0U23",
-      "pageId": "SVr1YxAeZ81dkkZVJc6R",
-      "elementId": "custom-code-8di8XCNqb2",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
-    },
-    {
-      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
-      "funnelId": "jX3jk7UErtgaRjYjcrKl",
-      "pageId": "gZDt6U9VOEN8DGu1mFR4",
-      "elementId": "custom-code-ajgnezv74r",
-      "elementTitle": "Become an Influencer",
-      "pattern": "A",
-      "locationId": "cK1GiCXygEx16yqyzeFe"
-    }
-  ]
+ "system": "beneve",
+ "blocks": [
+  {
+   "path": "beneve-natural-foods-guide/beneve-glp-food-guide-product",
+   "funnelId": "yW0Y2XmjC9QPMkpPFR0s",
+   "pageId": "Zw2EumRnX9oVXmN4wqw4",
+   "elementId": "custom-code-4iwok1zft5",
+   "elementTitle": "Gut Advantage",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-natural-foods-guide/beneve-glp-food-guide-read",
+   "funnelId": "yW0Y2XmjC9QPMkpPFR0s",
+   "pageId": "Q35f25w5ST9EDxENZj7H",
+   "elementId": "custom-code-8di8XCNqb2",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-product",
+   "funnelId": "13IhXSPjIGwhekSn3rqz",
+   "pageId": "ntDBjhaVHPhTeW4rAHdh",
+   "elementId": "custom-code-6jjnc0hk0l",
+   "elementTitle": "Original Coffee Sticks",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-clean-iced-coffee-recipes/beneve-clean-brew-guide",
+   "funnelId": "13IhXSPjIGwhekSn3rqz",
+   "pageId": "diEPsrHnkdQMQCXOVMqQ",
+   "elementId": "custom-code-RLEKVsQUAr",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+   "funnelId": "Frmmnxl7BhFmAfL2QJfh",
+   "pageId": "JXgI0XTB5lDB5YQx84of",
+   "elementId": "custom-code-ajgnezv74r",
+   "elementTitle": "Become an Influencer",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox",
+   "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+   "pageId": "mM3U1kh9dENViXA16qxw",
+   "elementId": "custom-code-wfk4jc17jw",
+   "elementTitle": "Hormone Lunchbox Opt-In",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+   "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+   "pageId": "3TPX9acNuwOxrgTpYHm1",
+   "elementId": "custom-code-br6mfc1x4y",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-product",
+   "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+   "pageId": "fWF3jojxR5vazeFkw9mH",
+   "elementId": "custom-code-xoxrla0qvl",
+   "elementTitle": "Glutathione+",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+   "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+   "pageId": "crTI1kIQ7ATnChqUOoYK",
+   "elementId": "custom-code-k7043skk96",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-test",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "PZm8MW2P2FDxfTRcH42Z",
+   "elementId": "custom-code-cN11uc782t",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-trusted-voice",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "hilENBKLCKrqHlhWHsIP",
+   "elementId": "custom-code-X_4tHEMKN0",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-natural-fit",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "eCftRIn4cwWzwZcO748a",
+   "elementId": "custom-code-hiKcRONmnk",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-best-kept-secret",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "EX6KZkT9jKFahufXCrmK",
+   "elementId": "custom-code-D6gAuN9Dvc",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-fresh-start",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "dQiENF7dBNUnrdWSC6mS",
+   "elementId": "custom-code-eRtyTF6U--",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-opportunity",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "qqgZtMZw7LcSrXuD75U6",
+   "elementId": "custom-code-TUXrDNPRH3",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-influencer-aptitude-test/beneve-aptitude-product",
+   "funnelId": "HBQyErwqvv5RrfQEqR2o",
+   "pageId": "E3fKv9wS3UssAV3X7LZz",
+   "elementId": "custom-code-6jjnc0hk0l",
+   "elementTitle": "Original Coffee Sticks",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "N19Em4mJrnAyrAbWFA2X",
+   "elementId": "custom-code-9904rgz68h",
+   "elementTitle": "beneve-skin",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-surface-first-result",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "CJAg3giR1xHULRIlxcjg",
+   "elementId": "custom-code-ji4ta4xe89",
+   "elementTitle": "beneve-skin-surface-first-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-inside-out-result",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "BU7TetVYtkwr1ZUQ1Lwh",
+   "elementId": "custom-code-21d9f6b9je",
+   "elementTitle": "beneve-skin-inside-out-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-foundation-first-result",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "3w0DZpBS3uPJEpxS5Nsi",
+   "elementId": "custom-code-69uug8i401",
+   "elementTitle": "beneve-skin-foundation-first-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-full-ritual-result",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "q3ZQqqbHgbljGx2vNm6x",
+   "elementId": "custom-code-e3u8knvc90",
+   "elementTitle": "beneve-skin-full-ritual-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-renew-product",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "anbY66sTcZ30gw6TsHpJ",
+   "elementId": "custom-code-qkk6cijr4d",
+   "elementTitle": "beneve-skin-renew-product",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-luxe-product",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "FYgK3Aawq7qNltWnGXph",
+   "elementId": "custom-code-7bp0fb9vqd",
+   "elementTitle": "beneve-skin-luxe-product",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-glutathione-product",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "VcwDKjvZTg3B8aQWDp8R",
+   "elementId": "custom-code-cruc8dp6c3",
+   "elementTitle": "beneve-skin-glutathione-product",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-skin-diagnostic/beneve-skin-how-to",
+   "funnelId": "M6RkS0dnRFxlszqElUaj",
+   "pageId": "zIt7abpoKJAfYXfdJERM",
+   "elementId": "custom-code-b6zamobm4a",
+   "elementTitle": "beneve-skin-how-to",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve---your-marketing-links/beneve-marketing-links",
+   "funnelId": "kUIpYHuCpC6HZ7o0R48X",
+   "pageId": "mreKWIQk5UfcGjacTBX6",
+   "elementId": "custom-code-8di8XCNqb2",
+   "elementTitle": "Custom Code",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-disruptor-quiz/b-disruptor-quiz",
+   "funnelId": "rGffsC2X5sNXagfRb6Hz",
+   "pageId": "559c9mE08lYpn8lVCirG",
+   "elementId": "custom-code-cn15b5hc64",
+   "elementTitle": "b-disruptor-quiz",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-disruptor-quiz/b-disruptor-quiz-starting-out-result",
+   "funnelId": "rGffsC2X5sNXagfRb6Hz",
+   "pageId": "DVj2MsCwiRyWfEV1Seko",
+   "elementId": "custom-code-xkrg41cuhx",
+   "elementTitle": "b-disruptor-quiz-starting-out-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-disruptor-quiz/b-disruptor-quiz-partway-result",
+   "funnelId": "rGffsC2X5sNXagfRb6Hz",
+   "pageId": "zFaHpfGgY6zYFyEd70Hp",
+   "elementId": "custom-code-58upmw1svj",
+   "elementTitle": "b-disruptor-quiz-partway-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-disruptor-quiz/b-disruptor-quiz-advanced-result",
+   "funnelId": "rGffsC2X5sNXagfRb6Hz",
+   "pageId": "Ycnl4mOi2TBR3D9yWQxy",
+   "elementId": "custom-code-u4ys6grrp4",
+   "elementTitle": "b-disruptor-quiz-advanced-result",
+   "pattern": "A"
+  },
+  {
+   "path": "beneve-disruptor-quiz/b-disruptor-quiz-how-to",
+   "funnelId": "rGffsC2X5sNXagfRb6Hz",
+   "pageId": "LqgkhdPkRJOciniOrCH1",
+   "elementId": "custom-code-a4rsl5mr0z",
+   "elementTitle": "b-disruptor-quiz-how-to",
+   "pattern": "A"
+  }
+ ],
+ "installs": [
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+   "funnelId": "ZkBx2piCQl8UcfONX7o2",
+   "pageId": "NAmipZHZsp1SXDNrqavN",
+   "elementId": "custom-code-k7043skk96",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "ucXosnBgZ6FxqeEBuApn"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+   "funnelId": "ZkBx2piCQl8UcfONX7o2",
+   "pageId": "Ce1nMXjTPSCONQwZIYXt",
+   "elementId": "custom-code-br6mfc1x4y",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "ucXosnBgZ6FxqeEBuApn"
+  },
+  {
+   "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+   "funnelId": "szbPZHxMpl51YqhP3hVs",
+   "pageId": "l1ApYd20iSNW5Sr5Fq0u",
+   "elementId": "custom-code-ajgnezv74r",
+   "elementTitle": "Become an Influencer",
+   "pattern": "A",
+   "locationId": "ucXosnBgZ6FxqeEBuApn"
+  },
+  {
+   "path": "beneve---your-marketing-links/beneve-marketing-links",
+   "funnelId": "ZSoXULfLVi09SdWF7bBY",
+   "pageId": "0Q9t0S91EOCIj6nH0F1w",
+   "elementId": "custom-code-8di8XCNqb2",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "ucXosnBgZ6FxqeEBuApn"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+   "funnelId": "ZkBx2piCQl8UcfONX7o2",
+   "pageId": "64FwD8jl36LTB44so5iH",
+   "elementId": "custom-code-0fpaud2hz2",
+   "elementTitle": "Sample Request",
+   "pattern": "A",
+   "locationId": "ucXosnBgZ6FxqeEBuApn"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+   "funnelId": "482iSmJ08IqRNNEbNzGK",
+   "pageId": "TDlQDBNSxEI8v2l8IcV2",
+   "elementId": "custom-code-k7043skk96",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "cK1GiCXygEx16yqyzeFe"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+   "funnelId": "482iSmJ08IqRNNEbNzGK",
+   "pageId": "WncayoIAZOeTp8Sulcbp",
+   "elementId": "custom-code-0fpaud2hz2",
+   "elementTitle": "Sample Request",
+   "pattern": "A",
+   "locationId": "cK1GiCXygEx16yqyzeFe"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+   "funnelId": "482iSmJ08IqRNNEbNzGK",
+   "pageId": "6383DClsL9ZN6x8zi0iU",
+   "elementId": "custom-code-br6mfc1x4y",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "cK1GiCXygEx16yqyzeFe"
+  },
+  {
+   "path": "beneve---your-marketing-links/beneve-marketing-links",
+   "funnelId": "uHIjjFKCpVbVZ6PDPZP5",
+   "pageId": "WhS7UyELw7RFVyQ2h6vG",
+   "elementId": "custom-code-8di8XCNqb2",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "cK1GiCXygEx16yqyzeFe"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+   "funnelId": "jiYcxeCBNxwHpzfmT0dT",
+   "pageId": "4GYCpjQJPIbKWYhTW5oi",
+   "elementId": "custom-code-0fpaud2hz2",
+   "elementTitle": "Sample Request",
+   "pattern": "A",
+   "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+  },
+  {
+   "path": "beneve---your-marketing-links/beneve-marketing-links",
+   "funnelId": "Tk6bkixAVVYt3U7J0U23",
+   "pageId": "SVr1YxAeZ81dkkZVJc6R",
+   "elementId": "custom-code-8di8XCNqb2",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+  },
+  {
+   "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+   "funnelId": "jX3jk7UErtgaRjYjcrKl",
+   "pageId": "gZDt6U9VOEN8DGu1mFR4",
+   "elementId": "custom-code-ajgnezv74r",
+   "elementTitle": "Become an Influencer",
+   "pattern": "A",
+   "locationId": "cK1GiCXygEx16yqyzeFe"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation",
+   "funnelId": "GMTCslOq17yjPZDyxchT",
+   "pageId": "4BEK5OamJHj5ORSBJU0v",
+   "elementId": "custom-code-k7043skk96",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "4LHtjbobpDp6Jz3pwIKU"
+  },
+  {
+   "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-read",
+   "funnelId": "GMTCslOq17yjPZDyxchT",
+   "pageId": "GZjTUeoJFaHliUHU4SID",
+   "elementId": "custom-code-br6mfc1x4y",
+   "elementTitle": "Custom Code",
+   "pattern": "A",
+   "locationId": "4LHtjbobpDp6Jz3pwIKU"
+  }
+ ]
 }
