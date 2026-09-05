@@ -49,15 +49,55 @@ window.SHARK_HUB = {
       ]
     }
   ],
+  /* Every Beneve URL is beneve.com/{username}/... and the username is the ONLY thing
+     carrying the rep's commission, so the whole catalogue composes from one custom
+     value instead of one per product. All 28 slugs were verified live against
+     beneve.com on 2026-09-04 (a wrong slug serves a stub, so the check is real).
+     Adding a product Beneve launches later is an edit here and a git push, with no
+     write to any rep account. */
+  compose: { cv: 'beneve_user_name', base: 'https://beneve.com/{id}' },
   lists: [
-    { label: 'Direct product links', icon: 'cart', name: 'Product links',
-      tease: 'Every product link, ready to copy', perRep: true, items: [
-    { cv: "beneve_buy_link",             name: "Beneve Shop" },
-    { cv: "beneve_opportunity_url",      name: "Become an Influencer" },
-    { cv: "beneve_gut_advantage_link",   name: "Gut Advantage Capsules" },
-    { cv: "beneve_glutathione_link",     name: "Glutathione+ with DIM" },
-    { cv: "beneve_original_coffee_link", name: "Original Coffee Sticks" }
-  ] }
+    { label: 'Start here', icon: 'cart', name: 'Shop and opportunity',
+      tease: 'Your shop, and the join link', perRep: true, items: [
+        { name: "Beneve Shop",              path: "customer/shop" },
+        { name: "Become an Influencer",     path: "customer/become-an-influencer" },
+        { name: "4-Day Sampler",            path: "customer/product-default/4-day-sampler" }
+      ] },
+    /* Beneve's own shop grouping and its own order, so this list and beneve.com
+       never disagree in front of a customer. */
+    { label: 'Individual products', icon: 'leaf', name: 'Every product link',
+      tease: 'All 18, ready to copy', perRep: true, items: [
+        { name: "Renew",                          path: "customer/product-default/renew" },
+        { name: "Luxe Liquid Collagen Peptides",  path: "customer/product-default/luxe-liquid-collagen-peptides" },
+        { name: "Creatine + HMB",                 path: "customer/product-default/creatine-hmb" },
+        { name: "Amino Surge",                    path: "customer/product-default/amino-surge" },
+        { name: "GlucoGuard",                     path: "customer/product-default/glucoguard" },
+        { name: "Glutathione+",                   path: "customer/product-default/glutathione" },
+        { name: "Original Coffee Tub",            path: "customer/product-default/original-coffee-tub" },
+        { name: "Original Coffee Sticks",         path: "customer/product-default/original-coffee-sticks" },
+        { name: "Coffee Lite Tub",                path: "customer/product-default/coffee-lite-tub" },
+        { name: "Coffee Lite Sticks",             path: "customer/product-default/coffee-lite-sticks" },
+        { name: "Watermelon Berry Tub",           path: "customer/product-default/watermelon-berry-tub" },
+        { name: "Watermelon Berry Sticks",        path: "customer/product-default/watermelon-berry-sticks" },
+        { name: "Tropical Sunrise Tub",           path: "customer/product-default/tropical-sunrise-tub" },
+        { name: "Tropical Sunrise Sticks",        path: "customer/product-default/tropical-sunrise-sticks" },
+        { name: "Electrolytes Tub",               path: "customer/product-default/electrolytes-tub" },
+        { name: "Electrolytes Sticks",            path: "customer/product-default/electrolytes-sticks" },
+        { name: "Gut Advantage Capsules",         path: "customer/product-default/gut-advantage-capsules" },
+        { name: "Gut Advantage Powder",           path: "customer/product-default/gut-advantage-powder" }
+      ] },
+    { label: 'X24 Bundles', icon: 'chart', name: 'X24 bundle links',
+      tease: 'Sculpt and Trim bundles', perRep: true, items: [
+        { name: "Sculpt Core Bundle",      path: "customer/product-default/sculpt-core-bundle" },
+        { name: "Sculpt Advanced Bundle",  path: "customer/product-default/sculpt-advanced-bundle" },
+        { name: "Sculpt Elite",            path: "customer/product-default/sculpt-elite" },
+        { name: "Trim Core Powder",        path: "customer/product-default/trim-core-powder" },
+        { name: "Trim Core Capsule",       path: "customer/product-default/trim-core-capsule" },
+        { name: "Trim Advanced Powder",    path: "customer/product-default/trim-advanced-powder" },
+        { name: "Trim Advanced Capsule",   path: "customer/product-default/trim-advanced-capsule" },
+        { name: "Trim Elite Powder",       path: "customer/product-default/trim-elite-powder" },
+        { name: "Trim Elite Capsule",      path: "customer/product-default/trim-elite-capsule" }
+      ] }
   ],
   /* Beneve records its own iPhone walkthrough, so it overrides the shared iOS
      recording. Android is not overridden and keeps the shared one. */

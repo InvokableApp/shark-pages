@@ -77,10 +77,17 @@
 .sk-dres-bnv-dis .sk-prog .sk-dres-wrap{position:relative;z-index:1}
 .sk-dres-bnv-dis .sk-prog-card{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
   gap:clamp(1.8rem,4vw,3.4rem);align-items:center}
-.sk-dres-bnv-dis .sk-prog-shot{position:relative;margin:0}
-.sk-dres-bnv-dis .sk-prog-shot img{display:block;width:100%;height:auto;border-radius:3px;
-  box-shadow:0 40px 80px -30px rgba(0,0,0,.72),0 0 0 1px rgba(198,211,182,.16)}
-.sk-dres-bnv-dis .sk-prog-badge{position:absolute;top:-.7rem;left:-.7rem;
+/* ⚠️ THE MOCKUP IS A DARK GREEN COVER AND THIS SECTION IS DARK GREEN. Dropped straight onto the
+   moss it disappeared: loaded, painted, 329px wide, and invisible, because the cover's own ground
+   and the section ground are within a few percent of each other. It needs something to sit
+   against, so it gets a lit panel. A transparent PNG only works over a ground it contrasts with,
+   and nothing in the build can tell you that. Only looking can. */
+.sk-dres-bnv-dis .sk-prog-shot{position:relative;margin:0;padding:clamp(1.6rem,3vw,2.4rem);
+  border-radius:4px;border:1px solid rgba(198,211,182,.16);
+  background:radial-gradient(120% 90% at 50% 30%,rgba(243,239,230,.19),rgba(243,239,230,.05) 62%,rgba(243,239,230,.02))}
+.sk-dres-bnv-dis .sk-prog-shot img{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 26px 46px rgba(0,0,0,.55))}
+.sk-dres-bnv-dis .sk-prog-badge{position:absolute;top:-.72rem;left:1.1rem;
   background:var(--sk-tint);color:var(--sk-ink-d);font-family:var(--sk-sans);font-weight:700;
   font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.42rem .8rem;border-radius:2px;
   box-shadow:0 10px 24px -12px rgba(0,0,0,.8)}
