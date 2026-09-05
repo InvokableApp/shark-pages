@@ -68,6 +68,13 @@
   .sk-dcap-bnv-dis .sk-dcap-meta{margin-top:1.5rem}
   .sk-dcap-bnv-dis .sk-dcap-hero-in .sk-dcap-btn{margin-top:1.75rem}
 }
+/* phone: the same problem for a different reason. The longer lede put the button's bottom edge at
+   833px of an 844px viewport, i.e. touching the fold rather than clearing it. Trimming the hero's
+   own padding buys ~55px without touching type size. */
+@media (max-width:520px){
+  .sk-dcap-bnv-dis .sk-dcap-hero-in{padding-top:3.5rem;padding-bottom:3rem}
+  .sk-dcap-bnv-dis .sk-dcap-meta{margin-top:1.35rem}
+}
 
 /* the hero lede is two paragraphs now: the problem, then the relief. The component's lede carries
    no bottom margin because it was written for one standfirst. */
