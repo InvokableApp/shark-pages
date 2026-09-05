@@ -56,6 +56,19 @@
 /* the component's lede is a single standfirst paragraph, so it carries no bottom margin. This
    section is three real paragraphs and they ran together into one block of grey. */
 .sk-dcap-bnv-dis .sk-pair .sk-dcap-lede + .sk-dcap-lede{margin-top:1.05em}
+/* ── KEEP THE HERO BUTTON ABOVE THE FOLD ────────────────────────────────────────────────────
+   The component's hero pads 152px top and 120px bottom and sets the h1 at 81.6px, which is right
+   on a tall monitor and pushes the CTA 69px off the bottom of a 1440x800 laptop. Measured, not
+   guessed: /tmp/fold.mjs reports the button's bottom edge against the viewport at each size.
+   Scoped to SHORT landscape viewports only, so a big display keeps the generous hero. */
+@media (min-width:900px) and (max-height:900px){
+  .sk-dcap-bnv-dis .sk-dcap-hero-in{padding-top:5.5rem;padding-bottom:4.5rem}
+  .sk-dcap-bnv-dis .sk-dcap-hero-in h1{font-size:clamp(2.6rem,4.1vw,3.8rem)}
+  .sk-dcap-bnv-dis .sk-dcap-hero-in .sk-dcap-lede{font-size:1.02rem}
+  .sk-dcap-bnv-dis .sk-dcap-meta{margin-top:1.5rem}
+  .sk-dcap-bnv-dis .sk-dcap-hero-in .sk-dcap-btn{margin-top:1.75rem}
+}
+
 /* the hero lede is two paragraphs now: the problem, then the relief. The component's lede carries
    no bottom margin because it was written for one standfirst. */
 .sk-dcap-bnv-dis .sk-dcap-hero-in .sk-dcap-lede + .sk-dcap-lede{margin-top:.95em}
