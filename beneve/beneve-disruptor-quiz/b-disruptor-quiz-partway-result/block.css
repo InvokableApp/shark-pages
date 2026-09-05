@@ -70,6 +70,8 @@
   margin:0;padding:.85rem 1.2rem;background:var(--sk-warm);border-block:1px solid var(--sk-line);
   font-family:var(--sk-sans);font-size:.86rem;color:var(--sk-body);text-align:center}
 .sk-dres-bnv-dis .sk-prog-strip b{color:var(--sk-brand);font-weight:600}
+.sk-dres-bnv-dis .sk-prog-strip i{font-style:normal;font-size:.66rem;font-weight:800;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--sk-ink-d);background:var(--sk-tint);border-radius:2px;padding:.24rem .5rem}
 .sk-dres-bnv-dis .sk-prog-strip a{color:var(--sk-brand);text-underline-offset:3px}
 
 .sk-dres-bnv-dis .sk-prog{background:var(--sk-ink-d);color:#f4f6f0;
