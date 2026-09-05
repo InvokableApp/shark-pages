@@ -54,3 +54,7 @@
   padding:1.05rem 2.2rem;font-size:1.02rem;letter-spacing:.01em;
   box-shadow:0 20px 44px -22px rgba(69,96,63,.75)}
 .sk-dres-bnv-dis .sk-dres-cta-row .sk-dres-btn:hover{filter:brightness(1.06)}
+/* the swaps list ended a long way above the ask; a reader who has just finished reading three
+   swaps should meet the CTA, not a gap */
+.sk-dres-bnv-dis .sk-dres-free{padding-bottom:clamp(2.2rem,5vw,3.4rem)}
+.sk-dres-bnv-dis .sk-dres-steps{margin-bottom:0}
