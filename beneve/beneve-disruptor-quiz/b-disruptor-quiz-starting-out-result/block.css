@@ -144,6 +144,21 @@
   .sk-dres-bnv-dis .sk-prog-btn{display:block;text-align:center}
 }
 
+/* THE DIAGNOSIS CHIP. This is a diagnostic quiz, and this is what it diagnosed, so it gets a
+   frame rather than sitting inside a paragraph. Label small and quiet, verdict loud. */
+.sk-dres-bnv-dis .sk-diag{display:inline-flex;align-items:center;gap:.85rem;margin:1.15rem 0 1.35rem;
+  padding:.6rem 1.15rem .6rem .95rem;border:1px solid var(--sk-line);border-radius:3px;
+  background:var(--sk-warm)}
+.sk-dres-bnv-dis .sk-diag span{font-family:var(--sk-sans);font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sk-faint)}
+.sk-dres-bnv-dis .sk-diag b{font-family:var(--sk-serif);font-size:clamp(1.4rem,3vw,1.85rem);
+  font-weight:600;line-height:1;color:var(--sk-brand)}
+
+/* the directive. Not a sentence in the lede, a signpost with an arrow pointing at the swaps. */
+.sk-dres-bnv-dis .sk-next{display:flex;align-items:center;gap:.55rem;margin:1.5rem 0 0;
+  font-family:var(--sk-sans);font-size:.95rem;font-weight:600;color:var(--sk-brand)}
+.sk-dres-bnv-dis .sk-next svg{width:1.05em;height:1.05em;flex:none}
+
 /* the bar is docked at the top and ships visible (no reveal JS on this component), so the header
    needs to clear it. Measured at 56px on a phone, 60px above that. */
 .sk-dres-bnv-dis .sk-dres-head{padding-top:clamp(5rem,7vw,6.2rem)}
