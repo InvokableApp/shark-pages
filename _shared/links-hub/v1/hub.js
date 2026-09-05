@@ -81,6 +81,29 @@
   }
   function href(v) { return /^https?:\/\//i.test(v) ? v : 'https://' + v.replace(/^\/+/, ''); }
 
+  /* ---------- composed links ----------
+     Some systems hang every product URL off ONE identifier the rep owns. Beneve is
+     the case that forced this: attribution on beneve.com is carried entirely by the
+     username in the path, so all 28 product links are the same string with a
+     different tail. Holding 28 custom values for that would be 28 chances for a rep
+     to paste a link that silently pays someone else, because beneve.com does not
+     error on a wrong username, it just drops the sponsor.
+
+     A system opts in with SYS.compose = { cv, base }, where `base` contains {id}.
+     A list item then carries `path` instead of `cv`/`url`. No compose block and no
+     `path` items means nothing here runs, which is why this is safe to add to a
+     published version: every other system on it is untouched.
+
+     An empty identifier composes NOTHING, deliberately. A half-built beneve.com URL
+     with the username missing resolves to a real page with no sponsor on it, so
+     rendering it would be worse than rendering no link at all. */
+  var composeId = SYS.compose ? cv(SYS.compose.cv) : '';
+  function composed(path) {
+    if (!SYS.compose || !composeId) return '';
+    return SYS.compose.base.replace('{id}', encodeURIComponent(composeId)).replace(/\/+$/, '') +
+      '/' + String(path).replace(/^\/+/, '');
+  }
+
   /* ---------- the four destinations ---------- */
   var DEST = [
     { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
@@ -203,7 +226,7 @@
       return;
     }
     var rows = L.items.map(function (x) {
-      var u = x.url || (x.cv ? cv(x.cv) : '');
+      var u = x.url || (x.path ? composed(x.path) : '') || (x.cv ? cv(x.cv) : '');
       if (!u) return '';
       u = href(u);
       return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
