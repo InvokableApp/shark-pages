@@ -82,15 +82,34 @@
    and the section ground are within a few percent of each other. It needs something to sit
    against, so it gets a lit panel. A transparent PNG only works over a ground it contrasts with,
    and nothing in the build can tell you that. Only looking can. */
-.sk-dres-bnv-dis .sk-prog-shot{position:relative;margin:0;padding:clamp(1.6rem,3vw,2.4rem);
-  border-radius:4px;border:1px solid rgba(198,211,182,.16);
-  background:radial-gradient(120% 90% at 50% 30%,rgba(243,239,230,.19),rgba(243,239,230,.05) 62%,rgba(243,239,230,.02))}
-.sk-dres-bnv-dis .sk-prog-shot img{display:block;width:100%;height:auto;
-  filter:drop-shadow(0 26px 46px rgba(0,0,0,.55))}
-.sk-dres-bnv-dis .sk-prog-badge{position:absolute;top:-.72rem;left:1.1rem;
-  background:var(--sk-tint);color:var(--sk-ink-d);font-family:var(--sk-sans);font-weight:700;
-  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.42rem .8rem;border-radius:2px;
-  box-shadow:0 10px 24px -12px rgba(0,0,0,.8)}
+/* The framed panel read as an empty box with a small picture in it. The glow does the same job
+   (give the dark cover a ground) without drawing a rectangle nobody asked for, and the stack now
+   fills the column, tilts, and casts a reflection, so it reads as an object on a surface. */
+.sk-dres-bnv-dis .sk-prog-shot{position:relative;margin:0;padding:0;isolation:isolate}
+.sk-dres-bnv-dis .sk-prog-shot::before{
+  content:"";position:absolute;z-index:-1;inset:-18% -12% -22%;
+  background:radial-gradient(58% 50% at 46% 42%,rgba(198,211,182,.28),rgba(198,211,182,.09) 46%,transparent 72%)}
+.sk-dres-bnv-dis .sk-prog-shot img{display:block;width:106%;max-width:none;height:auto;margin-left:-3%;
+  transform:rotate(-2.6deg);transform-origin:50% 70%;
+  filter:drop-shadow(0 34px 52px rgba(0,0,0,.6));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sk-dres-bnv-dis .sk-prog-card:hover .sk-prog-shot img{transform:rotate(-1.2deg) translateY(-8px)}
+/* the reflection: a flipped, faded, blurred copy of the stack sitting under it */
+.sk-dres-bnv-dis .sk-prog-shot::after{
+  content:"";position:absolute;z-index:-1;left:12%;right:12%;bottom:-4%;height:16%;
+  background:radial-gradient(60% 100% at 50% 0%,rgba(0,0,0,.5),transparent 70%);filter:blur(6px)}
+/* a tilted seal over the corner of the cover, the way a sticker lands on a book */
+.sk-dres-bnv-dis .sk-prog-badge{position:absolute;z-index:2;top:4%;left:-2%;
+  display:grid;place-items:center;width:5.4rem;height:5.4rem;border-radius:50%;
+  background:linear-gradient(140deg,var(--sk-tint),#dfe8d2);color:var(--sk-ink-d);
+  font-family:var(--sk-sans);font-weight:800;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  transform:rotate(-13deg);box-shadow:0 16px 34px -14px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.22) inset}
+@media(max-width:820px){.sk-dres-bnv-dis .sk-prog-badge{width:4.4rem;height:4.4rem;font-size:.66rem;left:2%}}
+
+/* the three facts, as pills, right under the lede */
+.sk-dres-bnv-dis .sk-prog-pills{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem;padding:0}
+.sk-dres-bnv-dis .sk-prog-pills li{font-family:var(--sk-sans);font-size:.74rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--sk-tint);
+  border:1px solid rgba(198,211,182,.32);border-radius:99px;padding:.42rem .9rem}
 .sk-dres-bnv-dis .sk-prog-kicker{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:var(--sk-tint);margin:0 0 .7rem}
 .sk-dres-bnv-dis .sk-prog-h2{font-family:var(--sk-serif);font-weight:600;line-height:1.04;
@@ -111,7 +130,12 @@
   font-size:1.06rem;letter-spacing:.01em;color:var(--sk-ink-d);text-decoration:none;
   background:linear-gradient(100deg,var(--sk-tint),#e2ead6);border-radius:3px;
   padding:1.1rem 2.3rem;box-shadow:0 22px 46px -18px rgba(0,0,0,.8);transition:transform .18s,filter .18s}
-.sk-dres-bnv-dis .sk-prog-btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.sk-dres-bnv-dis .sk-prog-btn{display:inline-flex;align-items:center;gap:.7rem;
+  box-shadow:0 26px 52px -20px rgba(0,0,0,.9),0 0 0 6px rgba(198,211,182,.09)}
+.sk-dres-bnv-dis .sk-prog-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-dres-bnv-dis .sk-prog-btn:hover{transform:translateY(-2px);filter:brightness(1.04);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.95),0 0 0 8px rgba(198,211,182,.14)}
+.sk-dres-bnv-dis .sk-prog-btn:hover svg{transform:translateX(4px)}
 .sk-dres-bnv-dis .sk-prog-note{font-family:var(--sk-sans);font-size:.9rem;line-height:1.6;
   color:rgba(244,246,240,.66);margin:1.15rem 0 0;max-width:38em}
 @media(max-width:820px){
