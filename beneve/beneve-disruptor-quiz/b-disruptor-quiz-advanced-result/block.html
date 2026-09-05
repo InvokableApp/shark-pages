@@ -113,6 +113,11 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <p class="sk-prog-note">I'll send it straight over. If you get stuck on any of them, just ask.</p>
+          <!-- ⚠️ NO WHITESPACE INSIDE THIS TAG. The merge field is the element's only content, so
+               an unfilled CV leaves it :empty and the CSS hides it, hyphen and all. A newline or a
+               space in here defeats :empty and a buyer who has not filled the value ships a page
+               signed "- ". The loader substitutes "" for a missing data-cv attribute. -->
+          <p class="sk-prog-sign">{{custom_values.beneve_rep_first_name}}</p>
         </div>
       </div>
     </div>

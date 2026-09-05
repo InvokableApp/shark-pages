@@ -140,6 +140,12 @@
 .sk-dres-bnv-dis .sk-prog-btn:hover svg{transform:translateX(4px)}
 .sk-dres-bnv-dis .sk-prog-note{font-family:var(--sk-sans);font-size:.9rem;line-height:1.6;
   color:rgba(244,246,240,.66);margin:1.15rem 0 0;max-width:38em}
+/* the rep signs it. They are about to DM this person, so the ask should come from a name, not
+   from the page. Hidden entirely when the buyer has not filled the value. */
+.sk-dres-bnv-dis .sk-prog-sign{font-family:var(--sk-serif);font-size:1.32rem;font-weight:600;
+  color:var(--sk-tint);margin:.75rem 0 0}
+.sk-dres-bnv-dis .sk-prog-sign::before{content:"- "}
+.sk-dres-bnv-dis .sk-prog-sign:empty{display:none}
 @media(max-width:820px){
   .sk-dres-bnv-dis .sk-prog-card{grid-template-columns:1fr}
   .sk-dres-bnv-dis .sk-prog-shot{max-width:290px;margin-inline:auto}
