@@ -795,33 +795,6 @@
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
     },
     {
-      "path": "your-marketing-links/marketing-links",
-      "funnelId": "fBG1cjoo1o0h15WgGvXx",
-      "pageId": "3kLDcQrOOSILJH3KcXEj",
-      "elementId": "custom-code-zyetceUudQ",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "0URPNW3l1OBxc6frHxsb"
-    },
-    {
-      "path": "your-marketing-links/marketing-links",
-      "funnelId": "tMGpr6ODWSvo2Mf4QTin",
-      "pageId": "ztAmvykqrEcJVsFExxXd",
-      "elementId": "custom-code-zyetceUudQ",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "PAXKeUu0hSfLSiJWaClA"
-    },
-    {
-      "path": "your-marketing-links/marketing-links",
-      "funnelId": "6JldPkHmxTPU7POmPJpN",
-      "pageId": "i1XrVF3VWia7L6AU0pFZ",
-      "elementId": "custom-code-zyetceUudQ",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "bNN86mDO5dMDcxXPXPEZ"
-    },
-    {
       "path": "glp-free-ignyt-sample/ignyt-sample-optin",
       "funnelId": "THsns1ySiqDPQzNIYaiU",
       "pageId": "Rb3n5Jz0rarEX4SyLAzf",
@@ -883,6 +856,60 @@
       "elementTitle": "opportunity2-blueprint",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "t7mUrsHkpokoMv6tKLKi",
+      "pageId": "IAvMCwoS10d27oW8eaDr",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "0URPNW3l1OBxc6frHxsb"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "axHPuHMp69KOngNrmga2",
+      "pageId": "82A3uu7oRpN383VWbZuj",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "Ft0VbWR7v5X1QaScrxpm"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "ubUOQl8elceOp3f8NAM4",
+      "pageId": "Loa0zAlOKBYnlUBe9pCC",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "PAXKeUu0hSfLSiJWaClA"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "m69B4hId2zjm3tRayF26",
+      "pageId": "4mm0MC3QF8pJPUcIZAIo",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "bNN86mDO5dMDcxXPXPEZ"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "i6jjGYOjnJd9iqae40RU",
+      "pageId": "kinBSjiLF5rQh301qeyi",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "6QwsfBtnsZ11VyCaePCa"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "iHMnCPHhigtfsP71xhQ4",
+      "pageId": "v9LlA88K5StmXl3pt71y",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "Gt6vRcTosLcPSinAWrci"
     }
   ]
 }
