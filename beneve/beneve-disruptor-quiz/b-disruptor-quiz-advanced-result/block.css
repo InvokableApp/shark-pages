@@ -167,6 +167,30 @@
   font-family:var(--sk-sans);font-size:.95rem;font-weight:600;color:var(--sk-brand)}
 .sk-dres-bnv-dis .sk-next svg{width:1.05em;height:1.05em;flex:none}
 
+/* the citation under each swap. Quiet: it is there to be checked, not read. */
+.sk-dres-bnv-dis .sk-src{display:inline-block;margin-top:.55rem;font-family:var(--sk-sans);
+  font-size:.74rem;font-weight:600;letter-spacing:.02em;color:var(--sk-faint);
+  text-decoration:none;border-bottom:1px solid var(--sk-line);padding-bottom:1px}
+.sk-dres-bnv-dis .sk-src::before{content:"Source: "}
+.sk-dres-bnv-dis .sk-src:hover{color:var(--sk-brand);border-color:var(--sk-accent)}
+
+/* the ask directly under the swaps */
+.sk-dres-bnv-dis .sk-ask{margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.5rem,3vw,2rem);
+  border:1px solid var(--sk-line);border-left:3px solid var(--sk-brand);border-radius:3px;
+  background:var(--sk-card)}
+.sk-dres-bnv-dis .sk-ask-t{font-family:var(--sk-serif);font-size:clamp(1.45rem,3vw,1.9rem);
+  font-weight:600;line-height:1.1;color:var(--sk-ink);margin:0 0 .5rem}
+.sk-dres-bnv-dis .sk-ask-p{font-family:var(--sk-sans);font-size:.98rem;line-height:1.6;
+  color:var(--sk-body);margin:0 0 1.25rem;max-width:44em}
+.sk-dres-bnv-dis .sk-ask-btn{display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--sk-sans);font-weight:700;font-size:1rem;color:#fff;text-decoration:none;
+  background:linear-gradient(100deg,var(--sk-brand),var(--sk-brand-d));border-radius:3px;
+  padding:.95rem 1.9rem;box-shadow:0 18px 38px -20px rgba(69,96,63,.85);transition:transform .18s,filter .18s}
+.sk-dres-bnv-dis .sk-ask-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-dres-bnv-dis .sk-ask-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.sk-dres-bnv-dis .sk-ask-btn:hover svg{transform:translateX(4px)}
+@media(max-width:520px){.sk-dres-bnv-dis .sk-ask-btn{display:flex;justify-content:center;text-align:center}}
+
 /* the bar is docked at the top and ships visible (no reveal JS on this component), so the header
    needs to clear it. Measured at 56px on a phone, 60px above that. */
 .sk-dres-bnv-dis .sk-dres-head{padding-top:clamp(5rem,7vw,6.2rem)}

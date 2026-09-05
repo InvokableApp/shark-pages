@@ -376,6 +376,33 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-disruptor-quiz/b-disruptor-quiz-starting-out-result",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "DVj2MsCwiRyWfEV1Seko",
+      "elementId": "custom-code-xkrg41cuhx",
+      "elementTitle": "b-disruptor-quiz-starting-out-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-disruptor-quiz/b-disruptor-quiz-partway-result",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "zFaHpfGgY6zYFyEd70Hp",
+      "elementId": "custom-code-58upmw1svj",
+      "elementTitle": "b-disruptor-quiz-partway-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-disruptor-quiz/b-disruptor-quiz-advanced-result",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "Ycnl4mOi2TBR3D9yWQxy",
+      "elementId": "custom-code-u4ys6grrp4",
+      "elementTitle": "b-disruptor-quiz-advanced-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
