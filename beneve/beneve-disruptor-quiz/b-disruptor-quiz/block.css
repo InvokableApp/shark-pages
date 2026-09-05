@@ -64,3 +64,20 @@
 /* the closing CTA was sitting hard against the bottom of the cards */
 .sk-dcap-bnv-dis .sk-lanes .sk-dcap-center{margin-top:clamp(2.4rem,5vw,3.6rem)}
 .sk-dcap-bnv-dis .sk-lanes .sk-dcap-note{margin-top:1.4rem}
+
+/* ── the CTA bar is a HEADER, and it is not phone-only ──────────────────────────────────────
+   HOSTED-BLOCKS-SOP §8b: "It is a HEADER bar: top:0, not bottom:0" (Joe's call, recorded after
+   _shared/capture/v1 drifted to a bottom bar), and the bar is the standard on every opt-in and
+   lead-magnet lander. diagnostic-capture/v1 has the SAME drift: bottom:0, and hidden above 900px.
+   Corrected here rather than in the component, because a published version is additive-only and
+   the Skin Diagnostic ships against it. When that component forks to v2, this belongs in v2.
+   The shadow falls downward to match a top dock, and a top bar needs no bottom clearance. */
+.sk-dcap-bnv-dis .sk-dcap-bar{
+  top:0;bottom:auto;transform:translateY(-105%);
+  border-top:0;border-bottom:1px solid rgba(198,211,182,.24);
+  background:rgba(36,48,31,.96);box-shadow:0 6px 20px -10px rgba(0,0,0,.55);
+  padding:.72rem 1rem}
+@media (min-width:900px){
+  .sk-dcap-bnv-dis .sk-dcap-bar{display:flex;padding:.72rem clamp(1.5rem,5vw,3rem)}
+  .sk-dcap-bnv-dis .sk-dcap-bar-name{font-size:.92rem}
+}
