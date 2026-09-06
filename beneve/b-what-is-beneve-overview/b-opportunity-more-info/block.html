@@ -5,12 +5,12 @@
   ADAPTED FROM beneve/beneve-side-hustle-quiz-funnel/beneve-opportunity-explained, not rewritten.
   Same copy, same design, same shared engine. Exactly one thing changes, and it is the CTA target.
 
-  The side hustle version points every button at that funnel's REDIRECT step, because a pageview
-  there fires Fire Lead and the step forwards to the rep's link on its own. This funnel is
-  informational and has no redirect step, so the buttons carry the destination directly, via the
-  shared engine's data-buy-url fallback, and open in a new tab. If a tracked click is wanted here
-  later, add a redirect step to this funnel and put its slug back in data-buy-step: the markup
-  needs no other change. (HOSTED-BLOCKS-SOP section 7b.)
+  Every CTA goes to this funnel's own REDIRECT step, /b-what-is-redirect-opportunity, not straight
+  to beneve.com. A pageview there is what fires Fire Lead, and the step forwards to the rep's link
+  on its own half a second later. The href is authored sibling-relative so it works under any funnel
+  path; the shared engine resolves it, and falls back to data-buy-url when the page is served
+  outside the funnel (a builder preview, a bare page URL) so the button is never dead.
+  (HOSTED-BLOCKS-SOP section 7b, FUNNEL-SOP item 6.)
 
   INFO-CENTRIC, not an enrollment form. The sign-up happens on beneve.com under the rep's own link,
   and that link is what earns the commission.
@@ -23,13 +23,14 @@
   addressed to the reader, em-dashes removed, no earnings claim Beneve does not already make.
 -->
 <div class="sk-prod sk-prod-bnv-whatopp"
+     data-buy-step="b-what-is-redirect-opportunity"
      data-buy-url="{{custom_values.beneve_opportunity_url}}">
 
   <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
 
   <div class="sk-prod-bar" hidden>
     <span class="sk-prod-bar-name">Become an Influencer</span>
-    <a class="sk-prod-btn sk-prod-bar-btn" href="https://{{custom_values.beneve_opportunity_url}}" data-buy target="_blank" rel="noopener">Get started</a>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="b-what-is-redirect-opportunity" data-buy>Get started</a>
   </div>
 
   <!-- ============================== HERO ============================== -->
@@ -57,7 +58,7 @@
         </ul>
 
         <div class="sk-prod-cta-row" data-rise data-delay="4">
-          <a class="sk-prod-btn" data-hero-cta href="https://{{custom_values.beneve_opportunity_url}}" data-buy target="_blank" rel="noopener">
+          <a class="sk-prod-btn" data-hero-cta href="b-what-is-redirect-opportunity" data-buy>
             Get started today
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -236,7 +237,7 @@
       <p class="sk-prod-sub" data-rise data-delay="1">
         Start with the person who sent you here. They will walk you through it.
       </p>
-      <a class="sk-prod-btn sk-prod-btn-lg" href="https://{{custom_values.beneve_opportunity_url}}" data-buy target="_blank" rel="noopener" data-rise data-delay="2">
+      <a class="sk-prod-btn sk-prod-btn-lg" href="b-what-is-redirect-opportunity" data-buy data-rise data-delay="2">
         Get started today
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
