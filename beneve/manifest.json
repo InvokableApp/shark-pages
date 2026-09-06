@@ -403,6 +403,24 @@
       "elementTitle": "b-disruptor-quiz-advanced-result",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-disruptor-quiz/b-disruptor-quiz",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "559c9mE08lYpn8lVCirG",
+      "elementId": "custom-code-cn15b5hc64",
+      "elementTitle": "b-disruptor-quiz",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-water-report/b-water-report",
+      "funnelId": "l5wHw77MjObvMGlMJIGp",
+      "pageId": "ijDWIQcBEgPnuP03uZ5Z",
+      "elementId": "custom-code-jf915iv7ta",
+      "elementTitle": "b-water-report",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
