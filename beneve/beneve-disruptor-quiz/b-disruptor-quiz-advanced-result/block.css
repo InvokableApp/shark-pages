@@ -129,11 +129,27 @@
 .sk-dres-bnv-dis .sk-prog-days{list-style:none;margin:0 0 1.9rem;padding:0;display:grid;gap:.9rem}
 .sk-dres-bnv-dis .sk-prog-days li{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;
   padding-top:.9rem;border-top:1px solid rgba(198,211,182,.2)}
-.sk-dres-bnv-dis .sk-prog-days .sk-prog-d{grid-row:1/3;font-family:var(--sk-sans);font-size:.68rem;
+/* ⚠️ THE CONTENT IS ONE CELL, NOT THREE. The li is a two-column grid, and while it held exactly
+   two auto-placed children (h3, p) the day label could span "rows 1 to 3" and everything lined up.
+   Adding the swap chips made a third row: the chips fell into column ONE, the auto column swelled
+   to fit them and the copy column collapsed to a word per line. Pinning the label to 1/-1 was
+   worse, because with no explicit rows declared -1 resolves to line 1 and the span vanishes. So
+   the copy now lives in its own .sk-prog-c and the grid is back to two cells that cannot fight.
+   Every step of this was visible only in a screenshot. */
+.sk-dres-bnv-dis .sk-prog-c{min-width:0}
+.sk-dres-bnv-dis .sk-prog-days .sk-prog-d{font-family:var(--sk-sans);font-size:.68rem;
   font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--sk-accent);
   padding-top:.28rem;white-space:nowrap}
 .sk-dres-bnv-dis .sk-prog-days h3{font-family:var(--sk-sans);font-size:1rem;font-weight:650;
   color:#fff;margin:0}
+/* the swaps as chips under the benefit line: evidence for the sentence above them, not a list to
+   read. The food reset gets its own quiet row so it does not read as a fourth swap. */
+.sk-dres-bnv-dis .sk-prog-ex{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .5rem;margin-top:.62rem!important}
+.sk-dres-bnv-dis .sk-prog-ex span{font-family:var(--sk-sans);font-size:.72rem;font-weight:600;
+  color:var(--sk-tint);background:rgba(198,211,182,.1);
+  border:1px solid rgba(198,211,182,.22);border-radius:999px;padding:.3rem .66rem}
+.sk-dres-bnv-dis .sk-prog-ex i{flex-basis:100%;font-style:normal;font-family:var(--sk-sans);
+  font-size:.8rem;color:rgba(244,246,240,.58);margin-top:.2rem}
 .sk-dres-bnv-dis .sk-prog-days p{font-family:var(--sk-sans);font-size:.92rem;line-height:1.55;
   color:rgba(244,246,240,.72);margin:.15rem 0 0}
 .sk-dres-bnv-dis .sk-prog-btn{display:inline-block;font-family:var(--sk-sans);font-weight:700;
