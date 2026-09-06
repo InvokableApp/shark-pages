@@ -1,0 +1,65 @@
+<div class="sk-wat sk-wat-bnv" data-rep="{{custom_values.beneve_rep_first_name}}" data-dm="#report">
+
+  <div class="sk-wat-bar">
+    <span class="sk-wat-bar-name">Free water report for your address</span>
+    <button type="button" class="sk-wat-btn sk-wat-btn--sm" data-sk-focus>Check My Address</button>
+  </div>
+
+  <section class="sk-wat-hero">
+    <div class="sk-wat-hero-bg" aria-hidden="true">
+      <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg" alt="" loading="eager" decoding="async">
+    </div>
+    <div class="sk-wat-wrap">
+      <div class="sk-wat-hero-in">
+        <p class="sk-wat-eyebrow">Free, and it takes about ten seconds</p>
+        <h1>See what the EPA has on file for <em>the water at your address</em></h1>
+        <p class="sk-wat-lede">Type your address. We read your water utility's own results from the
+          EPA's public records and show you what they found, in plain numbers.</p>
+
+        <form class="sk-wat-form" novalidate>
+          <label class="sk-wat-srt" for="sk-wat-addr">Your address or ZIP code</label>
+          <input id="sk-wat-addr" name="address" type="text" autocomplete="street-address"
+                 placeholder="123 Main St, your town, ST" spellcheck="false">
+          <button type="submit" class="sk-wat-btn">Check My Address
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="sk-wat-note">A ZIP code on its own works too. Nothing is saved unless you ask
+            for the full report.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-wat-out" id="report" hidden>
+    <div class="sk-wat-wrap">
+      <div class="sk-wat-result" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sk-wat-how">
+    <div class="sk-wat-wrap">
+      <h2>Where these numbers come from</h2>
+      <div class="sk-wat-cols">
+        <article>
+          <h3>Your utility, not your neighbourhood</h3>
+          <p>Your address is matched against the EPA's map of water system service areas, so the
+            results belong to the utility that actually pipes water to your street.</p>
+        </article>
+        <article>
+          <h3>Lead, from the required testing</h3>
+          <p>Utilities test taps in their own service area and report the 90th percentile result to
+            the EPA. The federal action level is 15 parts per billion.</p>
+        </article>
+        <article>
+          <h3>PFAS, from EPA's national sampling</h3>
+          <p>Between 2023 and 2025 the EPA had larger systems sampled for 29 PFAS compounds. In
+            2024 it set a limit of 4 parts per trillion for PFOA and PFOS.</p>
+        </article>
+      </div>
+      <p class="sk-wat-fine">These are your utility's compliance results, not a test of the tap in
+        your kitchen. Private wells are not covered by any of it, because nobody is required to
+        report them.</p>
+    </div>
+  </section>
+
+</div>
