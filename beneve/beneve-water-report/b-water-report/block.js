@@ -11,7 +11,7 @@
   var root = document.querySelector(".sk-wat");
   if (!root || root.getAttribute("data-wat-ready")) return;
   root.setAttribute("data-wat-ready", "1");
-  var API = root.getAttribute("data-api") || "https://water-api-production.up.railway.app";
+  var API = root.getAttribute("data-api") || "https://water-api-production-c8d2.up.railway.app";
   var REP = root.getAttribute("data-rep") || "";
   var DM = root.getAttribute("data-dm") || "#report";
   var form = root.querySelector(".sk-wat-form");
