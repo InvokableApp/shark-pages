@@ -13,7 +13,12 @@
   root.setAttribute("data-wat-ready", "1");
   var API = root.getAttribute("data-api") || "https://water-api-production-c8d2.up.railway.app";
   var REP = root.getAttribute("data-rep") || "";
-  var DM = root.getAttribute("data-dm") || "#report";
+  var FORM = root.getAttribute("data-form") || "";
+  var FORM_HOST = root.getAttribute("data-form-host") || "";
+  // an unsubstituted merge field means the account has no such custom value: show nothing rather
+  // than an iframe pointed at the literal string "{{custom_values...}}"
+  if (/[{}]/.test(FORM)) FORM = "";
+  var LAST = null;
   var form = root.querySelector(".sk-wat-form");
   var input = root.querySelector("#sk-wat-addr");
   var out = root.querySelector(".sk-wat-result");
@@ -42,7 +47,7 @@
     pane.scrollIntoView({ behavior: "smooth", block: "start" });
     fetch(API + "/lookup?address=" + encodeURIComponent(v))
       .then(function (r) { return r.json(); })
-      .then(render)
+      .then(function (d) { LAST = d; LAST.address = v; render(d); })
       .catch(function () {
         out.innerHTML = '<div class="sk-wat-err"><h3>That lookup did not come back</h3>' +
           '<p class="sk-wat-sub">The EPA services go down from time to time. Try again in a minute, ' +
@@ -112,12 +117,41 @@
       'household is the only one who ever will.</p></div>' + ask(d);
   }
 
+  // ── the ask, with the form embedded and the report already inside it ────────────────────────
+  // ⚠️ THE QUERY STRING IS THE WIRE. GHL prefills a form field from a query parameter of the URL
+  // the form is loaded with, matched on the field's hiddenFieldQueryKey. Building the iframe HERE,
+  // after the lookup has returned, is what guarantees the values exist before the form loads: a
+  // popup wired in the builder loads with the page, long before anyone has typed an address.
+  function formUrl(d) {
+    if (!FORM || !FORM_HOST) return "";
+    var q = [];
+    var add = function (k, v) { if (v !== null && v !== undefined && v !== "") q.push(k + "=" + encodeURIComponent(v)); };
+    add("address", d && d.address);
+    if (d && d.found) {
+      add("beneve_water_system", d.system.name);
+      add("beneve_water_system_id", d.pwsid);
+      add("beneve_water_lead_90th", d.lead ? (d.lead.ppb > 0 ? d.lead.ppb + " ppb" : "none detected") : "no result on file");
+      add("beneve_water_pfas_count", d.pfas.sampled ? String(d.pfas.detections.length) : "not sampled");
+      add("beneve_water_pfas_flag", d.pfas.anyOverLimit ? "yes" : "no");
+      add("beneve_water_report_date", d.built);
+    } else {
+      add("beneve_water_system", "no public system on record");
+      add("beneve_water_pfas_count", "not sampled");
+      add("beneve_water_pfas_flag", "no");
+    }
+    return FORM_HOST + "/" + FORM + "?" + q.join("&");
+  }
+
   function ask(d) {
+    var url = formUrl(d);
     return '<div class="sk-wat-ask"><h3>Want the next step?</h3>' +
       '<p>I put together a 3 day reset: 27 swaps for the things in your house that carry endocrine ' +
-      'disruptors, easiest first, including which filter takes out what you just read. It is free, ' +
-      'just message me the word SWAP and I will send it over.</p>' +
-      '<a class="sk-wat-btn" href="' + esc(DM) + '">Message Me The Word SWAP</a>' +
+      'disruptors, easiest first, including which filter takes out what you just read. It is free. ' +
+      'Tell me where to send it and I will.</p>' +
+      (url
+        ? '<div class="sk-wat-embed"><iframe title="Send me the 3 day reset" src="' + esc(url) + '" ' +
+          'loading="lazy" scrolling="no"></iframe></div>'
+        : '<p class="sk-wat-sub">Message me the word SWAP and I will send it over.</p>') +
       (REP ? '<p class="sk-wat-sign">' + esc(REP) + '</p>' : "") + '</div>';
   }
 })();

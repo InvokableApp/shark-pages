@@ -93,6 +93,11 @@
 .sk-wat-bnv .sk-wat-ask p{font-size:.95rem;max-width:46em}
 .sk-wat-bnv .sk-wat-ask .sk-wat-btn{margin-top:1.2rem}
 .sk-wat-bnv .sk-wat-sign{font-family:var(--sk-serif);font-size:1.2rem;color:#fff;margin-top:1rem}
+/* the form is GHL's own, embedded by id from a custom value. Its own sheet paints the warm paper,
+   so the frame just needs a card to sit in and a height that fits it without an inner scrollbar. */
+.sk-wat-bnv .sk-wat-embed{margin-top:1.3rem;background:var(--sk-paper);border-radius:4px;overflow:hidden}
+.sk-wat-bnv .sk-wat-embed iframe{display:block;width:100%;height:640px;border:0}
+@media(max-width:640px){.sk-wat-bnv .sk-wat-embed iframe{height:720px}}
 
 /* ── how it works ── */
 .sk-wat-bnv .sk-wat-how{padding:4rem 0}
