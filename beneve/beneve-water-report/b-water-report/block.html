@@ -23,8 +23,13 @@
           <button type="submit" class="sk-wat-btn">Check My Address
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <p class="sk-wat-note">A ZIP code on its own works too. Nothing is saved unless you ask
-            for the full report.</p>
+          <!-- SHOW THE FORMAT, DO NOT DESCRIBE IT. The Census geocoder wants street, town and
+               state; give it "123 Main St" alone and it returns nothing, and the page then says
+               "no public water system on record", which reads as an answer about her water rather
+               than a problem with what she typed. The example is a real address that resolves. -->
+          <p class="sk-wat-note"><b>Street, town, state</b>, like
+            <button type="button" class="sk-wat-eg" data-sk-eg="500 Boston Post Rd, Sudbury, MA">500 Boston Post Rd, Sudbury, MA</button>.
+            A ZIP code on its own works too. Nothing is saved unless you ask for the full report.</p>
         </form>
       </div>
     </div>

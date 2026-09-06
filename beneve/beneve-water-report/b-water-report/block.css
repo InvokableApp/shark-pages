@@ -58,6 +58,11 @@
 .sk-wat-bnv a.sk-wat-btn{text-decoration:none}
 .sk-wat-bnv .sk-wat-btn[disabled]{opacity:.6;cursor:progress;transform:none}
 .sk-wat-bnv .sk-wat-note{flex-basis:100%;font-size:.82rem;color:rgba(244,246,240,.6)}
+.sk-wat-bnv .sk-wat-note b{color:rgba(244,246,240,.82);font-weight:600}
+/* the example is a button, not text: tapping it fills the field, which is faster than reading it */
+.sk-wat-bnv .sk-wat-eg{font:inherit;color:var(--sk-tint);background:none;border:0;padding:0;cursor:pointer;
+  border-bottom:1px dashed rgba(198,211,182,.5)}
+.sk-wat-bnv .sk-wat-eg:hover{color:#fff;border-bottom-color:#fff}
 @media(max-width:640px){.sk-wat-bnv .sk-wat-form input,.sk-wat-bnv .sk-wat-form .sk-wat-btn{flex:1 1 100%;justify-content:center}}
 
 /* ── result ── */

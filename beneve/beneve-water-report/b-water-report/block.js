@@ -26,6 +26,8 @@
   var btn = form.querySelector("button[type=submit]");
 
   root.addEventListener("click", function (e) {
+    var eg = e.target.closest ? e.target.closest("[data-sk-eg]") : null;
+    if (eg) { e.preventDefault(); input.value = eg.getAttribute("data-sk-eg"); input.focus(); return; }
     var t = e.target.closest ? e.target.closest("[data-sk-focus]") : null;
     if (!t) return;
     e.preventDefault();
@@ -111,10 +113,18 @@
   }
 
   function renderNone(d) {
-    out.innerHTML = '<div class="sk-wat-err"><h2>No public water system on record for that address</h2>' +
-      '<p class="sk-wat-sub">That usually means a private well, or a system too small to be mapped. ' +
-      'Nobody is required to test a private well, so there is no public record to read, and the ' +
-      'household is the only one who ever will.</p></div>' + ask(d);
+    var typed = (input.value || "").trim();
+    var looksThin = typed.indexOf(",") === -1 && !/[0-9]{5}/.test(typed);
+    out.innerHTML = '<div class="sk-wat-err">' +
+      (looksThin
+        ? '<h2>I could not place that address</h2>' +
+          '<p class="sk-wat-sub">Add the town and the state and try again, like ' +
+          '<b>500 Boston Post Rd, Sudbury, MA</b>. A ZIP code on its own works too.</p>'
+        : '<h2>No public water system on record for that address</h2>' +
+          '<p class="sk-wat-sub">That usually means a private well, or a system too small to be ' +
+          'mapped. Nobody is required to test a private well, so there is no public record to ' +
+          'read, and the household is the only one who ever will.</p>') +
+      '</div>' + (looksThin ? "" : ask(d));
   }
 
   // ── the ask, with the form embedded and the report already inside it ────────────────────────
