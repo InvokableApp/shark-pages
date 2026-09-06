@@ -222,6 +222,8 @@
   color:var(--sk-ink-d);text-decoration:none;background:var(--sk-tint);border-radius:3px;
   padding:.72rem 1.2rem;white-space:nowrap;transition:filter .18s}
 .sk-dres-bnv-dis .sk-prog-bar a:hover{filter:brightness(1.05)}
+/* the bar is fixed, so an anchor jump would land the section's heading underneath it */
+.sk-dres-bnv-dis #swap-program{scroll-margin-top:5.5rem}
 @media(max-width:520px){
   .sk-dres-bnv-dis .sk-prog-bar span{font-size:.8rem}
   .sk-dres-bnv-dis .sk-prog-bar a{font-size:.82rem;padding:.66rem 1rem}
