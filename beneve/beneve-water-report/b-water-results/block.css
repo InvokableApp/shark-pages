@@ -1,0 +1,10 @@
+/* beneve / beneve-water-report / b-water-results
+ *
+ * No design of its own. It imports the page-1 block's stylesheet and reuses the SAME `.sk-wat`
+ * scope, so a lead who lands here sees the identical report they saw a second ago. Forking the
+ * CSS would let the two drift, and the whole promise of this page is that it is the same report.
+ */
+@import url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/block.css");
+
+.sk-wat-results .sk-wat-out { display: block; }
+.sk-wat-results .sk-wat-loading { padding: 48px 0; text-align: center; }

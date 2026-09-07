@@ -1,0 +1,108 @@
+/* beneve / beneve-water-report / b-water-results
+ *
+ * The Water Report on its own URL. Page 1 looks the address up and renders inline; this page
+ * exists so the result has an address of its own: shareable, re-openable, and something the rep
+ * can send again later. Jeff, 2026-09-07: "I want to deliver the results on that page."
+ *
+ * ── HOW THE DATA GETS HERE ────────────────────────────────────────────────────────────────
+ * GHL substitutes a contact merge field into a FORM'S REDIRECT URL at submit time, when it knows who
+ * submitted. That is the one place it does: a merge field in a page socket attribute is NOT
+ * substituted (probed 2026-09-07 against the live preview, every variant came back literal).
+ * So page 1's form redirects here carrying the values as query params.
+ *
+ * THREE WAYS IN, best first, because the first one is not proven yet:
+ *   1. ?address=…    re-runs the same lookup, so this page renders at FULL fidelity, identical
+ *                    to page 1. Needs an address field on the contact, which does not exist yet.
+ *   2. ?system=…&lead=…&pfas=…&date=…   the four values the form already captures. A summary
+ *                    rather than the full detection list, but every number is the real one.
+ *   3. nothing       an address box, so the page is never a dead end.
+ *
+ * The fallback chain is deliberate: every one of the eleven live redirect URLs in the fleet
+ * passes only STANDARD contact fields (email, first_name, phone). Whether a CUSTOM field
+ * substitutes there is unproven, so this page is built to work whether it does or not, and the
+ * first real submit answers it for free.
+ *
+ * ⚠️ NEVER INTERPRETS, same rule as page 1. It prints the utility's own number beside the
+ * federal limit. "Above the federal limit" is a fact about two numbers; "your water is unsafe"
+ * is a medical opinion we are not licensed to give.
+ */
+(function () {
+  var root = document.querySelector(".sk-wat-results");
+  if (!root || root.getAttribute("data-wat-ready")) return;
+  root.setAttribute("data-wat-ready", "1");
+  var API = root.getAttribute("data-api") || "";
+  var pane = root.querySelector(".sk-wat-result");
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+  var q = new URLSearchParams(location.search);
+  // An unsubstituted merge field arrives with its braces still on. Treat that as absent
+  // rather than printing braces at somebody.
+  var val = function (k) { var v = q.get(k); return (!v || /[{}]/.test(v)) ? "" : v.trim(); };
+
+  var address = val("address");
+  var system = val("system"), lead = val("lead"), pfas = val("pfas"), date = val("date");
+
+  if (address) return lookup(address);
+  if (system || lead || pfas) return summary();
+  return askForAddress();
+
+  function lookup(addr) {
+    pane.innerHTML = '<div class="sk-wat-loading"><p class="sk-wat-sub">Reading the federal record for ' + esc(addr) + '…</p></div>';
+    fetch(API + "/lookup?address=" + encodeURIComponent(addr))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        // page 1's renderer lives in its own block and is not loaded here, so this page draws
+        // the same facts in the same classes rather than importing a function across blocks
+        if (!d || !d.found) return summaryFrom({ system: "no public water system on record" }, addr);
+        summaryFrom({
+          system: d.system && d.system.name,
+          lead: d.lead ? (d.lead.ppb > 0 ? d.lead.ppb + " ppb" : "none detected") : "no result on file",
+          leadLimit: d.lead && d.lead.actionPpb,
+          pfas: d.pfas && d.pfas.sampled ? String(d.pfas.detections.length) : "not sampled",
+          panel: d.pfas && d.pfas.panel,
+          over: d.pfas && d.pfas.anyOverLimit,
+          date: d.built,
+        }, addr);
+      })
+      .catch(function () { askForAddress("That lookup did not come back. Try the address again."); });
+  }
+
+  function summary() { summaryFrom({ system: system, lead: lead, pfas: pfas, date: date }, ""); }
+
+  function summaryFrom(d, addr) {
+    var h = '<div class="sk-wat-card"><h2>Your water report</h2>';
+    if (addr) h += '<p class="sk-wat-sub">' + esc(addr) + '</p>';
+    if (d.system) h += '<p class="sk-wat-sub">Water system: <strong>' + esc(d.system) + '</strong></p>';
+    if (d.lead) {
+      h += '<h3>Lead</h3><div class="sk-wat-big">' + esc(d.lead) + '</div>';
+      if (d.leadLimit) h += '<p class="sk-wat-sub">Federal action level is ' + esc(d.leadLimit) + ' ppb.</p>';
+    }
+    if (d.pfas) {
+      h += '<h3>PFAS</h3>';
+      if (d.pfas === "not sampled") {
+        h += '<p class="sk-wat-sub">This system was not part of the EPA\'s 2023 to 2025 sampling, which covered ' +
+             'larger systems. That means nobody has published a PFAS result for it, not that it is clear.</p>';
+      } else {
+        h += '<div class="sk-wat-big' + (d.over ? " sk-wat-flag" : "") + '">' + esc(d.pfas) +
+             '<small>' + (d.panel ? "of " + esc(d.panel) + " " : "") + 'detected</small></div>';
+      }
+    }
+    if (d.date) h += '<p class="sk-wat-sub">Report built ' + esc(d.date) + '.</p>';
+    h += '<p class="sk-wat-sub">These are your utility\'s own reported numbers beside the federal limits. ' +
+         'Nothing here is a health assessment.</p></div>';
+    pane.innerHTML = h;
+  }
+
+  function askForAddress(msg) {
+    pane.innerHTML = '<div class="sk-wat-card"><h2>Look up a water report</h2>' +
+      (msg ? '<p class="sk-wat-sub">' + esc(msg) + '</p>' : "") +
+      '<form class="sk-wat-form2"><input id="sk-wat-a2" type="text" placeholder="123 Main St, your town, ST" ' +
+      'autocomplete="street-address"><button type="submit">Check this address</button></form></div>';
+    pane.querySelector(".sk-wat-form2").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = pane.querySelector("#sk-wat-a2").value.trim();
+      if (v) lookup(v);
+    });
+  }
+})();
