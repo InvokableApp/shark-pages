@@ -745,6 +745,33 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-clean-iced-coffee-recipes",
+      "funnelId": "CJmUskh7l7y8oPdcJZ80",
+      "pageId": "rS2GHBUI3oXB1zQoc69b",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-side-hustle-quiz-funnel",
+      "funnelId": "dlqFfcFkpXzeYUrC0B6k",
+      "pageId": "rKaC0gFzyzi9VYPYNc7N",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-natural-foods-guide",
+      "funnelId": "Ua6huPvmrGSnt0bThkN3",
+      "pageId": "QE3xgis100yjLoNxEtxE",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
