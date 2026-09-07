@@ -781,6 +781,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-disruptor-quiz/beneve-three-day-reset-read",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "qzcRvWqRkTMHcDVCX7OJ",
+      "elementId": "custom-code-j2n6k4wtla",
+      "elementTitle": "three-day-reset-read",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }

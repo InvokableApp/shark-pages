@@ -7,6 +7,22 @@
   font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
 }
 .sk-bnv-reset *{box-sizing:border-box}
+
+/* the sticky nav. Its own dark bar in the guide's forest, so it reads as chrome rather than as
+   the first section of the document. scroll-margin-top on the targets keeps a jumped-to heading
+   clear of the bar instead of behind it, which is the usual anchor-under-sticky-header bug. */
+.sk-bnv-reset .r-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;
+  flex-wrap:wrap;background:var(--forest);padding:11px 20px}
+.sk-bnv-reset .r-nav a{color:var(--cream);text-decoration:none;font:600 11px/1 var(--sans);
+  letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.sk-bnv-reset .r-nav a:hover,.sk-bnv-reset .r-nav a:focus-visible{opacity:1}
+.sk-bnv-reset .r-brand{font-family:var(--serif);font-weight:600;font-size:15px;color:#fff;margin-right:4px}
+.sk-bnv-reset .r-navsp{flex:1}
+.sk-bnv-reset .r-print{border:1px solid rgba(243,239,230,.35);border-radius:8px;padding:7px 13px;
+  text-transform:none;letter-spacing:.01em;font-size:12px;opacity:1}
+.sk-bnv-reset .r-print:hover{background:var(--deep);border-color:var(--deep)}
+.sk-bnv-reset [id]{scroll-margin-top:64px}
+@media print{.sk-bnv-reset .r-nav{display:none !important}}
 .sk-bnv-reset h1,.sk-bnv-reset h2,.sk-bnv-reset h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
 .sk-bnv-reset h1{font-size:clamp(2rem,6vw,3.1rem)}
 .sk-bnv-reset h2{font-size:clamp(1.5rem,4vw,2.1rem);color:var(--deep)}
