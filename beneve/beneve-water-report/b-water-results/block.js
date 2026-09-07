@@ -32,6 +32,7 @@
   root.setAttribute("data-wat-ready", "1");
   var API = root.getAttribute("data-api") || "";
   var pane = root.querySelector(".sk-wat-result");
+  var GUIDE = root.getAttribute("data-guide") || "";
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
@@ -90,8 +91,26 @@
     }
     if (d.date) h += '<p class="sk-wat-sub">Report built ' + esc(d.date) + '.</p>';
     h += '<p class="sk-wat-sub">These are your utility\'s own reported numbers beside the federal limits. ' +
-         'Nothing here is a health assessment.</p></div>';
+         'Nothing here is a health assessment.</p></div>' + cta();
     pane.innerHTML = h;
+  }
+
+
+  // ── one CTA, and it is the thing this page deliberately does not do ─────────────────────────
+  // The page prints the utility's number beside the federal limit and stops, because "above the
+  // limit" is a fact about two numbers and anything past that is a medical opinion nobody here is
+  // licensed to give. The guide is where the interpretation lives: what a 90th percentile lead
+  // figure actually is, what "not sampled" means, and which NSF standard removes which thing.
+  // So there is ONE offer and it is not a second opt-in: they already gave their details to see
+  // this page. (Jeff, 2026-09-07: "no it needs to be one cta".)
+  function cta() {
+    if (!GUIDE || /[{}]/.test(GUIDE)) return "";
+    return '<div class="sk-wat-ask"><h3>What these numbers actually mean</h3>' +
+      '<p>This page shows what your utility reported. The 3 Day Reset explains it: how to read a ' +
+      'lead 90th percentile, what it means when a system was never sampled, and which filter ' +
+      'standard removes which thing. Plus twenty seven swaps for the rest of the house.</p>' +
+      '<p><a class="sk-wat-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open the 3 Day Reset</a></p>' +
+      '</div>';
   }
 
   function askForAddress(msg) {

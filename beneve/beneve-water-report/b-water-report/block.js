@@ -49,7 +49,7 @@
     pane.scrollIntoView({ behavior: "smooth", block: "start" });
     fetch(API + "/lookup?address=" + encodeURIComponent(v))
       .then(function (r) { return r.json(); })
-      .then(function (d) { LAST = d; LAST.address = v; render(d); })
+      .then(function (d) { LAST = d; LAST.address = v; gate(d); })
       .catch(function () {
         out.innerHTML = '<div class="sk-wat-err"><h3>That lookup did not come back</h3>' +
           '<p class="sk-wat-sub">The EPA services go down from time to time. Try again in a minute, ' +
@@ -57,6 +57,35 @@
       })
       .then(function () { btn.disabled = false; });
   });
+
+
+  // ── the gate ────────────────────────────────────────────────────────────────────────────────
+  // The lookup runs first and its result is NOT shown here any more. Jeff, 2026-09-07: the report
+  // moves to its own page and the opt-in comes before it. That order matters both ways:
+  //   · the lead gives their details to see their own report, which is the whole reason this
+  //     funnel captures anyone. Previously the report rendered inline and the form was an
+  //     afterthought under it, so a visitor could take everything and leave nothing.
+  //   · the lookup still runs FIRST, so the six water values are prefilled into the form's hidden
+  //     fields. Put the form before the lookup and the rep's notification paste block ships empty,
+  //     which is the best thing this campaign has.
+  // What is shown is honest about what is behind it: the system name is already known, so the gate
+  // names it rather than teasing a mystery.
+  function gate(d) {
+    var name = d && d.found && d.system && d.system.name;
+    out.hidden = false;
+    pane.innerHTML =
+      '<div class="sk-wat-card">' +
+      (name
+        ? '<span class="sk-wat-chip sk-wat-chip--under">Report ready</span>' +
+          '<h2>We found your water system</h2>' +
+          '<p class="sk-wat-sub">' + esc(name) + '. Your report has the lead result, the PFAS result ' +
+          'and the federal limit beside each one.</p>'
+        : '<h2>No public water system on record for that address</h2>' +
+          '<p class="sk-wat-sub">That usually means a private well, or a system too small to report. ' +
+          'The 3 Day Reset still applies, and it covers what to do when nobody publishes a number for you.</p>') +
+      '<p>Tell me where to send it and the report opens next.</p>' +
+      ask(d) + '</div>';
+  }
 
   function render(d) {
     if (!d || !d.found) return renderNone(d);
