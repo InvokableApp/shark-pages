@@ -421,6 +421,33 @@
       "elementTitle": "b-water-report",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "b-what-is-beneve-overview/b-what-is-beneve",
+      "funnelId": "okNtN0qXgAqKILBy2tCf",
+      "pageId": "osKuVBwJXfvCMK2QIsgH",
+      "elementId": "custom-code-g8d70m46zr",
+      "elementTitle": "b-what-is-beneve",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "b-what-is-beneve-overview/b-opportunity-more-info",
+      "funnelId": "okNtN0qXgAqKILBy2tCf",
+      "pageId": "LTidUPTeaHH2RT7FVBcV",
+      "elementId": "custom-code-xirdpozqwj",
+      "elementTitle": "b-opportunity-more-info",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-side-hustle-quiz-funnel/beneve-opportunity-explained",
+      "funnelId": "dlqFfcFkpXzeYUrC0B6k",
+      "pageId": "ODObmiQVP1R8twN4P8bs",
+      "elementId": "custom-code-ajgnezv74r",
+      "elementTitle": "Become an Influencer",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
