@@ -619,6 +619,132 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-skin-diagnostic",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "QOVI9VOcVpWsEDapMX5z",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-hormone-lunchbox-guide",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "CP7VASMTRhpyWPu2aZAF",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-natural-foods-guide",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "btKmn6sEJBBETx9qpjDN",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-clean-iced-coffee-recipes",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "dBOnFRupDP5PNqlrgX4b",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-side-hustle-quiz-funnel",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "HRrp7ehbYehScDfTWVCq",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-influencer-aptitude-test",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "5177UAiwMQzvG0Mybabc",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-disruptor-quiz-funnel",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "HOEuO2Jmbm546G4XReXC",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-water-report-funnel",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "vhRLY8CO01lTzPXLx4ev",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-what-is-beneve-overview",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "lDoP9QI1XJoTwx86uRVQ",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/beneve---your-marketing-links",
+      "funnelId": "K1KYyTkYFBjCKblulQXU",
+      "pageId": "Cf5CDS1YHwXcrWzXoQEt",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "how-to/b-skin-diagnostic",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "5fW7YA4n6noy8jTe4Wed",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "beneve-skin-how-to",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-disruptor-quiz-funnel",
+      "funnelId": "rGffsC2X5sNXagfRb6Hz",
+      "pageId": "LqgkhdPkRJOciniOrCH1",
+      "elementId": "custom-code-a4rsl5mr0z",
+      "elementTitle": "b-disruptor-quiz-how-to",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-hormone-lunchbox-guide",
+      "funnelId": "GMTCslOq17yjPZDyxchT",
+      "pageId": "3KrAKpSA498AAlR5jk6E",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-influencer-aptitude-test",
+      "funnelId": "c0rzGe4qfY3HEPXctxEx",
+      "pageId": "3xIcJUKS5B31OJ2Qhc1U",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
