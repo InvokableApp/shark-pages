@@ -1,0 +1,24 @@
+/* BENEVE / beneve-shark-scripts / water-report-scripts
+ *
+ * The design lives in _shared/scripts/v1/scripts.css, scoped under .sk-scripts,
+ * and is shared by every scripts page in every system. This file declares ONLY
+ * the nine palette tokens, on the block's own scope class, and they cascade into
+ * the shared components. Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/scripts/v1/scripts.css");
+
+.sk-beneve-beneve-shark-scripts-water-report-scripts {
+  --sk-brand:      #1E386A;
+  --sk-brand-deep: #14284C;
+  --sk-brand-tint: #EAEEF6;
+  --sk-ink:        #16233D;
+  --sk-ink-soft:   #4A5568;
+  --sk-ink-faint:  #8792A8;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DDE4EE;
+  --sk-line-soft:  #E9EEF5;
+  --sk-card:       #FFFFFF;
+}

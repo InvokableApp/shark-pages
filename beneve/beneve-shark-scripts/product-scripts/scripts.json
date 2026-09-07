@@ -1,0 +1,78 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "product-scripts",
+ "stepName": "Product Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "How to talk about the Beneve products",
+ "titleHtml": "How to talk about the <em>Beneve products</em>",
+ "sub": "What each one is for, in the words a normal person uses. Claims stay inside what the label says.",
+ "funnelLabel": "Product conversations",
+ "tracksQuestion": "Which conversation is this?",
+ "tracks": [
+  {
+   "key": "skin",
+   "label": "Skin: Renew, Luxe, Glutathione+",
+   "hint": "The three the Skin Diagnostic routes to. Match the product to their result, never sell all three at once.",
+   "stepsLabel": "Say it like this",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Which one, and why that one",
+     "lead": "Pick one. A lead who is sold three products buys none of them:",
+     "script": [
+      "<strong>Renew</strong> is the topical one, a face and neck serum built on four peptide technologies. It is the right one if your concern is texture and fine lines.",
+      "<strong>Luxe</strong> is liquid collagen, one tablespoon a day. That is the one if it is elasticity, hair or nails, because a serum cannot reach any of those. It contains fish (cod), so worth mentioning if they have an allergy.",
+      "<strong>Glutathione+</strong> is one capsule a day for the systemic side: antioxidant support and hormone support. It is the one for a dull, tired look on skin that is otherwise fine."
+     ],
+     "copyButton": "Copy the three product summary",
+     "copyLabel": "Copy the three product summary"
+    },
+    {
+     "num": "2",
+     "title": "When they ask which to start with",
+     "lead": "The honest answer is usually one, later:",
+     "script": [
+      "Start with whichever lane your quiz result led with, and give it a full month on its own before adding anything.",
+      "If you start all three in the same week and something irritates you, you will not know which one to stop."
+     ],
+     "copyButton": "Copy the where-to-start reply",
+     "copyLabel": "Copy the where to start reply"
+    }
+   ]
+  },
+  {
+   "key": "other",
+   "label": "Coffee and samples",
+   "hint": "Lower commitment products. Treat them as a way in, not a sale.",
+   "stepsLabel": "Say it like this",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Keep it about the taste",
+     "lead": "Nobody argues about a coffee:",
+     "script": [
+      "It is clean coffee, no syrups and nothing that spikes you at eleven. The recipe guide works with it or without it.",
+      "If you want to try it: [your Beneve product link]"
+     ],
+     "copyButton": "Copy the coffee line",
+     "copyLabel": "Copy the coffee line"
+    },
+    {
+     "num": "2",
+     "title": "When a sample is requested",
+     "lead": "Move fast, samples go cold quicker than anything else:",
+     "script": [
+      "Hey [Name], got your sample request. I need to confirm the address before I send it, is [address] still right?",
+      "Text me once it lands and tell me what you think, good or bad."
+     ],
+     "copyButton": "Copy the sample confirmation",
+     "copyLabel": "Copy the sample address confirmation"
+    }
+   ]
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Everything on the label is a support claim, not a treatment claim. Say supports, never treats, cures or fixes. If somebody is pregnant, nursing, on medication or under care for anything, tell them to check with their doctor first and mean it.",
+ "footer": "Beneve product conversations · Quick reference · Keep this handy by your phone"
+}

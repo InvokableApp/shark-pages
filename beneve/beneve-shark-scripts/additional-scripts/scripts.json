@@ -1,0 +1,95 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "additional-scripts",
+ "stepName": "Additional Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "The follow-ups every funnel needs",
+ "titleHtml": "The <em>follow-ups</em> every funnel needs",
+ "sub": "Objections, silence and referrals. These work whichever funnel the lead came from.",
+ "funnelLabel": "Common situations",
+ "tracksQuestion": "Which conversation is this?",
+ "tracks": [
+  {
+   "key": "silence",
+   "label": "They never replied at all",
+   "hint": "The biggest group. Most leads go quiet, and most reps stop after one message.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "The fourth message, not the second",
+     "lead": "Reaching somebody usually takes more attempts than feels comfortable. Change the angle each time:",
+     "script": [
+      "Hey [Name], last one from me on this. Did the thing you signed up for actually arrive? Sometimes it lands in promotions.",
+      "If it did and it was not useful, tell me. That is genuinely more helpful to me than silence."
+     ],
+     "copyButton": "Copy the last message",
+     "copyLabel": "Copy the final follow-up"
+    },
+    {
+     "num": "2",
+     "title": "Then stop, properly",
+     "lead": "Leave the door open without another ask:",
+     "script": [
+      "No worries at all, I will leave you to it. If you ever want the [guide or result] again just reply to this and I will resend it."
+     ],
+     "copyButton": "Copy the sign-off",
+     "copyLabel": "Copy the sign-off"
+    }
+   ]
+  },
+  {
+   "key": "objection",
+   "label": "Price, time or I need to think",
+   "hint": "Almost never about the thing they said. Ask once, then let it go.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Ask what is actually behind it",
+     "lead": "One question, then be quiet:",
+     "script": [
+      "Totally fair. Can I ask what the real hesitation is? If it is the money I would rather just tell you to start with the free plan.",
+      "There is no wrong answer here and I am not going to try to talk you out of it."
+     ],
+     "copyButton": "Copy the one question",
+     "copyLabel": "Copy the what is behind it question"
+    },
+    {
+     "num": "2",
+     "title": "Take the no cleanly",
+     "lead": "How you handle a no decides whether they ever come back:",
+     "script": [
+      "Completely understand. I will stop bringing it up.",
+      "The free routine still works and it still costs nothing, so please do use it."
+     ],
+     "copyButton": "Copy the clean no",
+     "copyLabel": "Copy the clean no"
+    }
+   ]
+  },
+  {
+   "key": "referral",
+   "label": "They are happy and it is going well",
+   "hint": "The most underused message in the whole system.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Ask at the moment they say something good",
+     "lead": "Not on a schedule. The hour they tell you it worked:",
+     "script": [
+      "That is great to hear. Who else do you know who is dealing with the same thing?",
+      "Happy to send them the same free [guide or quiz], no pitch attached, same as you got."
+     ],
+     "copyButton": "Copy the referral ask",
+     "copyLabel": "Copy the referral ask"
+    }
+   ]
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Most leads in this system are brand new and have never heard of you. Reaching somebody often takes four or five attempts across text and call, and the reps who follow up past the third message are the ones who look lucky.",
+ "footer": "Common situations · Quick reference · Keep this handy by your phone"
+}

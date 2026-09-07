@@ -1,0 +1,104 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "influencer-aptitude-scripts",
+ "stepName": "Influencer Aptitude Test Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "How to follow up with your Influencer Aptitude Test leads",
+ "titleHtml": "How to follow up with your <em>Influencer Aptitude Test</em> leads",
+ "sub": "These leads are already thinking about the opportunity. Your job is to be a person, not a recruiter.",
+ "funnelLabel": "Influencer Aptitude Test Leads",
+ "tracksQuestion": "What did this lead just do?",
+ "tracks": [
+  {
+   "key": "result",
+   "label": "They finished the test",
+   "hint": "They got one of four profiles: Natural Fit, Trusted Voice, Best Kept Secret or Fresh Start.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Use their profile by name. It is the one thing you know about them and it flatters without lying:",
+     "script": [
+      "Hey [Name], this is [Your Name]! Saw you did the aptitude test. Which profile did you get, Natural Fit, Trusted Voice, Best Kept Secret or Fresh Start?",
+      "There are no wrong ones. They just mean different starting points, and yours changes what I would suggest you do first."
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the same day text"
+    },
+    {
+     "num": "2",
+     "title": "If they don't answer",
+     "lead": "Two days. Remove the pressure explicitly, because this is the funnel where people assume a pitch is coming:",
+     "script": [
+      "Hey [Name], not chasing you to sign up for anything. Genuinely just curious what you scored.",
+      "If it was Best Kept Secret, that is the most common one and it is the easiest to work with."
+     ],
+     "copyButton": "Copy the nudge",
+     "copyLabel": "Copy the two day nudge"
+    }
+   ]
+  },
+  {
+   "key": "opportunity",
+   "label": "They viewed the opportunity page",
+   "hint": "They clicked through to read how the plan works. This is a real signal, so treat it as one.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Reply while they are still reading",
+     "lead": "Answer the question everybody has and nobody asks first:",
+     "script": [
+      "Hey [Name], this is [Your Name]. Saw you were reading about the Influencer side. Ask me anything, including the awkward questions.",
+      "The short version: 65% of every dollar allocated to compensation, thirteen ways to earn, and an Influencer Bill of Rights that protects your channels. Happy to walk you through the bit that matters to you."
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the opportunity page text"
+    },
+    {
+     "num": "2",
+     "title": "If they go quiet",
+     "lead": "Next day. Offer a conversation, not a decision:",
+     "script": [
+      "Hey [Name], no pressure either way. If it is not the right time, that is a completely fine answer and I will leave it there.",
+      "If you just want to see the numbers without talking to anyone: [your Beneve opportunity link]"
+     ],
+     "copyButton": "Copy the no-pressure reply",
+     "copyLabel": "Copy the no-pressure follow-up"
+    }
+   ]
+  }
+ ],
+ "shared": {
+  "label": "Once they reply, whichever track they came from",
+  "steps": [
+   {
+    "num": "1",
+    "title": "Answer the question, then ask one back",
+    "lead": "A reply is not a conversation yet. Give them a straight answer and hand it back:",
+    "script": [
+     "Straight answer: [answer their question in one line].",
+     "Can I ask what made you take a look in the first place? It helps me point you at the right thing instead of guessing."
+    ],
+    "copyButton": "Copy the reply",
+    "copyLabel": "Copy the answer and question reply"
+   },
+   {
+    "num": "2",
+    "title": "Check in a week later",
+    "lead": "Seven days. Ask about the thing they got, not about buying:",
+    "script": [
+     "Hey [Name], it has been about a week. Did you get a chance to use it?",
+     "Honest answer is fine either way. It tells me what to send you next."
+    ],
+    "copyButton": "Copy the check-in",
+    "copyLabel": "Copy the one week check-in"
+   }
+  ]
+ },
+ "tip": "<strong>Tip:</strong> This funnel attracts people who have been pitched badly before. Saying out loud that you are not chasing them, and meaning it, converts better than any urgency line. Their profile name is a genuine conversation opener, so use it.",
+ "footer": "Influencer Aptitude Test follow-up · Quick reference · Keep this handy by your phone"
+}

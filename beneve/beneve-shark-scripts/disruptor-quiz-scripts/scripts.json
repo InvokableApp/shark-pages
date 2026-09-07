@@ -1,0 +1,134 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "disruptor-quiz-scripts",
+ "stepName": "Disruptor Diagnostic Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "How to follow up with your Disruptor Diagnostic leads",
+ "titleHtml": "How to follow up with your <em>Disruptor Diagnostic</em> leads",
+ "sub": "Three results, three very different conversations. Check which one they got before you type anything.",
+ "funnelLabel": "Disruptor Diagnostic Leads",
+ "tracksQuestion": "What did this lead just do?",
+ "tracks": [
+  {
+   "key": "start",
+   "label": "They scored Starting Out",
+   "hint": "Highest exposure. Easiest wins available, and the most likely to feel told off if you get the tone wrong.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Lead with how easy the first swaps are, never with how bad the score was:",
+     "script": [
+      "Hey [Name], this is [Your Name]! Saw you did the disruptor quiz. Do not let the result put you off, Starting Out just means the easy wins are all still on the table.",
+      "Pick one swap off your list this week. One. The plastic one is usually the fastest."
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the Starting Out text"
+    },
+    {
+     "num": "2",
+     "title": "If they don't answer",
+     "lead": "Two days. Give them the single swap so the text is useful even unanswered:",
+     "script": [
+      "Hey [Name], if you only do one thing: stop heating food in plastic. That single change does more than most of the rest combined.",
+      "Tell me how you get on and I will send you the next one."
+     ],
+     "copyButton": "Copy the nudge",
+     "copyLabel": "Copy the Starting Out nudge"
+    }
+   ]
+  },
+  {
+   "key": "partway",
+   "label": "They scored Partway There",
+   "hint": "They have already changed some things. Respect that or you will lose them in one message.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Acknowledge what they already do before adding anything:",
+     "script": [
+      "Hey [Name], this is [Your Name]! You came out Partway There, which means you have already cut the obvious stuff. Nice.",
+      "The ones left on your list are the hidden ones. Which of them surprised you?"
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the Partway There text"
+    },
+    {
+     "num": "2",
+     "title": "If they don't answer",
+     "lead": "Two days:",
+     "script": [
+      "Hey [Name], the one most people in your bracket miss is receipts and food packaging, not cleaning products.",
+      "Worth thirty seconds of your week. Tell me if you already had that one covered."
+     ],
+     "copyButton": "Copy the nudge",
+     "copyLabel": "Copy the Partway There nudge"
+    }
+   ]
+  },
+  {
+   "key": "ahead",
+   "label": "They scored Well Ahead",
+   "hint": "Low exposure and they know it. Do not teach them, ask them.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Treat them as a peer. These leads convert to the opportunity more often than to a product:",
+     "script": [
+      "Hey [Name], this is [Your Name]! You scored Well Ahead, which almost nobody does. You clearly already look into this stuff.",
+      "Genuinely curious, what got you started on it?"
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the Well Ahead text"
+    },
+    {
+     "num": "2",
+     "title": "If the conversation opens up",
+     "lead": "People who already live this way are the ones worth telling about the opportunity:",
+     "script": [
+      "Since you already do this, worth mentioning: I get paid to share the products I would use anyway. That is the whole model.",
+      "No pitch, happy to just send you what it looks like if you are curious: [your Beneve opportunity link]"
+     ],
+     "copyButton": "Copy the opportunity mention",
+     "copyLabel": "Copy the opportunity mention"
+    }
+   ]
+  }
+ ],
+ "shared": {
+  "label": "Once they reply, whichever track they came from",
+  "steps": [
+   {
+    "num": "1",
+    "title": "Answer the question, then ask one back",
+    "lead": "A reply is not a conversation yet. Give them a straight answer and hand it back:",
+    "script": [
+     "Straight answer: [answer their question in one line].",
+     "Can I ask what made you take a look in the first place? It helps me point you at the right thing instead of guessing."
+    ],
+    "copyButton": "Copy the reply",
+    "copyLabel": "Copy the answer and question reply"
+   },
+   {
+    "num": "2",
+    "title": "Check in a week later",
+    "lead": "Seven days. Ask about the thing they got, not about buying:",
+    "script": [
+     "Hey [Name], it has been about a week. Did you get a chance to use it?",
+     "Honest answer is fine either way. It tells me what to send you next."
+    ],
+    "copyButton": "Copy the check-in",
+    "copyLabel": "Copy the one week check-in"
+   }
+  ]
+ },
+ "tip": "<strong>Tip:</strong> The result is not a grade and should never be delivered like one. A lead who feels judged for their score does not reply, and Starting Out is the biggest group you will get.",
+ "footer": "Disruptor Diagnostic follow-up · Quick reference · Keep this handy by your phone"
+}

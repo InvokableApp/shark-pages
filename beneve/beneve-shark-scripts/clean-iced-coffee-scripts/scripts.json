@@ -1,0 +1,104 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "clean-iced-coffee-scripts",
+ "stepName": "Clean Iced Coffee Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "How to follow up with your Clean Iced Coffee leads",
+ "titleHtml": "How to follow up with your <em>Clean Iced Coffee</em> leads",
+ "sub": "A recipe guide lead is a low commitment lead. Keep the first message just as light.",
+ "funnelLabel": "Clean Iced Coffee Leads",
+ "tracksQuestion": "What did this lead just do?",
+ "tracks": [
+  {
+   "key": "guide",
+   "label": "They downloaded the guide",
+   "hint": "Most of your leads. Eight recipes, no syrup, about two minutes each.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Text them the same day",
+     "lead": "Ask which one they will try. It is an easy question to answer, which is the point:",
+     "script": [
+      "Hey [Name], this is [Your Name]! Sent you the clean iced coffee recipes. Which one are you trying first?",
+      "The cold foam one is the one everyone messages me about."
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the same day text"
+    },
+    {
+     "num": "2",
+     "title": "If they don't answer",
+     "lead": "Two days, and make it about their morning rather than the guide:",
+     "script": [
+      "Hey [Name], did the recipes land alright? They are all under two minutes, that was the whole brief.",
+      "If you tell me how you take your coffee I will tell you which one to start with."
+     ],
+     "copyButton": "Copy the nudge",
+     "copyLabel": "Copy the two day nudge"
+    }
+   ]
+  },
+  {
+   "key": "product",
+   "label": "They opened the coffee product page",
+   "hint": "They clicked from the guide onto the coffee. Your notification tells you when.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Reply while they are still reading",
+     "lead": "Answer the taste question, because it is the only one that matters here:",
+     "script": [
+      "Hey [Name], this is [Your Name]. Saw you were looking at the coffee. Happy to answer anything.",
+      "The recipes work with whatever you already have in the cupboard, so no rush. If you do want to try ours, this is my link: [your Beneve coffee link]"
+     ],
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the product page text"
+    },
+    {
+     "num": "2",
+     "title": "If they go quiet",
+     "lead": "Next day, no second pitch:",
+     "script": [
+      "Hey [Name], no pressure at all on the coffee. Use the recipes with your usual bag, they were written to work either way.",
+      "Tell me if one of them turns out well."
+     ],
+     "copyButton": "Copy the no-pressure reply",
+     "copyLabel": "Copy the no-pressure follow-up"
+    }
+   ]
+  }
+ ],
+ "shared": {
+  "label": "Once they reply, whichever track they came from",
+  "steps": [
+   {
+    "num": "1",
+    "title": "Answer the question, then ask one back",
+    "lead": "A reply is not a conversation yet. Give them a straight answer and hand it back:",
+    "script": [
+     "Straight answer: [answer their question in one line].",
+     "Can I ask what made you take a look in the first place? It helps me point you at the right thing instead of guessing."
+    ],
+    "copyButton": "Copy the reply",
+    "copyLabel": "Copy the answer and question reply"
+   },
+   {
+    "num": "2",
+    "title": "Check in a week later",
+    "lead": "Seven days. Ask about the thing they got, not about buying:",
+    "script": [
+     "Hey [Name], it has been about a week. Did you get a chance to use it?",
+     "Honest answer is fine either way. It tells me what to send you next."
+    ],
+    "copyButton": "Copy the check-in",
+    "copyLabel": "Copy the one week check-in"
+   }
+  ]
+ },
+ "tip": "<strong>Tip:</strong> Nobody opts in for a recipe guide because they want to be sold coffee. Ask which recipe, get a reply, and let the product come up on their second or third message, not your first.",
+ "footer": "Clean Iced Coffee follow-up · Quick reference · Keep this handy by your phone"
+}

@@ -1,0 +1,77 @@
+{
+ "system": "beneve",
+ "funnel": "beneve-shark-scripts",
+ "page": "scripts",
+ "stepName": "Opportunity Scripts",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "title": "How to talk about the Beneve opportunity",
+ "titleHtml": "How to talk about the <em>Beneve opportunity</em>",
+ "sub": "For anyone asking what you actually do, however they got to the question.",
+ "funnelLabel": "Opportunity conversations",
+ "tracksQuestion": "Which conversation is this?",
+ "tracks": [
+  {
+   "key": "asked",
+   "label": "They asked what you do",
+   "hint": "The best version of this conversation. They opened it, so do not oversell the answer.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Answer in two sentences",
+     "lead": "Long answers sound like a pitch. Short ones sound like a job:",
+     "script": [
+      "I share wellness products I actually use, and I get paid a share of what sells. Beneve puts 65% of every dollar into compensation, which is why it is worth doing properly.",
+      "There are thirteen ways to earn in the plan, but honestly most people start with one and add later."
+     ],
+     "copyButton": "Copy the two sentence answer",
+     "copyLabel": "Copy the two sentence answer"
+    },
+    {
+     "num": "2",
+     "title": "Send the page, not a pitch",
+     "lead": "Let them read it alone. People decide about money in private:",
+     "script": [
+      "Easier to read it than have me describe it: [your Beneve opportunity link]",
+      "Have a look whenever, and ask me the awkward questions after. I would rather you ask them than not join because nobody did."
+     ],
+     "copyButton": "Copy the send-the-page text",
+     "copyLabel": "Copy the send the page text"
+    }
+   ]
+  },
+  {
+   "key": "skeptical",
+   "label": "They think it is an MLM pitch",
+   "hint": "You will get this. Answering it straight is the only thing that works.",
+   "stepsLabel": "Do this, in order",
+   "steps": [
+    {
+     "num": "1",
+     "title": "Do not dodge the question",
+     "lead": "Denying the category loses the room. Name what is actually different:",
+     "script": [
+      "Fair question, and yes it is a referral model. What is different here is written down: 65% of every dollar allocated to compensation, and an Influencer Bill of Rights that says the company cannot touch your social channels or your audience.",
+      "You can read both before you talk to me again if you want."
+     ],
+     "copyButton": "Copy the straight answer",
+     "copyLabel": "Copy the straight answer to the MLM question"
+    },
+    {
+     "num": "2",
+     "title": "Give them the exit",
+     "lead": "Offering an easy no is what makes a yes believable:",
+     "script": [
+      "If it is not for you that is genuinely fine, and I am not going to keep messaging you about it.",
+      "You are welcome to just use the products, plenty of people do."
+     ],
+     "copyButton": "Copy the easy no",
+     "copyLabel": "Copy the easy no"
+    }
+   ]
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Never quote an income figure, promise a result, or describe this as passive. Say what the plan pays and let people do their own arithmetic. Compliance aside, the people who join off a hyped number are the ones who quit first.",
+ "footer": "Beneve opportunity conversations · Quick reference · Keep this handy by your phone"
+}
