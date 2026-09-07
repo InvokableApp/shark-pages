@@ -5,7 +5,15 @@
  "funnelName": "Clean Iced Coffee",
  "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
  "logoAlt": "Beneve Shark, AI Marketing System",
- "videos": [],
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How this funnel works",
+   "vimeo": "1216170253",
+   "tease": "A walkthrough of the funnel, how it works and what your leads experience.",
+   "poster": "https://i.vimeocdn.com/video/2187531820-dbaf87bfad10e86be5c656859d801fd6ef2057e7ecf0d31961595eaabad4be79-d_1280"
+  }
+ ],
  "links": [
   {
    "icon": "pdf",
@@ -14,6 +22,14 @@
    "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
    "url": "https://{{custom_values.beneve_clean_iced_coffee_guide_pdf_url}}"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/reyh5ko5e8260am"
   },
   {
    "icon": "chat",
@@ -46,6 +62,14 @@
    "tease": "The messages every funnel needs: silence, price, and asking for a referral.",
    "label": "Open the additional scripts",
    "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "primary": false,
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/training-hub"
   }
  ],
  "sub": "Eight iced coffee recipes with no syrup bombs. A light, easy lead magnet that people actually use."

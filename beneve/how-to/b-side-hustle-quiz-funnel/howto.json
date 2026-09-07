@@ -5,7 +5,15 @@
  "funnelName": "Side Hustle Quiz",
  "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
  "logoAlt": "Beneve Shark, AI Marketing System",
- "videos": [],
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How this funnel works",
+   "vimeo": "1216170392",
+   "tease": "A walkthrough of the quiz funnel and what happens after someone finishes it.",
+   "poster": "https://i.vimeocdn.com/video/2187531864-597a8aa9f366eb4a5186d6dedcb60fe070ad1ff57c21175c8ab418e0bcfdbee5-d_1280"
+  }
+ ],
  "links": [
   {
    "icon": "chat",
@@ -14,6 +22,14 @@
    "tease": "What to say to leads from this funnel, and how to follow up so they actually answer.",
    "label": "Open the scripts",
    "url": "https://{{custom_values.beneve_scripts_base_url}}/side-hustle-scripts"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/iei2zd7bavlwksq"
   },
   {
    "icon": "chat",
@@ -38,6 +54,14 @@
    "tease": "The messages every funnel needs: silence, price, and asking for a referral.",
    "label": "Open the additional scripts",
    "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "primary": false,
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/training-hub"
   }
  ],
  "sub": "A sixty second quiz that matches someone to the kind of side income that fits their life."
