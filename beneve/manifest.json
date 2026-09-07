@@ -448,6 +448,78 @@
       "elementTitle": "Become an Influencer",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-surface-first-result",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "dFFsWOqnygaBi7H4i9ZE",
+      "elementId": "custom-code-ji4ta4xe89",
+      "elementTitle": "beneve-skin-surface-first-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-inside-out-result",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "6zwyKtVOnPs8ENB41Mpf",
+      "elementId": "custom-code-21d9f6b9je",
+      "elementTitle": "beneve-skin-inside-out-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-foundation-first-result",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "nrim9hxIC8Vu3Qf7ohd0",
+      "elementId": "custom-code-69uug8i401",
+      "elementTitle": "beneve-skin-foundation-first-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-full-ritual-result",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "pnDZkxy2Mk62m5abDgDW",
+      "elementId": "custom-code-e3u8knvc90",
+      "elementTitle": "beneve-skin-full-ritual-result",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-renew-product",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "rjRGppztnmbk5rdOgsc3",
+      "elementId": "custom-code-qkk6cijr4d",
+      "elementTitle": "beneve-skin-renew-product",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-luxe-product",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "NXCBZyhyztGTZINErxdt",
+      "elementId": "custom-code-7bp0fb9vqd",
+      "elementTitle": "beneve-skin-luxe-product",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin-glutathione-product",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "D6IK2d80mRNoqWwPeFTR",
+      "elementId": "custom-code-cruc8dp6c3",
+      "elementTitle": "beneve-skin-glutathione-product",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-skin-diagnostic/beneve-skin",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "wJKmX8oKdpj6OcbqNQE7",
+      "elementId": "custom-code-9904rgz68h",
+      "elementTitle": "beneve-skin",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
