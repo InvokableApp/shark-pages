@@ -1,0 +1,24 @@
+/* BENEVE / how-to / b-clean-iced-coffee-recipes
+ *
+ * The design lives in _shared/howto/v1/howto.css, scoped under .sk-howto, and is
+ * shared by every how-to page in every system. This file declares ONLY the nine
+ * palette tokens, on the block's own scope class, and they cascade into the
+ * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
+
+.sk-beneve-how-to-b-clean-iced-coffee-recipes {
+  --sk-brand:      #1E386A;
+  --sk-brand-deep: #14284C;
+  --sk-brand-tint: #EAEEF6;
+  --sk-ink:        #16233D;
+  --sk-ink-soft:   #4A5568;
+  --sk-ink-faint:  #8792A8;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DDE4EE;
+  --sk-line-soft:  #E9EEF5;
+  --sk-card:       #FFFFFF;
+}
