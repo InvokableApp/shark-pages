@@ -152,6 +152,30 @@
     return FORM_HOST + "/" + FORM + "?" + q.join("&");
   }
 
+  // ── hand off to the results page ────────────────────────────────────────────────────────
+  // The report gets its own URL so it can be shared, re-opened and re-sent. Getting the data
+  // there could have gone through a form redirect carrying contact merge fields, and that is a
+  // real mechanism: GHL substitutes them into a form's redirect URL at submit time, which is
+  // the one surface where it does (a merge field in a page socket attribute comes back literal,
+  // probed 2026-09-07). Two things ruled it out here:
+  //   · no form in this fleet uses a form-level redirect; every one is on a page form ELEMENT,
+  //     and this form is an iframe built by this block, so there is no element to configure
+  //   · a form-level redirect fires INSIDE the iframe, so the report would render in a 500px box
+  // This block already holds the address and the full lookup, so it hands off itself. No merge
+  // fields, no contact session, full fidelity because the results page re-runs the same lookup.
+  var HANDOFF = root.getAttribute("data-results") || "";
+  window.addEventListener("message", function (ev) {
+    if (!HANDOFF || !LAST || !LAST.address) return;
+    // GHL form embeds post on submit. The payload shape is not contractual, so match loosely on
+    // the words rather than an exact type, and require the message to come from the form host.
+    var d = ev.data;
+    var txt = typeof d === "string" ? d : JSON.stringify(d || "");
+    if (!/form.?submit|submitted|onFormSubmit/i.test(txt)) return;
+    if (FORM_HOST && ev.origin && FORM_HOST.indexOf(ev.origin) === -1) return;
+    var to = HANDOFF + (HANDOFF.indexOf("?") > -1 ? "&" : "?") + "address=" + encodeURIComponent(LAST.address);
+    try { window.top.location.href = to; } catch (e) { window.location.href = to; }
+  });
+
   function ask(d) {
     var url = formUrl(d);
     return '<div class="sk-wat-ask"><h3>Want the next step?</h3>' +
