@@ -520,6 +520,105 @@
       "elementTitle": "beneve-skin",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-shark-scripts/scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "bhIKurc81ayYLGOfsPvq",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/product-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "bC9HG3tONs9E2qGlIGeR",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/additional-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "8x4zPNeFg8xxtKCbRVwT",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/skin-diagnostic-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "bhIKurc81ayYLGOfsPvq",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/hormone-recipe-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "cpPXMSW5OtyjYaQq1cFP",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/side-hustle-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "pA5dN7k2FA8C1Uh8q8Kw",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/glp-foods-guide-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "MNMWIdZHTzyv5IN5PrZT",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/water-report-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "yGA45d0uIjiIwaKqFArD",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/disruptor-quiz-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "RdOhlRVjqEUlM3zJJGjT",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/clean-iced-coffee-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "UFc1DFhnISkdhd844zvC",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
+    },
+    {
+      "path": "beneve-shark-scripts/influencer-aptitude-scripts",
+      "funnelId": "Ja5yV58HxPRcg94ykf6O",
+      "pageId": "NQC51f2pfqKD3EaP0uU6",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "k5tyIG2Q85sUQ1RlSxBo"
     }
   ]
 }
