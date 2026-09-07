@@ -85,7 +85,7 @@
              'larger systems. That means nobody has published a PFAS result for it, not that it is clear.</p>';
       } else {
         h += '<div class="sk-wat-big' + (d.over ? " sk-wat-flag" : "") + '">' + esc(d.pfas) +
-             '<small>' + (d.panel ? "of " + esc(d.panel) + " " : "") + 'detected</small></div>';
+             '<small>' + (d.panel ? " of " + esc(d.panel) + " " : " ") + 'detected</small></div>';
       }
     }
     if (d.date) h += '<p class="sk-wat-sub">Report built ' + esc(d.date) + '.</p>';
