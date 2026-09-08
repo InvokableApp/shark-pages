@@ -4,9 +4,30 @@
  * it here, that is a deliberate migration (see _shared/README.md).
  */
 @import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..600&display=swap");
+/* Nueva's brand face is Gotham (licensed). Montserrat is the measured substitute, recorded in
+   systems/nueva.json. The donor imported Archivo + Instrument Sans and nothing here asks for
+   either any more, so importing them loaded two faces the page never used while the face it
+   DOES name was never fetched at all. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
 .sk-prod-nva-revive{
+  /* Donor-vocabulary tokens this block's bespoke css still reads. Defined here, on the
+     block's own scope, so the page paints in Nueva rather than dropping the declaration.
+     Added by audit-block-tokens.mjs. */
+  --ig-ash: #f2f7f8;
+  --ig-black: #071116;
+  --ig-body: #4a5560;
+  --ig-card: #ffffff;
+  --ig-display: Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --ig-ease: cubic-bezier(.22,.61,.36,1);
+  --ig-ember: #0abab5;
+  --ig-faint: #8aa0a4;
+  --ig-flare: #00aaa6;
+  --ig-frost: #e8f8f6;
+  --ig-hair: #d5dfe1;
+  --ig-panel: #102a2a;
+  --ig-spark: #087f7b;
+
   --sk-body:     #4a5560;
   --sk-cream:    #fcfeff;
   --sk-ink:      #141313;
@@ -25,7 +46,8 @@
 
 /* --- bespoke rules carried over from the donor --- */
 /* ============================ TYPE ============================ */
-/* Archivo is variable on wdth AND wght. The display voice is narrow and heavy in caps; the
+/* Montserrat has no width axis, unlike the donor's Archivo, so width is set by weight and tracking alone.
+   (Original note: Archivo is variable on wdth AND wght.) The display voice is narrow and heavy in caps; the
    label voice is the same family pulled much narrower and tracked out. */
 .sk-prod-nva-revive .sk-prod-h1,
 .sk-prod-nva-revive .sk-prod-h2,
@@ -536,7 +558,7 @@
   display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
 }
 
-/* Wordmark. Archivo pulled wide and light with heavy tracking is the closest match we
+/* Wordmark. Montserrat set light with heavy tracking is the closest match we
    already load to ORYGN's own IGNYT lockup. Swap in the real logo asset when we have it. */
 .sk-prod-nva-revive .sk-prod-nva-revive-mark{
   display:inline-flex;align-items:center;gap:.55rem;flex:0 0 auto;
@@ -726,7 +748,7 @@
 
 /* ============================ BUTTON TEXT ON PHONES ============================ */
 /* Jeff, 2026-09-01: "a little hard to read". The px values were not the whole story. This
-   face is Archivo run CONDENSED at wdth 82, set in caps with positive tracking, so it
+   face is Montserrat set in caps with positive tracking, so it
    reads a size smaller than it measures. The slim-band buttons were the worst of it:
    12.16px of condensed caps stretched across a 359px wide button.
    ⚠️ THIS SECTION HAS TO LIVE AT THE END OF THE FILE. The per-component rules above

@@ -5,7 +5,27 @@
  */
 
 
+/* The donor hardcoded Playfair Display and Inter and imported NEITHER, so this page has been
+   falling back to the browser serif and sans the whole time. Nueva's face is Gotham
+   (licensed); Montserrat is the measured substitute recorded in systems/nueva.json, and every
+   face reference below now goes through --sk-serif / --sk-sans instead of a literal. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
+
 .sk-nva-guide{
+  /* Donor-vocabulary tokens this block's bespoke css still reads. Defined here, on the
+     block's own scope, so the page paints in Nueva rather than dropping the declaration.
+     Added by audit-block-tokens.mjs. */
+  --cream: #fcfeff;
+  --forest: #102a2a;
+  --gold: #0abab5;
+  --green: #0abab5;
+  --green-deep: #087f7b;
+  --green-tint: #e8f8f6;
+  --grey: #4a5560;
+  --hair: #d5dfe1;
+  --ink: #141313;
+  --panel: #ffffff;
+
   --sk-brand:    #0abab5;
   --sk-brand-d:  #00aaa6;
   --sk-accent:   #087f7b;
@@ -40,7 +60,7 @@
 
 /* ---------- shared type ---------- */
 .sk-nva-guide .eyebrow,.sk-nva-guide .block-label,.sk-nva-guide .shop-title,.sk-nva-guide .aisle,.sk-nva-guide .cover-tag,.sk-nva-guide .cover-foot,.sk-nva-guide .divider-eyebrow,.sk-nva-guide .cta-eyebrow,.sk-nva-guide .cta-box-label,.sk-nva-guide .approx,.sk-nva-guide .badge-lab{
-  font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:.18em; font-weight:600;
+  font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.18em; font-weight:600;
 }
 .sk-nva-guide .accent{ color:var(--green); }
 .sk-nva-guide em{ color:var(--grey); }
@@ -52,9 +72,9 @@
   background:linear-gradient(0deg, rgba(250,247,242,.92) 0%, rgba(250,247,242,0) 100%); }
 .sk-nva-guide .cover-top{ padding:0.9in 0.85in 0; }
 .sk-nva-guide .cover-tag{ font-size:9.5px; color:var(--forest); opacity:.75; margin-bottom:.32in; max-width:4.6in; text-wrap:balance; }
-.sk-nva-guide .cover-title{ font-family:'Playfair Display',serif; font-weight:800; color:var(--forest);
+.sk-nva-guide .cover-title{ font-family:var(--sk-serif); font-weight:800; color:var(--forest);
   font-size:74px; line-height:.96; letter-spacing:-.5px; }
-.sk-nva-guide .cover-sub{ font-family:'Playfair Display',serif; font-style:italic; font-weight:500;
+.sk-nva-guide .cover-sub{ font-family:var(--sk-serif); font-style:italic; font-weight:500;
   color:var(--ink); font-size:21px; margin-top:.18in; max-width:4.4in; text-wrap:balance; }
 .sk-nva-guide .cover-foot{ position:absolute; left:0; right:0; bottom:.5in; text-align:center;
   font-size:9px; color:var(--forest); opacity:.75; z-index:2; }
@@ -65,24 +85,24 @@
 .sk-nva-guide .divider-scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,24,16,.74) 0%, rgba(12,24,16,.28) 34%, rgba(12,24,16,0) 56%); }
 .sk-nva-guide .divider-top{ position:relative; padding:.95in .9in; color:var(--cream); }
 .sk-nva-guide .divider-eyebrow{ font-size:10px; color:var(--green); margin-bottom:.22in; }
-.sk-nva-guide .divider-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:62px; line-height:1; }
-.sk-nva-guide .divider-blurb{ font-family:'Playfair Display',serif; font-style:italic; font-size:19px; margin-top:.16in;
+.sk-nva-guide .divider-title{ font-family:var(--sk-serif); font-weight:700; font-size:62px; line-height:1; }
+.sk-nva-guide .divider-blurb{ font-family:var(--sk-serif); font-style:italic; font-size:19px; margin-top:.16in;
   max-width:4.6in; color:rgba(250,247,242,.92); }
 
 /* ---------- RECIPE CARD ---------- */
 .sk-nva-guide .recipe{ display:flex; flex-direction:column; }
 .sk-nva-guide .eyebrow{ font-size:10px; color:var(--forest); margin-bottom:.12in; }
 .sk-nva-guide .eyebrow .idx{ color:var(--green-deep); margin-left:.06in; }
-.sk-nva-guide .recipe-name{ font-family:'Playfair Display',serif; font-weight:700; color:var(--forest);
+.sk-nva-guide .recipe-name{ font-family:var(--sk-serif); font-weight:700; color:var(--forest);
   font-size:36px; line-height:1.02; letter-spacing:-.3px; }
-.sk-nva-guide .why{ font-family:'Playfair Display',serif; font-style:italic; color:var(--grey);
+.sk-nva-guide .why{ font-family:var(--sk-serif); font-style:italic; color:var(--grey);
   font-size:16px; margin-top:.08in; max-width:6in; }
 
 .sk-nva-guide .badges{ display:flex; gap:.13in; margin-top:.26in; }
 .sk-nva-guide .badge{ flex:1; background:#fff; border:1px solid var(--hair); border-radius:10px;
   padding:.14in .1in; text-align:center; }
 .sk-nva-guide .badge-protein{ background:var(--green); border-color:var(--green); }
-.sk-nva-guide .badge-val{ display:block; font-family:'Playfair Display',serif; font-weight:700; font-size:26px; color:var(--forest); }
+.sk-nva-guide .badge-val{ display:block; font-family:var(--sk-serif); font-weight:700; font-size:26px; color:var(--forest); }
 .sk-nva-guide .badge-protein .badge-val{ color:#fff; }
 .sk-nva-guide .badge-lab{ display:block; font-size:8px; color:var(--grey); margin-top:3px; letter-spacing:.16em; }
 .sk-nva-guide .badge-protein .badge-lab{ color:rgba(255,255,255,.92); }
@@ -104,7 +124,7 @@
   font-size:12.5px; line-height:1.5; color:var(--ink); }
 .sk-nva-guide ol.method li::before{ content:counter(m); position:absolute; left:0; top:-1px;
   width:.28in; height:.28in; background:var(--forest); color:var(--cream);
-  border-radius:50%; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; font-family:'Inter'; }
+  border-radius:50%; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; font-family:var(--sk-sans); }
 
 .sk-nva-guide .shop{ margin-top:auto; padding-top:.24in; }
 .sk-nva-guide .shop-title{ font-size:9.5px; color:var(--green-deep); margin-bottom:.09in; }
@@ -125,10 +145,10 @@
 .sk-nva-guide .callout.swap{ margin-top:.18in; }
 
 /* ---------- PROSE PAGES ---------- */
-.sk-nva-guide .prose .page-title{ font-family:'Playfair Display',serif; font-weight:700; color:var(--forest);
+.sk-nva-guide .prose .page-title{ font-family:var(--sk-serif); font-weight:700; color:var(--forest);
   font-size:34px; line-height:1.05; letter-spacing:-.3px; margin-bottom:.26in; max-width:6in; }
 .sk-nva-guide .prose p{ font-size:13px; line-height:1.62; color:var(--ink); margin-bottom:.14in; max-width:6.1in; }
-.sk-nva-guide .prose p.subhead{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.14em; font-weight:600;
+.sk-nva-guide .prose p.subhead{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.14em; font-weight:600;
   font-size:11px; color:var(--green-deep); margin-top:.22in; margin-bottom:.1in; }
 .sk-nva-guide .prose ol,.sk-nva-guide .prose ul{ margin:.04in 0 .18in .04in; }
 .sk-nva-guide .prose ol{ list-style:none; counter-reset:p; }
@@ -152,7 +172,7 @@
 .sk-nva-guide .closing p{ font-size:16px; margin:0 auto .18in; max-width:5.2in; }
 .sk-nva-guide .closing em{ font-style:italic; }
 .sk-nva-guide .disclaimer{ display:flex; flex-direction:column; justify-content:flex-end; }
-.sk-nva-guide .disclaimer .page-title{ font-size:13px; font-family:'Inter'; text-transform:uppercase; letter-spacing:.2em; color:var(--grey); font-weight:600; margin-bottom:.16in; }
+.sk-nva-guide .disclaimer .page-title{ font-size:13px; font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.2em; color:var(--grey); font-weight:600; margin-bottom:.16in; }
 .sk-nva-guide .disclaimer p{ font-size:11.5px; color:var(--grey); line-height:1.6; max-width:5.4in; }
 
 /* ---------- CTA ---------- */
@@ -160,8 +180,8 @@
 .sk-nva-guide .cta-inner{ text-align:center; max-width:5.4in; }
 .sk-nva-guide .cta-product-img{ display:block; width:1.5in; height:1.5in; object-fit:contain; margin:.14in auto .18in; border-radius:12px; background:rgba(250,247,242,.08); padding:8px; }
 .sk-nva-guide .cta-eyebrow{ font-size:10px; color:var(--green); margin-bottom:.24in; }
-.sk-nva-guide .cta-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:44px; line-height:1.05; margin-bottom:.26in; }
-.sk-nva-guide .cta-lead{ font-family:'Playfair Display',serif; font-style:italic; font-size:19px; color:#fff; margin-bottom:.18in; }
+.sk-nva-guide .cta-title{ font-family:var(--sk-serif); font-weight:700; font-size:44px; line-height:1.05; margin-bottom:.26in; }
+.sk-nva-guide .cta-lead{ font-family:var(--sk-serif); font-style:italic; font-size:19px; color:#fff; margin-bottom:.18in; }
 .sk-nva-guide .cta-body{ font-size:13px; line-height:1.6; color:rgba(250,247,242,.85); margin-bottom:.34in; }
 .sk-nva-guide .cta-box{ border:1px solid rgba(250,247,242,.28); border-radius:12px; padding:.32in .34in; text-align:center; }
 .sk-nva-guide .cta-box-label{ font-size:10px; color:var(--green); margin-bottom:.16in; }
@@ -182,7 +202,7 @@
 
 /* ---- 2. editorial serif for all display type ---- */
 .sk-nva-guide .cover-title,.sk-nva-guide .cover-sub,.sk-nva-guide .divider-title,.sk-nva-guide .divider-blurb,.sk-nva-guide .recipe-name,.sk-nva-guide .why,.sk-nva-guide .page-title,.sk-nva-guide .food-name,.sk-nva-guide .formula,.sk-nva-guide .foods-head,.sk-nva-guide .cta-title,.sk-nva-guide .cta-lead,.sk-nva-guide .closing .page-title,.sk-nva-guide .callout-title{
-  font-family:'Newsreader','Playfair Display',serif;
+  font-family:'Newsreader',var(--sk-serif);
 }
 .sk-nva-guide .cover-title,.sk-nva-guide .divider-title,.sk-nva-guide .recipe-name,.sk-nva-guide .page-title,.sk-nva-guide .food-name,.sk-nva-guide .foods-head{
   font-weight:500; letter-spacing:-.2px;   /* editorial serifs read heavier; lighten */
@@ -194,13 +214,13 @@
 .sk-nva-guide .page.prose::before,.sk-nva-guide .page.foods::before,.sk-nva-guide .page.recipe::before{
   content:"GLP · Natural Foods Guide";
   position:absolute; left:.8in; bottom:.42in;
-  font-family:'Inter',sans-serif; font-size:7.5px; letter-spacing:.22em;
+  font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.22em;
   text-transform:uppercase; color:var(--grey); opacity:.8;
 }
 .sk-nva-guide .page.prose::after,.sk-nva-guide .page.foods::after,.sk-nva-guide .page.recipe::after{
   content:counter(pg);
   position:absolute; right:.8in; bottom:.4in;
-  font-family:'Inter',sans-serif; font-size:9px; letter-spacing:.1em;
+  font-family:var(--sk-sans); font-size:9px; letter-spacing:.1em;
   color:var(--forest); font-variant-numeric:tabular-nums;
 }
 /* recipe pages with a full-bleed photo: keep the footer clear of content */
@@ -209,17 +229,17 @@
 
 /* ---- 4. COVER: quieter, more considered ---- */
 .sk-nva-guide .cover-title.long{ font-size:50px; line-height:1.02; max-width:5.4in; color:var(--forest); }
-.sk-nva-guide .cover-tag{ font-family:'Inter'; letter-spacing:.22em; text-transform:uppercase;
+.sk-nva-guide .cover-tag{ font-family:var(--sk-sans); letter-spacing:.22em; text-transform:uppercase;
   font-size:8.5px; color:var(--forest); opacity:.7; }
 .sk-nva-guide .cover-sub{ font-style:italic; font-size:19px; color:var(--ink); }
 .sk-nva-guide .cover-top{ padding:0.85in 0.8in 0; }
 /* hairline rule under the wordmark block */
 .sk-nva-guide .cover-top::after{ content:""; display:block; width:.9in; height:2px;
   background:var(--gold); margin-top:.28in; }
-.sk-nva-guide .cover-foot{ font-family:'Inter'; letter-spacing:.2em; font-size:8px; color:var(--forest); opacity:.72; }
+.sk-nva-guide .cover-foot{ font-family:var(--sk-sans); letter-spacing:.2em; font-size:8px; color:var(--forest); opacity:.72; }
 
 /* ---- 5. DIVIDERS: numbered, journal-like ---- */
-.sk-nva-guide .divider-eyebrow{ font-family:'Inter'; letter-spacing:.24em; font-size:9.5px; color:#fff; opacity:.9; }
+.sk-nva-guide .divider-eyebrow{ font-family:var(--sk-sans); letter-spacing:.24em; font-size:9.5px; color:#fff; opacity:.9; }
 .sk-nva-guide .divider-title{ font-weight:500; font-size:58px; }
 .sk-nva-guide .divider-blurb{ font-style:italic; font-size:18px; }
 
@@ -239,7 +259,7 @@
 .sk-nva-guide .callout,.sk-nva-guide .callout.big{ background:var(--panel); border-left:3px solid var(--gold);
   border-radius:0 6px 6px 0; padding:.2in .24in; margin-top:.24in; }
 .sk-nva-guide .callout-title{ font-weight:600; text-transform:uppercase; letter-spacing:.12em;
-  font-family:'Inter'; font-size:11px; color:var(--forest); margin-bottom:.1in; }
+  font-family:var(--sk-sans); font-size:11px; color:var(--forest); margin-bottom:.1in; }
 .sk-nva-guide .callout-p{ font-size:11.5px; line-height:1.58; color:var(--ink); margin-bottom:.09in; }
 .sk-nva-guide .callout-p:last-child{ margin-bottom:0; }
 
@@ -252,7 +272,7 @@
 
 /* ---- 7. PART ONE food cards: editorial index with evidence tags ---- */
 .sk-nva-guide .foods{ display:flex; flex-direction:column; }
-.sk-nva-guide .foods-eyebrow{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.22em;
+.sk-nva-guide .foods-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.22em;
   font-weight:600; font-size:9px; color:var(--forest); padding-bottom:.14in;
   border-bottom:1px solid var(--hair); margin-bottom:.22in; }
 .sk-nva-guide .foods-pg{ color:var(--green-deep); margin-left:.06in; }
@@ -268,11 +288,11 @@
 .sk-nva-guide .food-foods{ font-size:11.5px; color:var(--ink); font-weight:600; margin-top:.03in; }
 .sk-nva-guide .food-why{ font-size:11px; color:var(--grey); line-height:1.5; margin-top:.05in; }
 .sk-nva-guide .food-uses{ font-size:11px; color:var(--ink); line-height:1.5; margin-top:.05in; }
-.sk-nva-guide .food-lab{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.12em;
+.sk-nva-guide .food-lab{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.12em;
   font-weight:600; font-size:8px; color:var(--green-deep); margin-right:.04in; }
 .sk-nva-guide .food-rec{ font-size:10px; color:var(--grey); font-style:italic; margin-top:.03in; }
 /* evidence chip */
-.sk-nva-guide .evidence{ font-family:'Inter'; font-size:7.5px; letter-spacing:.1em; text-transform:uppercase;
+.sk-nva-guide .evidence{ font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.1em; text-transform:uppercase;
   font-weight:600; white-space:nowrap; padding:.03in .08in; border-radius:3px; }
 .sk-nva-guide .evidence.strong{ background:var(--forest); color:#fff; }
 .sk-nva-guide .evidence.support{ background:var(--green-tint); color:var(--green-deep); border:1px solid var(--green); }
@@ -295,7 +315,7 @@
 .sk-nva-guide .closing .page-title{ border:none; font-size:44px; }
 .sk-nva-guide .closing ol{ display:inline-block; text-align:left; margin:.14in auto .1in; }
 .sk-nva-guide .closing ol li{ margin:0 auto .12in; }
-.sk-nva-guide .disclaimer .page-title{ font-family:'Inter'; }
+.sk-nva-guide .disclaimer .page-title{ font-family:var(--sk-sans); }
 
 /* ---- 10. cheat-sheet as prose ---- */
 .sk-nva-guide .cheat ul li{ font-size:12px; }
@@ -303,7 +323,7 @@
 
 /* ---- 12. product promo page (cream catalog) ---- */
 .sk-nva-guide .extra-support{ display:flex; flex-direction:column; padding-bottom:.75in; }
-.sk-nva-guide .support-eyebrow{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.22em;
+.sk-nva-guide .support-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.22em;
   font-weight:600; font-size:9px; color:var(--green-deep); margin-bottom:.12in; }
 .sk-nva-guide .support-title{ font-family:'Newsreader',serif; font-weight:500; font-size:36px; color:var(--forest);
   padding-bottom:.16in; border-bottom:1px solid var(--hair); margin-bottom:.2in; text-wrap:balance; }
@@ -316,7 +336,7 @@
 .sk-nva-guide .product-shot{ height:2.6in; display:flex; align-items:center; justify-content:center; margin-bottom:.16in; }
 .sk-nva-guide .product-img{ max-height:2.6in; max-width:100%; object-fit:contain; }
 .sk-nva-guide .product-name{ font-family:'Newsreader',serif; font-weight:600; font-size:24px; color:var(--forest); }
-.sk-nva-guide .product-meta{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.14em; font-weight:600;
+.sk-nva-guide .product-meta{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.14em; font-weight:600;
   font-size:8.5px; color:var(--green-deep); margin:.06in 0 .12in; }
 .sk-nva-guide .product-desc{ font-size:11.5px; line-height:1.55; color:var(--grey); text-wrap:pretty; }
 
@@ -324,7 +344,7 @@
 .sk-nva-guide .nextstep{ background:var(--forest); color:var(--cream); display:flex; align-items:center; justify-content:center; }
 .sk-nva-guide .nextstep::before,.sk-nva-guide .nextstep::after{ content:none !important; }  /* no footer band on the dark page */
 .sk-nva-guide .nextstep-inner{ text-align:center; max-width:5.3in; }
-.sk-nva-guide .nextstep-eyebrow{ font-family:'Inter'; text-transform:uppercase; letter-spacing:.24em;
+.sk-nva-guide .nextstep-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.24em;
   font-weight:600; font-size:10px; color:var(--green); margin-bottom:.26in; }
 .sk-nva-guide .nextstep-title{ font-family:'Newsreader',serif; font-weight:500; font-size:50px; line-height:1.02;
   margin-bottom:.28in; text-wrap:balance; }
@@ -368,18 +388,18 @@
 .sk-nva-guide .recipe-photo{ height:250px !important; margin:0 -56px 28px !important; }
 .sk-nva-guide .gnav{ position:sticky; top:0; z-index:60; display:flex; align-items:center; gap:15px; flex-wrap:wrap;
   background:rgba(29,58,43,.97); backdrop-filter:blur(6px); padding:12px 22px; }
-.sk-nva-guide .gnav a{ color:#e9efe6; text-decoration:none; font:600 11px/1 'Inter',sans-serif; letter-spacing:.06em; text-transform:uppercase; opacity:.82; }
+.sk-nva-guide .gnav a{ color:#e9efe6; text-decoration:none; font:600 11px/1 var(--sk-sans); letter-spacing:.06em; text-transform:uppercase; opacity:.82; }
 .sk-nva-guide .gnav a:hover{ opacity:1; }
 .sk-nva-guide .gnav .brand{ font-family:'Newsreader',serif; font-weight:600; font-size:15px; color:#fff; letter-spacing:0; text-transform:none; margin-right:6px; }
 .sk-nva-guide .gnav .spacer{ flex:1; }
 .sk-nva-guide .gnav .nav-cta{ background:var(--green); color:#fff; padding:8px 16px; border-radius:8px; text-transform:none; letter-spacing:.01em; font-size:12px; opacity:1; }
 .sk-nva-guide .gnav .nav-cta:hover{ background:var(--green-deep); }
 .sk-nva-guide .product-btn{ display:inline-block; margin-top:16px; background:var(--forest); color:var(--cream);
-  font:600 13px/1 'Inter',sans-serif; letter-spacing:.02em; padding:13px 26px; border-radius:9px; text-decoration:none; }
+  font:600 13px/1 var(--sk-sans); letter-spacing:.02em; padding:13px 26px; border-radius:9px; text-decoration:none; }
 .sk-nva-guide .product-btn:hover{ background:var(--green-deep); }
 .sk-nva-guide .pf-print-row{ text-align:right; margin-top:12px; }
 .sk-nva-guide .pf-print-btn{ display:inline-flex; align-items:center; gap:7px; background:transparent; border:1px solid var(--hair);
-  color:var(--forest); font:600 12px/1 'Inter',sans-serif; padding:9px 14px; border-radius:9px; cursor:pointer; }
+  color:var(--forest); font:600 12px/1 var(--sk-sans); padding:9px 14px; border-radius:9px; cursor:pointer; }
 .sk-nva-guide .pf-print-btn:hover{ background:var(--green-tint); border-color:var(--green); }
 @media print{ .sk-nva-guide .pf-print-btn,.sk-nva-guide .pf-print-row,.sk-nva-guide .gnav{ display:none !important; } }
 @media (max-width:720px){ .sk-nva-guide .product-grid{ grid-template-columns:1fr !important; } }
