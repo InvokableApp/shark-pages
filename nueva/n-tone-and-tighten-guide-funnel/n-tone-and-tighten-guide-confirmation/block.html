@@ -1,20 +1,37 @@
 <!--
   nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation
-  FORKED from beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation by fork-blocks.mjs.
 
-  ⚠️ STRUCTURE AND PALETTE ONLY. The copy below, and every image in assets/, is still the
-  donor's. That includes product photography and supplement-facts panels, which are factual
-  claims about a DIFFERENT PRODUCT and must not ship. Rewriting them is the reskin pass.
+  What replaced the donor page, and why each part is what it is:
+
+  1. THE VIDEO IS GONE. The facade pointed at a 44MB .mov on the SHARK LEAD GEN account's CDN and
+     a poster served from BENEVE's GitHub Pages folder. A Nueva lead was being shown Beneve's
+     trial-pack clip. FUNNEL-PLAN B4 asks for a presenter video here and nobody has recorded one,
+     so there is no video rather than someone else's.
+
+  2. THE OFFER CARD IS GONE. It sold a four day sample of Beneve Glutathione+ "from our
+     recommended partner, Beneve", and its button linked to /b-hormone-lunchbox-sample, a step
+     that does not exist in this funnel. Which Nueva product this funnel pushes is still an open
+     decision, so nothing is sold here yet.
+
+  3. WHAT IS HERE INSTEAD is the dual CTA the web-guide SOP asks for (read online + download the
+     PDF, two equal buttons) and the soft reach-out FUNNEL-PLAN B4 actually specifies. That is the
+     three-party model: the guide routes the lead back to the rep, it never sells.
+
+  ⚠️ Both custom values are optional and guarded in block.js. On a snapshot account every custom
+     value holds its own instruction text, and the shared loader substitutes merge fields raw, so
+     an unguarded one ships "Message Enter YOUR first name." as copy.
 -->
-<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-top-tight sk-conf-nva">
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-top-tight sk-conf-nva"
+     data-cv-nueva_rep_first_name="{{custom_values.nueva_rep_first_name}}"
+     data-cv-nueva_tone_and_tighten_guide_pdf_url="{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}">
 
   <!-- ===================== BAND 1 · the confirmation ===================== -->
   <section class="sk-conf-top">
     <div class="sk-conf-wrap">
-      <span class="sk-conf-pill">☀️ Your PDF is on the way. Special offer below...</span>
+      <span class="sk-conf-pill">✅ You are in. Your guide is on its way.</span>
 
       <h1>
-        Your Hormone Support Recipe Guide<br>
+        The Tone And Tighten Guide<br>
         Is Being Sent <span class="sk-conf-em">In 2 Minutes.</span>
       </h1>
 
@@ -22,76 +39,102 @@
         Check your email. If you do not see it there, check your <b>SPAM</b> folder.
       </p>
 
-      <p class="sk-conf-kicker">While you wait, there is a discounted sample pack below.</p>
+      <p class="sk-conf-kicker">Or skip the wait and start reading it right now.</p>
     </div>
   </section>
 
-  <!-- ===================== BAND 2 · the offer card ===================== -->
+  <!-- ===================== BAND 2 · read it now =========================
+       Two equal buttons, per references/leadmag-web-guide-sop.md: the web guide opens
+       instantly on a phone with no download friction, and the PDF is the keepable copy.
+       The read link is authored SIBLING-RELATIVE so it survives any funnel path. The PDF
+       link carries no href until block.js resolves one, because an unfilled custom value
+       would otherwise ship a button pointing at "https://". -->
   <section class="sk-conf-offer">
     <div class="sk-conf-wrap">
       <div class="sk-conf-card sk-conf-card-cta-first">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <span class="sk-conf-badge">📖 Read it now</span>
 
-        <!-- ── media cell ──────────────────────────────────────────────────────
-             Click-to-load facade, wired by _shared/confirm/v1/confirm.js. The clip is a
-             44MB file, so preload is off and nothing is fetched until someone presses
-             play; until then this is one 90KB poster.
-
-             data-video, not data-vimeo: the file is self-hosted on GHL's CDN. It is H.264
-             video and AAC audio in an MP4 container, merely NAMED .mov, which is why the
-             src carries no <source type> hint. The server calls it video/quicktime and a
-             type hint would be the one thing that could stop a browser trying it.
-
-             Portrait, because the clip is 720x1280. -->
-        <div class="sk-conf-card-media">
-          <button class="sk-conf-frame sk-conf-frame-portrait"
-                  data-video="https://assets.cdn.filesafe.space/ucXosnBgZ6FxqeEBuApn/media/6a96edf028f06327141f87cd.mov"
-                  data-poster="https://invokableapp.github.io/shark-pages/beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation/assets/video-poster.jpg"
-                  aria-label="Watch: about the Beneve trial pack">
-            <span class="sk-conf-play">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </button>
-        </div>
-
-        <!-- ── offer cell ────────────────────────────────────────────────── -->
-        <div class="sk-conf-card-copy">
-          <span class="sk-conf-badge">🔥 Limited-time offer (50 available)</span>
-
-          <h2>Try Glutathione+ For Four Days, At A Discount.</h2>
+          <h2>Eight Workouts And Twelve Recipes, Open In One Tap.</h2>
 
           <p>
-            Your recipe guide covers the food. This is for the days there is no time to cook: a four
-            day sample pack of <b>Glutathione+</b> from our recommended partner, <b>Beneve</b>, at a
-            discounted rate.
+            The whole guide is a web page as well as a PDF, so you can read it on your phone
+            without downloading anything. Start with the eight week schedule: it tells you exactly
+            which of the eight sessions to do on which day.
           </p>
 
-          <p>
-            One capsule a day. It is an antioxidant blend of Glutathione, DIM and Xanthohumol,
-            formulated to support cellular health, hormone health and overall wellness. Four days, so
-            you can try it before you decide anything.
-          </p>
-
-          <p class="sk-conf-ask">Want to try it? <u>Click below to claim the discounted rate...</u></p>
+          <p class="sk-conf-ask">Pick whichever suits you. <u>Both are the same guide.</u></p>
 
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" href="b-hormone-lunchbox-sample">
-              CLAIM THE DISCOUNTED SAMPLE
-            </a>
+            <a class="sk-conf-btn" href="n-tone-and-tighten-guide-read">READ IT ONLINE</a>
+            <a class="sk-conf-btn sk-conf-btn-ghost" data-cv-href="nueva_tone_and_tighten_guide_pdf_url"
+               target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the soft reach-out =====================
+       FUNNEL-PLAN B4: "DM me and I'll send info and a coupon code, no pressure." No product is
+       named, because which one this funnel pushes is undecided, and because naming one here
+       would be the SHARK brand selling rather than routing. -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card sk-conf-card-flip">
+
+        <div class="sk-conf-card-media">
+          <div class="sk-conf-phone">
+            <div class="sk-conf-phone-screen">
+              <div class="sk-conf-phone-bar">
+                <span class="sk-conf-phone-who" data-cv-opt="nueva_rep_first_name"><span data-cv-val></span></span>
+              </div>
+              <div class="sk-conf-phone-body">
+                <p class="sk-conf-phone-day">Today</p>
+                <div class="sk-conf-bub sk-conf-bub-out">Got the guide, thank you. Starting W1 tomorrow 💪</div>
+                <div class="sk-conf-bub sk-conf-bub-in">Love that. W1 is the one everybody underestimates, go lighter than you think on the hinges.</div>
+                <div class="sk-conf-bub sk-conf-bub-out">Also, what do you take alongside it?</div>
+                <div class="sk-conf-bub sk-conf-bub-in">Happy to talk that through. No pressure either way, the guide works on its own.</div>
+                <div class="sk-conf-phone-input">Message</div>
+              </div>
+            </div>
+          </div>
+          <p class="sk-conf-phone-cap">However far you want to take it, entirely up to you.</p>
+        </div>
+
+        <div class="sk-conf-card-copy">
+          <span class="sk-conf-badge">💬 One more thing</span>
+
+          <h2>Message The Person Who Sent You This.</h2>
+
+          <p>
+            Someone shared this guide with you because they thought it would help. They can answer
+            anything the guide leaves open: how to adjust the eight week schedule around your week,
+            what to do if a session feels too easy, and how to hit the protein number without
+            living in the kitchen.
+          </p>
+
+          <p>
+            They can also talk you through what Nueva makes, if and when you want that
+            conversation. Not before.
+          </p>
+
+          <p class="sk-conf-ask">Two things worth telling them: <u>which workout you started with,
+            and what your protein number came out at.</u></p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ===================== BAND 3 · the disclaimer ===================== -->
+  <!-- ===================== BAND 4 · the disclaimer ===================== -->
   <section class="sk-conf-foot">
     <div class="sk-conf-wrap">
-      <p>The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
-      <p>We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
-      <p>Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
-      <p>These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding hormone support, weight, or any other outcome.</p>
-      <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+      <p>This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>
+      <p>We are not physicians, registered dietitians, physiotherapists, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+      <p>Consult your physician or a qualified healthcare provider before beginning any exercise or nutrition program, especially if you are pregnant, nursing, have an injury or an existing medical condition, or take medication. Stop any exercise that causes pain.</p>
+      <p>Individual results vary and no particular outcome is guaranteed.</p>
+      <p>These statements have not been evaluated by the Food and Drug Administration. Nueva products are not intended to diagnose, treat, cure or prevent any disease.</p>
     </div>
   </section>
 </div>

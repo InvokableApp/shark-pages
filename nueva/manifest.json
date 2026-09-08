@@ -40,6 +40,30 @@
       "elementId": "custom-code-ut8ghkhppd",
       "elementTitle": "ignyt-sample-confirmation",
       "pattern": "A"
+    },
+    {
+      "path": "how-to/n-snow-slim-quiz",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "YdBH1TTTpSzid8CjLOIA",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "How To Use This Funnel",
+      "pattern": "A"
+    },
+    {
+      "path": "how-to/n-tone-and-tighten-guide-funnel",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "cVUCMh8UlnIYKALSyFpb",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "How To Use This Funnel",
+      "pattern": "A"
+    },
+    {
+      "path": "how-to/n-free-revive-sample-funnel",
+      "funnelId": "9tN56Bs7l5GablgISUJx",
+      "pageId": "Oiz3kjCIxkv7ha8OJN46",
+      "elementId": "custom-code-4qtlemkgy2",
+      "elementTitle": "nueva-free-ignyt-sample",
+      "pattern": "A"
     }
   ],
   "installs": [
