@@ -1,0 +1,83 @@
+{
+ "system": "beneve",
+ "funnel": "how-to",
+ "page": "b-natural-foods-guide",
+ "funnelName": "Natural GLP Foods Guide",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+ "logoAlt": "Beneve Shark, AI Marketing System",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How this funnel works",
+   "vimeo": "1216518109",
+   "tease": "A walkthrough of the funnel, how it works and what your leads experience.",
+   "poster": "https://i.vimeocdn.com/video/2187972177-e62407e85649f3f3c1681804c8d7d3522c395c3458ecce89083148131aca2f89-d_1280"
+  },
+  {
+   "icon": "book",
+   "title": "Driving traffic to this funnel",
+   "vimeo": "1219006718",
+   "tease": "Where the traffic comes from and how to send it here.",
+   "poster": "https://i.vimeocdn.com/video/2191092849-2899fe56b1a37bbc81cebcbef79ea1194e535a62f6168316b8d49a5cec34fe74-d_1280"
+  }
+ ],
+ "links": [
+  {
+   "icon": "pdf",
+   "title": "The guide PDF",
+   "primary": true,
+   "tease": "Print it, or send the link straight to someone who asked for it.",
+   "label": "Download the PDF",
+   "url": "https://{{custom_values.beneve_glp_foods_guide_pdf_url}}"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/gszpkrgjxsn7fga"
+  },
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "primary": false,
+   "tease": "What to say to leads from this funnel, and how to follow up so they actually answer.",
+   "label": "Open the scripts",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/glp-foods-guide-scripts"
+  },
+  {
+   "icon": "chat",
+   "title": "Opportunity scripts",
+   "primary": false,
+   "tease": "For anyone who asks what you actually do, however they got to the question.",
+   "label": "Open the opportunity scripts",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/scripts"
+  },
+  {
+   "icon": "chat",
+   "title": "Product scripts",
+   "primary": false,
+   "tease": "How to talk about Renew, Luxe, Glutathione+ and the coffee, in label safe language.",
+   "label": "Open the product scripts",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/product-scripts"
+  },
+  {
+   "icon": "chat",
+   "title": "Objections and follow-ups",
+   "primary": false,
+   "tease": "The messages every funnel needs: silence, price, and asking for a referral.",
+   "label": "Open the additional scripts",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "primary": false,
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://{{custom_values.beneve_scripts_base_url}}/training-hub"
+  }
+ ],
+ "sub": "A free guide to the foods that support your body's own GLP-1 response."
+}
