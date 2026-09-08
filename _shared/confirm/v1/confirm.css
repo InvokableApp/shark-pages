@@ -723,3 +723,8 @@
 @media (max-width:860px){
   .sk-conf .sk-conf-card-media .sk-conf-frame-portrait{max-height:min(520px,58vh);max-width:270px}
 }
+
+/* [hidden] must win inside this component. Several rules below set display on .sk-conf
+   children, and a display rule beats the UA's [hidden]{display:none}, which would leave a
+   gated block visible while looking correct in the markup. Additive 2026-09-08. */
+.sk-conf [hidden]{display:none !important}

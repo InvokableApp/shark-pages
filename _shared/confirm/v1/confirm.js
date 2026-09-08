@@ -122,6 +122,104 @@
     cta.setAttribute("href", "sms:" + e164 + "?&body=" + encodeURIComponent(word));
   }
 
+  /* ── COPY, THEN GO ─ additive 2026-09-08 ────────────────────────────────────
+     Jeff: "when i click the button to messenger make it also put DISCOUNTED
+     GLUTATHIONE SAMPLE in my clipboard ... this works really well".
+
+     A CTA carrying a NON-EMPTY data-sk-copy puts that text on the clipboard and
+     THEN follows its href. The visitor lands in Messenger with the message already
+     copied, so the ask collapses to paste and send. The same pattern the Disruptor
+     campaign runs by hand ("message me the word SWAP") and the reason it converts.
+
+     ⚠️ ATTRIBUTE REUSED ON PURPOSE, AND THE EMPTY CASE IS NOT OURS. _shared/scripts,
+     _shared/howto and _shared/brief already ship [data-sk-copy] as a bare MARKER,
+     where the text comes from a sibling node. Those live on different components and
+     never load this file, but the empty-value guard below keeps the two meanings from
+     ever colliding if they meet.
+
+     ⚠️ NEVER STRAND THE VISITOR ON A CLIPBOARD PROMISE. Navigation happens on a hard
+     1200ms cap whether or not the write settles, and go() is idempotent, so a slow or
+     rejected clipboard costs a copy and never the click.
+
+     ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-copy] nodes
+     (checked across all four), so this binds nothing on them. */
+  function legacyCopy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { done(); }
+    document.body.removeChild(ta);
+  }
+
+  function copyThen(text, btn, after) {
+    var was = btn.textContent;
+    var done = function () {
+      btn.textContent = btn.getAttribute("data-copy-done") || "Copied. Paste it and send.";
+      /* let them SEE the confirmation before the page changes under them */
+      setTimeout(after, 550);
+      setTimeout(function () { btn.textContent = was; }, 1900);
+    };
+    /* the clipboard API needs a secure context, and a GHL page on a not-yet-SSL domain is
+       exactly where this would otherwise fail silently */
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacyCopy(text, done); });
+    } else legacyCopy(text, done);
+  }
+
+  function wireCopy(scope) {
+    if (scope.getAttribute("data-sk-copy-wired")) return;
+    scope.setAttribute("data-sk-copy-wired", "1");
+    scope.addEventListener("click", function (e) {
+      var t = e.target.closest ? e.target.closest("[data-sk-copy]") : null;
+      if (!t || !scope.contains(t)) return;
+      var text = (t.getAttribute("data-sk-copy") || "").trim();
+      if (!text) return;                    /* bare marker: not this component's contract */
+      var href = t.getAttribute("href");
+      e.preventDefault();
+      var went = false;
+      var go = function () { if (went) return; went = true; if (href) window.location.href = href; };
+      copyThen(text, t, go);
+      setTimeout(go, 1200);
+    });
+  }
+
+  /* ── REQUIRE A CUSTOM VALUE ─ additive 2026-09-08 ───────────────────────────
+     A node carrying data-sk-requires stays hidden unless that custom value is
+     actually set. The value arrives through the socket's data-cv-* bridge, because
+     GHL substitutes merge fields in ITS OWN html and never in a hosted block.
+
+     ⚠️ "SET" IS NOT "NON-EMPTY". Three different non-answers arrive here and all
+     three must fail:
+       ""                         the socket has no data-cv for it, or the CV is blank
+       "{{custom_values.x}}"      never substituted at all
+       "Paste the link that ..."  the ONBOARDING INSTRUCTION, which is the correct
+                                  resting value on a snapshot (CLAUDE.md, Account TYPES)
+     The instruction is the dangerous one: it contains the literal example
+     "messenger.com/t/yourhandle", so any regex looking for a messenger URL passes it.
+     What separates a real value from prose is WHITESPACE, so that is the first test.
+
+     ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-requires]
+     nodes, so this reveals and hides nothing on them. */
+  function valueIsSet(v) {
+    v = (v || "").trim();
+    if (!v) return false;
+    if (/\s/.test(v)) return false;              /* prose, not a link */
+    if (v.indexOf("{{") > -1) return false;      /* never substituted */
+    if (/yourhandle|yourname|example\.com/i.test(v)) return false;  /* the instruction's sample */
+    return /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}\/\S+/i.test(v);
+  }
+
+  function wireRequires(scope) {
+    var nodes = scope.querySelectorAll("[data-sk-requires]");
+    for (var i = 0; i < nodes.length; i++) {
+      if (valueIsSet(nodes[i].getAttribute("data-sk-requires"))) nodes[i].removeAttribute("hidden");
+      else nodes[i].setAttribute("hidden", "hidden");
+    }
+  }
+
   function wire(scope) {
     /* ── popup CTA ──────────────────────────────────────────────────────────────
        Delegated from the block root so a button added to the markup later needs no
@@ -142,6 +240,8 @@
     }
 
     wireSms(scope);
+    wireCopy(scope);
+    wireRequires(scope);
 
     var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
     for (var i = 0; i < frames.length; i++) {

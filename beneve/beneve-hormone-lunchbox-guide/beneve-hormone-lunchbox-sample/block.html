@@ -78,13 +78,41 @@
 
                ⚠️ This uses only shared classes. block.css on this page is palette-only by
                contract, so nothing here may need a new rule. -->
+          <!-- ⚠️ HIDDEN UNTIL THE REP HAS A MESSENGER LINK. data-sk-requires carries the custom
+               value; the loader fills it from the socket's data-cv-* (GHL substitutes the SOCKET,
+               never this markup), and confirm.js reveals the block only when the value is a real
+               handle rather than empty, unsubstituted, or the onboarding instruction.
+
+               This is why it is safe on a snapshot and on any account whose rep does not use
+               Facebook: they simply never see the offer, instead of seeing a button that opens a
+               conversation with nobody. Jeff, 2026-09-08: "if the cv isnt set this button doesnt
+               appear" / "so if user doesnt have a facebook this isnt in the funnel?" Correct.
+
+               ⚠️ DEFAULT HIDDEN, REVEALED BY JS, and that direction is deliberate. The other way
+               round (visible, hidden by JS) flashes the offer on every unset account before the
+               script runs, and shows it forever if the script never loads. Failing closed on a
+               dead script costs an upsell; failing open costs a lead. -->
+          <div class="sk-conf-dm" data-sk-requires="{{custom_values.beneve_rep_messenger}}" hidden>
+
           <p class="sk-conf-ask">
             No text yet? <u>Message me and I will send your link over myself.</u>
           </p>
 
+          <!-- The words are NAMED here as well as copied. If the clipboard write is refused,
+               and it can be on an insecure context or a locked-down browser, the visitor can
+               still read what to type instead of arriving in Messenger with nothing. -->
+          <p>
+            Tap below and we will copy the message <b>DISCOUNTED GLUTATHIONE SAMPLE</b> for you.
+            In Messenger, just paste it and hit send.
+          </p>
+
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" href="b-hormone-sample-dm-redirect">SEND ME A MESSAGE</a>
+            <a class="sk-conf-btn" href="b-hormone-sample-dm-redirect"
+               data-sk-copy="DISCOUNTED GLUTATHIONE SAMPLE"
+               data-copy-done="Copied. Paste it and send.">SEND ME A MESSAGE</a>
           </div>
+
+          </div><!-- /.sk-conf-dm -->
 
           <p class="sk-conf-fine">* Limited time promotion ONLY, limited to the first 50 people.&nbsp;*</p>
         </div>
