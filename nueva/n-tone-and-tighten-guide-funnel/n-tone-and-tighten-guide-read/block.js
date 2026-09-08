@@ -3,7 +3,7 @@
  * Behaviour for the read-online guide. Vanilla only: a hosted block is injected with innerHTML,
  * so a <script src> inside the markup never executes (HOSTED-BLOCKS-SOP).
  *
- *  0. merge fields   substitute a custom-value merge field from the socket's data-cv-* bridge
+ *  0. custom values  fill the optional text + link from the socket's data-cv bridge's data-cv-* bridge
  *  1. buy            point the CTAs at the funnel's redirect step (tracked), fall back to the shop
  *  2. nav            smooth scroll for the sticky jump nav (scroll-behavior lives on the page's
  *                    html, which a hosted block must not touch, so it is done here instead)
@@ -39,41 +39,37 @@
     return v;
   }
   (function () {
-    var re = /\{\{\s*custom_values\.([a-z0-9_]+)\s*\}\}/gi;
+    /* ⚠️ THE LOADER HAS ALREADY SUBSTITUTED EVERY MERGE FIELD by the time this runs, and it does
+       so RAW: `html.replace(MERGE, function (_, key) { return el.getAttribute("data-cv-" + key) })`
+       with no notion of a value that is not filled in yet. On a snapshot account every custom
+       value holds its own instruction text, so a merge field written straight into the copy ships
+       as "Shared with you by Enter YOUR first name." and a merge field written into an href ships
+       as a link to "https://paste the link to the guide pdf here...".
 
-    // hrefs first: an unfilled link must not ship as a dead "https://{{...}}"
-    var links = root.querySelectorAll("a[href]");
-    for (var i = 0; i < links.length; i++) {
-      var h = links[i].getAttribute("href");
-      if (!h || h.indexOf("{{") === -1) continue;
-      var filled = h.replace(re, function (_, k) { return cv(k); });
-      if (/\{\{|^https?:\/\/\s*$/.test(filled) || filled === "https://") {
-        // Nothing behind it. Remove the item rather than leave a link to nowhere: the nav
-        // Print button with no PDF url would otherwise open "https://".
-        links[i].parentNode.removeChild(links[i]);
-      } else {
-        links[i].setAttribute("href", filled);
-      }
-    }
+       So nothing optional is written as a merge field in this block's markup. The root carries the
+       values as data-cv-* (the loader fills those attributes, and push-block derives the socket's
+       list from them), and the two constructs below read them through cv(), which treats empty,
+       still-unsubstituted and instruction text alike as NOT filled. */
 
-    // then text. An element that CONTAINS a merge field is marked data-cv-opt by the
-    // generator, so "not filled" has one obvious behaviour: hide the element. Guessing from
-    // the leftover string instead ("is there a word after 'Shared with you by'?") is how you
-    // end up shipping a dangling preposition, so the markup says it rather than the script
-    // inferring it.
+    // Optional TEXT: <el data-cv-opt="key"> ... <span data-cv-val></span> ... </el>
+    // Filled, the span gets the value. Unfilled, the whole element is hidden, because
+    // "Shared with you by" on its own is worse than no line at all.
     var opt = root.querySelectorAll("[data-cv-opt]");
     for (var j = 0; j < opt.length; j++) {
-      var el = opt[j], missing = false;
-      el.innerHTML = el.innerHTML.replace(re, function (_, k) { var v = cv(k); if (!v) missing = true; return v; });
-      if (missing) el.style.display = "none";
+      var el = opt[j], v = cv(el.getAttribute("data-cv-opt"));
+      if (!v) { el.style.display = "none"; continue; }
+      var slot = el.querySelector("[data-cv-val]");
+      if (slot) slot.textContent = v; else el.textContent = v;
     }
 
-    // anything else that still carries braces is a merge field nobody marked. Strip the
-    // literal rather than show a reader "{{custom_values.nueva_rep_first_name}}".
-    var walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-    var stray = [], n;
-    while ((n = walk.nextNode())) if (n.nodeValue.indexOf("{{") !== -1) stray.push(n);
-    for (var s2 = 0; s2 < stray.length; s2++) stray[s2].nodeValue = stray[s2].nodeValue.replace(re, function (_, k) { return cv(k); });
+    // Optional LINK: <a data-cv-href="key"> with no href at all until this resolves one.
+    // Unfilled, the anchor is removed rather than left pointing at nothing.
+    var lk = root.querySelectorAll("[data-cv-href]");
+    for (var i = 0; i < lk.length; i++) {
+      var val = cv(lk[i].getAttribute("data-cv-href"));
+      if (!val) { if (lk[i].parentNode) lk[i].parentNode.removeChild(lk[i]); continue; }
+      lk[i].setAttribute("href", /^https?:\/\//i.test(val) ? val : "https://" + val.replace(/^\/+/, ""));
+    }
   })();
 
   // ---- 1. purchase CTAs ----------------------------------------------------
