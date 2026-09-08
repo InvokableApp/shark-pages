@@ -412,3 +412,9 @@
   .sk-nva-guide .grocery-cols{ column-count:1 !important; }
   .sk-nva-guide .gnav{ gap:9px 12px; padding:10px 14px; } .sk-nva-guide .gnav .brand{ width:100%; margin-bottom:2px; }
 }
+
+/* The legal footer. Small, quiet, and NOT hidden: this is the page's only statement that the
+   guide is general information rather than medical or nutritional advice, and it carries the
+   FDA line that has to appear anywhere a Nueva product is mentioned. */
+.sk-nva-guide .guide-fine{ background:var(--cream); }
+.sk-nva-guide .guide-fine p{ font-size:11px; line-height:1.6; color:var(--grey); margin:0 0 .6em; }
