@@ -1,0 +1,31 @@
+/* nueva/n-your-marketing-links/n-marketing-links
+ * Palette only; the hub's design lives in _shared/links-hub/v1 and is shared by every rep hub.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/links-hub/v1/hub.css");
+
+.sk-nueva-n-your-marketing-links-n-marketing-links {
+  --sk-brand:      #0ABAB5;   /* --nuevag33-teal / --promo-bg */
+  --sk-brand-deep: #079F9B;   /* their deep teal              */
+  --sk-brand-tint: #E8F8F6;   /* their teal wash              */
+  --sk-ink:        #071116;   /* --nuevasec2-ink              */
+  --sk-ink-soft:   #46595C;
+  --sk-ink-faint:  #8299A0;
+  --sk-paper:      #F7FBFC;   /* --nuevacustomerfavs-paper    */
+  --sk-line:       #D2D9DB;   /* --nuevacustomerfavs-line     */
+  --sk-line-soft:  #E4ECEE;
+  --sk-card:       #ffffff;
+
+  /* the shared component's three defaults carry an olive cast; override them */
+  --sk-shadow-rgb:    7,17,22;
+  --sk-brand-deepest: #04615F;
+  --sk-wash:          #F9FDFD;
+  --sk-wash-alt:      #F6FCFC;
+
+  /* the same values as RGB triplets, for the translucent surfaces */
+  --sk-brand-rgb:      10,186,181;
+  --sk-brand-deep-rgb: 7,159,155;
+  --sk-ink-rgb:        7,17,22;
+  --sk-paper-rgb:      247,251,252;
+  --sk-line-rgb:       210,217,219;
+  --sk-bar-rgb:        246,251,252;
+}
