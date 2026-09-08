@@ -1,44 +1,38 @@
 {
- "system": "glp",
- "funnel": "how-to",
- "page": "glp-free-ignyt-sample",
- "funnelName": "Free IGNYT Sample",
- "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
- "logoAlt": "GLP Shark",
- "videos": [
-  {
-   "icon": "book",
-   "title": "How this funnel works",
-   "tease": "A quick breakdown of this funnel, how it works & what your leads experience.",
-   "vimeo": "1223695508",
-   "poster": "https://i.vimeocdn.com/video/2196976232-8cb3c4eab88fc9762a41bbb91da0a5b2a7494147bb7c172f6e0683698f31c973-d_1280.jpg"
-  }
+ "_why": [
+  "Rewritten for Nueva 2026-09-09. Every one of these three pages was the donor's, wholesale:",
+  "donor system, donor logo, donor funnel name, donor copy, and links that pointed at ANOTHER",
+  "COMPANY'S live properties. A Nueva rep opening 'How to use this funnel' was being sent to",
+  "glpshark.com/training-hub and shown Beneve's and GLP's funnel walkthrough videos. That is not",
+  "a cosmetic donor trace, it hands your rep someone else's material.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE. The three that were here belong to Beneve and GLP and are hosted",
+  "on their Vimeo accounts. No Nueva walkthrough has been recorded, and a how-to page with no",
+  "video is honest where a how-to page with a competitor's video is not. Add them here when they",
+  "exist and re-run the generator.",
+  "",
+  "SCRIPTS CARDS ARE ABSENT ON PURPOSE. They pointed at {{custom_values.beneve_scripts_base_url}},",
+  "a custom value that exists in NO account, so all four buttons per page resolved to",
+  "'https:///skin-diagnostic-scripts'. Nueva has no scripts hub yet (nueva_sample_scripts_url is",
+  "empty and there is no scripts funnel). Building one is the fix; pointing four cards at an empty",
+  "custom value would just be four dead links with a Nueva name on them."
  ],
+ "system": "nueva",
+ "funnel": "how-to",
+ "page": "n-free-revive-sample-funnel",
+ "funnelName": "Free Revive Sample",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
+ "videos": [],
  "links": [
   {
-   "icon": "chat",
-   "title": "Scripts and follow-up",
-   "tease": "What to say when you reach out to confirm their address, and how to follow up once the sample lands.",
-   "label": "Open the scripts",
-   "url": "https://glpshark.com/ignyt-sample-scripts",
-   "primary": true
-  },
-  {
-   "icon": "image",
-   "title": "Social imagery and ads",
-   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
-   "label": "Open the image library",
-   "url": "https://canva.link/qtfm73vucfijq5z",
-   "primary": false
-  },
-  {
-   "icon": "school",
-   "title": "Training hub",
-   "tease": "Every training for your marketing system in one place, not just this funnel.",
-   "label": "Open the training hub",
-   "url": "https://glpshark.com/training-hub",
-   "primary": false
+   "icon": "link",
+   "title": "Your marketing links",
+   "primary": false,
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
   }
  ],
- "sub": "Watch the training, grab the assets, then start sending traffic."
+ "sub": "A free sample offer that captures the lead and hands you the conversation. Your job is the follow up."
 }

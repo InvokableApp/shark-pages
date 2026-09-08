@@ -1,83 +1,54 @@
 {
- "system": "beneve",
+ "_why": [
+  "Rewritten for Nueva 2026-09-09. Every one of these three pages was the donor's, wholesale:",
+  "donor system, donor logo, donor funnel name, donor copy, and links that pointed at ANOTHER",
+  "COMPANY'S live properties. A Nueva rep opening 'How to use this funnel' was being sent to",
+  "glpshark.com/training-hub and shown Beneve's and GLP's funnel walkthrough videos. That is not",
+  "a cosmetic donor trace, it hands your rep someone else's material.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE. The three that were here belong to Beneve and GLP and are hosted",
+  "on their Vimeo accounts. No Nueva walkthrough has been recorded, and a how-to page with no",
+  "video is honest where a how-to page with a competitor's video is not. Add them here when they",
+  "exist and re-run the generator.",
+  "",
+  "SCRIPTS CARDS ARE ABSENT ON PURPOSE. They pointed at {{custom_values.beneve_scripts_base_url}},",
+  "a custom value that exists in NO account, so all four buttons per page resolved to",
+  "'https:///skin-diagnostic-scripts'. Nueva has no scripts hub yet (nueva_sample_scripts_url is",
+  "empty and there is no scripts funnel). Building one is the fix; pointing four cards at an empty",
+  "custom value would just be four dead links with a Nueva name on them."
+ ],
+ "system": "nueva",
  "funnel": "how-to",
- "page": "b-natural-foods-guide",
- "funnelName": "Natural GLP Foods Guide",
- "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
- "logoAlt": "Beneve Shark, AI Marketing System",
- "videos": [
+ "page": "n-tone-and-tighten-guide-funnel",
+ "funnelName": "Tone and Tighten Guide",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
+ "videos": [],
+ "links": [
   {
    "icon": "book",
-   "title": "How this funnel works",
-   "vimeo": "1216518109",
-   "tease": "A walkthrough of the funnel, how it works and what your leads experience.",
-   "poster": "https://i.vimeocdn.com/video/2187972177-e62407e85649f3f3c1681804c8d7d3522c395c3458ecce89083148131aca2f89-d_1280"
+   "title": "The guide itself",
+   "primary": true,
+   "tease": "Read what your leads receive, so you know what they have in front of them when they reply.",
+   "label": "Read the guide",
+   "url": "https://{{custom_values.nueva_main_url}}/n-tone-and-tighten-guide-read"
   },
   {
    "icon": "book",
-   "title": "Driving traffic to this funnel",
-   "vimeo": "1219006718",
-   "tease": "Where the traffic comes from and how to send it here.",
-   "poster": "https://i.vimeocdn.com/video/2191092849-2899fe56b1a37bbc81cebcbef79ea1194e535a62f6168316b8d49a5cec34fe74-d_1280"
-  }
- ],
- "links": [
-  {
-   "icon": "pdf",
    "title": "The guide PDF",
-   "primary": true,
-   "tease": "Print it, or send the link straight to someone who asked for it.",
-   "label": "Download the PDF",
+   "primary": false,
+   "tease": "The downloadable version the delivery email sends.",
+   "label": "Open the PDF",
    "url": "https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}"
   },
   {
-   "icon": "image",
-   "title": "Ads and social content",
+   "icon": "link",
+   "title": "Your marketing links",
    "primary": false,
-   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
-   "label": "Open the Canva file",
-   "url": "https://canva.link/gszpkrgjxsn7fga"
-  },
-  {
-   "icon": "chat",
-   "title": "Scripts and follow-up",
-   "primary": false,
-   "tease": "What to say to leads from this funnel, and how to follow up so they actually answer.",
-   "label": "Open the scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/glp-foods-guide-scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Opportunity scripts",
-   "primary": false,
-   "tease": "For anyone who asks what you actually do, however they got to the question.",
-   "label": "Open the opportunity scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Product scripts",
-   "primary": false,
-   "tease": "How to talk about Renew, Luxe, Glutathione+ and the coffee, in label safe language.",
-   "label": "Open the product scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/product-scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Objections and follow-ups",
-   "primary": false,
-   "tease": "The messages every funnel needs: silence, price, and asking for a referral.",
-   "label": "Open the additional scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
-  },
-  {
-   "icon": "school",
-   "title": "Training hub",
-   "primary": false,
-   "tease": "Every training for your marketing system in one place, not just this funnel.",
-   "label": "Open the training hub",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/training-hub"
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
   }
  ],
- "sub": "A free guide to the foods that support your body's own GLP-1 response."
+ "sub": "A free workout and food guide: eight twenty minute sessions and twelve high protein recipes. Your job is the follow up."
 }

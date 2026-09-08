@@ -1,4 +1,4 @@
-/* GLP / how-to / glp-free-ignyt-sample
+/* NUEVA / how-to / n-free-revive-sample-funnel
  *
  * Loads the two shared engines and nothing else. Every how-to page ships this
  * exact file: behaviour is shared, so a fix there reaches every page on one push.

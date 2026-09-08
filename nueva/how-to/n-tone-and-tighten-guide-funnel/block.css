@@ -1,19 +1,24 @@
-/* nueva/how-to/n-tone-and-tighten-guide-funnel
- * FORKED from beneve/how-to/b-natural-foods-guide. Palette is Nueva's, declared on the block's own scope class so
- * no shared brand swatch is touched. The @import pins the shared component version: do not bump
- * it here, that is a deliberate migration (see _shared/README.md).
+/* NUEVA / how-to / n-tone-and-tighten-guide-funnel
+ *
+ * The design lives in _shared/howto/v1/howto.css, scoped under .sk-howto, and is
+ * shared by every how-to page in every system. This file declares ONLY the nine
+ * palette tokens, on the block's own scope class, and they cascade into the
+ * shared components. Per SHARK-DESIGN-SYSTEM §2 and §7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
  */
 @import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
 
-.sk-nueva-how-to-n-tone-and-tighten-guide-funnel{
-  --sk-brand:    #0abab5;
-  --sk-brand-deep: #00aaa6;
-  --sk-brand-tint: #e8f8f6;
-  --sk-card:     #ffffff;
-  --sk-ink:      #141313;
-  --sk-ink-faint: #d5dfe1;
-  --sk-ink-soft: #4a5560;
-  --sk-line:     #d5dfe1;
-  --sk-line-soft: #e8f8f6;
-  --sk-paper:    #fcfeff;
+.sk-nueva-how-to-n-tone-and-tighten-guide-funnel {
+  --sk-brand:      #0ABAB5;
+  --sk-brand-deep: #087F7B;
+  --sk-brand-tint: #E8F8F6;
+  --sk-ink:        #141313;
+  --sk-ink-soft:   #4A5560;
+  --sk-ink-faint:  #8AA0A4;
+  --sk-paper:      #FCFEFF;
+  --sk-line:       #D5DFE1;
+  --sk-line-soft:  #E9F1F2;
+  --sk-card:       #FFFFFF;
 }

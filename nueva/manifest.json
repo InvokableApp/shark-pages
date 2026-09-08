@@ -8,6 +8,38 @@
       "elementId": "custom-code-8di8XCNqb2",
       "elementTitle": "Custom Code",
       "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "hXfjcOPbzYYUomgJ18Gd",
+      "elementId": "custom-code-qkk6cijr4d",
+      "elementTitle": "nueva-skin-renew-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-snow-collagen-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "F9Ty9dcvFqZndc5xRpGR",
+      "elementId": "custom-code-7bp0fb9vqd",
+      "elementTitle": "nueva-skin-luxe-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-body-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "fRgULyBOTgMgLxZZ3H7X",
+      "elementId": "custom-code-cruc8dp6c3",
+      "elementTitle": "nueva-skin-glutathione-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-free-revive-sample-funnel/n-revive-sample-confirmed",
+      "funnelId": "9tN56Bs7l5GablgISUJx",
+      "pageId": "gIlFbSSTZkBx0uS2o6yu",
+      "elementId": "custom-code-ut8ghkhppd",
+      "elementTitle": "ignyt-sample-confirmation",
+      "pattern": "A"
     }
   ],
   "installs": [

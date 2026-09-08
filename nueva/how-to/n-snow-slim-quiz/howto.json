@@ -1,44 +1,38 @@
 {
- "system": "beneve",
+ "_why": [
+  "Rewritten for Nueva 2026-09-09. Every one of these three pages was the donor's, wholesale:",
+  "donor system, donor logo, donor funnel name, donor copy, and links that pointed at ANOTHER",
+  "COMPANY'S live properties. A Nueva rep opening 'How to use this funnel' was being sent to",
+  "glpshark.com/training-hub and shown Beneve's and GLP's funnel walkthrough videos. That is not",
+  "a cosmetic donor trace, it hands your rep someone else's material.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE. The three that were here belong to Beneve and GLP and are hosted",
+  "on their Vimeo accounts. No Nueva walkthrough has been recorded, and a how-to page with no",
+  "video is honest where a how-to page with a competitor's video is not. Add them here when they",
+  "exist and re-run the generator.",
+  "",
+  "SCRIPTS CARDS ARE ABSENT ON PURPOSE. They pointed at {{custom_values.beneve_scripts_base_url}},",
+  "a custom value that exists in NO account, so all four buttons per page resolved to",
+  "'https:///skin-diagnostic-scripts'. Nueva has no scripts hub yet (nueva_sample_scripts_url is",
+  "empty and there is no scripts funnel). Building one is the fix; pointing four cards at an empty",
+  "custom value would just be four dead links with a Nueva name on them."
+ ],
+ "system": "nueva",
  "funnel": "how-to",
- "page": "b-skin-diagnostic",
- "funnelName": "Skin Diagnostic",
- "logo": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
- "logoAlt": "Beneve Shark, AI Marketing System",
+ "page": "n-snow-slim-quiz",
+ "funnelName": "Snow Slim Quiz",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
  "videos": [],
  "links": [
   {
-   "icon": "chat",
-   "title": "Scripts and follow-up",
-   "primary": true,
-   "tease": "What to say to leads from this funnel, and how to follow up so they actually answer.",
-   "label": "Open the scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/skin-diagnostic-scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Opportunity scripts",
+   "icon": "link",
+   "title": "Your marketing links",
    "primary": false,
-   "tease": "For anyone who asks what you actually do, however they got to the question.",
-   "label": "Open the opportunity scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Product scripts",
-   "primary": false,
-   "tease": "How to talk about Renew, Luxe, Glutathione+ and the coffee, in label safe language.",
-   "label": "Open the product scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/product-scripts"
-  },
-  {
-   "icon": "chat",
-   "title": "Objections and follow-ups",
-   "primary": false,
-   "tease": "The messages every funnel needs: silence, price, and asking for a referral.",
-   "label": "Open the additional scripts",
-   "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
   }
  ],
- "sub": "A 45 second quiz that hands every lead a free 90 day skin routine. Your job is the follow up."
+ "sub": "A short quiz that routes every lead to the Nueva products that suit them. Your job is the follow up."
 }
