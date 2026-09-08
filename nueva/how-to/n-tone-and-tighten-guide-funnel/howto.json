@@ -28,7 +28,7 @@
    "primary": true,
    "tease": "Print it, or send the link straight to someone who asked for it.",
    "label": "Download the PDF",
-   "url": "https://{{custom_values.beneve_glp_foods_guide_pdf_url}}"
+   "url": "https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}"
   },
   {
    "icon": "image",
