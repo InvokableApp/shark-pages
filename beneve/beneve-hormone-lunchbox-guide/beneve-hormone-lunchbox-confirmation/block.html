@@ -2,6 +2,47 @@
   beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-confirmation
   The Confirmation step of the Hormone Lunchbox funnel: what the opt-in form redirects to.
 
+  ── TIGHTENED 2026-09-08 TO MATCH VARIANT B ────────────────────────────────────────────────
+  Jeff: "can we tighten that up like we did with the facebook group one". B was built to a
+  higher standard than the page it is testing against, which had quietly broken the test: a
+  B win could have been the fold position or the sentence length rather than the offer. Five
+  changes, all of them bringing A up to B rather than changing what A sells.
+
+  1. MOBILE FOLD. The button sat at 1879px unfixed and 1505px here, 653px BELOW a 393x852
+     iPhone fold, for the same reason B did: a portrait video frame standing between the
+     reader and the CTA in a single column. Same fix as B, `sk-conf-top-tight` +
+     `sk-conf-card-cta-first` from _shared/confirm/v1. Now 454px, above the fold by 398px,
+     and within 52px of B's 506px. Desktop re-checked at 1280x900, also above.
+     ⚠️ RE-MEASURE IF YOU EDIT THIS COPY. A third headline line or one more sentence in the
+     ask puts it back under. B carries the same warning for the same reason.
+
+  2. THE HEADLINE NAMES THE OFFER. It read "Eating For Your Hormones Is One Way. This Is The
+     Other.", which is a riddle where a sentence was needed, and the reader has to reach the
+     third line of the paragraph to find out what is being offered. The standing rule
+     (CLAUDE.md, shark-brand-voice §Opt-in and quiz pages) is that the headline says what the
+     thing IS. B's does: "Join Our Free Facebook Support Group."
+
+  3. ONE 48-WORD SENTENCE BECAME TWO. The offer and the entire supplement spec were a single
+     run-on. The offer is now its own sentence and the facts are their own, which is the shape
+     B's two paragraphs already had.
+
+  4. BUTTON REGISTER MATCHED. "YES! I want the discounted sample." against B's "JOIN OUR
+     PRIVATE GROUP" is a different voice, and voice is a second variable in a two-page test.
+     ⚠️ This is the one edit that touches the SELL rather than the clarity, and "YES! I want…"
+     is a deliberate direct-response device. Revert this line alone if that was the intent.
+
+  5. The kicker pointed at furniture ("Watch the short video below.") rather than at the offer.
+     B's points at the offer, so this one does too.
+
+  ⚠️ NOT CHANGED, AND NEEDS A DECISION: the badge still reads "🔥 Limited-time offer (50
+  available)". B had two claims pulled after they shipped because they were not true. Nobody
+  has confirmed that 50 is a real number or that the offer is genuinely time limited. It was
+  left exactly as found rather than quietly deleted, because removing a scarcity device changes
+  the offer and that is not a copy edit. If the number is not real, it has to go.
+
+  The FDA statement in band 3 stays and is correct HERE: this page sells a supplement, so it
+  needs the disclaimer B does not. B carries the peer-community line instead.
+
   REBUILT 2026-09-01 to Joe's live page, from screenshots. The previous version was the shipped
   GLP Foods shape: dark hero, a DIM explainer, a prose bridge band, three CTAs. Joe's is one
   screen and one decision. Two prose bands and three competing links are what a reader skims
@@ -42,7 +83,7 @@
 
   No em-dashes. Joe's page has three; they are rewritten, not copied.
 -->
-<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-bnv">
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-top-tight sk-conf-bnv">
 
   <!-- ===================== BAND 1 · the confirmation ===================== -->
   <section class="sk-conf-top">
@@ -58,14 +99,14 @@
         Check your email. If you do not see it there, check your <b>SPAM</b> folder.
       </p>
 
-      <p class="sk-conf-kicker">Watch the short video below.</p>
+      <p class="sk-conf-kicker">While you wait, there is a discounted sample pack below.</p>
     </div>
   </section>
 
   <!-- ===================== BAND 2 · the offer card ===================== -->
   <section class="sk-conf-offer">
     <div class="sk-conf-wrap">
-      <div class="sk-conf-card">
+      <div class="sk-conf-card sk-conf-card-cta-first">
 
         <!-- ── media cell ──────────────────────────────────────────────────────
              Click-to-load facade, wired by _shared/confirm/v1/confirm.js. The clip is a
@@ -93,20 +134,25 @@
         <div class="sk-conf-card-copy">
           <span class="sk-conf-badge">🔥 Limited-time offer (50 available)</span>
 
-          <h2>Eating For Your Hormones Is One Way. This Is The Other.</h2>
+          <h2>Try Glutathione+ For Four Days, At A Discount.</h2>
 
           <p>
-            Your recipe guide covers the food. For the days there is no time to cook, our recommended
-            partner, <b>Beneve</b>, is offering a discounted 4 day sample pack of <b>Glutathione+</b>, an
-            antioxidant blend featuring Glutathione, DIM and Xanthohumol, formulated to support cellular
-            health, hormone health and overall wellness.
+            Your recipe guide covers the food. This is for the days there is no time to cook: a four
+            day sample pack of <b>Glutathione+</b> from our recommended partner, <b>Beneve</b>, at a
+            discounted rate.
           </p>
 
-          <p class="sk-conf-ask">Want to try it? <u>Click YES to claim the discounted rate...</u></p>
+          <p>
+            One capsule a day. It is an antioxidant blend of Glutathione, DIM and Xanthohumol,
+            formulated to support cellular health, hormone health and overall wellness. Four days, so
+            you can try it before you decide anything.
+          </p>
+
+          <p class="sk-conf-ask">Want to try it? <u>Click below to claim the discounted rate...</u></p>
 
           <div class="sk-conf-btns">
             <a class="sk-conf-btn" href="b-hormone-lunchbox-sample">
-              YES! I want the discounted sample.
+              CLAIM THE DISCOUNTED SAMPLE
             </a>
           </div>
         </div>
