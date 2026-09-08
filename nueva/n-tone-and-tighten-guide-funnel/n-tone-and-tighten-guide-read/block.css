@@ -82,7 +82,12 @@
 
 /* ---------- DIVIDERS ---------- */
 .sk-nva-guide .divider{ padding:0; background-size:cover; background-position:center; }
-.sk-nva-guide .divider-scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,24,16,.74) 0%, rgba(12,24,16,.28) 34%, rgba(12,24,16,0) 56%); }
+/* The scrim is sized for the donor's photography, which was dark and moody. Nueva's art
+   direction is bright daylight on white and pale blue, so the same gradient left white type
+   sitting on a near-white photograph and the divider titles were unreadable. Deeper, in the
+   brand's own deep teal, and carried further down the frame. */
+.sk-nva-guide .divider-scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,17,22,.80) 0%, rgba(7,17,22,.62) 46%, rgba(7,17,22,.42) 72%, rgba(7,17,22,.34) 100%); }
+.sk-nva-guide .divider-title,.sk-nva-guide .divider-eyebrow,.sk-nva-guide .divider-blurb{ text-shadow:0 1px 18px rgba(7,17,22,.55); }
 .sk-nva-guide .divider-top{ position:relative; padding:.95in .9in; color:var(--cream); }
 .sk-nva-guide .divider-eyebrow{ font-size:10px; color:var(--green); margin-bottom:.22in; }
 .sk-nva-guide .divider-title{ font-family:var(--sk-serif); font-weight:700; font-size:62px; line-height:1; }
@@ -418,3 +423,19 @@
    FDA line that has to appear anywhere a Nueva product is mentioned. */
 .sk-nva-guide .guide-fine{ background:var(--cream); }
 .sk-nva-guide .guide-fine p{ font-size:11px; line-height:1.6; color:var(--grey); margin:0 0 .6em; }
+
+
+/* Per-recipe print button, added by block.js. Printing ONE recipe is a different job from the
+   nav's whole-guide PDF, so it lives on the card and is styled as a quiet secondary. */
+.sk-nva-guide .recipe-print{ display:inline-block; margin-top:1.1em; padding:.55em 1.1em; font-family:var(--sk-sans);
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; cursor:pointer;
+  color:var(--green-deep); background:transparent; border:1px solid var(--hair); border-radius:999px; }
+.sk-nva-guide .recipe-print:hover{ border-color:var(--green); color:var(--green); }
+
+/* While one recipe is printing, everything else in the guide is hidden. Without this the reader
+   who asked for one recipe gets all 28 sections. */
+@media print{
+  .sk-nva-guide[data-printing] .page{ display:none !important; }
+  .sk-nva-guide[data-printing] .page[data-print]{ display:block !important; }
+  .sk-nva-guide[data-printing] .gnav,.sk-nva-guide .recipe-print{ display:none !important; }
+}
