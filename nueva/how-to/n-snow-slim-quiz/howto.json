@@ -11,7 +11,7 @@
   "video is honest where a how-to page with a competitor's video is not. Add them here when they",
   "exist and re-run the generator.",
   "",
-  "SCRIPTS CARDS ARE ABSENT ON PURPOSE. They pointed at {{custom_values.beneve_scripts_base_url}},",
+  "SCRIPTS CARDS ARE ABSENT ON PURPOSE. They pointed at a beneve_scripts_base_url merge field,",
   "a custom value that exists in NO account, so all four buttons per page resolved to",
   "'https:///skin-diagnostic-scripts'. Nueva has no scripts hub yet (nueva_sample_scripts_url is",
   "empty and there is no scripts funnel). Building one is the fix; pointing four cards at an empty",
