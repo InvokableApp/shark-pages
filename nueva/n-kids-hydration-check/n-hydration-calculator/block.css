@@ -1,0 +1,21 @@
+/* nueva/n-kids-hydration-check/n-hydration-calculator — palette only.
+   Design lives in _shared/calculator/v1/calc.css under .sk-calc. This file declares the FULL
+   token set on this preset's own scope class, because the shared component falls back silently
+   to its defaults for anything omitted (there is no partial mode).
+   Hexes measured from nuevalife.com/nuevaassets/css/style.css, 2026-09-08. #0ABAB5 is the brand
+   colour, 116 uses. Nueva's palette is monochrome teal, so the accent roles carry deep and light
+   teal rather than a second hue. */
+.sk-calc.sk-calc-nva-kids{
+  --sk-brand:#0abab5;
+  --sk-brand-d:#00aaa6;
+  --sk-accent:#087f7b;
+  --sk-tint:#e8f8f6;
+  --sk-ink:#141313;
+  --sk-ink-d:#102a2a;
+  --sk-body:#4a5560;
+  --sk-paper:#fcfeff;
+  --sk-card:#ffffff;
+  --sk-line:#d5dfe1;
+  --sk-faint:#7b8792;
+  --sk-sans:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}

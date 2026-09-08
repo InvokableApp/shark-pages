@@ -1,0 +1,159 @@
+<!--
+  nueva/n-kids-hydration-check/n-hydration-calculator
+  The kids' hydration calculator. First preset of the shared calculator mechanism.
+
+  WHAT THIS IS FOR. The Nueva strategy doc's second angle on the Revive free-sample funnel:
+  "run a nutrition type calculator based on is your child getting enough electrolytes, and then
+  on the inside page say if they aren't, consider supplementing." The avatar is a parent who is
+  ALREADY conscious of this, which is what makes them worth reaching.
+
+  ⚠️ WHAT IT DELIBERATELY DOES NOT DO. It does not tell a parent their child is deficient, low on
+  electrolytes, or in need of a supplement. It estimates how much FLUID a child of that size and
+  activity level needs on a day like the one described, using a stated general guideline, and
+  compares it to what the parent said they drink. That is a hydration HABITS check. Anything
+  stronger is a health assessment of a named child by a marketing funnel, which is not something
+  this system should ever ship.
+
+  ⚠️ NOT REVIEWED YET. The formula and its constants are a reasonable starting point, not an
+  approved one. Every number a reviewer would want to change lives in `constants` and `derive`
+  below, never in code, so changing them is a one line edit and shows up plainly in a diff:
+    - Holliday-Segar 100/50/20 mL per kg is the standard paediatric maintenance-fluid estimate.
+    - activityMlPerHour and heatMultiplier are OURS. They are the most likely to need revision.
+    - the age to weight table is population median, and a real child can sit far from it, which
+      is exactly why the weight question is offered first and the table is only a fallback.
+  Jeff and Joe: these are the numbers to argue with. → _shared/calculator/v1/README.md
+
+  ⚠️ COMPLIANCE, STILL OPEN. Marketing a supplement for children needs a yes from Nueva before a
+  word of this goes live. Nueva's own site is adult framed and carries the FDA disclaimer.
+  Flagged in NUEVASHARK/FUNNEL-PLAN.md B1/B2 and NOT resolved.
+
+  Design lives in _shared/calculator/v1/ under .sk-calc. This file holds the config and markup;
+  block.css holds only this preset's palette tokens. No em-dashes anywhere in the copy.
+-->
+<div class="sk-calc sk-calc-nva-kids">
+
+  <script type="application/json" class="sk-calc-config">
+  {
+    "nextLabel": "Continue",
+    "backLabel": "Back",
+    "restartLabel": "Check another child",
+    "calculatingMs": 900,
+
+    "steps": [
+      {
+        "key": "age",
+        "question": "How old is your child?",
+        "type": "choice",
+        "options": [
+          { "label": "2 to 3 years", "value": "2-3" },
+          { "label": "4 to 5 years", "value": "4-5" },
+          { "label": "6 to 7 years", "value": "6-7" },
+          { "label": "8 to 9 years", "value": "8-9" },
+          { "label": "10 to 11 years", "value": "10-11" },
+          { "label": "12 to 13 years", "value": "12-13" }
+        ]
+      },
+      {
+        "key": "weightKg",
+        "question": "About how much do they weigh?",
+        "help": "In kilograms. If you are not sure, skip it and we will use the average for their age.",
+        "type": "number",
+        "min": 8, "max": 90, "step": 0.5,
+        "unit": "kg",
+        "placeholder": "e.g. 24",
+        "skipLabel": "I am not sure, use the average"
+      },
+      {
+        "key": "activityHours",
+        "question": "On a busy day, how long are they running around?",
+        "help": "Sport, playground, PE, anything that gets them sweating.",
+        "type": "choice",
+        "options": [
+          { "label": "Under an hour", "value": 0.5 },
+          { "label": "About an hour", "value": 1 },
+          { "label": "Two hours", "value": 2 },
+          { "label": "Three hours or more", "note": "Training days, tournaments, all day outside", "value": 3.5 }
+        ]
+      },
+      {
+        "key": "heat",
+        "question": "What is the weather usually like when they are active?",
+        "type": "choice",
+        "options": [
+          { "label": "Cool or indoors", "value": "mild" },
+          { "label": "Warm", "value": "warm" },
+          { "label": "Hot, or they come home soaked", "value": "hot" }
+        ]
+      },
+      {
+        "key": "cups",
+        "question": "On a normal day, how many cups of water do they actually drink?",
+        "help": "Water only. Count a standard cup, about 8 oz. Your best guess is fine.",
+        "type": "number",
+        "min": 0, "max": 25, "step": 1,
+        "unit": "cups",
+        "placeholder": "e.g. 4"
+      }
+    ],
+
+    "derive": [
+      {
+        "key": "weightKg",
+        "from": "age",
+        "_note": "Population median weight in kg, used ONLY when the parent skips the weight question.",
+        "table": { "2-3": 13, "4-5": 17, "6-7": 22, "8-9": 27, "10-11": 34, "12-13": 44 },
+        "fallback": 22
+      }
+    ],
+
+    "formula": "paediatric-fluid",
+    "constants": {
+      "_note": "Holliday-Segar (100/50/20 mL per kg) is in calc.js. Everything here is OURS and these are the numbers most likely to need a reviewer's eye.",
+      "_foodFraction": "Share of total daily fluid that arrives in food and milk rather than in a cup. Removed because the visitor is asked about WATER ONLY. Commonly put at 20 to 30 percent.",
+      "foodFraction": 0.2,
+      "_activityMlPerHour": "Extra drinking fluid per hour of hard activity. Children sweat less than adults; adult athlete figures (400 to 800) are too high here.",
+      "activityMlPerHour": 250,
+      "heatMultiplier": { "mild": 1, "warm": 1.1, "hot": 1.2 }
+    },
+
+    "intake": { "key": "cups", "unitMl": 240 },
+
+    "output": {
+      "eyebrow": "Your estimate",
+      "unitMl": 240,
+      "unitLabel": "cups on a day like that",
+      "unitShort": "cups",
+      "needLine": "That is roughly what a child their size would drink across a day with that much activity. It does not count the fluid they get from food.",
+      "gotLine": "You told us they usually get about {got} {unit_short}."
+    },
+
+    "bands": [
+      {
+        "max": 0.5,
+        "headline": "They are already drinking about what they need",
+        "body": "Nothing here says to change anything. The thing worth knowing is that on the hottest and hardest days, what a child loses is not only water. It is sodium, potassium and magnesium, and plain water replaces one of those three. That is the gap an electrolyte drink is designed to cover, and it is why a lot of parents keep one in the bag for tournament days rather than every day."
+      },
+      {
+        "min": 0.5, "max": 2.5,
+        "headline": "They are about {gap} cups short on a day like that",
+        "body": "That is a common gap and an easy one to close. Most of it is habit: a bottle that goes with them, a drink before they go out rather than after. Worth knowing too is that on hot and hard days what they lose is not only water. It is sodium, potassium and magnesium, and plain water only replaces the water. That is the gap an electrolyte drink is built for."
+      },
+      {
+        "min": 2.5,
+        "headline": "That is a gap of about {gap} cups",
+        "body": "On a day with that much activity, that is a meaningful difference, and it is worth a conversation with your pediatrician rather than a change you make on the strength of a quiz. What is useful to know is that heavy, hot activity does not only cost water. It costs sodium, potassium and magnesium, and water on its own replaces the water. That is the reason electrolyte drinks exist, and why they are usually about the hard days rather than every day."
+      }
+    ],
+
+    "cta": {
+      "label": "Try Nueva Revive free",
+      "note": "We will send a sample. No card, nothing to cancel.",
+      "action": "popup"
+    },
+
+    "disclaimer": "This is a general estimate, not medical advice, and not an assessment of your child. It uses a standard paediatric guideline for daily fluid based on body weight, plus an allowance for activity and heat. Every child is different, and children with medical conditions may have very different needs. Talk to your pediatrician about what is right for your child. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease."
+  }
+  </script>
+
+  <div class="sk-calc-mount"></div>
+</div>
