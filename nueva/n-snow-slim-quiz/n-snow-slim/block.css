@@ -6,18 +6,17 @@
 @import url("https://invokableapp.github.io/shark-pages/_shared/diagnostic-capture/v1/dcap.css");
 
 .sk-dcap-nva-snow{
+  --sk-accent:   #087f7b;
+  --sk-body:     #4a5560;
   --sk-brand:    #0abab5;
   --sk-brand-d:  #00aaa6;
-  --sk-accent:   #087f7b;
-  --sk-tint:     #e8f8f6;
+  --sk-faint:    #d5dfe1;
   --sk-ink:      #141313;
   --sk-ink-d:    #102a2a;
-  --sk-body:     #4a5560;
-  --sk-faint:    #d5dfe1;
-  --sk-paper:    #fcfeff;
-  --sk-card:     #ffffff;
-  --sk-warm:     #e8f8f6;
   --sk-line:     #d5dfe1;
-  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-paper:    #fcfeff;
   --sk-sans:     Montserrat,system-ui,sans-serif;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-tint:     #e8f8f6;
+  --sk-warm:     #e8f8f6;
 }

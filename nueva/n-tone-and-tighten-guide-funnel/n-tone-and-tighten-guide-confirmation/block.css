@@ -6,18 +6,22 @@
 @import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
 
 .sk-conf-nva{
-  --sk-brand:    #0abab5;
-  --sk-brand-d:  #00aaa6;
   --sk-accent:   #087f7b;
-  --sk-tint:     #e8f8f6;
-  --sk-ink:      #141313;
-  --sk-ink-d:    #102a2a;
+  --sk-accent-d: #00aaa6;
+  --sk-badge:    #5fd9d5;
   --sk-body:     #4a5560;
-  --sk-faint:    #d5dfe1;
-  --sk-paper:    #fcfeff;
-  --sk-card:     #ffffff;
-  --sk-warm:     #e8f8f6;
+  --sk-cream:    #fcfeff;
+  --sk-glow-a:   #0abab5;
+  --sk-glow-b:   #087f7b;
+  --sk-ink:      #141313;
+  --sk-lime:     #5fd9d5;
   --sk-line:     #d5dfe1;
-  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-mist:     #e8f8f6;
+  --sk-navy:     #102a2a;
+  --sk-navy-d:   #071116;
+  --sk-panel:    #e8f8f6;
   --sk-sans:     Montserrat,system-ui,sans-serif;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-teal:     #0abab5;
+  --sk-teal-d:   #00aaa6;
 }
