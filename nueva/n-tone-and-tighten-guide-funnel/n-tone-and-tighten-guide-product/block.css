@@ -1,0 +1,23 @@
+/* nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product
+ * FORKED from beneve/beneve-natural-foods-guide/beneve-glp-food-guide-product. Palette is Nueva's, declared on the block's own scope class so
+ * no shared brand swatch is touched. The @import pins the shared component version: do not bump
+ * it here, that is a deliberate migration (see _shared/README.md).
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-nva-tone{
+  --sk-brand:    #0abab5;
+  --sk-brand-d:  #00aaa6;
+  --sk-accent:   #087f7b;
+  --sk-tint:     #e8f8f6;
+  --sk-ink:      #141313;
+  --sk-ink-d:    #102a2a;
+  --sk-body:     #4a5560;
+  --sk-faint:    #d5dfe1;
+  --sk-paper:    #fcfeff;
+  --sk-card:     #ffffff;
+  --sk-warm:     #e8f8f6;
+  --sk-line:     #d5dfe1;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-sans:     Montserrat,system-ui,sans-serif;
+}

@@ -1,0 +1,131 @@
+<!--
+  nueva/n-free-revive-sample-funnel/n-revive-sample-confirmed
+  FORKED from glp/glp-free-ignyt-sample/ignyt-sample-confirmation by fork-blocks.mjs.
+
+  ⚠️ STRUCTURE AND PALETTE ONLY. The copy below, and every image in assets/, is still the
+  donor's. That includes product photography and supplement-facts panels, which are factual
+  claims about a DIFFERENT PRODUCT and must not ship. Rewriting them is the reskin pass.
+-->
+<div class="sk-prod sk-prod-nva-revive sk-prod-nva-revivec">
+
+  <div class="sk-prod-nva-revive-grain" aria-hidden="true"></div>
+
+  <!-- Identity only. A converted visitor has nowhere else to go from here. -->
+  <header class="sk-prod-nva-revivec-bar">
+    <span class="sk-prod-nva-revive-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+      <span>IGNYT</span>
+    </span>
+  </header>
+
+  <!-- ============================ CONFIRMED ============================ -->
+  <section class="sk-prod-nva-revivec-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-wrap">
+
+      <!-- A TICK WOULD BE WRONG HERE. It reads as "done", and the entire point of this page
+           is that one thing is not done yet. A message glyph names the action instead. -->
+      <div class="sk-prod-nva-revivec-tick" data-rise aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+      </div>
+
+      <p class="sk-prod-eyebrow" data-rise data-delay="1">One more step</p>
+      <h1 class="sk-prod-h1" data-rise data-delay="2">Confirm your shipping<br><span class="sk-prod-accent">information with us.</span></h1>
+
+      <p class="sk-prod-nva-revivec-lede" data-rise data-delay="3">
+        To do this, please text SAMPLE to {{custom_values.rep_phone}} right now. This will
+        allow us to confirm you're a human and confirm your shipping address.
+      </p>
+
+      <!-- ON A PHONE THIS IS A ONE TAP ACTION, and that is the whole point: the page asks
+           for a text, so the page hands them the text. sms: with a prefilled body is
+           supported on iOS and Android; the ?&body= form is the one that works on both
+           (iOS wants ?body= after a number with no other params, Android wants ?body=, and
+           this shape degrades to a plain compose on anything that ignores it).
+           The number is still printed above in case the tap does nothing, which is what
+           happens on a desktop with no messaging app. -->
+      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-nva-revivec-text" data-rise data-delay="4"
+         data-sms-cta href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">
+        <span data-sms-label>Text SAMPLE to <span data-rep-phone>{{custom_values.rep_phone}}</span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="sk-prod-nva-revivec-card" data-rise data-delay="5">
+        <p class="sk-prod-nva-revivec-card-k">Text the word SAMPLE to</p>
+        <p class="sk-prod-nva-revivec-card-n">{{custom_values.rep_phone}}</p>
+        <p class="sk-prod-nva-revivec-card-t">That's it. Text us now to confirm. We are pumped for
+          you to try IGNYT.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT HAPPENS NEXT ============================ -->
+  <!-- Numbered because it is genuinely a sequence the reader is now inside. -->
+  <section class="sk-prod-nva-revivec-next">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>What happens next</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Three steps to get your sample.</h2>
+
+      <ol class="sk-prod-nva-revivec-steps">
+        <li data-rise data-delay="1">
+          <span class="sk-prod-nva-revivec-n">01</span>
+          <h3>You text SAMPLE</h3>
+          <p>To {{custom_values.rep_phone}}, right now. It confirms you are a real person and
+            it confirms where the sample is going.</p>
+        </li>
+        <li data-rise data-delay="2">
+          <span class="sk-prod-nva-revivec-n">02</span>
+          <h3>Your sample ships</h3>
+          <p>Three single serve sticks, packed and mailed to the address you confirmed.</p>
+        </li>
+        <li data-rise data-delay="3">
+          <span class="sk-prod-nva-revivec-n">03</span>
+          <h3>Three mornings</h3>
+          <p>One stick into 8oz of water, once a day. Use a shaker or a coffee frother, not a spoon. Better over ice.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT YOU'RE GETTING ============================ -->
+  <section class="sk-prod-nva-revivec-what">
+    <div class="sk-prod-wrap sk-prod-nva-revivec-what-grid">
+      <figure class="sk-prod-nva-revivec-shot" data-rise>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/ignyt-pack.webp" alt="The IGNYT pouch with single serve sticks and a prepared glass over ice" loading="lazy" width="720" height="695">
+      </figure>
+      <div>
+        <p class="sk-prod-kicker" data-rise>While you wait</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">What's in the envelope.</h2>
+        <p class="sk-prod-nva-revivec-p" data-rise data-delay="2">
+          IGNYT is ORYGN's powdered metabolic booster, built on patented bioactive peptides
+          made to the ORYGN PURE standard. It supports three receptor pathways rather than
+          one: GLP-1, GLP-2 and GIP.
+        </p>
+        <ul class="sk-prod-checks sk-prod-nva-revivec-checks" data-rise data-delay="3">
+          <li>Burn fat naturally</li>
+          <li>Preserve and build lean muscle</li>
+          <li>Reduce food noise</li>
+          <li>Support a healthy gut and intestinal lining</li>
+          <li>Support healthy energy and blood sugar</li>
+        </ul>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          It's a cran-apple drink, not a chalky shake. Most people take it cold with ice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOT ============================ -->
+  <section class="sk-prod-nva-revivec-foot">
+    <div class="sk-prod-wrap sk-prod-center">
+      <p class="sk-prod-nva-revivec-foot-h" data-rise>Text SAMPLE now and we will get it in the mail.</p>
+      <p class="sk-prod-fine" data-rise data-delay="1">
+        * Subject to sample availability. One trial per household while supplies last. These statements have not been evaluated
+        by the Food and Drug Administration. This product is not intended to diagnose, treat,
+        cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+
+</div>

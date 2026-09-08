@@ -1,0 +1,44 @@
+{
+ "system": "glp",
+ "funnel": "how-to",
+ "page": "glp-free-ignyt-sample",
+ "funnelName": "Free IGNYT Sample",
+ "logo": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+ "logoAlt": "GLP Shark",
+ "videos": [
+  {
+   "icon": "book",
+   "title": "How this funnel works",
+   "tease": "A quick breakdown of this funnel, how it works & what your leads experience.",
+   "vimeo": "1223695508",
+   "poster": "https://i.vimeocdn.com/video/2196976232-8cb3c4eab88fc9762a41bbb91da0a5b2a7494147bb7c172f6e0683698f31c973-d_1280.jpg"
+  }
+ ],
+ "links": [
+  {
+   "icon": "chat",
+   "title": "Scripts and follow-up",
+   "tease": "What to say when you reach out to confirm their address, and how to follow up once the sample lands.",
+   "label": "Open the scripts",
+   "url": "https://glpshark.com/ignyt-sample-scripts",
+   "primary": true
+  },
+  {
+   "icon": "image",
+   "title": "Social imagery and ads",
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit them in Canva, then post.",
+   "label": "Open the image library",
+   "url": "https://canva.link/qtfm73vucfijq5z",
+   "primary": false
+  },
+  {
+   "icon": "school",
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://glpshark.com/training-hub",
+   "primary": false
+  }
+ ],
+ "sub": "Watch the training, grab the assets, then start sending traffic."
+}

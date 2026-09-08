@@ -1,0 +1,409 @@
+<!--
+  nueva/n-free-revive-sample-funnel/n-free-revive-sample
+  FORKED from glp/glp-free-ignyt-sample/ignyt-sample-optin by fork-blocks.mjs.
+
+  ⚠️ STRUCTURE AND PALETTE ONLY. The copy below, and every image in assets/, is still the
+  donor's. That includes product photography and supplement-facts panels, which are factual
+  claims about a DIFFERENT PRODUCT and must not ship. Rewriting them is the reskin pass.
+-->
+<div class="sk-prod sk-prod-nva-revive">
+
+  <!-- Page-wide film grain. One fixed overlay rather than a background-image per section,
+       so it never tiles out of register across a section seam. -->
+  <div class="sk-prod-nva-revive-grain" aria-hidden="true"></div>
+
+  <!-- ============================ OFFER STRIP ============================ -->
+  <div class="sk-prod-nva-revive-strip">
+    <span>Free 3 day trial</span>
+    <i aria-hidden="true"></i>
+    <span>No card required</span>
+    <i aria-hidden="true"></i>
+    <span>We mail it to you</span>
+  </div>
+
+  <!-- ============================ STICKY HEADER ============================ -->
+  <!-- Replaces the shared .sk-prod-bar, which only existed under 900px and only appeared
+       after the hero CTA scrolled past, so desktop carried no persistent CTA. This sticks
+       on every breakpoint. The reading gauge is nested inside it as the header's bottom
+       rule: a separate sticky element would just get covered by the header. -->
+  <header class="sk-prod-nva-revive-nav">
+    <div class="sk-prod-wrap sk-prod-nva-revive-nav-in">
+      <a class="sk-prod-nva-revive-mark" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        <span>IGNYT</span>
+      </a>
+
+      <nav class="sk-prod-nva-revive-nav-links">
+        <a href="#what-it-does">What it does</a>
+        <a href="#pathways">Pathways</a>
+        <a href="#proof">The science</a>
+        <a href="#taste">Taste</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <!-- Ships `hidden` and is only revealed once block.js has a real deadline. If the
+           script never runs, a visitor sees no timer at all instead of a frozen one
+           claiming the offer ends at a time that never moves. -->
+      <div class="sk-prod-nva-revive-timer" data-offer-timer hidden>
+        <i class="sk-prod-nva-revive-timer-dot" aria-hidden="true"></i>
+        <span class="sk-prod-nva-revive-timer-label">Offer good for</span>
+        <span class="sk-prod-nva-revive-timer-clock" role="timer" aria-live="off">57:00</span>
+      </div>
+
+      <a class="sk-prod-btn sk-prod-nva-revive-nav-cta" href="#claim" data-optin>Claim free sample</a>
+    </div>
+    <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="sk-prod-hero" id="top">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Free 3 day trial &middot; We mail it to you</p>
+
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Try IGNYT <span class="sk-prod-accent">free</span><br>for 3 days.
+        </h1>
+
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          IGNYT is a powdered metabolic booster from ORYGN. One stick, 8oz of water, under a
+          minute. It comes out cran-apple, closer to a cold drink than a supplement.
+          Give us an address and we'll send you three days of it.
+        </p>
+
+        <p class="sk-prod-nva-revive-covered" data-rise data-delay="3">
+          We won't ask you for a card, and there's nothing to cancel.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="4">
+          <li>Patented peptides</li>
+          <li>GLP-1 &middot; GLP-2 &middot; GIP</li>
+          <li>Hypoallergenic</li>
+          <li>No measuring</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="5">
+          <div class="sk-prod-nva-revive-claim">
+            <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin data-hero-cta>
+              Claim free sample now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+          </div>
+          <a class="sk-prod-btn-ghost" href="#taste">What does it taste like?</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-rise data-delay="2">
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/ignyt-pack.webp" alt="The IGNYT pouch with four single serve sticks and a prepared glass over ice" data-float width="720" height="695">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IT DOES ============================ -->
+  <section class="sk-prod-claim" id="what-it-does">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>What it does</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Burn fat. Preserve muscle. Ignite results.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        There's no stimulant in it. IGNYT works with signaling your body already uses.
+        Here is what it supports.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+          </span>
+          <h3>Burn fat naturally</h3>
+          <p>Supports fat burning, with no stimulant in it.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg>
+          </span>
+          <h3>Preserve and build lean muscle</h3>
+          <p>Keep what you built in the gym, and support new growth.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 3 10 2.5-7 1.8 4H21"/></svg>
+          </span>
+          <h3>Reduce food noise</h3>
+          <p>Less of the constant thinking about food.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          </span>
+          <h3>Support healthy energy</h3>
+          <p>Even energy, and no crash at three o'clock.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="5">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3>Support healthy blood sugar</h3>
+          <p>Support for steadier blood sugar.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="6">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v4a4 4 0 0 0 8 0V3"/><path d="M6 9c0 6 3 7 3 12"/><path d="M18 9c0 6-3 7-3 12"/><path d="M9 15h6"/></svg>
+          </span>
+          <h3>Support a healthy gut</h3>
+          <p>Support for the intestinal lining, which is the GLP-2 pathway at work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 2 ============================ -->
+  <section class="sk-prod-nva-revive-cta">
+    <div class="sk-prod-wrap sk-prod-nva-revive-cta-in" data-rise>
+      <p>Three days of IGNYT, free, in the mail.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHO DRINKS IT ============================ -->
+  <!-- The page was all type on black and read cold. These three carry the human weight. -->
+  <section class="sk-prod-nva-revive-people">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Who is drinking it</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Three good times to take it.</h2>
+
+      <div class="sk-prod-nva-revive-people-grid">
+        <figure data-rise data-delay="1">
+          <img src="assets/athlete.webp" alt="A woman resting on a gym bench after training, holding a glass of the mixed drink" loading="lazy" width="1024" height="1536">
+          <figcaption><b>After training</b><span>To increase amino acids and support muscle growth.</span></figcaption>
+        </figure>
+        <figure data-rise data-delay="2">
+          <img src="assets/mom.webp" alt="A woman mixing an IGNYT stick into a glass of water at a sunlit kitchen counter" loading="lazy" width="1024" height="1536">
+          <figcaption><b>In the morning</b><span>For all day energy, without the crash.</span></figcaption>
+        </figure>
+        <figure data-rise data-delay="3">
+          <img src="assets/runner.webp" alt="A man drinking from a bottle on a ridge after a trail run at golden hour" loading="lazy" width="1024" height="1536">
+          <figcaption><b>Afternoon or evening</b><span>To reduce appetite and control cravings.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-nva-revive-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Get your free sample. Just tell us where to send it.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ TRI PATHWAY ============================ -->
+  <!-- The only numbered block on the page. The three are real and load bearing: they are
+       the three receptor pathways ORYGN names, and they are why the company is called
+       triGLP. Numbering anything else here would be decoration. -->
+  <section class="sk-prod-formula" id="pathways">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Why three pathways</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Three pathways, one stick.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Most products in this category work on one receptor. IGNYT's peptides work on three.
+      </p>
+
+      <ol class="sk-prod-nva-revive-paths">
+        <li data-rise data-delay="1">
+          <span class="sk-prod-nva-revive-path-n">01</span>
+          <h3>GLP-1 receptor support</h3>
+          <p>Appetite, fullness and blood sugar support. The one most people have heard of.</p>
+        </li>
+        <li data-rise data-delay="2">
+          <span class="sk-prod-nva-revive-path-n">02</span>
+          <h3>GLP-2 receptor support</h3>
+          <p>Supports the gut lining, and how well you absorb the nutrients from your food.</p>
+        </li>
+        <li data-rise data-delay="3">
+          <span class="sk-prod-nva-revive-path-n">03</span>
+          <h3>GIP receptor support</h3>
+          <p>Insulin and fat handling. It works alongside GLP-1.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-nva-revive-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>The sample is free. We don't ask for a card.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ THE PATENT ============================ -->
+  <section class="sk-prod-facts" id="proof">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>The science</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Backed by a decade of peptide research.</h2>
+
+      <div class="sk-prod-nva-revive-stats">
+        <div data-rise data-delay="1"><b>$<span data-count="50">50</span>M+</b><span>Behind the peptide research</span></div>
+        <div data-rise data-delay="2"><b><span data-count="10">10</span>+</b><span>Years of published research</span></div>
+        <div data-rise data-delay="3"><b>3</b><span>Receptor pathways, one formula</span></div>
+        <div data-rise data-delay="4"><b><span data-count="13">13</span></b><span>FDA structure and function claims</span></div>
+      </div>
+
+      <ul class="sk-prod-checks sk-prod-nva-revive-checks" data-rise data-delay="2">
+        <li>Patented bioactive peptides, made to the ORYGN PURE standard</li>
+        <li>Hypoallergenic small Dalton peptides</li>
+        <li>Scientifically proven GLP-1, GLP-2 and GIP receptor agonist</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="sk-prod-nva-revive-cta">
+    <div class="sk-prod-wrap sk-prod-nva-revive-cta-in" data-rise>
+      <p>Get your free sample and decide for yourself.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TASTE AND FORMAT ============================ -->
+  <section class="sk-prod-nva-revive-taste" id="taste">
+    <div class="sk-prod-wrap sk-prod-nva-revive-taste-grid">
+      <div>
+        <p class="sk-prod-kicker" data-rise>Taste</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">It doesn't taste like a supplement.</h2>
+        <p data-rise data-delay="2" class="sk-prod-nva-revive-taste-p">
+          Most people quit a supplement because they got tired of drinking it. IGNYT is one
+          stick into 8oz of water. It comes out cran-apple, and it's better over ice.
+          Use a shaker bottle or a little coffee frother. It does not mix well with a spoon.
+        </p>
+        <p class="sk-prod-note" data-rise data-delay="3">
+          Three days is enough to know whether you'd keep drinking it.
+        </p>
+
+        <ol class="sk-prod-nva-revive-steps" data-rise data-delay="4">
+          <li><span class="sk-prod-nva-revive-step-n">1</span><div><h3>Tear one stick</h3><p>Single serve. Nothing to measure.</p></div></li>
+          <li><span class="sk-prod-nva-revive-step-n">2</span><div><h3>Shake or froth into 8oz of water</h3><p>A shaker bottle or a coffee frother. A spoon will not do it.</p></div></li>
+          <li><span class="sk-prod-nva-revive-step-n">3</span><div><h3>Drink it</h3><p>About a minute, once a day, for three days.</p></div></li>
+        </ol>
+      </div>
+
+      <figure class="sk-prod-nva-revive-ritual" data-rise data-delay="2">
+        <img src="assets/ritual.webp" alt="The mixed drink in a glass of iced water beside an opened stick" loading="lazy" width="1536" height="1024">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 3 ============================ -->
+  <section class="sk-prod-nva-revive-cta">
+    <div class="sk-prod-wrap sk-prod-nva-revive-cta-in" data-rise>
+      <p>One form. Then we mail it.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="sk-prod-nva-revive-faq" id="faq">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>FAQ</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Frequently asked questions.</h2>
+
+      <div class="sk-prod-nva-revive-faq-list">
+        <details data-rise data-delay="1">
+          <summary>Is it actually free?</summary>
+          <p>Yes. Three sticks, mailed to you, at no cost. We don't ask for a card.</p>
+        </details>
+        <details data-rise data-delay="2">
+          <summary>Why do you need my address?</summary>
+          <p>It's a physical product and we have to mail it to you. Your address is used for
+            that and nothing else.</p>
+        </details>
+        <details data-rise data-delay="3">
+          <summary>When will it arrive?</summary>
+          <p>We confirm your address with you first, then it goes in the mail. Give it a
+            few days from there.</p>
+        </details>
+        <details data-rise data-delay="4">
+          <summary>What happens after the three days?</summary>
+          <p>Nothing. Order more if you want it. If not, that's the end of it.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-nva-revive-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>The form takes about a minute.</p>
+      <div class="sk-prod-nva-revive-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>Claim free sample now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ CLOSE ============================ -->
+  <section class="sk-prod-close" id="claim">
+    <div class="sk-prod-wrap sk-prod-center">
+      <p class="sk-prod-eyebrow" data-rise>Free 3 day trial</p>
+      <h2 class="sk-prod-close-h" data-rise data-delay="1">Three days. Three sticks.<br>Nothing to cancel.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Fill in your name and where to send it. Three days later you'll know if you want more.
+      </p>
+      <div class="sk-prod-cta-row sk-prod-nva-revive-cta-center" data-rise data-delay="3">
+        <div class="sk-prod-nva-revive-claim">
+          <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+            Claim free sample now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="sk-prod-nva-revive-avail">* Subject to sample availability</p>
+        </div>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="4">
+        * Subject to sample availability. One trial per household while supplies last. These statements have not been evaluated
+        by the Food and Drug Administration. This product is not intended to diagnose, treat,
+        cure or prevent any disease.
+      </p>
+    </div>
+  </section>
+
+</div>
