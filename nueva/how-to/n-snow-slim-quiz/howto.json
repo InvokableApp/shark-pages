@@ -26,6 +26,14 @@
  "videos": [],
  "links": [
   {
+   "icon": "funnel",
+   "title": "Take the quiz yourself",
+   "primary": true,
+   "tease": "Run it once as a lead does, so you know which result each answer leads to before anyone asks you.",
+   "label": "Open the quiz",
+   "url": "https://{{custom_values.nueva_main_url}}/n-snow-slim"
+  },
+  {
    "icon": "link",
    "title": "Your marketing links",
    "primary": false,

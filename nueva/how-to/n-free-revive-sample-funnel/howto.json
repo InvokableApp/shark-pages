@@ -26,6 +26,14 @@
  "videos": [],
  "links": [
   {
+   "icon": "funnel",
+   "title": "See the offer page",
+   "primary": true,
+   "tease": "What your lead reads before they give you their details, so your first message can pick up where it left off.",
+   "label": "Open the offer page",
+   "url": "https://{{custom_values.nueva_main_url}}/n-free-revive-sample"
+  },
+  {
    "icon": "link",
    "title": "Your marketing links",
    "primary": false,
