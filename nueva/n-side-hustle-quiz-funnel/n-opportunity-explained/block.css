@@ -1,0 +1,23 @@
+/* nueva/n-side-hustle-quiz-funnel/n-opportunity-explained
+ * FORKED from beneve/beneve-side-hustle-quiz-funnel/beneve-opportunity-explained. Palette is Nueva's, declared on the block's own scope class so
+ * no shared brand swatch is touched. The @import pins the shared component version: do not bump
+ * it here, that is a deliberate migration (see _shared/README.md).
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-nva-opp{
+  --sk-body:     #4a5560;
+  --sk-cream:    #fcfeff;
+  --sk-ink:      #141313;
+  --sk-lime:     #5fd9d5;
+  --sk-line:     #d5dfe1;
+  --sk-mist:     #e8f8f6;
+  --sk-navy:     #102a2a;
+  --sk-navy-d:   #071116;
+  --sk-sage:     #087f7b;
+  --sk-sans:     Montserrat,system-ui,sans-serif;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-teal:     #0abab5;
+  --sk-teal-d:   #00aaa6;
+  --sk-tint:     #e8f8f6;
+}
