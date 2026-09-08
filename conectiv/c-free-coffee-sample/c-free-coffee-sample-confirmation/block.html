@@ -64,9 +64,9 @@
   <section class="sk-conf-top">
     <div class="sk-conf-wrap">
       <span class="sk-conf-pill">One more step</span>
-      <h1>One text and your sample goes out</h1>
+      <h1>One message and your sample goes out</h1>
       <p class="sk-conf-note">
-        Press play, then text us the word <span class="sk-conf-hl">CONFIRM</span>. That is the
+        Press play, then send us the word <span class="sk-conf-hl">CONFIRM</span>. That is the
         whole thing.
       </p>
     </div>
@@ -99,15 +99,62 @@
 
         <div class="sk-conf-card-copy">
           <span class="sk-conf-badge">Step 1 of 2</span>
-          <h2>Watch the video, then text us.</h2>
+          <h2>Watch the video, then send us CONFIRM.</h2>
 
           <p>
             It takes under a minute and it covers exactly what happens next, and when your
             ALIVE sample goes in the post.
           </p>
 
+          <!-- ── THE FACEBOOK DM ASK (added 2026-09-04) ───────────────────────────────────
+               Modelled on beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample,
+               which Jeff pointed at: "look how the cta on the inside page is asking users to dm
+               on facebook to confirm, i think thats much better".
+
+               It sits ABOVE the text ask on purpose. An SMS confirm has a hole in it: the text
+               lands in unknown senders, or the number was mistyped, or they simply never look,
+               and the lead sits here having asked for a sample that never came. A Messenger
+               thread is a conversation the rep can see and answer.
+
+               ⚠️ THE HREF IS A FUNNEL STEP, NOT A MESSENGER LINK, and it cannot be one. This
+               markup is fetched from GitHub Pages by JS, so GHL never sees it and never
+               substitutes {{custom_values.*}} (HOSTED-BLOCKS-SOP): a Messenger href here would
+               ship literal braces. The step is a 0.5s timer page that forwards to
+               {{custom_values.conectiv__your_messenger}}.
+
+               ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a
+               domain is connected and 404s on a preview or an un-domained account.
+               (NOTES §Linking to another funnel STEP.)
+
+               ⚠️ HIDDEN UNTIL THE REP HAS A MESSENGER LINK. data-sk-requires carries the custom
+               value; the loader fills it from the socket's data-cv-* and confirm.js reveals the
+               block only when the value is a real link rather than empty, unsubstituted, or the
+               onboarding instruction. So a rep with no Facebook never sees a button that opens a
+               conversation with nobody, and the page falls back to being exactly the text-only
+               page it was before. Default hidden, revealed by JS: failing closed on a dead script
+               costs a second channel, failing open costs a lead. -->
+          <div class="sk-conf-dm" data-sk-requires="{{custom_values.conectiv__your_messenger}}" hidden>
+            <p class="sk-conf-ask">
+              Fastest way: <u>message me on Facebook.</u>
+            </p>
+            <!-- The word is NAMED as well as copied. A clipboard write can be refused on an
+                 insecure context or a locked down browser, and then the visitor still has to
+                 know what to type. -->
+            <p>
+              Tap below and we will copy the word <b>CONFIRM</b> for you. In Messenger, paste it
+              and hit send.
+            </p>
+            <div class="sk-conf-btns">
+              <a class="sk-conf-btn" href="c-free-coffee-sample-dm-redirect"
+                 data-sk-copy="CONFIRM"
+                 data-copy-done="Copied. Paste it and send.">MESSAGE ME ON FACEBOOK</a>
+            </div>
+          </div><!-- /.sk-conf-dm -->
+
+          <!-- The text ask stays, and stays worded so it reads correctly BOTH ways: as the only
+               ask when the block above is hidden, and as the second channel when it is not. -->
           <p class="sk-conf-ask">
-            Then text the word <u>CONFIRM</u> to
+            Text the word <u>CONFIRM</u> to
             <u><span data-rep-phone>{{custom_values.conectiv__your_phone}}</span></u>
             so we know you are a real person and we have the right address.
           </p>
@@ -149,8 +196,8 @@
           <p>Under a minute, and it tells you what to expect from us and when.</p>
         </article>
         <article class="sk-conf-step"><b>2</b>
-          <h3>You text CONFIRM</h3>
-          <p>Right now, while you are here. It confirms you are a real person and confirms where the sample is going.</p>
+          <h3>You send CONFIRM</h3>
+          <p>Right now, while you are here, by message or by text. It confirms you are a real person and confirms where the sample is going.</p>
         </article>
         <article class="sk-conf-step"><b>3</b>
           <h3>It goes in the post</h3>
