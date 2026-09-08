@@ -1,4 +1,4 @@
-/* beneve / beneve-hormone-lunchbox-guide / beneve-hormone-lunchbox
+/* nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide
  * Loader stub. Behaviour lives in _shared/capture/v1/capture.js, shared by every capture page.
  * A hosted block is injected with innerHTML, so a <script src> inside the markup never executes:
  * the script has to be appended from here.
