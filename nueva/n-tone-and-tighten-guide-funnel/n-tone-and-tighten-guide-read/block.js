@@ -3,7 +3,7 @@
  * Behaviour for the read-online guide. Vanilla only: a hosted block is injected with innerHTML,
  * so a <script src> inside the markup never executes (HOSTED-BLOCKS-SOP).
  *
- *  0. merge fields   substitute {{custom_values.x}} from the socket's data-cv-* bridge
+ *  0. merge fields   substitute a custom-value merge field from the socket's data-cv-* bridge
  *  1. buy            point the CTAs at the funnel's redirect step (tracked), fall back to the shop
  *  2. nav            smooth scroll for the sticky jump nav (scroll-behavior lives on the page's
  *                    html, which a hosted block must not touch, so it is done here instead)
@@ -23,7 +23,7 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---- 0. merge fields ----------------------------------------------------
-     GHL substitutes {{custom_values.x}} only in ITS OWN html, never in a file served from
+     GHL substitutes a merge field only in ITS OWN html, never in a file served from
      GitHub Pages, so the literal braces reach the reader unless something replaces them. The
      socket carries each value as data-cv-<key> (push-block.mjs derives the list from the
      {{...}} occurrences in this block's markup, so the braces below must stay), and this is

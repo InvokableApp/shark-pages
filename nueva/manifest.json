@@ -1,6 +1,15 @@
 {
   "system": "nueva",
-  "blocks": [],
+  "blocks": [
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "goIvjBPPDid4pCifCsBy",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
+    }
+  ],
   "installs": [
     {
       "path": "nueva---your-marketing-links/nueva-marketing-links",
