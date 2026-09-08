@@ -58,6 +58,34 @@
 
           <p class="sk-conf-do">Check your texts now.</p>
 
+          <!-- ── THE DM FALLBACK (added 2026-09-08) ────────────────────────────────────────
+               Jeff: "i want to light up the dms". The hand-off above is an SMS flow, and an SMS
+               flow has a hole in it: if the text lands in the unknown-senders folder, or the
+               number was mistyped, or they simply never look, the lead sits here having asked
+               for a discount they never got, and nobody finds out. This is the second channel.
+
+               ⚠️ THE HREF IS A FUNNEL STEP, NOT A MESSENGER LINK, and it cannot be one. This
+               markup is fetched from GitHub Pages by JS, so GHL never sees it and never
+               substitutes {{custom_values.*}} (HOSTED-BLOCKS-SOP): a Messenger href here would
+               ship literal braces. The step is a 0.5s timer page that forwards to
+               {{custom_values.beneve_rep_messenger}}, and routing through it is also what makes
+               the click a pageview, which is what tags the contact and texts the rep.
+               Built by BENEVESHARK/_build/build-sample-dm.mjs.
+
+               ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a
+               domain is connected and 404s on a preview or an un-domained account, which is why
+               every CTA on this component drops the slash. (NOTES §Linking to another funnel STEP.)
+
+               ⚠️ This uses only shared classes. block.css on this page is palette-only by
+               contract, so nothing here may need a new rule. -->
+          <p class="sk-conf-ask">
+            No text yet? <u>Message me and I will send your link over myself.</u>
+          </p>
+
+          <div class="sk-conf-btns">
+            <a class="sk-conf-btn" href="b-hormone-sample-dm-redirect">SEND ME A MESSAGE</a>
+          </div>
+
           <p class="sk-conf-fine">* Limited time promotion ONLY, limited to the first 50 people.&nbsp;*</p>
         </div>
 
