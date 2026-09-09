@@ -101,11 +101,28 @@
       if (!page || page.dataset.qzGo) return;
       page.dataset.qzGo = "1";
       var f = foot(); if (f) f.style.visibility = "hidden";
+      /* ⚠️ SHOW BEFORE CLICKING, AND THE ORDER IS THE WHOLE BUG. This hides the footer for the
+         four seconds so nobody skips the slide, then clicks the next button, and THE NEXT BUTTON
+         IS IN THAT FOOTER: it is not inside .ghl-page-current at all, it lives in the shared
+         footer outside the slides (measured: `.ghl-page-current .ghl-next-button` matches
+         nothing, `.ghl-next-button` matches). Clicking it while its own container still carried
+         visibility:hidden did nothing, while the identical click a moment later, after show() had
+         run, advanced slide 7 to slide 8 every time. */
       setTimeout(function () {
-        var b = document.querySelector(".ghl-page-current .ghl-footer-next,.ghl-page-current .ghl-next-button," +
-          ".ghl-page-current .ghl-mobile-next,.ghl-footer-next,.ghl-next-button,.ghl-mobile-next");
-        if (b) b.click();
         show();
+        var b = document.querySelector(".ghl-next-button,.ghl-footer-next,.ghl-mobile-next");
+        if (!b) return;
+        b.click();
+        /* One retry. The click is the only step here with no return value to check, so verify by
+           looking at whether the slide actually moved rather than trusting it. */
+        var was = page;
+        setTimeout(function () {
+          if (document.querySelector("#qz-proc") && was.classList.contains("ghl-page-current")) {
+            show();
+            var b2 = document.querySelector(".ghl-next-button,.ghl-footer-next,.ghl-mobile-next");
+            if (b2) b2.click();
+          }
+        }, 900);
       }, 4000);
     };
     requestAnimationFrame(tick);
