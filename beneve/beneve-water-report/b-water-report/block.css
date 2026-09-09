@@ -101,8 +101,13 @@
 /* the form is GHL's own, embedded by id from a custom value. Its own sheet paints the warm paper,
    so the frame just needs a card to sit in and a height that fits it without an inner scrollbar. */
 .sk-wat-bnv .sk-wat-embed{margin-top:1.3rem;background:var(--sk-paper);border-radius:4px;overflow:hidden}
-.sk-wat-bnv .sk-wat-embed iframe{display:block;width:100%;height:640px;border:0}
-@media(max-width:640px){.sk-wat-bnv .sk-wat-embed iframe{height:720px}}
+/* Fallback only. form_embed.js sets an inline height from the form's own measurement (block.js
+   §wireForm), and an inline style beats this rule. These numbers are what shows in the fraction of
+   a second before that lands, and what shows if the script is ever blocked, so they are measured
+   generously: the form is 717px at 600px wide and 864px at 360px wide (probed 2026-09-09). Too
+   short here clips the submit button. */
+.sk-wat-bnv .sk-wat-embed iframe{display:block;width:100%;height:780px;border:0}
+@media(max-width:640px){.sk-wat-bnv .sk-wat-embed iframe{height:900px}}
 
 /* ── how it works ── */
 .sk-wat-bnv .sk-wat-how{padding:4rem 0}

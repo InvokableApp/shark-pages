@@ -85,6 +85,7 @@
           'The 3 Day Reset still applies, and it covers what to do when nobody publishes a number for you.</p>') +
       '<p>Tell me where to send it and the report opens next.</p>' +
       ask(d) + '</div>';
+    wireForm();
   }
 
   function render(d) {
@@ -139,6 +140,7 @@
       d.sources.map(function (s) { return '<a href="' + s.u + '" target="_blank" rel="noopener">' + esc(s.n) + '</a>'; }).join(" &middot; ") +
       '. These are your utility\'s own compliance results, not a test of your kitchen tap.</p>';
     out.innerHTML = h;
+    wireForm();
   }
 
   function renderNone(d) {
@@ -154,6 +156,7 @@
           'mapped. Nobody is required to test a private well, so there is no public record to ' +
           'read, and the household is the only one who ever will.</p>') +
       '</div>' + (looksThin ? "" : ask(d));
+    wireForm();
   }
 
   // ── the ask, with the form embedded and the report already inside it ────────────────────────
@@ -205,16 +208,48 @@
     try { window.top.location.href = to; } catch (e) { window.location.href = to; }
   });
 
+  // ⚠️ THE FORM IFRAME MUST BE RESIZED BY GHL, NOT GUESSED AT. A fixed height clips the form, and
+  // it clips it at the bottom, which is where the submit button is: the visitor sees a complete
+  // form with no way to send it. It is not fixable with a bigger number either, because the
+  // consent paragraph is a merge field, so the form is one height in the snapshot (where the
+  // custom value holds the instruction text) and another in a rep's live account (where it holds
+  // their name), and taller again on a narrow phone.
+  //
+  // GHL's form widget speaks the iframe-resizer protocol: the child posts
+  // `[iFrameSizer]{iframeId}:{height}:{width}:{type}` to the parent. Probed 2026-09-09: the child
+  // sends NOTHING until the parent completes the handshake, so a bare postMessage listener here
+  // receives zero messages and the height never moves. The handshake is what form_embed.js does,
+  // so we load it, from the SAME first-party host the form is served from. It is not a
+  // third-party script and it is not injected as markup (innerHTML does not execute a script tag,
+  // HOSTED-BLOCKS-SOP); the element is created here in JS, which does.
+  //
+  // The id has to be unique per render and the script re-appended after each one, because the
+  // script binds the iframes present when it runs and a second lookup replaces the iframe.
+  var askSeq = 0;
   function ask(d) {
     var url = formUrl(d);
+    var id = "sk-wat-fi-" + (++askSeq);
     return '<div class="sk-wat-ask"><h3>Want the next step?</h3>' +
       '<p>I put together a 3 day reset: 27 swaps for the things in your house that carry endocrine ' +
       'disruptors, easiest first, including which filter takes out what you just read. It is free. ' +
       'Tell me where to send it and I will.</p>' +
       (url
         ? '<div class="sk-wat-embed"><iframe title="Send me the 3 day reset" src="' + esc(url) + '" ' +
-          'loading="lazy" scrolling="no"></iframe></div>'
+          'id="' + id + '" data-layout=\'{"id":"INLINE"}\' data-form-id="' + esc(FORM) + '" ' +
+          'data-layout-iframe-id="' + id + '" data-height="760" scrolling="no"></iframe></div>'
         : '<p class="sk-wat-sub">Message me the word SWAP and I will send it over.</p>') +
       (REP ? '<p class="sk-wat-sign">' + esc(REP) + '</p>' : "") + '</div>';
+  }
+
+  // Call after any innerHTML write that may have put an ask() iframe on the page.
+  function wireForm() {
+    if (!FORM || !FORM_HOST) return;
+    if (!root.querySelector(".sk-wat-embed iframe")) return;
+    var src = FORM_HOST.replace(/\/widget\/form\/?$/, "") + "/js/form_embed.js";
+    var old = document.getElementById("sk-wat-fe");
+    if (old) old.parentNode.removeChild(old);
+    var s = document.createElement("script");
+    s.id = "sk-wat-fe"; s.src = src; s.async = true;
+    document.body.appendChild(s);
   }
 })();
