@@ -300,7 +300,7 @@
       if (!es.some(function (e) { return e.isIntersecting; })) return;
       io.disconnect();
       bar.setAttribute("data-bar", "ask");
-      bar.innerHTML = '<span><b>The 3 Day Reset</b>Free, for one message</span>' +
+      bar.innerHTML = '<span><b>The 3 Day Reset</b>Free, just send me a message on Facebook</span>' +
         ctaButton("sk-prog-bar-btn");
     }, { rootMargin: "0px 0px -25% 0px" });
     io.observe(offer);
