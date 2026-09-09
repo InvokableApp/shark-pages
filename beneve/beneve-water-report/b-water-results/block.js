@@ -62,6 +62,13 @@
   var pfas   = val("pfas", "beneve_water_pfas_count");
   var date   = val("date", "beneve_water_report_date");
 
+  // ⚠️ CAPTURED AT BOOT, BEFORE askForAddress() CAN REASSIGN `address`. This is the difference
+  // between a reader who came through the funnel (she gave an email address, so a copy of the
+  // report really is being sent to her) and one who typed into this page's own box or opened a
+  // shared link (nobody has her email and nothing is being sent). Telling the second one to check
+  // her inbox is a promise the system cannot keep, so the line is gated on this.
+  var FROM_FUNNEL = !!(address || system || lead || pfas);
+
   // ── the one call to action, and there is only one ─────────────────────────────────────────
   // ⚠️ NO DIRECT-PDF FALLBACK, EVER. This page used to fall back to the guide URL when
   // beneve_rep_messenger was unset, so an unconfigured account still had a working next step.
@@ -150,7 +157,19 @@
     else askForAddress("I could not place " + addr + ". Try it with the town and the state on it.");
   }
 
-  function mast(title, addr, meta) {
+  // ⚠️ THE API ASKS US TO SAY THIS. A five digit lookup answers from the CENTRE of the ZIP code,
+  // and the response says so itself: how: "zip-centroid", with a note reading "matched from the
+  // centre of this ZIP code, so check that this is your utility". Where one ZIP holds more than
+  // one utility that can be the wrong system, and this page puts a person's name and numbers in
+  // front of a reader as fact. Nothing else on the page hedges, so this is the one place it must.
+  function zipCaveat(d) {
+    if (!d || d.how !== "zip-centroid") return "";
+    return '<p class="sk-wat-zipnote">Matched from the centre of your ZIP code. If more than one ' +
+      'utility serves your area, check the name above against your water bill. For an exact match, ' +
+      '<button type="button" class="sk-wat-relook">look it up by street address</button>.</p>';
+  }
+
+  function mast(title, addr, meta, extra) {
     return '<header class="sk-wat-mast sk-grain"><div class="sk-dres-wrap">' +
       '<nav class="sk-dres-crumbs" aria-label="Breadcrumb"><span>Water Report</span><i>&rsaquo;</i><b>Your results</b></nav>' +
       '<p class="sk-wat-eyebrow">Water quality report</p>' +
@@ -158,6 +177,7 @@
       (addr ? '<p class="sk-wat-addr">' + esc(addr) + '</p>' : "") +
       (meta.length ? '<ul class="sk-wat-meta">' + meta.map(function (m) {
         return '<li>' + esc(m[0]) + '<b>' + esc(m[1]) + '</b></li>'; }).join("") + '</ul>' : "") +
+      (extra || "") +
       '</div></header>';
   }
 
@@ -174,12 +194,30 @@
       '</div></div></section>';
   }
 
+  // ⚠️ THE HEADING ASKS ABOUT MEANING, NOT ABOUT MORE. Jeff, 2026-09-09: "theres still 'want the
+  // rest of it' messaging, lets get rid of that and make it more 'want to know what these things
+  // mean?'". "The rest of it" implies this page is holding something back, which is both untrue
+  // and the wrong offer: she has ALL of her numbers and none of the meaning. The gap is
+  // interpretation, and that is exactly what the guide is for.
   function askBlock(d) {
     return '<section class="sk-wat-tablewrap" style="padding-top:0"><div class="sk-dres-wrap">' +
-      '<div class="sk-ask"><p class="sk-ask-t">Want the rest of it?</p>' +
+      '<div class="sk-ask"><p class="sk-ask-t">Want to know what these things mean?</p>' +
       '<p class="sk-ask-p">' + esc(askCopy(d)) + ' It is free.</p>' +
       ctaButton("sk-ask-btn") + howLine() +
       '</div></div></section>';
+  }
+
+  // ⚠️ ONLY SHOWN TO SOMEBODY WHO ACTUALLY GAVE US AN EMAIL ADDRESS. See FROM_FUNNEL above.
+  // The delivery email merges her six water values into the body, so this line is literally true:
+  // the numbers are in her inbox, not just a link to them.
+  // → BENEVESHARK/campaigns/water-report/_build/email-copy.mjs
+  function inboxLine() {
+    if (!FROM_FUNNEL) return "";
+    return '<p class="sk-wat-inbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M3 7h18v12H3z"/><path d="m3 8 9 6 9-6"/></svg>' +
+      '<span><b>A copy is in your email.</b> Your utility, your lead number and your PFAS count, ' +
+      'so you have them without coming back here.</span></p>';
   }
 
   function render(d, addr) {
@@ -218,7 +256,7 @@
       pfasSub = "Your system was not in the EPA's monitoring round.";
     }
 
-    var h = mast(d.system.name, addr, meta) + blurb() + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
+    var h = mast(d.system.name, addr, meta, zipCaveat(d) + inboxLine()) + blurb() + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
 
     if (dets && dets.length) {
       h += '<section class="sk-wat-tablewrap"><div class="sk-dres-wrap">' +
@@ -247,7 +285,7 @@
     var meta = [];
     if (system) meta.push(["Water system", system]);
     if (date) meta.push(["Federal data as published", date]);
-    var h = mast(system || "Your water report", addr || address, meta) + blurb() +
+    var h = mast(system || "Your water report", addr || address, meta, inboxLine()) + blurb() +
       figs(lead ? esc(lead) : "No result on file", "The federal action level is 15 ppb.", false,
            pfas ? esc(pfas) + ' <small>detected</small>' : "Not sampled",
            "Measured in the EPA's national PFAS round.", false) +
@@ -255,12 +293,29 @@
     paint(h);
   }
 
+  // ⚠️ ZIP FIRST, ADDRESS STILL ACCEPTED. Jeff, 2026-09-09: "lets make sure the user knows they
+  // can just enter a zipcode and they dont need to add their full address." Five digits is the
+  // whole ask; a street address is the more exact answer and stays available in the same box.
+  // autocomplete is postal-code, but inputmode is deliberately NOT numeric, or the address path
+  // becomes untypeable on a phone.
+  // The caveat's own escape hatch. Delegated on the root, because the caveat is painted into
+  // innerHTML after this runs and a direct listener would bind to a node that no longer exists.
+  root.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest(".sk-wat-relook") : null;
+    if (!t) return;
+    e.preventDefault();
+    pane.innerHTML = "";
+    askForAddress("Type the street, the town and the state, and we will match the exact utility.");
+  });
+
   function askForAddress(msg) {
     paint('<section class="sk-wat-ask2"><div class="sk-dres-wrap">' +
       '<h2>Look up a water report</h2>' +
-      '<p>' + (msg ? esc(msg) : "Type an address and we will read your utility's own EPA records.") + '</p>' +
-      '<form class="sk-wat-f2"><input id="sk-wat-a2" type="text" autocomplete="street-address" ' +
-      'placeholder="123 Main St, your town, ST"><button type="submit">Check this address</button></form>' +
+      '<p>' + (msg ? esc(msg) : "Your ZIP code is enough. We read your utility's own EPA records.") + '</p>' +
+      '<form class="sk-wat-f2"><input id="sk-wat-a2" type="text" autocomplete="postal-code" ' +
+      'placeholder="Your ZIP code"><button type="submit">Check My Water</button></form>' +
+      '<p class="sk-wat-f2-n">Just the 5 digits. A full street address is more exact if more than ' +
+      'one utility serves your ZIP.</p>' +
       '</div></section>');
     pane.querySelector(".sk-wat-f2").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -326,4 +381,29 @@
     } catch (err) { go(); }
     setTimeout(go, 1400);
   });
+
+  /* ── sticky bar reveal (HOSTED-BLOCKS-SOP §8b) ───────────────────────────────────────────
+     Ships `hidden` so a blocked script leaves no dead bar welded across the top, and the
+     attribute is cleared once here; visibility after that is a class, because display:none
+     cannot transition. The 4px threshold ignores the rubber-band bounce iOS reports at rest,
+     the rAF gate keeps the handler off the critical path, and the sync() at the end covers a
+     reload that restores a scroll position partway down the page. */
+  (function () {
+    var bar = root.querySelector(".sk-prog-bar");
+    if (!bar) return;
+    bar.removeAttribute("hidden");
+    var on = false, queued = false;
+    var sync = function () {
+      queued = false;
+      var want = (window.pageYOffset || document.documentElement.scrollTop || 0) > 4;
+      if (want === on) return;
+      on = want;
+      bar.classList.toggle("sk-prog-bar-on", on);
+      if (on) root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px");
+    };
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; window.requestAnimationFrame(sync); }
+    }, { passive: true });
+    sync();
+  })();
 })();

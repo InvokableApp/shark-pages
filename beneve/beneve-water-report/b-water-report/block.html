@@ -1,8 +1,8 @@
 <div class="sk-wat sk-wat-bnv" data-results="https://{{custom_values.beneve_main_url}}/b-water-results" data-rep="{{custom_values.beneve_rep_first_name}}" data-form="{{custom_values.beneve_water_form_id}}" data-form-host="https://link.sharksuite.ai/widget/form">
 
-  <div class="sk-wat-bar">
-    <span class="sk-wat-bar-name">Free water report for your address</span>
-    <button type="button" class="sk-wat-btn sk-wat-btn--sm" data-sk-focus>Check My Address</button>
+  <div class="sk-wat-bar" hidden>
+    <span class="sk-wat-bar-name">Free water report for your ZIP code</span>
+    <button type="button" class="sk-wat-btn sk-wat-btn--sm" data-sk-focus>Check My Water</button>
   </div>
 
   <section class="sk-wat-hero">
@@ -11,25 +11,34 @@
     </div>
     <div class="sk-wat-wrap">
       <div class="sk-wat-hero-in">
-        <p class="sk-wat-eyebrow">Free, and it takes about ten seconds</p>
-        <h1>See what the EPA has on file for <em>the water at your address</em></h1>
-        <p class="sk-wat-lede">Type your address. We read your water utility's own results from the
-          EPA's public records and show you what they found, in plain numbers.</p>
+        <p class="sk-wat-eyebrow">Free, and it takes about five seconds</p>
+        <h1>Type your ZIP code and see what the EPA has on file for <em>your water</em></h1>
+        <p class="sk-wat-lede">Five digits is enough. We read your water utility's own results from
+          the EPA's public records and show you what they found, in plain numbers.</p>
 
         <form class="sk-wat-form" novalidate>
-          <label class="sk-wat-srt" for="sk-wat-addr">Your address or ZIP code</label>
-          <input id="sk-wat-addr" name="address" type="text" autocomplete="street-address"
-                 placeholder="123 Main St, your town, ST" spellcheck="false">
-          <button type="submit" class="sk-wat-btn">Check My Address
+          <label class="sk-wat-srt" for="sk-wat-addr">Your ZIP code, or your full address</label>
+          <!-- ⚠️ autocomplete IS postal-code NOW, BUT inputmode IS DELIBERATELY NOT numeric. A
+               full street address still works here and is the more exact answer where one ZIP
+               holds more than one utility, and a numeric keypad would make that impossible to
+               type on a phone. -->
+          <input id="sk-wat-addr" name="address" type="text" autocomplete="postal-code"
+                 placeholder="Your ZIP code" spellcheck="false">
+          <button type="submit" class="sk-wat-btn">Check My Water
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <!-- SHOW THE FORMAT, DO NOT DESCRIBE IT. The Census geocoder wants street, town and
-               state; give it "123 Main St" alone and it returns nothing, and the page then says
-               "no public water system on record", which reads as an answer about her water rather
-               than a problem with what she typed. The example is a real address that resolves. -->
-          <p class="sk-wat-note"><b>Street, town, state</b>, like
+          <!-- SHOW THE FORMAT, DO NOT DESCRIBE IT. Both examples are real and both resolve.
+               ⚠️ A ZIP is matched from the CENTRE of the ZIP code, which the API says in its own
+               response (how: "zip-centroid"). Where a ZIP holds more than one utility that can be
+               the wrong one, so the address option stays and the result carries the caveat. The
+               street example matters for the address path: the Census geocoder wants street, town
+               and state, and "123 Main St" alone returns nothing, which the page would otherwise
+               report as "no public water system on record" rather than as a typing problem. -->
+          <p class="sk-wat-note"><b>Just the 5 digits</b>, like
+            <button type="button" class="sk-wat-eg" data-sk-eg="08205">08205</button>.
+            A full street address is more exact, like
             <button type="button" class="sk-wat-eg" data-sk-eg="500 Boston Post Rd, Sudbury, MA">500 Boston Post Rd, Sudbury, MA</button>.
-            A ZIP code on its own works too. Nothing is saved unless you ask for the full report.</p>
+            Nothing is saved unless you ask for the full report.</p>
         </form>
       </div>
     </div>

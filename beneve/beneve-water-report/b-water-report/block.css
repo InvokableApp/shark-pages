@@ -25,7 +25,12 @@
 .sk-wat-bnv .sk-wat-bar{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;
   justify-content:space-between;gap:1rem;padding:.72rem clamp(1rem,4vw,3rem);
   background:rgba(36,48,31,.96);border-bottom:1px solid rgba(198,211,182,.24);
-  box-shadow:0 6px 20px -10px rgba(0,0,0,.55)}
+  box-shadow:0 6px 20px -10px rgba(0,0,0,.55);
+  /* HOSTED-BLOCKS-SOP §8b: parked off-screen and revealed on the first scroll. `hidden` in the
+     markup is the PRE-JS state only, because display:none cannot transition. */
+  transform:translateY(-100%);transition:transform .28s ease}
+.sk-wat-bnv .sk-wat-bar.sk-wat-bar-on{transform:none}
+@media (prefers-reduced-motion:reduce){.sk-wat-bnv .sk-wat-bar{transition:none}}
 .sk-wat-bnv .sk-wat-bar-name{font-size:.88rem;font-weight:600;color:rgba(244,246,240,.92)}
 @media(max-width:520px){.sk-wat-bnv .sk-wat-bar-name{font-size:.8rem}}
 
@@ -147,3 +152,11 @@
    ground, which is correct on paper and nearly invisible once the header went dark: measured on
    the live page as dark green on dark green. It keeps the same shape and inverts. */
 .sk-wat-bnv .sk-wat-gate-h .sk-wat-chip{color:var(--sk-ink-d);background:var(--sk-tint,#c6d3b6)}
+
+
+/* The ZIP centroid caveat on the gate card. Sits on the dark header, so it is a lightened body
+   colour rather than the page's grey, which would disappear against it. */
+.sk-wat-bnv .sk-wat-gate-zip{
+  margin:.9rem 0 0;font-family:var(--sk-sans);font-size:.82rem;line-height:1.5;
+  color:rgba(255,255,255,.62);
+}

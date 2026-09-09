@@ -269,7 +269,9 @@
    sticky: a hosted block is one element inside a GHL page, and sticky pins only within the
    block's own box. z-index 60 clears GHL chrome. It ships VISIBLE and result.js has no hand in
    it, so a blocked script leaves the CTA reachable rather than hidden. */
-.sk-wat-rep .sk-prog-bar{
+.sk-wat-rep .sk-prog-bar.sk-prog-bar-on{transform:none}
+/* §8b: parked off-screen, revealed on the first scroll. */
+.sk-wat-rep .sk-prog-bar{transform:translateY(-100%);transition:transform .28s ease;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
   position:fixed;inset:0 0 auto 0;z-index:60;padding:.72rem clamp(1rem,4vw,3rem);
   background:rgba(36,48,31,.96);border-bottom:1px solid rgba(198,211,182,.24);
@@ -288,6 +290,17 @@
   .sk-wat-rep .sk-prog-bar span{font-size:.8rem}
   .sk-wat-rep .sk-prog-bar a{font-size:.82rem;padding:.66rem 1rem}
 }
+/* §8b: a long label gets the BAR tightened, never the label shortened. At 320 the button was
+   overrunning the right gutter by 6px, which check-bar.mjs measures and no screenshot shows.
+   The name ellipsing at this width is the designed fallback; the button leaving the page is not. */
+@media(max-width:400px){
+  .sk-wat-rep .sk-prog-bar{gap:.6rem;padding-left:.9rem;padding-right:.9rem}
+  .sk-wat-rep .sk-prog-bar span{font-size:.76rem}
+  .sk-wat-rep .sk-prog-bar b{font-size:.6rem}
+  .sk-wat-rep .sk-prog-bar a{font-size:.76rem;padding:.62rem .8rem}
+}
+/* The name takes the slack and ellipses; the button never shrinks below its label. */
+.sk-wat-rep .sk-prog-bar span{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
 
 /* ⚠️ THE BAR IS FIXED AT top:0 AND SHIPS VISIBLE, so the masthead has to clear it or the bar sits
    on the breadcrumb. The Disruptor does the same thing to its own header. Measured at 70px here. */
@@ -384,4 +397,33 @@
   /* stacked, so it is bounded by the column rather than competing with it */
   .sk-wat-rep .sk-prog-shot{max-width:380px}
   .sk-wat-rep .sk-prog-shot img{width:100%;margin-left:0}
+}
+
+
+/* ── the inbox line, the ZIP caveat, and the page's own lookup note ─────────────────────────
+ * All three added 2026-09-09. The first two sit in the masthead, under the meta list, so they
+ * read as notes ON the report rather than as a new section after it. */
+.sk-wat-rep .sk-wat-inbox{
+  display:flex;align-items:flex-start;gap:.62rem;margin:1.5rem 0 0;padding:.9rem 1.05rem;
+  border:1px solid var(--sk-line,#e8dfd2);border-radius:12px;background:rgba(255,255,255,.55);
+  font-family:var(--sk-sans);font-size:.9rem;line-height:1.5;color:var(--sk-body,#6b6459);
+  max-width:640px;
+}
+.sk-wat-rep .sk-wat-inbox svg{width:18px;height:18px;flex:none;margin-top:.15rem;color:var(--sk-brand,#a97f3f)}
+.sk-wat-rep .sk-wat-inbox b{color:var(--sk-ink,#2b2721)}
+
+.sk-wat-rep .sk-wat-zipnote{
+  margin:1.15rem 0 0;max-width:640px;
+  font-family:var(--sk-sans);font-size:.84rem;line-height:1.5;color:var(--sk-faint,#9a9184);
+}
+/* A button, not a link, because it re-renders this page rather than navigating. Styled as a link
+   so it reads as one: the reader does not care which element we used. */
+.sk-wat-rep .sk-wat-relook{
+  background:none;border:0;padding:0;cursor:pointer;font:inherit;
+  color:var(--sk-brand,#a97f3f);text-decoration:underline;text-underline-offset:2px;
+}
+.sk-wat-rep .sk-wat-relook:hover{color:var(--sk-ink,#2b2721)}
+
+.sk-wat-rep .sk-wat-f2-n{
+  margin:.85rem 0 0;font-family:var(--sk-sans);font-size:.82rem;color:var(--sk-faint,#9a9184);
 }

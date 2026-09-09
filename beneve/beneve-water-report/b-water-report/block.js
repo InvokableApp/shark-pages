@@ -45,7 +45,7 @@
     if (!v) { input.focus(); return; }
     btn.disabled = true;
     pane.hidden = false;
-    out.innerHTML = '<div class="sk-wat-err">Reading the EPA records for that address...</div>';
+    out.innerHTML = '<div class="sk-wat-err">Reading the EPA records now...</div>';
     pane.scrollIntoView({ behavior: "smooth", block: "start" });
     fetch(API + "/lookup?address=" + encodeURIComponent(v))
       .then(function (r) { return r.json(); })
@@ -91,7 +91,15 @@
         ? '<span class="sk-wat-chip sk-wat-chip--under">Report ready</span>' +
           '<h2>We found your water system</h2>' +
           '<p class="sk-wat-gate-p">' + esc(name) + '. Your report has the lead result, the PFAS ' +
-          'result and the federal limit beside each one.</p>'
+          'result and the federal limit beside each one.</p>' +
+          /* ⚠️ A FIVE DIGIT LOOKUP ANSWERS FROM THE CENTRE OF THE ZIP, and the API says so itself
+             (how: "zip-centroid"). This card puts a utility's NAME in front of a reader as fact,
+             and in a ZIP served by more than one utility it can be the wrong one. Saying it here,
+             before she hands over an email address, is the only honest place for it. */
+          (d && d.how === "zip-centroid"
+            ? '<p class="sk-wat-gate-zip">Matched from the centre of your ZIP code. If more than ' +
+              'one utility serves your area, check that name against your water bill.</p>'
+            : "")
         : '<h2>No public water system on record for that address</h2>' +
           '<p class="sk-wat-gate-p">That usually means a private well, or a system too small to ' +
           'report. The 3 Day Reset still applies, and it covers what to do when nobody publishes ' +
@@ -214,4 +222,29 @@
     s.id = "sk-wat-fe"; s.src = src; s.async = true;
     document.body.appendChild(s);
   }
+
+  /* ── sticky bar reveal (HOSTED-BLOCKS-SOP §8b) ───────────────────────────────────────────
+     Ships `hidden` so a blocked script leaves no dead bar welded across the top, and the
+     attribute is cleared once here; visibility after that is a class, because display:none
+     cannot transition. The 4px threshold ignores the rubber-band bounce iOS reports at rest,
+     the rAF gate keeps the handler off the critical path, and the sync() at the end covers a
+     reload that restores a scroll position partway down the page. */
+  (function () {
+    var bar = root.querySelector(".sk-wat-bar");
+    if (!bar) return;
+    bar.removeAttribute("hidden");
+    var on = false, queued = false;
+    var sync = function () {
+      queued = false;
+      var want = (window.pageYOffset || document.documentElement.scrollTop || 0) > 4;
+      if (want === on) return;
+      on = want;
+      bar.classList.toggle("sk-wat-bar-on", on);
+      if (on) root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px");
+    };
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; window.requestAnimationFrame(sync); }
+    }, { passive: true });
+    sync();
+  })();
 })();
