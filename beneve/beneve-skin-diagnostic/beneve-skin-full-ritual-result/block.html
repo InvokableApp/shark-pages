@@ -118,6 +118,16 @@
             <p>Same window, same time of day, no makeup, no filter. You cannot see a twelve-week change in a mirror you look into every morning, and without the photo you will conclude nothing worked when something did.</p>
           </li>
       </ol>
+      <!-- Jeff, 2026-09-09. The routine is the thing they came for and it is long, so give them a
+           way to keep it. window.print() is the whole mechanism: the browser's own dialog offers
+           both Print and Save as PDF, so one button covers both words in the label. No library,
+           no download attribute, nothing to host. -->
+      <p class="sk-dres-printwrap" data-rise data-delay="4">
+        <button type="button" class="sk-dres-print" data-sk-print>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+          Print or save this routine
+        </button>
+      </p>
     </div>
   </section>
 
@@ -135,7 +145,7 @@
     </div>
   </section>
 
-  <section class="sk-dres-stack">
+  <section class="sk-dres-stack" id="sk-stack">
     <div class="sk-dres-wrap">
       <p class="sk-dres-kicker sk-dres-center" data-rise>Optional, and in this order</p>
       <h2 class="sk-dres-h2 sk-dres-center" data-rise data-delay="1">Where the products actually earn their place</h2>
@@ -152,7 +162,7 @@
               <li>One tablespoon a day, thirty servings</li>
               <li>Contains fish (cod). Refrigerate after opening</li>
             </ul>
-            <a class="sk-dres-btn sk-dres-btn--gold" href="/b-skin-luxe-product">See Luxe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="sk-dres-btn sk-dres-btn--gold" href="/beneve-skin-luxe-product">See Luxe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
           <article class="sk-dres-card" data-rise data-delay="2">
             <span class="sk-dres-rank">Second, week 5</span>
@@ -164,7 +174,7 @@
               <li>Face and neck, morning and evening</li>
               <li>45g, cruelty free</li>
             </ul>
-            <a class="sk-dres-btn" href="/b-skin-renew-product">See Renew<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="sk-dres-btn" href="/beneve-skin-renew-product">See Renew<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
           <article class="sk-dres-card" data-rise data-delay="3">
             <span class="sk-dres-rank">Third, week 9</span>
@@ -176,7 +186,7 @@
               <li>Xanthohumol 175mg from hops</li>
               <li>One capsule a day</li>
             </ul>
-            <a class="sk-dres-btn" href="/b-skin-glutathione-product">See Glutathione+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="sk-dres-btn" href="/beneve-skin-glutathione-product">See Glutathione+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
       </div>
     </div>
@@ -195,4 +205,15 @@
       </p>
     </div>
   </section>
+
+  <!-- ⚠️ FIXED, NOT STICKY, AND top:0 (HOSTED-BLOCKS-SOP §8b). A hosted block is one element
+       inside a GHL page, so position:sticky would pin the bar inside the block's own box and it
+       would vanish with the block. z-index 60 clears GHL chrome.
+       It SCROLLS to the product section rather than jumping to a product page: these routines
+       carry one, two or three products depending on the result, so a bar cannot pick one, and a
+       reader who has not reached the stack has not been told why any of them is there yet. -->
+  <div class="sk-skin-bar" data-skin-bar>
+    <span><b>Full ritual</b>Your ninety day routine</span>
+    <a href="#sk-stack">See The Products</a>
+  </div>
 </div>

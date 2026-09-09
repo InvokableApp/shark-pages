@@ -29,3 +29,50 @@
   --sk-serif:   var(--bnv-serif,"Cormorant Garamond",Georgia,serif);
   --sk-sans:    var(--bnv-sans,Inter,system-ui,-apple-system,sans-serif);
 }
+
+/* ── PRINT OR SAVE THIS ROUTINE ─────────────────────────────────────────────────────────────
+   Jeff, 2026-09-09. The routine is the thing they came for and it runs several screens, so it
+   needs a way to leave the page with them. window.print() is the whole mechanism: the browser's
+   own dialog offers Print and Save as PDF, so one button honours both halves of the label. */
+.sk-dres-bnv-skin .sk-dres-printwrap{margin:2rem 0 0}
+.sk-dres-bnv-skin .sk-dres-print{display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;
+  font-family:var(--sk-sans);font-size:.95rem;font-weight:700;color:var(--sk-brand);
+  background:transparent;border:1px solid var(--sk-line);border-radius:4px;padding:.8rem 1.3rem;
+  transition:background .18s,border-color .18s,color .18s}
+.sk-dres-bnv-skin .sk-dres-print svg{width:1.05em;height:1.05em}
+.sk-dres-bnv-skin .sk-dres-print:hover{background:var(--sk-card);border-color:var(--sk-accent);color:var(--sk-brand-d)}
+
+/* ── THE STICKY BAR (HOSTED-BLOCKS-SOP §8b) ─────────────────────────────────────────────────
+   ⚠️ FIXED, NOT STICKY, AND top:0. A hosted block is one element inside a GHL page, so
+   position:sticky pins the bar inside the block's own box and it disappears with the block.
+   z-index 60 clears GHL chrome. It ships hidden and is revealed once the header has scrolled
+   away, so the page never shows the same call to action twice. */
+.sk-dres-bnv-skin .sk-skin-bar{
+  position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;padding:.72rem clamp(1rem,4vw,3rem);
+  background:rgba(43,39,33,.97);border-bottom:1px solid rgba(221,199,155,.24);
+  box-shadow:0 6px 20px -10px rgba(0,0,0,.5);
+  transform:translateY(-100%);transition:transform .28s ease;pointer-events:none}
+.sk-dres-bnv-skin .sk-skin-bar.sk-skin-bar-on{transform:none;pointer-events:auto}
+.sk-dres-bnv-skin .sk-skin-bar span{font-family:var(--sk-sans);font-size:.88rem;line-height:1.25;
+  color:rgba(255,255,255,.92);font-weight:600}
+.sk-dres-bnv-skin .sk-skin-bar b{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sk-tint);margin-bottom:.12rem}
+.sk-dres-bnv-skin .sk-skin-bar a{flex:none;font-family:var(--sk-sans);font-weight:700;font-size:.88rem;
+  color:var(--sk-ink);text-decoration:none;background:var(--sk-tint);border-radius:3px;
+  padding:.72rem 1.2rem;white-space:nowrap;transition:filter .18s}
+.sk-dres-bnv-skin .sk-skin-bar a:hover{filter:brightness(1.06)}
+/* the bar is fixed, so an anchor jump would land the heading underneath it */
+.sk-dres-bnv-skin #sk-stack{scroll-margin-top:5.5rem}
+@media(max-width:520px){
+  .sk-dres-bnv-skin .sk-skin-bar span{font-size:.8rem}
+  .sk-dres-bnv-skin .sk-skin-bar a{font-size:.82rem;padding:.66rem 1rem}
+}
+
+/* Printing the routine should give them the routine, not the furniture. */
+@media print{
+  .sk-dres-bnv-skin .sk-skin-bar,
+  .sk-dres-bnv-skin .sk-dres-printwrap,
+  .sk-dres-bnv-skin .sk-dres-loader{display:none!important}
+  .sk-dres-bnv-skin [data-rise]{opacity:1!important;transform:none!important}
+}

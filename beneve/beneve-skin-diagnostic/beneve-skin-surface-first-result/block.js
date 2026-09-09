@@ -15,4 +15,34 @@
     s.setAttribute("data-shark-shared", p);
     document.head.appendChild(s);
   });
+
+  var root = document.querySelector(".sk-dres-bnv-skin");
+  if (!root || root.getAttribute("data-skin-ready")) return;
+  root.setAttribute("data-skin-ready", "1");
+
+  /* Print or save. One handler, delegated, so it survives anything the shared engine re-renders. */
+  root.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("[data-sk-print]") : null;
+    if (!t) return;
+    e.preventDefault();
+    window.print();
+  });
+
+  /* The bar appears once the header has scrolled off the TOP, so the page never shows two calls
+     to action at once. boundingClientRect.top < 0 is what separates "the header is above the
+     viewport" from "the reader has not reached it yet".
+     ⚠️ PUBLISH THE MEASURED HEIGHT (HOSTED-BLOCKS-SOP §8b). Anything that pins to the top of this
+     page has to offset off the real bar, never off a guessed number. */
+  var bar = root.querySelector("[data-skin-bar]");
+  var head = root.querySelector(".sk-dres-head");
+  if (bar && head && "IntersectionObserver" in window) {
+    var publish = function () { root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px"); };
+    new IntersectionObserver(function (es) {
+      var e = es[0];
+      var gone = !e.isIntersecting && e.boundingClientRect.top < 0;
+      bar.classList.toggle("sk-skin-bar-on", gone);
+      if (gone) publish();
+    }, { threshold: 0 }).observe(head);
+    window.addEventListener("resize", publish);
+  }
 })();
