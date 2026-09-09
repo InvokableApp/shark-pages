@@ -221,10 +221,7 @@
 .sk-nva-guide .prose,.sk-nva-guide .foods{ padding-bottom:.75in; }
 
 /* ---- 4. COVER: quieter, more considered ---- */
-.sk-nva-guide .cover-title.long{ font-size:50px; line-height:1.02; max-width:5.4in; color:var(--forest); }
 /* hairline rule under the wordmark block */
-.sk-nva-guide .cover-top::after{ content:""; display:block; width:.9in; height:2px;
-  background:var(--gold); margin-top:.28in; }
 
 /* ---- 5. DIVIDERS: numbered, journal-like ---- */
 .sk-nva-guide .divider-eyebrow{ font-family:var(--sk-sans); letter-spacing:.24em; font-size:9.5px; color:#fff; opacity:.9; }
@@ -363,11 +360,6 @@
 .sk-nva-guide .page{ width:100% !important; height:auto !important; min-height:0 !important; overflow:visible !important;
   page-break-after:auto; break-after:auto; margin:0; padding:52px 56px; }
 .sk-nva-guide .page.prose::before,.sk-nva-guide .page.prose::after,.sk-nva-guide .page.foods::before,.sk-nva-guide .page.foods::after,.sk-nva-guide .page.recipe::before,.sk-nva-guide .page.recipe::after{ content:none !important; }
-.sk-nva-guide .page.cover{ padding:0 !important; min-height:80vh !important; display:flex; flex-direction:column; position:relative; }
-.sk-nva-guide .page.cover::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:linear-gradient(180deg, rgba(246,243,236,.95) 0%, rgba(246,243,236,.9) 32%, rgba(246,243,236,.5) 50%, rgba(246,243,236,0) 68%); }
-.sk-nva-guide .page.cover .cover-top{ position:relative; z-index:1; padding:9vh 8% 0; }
-.sk-nva-guide .page.cover .cover-foot{ display:none; }
 .sk-nva-guide .extra-support .product-desc{ margin-bottom:16px; }
 .sk-nva-guide .extra-support .product-btn{ margin-top:auto; }
 .sk-nva-guide .page.divider{ min-height:44vh; }
@@ -393,7 +385,6 @@
 @media (max-width:640px){
   .sk-nva-guide .page{ padding:34px 22px; }
   .sk-nva-guide .recipe-photo{ margin:0 -22px 22px !important; height:200px !important; }
-  .sk-nva-guide .cover-title.long{ font-size:38px !important; }
   .sk-nva-guide .divider-title{ font-size:40px !important; }
   .sk-nva-guide .nextstep-title{ font-size:38px !important; }
   .sk-nva-guide .grocery-cols{ column-count:1 !important; }
@@ -422,7 +413,12 @@
   .sk-nva-guide[data-printing] .gnav,.sk-nva-guide .recipe-print{ display:none !important; }
 }
 
-/* ---- cover -------------------------------------------------------------------
+/* ⚠️ The legacy responsive pass used to re-style the cover down here with `.page.cover` and an
+   !important min-height, which OUT-SPECIFIES the block below and put the title back at the top of
+   the photograph, over the bright half, unreadable. Those rules are removed rather than fought
+   with: a redesign that needs !important to win against the thing it replaced has not replaced it.
+
+   ---- cover -------------------------------------------------------------------
    Full bleed photograph with the type set over it. TWO scrims, not one: a light wash at the top
    so the small header reads over a bright window, and a deep one from halfway down reaching solid
    at the foot, so an oversized title and the stat row stay legible over whatever the photograph
