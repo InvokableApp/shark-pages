@@ -85,13 +85,18 @@
     document.body.appendChild(s);
   }
 
-  // OPT-IN, per socket: `data-shark-paint="gate"`. The paint-order work below changes how
-  // CSS is delivered for EVERY block on EVERY account the moment it is published, and there
-  // are 117 blocks live in buyer accounts. So it is a flag, not a default: a page opts in,
-  // is measured, and only when several have run clean does the default flip. First opt-in
-  // is beneve/beneve-disruptor-quiz (2026-09-05). An ungated socket takes exactly the code
-  // path it took before this file was touched.
-  function gated(el) { return el.getAttribute("data-shark-paint") === "gate"; }
+  // DEFAULT ON since 2026-09-09. The paint gate below changes how CSS is delivered for
+  // every block on every account, so it shipped as an opt-in flag first
+  // (`data-shark-paint="gate"`, first taker beneve/beneve-disruptor-quiz on 2026-09-05)
+  // and the default flipped once it had been measured against every published block:
+  // all 168 block.css files re-parse identically once their @imports are hoisted, and a
+  // socket-by-socket sweep of all 168 found no rendering difference against the old path.
+  //
+  // `data-shark-paint="off"` is the escape hatch. A socket carrying it takes exactly the
+  // code path this file had before any of the paint work: markup injected the moment
+  // block.html lands, no opacity hold, block.css delivered as a plain <link>. Reach for
+  // it only to isolate a suspected gate regression on one page, and say so in the socket.
+  function gated(el) { return el.getAttribute("data-shark-paint") !== "off"; }
 
   function reveal(el) {
     if (!el.__gate) return;
@@ -237,8 +242,12 @@
   // This runs at script-execution time (the tag is parser-blocking and sits directly
   // after the div), which is why it is not deferred to DOMContentLoaded like run().
   (function hideEarly() {
-    var nodes = document.querySelectorAll('[data-shark-block][data-shark-paint="gate"]');
-    for (var i = 0; i < nodes.length; i++) { nodes[i].__gate = true; nodes[i].style.opacity = "0"; }
+    var nodes = document.querySelectorAll("[data-shark-block]");
+    for (var i = 0; i < nodes.length; i++) {
+      if (!gated(nodes[i])) continue;
+      nodes[i].__gate = true;
+      nodes[i].style.opacity = "0";
+    }
   })();
 
   preconnect("https://fonts.googleapis.com");
