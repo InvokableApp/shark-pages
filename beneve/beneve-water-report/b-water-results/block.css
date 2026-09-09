@@ -340,3 +340,37 @@
    is not withholding anything. */
 .sk-wat-rep .sk-prog-ex .sk-fade-1{opacity:.62;filter:blur(1.7px);user-select:none}
 .sk-wat-rep .sk-prog-ex .sk-fade-2{opacity:.34;filter:blur(3.4px);user-select:none}
+
+/* ── PAGE 1's HERO, TONED DOWN, BEHIND THE MOCKUP ───────────────────────────────────────────
+   Jeff, 2026-09-09. It ties the two pages of the funnel together: the reader met this photograph
+   on the opt-in and meets it again under the offer, so the offer reads as part of the same thing
+   rather than as a second website.
+   ⚠️ IT IS BLENDED, NOT LAID ON TOP. The section is moss and the photograph is not, so it goes
+   down in `luminosity` against the section's own ground: the picture keeps its light and shadow
+   and takes the section's colour, which is the only way a photograph sits under white type
+   without fighting it. Then a diagonal gradient walks it out to solid before it reaches the copy
+   column, and a vertical one keeps it off both edges of the section. Nothing here is a hard edge.
+   ⚠️ SAME FILE AS PAGE 1, NOT A COPY. One asset, one cache entry, and a re-shoot changes both. */
+.sk-wat-rep .sk-prog{
+  background-color:var(--sk-ink-d);
+  background-image:
+    linear-gradient(180deg,var(--sk-ink-d) 0%,rgba(36,48,31,0) 18%,rgba(36,48,31,0) 76%,var(--sk-ink-d) 100%),
+    linear-gradient(96deg,rgba(36,48,31,.42) 0%,rgba(36,48,31,.72) 26%,rgba(36,48,31,.94) 44%,var(--sk-ink-d) 58%),
+    url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg");
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-position:center,center,left center;
+  background-size:cover,cover,cover;
+  background-blend-mode:normal,normal,luminosity;
+}
+/* on a phone the card stacks, so the photograph would sit behind the copy rather than beside it */
+@media(max-width:820px){
+  .sk-wat-rep .sk-prog{
+    background-image:
+      linear-gradient(180deg,rgba(36,48,31,.55) 0%,rgba(36,48,31,.9) 30%,var(--sk-ink-d) 52%),
+      url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg");
+    background-repeat:no-repeat,no-repeat;
+    background-position:center,center top;
+    background-size:cover,cover;
+    background-blend-mode:normal,luminosity;
+  }
+}
