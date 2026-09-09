@@ -425,7 +425,15 @@
    is doing there. A single top-to-bottom gradient cannot do both without greying the subject.
    Identical treatment to the PDF cover, deliberately: the same guide must not look like two
    different products depending on which link the lead opened. */
-.sk-nva-guide .cover{ padding:0; position:relative; background-size:cover; background-position:center top; min-height:132vw; }
+/* ⚠️ .page.cover AND !important, both deliberate. The web responsive reset at the top of this
+   section sets `.page{ min-height:0 !important; padding:...; overflow:visible !important }` to
+   turn fixed print sheets into flowing web ones, and every child of the cover is absolutely
+   positioned, so without matching that weight the cover computes to zero height and the page
+   opens on the second section. That is what happened when the old override was removed.
+   aspect-ratio rather than a fixed height, so the cover keeps its proportions at any width. */
+.sk-nva-guide .page.cover{ padding:0 !important; position:relative; overflow:hidden !important;
+  background-size:cover; background-position:center top;
+  aspect-ratio:85/110; min-height:460px !important; }
 .sk-nva-guide .cover-scrim{ position:absolute; inset:0; background:linear-gradient(180deg,
   rgba(7,17,22,.34) 0%, rgba(7,17,22,0) 20%, rgba(7,17,22,0) 40%,
   rgba(7,17,22,.72) 66%, rgba(7,17,22,.97) 88%, #071116 100%); }
