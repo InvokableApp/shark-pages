@@ -142,3 +142,8 @@
 .sk-wat-bnv .sk-wat-embed--none{padding:1.8rem}
 .sk-wat-bnv .sk-wat-embed--none p{font-family:var(--sk-sans);color:var(--sk-body);margin:0}
 @media(max-width:640px){.sk-wat-bnv .sk-wat-gate-h{padding:1.4rem 1.2rem}}
+
+/* ⚠️ THE CHIP WAS BUILT FOR A LIGHT CARD. .sk-wat-chip--under is dark moss text on a 40% sage
+   ground, which is correct on paper and nearly invisible once the header went dark: measured on
+   the live page as dark green on dark green. It keeps the same shape and inverts. */
+.sk-wat-bnv .sk-wat-gate-h .sk-wat-chip{color:var(--sk-ink-d);background:var(--sk-tint,#c6d3b6)}
