@@ -351,3 +351,21 @@
    Two other things were measured on the way and are worth not re-learning: hero.jpg is 1600x1066,
    so any sizing that fills this 1300px-tall section renders it 2600px wide and unrecognisable,
    and `cover` and `auto 132%` both looked identical to no change at all for that reason. */
+
+/* ── THE MOCKUP IS THE HERO OF THIS SECTION, SO SIZE IT LIKE ONE ────────────────────────────
+   Jeff, 2026-09-09: "can you make the mockup much biggger? it just looks so unappealing." It was
+   inheriting the Disruptor's proportions, where the copy column carries a short lede. Here the
+   right column runs a filter table and three days, so the section is over 1300px tall and a
+   500px cover floated in the middle of it with dead moss all around. The column takes the larger
+   share now and the cover overhangs it, so the object fills its half instead of sitting in it.
+   ⚠️ overflow-x:clip, NOT hidden. The cover reaches past the wrap's left edge on a wide screen,
+   and `hidden` would make this section a scroll container, which breaks the fixed bar's anchor
+   jump and can trap touch scrolling. `clip` crops without either. */
+.sk-wat-rep .sk-prog{overflow-x:clip}
+.sk-wat-rep .sk-prog-card{grid-template-columns:minmax(0,1.16fr) minmax(0,1fr)}
+.sk-wat-rep .sk-prog-shot img{width:126%;margin-left:-13%}
+@media(max-width:820px){
+  /* stacked, so it is bounded by the column rather than competing with it */
+  .sk-wat-rep .sk-prog-shot{max-width:380px}
+  .sk-wat-rep .sk-prog-shot img{width:100%;margin-left:0}
+}
