@@ -248,6 +248,14 @@
       "elementId": "custom-code-a4rsl5mr0z",
       "elementTitle": "b-disruptor-quiz-how-to",
       "pattern": "A"
+    },
+    {
+      "path": "beneve-water-report/b-water-results",
+      "funnelId": "l5wHw77MjObvMGlMJIGp",
+      "pageId": "bNm96tR7KQu9d6ViYMa2",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A"
     }
   ],
   "installs": [
@@ -790,6 +798,33 @@
       "elementTitle": "three-day-reset-read",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox-sample",
+      "funnelId": "GMTCslOq17yjPZDyxchT",
+      "pageId": "QstB6w5MhdsgH9NVqaN8",
+      "elementId": "custom-code-0fpaud2hz2",
+      "elementTitle": "Sample Request",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "beneve-water-report/b-water-report",
+      "funnelId": "ftMQFErVTrl1kxMLjaCw",
+      "pageId": "OdyasxWwoHiEagcqezzp",
+      "elementId": "custom-code-9rpxvk7wgo",
+      "elementTitle": "b-water-report",
+      "pattern": "A",
+      "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+    },
+    {
+      "path": "beneve-water-report/b-water-results",
+      "funnelId": "ftMQFErVTrl1kxMLjaCw",
+      "pageId": "gcvVEBnuuFreIojfQ4zO",
+      "elementId": "custom-code-w83cmqjsxf",
+      "elementTitle": "b-water-results",
+      "pattern": "A",
+      "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
     }
   ]
 }
