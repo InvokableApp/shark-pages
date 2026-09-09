@@ -36,30 +36,12 @@
   });
 
   var API = root.getAttribute("data-api") || "";
-  var GUIDE = root.getAttribute("data-guide") || "";
-  var DM = root.getAttribute("data-messenger") || "";
   var DM_STEP = root.getAttribute("data-dm-step") || "";
   var pane = root.querySelector(".sk-wat-report");
   var KEYWORD = "WATER";
 
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
-
-  /* ── IS THIS CUSTOM VALUE ACTUALLY SET? ────────────────────────────────────────────────────
-     Same three non-answers as _shared/confirm/v1, and all three must fail: empty, a merge field
-     with its braces still on, and the ONBOARDING INSTRUCTION, which is the correct resting value
-     on a snapshot. The instruction is the dangerous one: it contains the literal example
-     "messenger.com/t/yourhandle", so any regex hunting for a messenger URL passes it. What
-     separates a real value from prose is WHITESPACE, so that is the first test. */
-  function valueIsSet(v) {
-    v = (v || "").trim();
-    if (!v) return false;
-    if (/\s/.test(v)) return false;
-    if (v.indexOf("{{") > -1) return false;
-    if (/yourhandle|yourname|yourusername|example\.com/i.test(v)) return false;
-    return /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}\/\S+/i.test(v);
-  }
-  var DM_ON = valueIsSet(DM) && !!DM_STEP;
 
   var q = new URLSearchParams(location.search);
   // An unsubstituted merge field arrives with its braces still on. Treat that as absent rather
@@ -80,28 +62,41 @@
   var pfas   = val("pfas", "beneve_water_pfas_count");
   var date   = val("date", "beneve_water_report_date");
 
-  // ── the one call to action, in two flavours ───────────────────────────────────────────────
-  // ⚠️ IT FAILS CLOSED, THEN IT FALLS BACK. On a snapshot beneve_rep_messenger holds its
-  // onboarding instruction, and some reps have no Facebook. Those accounts get the direct PDF
-  // rather than a button that opens a conversation with nobody. One action either way, and no
-  // account is left holding a report with no next step.
-  function ctaButton(label) {
-    if (DM_ON) {
-      return '<a class="sk-ask-btn" href="' + esc(DM_STEP) + '" data-sk-copy="' + KEYWORD + '">' +
-        esc(label) + arrow() + '</a>';
-    }
-    if (GUIDE && !/[{}]/.test(GUIDE)) {
-      return '<a class="sk-ask-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open The 3 Day Reset' + arrow() + '</a>';
-    }
-    return "";
+  // ── the one call to action, and there is only one ─────────────────────────────────────────
+  // ⚠️ NO DIRECT-PDF FALLBACK, EVER. This page used to fall back to the guide URL when
+  // beneve_rep_messenger was unset, so an unconfigured account still had a working next step.
+  // Jeff killed it 2026-09-09: "the cta isnt to open the reset, its to dm the rep and the rep can
+  // send the reset." A button that hands over the PDF removes the only reason this funnel exists,
+  // and it is worse on a live account than on a broken one, because it works. An account with no
+  // Messenger link is an ONBOARDING defect and it is caught there, not papered over here.
+  // → references/BENEVE-BUYER-ONBOARDING-SOP.md §beneve_rep_messenger
+  function ctaButton(cls) {
+    return '<a class="' + cls + '" href="' + esc(DM_STEP) + '" data-sk-copy="' + KEYWORD + '">' +
+      "Message Me The Word " + KEYWORD + arrow() + '</a>';
   }
   function arrow() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   }
   function howLine() {
-    return DM_ON
-      ? '<p class="sk-ask-how">Tap the button and we will copy the word <b>' + KEYWORD + '</b> for you. Paste it and send.</p>'
-      : "";
+    return '<p class="sk-ask-how">Tap the button and we will copy the word <b>' + KEYWORD +
+      '</b> for you. Paste it and send.</p>';
+  }
+
+  // ⚠️ THE BLURB SITS ABOVE THE NUMBERS, WHICH IS THE ONLY PLACE IT WORKS. Jeff, 2026-09-09:
+  // "confused about what these things mean? download our 3 day reset, page whatever will explain
+  // some of these chemicals." The report deliberately never interprets, so the reader meets a
+  // table of compound names with no idea what they are, and that gap is the offer. It names the
+  // PAGE NUMBER because a specific page is a thing that exists and "a free guide" is not.
+  // ⚠️ PAGE 8 IS DERIVED, NOT DECORATIVE: render-pdf.mjs puts the water page at
+  // G.days.length * 2 + 2. If the guide gains or loses a day, this number is wrong.
+  function blurb() {
+    return '<section class="sk-wat-blurb"><div class="sk-dres-wrap"><div class="sk-wat-blurb-in">' +
+      '<div><p class="sk-wat-blurb-t">Not sure what any of these are?</p>' +
+      '<p class="sk-wat-blurb-p">Page 8 of the 3 Day Reset is how to read a report like this one: ' +
+      'what the lead figure means, what the PFAS count means, and which filter standard takes out ' +
+      'what. It is free and I will send it over.</p></div>' +
+      ctaButton("sk-wat-blurb-btn") +
+      '</div></div></section>';
   }
 
   // ⚠️ THE ASK IS BUILT FROM THEIR OWN RESULT. A generic "want a free guide" is a different offer
@@ -182,7 +177,7 @@
     return '<section class="sk-wat-tablewrap" style="padding-top:0"><div class="sk-dres-wrap">' +
       '<div class="sk-ask"><p class="sk-ask-t">Want the rest of it?</p>' +
       '<p class="sk-ask-p">' + esc(askCopy(d)) + ' It is free.</p>' +
-      howLine() + ctaButton("Message Me The Word " + KEYWORD) +
+      howLine() + ctaButton("sk-ask-btn") +
       '</div></div></section>';
   }
 
@@ -222,7 +217,7 @@
       pfasSub = "Your system was not in the EPA's monitoring round.";
     }
 
-    var h = mast(d.system.name, addr, meta) + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
+    var h = mast(d.system.name, addr, meta) + blurb() + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
 
     if (dets && dets.length) {
       h += '<section class="sk-wat-tablewrap"><div class="sk-dres-wrap">' +
@@ -251,7 +246,7 @@
     var meta = [];
     if (system) meta.push(["Water system", system]);
     if (date) meta.push(["Federal data as published", date]);
-    var h = mast(system || "Your water report", addr || address, meta) +
+    var h = mast(system || "Your water report", addr || address, meta) + blurb() +
       figs(lead ? esc(lead) : "No result on file", "The federal action level is 15 ppb.", false,
            pfas ? esc(pfas) + ' <small>detected</small>' : "Not sampled",
            "Measured in the EPA's national PFAS round.", false) +
@@ -279,8 +274,26 @@
     // disagree about whether this account has a Messenger link.
     var slot = root.querySelector(".sk-prog-cta");
     if (slot && !slot.innerHTML) {
-      slot.innerHTML = ctaButton("Message Me The Word " + KEYWORD).replace("sk-ask-btn", "sk-prog-btn") + howLine();
+      slot.innerHTML = ctaButton("sk-prog-btn") + howLine();
     }
+  }
+
+  /* ── THE BAR FLIPS ONCE THE OFFER HAS BEEN SEEN ───────────────────────────────────────────
+     Jeff, 2026-09-09: "the WHOLE POINT is to get people to convert to send a dm for the pdf." The
+     bar carries the ask for the whole page after that, rather than only inside one section the
+     reader may have scrolled past. One-way: it never flips back, because somebody who has read
+     the offer and scrolled up has not un-read it. */
+  var bar = root.querySelector(".sk-prog-bar");
+  var offer = root.querySelector("#reset");
+  if (bar && offer && window.IntersectionObserver) {
+    var io = new IntersectionObserver(function (es) {
+      if (!es.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      bar.setAttribute("data-bar", "ask");
+      bar.innerHTML = '<span><b>The 3 Day Reset</b>Free, for one message</span>' +
+        ctaButton("sk-prog-bar-btn");
+    }, { rootMargin: "0px 0px -25% 0px" });
+    io.observe(offer);
   }
 
   // ⚠️ COPY THE WORD, THEN FOLLOW THE LINK. Named in the copy as well as copied: a refused

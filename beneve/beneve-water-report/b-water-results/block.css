@@ -292,3 +292,44 @@
 /* ⚠️ THE BAR IS FIXED AT top:0 AND SHIPS VISIBLE, so the masthead has to clear it or the bar sits
    on the breadcrumb. The Disruptor does the same thing to its own header. Measured at 70px here. */
 .sk-wat-rep .sk-wat-mast{padding-top:clamp(5.4rem,7vw,6.4rem)}
+
+/* ── THE BLURB, ABOVE THE NUMBERS ───────────────────────────────────────────────────────────
+   Jeff, 2026-09-09: "confused about what these things mean? download our 3 day reset, page
+   whatever will explain some of these chemicals." It is a band, not a card floating in the
+   report, so it reads as the page talking rather than as an ad dropped into a document. Quiet
+   ground and no shadow: it sits between the masthead and the first number and must not out-shout
+   the number the reader came for. */
+.sk-wat-rep .sk-wat-blurb{background:var(--sk-warm);border-bottom:1px solid var(--sk-line);
+  padding:1.5rem 0}
+.sk-wat-rep .sk-wat-blurb-in{display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(1rem,3vw,2.4rem)}
+.sk-wat-rep .sk-wat-blurb-t{font-family:var(--sk-sans);font-size:1rem;font-weight:700;
+  color:var(--sk-ink);margin:0 0 .3rem}
+.sk-wat-rep .sk-wat-blurb-p{font-family:var(--sk-sans);font-size:.94rem;line-height:1.55;
+  color:var(--sk-body);margin:0;max-width:52em}
+.sk-wat-rep .sk-wat-blurb-btn{flex:none;display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--sk-sans);font-weight:700;font-size:.92rem;color:#fff;text-decoration:none;
+  background:var(--sk-brand);border-radius:3px;padding:.8rem 1.4rem;white-space:nowrap;
+  transition:transform .18s,filter .18s}
+.sk-wat-rep .sk-wat-blurb-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-wat-rep .sk-wat-blurb-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.sk-wat-rep .sk-wat-blurb-btn:hover svg{transform:translateX(4px)}
+@media(max-width:820px){
+  .sk-wat-rep .sk-wat-blurb-in{display:block}
+  .sk-wat-rep .sk-wat-blurb-btn{display:flex;justify-content:center;margin-top:1rem}
+}
+
+/* the line that says what the button does. It exists because the button copies a word to the
+   clipboard, which is a thing no button has ever done to this reader before. */
+.sk-wat-rep .sk-ask-how{font-family:var(--sk-sans);font-size:.86rem;line-height:1.5;
+  color:var(--sk-faint);margin:0 0 1.1rem}
+.sk-wat-rep .sk-ask-how b{color:var(--sk-brand);font-weight:700}
+/* on the dark offer card the same line has to invert, and it sits UNDER the button there */
+.sk-wat-rep .sk-prog-cta .sk-ask-how{color:rgba(244,246,240,.6);margin:.9rem 0 0}
+.sk-wat-rep .sk-prog-cta .sk-ask-how b{color:var(--sk-tint)}
+
+/* the bar's second state: the same button, sized for a bar. .sk-prog-bar a already carries the
+   ground and the padding, so this only has to handle the arrow and the flip. */
+.sk-wat-rep .sk-prog-bar-btn{display:inline-flex;align-items:center;gap:.5rem}
+.sk-wat-rep .sk-prog-bar-btn svg{width:1em;height:1em;flex:none}
+.sk-wat-rep .sk-prog-bar[data-bar="ask"]{background:rgba(53,73,47,.97)}

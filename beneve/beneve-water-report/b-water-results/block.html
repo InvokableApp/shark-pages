@@ -15,7 +15,6 @@
 <div class="sk-dres sk-wat-rep"
      data-api="https://water-api-production-c8d2.up.railway.app"
      data-rep="{{custom_values.beneve_rep_full_name}}"
-     data-guide="https://{{custom_values.beneve_three_day_swap_guide_pdf_url}}"
      data-messenger="{{custom_values.beneve_rep_messenger}}"
      data-dm-step="b-water-dm-redirect">
 
@@ -128,10 +127,12 @@
     </div>
   </section>
 
-  <!-- ⚠️ THE BAR SCROLLS, IT DOES NOT SEND. Same call as the Disruptor page: somebody who has just
-       read their numbers has not read the offer yet, and a bar that fires them straight at the
-       redirect asks for the message before saying what they get. -->
-  <div class="sk-prog-bar">
+  <!-- ⚠️ THE BAR HAS TWO STATES AND block.js FLIPS IT. Until the reader has reached the offer it
+       scrolls them to it, because a bar that asks for the message before saying what they get is
+       asking for a favour. The moment the offer has been on screen it becomes the DM button and
+       stays one, so the ask follows them for the rest of the page. Ships in the "tell" state, so a
+       blocked script leaves a working bar rather than a dead one. -->
+  <div class="sk-prog-bar" data-bar="tell">
     <span><b>Free</b>The 3 Day Reset, for one message</span>
     <a href="#reset">See What Is In It</a>
   </div>
