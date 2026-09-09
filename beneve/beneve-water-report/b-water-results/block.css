@@ -322,7 +322,7 @@
 /* the line that says what the button does. It exists because the button copies a word to the
    clipboard, which is a thing no button has ever done to this reader before. */
 .sk-wat-rep .sk-ask-how{font-family:var(--sk-sans);font-size:.86rem;line-height:1.5;
-  color:var(--sk-faint);margin:0 0 1.1rem}
+  color:var(--sk-faint);margin:.9rem 0 0}
 .sk-wat-rep .sk-ask-how b{color:var(--sk-brand);font-weight:700}
 /* on the dark offer card the same line has to invert, and it sits UNDER the button there */
 .sk-wat-rep .sk-prog-cta .sk-ask-how{color:rgba(244,246,240,.6);margin:.9rem 0 0}

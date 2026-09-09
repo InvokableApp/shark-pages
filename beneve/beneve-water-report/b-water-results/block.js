@@ -177,7 +177,7 @@
     return '<section class="sk-wat-tablewrap" style="padding-top:0"><div class="sk-dres-wrap">' +
       '<div class="sk-ask"><p class="sk-ask-t">Want the rest of it?</p>' +
       '<p class="sk-ask-p">' + esc(askCopy(d)) + ' It is free.</p>' +
-      howLine() + ctaButton("sk-ask-btn") +
+      ctaButton("sk-ask-btn") + howLine() +
       '</div></div></section>';
   }
 
@@ -276,16 +276,26 @@
     if (slot && !slot.innerHTML) {
       slot.innerHTML = ctaButton("sk-prog-btn") + howLine();
     }
+    wireBar();
   }
 
   /* ── THE BAR FLIPS ONCE THE OFFER HAS BEEN SEEN ───────────────────────────────────────────
      Jeff, 2026-09-09: "the WHOLE POINT is to get people to convert to send a dm for the pdf." The
      bar carries the ask for the whole page after that, rather than only inside one section the
      reader may have scrolled past. One-way: it never flips back, because somebody who has read
-     the offer and scrolled up has not un-read it. */
-  var bar = root.querySelector(".sk-prog-bar");
-  var offer = root.querySelector("#reset");
-  if (bar && offer && window.IntersectionObserver) {
+     the offer and scrolled up has not un-read it.
+
+     ⚠️ IT CANNOT BE WIRED AT BOOT. The report region is empty until the lookup returns, so at boot
+     #reset sits directly under the loader, inside the first viewport, and the observer fires on
+     the spot: measured shipping in the "ask" state before the reader had seen a single number.
+     It is armed from paint(), against the page that actually exists. */
+  var barWired = false;
+  function wireBar() {
+    if (barWired) return;
+    var bar = root.querySelector(".sk-prog-bar");
+    var offer = root.querySelector("#reset");
+    if (!bar || !offer || !window.IntersectionObserver) return;
+    barWired = true;
     var io = new IntersectionObserver(function (es) {
       if (!es.some(function (e) { return e.isIntersecting; })) return;
       io.disconnect();
