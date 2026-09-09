@@ -1,9 +1,11 @@
 /* beneve / beneve-water-report / b-water-results
  *
- * No design of its own. It imports the page-1 block's stylesheet and reuses the SAME `.sk-wat`
- * scope, so a lead who lands here sees the identical report they saw a second ago. Forking the
- * CSS would let the two drift, and the whole promise of this page is that it is the same report.
+ * No design of its own. It imports the page-1 block's stylesheet, so a lead who lands here sees
+ * the identical report they saw a second ago. Forking the CSS would let the two drift, and the
+ * whole promise of this page is that it is the same report.
  */
+/* ⚠️ The imported rules are scoped `.sk-wat-bnv`. The markup MUST carry that class as well as
+   `.sk-wat-results` or none of this applies. See the note at the top of block.html. */
 @import url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/block.css");
 
 .sk-wat-results .sk-wat-out { display: block; }

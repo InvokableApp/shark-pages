@@ -1,7 +1,12 @@
 <!-- beneve / beneve-water-report / b-water-results
      The report on its own URL, so it can be shared, re-opened and re-sent by the rep.
      Page 1 renders inline and hands off here on form submit. -->
-<div class="sk-wat sk-wat-results"
+<!-- ⚠️ sk-wat-bnv IS LOAD-BEARING, DO NOT DROP IT. block.css imports page 1's stylesheet so this
+     page renders the identical report, but every rule in that sheet is scoped `.sk-wat-bnv`, not
+     `.sk-wat`. Without this class the import resolves 200, the sheet parses, and not one rule
+     matches: the page serves the right words with no design at all. Caught on a live preview
+     2026-09-09; it had never been looked at in a browser. -->
+<div class="sk-wat sk-wat-bnv sk-wat-results"
      data-api="https://water-api-production-c8d2.up.railway.app"
      data-rep="{{custom_values.beneve_rep_full_name}}"
      data-guide="https://{{custom_values.beneve_three_day_swap_guide_pdf_url}}"
