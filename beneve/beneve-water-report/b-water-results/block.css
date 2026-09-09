@@ -288,3 +288,7 @@
   .sk-wat-rep .sk-prog-bar span{font-size:.8rem}
   .sk-wat-rep .sk-prog-bar a{font-size:.82rem;padding:.66rem 1rem}
 }
+
+/* ⚠️ THE BAR IS FIXED AT top:0 AND SHIPS VISIBLE, so the masthead has to clear it or the bar sits
+   on the breadcrumb. The Disruptor does the same thing to its own header. Measured at 70px here. */
+.sk-wat-rep .sk-wat-mast{padding-top:clamp(5.4rem,7vw,6.4rem)}
