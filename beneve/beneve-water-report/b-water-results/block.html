@@ -1,16 +1,139 @@
 <!-- beneve / beneve-water-report / b-water-results
      The report on its own URL, so it can be shared, re-opened and re-sent by the rep.
-     Page 1 renders inline and hands off here on form submit. -->
-<!-- ⚠️ sk-wat-bnv IS LOAD-BEARING, DO NOT DROP IT. block.css imports page 1's stylesheet so this
-     page renders the identical report, but every rule in that sheet is scoped `.sk-wat-bnv`, not
-     `.sk-wat`. Without this class the import resolves 200, the sheet parses, and not one rule
-     matches: the page serves the right words with no design at all. Caught on a live preview
-     2026-09-09; it had never been looked at in a browser. -->
-<div class="sk-wat sk-wat-bnv sk-wat-results"
+
+     ⚠️ sk-dres IS LOAD-BEARING. The design comes from _shared/diagnostic-result/v1, the same
+     component the Disruptor result pages use, and every rule in it is scoped to that class.
+
+     ⚠️ EVERYTHING EXCEPT THE NUMBERS IS STATIC MARKUP ON PURPOSE. The report region is filled by
+     block.js after the lookup returns; the offer is not. An offer that only exists after a
+     successful API call disappears on the day the API is down, which is the one day the page
+     still has a reader on it.
+
+     ⚠️ ONE ACTION ON THIS PAGE AND IT IS THE MESSAGE. Jeff, 2026-09-09: "it should be a NO BRAINER
+     for them to message the rep for the 3 day pdf, thats the whole point of this funnel." There is
+     no product section, no second offer, and no link off the page except the sources. -->
+<div class="sk-dres sk-wat-rep"
      data-api="https://water-api-production-c8d2.up.railway.app"
      data-rep="{{custom_values.beneve_rep_full_name}}"
      data-guide="https://{{custom_values.beneve_three_day_swap_guide_pdf_url}}"
      data-messenger="{{custom_values.beneve_rep_messenger}}"
      data-dm-step="b-water-dm-redirect">
-  <div class="sk-wat-out"><div class="sk-wat-result" aria-live="polite"></div></div>
+
+  <div class="sk-dres-loader" aria-hidden="true">
+    <div class="sk-dres-halo"><div class="sk-dres-orb"></div></div>
+    <div class="sk-dres-msgs">
+      <div class="sk-dres-msg sk-dres-msg--1">
+        <p class="sk-dres-msg-t">Finding your water system...</p>
+        <p class="sk-dres-msg-s">Matching your address to the utility that supplies it</p>
+      </div>
+      <div class="sk-dres-msg sk-dres-msg--2">
+        <p class="sk-dres-msg-t">Reading the federal record...</p>
+        <p class="sk-dres-msg-s">Lead sampling and the EPA's PFAS round</p>
+      </div>
+    </div>
+    <div class="sk-dres-bar"><i></i></div>
+  </div>
+
+  <!-- filled by block.js: masthead, the two numbers, the detection table, the first ask -->
+  <div class="sk-wat-report" aria-live="polite"></div>
+
+  <section class="sk-prog sk-grain" id="reset">
+    <div class="sk-dres-wrap">
+      <div class="sk-prog-card">
+        <figure class="sk-prog-shot" data-rise>
+          <!-- The SAME PDF the Disruptor campaign hands out, so it uses that block's mockup rather
+               than a second copy of a 1 MB PNG in git (CLAUDE.md: git is for capabilities, not
+               binaries). If the reset ever forks, this forks with it. -->
+          <img src="https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz-advanced-result/assets/program.png"
+               alt="The 3 Day Reset" loading="lazy" decoding="async">
+          <span class="sk-prog-badge">Free</span>
+        </figure>
+        <div class="sk-prog-body">
+          <p class="sk-prog-kicker" data-rise>Your next step</p>
+          <h2 class="sk-prog-h2" data-rise data-delay="1">The 3 Day Reset</h2>
+
+          <!-- ⚠️ THIS PARAGRAPH IS WRITTEN AGAINST guide-content.mjs AND MUST STAY TRUE TO IT. The
+               guide has a page called "Reading your water report" whose four items are the lead
+               90th percentile, the PFAS count, which filter standard covers what, and why the
+               shower is a separate fitting. Naming those is the whole reason this offer lands on
+               THIS page: the report deliberately never interprets, and the guide is where the
+               interpretation lives. -->
+          <p class="sk-prog-lede" data-rise data-delay="2">27 swaps over 3 days, 9 a day. Day one
+            costs nothing. It also has a page on reading a water report like the one above.</p>
+
+          <ul class="sk-prog-pills" data-rise data-delay="2">
+            <li>27 swaps</li>
+            <li>3 days</li>
+            <li>A source on every claim</li>
+            <li>Free</li>
+          </ul>
+
+          <div class="sk-wat-filters" data-rise data-delay="2">
+            <p class="sk-wat-filters-h">Which filter takes out what</p>
+            <ul>
+              <li><b>NSF/ANSI 53</b><span>Lead</span></li>
+              <li><b>NSF/ANSI 58</b><span>Reverse osmosis. The one that addresses PFAS</span></li>
+              <li><b>NSF/ANSI 401</b><span>Emerging contaminants, including some pharmaceuticals</span></li>
+              <li><b>NSF/ANSI 42</b><span>Chlorine, taste and odour only</span></li>
+            </ul>
+            <p class="sk-wat-filters-n">The number on the box is what to look for, not the brand.</p>
+          </div>
+
+          <ul class="sk-prog-days" data-rise data-delay="3">
+            <li>
+              <span class="sk-prog-d">Day 1</span>
+              <div class="sk-prog-c">
+                <h3>Nothing to buy</h3>
+                <p class="sk-prog-ex"><span>Never heat food in plastic</span><span>Say no to the receipt</span><span>Shoes off at the door</span><span>Run the fan while you shower</span></p>
+              </div>
+            </li>
+            <li>
+              <span class="sk-prog-d">Day 2</span>
+              <div class="sk-prog-c">
+                <h3>Replace as they run out</h3>
+                <p class="sk-prog-ex"><span>Laundry detergent</span><span>Body wash and shampoo</span><span>Candles and plug-ins</span><span>Anything listing fragrance</span></p>
+              </div>
+            </li>
+            <li>
+              <span class="sk-prog-d">Day 3</span>
+              <div class="sk-prog-c">
+                <h3>Buy once, keep for years</h3>
+                <p class="sk-prog-ex"><span>A drinking water filter</span><span>A shower filter</span><span>One good pan</span><span>Glass or steel for leftovers</span></p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="sk-prog-cta" data-rise data-delay="4"></div>
+          <p class="sk-prog-note">I will send it straight over. If you get stuck on any of them, just ask.</p>
+          <!-- ⚠️ NO WHITESPACE INSIDE THIS TAG. The merge field is the element's only content, so an
+               unfilled custom value leaves it :empty and the CSS hides it. A newline in here
+               defeats :empty and ships a page signed with a bare hyphen. -->
+          <p class="sk-prog-sign">{{custom_values.beneve_rep_full_name}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-wat-sources">
+    <div class="sk-dres-wrap">
+      <p class="sk-wat-src-h">Where these numbers come from</p>
+      <ul class="sk-wat-src-list">
+        <li><a href="https://www.epa.gov/dwreginfo/lead-and-copper-rule" target="_blank" rel="noopener noreferrer">EPA, Lead and Copper Rule</a></li>
+        <li><a href="https://www.epa.gov/dwucmr/fifth-unregulated-contaminant-monitoring-rule" target="_blank" rel="noopener noreferrer">EPA, Fifth Unregulated Contaminant Monitoring Rule</a></li>
+        <li><a href="https://www.epa.gov/sdwa/drinking-water-regulations-pfas" target="_blank" rel="noopener noreferrer">EPA, PFAS drinking water regulations</a></li>
+      </ul>
+      <p class="sk-dres-fine">These are your utility's own compliance results, not a test of the tap
+        in your kitchen. Private wells are not covered by any of it, because nobody is required to
+        report them. Nothing here is a health assessment.</p>
+    </div>
+  </section>
+
+  <!-- ⚠️ THE BAR SCROLLS, IT DOES NOT SEND. Same call as the Disruptor page: somebody who has just
+       read their numbers has not read the offer yet, and a bar that fires them straight at the
+       redirect asks for the message before saying what they get. -->
+  <div class="sk-prog-bar">
+    <span><b>Free</b>The 3 Day Reset, for one message</span>
+    <a href="#reset">See What Is In It</a>
+  </div>
+
 </div>

@@ -1,12 +1,117 @@
 /* beneve / beneve-water-report / b-water-results
  *
- * No design of its own. It imports the page-1 block's stylesheet, so a lead who lands here sees
- * the identical report they saw a second ago. Forking the CSS would let the two drift, and the
- * whole promise of this page is that it is the same report.
+ * The report page. Design comes from _shared/diagnostic-result/v1, the same component the
+ * Disruptor result pages use, so a fix there reaches this page too. This file declares the
+ * palette on this block's own scope class and adds the report furniture the component has no
+ * opinion about: the masthead, the two figures, the detection table and the filter list.
+ *
+ * ⚠️ IT NO LONGER IMPORTS PAGE 1's STYLESHEET. It used to, and every rule in that sheet is scoped
+ * `.sk-wat-bnv`, which this root did not carry, so the page served the right words with no design
+ * at all (caught on a live preview 2026-09-09). The two pages are different documents now: page 1
+ * is a tool, this is a report.
+ *
+ * Moss and sage on warm paper, matching the Disruptor result pages. This funnel never names a
+ * brand, so its pages must not read as any brand's.
  */
-/* ⚠️ The imported rules are scoped `.sk-wat-bnv`. The markup MUST carry that class as well as
-   `.sk-wat-results` or none of this applies. See the note at the top of block.html. */
-@import url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/block.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/diagnostic-result/v1/result.css");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Figtree:wght@300..800&display=swap");
 
-.sk-wat-results .sk-wat-out { display: block; }
-.sk-wat-results .sk-wat-loading { padding: 48px 0; text-align: center; }
+.sk-wat-rep{
+  --sk-brand:   #45603f;
+  --sk-brand-d: #35492f;
+  --sk-accent:  #9caf88;
+  --sk-tint:    #c6d3b6;
+  --sk-ink:     #1f2421;
+  --sk-ink-d:   #24301f;
+  --sk-warm:    #f3efe6;
+  --sk-paper:   #fbf9f4;
+  --sk-card:    #ffffff;
+  --sk-body:    #5c635a;
+  --sk-faint:   #949a91;
+  --sk-line:    #e3e6dd;
+  --sk-flag:    #a4552f;   /* over a federal limit. Not red: the page states a fact, it does not alarm */
+  --sk-serif:   Newsreader,Georgia,serif;
+  --sk-sans:    Figtree,system-ui,-apple-system,sans-serif;
+}
+
+/* ── masthead ────────────────────────────────────────────────────────────────────────────── */
+.sk-wat-rep .sk-wat-mast{background:var(--sk-ink-d);color:#fff;padding:3.4rem 0 3rem}
+.sk-wat-rep .sk-wat-mast .sk-dres-crumbs{color:rgba(255,255,255,.62)}
+.sk-wat-rep .sk-wat-mast .sk-dres-crumbs b{color:#fff}
+.sk-wat-rep .sk-wat-eyebrow{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sk-tint);margin:0 0 .7rem}
+.sk-wat-rep .sk-wat-mast h1{font-family:var(--sk-serif);font-weight:400;color:#fff;
+  font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 1rem;max-width:20ch}
+.sk-wat-rep .sk-wat-addr{font-family:var(--sk-sans);font-size:1rem;color:rgba(255,255,255,.8);margin:0 0 1.5rem}
+.sk-wat-rep .sk-wat-meta{display:flex;flex-wrap:wrap;gap:0 2.4rem;margin:0;padding:0;list-style:none;
+  border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem}
+.sk-wat-rep .sk-wat-meta li{font-family:var(--sk-sans);font-size:.9rem;color:rgba(255,255,255,.62);padding:.35rem 0}
+.sk-wat-rep .sk-wat-meta b{display:block;color:#fff;font-weight:600;font-size:.98rem}
+
+/* ── the two figures ─────────────────────────────────────────────────────────────────────── */
+.sk-wat-rep .sk-wat-figs{background:var(--sk-paper);padding:3rem 0 .5rem}
+.sk-wat-rep .sk-wat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.sk-wat-rep .sk-wat-fig{background:var(--sk-card);border:1px solid var(--sk-line);border-radius:6px;padding:1.6rem 1.7rem}
+.sk-wat-rep .sk-wat-fig-l{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sk-faint);margin:0 0 .5rem}
+.sk-wat-rep .sk-wat-fig-v{font-family:var(--sk-serif);font-size:clamp(2.6rem,6vw,3.6rem);line-height:1;
+  color:var(--sk-brand);margin:0}
+.sk-wat-rep .sk-wat-fig-v small{font-size:.34em;font-family:var(--sk-sans);font-weight:600;color:var(--sk-body);margin-left:.5rem}
+.sk-wat-rep .sk-wat-fig--flag .sk-wat-fig-v{color:var(--sk-flag)}
+.sk-wat-rep .sk-wat-fig-s{font-family:var(--sk-sans);font-size:.92rem;color:var(--sk-body);margin:.7rem 0 0}
+.sk-wat-rep .sk-wat-fig-s b{color:var(--sk-flag)}
+
+/* ── the detection table. This is the part that makes it a report ────────────────────────── */
+.sk-wat-rep .sk-wat-tablewrap{background:var(--sk-paper);padding:2.4rem 0 3.4rem}
+.sk-wat-rep .sk-wat-th{font-family:var(--sk-serif);font-size:clamp(1.35rem,2.4vw,1.7rem);
+  color:var(--sk-ink);margin:0 0 .4rem}
+.sk-wat-rep .sk-wat-tsub{font-family:var(--sk-sans);font-size:.94rem;color:var(--sk-body);margin:0 0 1.3rem}
+.sk-wat-rep .sk-wat-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  background:var(--sk-card);border:1px solid var(--sk-line);border-radius:6px}
+.sk-wat-rep table{border-collapse:collapse;width:100%;min-width:460px;font-family:var(--sk-sans)}
+.sk-wat-rep thead th{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sk-faint);text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--sk-line);white-space:nowrap}
+.sk-wat-rep tbody td{font-size:.95rem;color:var(--sk-ink);padding:.85rem 1.1rem;border-bottom:1px solid var(--sk-line)}
+.sk-wat-rep tbody tr:last-child td{border-bottom:0}
+.sk-wat-rep tbody td:first-child{font-weight:600}
+.sk-wat-rep td.sk-wat-num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.sk-wat-rep .sk-wat-over{color:var(--sk-flag);font-weight:700}
+.sk-wat-rep .sk-wat-under{color:var(--sk-faint)}
+.sk-wat-rep .sk-wat-tnote{font-family:var(--sk-sans);font-size:.84rem;color:var(--sk-faint);margin:1rem 0 0}
+
+/* ── the ask that sits under the numbers ─────────────────────────────────────────────────── */
+.sk-wat-rep .sk-ask{margin-top:2.2rem}
+
+/* ── the filter list inside the offer ────────────────────────────────────────────────────── */
+.sk-wat-rep .sk-wat-filters{margin:1.4rem 0 .2rem;padding:1.2rem 1.3rem;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);border-radius:6px}
+.sk-wat-rep .sk-wat-filters-h{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--sk-tint);margin:0 0 .8rem}
+.sk-wat-rep .sk-wat-filters ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.sk-wat-rep .sk-wat-filters li{display:grid;grid-template-columns:8.6rem 1fr;gap:.9rem;align-items:baseline}
+.sk-wat-rep .sk-wat-filters b{font-family:var(--sk-sans);font-size:.86rem;font-weight:700;color:#fff;white-space:nowrap}
+.sk-wat-rep .sk-wat-filters span{font-family:var(--sk-sans);font-size:.9rem;color:rgba(255,255,255,.72)}
+.sk-wat-rep .sk-wat-filters-n{font-family:var(--sk-sans);font-size:.84rem;color:rgba(255,255,255,.55);margin:.9rem 0 0}
+@media(max-width:520px){.sk-wat-rep .sk-wat-filters li{grid-template-columns:1fr;gap:.1rem}}
+
+/* ── sources ─────────────────────────────────────────────────────────────────────────────── */
+.sk-wat-rep .sk-wat-sources{background:var(--sk-warm);padding:2.6rem 0 3rem}
+.sk-wat-rep .sk-wat-src-h{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sk-faint);margin:0 0 .8rem}
+.sk-wat-rep .sk-wat-src-list{list-style:none;margin:0 0 1.4rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.sk-wat-rep .sk-wat-src-list a{font-family:var(--sk-sans);font-size:.9rem;color:var(--sk-brand);text-decoration:underline}
+
+/* ── the address box, when somebody arrives with nothing ─────────────────────────────────── */
+.sk-wat-rep .sk-wat-ask2{background:var(--sk-paper);padding:4rem 0}
+.sk-wat-rep .sk-wat-ask2 h2{font-family:var(--sk-serif);font-size:clamp(1.6rem,3vw,2.1rem);color:var(--sk-ink);margin:0 0 .6rem}
+.sk-wat-rep .sk-wat-ask2 p{font-family:var(--sk-sans);color:var(--sk-body);margin:0 0 1.2rem}
+.sk-wat-rep .sk-wat-f2{display:flex;flex-wrap:wrap;gap:.6rem;max-width:34rem}
+.sk-wat-rep .sk-wat-f2 input{flex:1 1 16rem;font-family:var(--sk-sans);font-size:1rem;padding:.85rem 1rem;
+  border:1px solid var(--sk-line);border-radius:4px;background:var(--sk-card);color:var(--sk-ink)}
+.sk-wat-rep .sk-wat-f2 button{font-family:var(--sk-sans);font-weight:700;font-size:.95rem;color:#fff;
+  background:var(--sk-brand);border:0;border-radius:4px;padding:.85rem 1.4rem;cursor:pointer}
+
+/* ⚠️ The shared component hides [data-rise] only once ITS script has added .sk-dres-js to the
+   root. This page injects its report AFTER that has already happened, so anything data-rise in
+   the injected markup would be hidden forever. block.js runs its own observer over what it
+   injects. Nothing here may re-hide those nodes. */

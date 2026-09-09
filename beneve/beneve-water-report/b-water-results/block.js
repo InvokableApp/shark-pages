@@ -1,50 +1,56 @@
 /* beneve / beneve-water-report / b-water-results
  *
- * The Water Report on its own URL. Page 1 looks the address up and renders inline; this page
- * exists so the result has an address of its own: shareable, re-openable, and something the rep
- * can send again later. Jeff, 2026-09-07: "I want to deliver the results on that page."
+ * The report on its own URL, so it can be shared, re-opened and re-sent by the rep.
+ *
+ * ⚠️ THE PAGE NEVER INTERPRETS. It prints the utility's own number beside the federal limit and
+ * stops. "Above the federal limit" is a fact about two numbers; "your water is unsafe" is a
+ * medical opinion nobody here is licensed to give. The interpretation lives in the guide, which
+ * is post-DM and asked for, and that split is the reason this page needs only one call to action.
+ *
+ * ⚠️ ONE ACTION, AND IT IS THE MESSAGE. Jeff, 2026-09-09: "it should be a NO BRAINER for them to
+ * message the rep for the 3 day pdf, thats the whole point of this funnel." The ask under the
+ * numbers is built FROM the numbers, which is the one thing the Disruptor result pages cannot do:
+ * a reader who has just been told two compounds in their own water are over a federal limit is
+ * being offered the document that names the filter standard which removes them.
  *
  * ── HOW THE DATA GETS HERE ────────────────────────────────────────────────────────────────
- * GHL substitutes a contact merge field into a FORM'S REDIRECT URL at submit time, when it knows who
- * submitted. That is the one place it does: a merge field in a page socket attribute is NOT
- * substituted (probed 2026-09-07 against the live preview, every variant came back literal).
- * So page 1's form redirects here carrying the values as query params.
- *
- * THREE WAYS IN, best first, because the first one is not proven yet:
- *   1. ?address=…    re-runs the same lookup, so this page renders at FULL fidelity, identical
- *                    to page 1. Needs an address field on the contact, which does not exist yet.
- *   2. ?system=…&lead=…&pfas=…&date=…   the four values the form already captures. A summary
- *                    rather than the full detection list, but every number is the real one.
- *   3. nothing       an address box, so the page is never a dead end.
- *
- * The fallback chain is deliberate: every one of the eleven live redirect URLs in the fleet
- * passes only STANDARD contact fields (email, first_name, phone). Whether a CUSTOM field
- * substitutes there is unproven, so this page is built to work whether it does or not, and the
- * first real submit answers it for free.
- *
- * ⚠️ NEVER INTERPRETS, same rule as page 1. It prints the utility's own number beside the
- * federal limit. "Above the federal limit" is a fact about two numbers; "your water is unsafe"
- * is a medical opinion we are not licensed to give.
+ * Page 1 builds the opt-in form's iframe with the lookup already on its query string. On submit
+ * GHL forward-appends that whole query string onto the redirect target and navigates the TOP
+ * window (NOTES §A form redirect navigates the TOP window), so this page arrives carrying
+ * ?address= plus the six beneve_water_* values. The address is the good one: it re-runs the same
+ * lookup, so the page renders at full fidelity rather than from a summary.
  */
 (function () {
-  var root = document.querySelector(".sk-wat-results");
+  var BASE = "https://invokableapp.github.io/shark-pages/";
+  var root = document.querySelector(".sk-wat-rep");
   if (!root || root.getAttribute("data-wat-ready")) return;
   root.setAttribute("data-wat-ready", "1");
+
+  // The shared component owns the loader and the reveal on the STATIC offer markup below.
+  ["_shared/diagnostic-result/v1/result.js"].forEach(function (p) {
+    if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
+    var s = document.createElement("script");
+    s.src = BASE + p; s.async = false;
+    s.setAttribute("data-shark-shared", p);
+    document.head.appendChild(s);
+  });
+
   var API = root.getAttribute("data-api") || "";
-  var pane = root.querySelector(".sk-wat-result");
   var GUIDE = root.getAttribute("data-guide") || "";
   var DM = root.getAttribute("data-messenger") || "";
   var DM_STEP = root.getAttribute("data-dm-step") || "";
+  var pane = root.querySelector(".sk-wat-report");
+  var KEYWORD = "WATER";
+
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
   /* ── IS THIS CUSTOM VALUE ACTUALLY SET? ────────────────────────────────────────────────────
-     Same three non-answers as _shared/confirm/v1, and all three must fail:
-       ""                          the socket carries no data-cv for it, or the CV is blank
-       a merge field with its braces still on   never substituted at all
-       "Paste the link that ..."   the ONBOARDING INSTRUCTION, which is the correct resting value
-                                   on a snapshot (CLAUDE.md, Account TYPES)
-     The instruction is the dangerous one: it contains the literal example "messenger.com/t/
-     yourhandle", so any regex hunting for a messenger URL passes it. What separates a real value
-     from prose is WHITESPACE, so that is the first test. */
+     Same three non-answers as _shared/confirm/v1, and all three must fail: empty, a merge field
+     with its braces still on, and the ONBOARDING INSTRUCTION, which is the correct resting value
+     on a snapshot. The instruction is the dangerous one: it contains the literal example
+     "messenger.com/t/yourhandle", so any regex hunting for a messenger URL passes it. What
+     separates a real value from prose is WHITESPACE, so that is the first test. */
   function valueIsSet(v) {
     v = (v || "").trim();
     if (!v) return false;
@@ -53,12 +59,11 @@
     if (/yourhandle|yourname|yourusername|example\.com/i.test(v)) return false;
     return /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}\/\S+/i.test(v);
   }
-  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var DM_ON = valueIsSet(DM) && !!DM_STEP;
 
   var q = new URLSearchParams(location.search);
-  // An unsubstituted merge field arrives with its braces still on. Treat that as absent
-  // rather than printing braces at somebody. First name that answers wins.
+  // An unsubstituted merge field arrives with its braces still on. Treat that as absent rather
+  // than printing braces at somebody. First name that answers wins.
   var val = function () {
     for (var i = 0; i < arguments.length; i++) {
       var v = q.get(arguments[i]);
@@ -66,124 +71,215 @@
     }
     return "";
   };
-
-  // ⚠️ TWO SPELLINGS FOR THE SAME FOUR VALUES, AND THE SECOND ONE IS THE ONE THAT ACTUALLY
-  // ARRIVES. Measured on a live submit, 2026-09-09. When the opt-in form redirects here, GHL
-  // forward-appends the FORM IFRAME's whole query string onto the target, and those params are
-  // named after the contact fields, not after this page's short names:
-  //
-  //   address=… & beneve_water_system=… & beneve_water_system_id=… & beneve_water_lead_90th=…
-  //   & beneve_water_pfas_count=… & beneve_water_pfas_flag=… & beneve_water_report_date=…
-  //
-  // The short names were this page's own design and nothing in the funnel ever sent them, so the
-  // summary path below was unreachable: an address-less arrival fell straight through to the
-  // address box even though every number it needed was sitting in the URL. Both are accepted now.
+  // ⚠️ TWO SPELLINGS, AND THE SECOND IS THE ONE THAT ACTUALLY ARRIVES. GHL forward-appends the
+  // form iframe's query string, and those params are named after the contact fields. The short
+  // names were this page's own design and nothing in the funnel has ever sent them.
   var address = val("address");
   var system = val("system", "beneve_water_system");
   var lead   = val("lead", "beneve_water_lead_90th");
   var pfas   = val("pfas", "beneve_water_pfas_count");
   var date   = val("date", "beneve_water_report_date");
 
-  if (address) return lookup(address);
-  if (system || lead || pfas) return summary();
-  return askForAddress();
-
-  function lookup(addr) {
-    pane.innerHTML = '<div class="sk-wat-loading"><p class="sk-wat-sub">Reading the federal record for ' + esc(addr) + '…</p></div>';
-    fetch(API + "/lookup?address=" + encodeURIComponent(addr))
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        // page 1's renderer lives in its own block and is not loaded here, so this page draws
-        // the same facts in the same classes rather than importing a function across blocks
-        if (!d || !d.found) return summaryFrom({ system: "no public water system on record" }, addr);
-        summaryFrom({
-          system: d.system && d.system.name,
-          lead: d.lead ? (d.lead.ppb > 0 ? d.lead.ppb + " ppb" : "none detected") : "no result on file",
-          leadLimit: d.lead && d.lead.actionPpb,
-          pfas: d.pfas && d.pfas.sampled ? String(d.pfas.detections.length) : "not sampled",
-          panel: d.pfas && d.pfas.panel,
-          over: d.pfas && d.pfas.anyOverLimit,
-          date: d.built,
-        }, addr);
-      })
-      .catch(function () { askForAddress("That lookup did not come back. Try the address again."); });
-  }
-
-  function summary() { summaryFrom({ system: system, lead: lead, pfas: pfas, date: date }, ""); }
-
-  function summaryFrom(d, addr) {
-    var h = '<div class="sk-wat-card"><h2>Your water report</h2>';
-    if (addr) h += '<p class="sk-wat-sub">' + esc(addr) + '</p>';
-    if (d.system) h += '<p class="sk-wat-sub">Water system: <strong>' + esc(d.system) + '</strong></p>';
-    if (d.lead) {
-      h += '<h3>Lead</h3><div class="sk-wat-big">' + esc(d.lead) + '</div>';
-      if (d.leadLimit) h += '<p class="sk-wat-sub">Federal action level is ' + esc(d.leadLimit) + ' ppb.</p>';
-    }
-    if (d.pfas) {
-      h += '<h3>PFAS</h3>';
-      if (d.pfas === "not sampled") {
-        h += '<p class="sk-wat-sub">This system was not part of the EPA\'s 2023 to 2025 sampling, which covered ' +
-             'larger systems. That means nobody has published a PFAS result for it, not that it is clear.</p>';
-      } else {
-        h += '<div class="sk-wat-big' + (d.over ? " sk-wat-flag" : "") + '">' + esc(d.pfas) +
-             '<small>' + (d.panel ? " of " + esc(d.panel) + " " : " ") + 'detected</small></div>';
-      }
-    }
-    if (d.date) h += '<p class="sk-wat-sub">Report built ' + esc(d.date) + '.</p>';
-    h += '<p class="sk-wat-sub">These are your utility\'s own reported numbers beside the federal limits. ' +
-         'Nothing here is a health assessment.</p></div>' + cta();
-    pane.innerHTML = h;
-  }
-
-
-  // ── one CTA, and it is the thing this page deliberately does not do ─────────────────────────
-  // The page prints the utility's number beside the federal limit and stops, because "above the
-  // limit" is a fact about two numbers and anything past that is a medical opinion nobody here is
-  // licensed to give. The guide is where the interpretation lives: what a 90th percentile lead
-  // figure actually is, what "not sampled" means, and which NSF standard removes which thing.
-  // So there is ONE offer and it is not a second opt-in: they already gave their details to see
-  // this page. (Jeff, 2026-09-07: "no it needs to be one cta".)
-  // ⚠️ THE RESET IS HANDED OVER BY THE REP, IN A DM. Changed 2026-09-09. It used to be a direct
-  // PDF link, which delivers the guide and produces nothing else. This campaign has no Beneve
-  // water product, no hot tier and no product click to chase (build-automations.mjs): the ONLY
-  // thing it can produce is a rep conversation, and a lead who opens that conversation themselves
-  // is worth more than a rep cold-DMing off the opt-in alert.
-  //
-  // ⚠️ THE HREF IS A FUNNEL STEP, NOT A MESSENGER LINK. A direct link is invisible to us. Routing
-  // the click through /b-water-dm-redirect makes it a PAGEVIEW, which is a trigger, which is how
-  // the tag and the rep SMS happen at all. The step is a 0.5s timer page forwarding to
-  // {{custom_values.beneve_rep_messenger}}, built by 09-dm-step.mjs.
-  //
-  // ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a domain is
-  // connected and 404s on a preview or an un-domained account. (NOTES §Linking to another step.)
-  //
-  // ⚠️ IT FAILS CLOSED, AND THEN IT FALLS BACK. On the snapshot beneve_rep_messenger holds its
-  // onboarding instruction, and some reps have no Facebook at all. Rather than show a button that
-  // opens a conversation with nobody, those accounts get the direct PDF instead. Either way the
-  // page shows exactly ONE call to action, and no account is left with a report and no next step.
-  // (Jeff, 2026-09-07: "no it needs to be one cta".)
-  function cta() {
-    var explain = '<h3>What these numbers actually mean</h3>' +
-      '<p>This page shows what your utility reported. The 3 Day Reset explains it: how to read a ' +
-      'lead 90th percentile, what it means when a system was never sampled, and which filter ' +
-      'standard removes which thing. Plus twenty seven swaps for the rest of the house.</p>';
-
-    if (valueIsSet(DM) && DM_STEP) {
-      return '<div class="sk-wat-ask">' + explain +
-        '<p>Message me the words <b>3 DAY RESET</b> and I will send it over. Tap below and we will ' +
-        'copy those words for you, so in Messenger you only have to paste and send.</p>' +
-        '<p><a class="sk-wat-btn" href="' + esc(DM_STEP) + '" data-sk-copy="3 DAY RESET">Send me a message</a></p>' +
-        '</div>';
+  // ── the one call to action, in two flavours ───────────────────────────────────────────────
+  // ⚠️ IT FAILS CLOSED, THEN IT FALLS BACK. On a snapshot beneve_rep_messenger holds its
+  // onboarding instruction, and some reps have no Facebook. Those accounts get the direct PDF
+  // rather than a button that opens a conversation with nobody. One action either way, and no
+  // account is left holding a report with no next step.
+  function ctaButton(label) {
+    if (DM_ON) {
+      return '<a class="sk-ask-btn" href="' + esc(DM_STEP) + '" data-sk-copy="' + KEYWORD + '">' +
+        esc(label) + arrow() + '</a>';
     }
     if (GUIDE && !/[{}]/.test(GUIDE)) {
-      return '<div class="sk-wat-ask">' + explain +
-        '<p><a class="sk-wat-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open the 3 Day Reset</a></p>' +
-        '</div>';
+      return '<a class="sk-ask-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open The 3 Day Reset' + arrow() + '</a>';
     }
     return "";
   }
+  function arrow() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  }
+  function howLine() {
+    return DM_ON
+      ? '<p class="sk-ask-how">Tap the button and we will copy the word <b>' + KEYWORD + '</b> for you. Paste it and send.</p>'
+      : "";
+  }
 
-  // Copy the words, THEN follow the link. Named in the copy above as well as copied, so a refused
+  // ⚠️ THE ASK IS BUILT FROM THEIR OWN RESULT. A generic "want a free guide" is a different offer
+  // to "the two compounds over the limit in your water are covered by a filter standard the guide
+  // names". Only this page can write the second one, because only this page knows the numbers.
+  function askCopy(d) {
+    var over = d && d.pfas && d.pfas.sampled
+      ? (d.pfas.detections || []).filter(function (x) { return x.overLimit; }).length : 0;
+    var found = d && d.pfas && d.pfas.sampled ? (d.pfas.detections || []).length : 0;
+    var leadOver = d && d.lead && d.lead.overAction;
+
+    if (over) {
+      return (over === 1 ? "One of the " : num(over) + " of the ") + num(found) +
+        " PFAS compounds detected in your water " + (over === 1 ? "is" : "are") +
+        " over the federal limit. The 3 Day Reset names the filter standard that takes them out, and 26 other swaps.";
+    }
+    if (leadOver) {
+      return "Your utility's lead figure is over the federal action level. The 3 Day Reset names the filter standard certified for lead, and 26 other swaps.";
+    }
+    if (found) {
+      return num(found) + " PFAS compounds were detected in your water, all under the limits that exist. " +
+        "The 3 Day Reset names which filter standard covers which one, and 26 other swaps.";
+    }
+    if (d && d.pfas && !d.pfas.sampled) {
+      return "Your system was not sampled in the EPA's PFAS round, which is an absence of data rather than an absence of PFAS. " +
+        "The 3 Day Reset explains what that means, names the filter standard for each thing, and lists 26 other swaps.";
+    }
+    return "The 3 Day Reset names which filter standard takes out lead, which one addresses PFAS, and 26 other swaps.";
+  }
+  var WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+  function num(n) { return n <= 10 ? WORDS[n] : String(n); }
+
+  // ── boot ──────────────────────────────────────────────────────────────────────────────────
+  if (address) lookup(address);
+  else if (system || lead || pfas) summary();
+  else askForAddress();
+
+  function lookup(addr) {
+    fetch(API + "/lookup?address=" + encodeURIComponent(addr))
+      .then(function (r) { return r.json(); })
+      .then(function (d) { d && d.found ? render(d, addr) : summaryOrAsk(addr); })
+      .catch(function () { summaryOrAsk(addr); });
+  }
+  function summaryOrAsk(addr) {
+    if (system || lead || pfas) summary(addr);
+    else askForAddress("I could not place " + addr + ". Try it with the town and the state on it.");
+  }
+
+  function mast(title, addr, meta) {
+    return '<header class="sk-wat-mast sk-grain"><div class="sk-dres-wrap">' +
+      '<nav class="sk-dres-crumbs" aria-label="Breadcrumb"><span>Water Report</span><i>&rsaquo;</i><b>Your results</b></nav>' +
+      '<p class="sk-wat-eyebrow">Water quality report</p>' +
+      '<h1>' + esc(title) + '</h1>' +
+      (addr ? '<p class="sk-wat-addr">' + esc(addr) + '</p>' : "") +
+      (meta.length ? '<ul class="sk-wat-meta">' + meta.map(function (m) {
+        return '<li>' + esc(m[0]) + '<b>' + esc(m[1]) + '</b></li>'; }).join("") + '</ul>' : "") +
+      '</div></header>';
+  }
+
+  function figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag) {
+    return '<section class="sk-wat-figs"><div class="sk-dres-wrap"><div class="sk-wat-grid">' +
+      '<div class="sk-wat-fig' + (leadFlag ? " sk-wat-fig--flag" : "") + '">' +
+        '<p class="sk-wat-fig-l">Lead, 90th percentile</p>' +
+        '<p class="sk-wat-fig-v">' + leadTxt + '</p>' +
+        '<p class="sk-wat-fig-s">' + leadSub + '</p></div>' +
+      '<div class="sk-wat-fig' + (pfasFlag ? " sk-wat-fig--flag" : "") + '">' +
+        '<p class="sk-wat-fig-l">PFAS</p>' +
+        '<p class="sk-wat-fig-v">' + pfasTxt + '</p>' +
+        '<p class="sk-wat-fig-s">' + pfasSub + '</p></div>' +
+      '</div></div></section>';
+  }
+
+  function askBlock(d) {
+    return '<section class="sk-wat-tablewrap" style="padding-top:0"><div class="sk-dres-wrap">' +
+      '<div class="sk-ask"><p class="sk-ask-t">Want the rest of it?</p>' +
+      '<p class="sk-ask-p">' + esc(askCopy(d)) + ' It is free.</p>' +
+      howLine() + ctaButton("Message Me The Word " + KEYWORD) +
+      '</div></div></section>';
+  }
+
+  function render(d, addr) {
+    var meta = [["Water system", d.system.name]];
+    if (d.pwsid) meta.push(["EPA system id", d.pwsid]);
+    if (d.system.population) meta.push(["People served", Number(d.system.population).toLocaleString()]);
+    if (d.system.source) meta.push(["Source", d.system.source]);
+    if (d.built) meta.push(["Federal data as published", d.built]);
+
+    var leadTxt, leadSub, leadFlag = false;
+    if (d.lead && d.lead.ppb > 0) {
+      leadTxt = d.lead.ppb + ' <small>ppb</small>';
+      leadFlag = !!d.lead.overAction;
+      leadSub = d.lead.overAction
+        ? "<b>Over the federal action level of " + d.lead.actionPpb + " ppb.</b>"
+        : "The federal action level is " + d.lead.actionPpb + " ppb.";
+    } else if (d.lead) {
+      leadTxt = 'None detected';
+      leadSub = "The federal action level is " + d.lead.actionPpb + " ppb.";
+    } else {
+      leadTxt = 'No result on file';
+      leadSub = "Your utility has not reported a lead figure.";
+    }
+
+    var dets = (d.pfas && d.pfas.sampled) ? (d.pfas.detections || []) : null;
+    var over = dets ? dets.filter(function (x) { return x.overLimit; }).length : 0;
+    var pfasTxt, pfasSub, pfasFlag = false;
+    if (dets) {
+      pfasTxt = dets.length + ' <small>of 30 detected</small>';
+      pfasFlag = over > 0;
+      pfasSub = over
+        ? "<b>" + num(over) + " over a federal limit.</b>"
+        : "None over a federal limit.";
+    } else {
+      pfasTxt = 'Not sampled';
+      pfasSub = "Your system was not in the EPA's monitoring round.";
+    }
+
+    var h = mast(d.system.name, addr, meta) + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
+
+    if (dets && dets.length) {
+      h += '<section class="sk-wat-tablewrap"><div class="sk-dres-wrap">' +
+        '<h2 class="sk-wat-th">Every compound they found</h2>' +
+        '<p class="sk-wat-tsub">Measured in parts per trillion, beside the federal limit where one exists.</p>' +
+        '<div class="sk-wat-scroll"><table><thead><tr>' +
+        '<th>Compound</th><th>Detected</th><th>Federal limit</th><th>Status</th>' +
+        '</tr></thead><tbody>' +
+        dets.map(function (x) {
+          return '<tr><td>' + esc(x.name) + '</td>' +
+            '<td class="sk-wat-num">' + x.ppt + ' ppt</td>' +
+            '<td class="sk-wat-num">' + (x.limit ? x.limit + " ppt" : "None set") + '</td>' +
+            '<td class="' + (x.overLimit ? "sk-wat-over" : "sk-wat-under") + '">' +
+            (x.overLimit ? "Over" : x.limit ? "Under" : "No limit") + '</td></tr>';
+        }).join("") +
+        '</tbody></table></div>' +
+        '<p class="sk-wat-tnote">A federal limit exists for six PFAS compounds. The rest are reported without one.</p>' +
+        '</div></section>';
+    }
+
+    h += askBlock(d);
+    paint(h);
+  }
+
+  function summary(addr) {
+    var meta = [];
+    if (system) meta.push(["Water system", system]);
+    if (date) meta.push(["Federal data as published", date]);
+    var h = mast(system || "Your water report", addr || address, meta) +
+      figs(lead ? esc(lead) : "No result on file", "The federal action level is 15 ppb.", false,
+           pfas ? esc(pfas) + ' <small>detected</small>' : "Not sampled",
+           "Measured in the EPA's national PFAS round.", false) +
+      askBlock(null);
+    paint(h);
+  }
+
+  function askForAddress(msg) {
+    paint('<section class="sk-wat-ask2"><div class="sk-dres-wrap">' +
+      '<h2>Look up a water report</h2>' +
+      '<p>' + (msg ? esc(msg) : "Type an address and we will read your utility's own EPA records.") + '</p>' +
+      '<form class="sk-wat-f2"><input id="sk-wat-a2" type="text" autocomplete="street-address" ' +
+      'placeholder="123 Main St, your town, ST"><button type="submit">Check this address</button></form>' +
+      '</div></section>');
+    pane.querySelector(".sk-wat-f2").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = pane.querySelector("#sk-wat-a2").value.trim();
+      if (v) { address = v; pane.innerHTML = ""; lookup(v); }
+    });
+  }
+
+  function paint(html) {
+    pane.innerHTML = html;
+    // The static offer's CTA slot is filled from the same builder, so the two buttons can never
+    // disagree about whether this account has a Messenger link.
+    var slot = root.querySelector(".sk-prog-cta");
+    if (slot && !slot.innerHTML) {
+      slot.innerHTML = ctaButton("Message Me The Word " + KEYWORD).replace("sk-ask-btn", "sk-prog-btn") + howLine();
+    }
+  }
+
+  // ⚠️ COPY THE WORD, THEN FOLLOW THE LINK. Named in the copy as well as copied: a refused
   // clipboard write (insecure context, locked-down browser) still leaves the visitor knowing what
   // to type rather than arriving in Messenger with nothing. Navigation happens either way.
   root.addEventListener("click", function (e) {
@@ -197,24 +293,9 @@
     var go = function () { if (went) return; went = true; window.location.href = href; };
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () {
-          t.textContent = "Copied. Paste it and send.";
-          setTimeout(go, 900);
-        }, go);
-      } else { go(); }
+        navigator.clipboard.writeText(text).then(function () { setTimeout(go, 700); }, go);
+      } else go();
     } catch (err) { go(); }
     setTimeout(go, 1400);
   });
-
-  function askForAddress(msg) {
-    pane.innerHTML = '<div class="sk-wat-card"><h2>Look up a water report</h2>' +
-      (msg ? '<p class="sk-wat-sub">' + esc(msg) + '</p>' : "") +
-      '<form class="sk-wat-form2"><input id="sk-wat-a2" type="text" placeholder="123 Main St, your town, ST" ' +
-      'autocomplete="street-address"><button type="submit">Check this address</button></form></div>';
-    pane.querySelector(".sk-wat-form2").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var v = pane.querySelector("#sk-wat-a2").value.trim();
-      if (v) lookup(v);
-    });
-  }
 })();
