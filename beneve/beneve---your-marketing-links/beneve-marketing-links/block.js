@@ -23,10 +23,12 @@ window.SHARK_HUB = {
       items: [
         { icon: "leaf", name: "Hormone Lunchbox Guide",
           slug: "b-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
+          canva: "https://canva.link/klve68vn95zpvp9",
           tease: "Free make ahead lunches",
           desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
           slug: "b-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
+          canva: "https://canva.link/c2s35l1i69u68vp",
           tease: "Foods that support GLP naturally",
           desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." },
         { icon: "coffee", name: "Clean Iced Coffee Recipes",
@@ -40,12 +42,23 @@ window.SHARK_HUB = {
       items: [
         { icon: "quiz", name: "Side Hustle Quiz",
           slug: "b-match-quiz", scripts: "https://sharksuite.ai/side-hustle-scripts",
+          canva: "https://canva.link/88d04yj0r000kkh",
           tease: "Sorts them into the right fit",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Beneve fits. Use it when someone is interested but not ready to talk." },
         { icon: "user", name: "Influencer Aptitude Test",
           slug: "b-aptitude-test",
           tease: "Is sharing Beneve a fit for them?",
-          desc: "A short test that tells someone whether sharing products on social is a fit for them. Each result page speaks to their type and hands them straight into the opportunity." }
+          desc: "A short test that tells someone whether sharing products on social is a fit for them. Each result page speaks to their type and hands them straight into the opportunity." },
+        { icon: "drop", name: "Water Report",
+          slug: "b-water-report", scripts: "https://sharksuite.ai/water-report-scripts",
+          canva: "https://canva.link/4lhscdgpr4icfw3",
+          tease: "Free report on their own tap water",
+          desc: "Someone types in their address and gets the federal testing data for their own tap water. Nothing is sold on the page, which is what makes people pass it around and what opens the conversation." },
+        { icon: "scan", name: "Skin Diagnostic",
+          slug: "beneve-skin", scripts: "https://sharksuite.ai/skin-diagnostic-scripts",
+          canva: "https://canva.link/1n08nso1az22mzn",
+          tease: "Free 90 day skin routine",
+          desc: "A 45 second quiz that hands every lead a free 90 day skin routine, then points them at Renew, Luxe or Glutathione+ depending on the result. Strong opener for anyone already spending money on skincare." }
       ]
     }
   ],

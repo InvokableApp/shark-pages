@@ -16,6 +16,14 @@
    "url": "https://{{custom_values.beneve_scripts_base_url}}/water-report-scripts"
   },
   {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/4lhscdgpr4icfw3"
+  },
+  {
    "icon": "chat",
    "title": "Opportunity scripts",
    "primary": false,
