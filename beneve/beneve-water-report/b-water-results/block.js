@@ -114,7 +114,7 @@
     var leadOver = d && d.lead && d.lead.overAction;
 
     if (over) {
-      return (over === 1 ? "One of the " : num(over) + " of the ") + num(found) +
+      return cap(num(over)) + " of the " + num(found) +
         " PFAS compounds detected in your water " + (over === 1 ? "is" : "are") +
         " over the federal limit. The 3 Day Reset names the filter standard that takes them out, and 26 other swaps.";
     }
@@ -122,7 +122,7 @@
       return "Your utility's lead figure is over the federal action level. The 3 Day Reset names the filter standard certified for lead, and 26 other swaps.";
     }
     if (found) {
-      return num(found) + " PFAS compounds were detected in your water, all under the limits that exist. " +
+      return cap(num(found)) + " PFAS compounds were detected in your water, all under the limits that exist. " +
         "The 3 Day Reset names which filter standard covers which one, and 26 other swaps.";
     }
     if (d && d.pfas && !d.pfas.sampled) {
@@ -131,8 +131,12 @@
     }
     return "The 3 Day Reset names which filter standard takes out lead, which one addresses PFAS, and 26 other swaps.";
   }
-  var WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+  // Lower case, because these land mid-sentence far more often than they start one. Whatever
+  // starts a sentence is capitalised at the point of use with cap(), rather than every caller
+  // having to remember to lower it: the first draft shipped "Two of the Seven".
+  var WORDS = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
   function num(n) { return n <= 10 ? WORDS[n] : String(n); }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
   // ── boot ──────────────────────────────────────────────────────────────────────────────────
   if (address) lookup(address);
@@ -211,7 +215,7 @@
       pfasTxt = dets.length + ' <small>of 30 detected</small>';
       pfasFlag = over > 0;
       pfasSub = over
-        ? "<b>" + num(over) + " over a federal limit.</b>"
+        ? "<b>" + cap(num(over)) + " over a federal limit.</b>"
         : "None over a federal limit.";
     } else {
       pfasTxt = 'Not sampled';
