@@ -58,11 +58,31 @@
 
   var q = new URLSearchParams(location.search);
   // An unsubstituted merge field arrives with its braces still on. Treat that as absent
-  // rather than printing braces at somebody.
-  var val = function (k) { var v = q.get(k); return (!v || /[{}]/.test(v)) ? "" : v.trim(); };
+  // rather than printing braces at somebody. First name that answers wins.
+  var val = function () {
+    for (var i = 0; i < arguments.length; i++) {
+      var v = q.get(arguments[i]);
+      if (v && !/[{}]/.test(v)) return v.trim();
+    }
+    return "";
+  };
 
+  // ⚠️ TWO SPELLINGS FOR THE SAME FOUR VALUES, AND THE SECOND ONE IS THE ONE THAT ACTUALLY
+  // ARRIVES. Measured on a live submit, 2026-09-09. When the opt-in form redirects here, GHL
+  // forward-appends the FORM IFRAME's whole query string onto the target, and those params are
+  // named after the contact fields, not after this page's short names:
+  //
+  //   address=… & beneve_water_system=… & beneve_water_system_id=… & beneve_water_lead_90th=…
+  //   & beneve_water_pfas_count=… & beneve_water_pfas_flag=… & beneve_water_report_date=…
+  //
+  // The short names were this page's own design and nothing in the funnel ever sent them, so the
+  // summary path below was unreachable: an address-less arrival fell straight through to the
+  // address box even though every number it needed was sitting in the URL. Both are accepted now.
   var address = val("address");
-  var system = val("system"), lead = val("lead"), pfas = val("pfas"), date = val("date");
+  var system = val("system", "beneve_water_system");
+  var lead   = val("lead", "beneve_water_lead_90th");
+  var pfas   = val("pfas", "beneve_water_pfas_count");
+  var date   = val("date", "beneve_water_report_date");
 
   if (address) return lookup(address);
   if (system || lead || pfas) return summary();
