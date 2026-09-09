@@ -457,3 +457,10 @@
   font-weight:900; line-height:1; letter-spacing:-.02em; }
 .sk-nva-guide .cover-stats span{ display:block; font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.17em;
   text-transform:uppercase; white-space:nowrap; color:rgba(255,255,255,.62); margin-top:.7em; }
+
+/* On a phone the four stat columns are about 82px each and "WEEK SCHEDULE" sets wider than that,
+   so nowrap ran it straight into "RECIPES". Below 560px the labels wrap and the tracking comes in. */
+@media (max-width:560px){
+  .sk-nva-guide .cover-stats{ gap:10px; }
+  .sk-nva-guide .cover-stats span{ white-space:normal; font-size:6.6px; letter-spacing:.1em; line-height:1.3; }
+}
