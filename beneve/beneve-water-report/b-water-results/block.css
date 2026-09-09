@@ -357,11 +357,13 @@
     radial-gradient(64% 66% at 27% 52%,rgba(36,48,31,.18) 0%,rgba(36,48,31,.58) 44%,rgba(36,48,31,.9) 68%,var(--sk-ink-d) 84%),
     url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg");
   background-repeat:no-repeat,no-repeat;
-  background-position:center,left 22% center;
-  /* ⚠️ NOT `cover`. The hero is a wide kitchen and this section is 1300px tall, so cover crops it
-     to a vertical strip of one wall: the photograph is there, and unrecognisable. Sized to the
-     column instead, so the scene reads, and the vignette above it hides where it stops. */
-  background-size:cover,auto 132%;
+  background-position:center,26% 50%;
+  /* ⚠️ SIZED BY WIDTH, AND NEITHER `cover` NOR A HEIGHT. hero.jpg is 1600x1066 and this section
+     runs past 1300px tall, so anything that fills the height renders it 2600px wide: the
+     photograph is present, enormous, and unrecognisable as a kitchen. Both `cover` and `auto 132%`
+     shipped that, and both looked identical to no change at all, which is what a background this
+     zoomed always looks like. Pinned to roughly the mockup's own column instead. */
+  background-size:cover,1180px auto;
   background-blend-mode:normal,luminosity;
 }
 /* on a phone the card stacks, so the photograph would sit behind the copy rather than beside it */
