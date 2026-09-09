@@ -67,18 +67,6 @@
 .sk-nva-guide .star{ color:var(--green-deep); font-size:.78em; vertical-align:.08em; }
 
 /* ---------- COVER ---------- */
-.sk-nva-guide .cover{ padding:0; background-size:cover; background-position:center; }
-.sk-nva-guide .cover::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:1.5in;
-  background:linear-gradient(0deg, rgba(250,247,242,.92) 0%, rgba(250,247,242,0) 100%); }
-.sk-nva-guide .cover-top{ padding:0.9in 0.85in 0; }
-.sk-nva-guide .cover-tag{ font-size:9.5px; color:var(--forest); opacity:.75; margin-bottom:.32in; max-width:4.6in; text-wrap:balance; }
-.sk-nva-guide .cover-title{ font-family:var(--sk-serif); font-weight:800; color:var(--forest);
-  font-size:74px; line-height:.96; letter-spacing:-.5px; }
-.sk-nva-guide .cover-sub{ font-family:var(--sk-serif); font-style:italic; font-weight:500;
-  color:var(--ink); font-size:21px; margin-top:.18in; max-width:4.4in; text-wrap:balance; }
-.sk-nva-guide .cover-foot{ position:absolute; left:0; right:0; bottom:.5in; text-align:center;
-  font-size:9px; color:var(--forest); opacity:.75; z-index:2; }
-.sk-nva-guide .cover::after{ z-index:1; }
 
 /* ---------- DIVIDERS ---------- */
 .sk-nva-guide .divider{ padding:0; background-size:cover; background-position:center; }
@@ -234,14 +222,9 @@
 
 /* ---- 4. COVER: quieter, more considered ---- */
 .sk-nva-guide .cover-title.long{ font-size:50px; line-height:1.02; max-width:5.4in; color:var(--forest); }
-.sk-nva-guide .cover-tag{ font-family:var(--sk-sans); letter-spacing:.22em; text-transform:uppercase;
-  font-size:8.5px; color:var(--forest); opacity:.7; }
-.sk-nva-guide .cover-sub{ font-style:italic; font-size:19px; color:var(--ink); }
-.sk-nva-guide .cover-top{ padding:0.85in 0.8in 0; }
 /* hairline rule under the wordmark block */
 .sk-nva-guide .cover-top::after{ content:""; display:block; width:.9in; height:2px;
   background:var(--gold); margin-top:.28in; }
-.sk-nva-guide .cover-foot{ font-family:var(--sk-sans); letter-spacing:.2em; font-size:8px; color:var(--forest); opacity:.72; }
 
 /* ---- 5. DIVIDERS: numbered, journal-like ---- */
 .sk-nva-guide .divider-eyebrow{ font-family:var(--sk-sans); letter-spacing:.24em; font-size:9.5px; color:#fff; opacity:.9; }
@@ -370,7 +353,6 @@
 /* never auto-hyphenate; let words break at spaces, not mid-word */
 .sk-nva-guide *{ hyphens:none; -webkit-hyphens:none; }
 .sk-nva-guide .divider-blurb{ max-width:5.1in; }
-.sk-nva-guide .cover-sub{ max-width:4.7in; }
 
 
 /* ================= LIVE-WEB OVERRIDES ================= */
@@ -439,3 +421,35 @@
   .sk-nva-guide[data-printing] .page[data-print]{ display:block !important; }
   .sk-nva-guide[data-printing] .gnav,.sk-nva-guide .recipe-print{ display:none !important; }
 }
+
+/* ---- cover -------------------------------------------------------------------
+   Full bleed photograph with the type set over it. TWO scrims, not one: a light wash at the top
+   so the small header reads over a bright window, and a deep one from halfway down reaching solid
+   at the foot, so an oversized title and the stat row stay legible over whatever the photograph
+   is doing there. A single top-to-bottom gradient cannot do both without greying the subject.
+   Identical treatment to the PDF cover, deliberately: the same guide must not look like two
+   different products depending on which link the lead opened. */
+.sk-nva-guide .cover{ padding:0; position:relative; background-size:cover; background-position:center top; min-height:132vw; }
+.sk-nva-guide .cover-scrim{ position:absolute; inset:0; background:linear-gradient(180deg,
+  rgba(7,17,22,.34) 0%, rgba(7,17,22,0) 20%, rgba(7,17,22,0) 40%,
+  rgba(7,17,22,.72) 66%, rgba(7,17,22,.97) 88%, #071116 100%); }
+.sk-nva-guide .cover-top-bar{ position:absolute; top:5.6%; left:7.5%; right:7.5%; display:flex;
+  justify-content:space-between; align-items:center; color:#fff; z-index:2; }
+.sk-nva-guide .cover-mark{ font-family:var(--sk-sans); font-size:9px; letter-spacing:.36em; font-weight:800; text-transform:uppercase; }
+.sk-nva-guide .cover-free{ font-family:var(--sk-sans); font-size:8px; letter-spacing:.26em; font-weight:800; text-transform:uppercase;
+  color:#04211f; background:var(--green); padding:.5em 1.1em; border-radius:999px; }
+.sk-nva-guide .cover-top{ position:absolute; left:7.5%; right:7.5%; bottom:15.5%; z-index:2; }
+.sk-nva-guide .cover-eye{ font-family:var(--sk-sans); font-size:9px; letter-spacing:.36em; text-transform:uppercase;
+  font-weight:700; color:#7fe6e2; margin-bottom:1.4em; }
+.sk-nva-guide .cover-title{ font-family:var(--sk-serif); font-weight:900; text-transform:uppercase;
+  font-size:clamp(38px,9.4vw,86px); line-height:.86; letter-spacing:-.035em; color:#fff; margin:0; }
+.sk-nva-guide .cover-title .accent{ display:block; color:#25d6d1; }
+.sk-nva-guide .cover-sub{ font-family:var(--sk-sans); font-size:clamp(12px,1.7vw,15px); line-height:1.48;
+  max-width:26em; color:#dceeed; margin:1.1em 0 0; font-style:normal; }
+.sk-nva-guide .cover-stats{ position:absolute; left:7.5%; right:7.5%; bottom:6%; display:flex; z-index:2;
+  border-top:1px solid rgba(255,255,255,.22); padding-top:1.1em; }
+.sk-nva-guide .cover-stats > div{ flex:1; color:#fff; }
+.sk-nva-guide .cover-stats b{ display:block; font-family:var(--sk-serif); font-size:clamp(17px,2.7vw,26px);
+  font-weight:900; line-height:1; letter-spacing:-.02em; }
+.sk-nva-guide .cover-stats span{ display:block; font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.17em;
+  text-transform:uppercase; white-space:nowrap; color:rgba(255,255,255,.62); margin-top:.7em; }
