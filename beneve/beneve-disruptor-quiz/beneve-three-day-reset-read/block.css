@@ -49,5 +49,15 @@
 .sk-bnv-reset .r-src li{font-size:.9rem;color:var(--body)}
 .sk-bnv-reset .r-src span{font-weight:650;color:var(--ink)}
 .sk-bnv-reset .r-src a{color:var(--deep);word-break:break-all}
+.sk-bnv-reset .r-how{background:var(--cream)}
+.sk-bnv-reset .r-hownote{margin:1.4rem 0 0;padding:1rem 1.2rem;border-left:3px solid var(--sage);
+  background:#fff;font-weight:600;color:var(--ink)}
+/* the rep's own buy link. One per product, and only when the account has filled that CV. */
+.sk-bnv-reset .r-buy{display:inline-flex;align-items:center;gap:.55rem;margin-top:.9rem;
+  font-weight:700;font-size:.95rem;color:#fff;text-decoration:none;background:var(--moss);
+  border-radius:3px;padding:.8rem 1.4rem;transition:transform .18s,filter .18s}
+.sk-bnv-reset .r-buy svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-bnv-reset .r-buy:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.sk-bnv-reset .r-buy:hover svg{transform:translateX(4px)}
 .sk-bnv-reset .r-honesty{background:var(--cream)}
 @media (max-width:520px){ .sk-bnv-reset{font-size:16px} }

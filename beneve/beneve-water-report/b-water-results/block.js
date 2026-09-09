@@ -87,12 +87,13 @@
   // some of these chemicals." The report deliberately never interprets, so the reader meets a
   // table of compound names with no idea what they are, and that gap is the offer. It names the
   // PAGE NUMBER because a specific page is a thing that exists and "a free guide" is not.
-  // ⚠️ PAGE 8 IS DERIVED, NOT DECORATIVE: render-pdf.mjs puts the water page at
-  // G.days.length * 2 + 2. If the guide gains or loses a day, this number is wrong.
+  // ⚠️ PAGE 9 IS DERIVED, NOT DECORATIVE: render-pdf.mjs puts the water page at
+  // G.days.length * 2 + 3. It was 8 until the guide gained its mechanisms page on 2026-09-09,
+  // which is exactly how this number goes stale. Re-derive it whenever the guide gains a page.
   function blurb() {
     return '<section class="sk-wat-blurb"><div class="sk-dres-wrap"><div class="sk-wat-blurb-in">' +
       '<div><p class="sk-wat-blurb-t">Not sure what any of these are?</p>' +
-      '<p class="sk-wat-blurb-p">Page 8 of the 3 Day Reset is how to read a report like this one: ' +
+      '<p class="sk-wat-blurb-p">Page 9 of the 3 Day Reset is how to read a report like this one: ' +
       'what the lead figure means, what the PFAS count means, and which filter standard takes out ' +
       'what. It is free and I will send it over.</p></div>' +
       ctaButton("sk-wat-blurb-btn") +
