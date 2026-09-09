@@ -72,92 +72,42 @@
   // names it rather than teasing a mystery.
   function gate(d) {
     var name = d && d.found && d.system && d.system.name;
-    out.hidden = false;
-    pane.innerHTML =
-      '<div class="sk-wat-card">' +
+    /* ⚠️ pane IS THE SECTION, out IS THE LIVE REGION INSIDE IT, and this function had them the
+       wrong way round: it unhid `out` (never hidden) and wrote the card into `pane`, which
+       REPLACED the .sk-wat-result div rather than filling it. Everything looked fine, because
+       markup written into the section still renders. The cost showed up on the second search:
+       `out` was by then a detached node, so the loading line went nowhere, and a second lookup
+       that FAILED wrote its error message into nothing and left the previous card on screen. */
+    pane.hidden = false;
+    out.innerHTML =
+      /* ONE CARD, NOT FOUR. This was a white card holding text, holding a dark green box, holding
+         a paper box, holding the form's own white card. Jeff, 2026-09-09: "its a little confusing
+         and disconnected." Four nested surfaces read as four separate things, and the form ended
+         up looking like an advert embedded in the answer rather than the next step of it. The
+         header and the form are now two halves of one bordered object. */
+      '<div class="sk-wat-gate">' +
+      '<div class="sk-wat-gate-h">' +
       (name
         ? '<span class="sk-wat-chip sk-wat-chip--under">Report ready</span>' +
           '<h2>We found your water system</h2>' +
-          '<p class="sk-wat-sub">' + esc(name) + '. Your report has the lead result, the PFAS result ' +
-          'and the federal limit beside each one.</p>'
+          '<p class="sk-wat-gate-p">' + esc(name) + '. Your report has the lead result, the PFAS ' +
+          'result and the federal limit beside each one.</p>'
         : '<h2>No public water system on record for that address</h2>' +
-          '<p class="sk-wat-sub">That usually means a private well, or a system too small to report. ' +
-          'The 3 Day Reset still applies, and it covers what to do when nobody publishes a number for you.</p>') +
-      '<p>Tell me where to send it and the report opens next.</p>' +
-      ask(d) + '</div>';
+          '<p class="sk-wat-gate-p">That usually means a private well, or a system too small to ' +
+          'report. The 3 Day Reset still applies, and it covers what to do when nobody publishes ' +
+          'a number for you.</p>') +
+      '<p class="sk-wat-gate-ask">Tell me where to send it and the report opens next.</p>' +
+      (REP ? '<p class="sk-wat-sign">' + esc(REP) + '</p>' : "") +
+      '</div>' + ask(d) + '</div>';
     wireForm();
   }
 
-  function render(d) {
-    if (!d || !d.found) return renderNone(d);
-    var s = d.system;
-    var h = '<div class="sk-wat-sys"><h2>' + esc(s.name) + '</h2>' +
-      '<span class="sk-wat-meta">' + num(s.population) + ' people served' +
-      (s.source ? ' &middot; ' + esc(s.source) : "") +
-      (d.how === "boundary" ? "" : ' &middot; matched by ZIP code, check the name is yours') +
-      '</span></div><div class="sk-wat-cards">';
-
-    /* lead */
-    h += '<div class="sk-wat-card"><h3>Lead, 90th percentile</h3>';
-    if (d.lead) {
-      var over = d.lead.overAction;
-      h += '<span class="sk-wat-chip ' + (over ? "sk-wat-chip--over" : "sk-wat-chip--under") + '">' +
-        (over ? "At or above the action level" : "Below the action level") + '</span>' +
-        (d.lead.ppb > 0
-          ? '<div class="sk-wat-big' + (over ? " sk-wat-flag" : "") + '">' + d.lead.ppb + '<small>ppb</small></div>'
-          : '<div class="sk-wat-big">None<small>detected</small></div>') +
-        '<p class="sk-wat-sub">Federal action level is ' + d.lead.actionPpb + ' ppb.' +
-        (d.lead.date ? ' Last reported ' + esc(d.lead.date) + '.' : "") + '</p>';
-    } else {
-      h += '<p class="sk-wat-sub">No lead result on file for this system.</p>';
-    }
-    h += '</div>';
-
-    /* pfas */
-    h += '<div class="sk-wat-card"><h3>PFAS, EPA national sampling</h3>';
-    if (!d.pfas.sampled) {
-      h += '<p class="sk-wat-sub">This system was not part of the EPA\'s 2023 to 2025 sampling, which ' +
-        'covered larger systems. That means nobody has published a PFAS result for it, not that it is clear.</p>';
-    } else if (!d.pfas.detections.length) {
-      h += '<span class="sk-wat-chip sk-wat-chip--under">Sampled, nothing detected</span>' +
-        '<p class="sk-wat-sub">Every compound on the EPA panel came back below the reporting limit.</p>';
-    } else {
-      var top = d.pfas.detections[0];
-      h += '<span class="sk-wat-chip ' + (d.pfas.anyOverLimit ? "sk-wat-chip--over" : "sk-wat-chip--under") + '">' +
-        (d.pfas.anyOverLimit ? "Above a federal limit" : "Detected, under the limits") + '</span>' +
-        '<div class="sk-wat-big' + (d.pfas.anyOverLimit ? " sk-wat-flag" : "") + '">' + d.pfas.detections.length +
-        '<small>of ' + (d.pfas.panel || 29) + ' detected</small></div><ul class="sk-wat-list">';
-      d.pfas.detections.slice(0, 6).forEach(function (p) {
-        h += '<li><span>' + esc(p.name) + (p.limit ? ' <span class="sk-wat-sub">limit ' + p.limit + '</span>' : "") +
-          '</span><b' + (p.overLimit ? ' class="sk-wat-flag"' : "") + '>' + p.ppt + ' ppt</b></li>';
-      });
-      h += '</ul>';
-    }
-    h += '</div></div>';
-
-    h += ask(d);
-    h += '<p class="sk-wat-src">EPA records as published, compiled ' + esc(d.built) + '. Sources: ' +
-      d.sources.map(function (s) { return '<a href="' + s.u + '" target="_blank" rel="noopener">' + esc(s.n) + '</a>'; }).join(" &middot; ") +
-      '. These are your utility\'s own compliance results, not a test of your kitchen tap.</p>';
-    out.innerHTML = h;
-    wireForm();
-  }
-
-  function renderNone(d) {
-    var typed = (input.value || "").trim();
-    var looksThin = typed.indexOf(",") === -1 && !/[0-9]{5}/.test(typed);
-    out.innerHTML = '<div class="sk-wat-err">' +
-      (looksThin
-        ? '<h2>I could not place that address</h2>' +
-          '<p class="sk-wat-sub">Add the town and the state and try again, like ' +
-          '<b>500 Boston Post Rd, Sudbury, MA</b>. A ZIP code on its own works too.</p>'
-        : '<h2>No public water system on record for that address</h2>' +
-          '<p class="sk-wat-sub">That usually means a private well, or a system too small to be ' +
-          'mapped. Nobody is required to test a private well, so there is no public record to ' +
-          'read, and the household is the only one who ever will.</p>') +
-      '</div>' + (looksThin ? "" : ask(d));
-    wireForm();
-  }
+  /* ⚠️ THE INLINE REPORT PATH WAS DELETED, 2026-09-09. render() and renderNone() rendered the
+     lead and PFAS cards straight onto this page, and they stopped being reachable on 2026-09-07
+     when the report moved behind the opt-in: the only caller is gate(). They were ~70 lines
+     describing a page shape that no longer exists, next to the code that replaced them, which is
+     the most expensive kind of dead code to leave lying around. The report markup they held now
+     lives in b-water-results/block.js, in a better version. */
 
   // ── the ask, with the form embedded and the report already inside it ────────────────────────
   // ⚠️ THE QUERY STRING IS THE WIRE. GHL prefills a form field from a query parameter of the URL
@@ -242,13 +192,15 @@
     // form, two offers, and a submit button that named the wrong one. The reset is real and it is
     // still the next step, but it belongs AFTER the report, on the results page, where the rep
     // hands it over by DM. (Jeff, 2026-09-09: "3 day pdf shouldnt show on optin page".)
-    return '<div class="sk-wat-ask">' +
-      (url
-        ? '<div class="sk-wat-embed"><iframe title="Show my water report" src="' + esc(url) + '" ' +
-          'id="' + id + '" data-layout=\'{"id":"INLINE"}\' data-form-id="' + esc(FORM) + '" ' +
-          'data-layout-iframe-id="' + id + '" data-height="760" scrolling="no"></iframe></div>'
-        : '<p class="sk-wat-sub">Message me and I will send your report over myself.</p>') +
-      (REP ? '<p class="sk-wat-sign">' + esc(REP) + '</p>' : "") + '</div>';
+    // ⚠️ NO WRAPPER OF ITS OWN. The rep's name moved up into the header with the rest of the
+    // sentence it belongs to; it used to sit orphaned under the form, which on a phone is a
+    // signature nine hundred pixels below anything it could be signing.
+    return url
+      ? '<div class="sk-wat-embed"><iframe title="Show my water report" src="' + esc(url) + '" ' +
+        'id="' + id + '" data-layout=\'{"id":"INLINE"}\' data-form-id="' + esc(FORM) + '" ' +
+        'data-layout-iframe-id="' + id + '" data-height="760" scrolling="no"></iframe></div>'
+      : '<div class="sk-wat-embed sk-wat-embed--none"><p>Message me and I will send your report ' +
+        'over myself.</p></div>';
   }
 
   // Call after any innerHTML write that may have put an ask() iframe on the page.
