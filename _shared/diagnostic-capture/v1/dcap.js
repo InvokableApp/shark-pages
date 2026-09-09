@@ -4,7 +4,7 @@
  *
  *   1. every CTA opens the page popup
  *   2. scroll reveal for [data-rise]
- *   3. the sticky mobile bar, once the hero CTA has scrolled off the TOP
+ *   3. the sticky CTA bar at the top, revealed on the first scroll (HOSTED-BLOCKS-SOP §8b)
  *
  * On (1): the survey lives in the GHL page's own POPUP, not in this block, so every button here
  * dispatches the window event GHL ships for exactly this:
@@ -52,17 +52,38 @@
     Array.prototype.forEach.call(rise, function (el) { io.observe(el); });
   }
 
-  // ── 3. sticky mobile bar ───────────────────────────────────────────────────
-  // Shown only once the hero CTA has scrolled off the TOP, so the page never shows two copies of
-  // the same button. boundingClientRect.top < 0 is what distinguishes "hero is above the
-  // viewport" from "the reader has not reached it yet".
+  // ── 3. sticky CTA bar ──────────────────────────────────────────────────────
+  // HOSTED-BLOCKS-SOP §8b. Reveal on the FIRST SCROLL, not once the hero CTA has left the
+  // viewport. The observer version that used to live here is RETIRED, not a variant: it kept the
+  // page from ever showing two copies of the button, at the cost of a reader mid-page having no
+  // CTA at all. Joe's call, 2026-08-29, is that an available CTA wins and the overlap is fine.
+  //
+  // Three details that are not decoration. The 4px threshold ignores the rubber-band bounce iOS
+  // reports while the page is at rest. The rAF gate plus the `want === on` early return keep the
+  // scroll handler off the critical path. And the sync() at the end covers a reload that restores
+  // a scroll position partway down the page, where a listener alone would leave the bar hidden
+  // until the reader happened to move.
   var bar = root.querySelector(".sk-dcap-bar");
-  var hero = root.querySelector("[data-sk-hero-cta]");
-  if (bar && hero && "IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      var e = entries[0];
-      var gone = !e.isIntersecting && e.boundingClientRect.top < 0;
-      bar.classList.toggle("sk-dcap-bar-on", gone);
-    }, { threshold: 0 }).observe(hero);
+  if (bar) {
+    // ⚠️ The bar ships `hidden` so a blocked script leaves no dead button welded across the top.
+    // Clearing it is a separate job from showing it: display:none cannot transition, so the
+    // attribute is the pre-JS state only and visibility after this is a class.
+    bar.removeAttribute("hidden");
+    var on = false, queued = false;
+    var sync = function () {
+      queued = false;
+      var want = (window.pageYOffset || document.documentElement.scrollTop || 0) > 4;
+      if (want === on) return;
+      on = want;
+      bar.classList.toggle("sk-dcap-bar-on", on);
+      if (on) root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px");
+    };
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; window.requestAnimationFrame(sync); }
+    }, { passive: true });
+    window.addEventListener("resize", function () {
+      if (on) root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px");
+    }, { passive: true });
+    sync();
   }
 })();

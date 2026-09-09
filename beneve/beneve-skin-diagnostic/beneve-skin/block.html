@@ -38,11 +38,16 @@
 -->
 <div class="sk-dcap sk-dcap-bnv-skin">
 
-  <!-- Sticky mobile bar. Ships off-screen; the shared engine slides it in once the hero CTA has
-       scrolled off the top, so the page never shows two copies of the same button. -->
-  <div class="sk-dcap-bar">
-    <span class="sk-dcap-bar-name">45 seconds. Free routine.</span>
-    <button type="button" class="sk-dcap-btn" data-sk-open>Take The Quiz</button>
+  <!-- Sticky CTA bar, HOSTED-BLOCKS-SOP §8b. HEADER position, every width, revealed on the
+       first scroll. It ships `hidden` so a blocked script leaves no dead button welded across
+       the top of the page; dcap.js clears the attribute and then drives visibility with a class,
+       because display:none cannot transition.
+       The label is the mechanic, verbatim, the same words as every other button on the page
+       (shark-brand-voice §Opt-in and quiz pages). If it crowds the bar at 360px the BAR gets
+       tightened, never the label. -->
+  <div class="sk-dcap-bar" hidden>
+    <span class="sk-dcap-bar-name">Free 90 day routine. 45 seconds.</span>
+    <button type="button" class="sk-dcap-btn" data-sk-open>Take The 45 Second Quiz</button>
   </div>
 
   <!-- ============================== HERO ============================== -->
@@ -73,6 +78,9 @@
             Free, no account
           </li>
         </ul>
+        <!-- data-sk-hero-cta is a MEASUREMENT HOOK now, not behaviour. The retired bar logic
+             used it to decide when to reveal; check-fold.mjs still selects on it to report this
+             button's distance from the fold, so removing it silently disables the fold gate. -->
         <button type="button" class="sk-dcap-btn" data-sk-open data-sk-hero-cta>
           Take The 45 Second Quiz
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -160,6 +168,18 @@
         </article>
 
       </div>
+
+      <!-- The reader has just been told there are three lanes and that only one is theirs. That
+           question is the reason the quiz exists, so the button belongs directly under it rather
+           than 1,200px further down at the close. -->
+      <div class="sk-dcap-ctarow" data-rise data-delay="4">
+        <p class="sk-dcap-ctarow-q">So which of the three is yours?</p>
+        <button type="button" class="sk-dcap-btn" data-sk-open>
+          Take The 45 Second Quiz
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="sk-dcap-note">The quiz works it out in 45 seconds.</p>
+      </div>
     </div>
   </section>
 
@@ -198,6 +218,14 @@
               works without it.</p>
           </li>
         </ol>
+
+        <div class="sk-dcap-ctarow sk-dcap-ctarow--left" data-rise data-delay="3">
+          <button type="button" class="sk-dcap-btn" data-sk-open>
+          Take The 45 Second Quiz
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+          <p class="sk-dcap-note">All of it on the next screen. Free, and there's no account to make.</p>
+        </div>
       </div>
     </div>
   </section>

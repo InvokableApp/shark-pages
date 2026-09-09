@@ -45,8 +45,10 @@
 /* ── THE STICKY BAR (HOSTED-BLOCKS-SOP §8b) ─────────────────────────────────────────────────
    ⚠️ FIXED, NOT STICKY, AND top:0. A hosted block is one element inside a GHL page, so
    position:sticky pins the bar inside the block's own box and it disappears with the block.
-   z-index 60 clears GHL chrome. It ships hidden and is revealed once the header has scrolled
-   away, so the page never shows the same call to action twice. */
+   z-index 60 clears GHL chrome. It ships with the hidden ATTRIBUTE (never a backtick in here: this comment lives
+   inside a template literal) so a blocked script leaves
+   no dead bar welded across the top; the script drops the attribute once and after that
+   visibility is a class, because display:none cannot transition. */
 .sk-dres-bnv-skin .sk-skin-bar{
   position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;
   justify-content:space-between;gap:1rem;padding:.72rem clamp(1rem,4vw,3rem);

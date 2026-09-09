@@ -235,17 +235,51 @@
 .sk-dcap .sk-dcap-foot p{max-width:78ch;margin:0 auto;font-size:.78rem;line-height:1.65;color:var(--_faint);text-align:center}
 
 /* ── sticky mobile bar ────────────────────────────────────────────────────── */
+/* ── sticky CTA bar ───────────────────────────────────────────────────────── */
+/* HOSTED-BLOCKS-SOP §8b, and this component was stale against it on three counts, all fixed
+   here: it docked at the BOTTOM (§8b: "It is a HEADER bar: top:0, not bottom:0", Joe's call),
+   it hid itself above 900px, and it waited for the hero CTA to leave the viewport before it
+   appeared. The retired IntersectionObserver rule traded an available CTA for never showing two
+   copies of the same button, and the SOP now says the opposite: reveal on the FIRST SCROLL and
+   accept the overlap near the top.
+
+   FIXED, not sticky: a hosted block is one element inside a GHL page, so position:sticky would
+   pin the bar inside the block's own box and it would scroll away with it. z-index 60 clears
+   GHL chrome. The shadow falls downward to match the header position. */
 .sk-dcap .sk-dcap-bar{
-  position:fixed;z-index:60;left:0;right:0;bottom:0;
+  position:fixed;z-index:60;left:0;right:0;top:0;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:.72rem 1rem calc(.72rem + env(safe-area-inset-bottom,0px));
-  background:rgba(23,20,15,.96);border-top:1px solid rgba(221,199,155,.24);
-  transform:translateY(105%);transition:transform .4s var(--_ease);
+  padding:.72rem clamp(1rem,4vw,2.4rem);
+  background:rgba(23,20,15,.96);border-bottom:1px solid rgba(221,199,155,.24);
+  box-shadow:0 6px 20px -10px rgba(23,20,15,.55);
+  transform:translateY(-100%);transition:transform .28s var(--_ease);
 }
 .sk-dcap .sk-dcap-bar.sk-dcap-bar-on{transform:none}
-.sk-dcap .sk-dcap-bar-name{color:#fff;font-size:.86rem;font-weight:500}
-.sk-dcap .sk-dcap-bar .sk-dcap-btn{padding:.72rem 1.4rem;font-size:.78rem;box-shadow:none}
-@media (min-width:900px){.sk-dcap .sk-dcap-bar{display:none}}
+.sk-dcap .sk-dcap-bar-name{color:#fff;font-size:.86rem;font-weight:500;flex:1 1 auto;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* §8b trap 1: a page-wide mobile width:100% on the button would stretch this one edge to edge and
+   squeeze the label to nothing. Opt out explicitly and let the name take the slack. */
+.sk-dcap .sk-dcap-bar .sk-dcap-btn{flex:0 0 auto;width:auto;padding:.72rem 1.4rem;font-size:.78rem;box-shadow:none}
+/* §8b: a long label gets the BAR tightened, never the label shortened. "Take The 45 Second Quiz"
+   says what happens; "Start" does not. At 320 the name ellipsing is the designed fallback. */
+@media (max-width:400px){
+  .sk-dcap .sk-dcap-bar{gap:.6rem;padding-left:.85rem;padding-right:.85rem}
+  .sk-dcap .sk-dcap-bar-name{font-size:.76rem}
+  .sk-dcap .sk-dcap-bar .sk-dcap-btn{padding:.66rem 1rem;font-size:.72rem}
+}
+@media (prefers-reduced-motion:reduce){.sk-dcap .sk-dcap-bar{transition:none}}
+
+/* ── mid-page CTA row ─────────────────────────────────────────────────────── */
+/* The page is long and the argument arrives in stages, so the button repeats after each stage
+   rather than only at the two ends. Same element, same popup trigger, so nothing about it is a
+   second design. */
+.sk-dcap .sk-dcap-ctarow{margin-top:clamp(2.6rem,5vw,3.8rem);text-align:center}
+.sk-dcap .sk-dcap-ctarow .sk-dcap-note{margin-top:.85rem}
+.sk-dcap .sk-dcap-ctarow-q{
+  font-family:var(--_serif);font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.25;
+  color:var(--_ink);margin:0 0 1.4rem;
+}
+.sk-dcap .sk-dcap-ctarow--left{text-align:left}
 
 /* ── reveal ───────────────────────────────────────────────────────────────── */
 /* Ships VISIBLE. dcap.js adds .sk-dcap-js and only then does anything hide, so a blocked script

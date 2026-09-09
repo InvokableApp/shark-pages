@@ -28,21 +28,34 @@
     window.print();
   });
 
-  /* The bar appears once the header has scrolled off the TOP, so the page never shows two calls
-     to action at once. boundingClientRect.top < 0 is what separates "the header is above the
-     viewport" from "the reader has not reached it yet".
-     ⚠️ PUBLISH THE MEASURED HEIGHT (HOSTED-BLOCKS-SOP §8b). Anything that pins to the top of this
-     page has to offset off the real bar, never off a guessed number. */
+  /* HOSTED-BLOCKS-SOP §8b: reveal on the FIRST SCROLL. This used to watch the header with an
+     IntersectionObserver and wait for it to leave the viewport, so the page never showed two
+     calls to action at once. That rule is RETIRED, not a variant: it left a reader in the middle
+     of a long routine with no CTA at all, and Joe's call is that an available CTA beats never
+     showing two. The 4px threshold ignores the rubber-band bounce iOS reports at rest, the rAF
+     gate keeps the handler off the critical path, and the sync() at the end covers a reload that
+     restores a scroll position partway down.
+     ⚠️ PUBLISH THE MEASURED HEIGHT (§8b). Anything that pins to the top of this page offsets off
+     the real bar, never off a guessed number.
+     ⚠️ The early return happens BEFORE removeAttribute, or a page with no bar is not the case
+     that bites: it is a browser where this block throws, and a bar welded across the top. */
   var bar = root.querySelector("[data-skin-bar]");
-  var head = root.querySelector(".sk-dres-head");
-  if (bar && head && "IntersectionObserver" in window) {
+  if (bar) {
+    bar.removeAttribute("hidden");
     var publish = function () { root.style.setProperty("--sk-bar-h", bar.offsetHeight + "px"); };
-    new IntersectionObserver(function (es) {
-      var e = es[0];
-      var gone = !e.isIntersecting && e.boundingClientRect.top < 0;
-      bar.classList.toggle("sk-skin-bar-on", gone);
-      if (gone) publish();
-    }, { threshold: 0 }).observe(head);
-    window.addEventListener("resize", publish);
+    var on = false, queued = false;
+    var sync = function () {
+      queued = false;
+      var want = (window.pageYOffset || document.documentElement.scrollTop || 0) > 4;
+      if (want === on) return;
+      on = want;
+      bar.classList.toggle("sk-skin-bar-on", on);
+      if (on) publish();
+    };
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; window.requestAnimationFrame(sync); }
+    }, { passive: true });
+    window.addEventListener("resize", function () { if (on) publish(); }, { passive: true });
+    sync();
   }
 })();
