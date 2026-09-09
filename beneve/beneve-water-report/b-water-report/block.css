@@ -160,3 +160,10 @@
   margin:.9rem 0 0;font-family:var(--sk-sans);font-size:.82rem;line-height:1.5;
   color:rgba(255,255,255,.62);
 }
+
+/* The format example inside the ZIP caveat sits on the gate card's DARK header, so the page's
+   own .sk-wat-eg (ink on paper) is invisible there. Same device, inverted. */
+.sk-wat-bnv .sk-wat-eg--dark{
+  color:rgba(244,246,240,.92);border-bottom-color:rgba(244,246,240,.42);
+}
+.sk-wat-bnv .sk-wat-eg--dark:hover{color:#fff;border-bottom-color:#fff}

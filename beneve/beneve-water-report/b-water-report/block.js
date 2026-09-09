@@ -97,8 +97,10 @@
              and in a ZIP served by more than one utility it can be the wrong one. Saying it here,
              before she hands over an email address, is the only honest place for it. */
           (d && d.how === "zip-centroid"
-            ? '<p class="sk-wat-gate-zip">Matched from the centre of your ZIP code. If more than ' +
-              'one utility serves your area, check that name against your water bill.</p>'
+            ? '<p class="sk-wat-gate-zip"><b>Not your utility?</b> That was matched from the ' +
+              'centre of your ZIP code. Try again with your exact address, in this format: ' +
+              '<button type="button" class="sk-wat-eg sk-wat-eg--dark" ' +
+              'data-sk-eg="500 Boston Post Rd, Sudbury, MA">500 Boston Post Rd, Sudbury, MA</button></p>'
             : "")
         : '<h2>No public water system on record for that address</h2>' +
           '<p class="sk-wat-gate-p">That usually means a private well, or a system too small to ' +

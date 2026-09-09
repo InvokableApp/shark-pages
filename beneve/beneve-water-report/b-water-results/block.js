@@ -164,9 +164,16 @@
   // front of a reader as fact. Nothing else on the page hedges, so this is the one place it must.
   function zipCaveat(d) {
     if (!d || d.how !== "zip-centroid") return "";
-    return '<p class="sk-wat-zipnote">Matched from the centre of your ZIP code. If more than one ' +
-      'utility serves your area, check the name above against your water bill. For an exact match, ' +
-      '<button type="button" class="sk-wat-relook">look it up by street address</button>.</p>';
+    // ⚠️ LEAD WITH THE QUESTION, AND SHOW THE FORMAT RATHER THAN DESCRIBING IT. Jeff, 2026-09-09:
+    // "maybe we should put 'not your utity? try again using your exact address in this format'".
+    // "Matched from the centre of your ZIP code" is a fact about our method; "Not your utility?"
+    // is a question the reader can answer, and it is the only one that matters here. The format
+    // example is the same one the opt-in page uses, because the Census geocoder wants street,
+    // town and state and returns nothing for "123 Main St" on its own.
+    return '<p class="sk-wat-zipnote"><b>Not your utility?</b> That was matched from the centre of ' +
+      'your ZIP code, so a ZIP with more than one utility in it can land on the wrong one. Try ' +
+      'again with your exact address, in this format: ' +
+      '<button type="button" class="sk-wat-relook">500 Boston Post Rd, Sudbury, MA</button></p>';
   }
 
   function mast(title, addr, meta, extra) {
@@ -305,7 +312,10 @@
     if (!t) return;
     e.preventDefault();
     pane.innerHTML = "";
-    askForAddress("Type the street, the town and the state, and we will match the exact utility.");
+    askForAddress("Street, town and state, and we will match the exact utility.");
+    // Prefill with the format so the shape is in the box, not just in a sentence about the box.
+    var box = pane.querySelector("#sk-wat-a2");
+    if (box) { box.placeholder = "500 Boston Post Rd, Sudbury, MA"; box.focus(); }
   });
 
   function askForAddress(msg) {
