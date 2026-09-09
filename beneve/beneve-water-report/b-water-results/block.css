@@ -362,8 +362,14 @@
    and `hidden` would make this section a scroll container, which breaks the fixed bar's anchor
    jump and can trap touch scrolling. `clip` crops without either. */
 .sk-wat-rep .sk-prog{overflow-x:clip}
+/* ⚠️ THE COLUMN CANNOT GROW INSIDE THE SHARED WRAP. _shared/diagnostic-result/v1 caps .sk-dres-wrap
+   at the reading measure, which is right for the report above and wrong for a full-bleed band
+   holding a product shot: at 1440px it left the whole card 898px wide, so widening the grid share
+   moved the cover from 500px to 571px and looked like nothing had changed. This section gets its
+   own wider measure. Only this section, and only here, so the report keeps the shared one. */
+.sk-wat-rep .sk-prog .sk-dres-wrap{max-width:1200px}
 .sk-wat-rep .sk-prog-card{grid-template-columns:minmax(0,1.16fr) minmax(0,1fr)}
-.sk-wat-rep .sk-prog-shot img{width:126%;margin-left:-13%}
+.sk-wat-rep .sk-prog-shot img{width:138%;margin-left:-19%}
 @media(max-width:820px){
   /* stacked, so it is bounded by the column rather than competing with it */
   .sk-wat-rep .sk-prog-shot{max-width:380px}
