@@ -341,40 +341,13 @@
 .sk-wat-rep .sk-prog-ex .sk-fade-1{opacity:.62;filter:blur(1.7px);user-select:none}
 .sk-wat-rep .sk-prog-ex .sk-fade-2{opacity:.34;filter:blur(3.4px);user-select:none}
 
-/* ── PAGE 1's HERO, TONED DOWN, BEHIND THE MOCKUP ───────────────────────────────────────────
-   Jeff, 2026-09-09. It ties the two pages of the funnel together: the reader met this photograph
-   on the opt-in and meets it again under the offer, so the offer reads as part of the same thing
-   rather than as a second website.
-   ⚠️ IT IS BLENDED, NOT LAID ON TOP. The section is moss and the photograph is not, so it goes
-   down in `luminosity` against the section's own ground: the picture keeps its light and shadow
-   and takes the section's colour, which is the only way a photograph sits under white type
-   without fighting it. Then a diagonal gradient walks it out to solid before it reaches the copy
-   column, and a vertical one keeps it off both edges of the section. Nothing here is a hard edge.
-   ⚠️ SAME FILE AS PAGE 1, NOT A COPY. One asset, one cache entry, and a re-shoot changes both. */
-.sk-wat-rep .sk-prog{
-  background-color:var(--sk-ink-d);
-  background-image:
-    radial-gradient(64% 66% at 27% 52%,rgba(36,48,31,.18) 0%,rgba(36,48,31,.58) 44%,rgba(36,48,31,.9) 68%,var(--sk-ink-d) 84%),
-    url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg");
-  background-repeat:no-repeat,no-repeat;
-  background-position:center,26% 50%;
-  /* ⚠️ SIZED BY WIDTH, AND NEITHER `cover` NOR A HEIGHT. hero.jpg is 1600x1066 and this section
-     runs past 1300px tall, so anything that fills the height renders it 2600px wide: the
-     photograph is present, enormous, and unrecognisable as a kitchen. Both `cover` and `auto 132%`
-     shipped that, and both looked identical to no change at all, which is what a background this
-     zoomed always looks like. Pinned to roughly the mockup's own column instead. */
-  background-size:cover,1180px auto;
-  background-blend-mode:normal,luminosity;
-}
-/* on a phone the card stacks, so the photograph would sit behind the copy rather than beside it */
-@media(max-width:820px){
-  .sk-wat-rep .sk-prog{
-    background-image:
-      linear-gradient(180deg,rgba(36,48,31,.55) 0%,rgba(36,48,31,.9) 30%,var(--sk-ink-d) 52%),
-      url("https://invokableapp.github.io/shark-pages/beneve/beneve-water-report/b-water-report/assets/hero.jpg");
-    background-repeat:no-repeat,no-repeat;
-    background-position:center,center top;
-    background-size:cover,cover;
-    background-blend-mode:normal,luminosity;
-  }
-}
+/* ⚠️ NO PHOTOGRAPH BEHIND THE MOCKUP. Page 1's hero was tried here as a tonal wash, blended to
+   the section's moss, and Jeff killed it 2026-09-09: "i do not like the image lol." The failure
+   is worth writing down: a background-image can only be feathered at its BOX's edges, never at
+   its own, so wherever the photograph stopped there was a hard rectangle corner sitting in the
+   middle of the section, and fading it further only made it a faint rectangle. If a photograph is
+   ever wanted here it has to be a real element with a mask, not a background layer. The mockup's
+   own radial glow is what gives it a ground.
+   Two other things were measured on the way and are worth not re-learning: hero.jpg is 1600x1066,
+   so any sizing that fills this 1300px-tall section renders it 2600px wide and unrecognisable,
+   and `cover` and `auto 132%` both looked identical to no change at all for that reason. */
