@@ -33,6 +33,26 @@
   var API = root.getAttribute("data-api") || "";
   var pane = root.querySelector(".sk-wat-result");
   var GUIDE = root.getAttribute("data-guide") || "";
+  var DM = root.getAttribute("data-messenger") || "";
+  var DM_STEP = root.getAttribute("data-dm-step") || "";
+
+  /* ── IS THIS CUSTOM VALUE ACTUALLY SET? ────────────────────────────────────────────────────
+     Same three non-answers as _shared/confirm/v1, and all three must fail:
+       ""                          the socket carries no data-cv for it, or the CV is blank
+       "{{custom_values.x}}"       never substituted at all
+       "Paste the link that ..."   the ONBOARDING INSTRUCTION, which is the correct resting value
+                                   on a snapshot (CLAUDE.md, Account TYPES)
+     The instruction is the dangerous one: it contains the literal example "messenger.com/t/
+     yourhandle", so any regex hunting for a messenger URL passes it. What separates a real value
+     from prose is WHITESPACE, so that is the first test. */
+  function valueIsSet(v) {
+    v = (v || "").trim();
+    if (!v) return false;
+    if (/\s/.test(v)) return false;
+    if (v.indexOf("{{") > -1) return false;
+    if (/yourhandle|yourname|yourusername|example\.com/i.test(v)) return false;
+    return /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}\/\S+/i.test(v);
+  }
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
@@ -103,15 +123,68 @@
   // figure actually is, what "not sampled" means, and which NSF standard removes which thing.
   // So there is ONE offer and it is not a second opt-in: they already gave their details to see
   // this page. (Jeff, 2026-09-07: "no it needs to be one cta".)
+  // ⚠️ THE RESET IS HANDED OVER BY THE REP, IN A DM. Changed 2026-09-09. It used to be a direct
+  // PDF link, which delivers the guide and produces nothing else. This campaign has no Beneve
+  // water product, no hot tier and no product click to chase (build-automations.mjs): the ONLY
+  // thing it can produce is a rep conversation, and a lead who opens that conversation themselves
+  // is worth more than a rep cold-DMing off the opt-in alert.
+  //
+  // ⚠️ THE HREF IS A FUNNEL STEP, NOT A MESSENGER LINK. A direct link is invisible to us. Routing
+  // the click through /b-water-dm-redirect makes it a PAGEVIEW, which is a trigger, which is how
+  // the tag and the rep SMS happen at all. The step is a 0.5s timer page forwarding to
+  // {{custom_values.beneve_rep_messenger}}, built by 09-dm-step.mjs.
+  //
+  // ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a domain is
+  // connected and 404s on a preview or an un-domained account. (NOTES §Linking to another step.)
+  //
+  // ⚠️ IT FAILS CLOSED, AND THEN IT FALLS BACK. On the snapshot beneve_rep_messenger holds its
+  // onboarding instruction, and some reps have no Facebook at all. Rather than show a button that
+  // opens a conversation with nobody, those accounts get the direct PDF instead. Either way the
+  // page shows exactly ONE call to action, and no account is left with a report and no next step.
+  // (Jeff, 2026-09-07: "no it needs to be one cta".)
   function cta() {
-    if (!GUIDE || /[{}]/.test(GUIDE)) return "";
-    return '<div class="sk-wat-ask"><h3>What these numbers actually mean</h3>' +
+    var explain = '<h3>What these numbers actually mean</h3>' +
       '<p>This page shows what your utility reported. The 3 Day Reset explains it: how to read a ' +
       'lead 90th percentile, what it means when a system was never sampled, and which filter ' +
-      'standard removes which thing. Plus twenty seven swaps for the rest of the house.</p>' +
-      '<p><a class="sk-wat-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open the 3 Day Reset</a></p>' +
-      '</div>';
+      'standard removes which thing. Plus twenty seven swaps for the rest of the house.</p>';
+
+    if (valueIsSet(DM) && DM_STEP) {
+      return '<div class="sk-wat-ask">' + explain +
+        '<p>Message me the words <b>3 DAY RESET</b> and I will send it over. Tap below and we will ' +
+        'copy those words for you, so in Messenger you only have to paste and send.</p>' +
+        '<p><a class="sk-wat-btn" href="' + esc(DM_STEP) + '" data-sk-copy="3 DAY RESET">Send me a message</a></p>' +
+        '</div>';
+    }
+    if (GUIDE && !/[{}]/.test(GUIDE)) {
+      return '<div class="sk-wat-ask">' + explain +
+        '<p><a class="sk-wat-btn" href="' + esc(GUIDE) + '" target="_blank" rel="noopener">Open the 3 Day Reset</a></p>' +
+        '</div>';
+    }
+    return "";
   }
+
+  // Copy the words, THEN follow the link. Named in the copy above as well as copied, so a refused
+  // clipboard write (insecure context, locked-down browser) still leaves the visitor knowing what
+  // to type rather than arriving in Messenger with nothing. Navigation happens either way.
+  root.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("[data-sk-copy]") : null;
+    if (!t || !root.contains(t)) return;
+    var text = (t.getAttribute("data-sk-copy") || "").trim();
+    var href = t.getAttribute("href");
+    if (!text || !href) return;
+    e.preventDefault();
+    var went = false;
+    var go = function () { if (went) return; went = true; window.location.href = href; };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          t.textContent = "Copied. Paste it and send.";
+          setTimeout(go, 900);
+        }, go);
+      } else { go(); }
+    } catch (err) { go(); }
+    setTimeout(go, 1400);
+  });
 
   function askForAddress(msg) {
     pane.innerHTML = '<div class="sk-wat-card"><h2>Look up a water report</h2>' +

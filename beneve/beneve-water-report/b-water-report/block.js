@@ -229,15 +229,17 @@
   function ask(d) {
     var url = formUrl(d);
     var id = "sk-wat-fi-" + (++askSeq);
-    return '<div class="sk-wat-ask"><h3>Want the next step?</h3>' +
-      '<p>I put together a 3 day reset: 27 swaps for the things in your house that carry endocrine ' +
-      'disruptors, easiest first, including which filter takes out what you just read. It is free. ' +
-      'Tell me where to send it and I will.</p>' +
+    // ⚠️ NO SECOND OFFER HERE. This box used to open "Want the next step?" and pitch the 3 Day
+    // Reset above the form, while the card around it was already promising the water report. One
+    // form, two offers, and a submit button that named the wrong one. The reset is real and it is
+    // still the next step, but it belongs AFTER the report, on the results page, where the rep
+    // hands it over by DM. (Jeff, 2026-09-09: "3 day pdf shouldnt show on optin page".)
+    return '<div class="sk-wat-ask">' +
       (url
-        ? '<div class="sk-wat-embed"><iframe title="Send me the 3 day reset" src="' + esc(url) + '" ' +
+        ? '<div class="sk-wat-embed"><iframe title="Show my water report" src="' + esc(url) + '" ' +
           'id="' + id + '" data-layout=\'{"id":"INLINE"}\' data-form-id="' + esc(FORM) + '" ' +
           'data-layout-iframe-id="' + id + '" data-height="760" scrolling="no"></iframe></div>'
-        : '<p class="sk-wat-sub">Message me the word SWAP and I will send it over.</p>') +
+        : '<p class="sk-wat-sub">Message me and I will send your report over myself.</p>') +
       (REP ? '<p class="sk-wat-sign">' + esc(REP) + '</p>' : "") + '</div>';
   }
 
