@@ -333,3 +333,10 @@
 .sk-wat-rep .sk-prog-bar-btn{display:inline-flex;align-items:center;gap:.5rem}
 .sk-wat-rep .sk-prog-bar-btn svg{width:1em;height:1em;flex:none}
 .sk-wat-rep .sk-prog-bar[data-bar="ask"]{background:rgba(53,73,47,.97)}
+
+/* the swaps fade out rather than listing. Progressive, so it reads as a list continuing past the
+   edge of what is free rather than as three chips with a rendering bug. Not selectable and not
+   readable by a screen reader (aria-hidden in the markup), because a blur that copy-paste defeats
+   is not withholding anything. */
+.sk-wat-rep .sk-prog-ex .sk-fade-1{opacity:.62;filter:blur(1.7px);user-select:none}
+.sk-wat-rep .sk-prog-ex .sk-fade-2{opacity:.34;filter:blur(3.4px);user-select:none}
