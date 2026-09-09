@@ -82,3 +82,21 @@ That is the shape to watch for. If you are about to copy a block folder to start
 new system, the thing you are copying is almost certainly a component that has not
 been extracted yet. Extracting it later costs one careful migration per already
 installed system; extracting it now costs nothing.
+
+
+## Finding every consumer of a shared component
+
+**Grep all three block files, not just `block.html`.** A page can import a shared component from
+`block.css` (`@import`), from `block.js` (the loader array), or name its classes in `block.html`,
+and pages differ in which they use. On 2026-09-09 a `diagnostic-capture/v1` change was cleared
+with a `--include=block.html` grep that reported ONE consumer. There were three, and one of them
+was in a different system:
+
+```
+grep -rl "<component-name>" --include="*.css" --include="*.js" --include="*.html" shark-pages/
+```
+
+Then actually measure the siblings after the change, which is what the versioning rule already
+says: *"additive-only edits to a published version are allowed but must be verified against
+sibling pages."* For a sticky bar that is
+`node web/scripts/shark-pages/check-bar.mjs <sibling>` plus `check-fold.mjs`.
