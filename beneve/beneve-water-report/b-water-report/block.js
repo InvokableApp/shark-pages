@@ -195,6 +195,14 @@
   //   · a form-level redirect fires INSIDE the iframe, so the report would render in a 500px box
   // This block already holds the address and the full lookup, so it hands off itself. No merge
   // fields, no contact session, full fidelity because the results page re-runs the same lookup.
+  //
+  // ⚠️ CORRECTED 2026-09-09: the second bullet is WRONG, and a form redirect is now set as well.
+  // The widget bundle does `window.top.location.href = r.href`, not the frame's, so it breaks out
+  // of the iframe. It also forward-appends the IFRAME's query string onto the redirect target,
+  // which means the ?address= this block puts on the iframe URL reaches the results page by
+  // itself. (NOTES §A form redirect navigates the TOP window.) Both paths now exist and both land
+  // on the same page carrying the same address, so whichever fires first is fine. The handoff
+  // below stays because it does not depend on GHL's param forwarding continuing to behave.
   var HANDOFF = root.getAttribute("data-results") || "";
   window.addEventListener("message", function (ev) {
     if (!HANDOFF || !LAST || !LAST.address) return;
