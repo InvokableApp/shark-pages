@@ -274,7 +274,7 @@
     // disagree about whether this account has a Messenger link.
     var slot = root.querySelector(".sk-prog-cta");
     if (slot && !slot.innerHTML) {
-      slot.innerHTML = ctaButton("sk-prog-btn") + howLine();
+      slot.innerHTML = ctaButton("sk-prog-btn");
     }
     wireBar();
   }

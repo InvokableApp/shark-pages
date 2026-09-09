@@ -103,7 +103,13 @@
           </ul>
 
           <div class="sk-prog-cta" data-rise data-delay="4"></div>
-          <p class="sk-prog-note">I will send it straight over. If you get stuck on any of them, just ask.</p>
+          <!-- ⚠️ THIS LINE CARRIES THE MECHANICS, so the CTA slot above does not repeat them. Two grey
+               paragraphs under one button is the stack the voice SOP bans, and the rep's own line is
+               the one that has to survive, because the signature under it is a person.
+               "WATER" is spelled out because this is static markup; block.js holds the same word in
+               KEYWORD and the two must agree. -->
+          <p class="sk-prog-note">Tap the button and we will copy the word WATER for you. Paste it
+            and send, and I will send the guide straight over.</p>
           <!-- ⚠️ NO WHITESPACE INSIDE THIS TAG. The merge field is the element's only content, so an
                unfilled custom value leaves it :empty and the CSS hides it. A newline in here
                defeats :empty and ships a page signed with a bare hyphen. -->
