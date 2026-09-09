@@ -115,3 +115,176 @@
    root. This page injects its report AFTER that has already happened, so anything data-rise in
    the injected markup would be hidden forever. block.js runs its own observer over what it
    injects. Nothing here may re-hide those nodes. */
+
+/* ══ THE OFFER: card, days, pills, buttons, the fixed bar ═══════════════════════════════════
+ * ⚠️ COPIED FROM THE DISRUPTOR RESULT BLOCK, NOT SHARED WITH IT. _shared/diagnostic-result/v1
+ * owns the loader, the wrap, the crumbs and the rise; it has NO opinion about the program card,
+ * so the Disruptor carries these rules in its own sheet and this page now carries its own copy.
+ *
+ * The honest note: this is duplication and the right end state is a second shared component. It
+ * was not done here because three Disruptor result pages are already live on these exact rules
+ * and promoting them is a change to shipped pages that needs verifying against all three
+ * (_shared/README.md), which is a bigger job than this page. If a third page ever needs them,
+ * promote rather than copy again.
+ * ══════════════════════════════════════════════════════════════════════════════════════════ */
+.sk-wat-rep .sk-prog{background:var(--sk-ink-d);color:#f4f6f0;
+  padding:clamp(3rem,7vw,5rem) 0 clamp(3.4rem,7vw,5rem);scroll-margin-top:1rem}
+.sk-wat-rep .sk-prog .sk-dres-wrap{position:relative;z-index:1}
+.sk-wat-rep .sk-prog-card{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(1.8rem,4vw,3.4rem);align-items:center}
+/* ⚠️ THE MOCKUP IS A DARK GREEN COVER AND THIS SECTION IS DARK GREEN. Dropped straight onto the
+   moss it disappeared: loaded, painted, 329px wide, and invisible, because the cover's own ground
+   and the section ground are within a few percent of each other. It needs something to sit
+   against, so it gets a lit panel. A transparent PNG only works over a ground it contrasts with,
+   and nothing in the build can tell you that. Only looking can. */
+/* The framed panel read as an empty box with a small picture in it. The glow does the same job
+   (give the dark cover a ground) without drawing a rectangle nobody asked for, and the stack now
+   fills the column, tilts, and casts a reflection, so it reads as an object on a surface. */
+.sk-wat-rep .sk-prog-shot{position:relative;margin:0;padding:0;isolation:isolate}
+.sk-wat-rep .sk-prog-shot::before{
+  content:"";position:absolute;z-index:-1;inset:-18% -12% -22%;
+  background:radial-gradient(58% 50% at 46% 42%,rgba(198,211,182,.28),rgba(198,211,182,.09) 46%,transparent 72%)}
+.sk-wat-rep .sk-prog-shot img{display:block;width:106%;max-width:none;height:auto;margin-left:-3%;
+  transform:rotate(-2.6deg);transform-origin:50% 70%;
+  filter:drop-shadow(0 34px 52px rgba(0,0,0,.6));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sk-wat-rep .sk-prog-card:hover .sk-prog-shot img{transform:rotate(-1.2deg) translateY(-8px)}
+/* the reflection: a flipped, faded, blurred copy of the stack sitting under it */
+.sk-wat-rep .sk-prog-shot::after{
+  content:"";position:absolute;z-index:-1;left:12%;right:12%;bottom:-4%;height:16%;
+  background:radial-gradient(60% 100% at 50% 0%,rgba(0,0,0,.5),transparent 70%);filter:blur(6px)}
+/* a tilted seal over the corner of the cover, the way a sticker lands on a book */
+.sk-wat-rep .sk-prog-badge{position:absolute;z-index:2;top:4%;left:-2%;
+  display:grid;place-items:center;width:5.4rem;height:5.4rem;border-radius:50%;
+  background:linear-gradient(140deg,var(--sk-tint),#dfe8d2);color:var(--sk-ink-d);
+  font-family:var(--sk-sans);font-weight:800;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  transform:rotate(-13deg);box-shadow:0 16px 34px -14px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.22) inset}
+@media(max-width:820px){.sk-wat-rep .sk-prog-badge{width:4.4rem;height:4.4rem;font-size:.66rem;left:2%}}
+
+/* the three facts, as pills, right under the lede */
+.sk-wat-rep .sk-prog-pills{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem;padding:0}
+.sk-wat-rep .sk-prog-pills li{font-family:var(--sk-sans);font-size:.74rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--sk-tint);
+  border:1px solid rgba(198,211,182,.32);border-radius:99px;padding:.42rem .9rem}
+.sk-wat-rep .sk-prog-kicker{font-family:var(--sk-sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--sk-tint);margin:0 0 .7rem}
+.sk-wat-rep .sk-prog-h2{font-family:var(--sk-serif);font-weight:600;line-height:1.04;
+  font-size:clamp(2.1rem,5vw,3.1rem);color:#fff;margin:0 0 .8rem;text-wrap:balance}
+.sk-wat-rep .sk-prog-lede{font-family:var(--sk-sans);font-size:1.02rem;line-height:1.6;
+  color:rgba(244,246,240,.82);margin:0 0 1.5rem;max-width:34em}
+.sk-wat-rep .sk-prog-days{list-style:none;margin:0 0 1.9rem;padding:0;display:grid;gap:.9rem}
+.sk-wat-rep .sk-prog-days li{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;
+  padding-top:.9rem;border-top:1px solid rgba(198,211,182,.2)}
+/* ⚠️ THE CONTENT IS ONE CELL, NOT THREE. The li is a two-column grid, and while it held exactly
+   two auto-placed children (h3, p) the day label could span "rows 1 to 3" and everything lined up.
+   Adding the swap chips made a third row: the chips fell into column ONE, the auto column swelled
+   to fit them and the copy column collapsed to a word per line. Pinning the label to 1/-1 was
+   worse, because with no explicit rows declared -1 resolves to line 1 and the span vanishes. So
+   the copy now lives in its own .sk-prog-c and the grid is back to two cells that cannot fight.
+   Every step of this was visible only in a screenshot. */
+.sk-wat-rep .sk-prog-c{min-width:0}
+.sk-wat-rep .sk-prog-days .sk-prog-d{font-family:var(--sk-sans);font-size:.68rem;
+  font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--sk-accent);
+  padding-top:.28rem;white-space:nowrap}
+.sk-wat-rep .sk-prog-days h3{font-family:var(--sk-sans);font-size:1rem;font-weight:650;
+  color:#fff;margin:0}
+/* the swaps as chips under the benefit line: evidence for the sentence above them, not a list to
+   read. The food reset gets its own quiet row so it does not read as a fourth swap. */
+.sk-wat-rep .sk-prog-ex{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .5rem;margin-top:.62rem!important}
+.sk-wat-rep .sk-prog-ex span{font-family:var(--sk-sans);font-size:.72rem;font-weight:600;
+  color:var(--sk-tint);background:rgba(198,211,182,.1);
+  border:1px solid rgba(198,211,182,.22);border-radius:999px;padding:.3rem .66rem}
+.sk-wat-rep .sk-prog-ex i{flex-basis:100%;font-style:normal;font-family:var(--sk-sans);
+  font-size:.8rem;color:rgba(244,246,240,.58);margin-top:.2rem}
+.sk-wat-rep .sk-prog-days p{font-family:var(--sk-sans);font-size:.92rem;line-height:1.55;
+  color:rgba(244,246,240,.72);margin:.15rem 0 0}
+.sk-wat-rep .sk-prog-btn{display:inline-block;font-family:var(--sk-sans);font-weight:700;
+  font-size:1.06rem;letter-spacing:.01em;color:var(--sk-ink-d);text-decoration:none;
+  background:linear-gradient(100deg,var(--sk-tint),#e2ead6);border-radius:3px;
+  padding:1.1rem 2.3rem;box-shadow:0 22px 46px -18px rgba(0,0,0,.8);transition:transform .18s,filter .18s}
+.sk-wat-rep .sk-prog-btn{display:inline-flex;align-items:center;gap:.7rem;
+  box-shadow:0 26px 52px -20px rgba(0,0,0,.9),0 0 0 6px rgba(198,211,182,.09)}
+.sk-wat-rep .sk-prog-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-wat-rep .sk-prog-btn:hover{transform:translateY(-2px);filter:brightness(1.04);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.95),0 0 0 8px rgba(198,211,182,.14)}
+.sk-wat-rep .sk-prog-btn:hover svg{transform:translateX(4px)}
+.sk-wat-rep .sk-prog-note{font-family:var(--sk-sans);font-size:.9rem;line-height:1.6;
+  color:rgba(244,246,240,.66);margin:1.15rem 0 0;max-width:38em}
+/* the rep signs it. They are about to DM this person, so the ask should come from a name, not
+   from the page. Hidden entirely when the buyer has not filled the value. */
+.sk-wat-rep .sk-prog-sign{font-family:var(--sk-serif);font-size:1.32rem;font-weight:600;
+  color:var(--sk-tint);margin:.75rem 0 0}
+.sk-wat-rep .sk-prog-sign::before{content:"- "}
+.sk-wat-rep .sk-prog-sign:empty{display:none}
+@media(max-width:820px){
+  .sk-wat-rep .sk-prog-card{grid-template-columns:1fr}
+  .sk-wat-rep .sk-prog-shot{max-width:290px;margin-inline:auto}
+  .sk-wat-rep .sk-prog-btn{display:block;text-align:center}
+}
+
+/* THE DIAGNOSIS CHIP. This is a diagnostic quiz, and this is what it diagnosed, so it gets a
+   frame rather than sitting inside a paragraph. Label small and quiet, verdict loud. */
+.sk-wat-rep .sk-diag{display:inline-flex;align-items:center;gap:.85rem;margin:1.15rem 0 1.35rem;
+  padding:.6rem 1.15rem .6rem .95rem;border:1px solid var(--sk-line);border-radius:3px;
+  background:var(--sk-warm)}
+.sk-wat-rep .sk-diag span{font-family:var(--sk-sans);font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sk-faint)}
+.sk-wat-rep .sk-diag b{font-family:var(--sk-serif);font-size:clamp(1.4rem,3vw,1.85rem);
+  font-weight:600;line-height:1;color:var(--sk-brand)}
+
+/* the directive. Not a sentence in the lede, a signpost with an arrow pointing at the swaps. */
+.sk-wat-rep .sk-next{display:flex;align-items:center;gap:.55rem;margin:1.5rem 0 0;
+  font-family:var(--sk-sans);font-size:.95rem;font-weight:600;color:var(--sk-brand)}
+.sk-wat-rep .sk-next svg{width:1.05em;height:1.05em;flex:none}
+
+/* the citation under each swap. Quiet: it is there to be checked, not read. */
+.sk-wat-rep .sk-src{display:inline-block;margin-top:.55rem;font-family:var(--sk-sans);
+  font-size:.74rem;font-weight:600;letter-spacing:.02em;color:var(--sk-faint);
+  text-decoration:none;border-bottom:1px solid var(--sk-line);padding-bottom:1px}
+.sk-wat-rep .sk-src::before{content:"Source: "}
+.sk-wat-rep .sk-src:hover{color:var(--sk-brand);border-color:var(--sk-accent)}
+
+/* the ask directly under the swaps */
+.sk-wat-rep .sk-ask{margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.5rem,3vw,2rem);
+  border:1px solid var(--sk-line);border-left:3px solid var(--sk-brand);border-radius:3px;
+  background:var(--sk-card)}
+.sk-wat-rep .sk-ask-t{font-family:var(--sk-serif);font-size:clamp(1.45rem,3vw,1.9rem);
+  font-weight:600;line-height:1.1;color:var(--sk-ink);margin:0 0 .5rem}
+.sk-wat-rep .sk-ask-p{font-family:var(--sk-sans);font-size:.98rem;line-height:1.6;
+  color:var(--sk-body);margin:0 0 1.25rem;max-width:44em}
+.sk-wat-rep .sk-ask-btn{display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--sk-sans);font-weight:700;font-size:1rem;color:#fff;text-decoration:none;
+  background:linear-gradient(100deg,var(--sk-brand),var(--sk-brand-d));border-radius:3px;
+  padding:.95rem 1.9rem;box-shadow:0 18px 38px -20px rgba(69,96,63,.85);transition:transform .18s,filter .18s}
+.sk-wat-rep .sk-ask-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
+.sk-wat-rep .sk-ask-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.sk-wat-rep .sk-ask-btn:hover svg{transform:translateX(4px)}
+@media(max-width:520px){.sk-wat-rep .sk-ask-btn{display:flex;justify-content:center;text-align:center}}
+
+/* the bar is docked at the top and ships visible (no reveal JS on this component), so the header
+   needs to clear it. Measured at 56px on a phone, 60px above that. */
+
+/* ── the CTA header bar ─────────────────────────────────────────────────────────────────────
+   HOSTED-BLOCKS-SOP §8b: a fixed HEADER bar (top:0), every width, revealed on the first scroll.
+   diagnostic-result/v1 ships no bar at all, so this one is built here. position:fixed, not
+   sticky: a hosted block is one element inside a GHL page, and sticky pins only within the
+   block's own box. z-index 60 clears GHL chrome. It ships VISIBLE and result.js has no hand in
+   it, so a blocked script leaves the CTA reachable rather than hidden. */
+.sk-wat-rep .sk-prog-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  position:fixed;inset:0 0 auto 0;z-index:60;padding:.72rem clamp(1rem,4vw,3rem);
+  background:rgba(36,48,31,.96);border-bottom:1px solid rgba(198,211,182,.24);
+  box-shadow:0 6px 20px -10px rgba(0,0,0,.55)}
+.sk-wat-rep .sk-prog-bar span{font-family:var(--sk-sans);font-size:.88rem;line-height:1.25;
+  color:rgba(244,246,240,.92);font-weight:600}
+.sk-wat-rep .sk-prog-bar b{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sk-accent);margin-bottom:.12rem}
+.sk-wat-rep .sk-prog-bar a{flex:none;font-family:var(--sk-sans);font-weight:700;font-size:.88rem;
+  color:var(--sk-ink-d);text-decoration:none;background:var(--sk-tint);border-radius:3px;
+  padding:.72rem 1.2rem;white-space:nowrap;transition:filter .18s}
+.sk-wat-rep .sk-prog-bar a:hover{filter:brightness(1.05)}
+/* the bar is fixed, so an anchor jump would land the section's heading underneath it */
+.sk-wat-rep #reset{scroll-margin-top:5.5rem}
+@media(max-width:520px){
+  .sk-wat-rep .sk-prog-bar span{font-size:.8rem}
+  .sk-wat-rep .sk-prog-bar a{font-size:.82rem;padding:.66rem 1rem}
+}
