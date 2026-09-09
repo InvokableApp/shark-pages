@@ -124,6 +124,25 @@
   // the form is loaded with, matched on the field's hiddenFieldQueryKey. Building the iframe HERE,
   // after the lookup has returned, is what guarantees the values exist before the form loads: a
   // popup wired in the builder loads with the page, long before anyone has typed an address.
+  // Every compound the EPA found, in one readable line. Over-limit first, then by level, so the
+  // list opens on the only entry a reader reacts to.
+  // ⚠️ A LIMIT OF null MEANS "NO FEDERAL LIMIT EXISTS FOR THIS ONE", which is NOT the same as
+  // "under the limit" and must never be written as if it were. Six of the seven compounds on the
+  // first system tested have no limit at all, and saying they are within one would be inventing a
+  // regulation. They get the level and nothing else.
+  function pfasList(d) {
+    if (!d || !d.pfas || !d.pfas.sampled) return "not sampled";
+    var det = (d.pfas.detections || []).slice();
+    if (!det.length) return "none detected";
+    det.sort(function (a, b) { return (b.overLimit - a.overLimit) || (b.ppt - a.ppt); });
+    return det.map(function (x) {
+      var s = x.name + " " + x.ppt + " ppt";
+      if (x.overLimit) return s + " (over the " + x.limit + " ppt federal limit)";
+      if (x.limit) return s + " (federal limit " + x.limit + " ppt)";
+      return s;
+    }).join(" \u00b7 ");
+  }
+
   function formUrl(d) {
     if (!FORM || !FORM_HOST) return "";
     var q = [];
@@ -136,6 +155,18 @@
       add("beneve_water_pfas_count", d.pfas.sampled ? String(d.pfas.detections.length) : "not sampled");
       add("beneve_water_pfas_flag", d.pfas.anyOverLimit ? "yes" : "no");
       add("beneve_water_report_date", d.built);
+      // ── the whole detection table, so the DELIVERY EMAIL can carry the report ─────────────
+      // ⚠️ THE ORDER IS THE ARGUMENT: anything over a federal limit first, then by level. A
+      // reader who sees "PFOA 10.9 ppt, over the 4 ppt limit" first has read the only line that
+      // matters; the same list sorted alphabetically buries it in the middle.
+      // ⚠️ PLAIN TEXT. The rep reads these on the contact card and the Submission workflow pastes
+      // them into her notification, so no markup goes in here. See 04-custom-fields.mjs.
+      add("beneve_water_pfas_list", pfasList(d));
+      add("beneve_water_pfas_over", d.pfas.sampled
+        ? String((d.pfas.detections || []).filter(function (x) { return x.overLimit; }).length) : "not sampled");
+      add("beneve_water_city", d.system.city);
+      add("beneve_water_source", d.system.source);
+      add("beneve_water_population", d.system.population ? num(d.system.population) : "");
     } else {
       add("beneve_water_system", "no public system on record");
       add("beneve_water_pfas_count", "not sampled");
