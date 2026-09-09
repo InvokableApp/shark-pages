@@ -39,7 +39,7 @@
   /* ── IS THIS CUSTOM VALUE ACTUALLY SET? ────────────────────────────────────────────────────
      Same three non-answers as _shared/confirm/v1, and all three must fail:
        ""                          the socket carries no data-cv for it, or the CV is blank
-       "{{custom_values.x}}"       never substituted at all
+       a merge field with its braces still on   never substituted at all
        "Paste the link that ..."   the ONBOARDING INSTRUCTION, which is the correct resting value
                                    on a snapshot (CLAUDE.md, Account TYPES)
      The instruction is the dangerous one: it contains the literal example "messenger.com/t/
