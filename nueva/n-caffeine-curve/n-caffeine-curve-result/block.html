@@ -58,8 +58,16 @@
           <figure class="sk-conf-curve" data-sk-curve hidden></figure>
           <ul class="sk-conf-key">
             <li><i></i> your day as it is</li>
-            <li class="alt"><i></i> the same caffeine, moved earlier</li>
+            <li class="alt"><i></i> the same caffeine, taken earlier</li>
           </ul>
+          <!-- ⚠️ THIS LINE IS NOT DECORATION. The dashed curve sits ABOVE the solid one through
+               the middle of the day, because moving a dose earlier stacks it nearer the morning
+               peak. Without a sentence saying so it reads as "earlier means more caffeine", which
+               is the opposite of the argument. Naming it turns the confusing part into the point:
+               identical caffeine, and the only place they differ is the hour that matters. -->
+          <p class="sk-conf-fine">Both days contain exactly the same caffeine. The dashed one is
+            just front loaded, which is why it runs higher at lunchtime and lower at the only hour
+            you were asking about.</p>
 
           <!-- ⚠️ TWO FACTS, EACH ONE REPEATABLE. The milligrams are abstract; a clock time is not.
                "I am not clear of yesterday until 8:45 this morning" is the line someone says out

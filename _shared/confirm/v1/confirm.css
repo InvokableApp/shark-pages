@@ -771,13 +771,14 @@
    Two polylines and a bedtime marker. Solid is her day as it is; dashed is the same caffeine
    with the last dose moved to her cutoff. The gap between them at the bedtime line IS the offer,
    which is why the marker is drawn last and darkest. */
-.sk-conf-curve { margin: 0 0 1.4rem; }
+.sk-conf-curve { margin: 0 0 1rem; }
+.sk-conf-curve + .sk-conf-key { margin-bottom: .4rem; }
 .sk-curve-svg { display: block; width: 100%; height: auto; overflow: visible; }
-.sk-curve-line { fill: none; stroke: var(--sk-teal, #0abab5); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.sk-curve-line { fill: none; stroke: var(--sk-teal, #0abab5); stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
 .sk-curve-alt  { fill: none; stroke: var(--sk-sage, #087f7b); stroke-width: 2; stroke-dasharray: 5 5; opacity: .55; }
 .sk-curve-bed  { stroke: var(--sk-ink, #141313); stroke-width: 1.5; stroke-dasharray: 3 3; opacity: .55; }
 .sk-curve-bedlabel { font-size: 11px; font-weight: 700; text-anchor: end; fill: var(--sk-ink, #141313); opacity: .7; }
-.sk-curve-tick { font-size: 10px; text-anchor: middle; fill: var(--sk-body, #4a5560); opacity: .75; }
+.sk-curve-tick { font-size: 11px; text-anchor: middle; fill: var(--sk-body, #4a5560); opacity: .75; }
 .sk-conf-key { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 0 0 1.5rem; padding: 0; list-style: none; }
 .sk-conf-key li { display: flex; align-items: center; gap: .45rem; font-size: .85rem; color: var(--sk-body, #4a5560); }
 .sk-conf-key i { display: inline-block; width: 1.5rem; height: 0; border-top: 3px solid var(--sk-teal, #0abab5); }
