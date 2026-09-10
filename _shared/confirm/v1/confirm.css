@@ -758,3 +758,11 @@
 .sk-conf-warn {
   border-left: 3px solid var(--sk-sage, #087f7b); padding: .1rem 0 .1rem .9rem; margin: 0 0 1.25rem;
 }
+
+/* ── inline photo inside a copy card ─ additive 2026-09-10 ─────────────────────────────────
+   Lazy by default: on this component the photo is always below the fold, and the page's job
+   above the fold is the visitor's own number. No existing .sk-conf page uses this selector. */
+.sk-conf-shot {
+  display: block; width: 100%; height: auto; border-radius: .8rem; margin: 0 0 1.25rem;
+  aspect-ratio: 3 / 2; object-fit: cover;
+}

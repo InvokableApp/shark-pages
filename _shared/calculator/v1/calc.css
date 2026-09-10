@@ -88,3 +88,29 @@
   min-height: 30rem; background: transparent;
 }
 .sk-calc-gate .sk-calc-restart { margin-top: .5rem; }
+
+/* ── hero ─ additive 2026-09-10 ────────────────────────────────────────────────────────────
+   A calculator page that opens on question 1 has no headline, and the opt-in headline rule is
+   that the headline names the MECHANIC, the TIME it takes and the DELIVERABLE, in plain words
+   (references/shark-brand-voice.md §Opt-in and quiz pages). The Caffeine Curve shipped without
+   one until this was noticed on review. Markup-driven, so a preset opts in by including it and
+   the kids calculator is untouched.
+   ⚠️ The two numbers in the pills must be TRUE and must agree with the question count. */
+.sk-calc-hero { margin: 0 0 1.75rem; text-align: center; }
+.sk-calc-hero-img {
+  display: block; width: 100%; height: auto; border-radius: .9rem; margin: 0 0 1.4rem;
+  aspect-ratio: 3 / 2; object-fit: cover;
+}
+.sk-calc-h1 {
+  margin: 0 0 .7rem; font-weight: 800; letter-spacing: -.02em;
+  font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.12; color: var(--sk-ink, #141313);
+}
+.sk-calc-lede {
+  margin: 0 auto 1.1rem; max-width: 36rem; line-height: 1.55;
+  font-size: clamp(1rem, 2.6vw, 1.12rem); color: var(--sk-body, #4a5560);
+}
+.sk-calc-pills { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 0 .5rem; padding: 0; list-style: none; }
+.sk-calc-pills li {
+  font-size: .82rem; font-weight: 600; letter-spacing: .01em; padding: .34rem .8rem;
+  border-radius: 999px; background: var(--sk-tint, #e8f8f6); color: var(--sk-accent, #087f7b);
+}
