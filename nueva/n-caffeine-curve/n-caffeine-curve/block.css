@@ -1,4 +1,4 @@
-/* nueva/n-caffeine-curve/n-caffeine-curve — palette only.
+/* nueva/n-caffeine-curve/n-caffeine-curve: palette only.
    Design lives in _shared/calculator/v1/calc.css under .sk-calc. This file declares the FULL
    token set on this preset's own scope class, because the shared component falls back silently
    to its defaults for anything omitted (there is no partial mode).
