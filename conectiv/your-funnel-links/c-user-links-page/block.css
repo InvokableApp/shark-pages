@@ -679,12 +679,14 @@
 .sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
 .sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
 
-/* utility pill, deliberately not gradient: it must not compete with the four */
+/* utility pill, deliberately not gradient: it sits ABOVE the destination cards now,
+   directly under the welcome headline, so it must stay quiet or it reads as one more
+   destination. */
 .sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 22px auto 0;
+  margin: 0 auto 20px;
   padding: 9px 15px 9px 12px;
   border: 1px solid var(--sk-line);
   border-radius: 999px;

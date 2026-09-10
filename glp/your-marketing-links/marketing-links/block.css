@@ -627,7 +627,7 @@
 
 .sk-glp-your-marketing-links-marketing-links .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
 
-/* the five destination cards. Same grammar as the accordion trigger row, so
+/* the four destination cards. Same grammar as the accordion trigger row, so
    home reads as part of the same page rather than a different product. */
 .sk-glp-your-marketing-links-marketing-links .sk-dest {
   display: grid;
@@ -679,9 +679,9 @@
 .sk-glp-your-marketing-links-marketing-links .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
 .sk-glp-your-marketing-links-marketing-links .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
 
-/* utility pill, deliberately not gradient: it sits ABOVE the destination cards
-   now, directly under the welcome headline, so it must stay quiet or it reads
-   as a sixth destination. */
+/* utility pill, deliberately not gradient: it sits ABOVE the destination cards now,
+   directly under the welcome headline, so it must stay quiet or it reads as one more
+   destination. */
 .sk-glp-your-marketing-links-marketing-links .sk-a2hs {
   display: inline-flex;
   align-items: center;

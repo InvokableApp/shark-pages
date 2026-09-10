@@ -139,17 +139,21 @@ var SYS = {
   }
   function href(v) { return /^https?:\/\//i.test(v) ? v : 'https://' + v.replace(/^\/+/, ''); }
 
-  /* ---------- the five destinations ----------
-     Referral sits last on purpose: the first four are the rep's job, the fifth
-     is their upside. It is always shown, even with the custom value unfilled,
-     so a rep discovers the link exists instead of never seeing the tile. */
+  /* ---------- the four destinations ---------- */
   var DEST = [
-    { id: 'links',    icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
-    { id: 'leads',    icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
-    { id: 'promote',  icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
-    { id: 'support',  icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' },
-    { id: 'referral', icon: 'share',  name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' }
+    { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
+    { id: 'leads',   icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
+    { id: 'promote', icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
+    { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' }
   ];
+
+  /* Referral is a destination, not a card at the bottom of the funnel list. PUSHED
+     rather than declared inline so a system whose config carries no affiliate program
+     never grows a tile that leads nowhere. Last on purpose: the others are the rep's
+     job, this one is their upside. */
+  if (SYS.affiliate) DEST.push({ id: 'referral', icon: 'share',
+    name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' });
+
 
   /* ---------- link building ----------
      Two models across the fleet, and the difference is deliberate.
@@ -293,11 +297,11 @@ var SYS = {
   linksHost.innerHTML = html;
 
   /* ---------- refer the system ----------
-     Its own screen since it became a home destination, so it is one tap from
-     home instead of buried under the funnel list. The link is per rep, so an
-     unfilled custom value gets the setup message rather than a dead link or,
-     worse, someone else's. It deliberately does NOT count toward liveCount:
-     that gate is about whether the FUNNEL links are ready. */
+     Its own screen since it became a home destination, so it is one tap from home
+     instead of buried under the funnel list. The link is per rep, so an unfilled
+     custom value gets the setup message rather than a dead link or, worse, someone
+     else's. It deliberately does NOT count toward liveCount: that gate is about
+     whether the FUNNEL links are ready. */
   var referralHost = root.querySelector('[data-referral]');
   var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
   if (referralHost) {
@@ -321,8 +325,8 @@ var SYS = {
     } else {
       referralHost.innerHTML =
         '<div class="sk-setup"><h2>Finish your setup first</h2>' +
-        '<p>Your referral link has not been added yet. Paste it into the GLP ' +
-        'Shark affiliate link custom value and this page fills in automatically.</p></div>';
+        '<p>Your referral link has not been added yet. Paste it into your affiliate ' +
+        'link custom value and this page fills in automatically.</p></div>';
     }
   }
 

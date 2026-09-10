@@ -113,6 +113,14 @@ var SYS = {
     { id: 'support', icon: 'life',   name: 'Contact support',      tease: 'Email, text, or join office hours.' }
   ];
 
+  /* Referral is a destination, not a card at the bottom of the funnel list. PUSHED
+     rather than declared inline so a system whose config carries no affiliate program
+     never grows a tile that leads nowhere. Last on purpose: the others are the rep's
+     job, this one is their upside. */
+  if (SYS.affiliate) DEST.push({ id: 'referral', icon: 'share',
+    name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' });
+
+
   /* ---------- link building ----------
      Two models across the fleet, and the difference is deliberate.
        cv   : one custom value per funnel holding a FULL url. GLP reps run
@@ -251,32 +259,41 @@ var SYS = {
         '</div></div></div></article></div>';
   });
 
-  /* Refer the system. The affiliate link is per rep, so a missing one renders
-     nothing rather than a dead link or, worse, someone else's. */
-  var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
-  if (affiliate) {
-    liveCount++;
-    var au = href(affiliate);
-    html += '<div class="sk-group"><div class="sk-group-head">' +
-      '<span class="sk-group-label">Refer the system</span><span class="sk-group-rule"></span>' +
-      '<span class="sk-group-count">1</span></div>' +
-      '<article class="sk-card" data-open="false">' +
-        '<button class="sk-trigger" type="button" aria-expanded="false">' +
-          '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
-          '<span><span class="sk-name">' + SYS.affiliate.name + '</span>' +
-          '<span class="sk-tease">Share the Shark marketing system</span></span>' +
-          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
-        '</button>' +
-        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-          '<p class="sk-desc">' + SYS.affiliate.desc + '</p>' +
-          '<button class="sk-copy" type="button" data-copy="' + au + '">' +
-            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
-          '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
-            '<a class="sk-open" href="' + au + '" target="_blank" rel="noopener" aria-label="Open your affiliate link">' + icon('out', 1.8) + '</a></div>' +
-        '</div></div></div></article></div>';
-  }
-
   linksHost.innerHTML = html;
+
+  /* ---------- refer the system ----------
+     Its own screen since it became a home destination, so it is one tap from home
+     instead of buried under the funnel list. The link is per rep, so an unfilled
+     custom value gets the setup message rather than a dead link or, worse, someone
+     else's. It deliberately does NOT count toward liveCount: that gate is about
+     whether the FUNNEL links are ready. */
+  var referralHost = root.querySelector('[data-referral]');
+  var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
+  if (referralHost) {
+    if (affiliate) {
+      var au = href(affiliate);
+      referralHost.innerHTML =
+        '<article class="sk-card" data-open="true">' +
+          '<button class="sk-trigger" type="button" aria-expanded="true">' +
+            '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
+            '<span><span class="sk-name">' + SYS.affiliate.name + '</span>' +
+            '<span class="sk-tease">Share the Shark marketing system</span></span>' +
+            '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<p class="sk-desc">' + SYS.affiliate.desc + '</p>' +
+            '<button class="sk-copy" type="button" data-copy="' + au + '">' +
+              icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+            '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
+              '<a class="sk-open" href="' + au + '" target="_blank" rel="noopener" aria-label="Open your affiliate link">' + icon('out', 1.8) + '</a></div>' +
+          '</div></div></div></article>';
+    } else {
+      referralHost.innerHTML =
+        '<div class="sk-setup"><h2>Finish your setup first</h2>' +
+        '<p>Your referral link has not been added yet. Paste it into your affiliate ' +
+        'link custom value and this page fills in automatically.</p></div>';
+    }
+  }
 
   /* ---------- copy to clipboard ----------
      Idle to done state machine: the label swaps to a confirmation for 1.9s and
@@ -372,7 +389,7 @@ var SYS = {
      travel inside a snapshot as a single custom code socket. */
   var screens = root.querySelectorAll('.sk-screen');
   var backBtn = root.querySelector('[data-back]');
-  var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1 };
+  var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1, referral: 1 };
 
   function route() {
     var id = (location.hash || '').replace(/^#\/?/, '') || 'home';
