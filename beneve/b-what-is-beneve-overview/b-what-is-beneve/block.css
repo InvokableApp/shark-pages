@@ -68,6 +68,35 @@
 }
 .sk-prod-bnv-what .sk-what-video-hero{ aspect-ratio:4/3; }
 
+/* ── the opportunity section with NO video ────────────────────────────────────
+   .sk-prod-facts-grid is a two column shared component (_shared/product/v1) used by
+   every Beneve product page and by other systems, so it is NOT edited to suit this one
+   page. This modifier is page scoped and only collapses the grid where it is applied.
+
+   The checks list centers as a BLOCK but keeps its text left aligned, because a
+   centered bullet list is unreadable. That is the same treatment the shared stylesheet
+   already applies to this list at its mobile breakpoint, so the two agree. */
+.sk-prod-bnv-what .sk-what-opp-solo{
+  grid-template-columns:1fr;
+  max-width:min(46rem, 100%);
+  margin-inline:auto;
+  text-align:center;
+}
+.sk-prod-bnv-what .sk-what-opp-solo .sk-prod-checks{
+  margin-inline:auto;
+  text-align:left;
+  display:inline-grid;
+  justify-self:center;
+}
+/* The stat card is a flex ROW, so left alone in a centered column it stretches the
+   full width and its contents float in the middle of a mostly empty card. Shrink it
+   to its content and center the card itself instead. */
+.sk-prod-bnv-what .sk-what-opp-solo .sk-prod-use{
+  width:fit-content;
+  margin-inline:auto;
+  text-align:left;
+}
+
 /* ── product grid ─────────────────────────────────────────────────────────── */
 .sk-prod-bnv-what .sk-what-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem;

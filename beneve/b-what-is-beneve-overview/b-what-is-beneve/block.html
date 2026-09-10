@@ -7,9 +7,13 @@
   Two differences from the donors, both deliberate:
     - NO testimonials section. Beneve's own site has ten of them; none are cleared for use here,
       and inventing social proof is not an option. The section is simply absent.
-    - The videos are not made yet. Each slot is a real component that renders a branded placeholder
-      until a Vimeo id is put in its data-video attribute, at which point it becomes a click to load
-      facade. Filling one is a one line edit plus a git push, no rebuild.
+    - ONE video, in the hero: Beneve's own "Beneve Vision" (Vimeo 954476127, 1:40), added
+      2026-09-10. The slot is a click to load facade, so nothing is requested from vimeo.com until
+      the visitor actually clicks and an unwatched video costs the page nothing.
+      The OPPORTUNITY section used to carry a second slot and it is now removed: there is no
+      opportunity video yet, and a "video coming soon" placeholder beside finished copy reads as an
+      unfinished page. Its grid is marked .sk-what-opp-solo, which collapses the two column layout
+      to one centered column. Putting the video back is that div plus dropping the class.
 
   Copy is Beneve's own, taken from beneve.com/{rep} and beneve.com/{rep}/customer/become-an-influencer:
   the four principles of The Beneve Difference, the product names and their own subtitle lines, the
@@ -69,12 +73,12 @@
         </div>
       </div>
 
-      <div class="sk-what-video sk-what-video-hero" data-video="" data-rise data-delay="2">
+      <div class="sk-what-video sk-what-video-hero" data-video="954476127" data-video-h="8a6c0df985" data-rise data-delay="2">
         <div class="sk-what-video-in">
           <span class="sk-what-video-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
           </span>
-          <p class="sk-what-video-cap">A two minute introduction to Beneve</p>
+          <p class="sk-what-video-cap">Under two minutes on what Beneve is</p>
         </div>
       </div>
     </div>
@@ -214,7 +218,7 @@
 
   <!-- ============================== THE OPPORTUNITY ============================== -->
   <section class="sk-prod-facts" id="sk-what-opp">
-    <div class="sk-prod-wrap sk-prod-facts-grid">
+    <div class="sk-prod-wrap sk-prod-facts-grid sk-what-opp-solo">
       <div class="sk-prod-facts-copy">
         <p class="sk-prod-kicker" data-rise>The other half</p>
         <h2 class="sk-prod-h2" data-rise data-delay="1">If you love the products, you can get paid to share them</h2>
@@ -236,15 +240,6 @@
             <strong>Percent payout</strong>
             <span>Of every dollar, allocated toward Influencer compensation.</span>
           </div>
-        </div>
-      </div>
-
-      <div class="sk-what-video" data-video="" data-rise data-delay="2">
-        <div class="sk-what-video-in">
-          <span class="sk-what-video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
-          </span>
-          <p class="sk-what-video-cap">How the Beneve opportunity works</p>
         </div>
       </div>
     </div>
