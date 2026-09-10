@@ -50,6 +50,32 @@
             <span class="sk-conf-figure-unit">mg of caffeine still circulating</span>
           </p>
 
+          <!-- ⚠️ THE CURVE IS THE POINT OF THE PAGE AND IT USED NOT TO EXIST. The campaign is
+               called the Caffeine Curve and the result was a milligram figure, which has no
+               reference frame: nobody knows whether 123 is bad. The line answers that without
+               copy, and the dashed second line is the offer made visual, same caffeine moved
+               earlier. Removed entirely by confirm.js if she arrives with no data. -->
+          <figure class="sk-conf-curve" data-sk-curve hidden></figure>
+          <ul class="sk-conf-key">
+            <li><i></i> your day as it is</li>
+            <li class="alt"><i></i> the same caffeine, moved earlier</li>
+          </ul>
+
+          <!-- ⚠️ TWO FACTS, EACH ONE REPEATABLE. The milligrams are abstract; a clock time is not.
+               "I am not clear of yesterday until 8:45 this morning" is the line someone says out
+               loud to another person, and the cutoff is the one that makes the argument for us:
+               it is always earlier than anyone guesses. data-sk-clock turns 9.5 into 9:30am. -->
+          <div class="sk-conf-facts">
+            <div class="sk-conf-fact" data-sk-calc-hide>
+              <b data-sk-calc="clearsHour" data-sk-clock data-sk-calc-hide>&nbsp;</b>
+              <span>when you are finally clear of it, which is usually the next morning</span>
+            </div>
+            <div class="sk-conf-fact" data-sk-calc-hide>
+              <b data-sk-calc="cutoffHour" data-sk-clock data-sk-calc-hide>&nbsp;</b>
+              <span>your real cutoff: the latest you could have had that drink and be clear by bed</span>
+            </div>
+          </div>
+
           <div class="sk-conf-band" data-sk-band="clear" hidden>
             <h3>Almost nothing is still working by the time you turn out the light.</h3>
             <p>On the timings you gave, caffeine is not what is standing between you and a good
@@ -98,6 +124,34 @@
             It does not feel like anything. It just quietly costs you.</p>
           <p class="sk-conf-fine">Drake C, Roehrs T, Shambroom J, Roth T. Caffeine effects on sleep
             taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med, 2013.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 1b. the cutoff ===================== -->
+  <!-- ⚠️ THIS IS THE SECTION THAT TURNS THE TOOL INTO THE ARGUMENT. The cutoff time comes out
+       absurdly early for anyone with a normal coffee habit, and that is not a flaw in the maths,
+       it is the finding: timing alone cannot fix this, because nobody is going to stop at half
+       past nine in the morning. Which is exactly why the lever is WHAT the afternoon drink is,
+       not just when. Before this section existed the page asserted that; now the reader's own
+       number proves it before we say it.
+       ⚠️ IT STILL MUST NOT TELL HER TO STOP. "Your cutoff was 9:30am" is a fact about caffeine.
+       "So stop drinking coffee after 9:30am" is advice that contradicts the payoff. -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <h2>Look at your cutoff time again<span class="sk-conf-em">That is not a typo.</span></h2>
+          <p>To be genuinely clear of one drink that size by the time you get into bed, you would
+            have had to finish it that early. Not because caffeine is dangerous, but because it
+            lasts far longer than it feels like it does.</p>
+          <p><b>Nobody is going to do that.</b> Which is the useful part: if the honest cutoff is
+            first thing in the morning, then moving your afternoon drink an hour earlier was never
+            going to be the whole answer either.</p>
+          <p>So the question stops being <i>when do I stop</i> and starts being
+            <b>what is that afternoon drink actually made of.</b> That one you can change without
+            giving anything up.</p>
         </div>
       </div>
     </div>
