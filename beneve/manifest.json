@@ -843,6 +843,33 @@
       "elementTitle": "b-opportunity-more-info",
       "pattern": "A",
       "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "b-a2p/b-what-is-beneve",
+      "funnelId": "O8XKM9euI72XbjqXHtX7",
+      "pageId": "tuB9SPfALIGLL1uUXohZ",
+      "elementId": "custom-code-g8d70m46zr",
+      "elementTitle": "b-what-is-beneve",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "b-a2p/b-opportunity-more-info",
+      "funnelId": "O8XKM9euI72XbjqXHtX7",
+      "pageId": "xmItEiSbBQN8cCSYnLxa",
+      "elementId": "custom-code-xirdpozqwj",
+      "elementTitle": "b-opportunity-more-info",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "b-a2p/b-product-page",
+      "funnelId": "O8XKM9euI72XbjqXHtX7",
+      "pageId": "kqkZgF1FRhwm7FQIqdba",
+      "elementId": "custom-code-6jjnc0hk0l",
+      "elementTitle": "Original Coffee Sticks",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
     }
   ]
 }

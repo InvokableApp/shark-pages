@@ -131,6 +131,34 @@
       ]
     },
     {
+      "key": "size",
+      "question": "What size is that one, roughly?",
+      "help": "The published caffeine figures are per 12 fl oz, so this changes the answer more than anything else you tell us.",
+      "type": "choice",
+      "options": [
+        {
+          "label": "Small, about 8 oz",
+          "value": "small",
+          "countLabel": "small ones"
+        },
+        {
+          "label": "Regular, about 12 oz",
+          "value": "regular",
+          "countLabel": "regular ones"
+        },
+        {
+          "label": "Large, about 16 oz",
+          "value": "large",
+          "countLabel": "large ones"
+        },
+        {
+          "label": "Extra large, 20 oz or more",
+          "value": "xl",
+          "countLabel": "extra large ones"
+        }
+      ]
+    },
+    {
       "key": "nMorning",
       "question": "How many {a:drink} do you have before 10am?",
       "help": "Your best guess is fine. Count only the caffeinated ones.",
@@ -210,6 +238,13 @@
       "morning": 7.5,
       "midday": 12,
       "afternoon": 15.5
+    },
+    "clearMg": 30,
+    "sizeMultiplier": {
+      "small": 0.67,
+      "regular": 1,
+      "large": 1.33,
+      "xl": 1.67
     }
   },
   "output": {
@@ -255,12 +290,24 @@
     "nueva_caffeine_drink": "drink",
     "nueva_caffeine_bedtime": "bedtimeHour",
     "nueva_caffeine_last_drink": "lastDrinkHour",
-    "nueva_caffeine_daily_drinks": "nAfternoon"
+    "nueva_caffeine_daily_drinks": "nAfternoon",
+    "nueva_caffeine_cutoff": "$extra.cutoffHour",
+    "cutoffHour": "$extra.cutoffHour",
+    "clearsHour": "$extra.clearsHour",
+    "bedHour": "$extra.bedHour",
+    "startHour": "$extra.startHour",
+    "stepHours": "$extra.stepHours",
+    "clearMg": "$extra.clearMg",
+    "earlierAlone": "$extra.earlierAlone",
+    "perDrinkMg": "$extra.perDrinkMg",
+    "series": "$extra.series",
+    "shifted": "$extra.shifted",
+    "nueva_caffeine_size": "size"
   },
   "gate": {
     "eyebrow": "One more thing",
     "headline": "Where should we send your number?",
-    "body": "We worked it out. Tell us where to send it and you will see it on the next page, with the one change worth making.",
+    "body": "We worked it out. Tell us where to send it and the next page shows your number, the hour you are finally clear, and your real cutoff time.",
     "formTitle": "Get your caffeine number",
     "formHost": "https://link.sharksuite.ai/widget/form",
     "formId": "{{custom_values.nueva_caffeine_form_id}}"
@@ -279,12 +326,12 @@
     <img class="sk-calc-hero-img"
          src="https://invokableapp.github.io/shark-pages/nueva/n-caffeine-curve/_art/hero-nightstand.jpg"
          alt="A half finished mug of coffee left on a bedside table at night" loading="eager" decoding="async">
-    <h1 class="sk-calc-h1">Answer 6 questions and see how much caffeine is still in your system at bedtime</h1>
+    <h1 class="sk-calc-h1">Answer 7 questions and see how much caffeine is still in your system at bedtime</h1>
     <p class="sk-calc-lede">Most people are still carrying more than they think, and it is not the
       morning coffee doing it. Tell us what you drink and when, and we will work out what is left
       when your head hits the pillow.</p>
     <ul class="sk-calc-pills">
-      <li>6 questions</li>
+      <li>7 questions</li>
       <li>About a minute</li>
       <li>Free</li>
     </ul>

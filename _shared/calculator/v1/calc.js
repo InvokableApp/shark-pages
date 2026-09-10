@@ -75,23 +75,97 @@
      * a negative elapsed time would make 0.5^negative a multiplier greater than one, which would
      * silently invent caffeine the visitor never drank.
      */
+    /**
+     * Caffeine still circulating at bedtime, plus the two things she can act on.
+     *
+     * ⚠️ SERVING SIZE IS A MULTIPLIER, AND LEAVING IT OUT WAS THE BIGGEST ERROR IN THIS MODEL.
+     * The FDA figures are per 12 fl oz. A 20oz travel mug is 1.7x that and a small cup is half, so
+     * without asking, two large coffees read the same as two small ones and the answer can be out
+     * by a factor of two before any of the half-life modelling matters. Jeff, 2026-09-10: "how
+     * could you know also without measuring the size of the drink". He is right, and it dominated
+     * every other source of error here.
+     *
+     * ⚠️ BODY WEIGHT IS DELIBERATELY NOT ASKED, and that is not the same as forgetting it. Weight
+     * barely changes how many MILLIGRAMS are left; it changes the CONCENTRATION and therefore the
+     * effect. The between-person spread that actually matters is CYP1A2 clearance, which ranges
+     * roughly 1.5 to 9.5 hours of half-life and is genetic, not a function of mass. Asking weight
+     * would add a question, add friction, and buy false precision. What honesty requires instead
+     * is saying the spread out loud, which the disclaimer does.
+     *
+     * Returns {value, extra} rather than a number:
+     *   cutoffHour   the latest she could have had the last dose and still be under `clearMg`
+     *   clearsHour   when she finally drops under `clearMg` (may be after bedtime, which is the point)
+     *   series       hourly mg from first drink to two hours past bedtime, for the curve
+     *   shifted      the same series with the last dose moved to cutoffHour, for the second curve
+     */
     "caffeine-decay": function (v, c) {
-      const mg = (c.mgPerDrink && c.mgPerDrink[v.drink]) || 0;
       const half = c.halfLifeHours || 5;
       const bed = Number(v.bedtimeHour);
-      const at = function (hour, n) {
-        const count = Number(n) || 0;
-        if (!count || hour == null) return 0;
-        const elapsed = bed - Number(hour);
-        if (elapsed <= 0) return count * mg;          // drunk at or after bedtime: no decay yet
-        return count * mg * Math.pow(0.5, elapsed / half);
-      };
+      const clearMg = c.clearMg == null ? 30 : c.clearMg;
+      // Serving size scales the per-drink figure. Absent (an older config) it is 1, so nothing
+      // that shipped before this change moves.
+      const sizeMul = (c.sizeMultiplier && c.sizeMultiplier[v.size]) || 1;
+      const mg = ((c.mgPerDrink && c.mgPerDrink[v.drink]) || 0) * sizeMul;
       const w = c.windowHour || {};
-      // The last dose of the day dominates what is left at bedtime, so it is placed at the time
-      // the visitor actually gave rather than at a window midpoint. The earlier two use midpoints
-      // because being an hour out on a dose that has already run three half-lives changes little.
-      const lateHour = v.lastDrinkHour != null ? v.lastDrinkHour : w.afternoon;
-      return Math.round(at(w.morning, v.nMorning) + at(w.midday, v.nMidday) + at(lateHour, v.nAfternoon));
+      // The last dose dominates what is left at bedtime, so it sits at the hour she actually gave.
+      // The earlier two use window midpoints: being an hour out on a dose that has already run
+      // three half-lives changes almost nothing.
+      const lateHour = v.lastDrinkHour != null ? Number(v.lastDrinkHour) : w.afternoon;
+      const doses = [
+        { hour: Number(w.morning), n: Number(v.nMorning) || 0 },
+        { hour: Number(w.midday),  n: Number(v.nMidday)  || 0 },
+        { hour: lateHour,          n: Number(v.nAfternoon) || 0 },
+      ].filter(function (d) { return d.n > 0 && !isNaN(d.hour); });
+
+      const level = function (t, list) {
+        return list.reduce(function (sum, d) {
+          if (t < d.hour) return sum;                       // not drunk yet
+          return sum + d.n * mg * Math.pow(0.5, (t - d.hour) / half);
+        }, 0);
+      };
+      const value = Math.round(level(bed, doses));
+
+      /* ⚠️ THE CUTOFF IS ABOUT ONE DRINK, ON PURPOSE, and the first version of it was useless.
+         It originally solved for "the latest the last dose could sit so that the TOTAL at bedtime
+         is under clearMg", and on any realistic day that has no answer: two morning coffees alone
+         leave more than 30 mg at an 11pm bedtime, so no amount of moving the afternoon one helps
+         and it returned null exactly when someone most needed it.
+
+         So it answers the question people actually ask: for YOUR drink at YOUR size, how late can
+         you have one and still be clear by bed. That is always defined, it is a single memorable
+         time, and it is usually earlier than anyone guesses, which is the whole point.
+
+         The total is not forgotten: `earlierAlone` carries what her morning and midday leave
+         behind on their own, so the page can be honest when timing is not the only lever, instead
+         of implying that moving one drink fixes everything. */
+      const lastN = Math.max(doses.length ? doses[doses.length - 1].n : 0, 1);
+      let cutoffHour = null;
+      for (let t = bed; t >= bed - 24; t -= 0.25) {
+        if (lastN * mg * Math.pow(0.5, (bed - t) / half) < clearMg) { cutoffHour = t; break; }
+      }
+      const earlierAlone = Math.round(level(bed, doses.slice(0, -1)));
+      // When she is finally under clearMg, which is often after she is asleep.
+      let clearsHour = null;
+      for (let t = (doses.length ? doses[doses.length - 1].hour : bed); t <= bed + 24; t += 0.25) {
+        if (level(t, doses) < clearMg) { clearsHour = t; break; }
+      }
+
+      const first = doses.length ? Math.floor(doses[0].hour) : Math.floor(bed) - 12;
+      const series = [];
+      const shifted = [];
+      const moved = doses.length && cutoffHour != null
+        ? doses.slice(0, -1).concat([{ hour: cutoffHour, n: doses[doses.length - 1].n }])
+        : doses;
+      for (let t = first; t <= bed + 2; t += 0.5) {
+        series.push(Math.round(level(t, doses)));
+        shifted.push(Math.round(level(t, moved)));
+      }
+      return { value, extra: {
+        cutoffHour: cutoffHour, clearsHour: clearsHour, bedHour: bed, earlierAlone: earlierAlone,
+        lastDoseCount: lastN, perDrinkMg: Math.round(mg),
+        startHour: first, stepHours: 0.5, clearMg: clearMg,
+        series: series.join(","), shifted: shifted.join(","),
+      } };
     },
     /** Straight weighted sum, for score-style calculators. */
     "weighted-sum": function (v, c) {
@@ -212,7 +286,15 @@
 
       const fn = FORMULAS[cfg.formula];
       if (!fn) { mount.innerHTML = '<p class="sk-calc-err">This calculator is misconfigured.</p>'; return; }
-      const need = fn(d, cfg.constants || {});
+      /* ⚠️ A FORMULA MAY RETURN A NUMBER OR {value, extra} — additive 2026-09-10.
+         A bare number is all a "how much do you need" calculator needs. A DIAGNOSTIC one has more
+         to say than its headline figure: the caffeine curve knows the hour her last drink stops
+         mattering and the hour she would have had to stop, and both are more useful to her than
+         the milligrams. `extra` is where a formula returns that, and `payload` reaches it with
+         `$extra.key`. A formula that returns a number behaves exactly as before. */
+      const rawOut = fn(d, cfg.constants || {});
+      const need = (rawOut && typeof rawOut === "object" && "value" in rawOut) ? rawOut.value : rawOut;
+      const extra = (rawOut && typeof rawOut === "object" && rawOut.extra) ? rawOut.extra : {};
       const intake = (cfg.intake && d[cfg.intake.key] != null) ? d[cfg.intake.key] * (cfg.intake.unitMl || 1) : null;
 
       const unit = cfg.output && cfg.output.unitMl ? cfg.output.unitMl : 1;
@@ -252,6 +334,7 @@
         var src = cfg.payload[k];
         var v = src === "$result" ? needOut
               : src === "$band"   ? (band.key || band.headline || "")
+              : src.indexOf("$extra.") === 0 ? extra[src.slice(7)]
               : answers[src];
         // A select stores the option's value; the human-readable label is what a rep needs to read
         // on a contact card, so prefer the label when the step declared options.
