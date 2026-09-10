@@ -825,6 +825,24 @@
       "elementTitle": "b-water-results",
       "pattern": "A",
       "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+    },
+    {
+      "path": "b-what-is-beneve-overview/b-what-is-beneve",
+      "funnelId": "O8XKM9euI72XbjqXHtX7",
+      "pageId": "tuB9SPfALIGLL1uUXohZ",
+      "elementId": "custom-code-g8d70m46zr",
+      "elementTitle": "b-what-is-beneve",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "b-what-is-beneve-overview/b-opportunity-more-info",
+      "funnelId": "O8XKM9euI72XbjqXHtX7",
+      "pageId": "xmItEiSbBQN8cCSYnLxa",
+      "elementId": "custom-code-xirdpozqwj",
+      "elementTitle": "b-opportunity-more-info",
+      "pattern": "A",
+      "locationId": "cK1GiCXygEx16yqyzeFe"
     }
   ]
 }
