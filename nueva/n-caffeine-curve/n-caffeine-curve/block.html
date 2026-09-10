@@ -97,38 +97,43 @@
     },
     {
       "key": "drink",
-      "question": "What do you drink most days?",
-      "help": "Pick the one you have most often. We use the FDA's published figure for it.",
+      "question": "Which caffeinated drink do you have most often?",
+      "help": "Pick the one you have most days. We use the FDA's published caffeine figure for it.",
       "type": "choice",
       "options": [
         {
           "label": "Brewed coffee",
           "note": "Figured as a 12 ounce cup",
-          "value": "brewed"
+          "value": "brewed",
+          "countLabel": "coffees"
         },
         {
           "label": "An energy drink",
           "note": "Figured as a 12 ounce can",
-          "value": "energy"
+          "value": "energy",
+          "countLabel": "energy drinks"
         },
         {
           "label": "Black tea",
-          "value": "blackTea"
+          "value": "blackTea",
+          "countLabel": "cups of black tea"
         },
         {
           "label": "Green tea",
-          "value": "greenTea"
+          "value": "greenTea",
+          "countLabel": "cups of green tea"
         },
         {
           "label": "Soda",
-          "value": "soda"
+          "value": "soda",
+          "countLabel": "sodas"
         }
       ]
     },
     {
       "key": "nMorning",
-      "question": "Before 10am, how many do you have?",
-      "help": "Your best guess is fine.",
+      "question": "How many {a:drink} do you have before 10am?",
+      "help": "Your best guess is fine. Count only the caffeinated ones.",
       "type": "number",
       "min": 0,
       "max": 8,
@@ -138,18 +143,19 @@
     },
     {
       "key": "nMidday",
-      "question": "Between 10am and 2pm?",
+      "question": "How many {a:drink} between 10am and 2pm?",
       "type": "number",
       "min": 0,
       "max": 8,
       "step": 1,
       "unit": "drinks",
-      "placeholder": "e.g. 1"
+      "placeholder": "e.g. 1",
+      "help": "Zero is a perfectly normal answer."
     },
     {
       "key": "nAfternoon",
-      "question": "And after 2pm?",
-      "help": "This is the one that does most of the work in the answer.",
+      "question": "And how many {a:drink} after 2pm?",
+      "help": "This is the one that does most of the work in your number.",
       "type": "number",
       "min": 0,
       "max": 8,
@@ -159,8 +165,8 @@
     },
     {
       "key": "lastDrinkHour",
-      "question": "Roughly when was that last one?",
-      "help": "If you had nothing after 2pm, pick the first answer.",
+      "question": "Roughly when is your last caffeinated drink of the day?",
+      "help": "If you never have anything after 2pm, pick the first answer.",
       "type": "choice",
       "options": [
         {

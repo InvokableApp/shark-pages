@@ -116,10 +116,40 @@
     const answers = {};
     let i = 0;
 
+    /* ---------- carry an earlier answer into a later question ----------
+       ⚠️ ADDED 2026-09-10, ADDITIVE. A question with no {a:...} token is untouched, so the one
+       other calculator on v1 is unaffected.
+
+       WHY. A calculator asks "what do you drink" and then "how many before 10am?", and by the
+       second question the noun is gone. Read cold, "how many do you have?" does not say how many
+       OF WHAT, and a reader supplies their own noun: on review, Jeff read one of these as asking
+       about alcohol. Repeating "caffeinated drinks" in all three would fix the ambiguity and read
+       like a form. Carrying the answer reads like a conversation and is exactly as precise.
+
+       `{a:drink}` resolves to the chosen option's `countLabel` if it has one, otherwise its label.
+       countLabel exists because the label is singular and titled for a button ("Brewed coffee")
+       and the question needs a plural, lowercase noun ("coffees"). Getting that wrong ships
+       "How many Brewed coffee do you have before 10am?", which is worse than the vague version. */
+    function answerLabel(key) {
+      const st = steps.filter((x) => x.key === key)[0];
+      if (!st) return "";
+      const v = answers[key];
+      if (st.options) {
+        const o = st.options.filter((x) => String(x.value) === String(v))[0];
+        return o ? (o.countLabel || o.label) : "";
+      }
+      return v == null ? "" : String(v);
+    }
+    const fillQ = (t) => String(t || "").replace(/\{a:([a-zA-Z0-9_]+)\}/g, (m, k) => answerLabel(k) || "drinks");
+
     /* ---------- render one step ---------- */
     function draw() {
       if (i >= steps.length) return compute();
-      const s = steps[i];
+      const s0 = steps[i];
+      const s = Object.assign({}, s0, {
+        question: fillQ(s0.question),
+        help: fillQ(s0.help),
+      });
       const pct = Math.round((i / steps.length) * 100);
       mount.innerHTML =
         '<div class="sk-calc-prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct +
