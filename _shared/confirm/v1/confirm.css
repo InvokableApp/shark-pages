@@ -728,3 +728,33 @@
    children, and a display rule beats the UA's [hidden]{display:none}, which would leave a
    gated block visible while looking correct in the markup. Additive 2026-09-08. */
 .sk-conf [hidden]{display:none !important}
+
+/* ── calculator result figure ─ additive 2026-09-10 ────────────────────────────────────────
+   For a step that opens on a number the visitor just produced. Sized to be the first thing
+   read at any width, because on this page it is the only thing she came for. No existing
+   .sk-conf page uses these selectors (checked across all five). */
+.sk-conf-figure { text-align: center; margin: 0 0 1.5rem; }
+.sk-conf-figure-big {
+  display: block; font-weight: 800; line-height: .95; letter-spacing: -.02em;
+  font-size: clamp(3.2rem, 13vw, 6rem); color: var(--sk-teal, #0abab5);
+}
+.sk-conf-figure-unit {
+  display: block; margin-top: .4rem; font-weight: 600;
+  font-size: clamp(.95rem, 2.4vw, 1.1rem); opacity: .75;
+}
+.sk-conf-band { margin: 0 0 1rem; }
+.sk-conf-band h3 { margin: 0 0 .4rem; font-size: clamp(1.15rem, 3vw, 1.5rem); line-height: 1.2; }
+.sk-conf-loop { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: .5rem; }
+.sk-conf-loop li {
+  position: relative; padding: .6rem .8rem .6rem 2.1rem; border-radius: .6rem;
+  background: var(--sk-mist, #e8f8f6); font-size: .97rem;
+}
+.sk-conf-loop li::before {
+  content: counter(sk-loop); counter-increment: sk-loop; position: absolute; left: .7rem; top: .6rem;
+  width: 1.1rem; height: 1.1rem; border-radius: 50%; display: grid; place-items: center;
+  font-size: .68rem; font-weight: 700; color: #fff; background: var(--sk-teal, #0abab5);
+}
+.sk-conf-loop { counter-reset: sk-loop; }
+.sk-conf-warn {
+  border-left: 3px solid var(--sk-sage, #087f7b); padding: .1rem 0 .1rem .9rem; margin: 0 0 1.25rem;
+}

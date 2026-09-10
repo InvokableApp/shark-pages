@@ -1,0 +1,197 @@
+<!--
+  nueva/n-caffeine-curve/n-caffeine-curve-result
+  The Caffeine Curve result page.
+
+  ⚠️ THIS PAGE CARRIES THE WHOLE ARGUMENT, AND THAT IS A DELIBERATE LOAD. The campaign shipped a
+  six email drip on 2026-09-10 and Jeff cut it the same day: opt in, see the result, message the
+  rep. Five sends were carrying three ideas between them and this page now carries all three:
+    1. the number is real and she cannot feel it   (the study)
+    2. she is in a loop, and the loop is why she is tired   (the premise)
+    3. adding a stimulant ON TOP of the 3pm one makes it worse   (the honest failure mode)
+  Cutting any of the three does not shorten the page, it breaks the offer. Without 1 the number is
+  trivia. Without 2 the fix looks like willpower. Without 3 a reader works out the contradiction on
+  her own and stops trusting the tool that just measured her.
+
+  ⚠️ THE PREMISE GUARDRAIL. Nothing here may tell her to cut, stop or avoid caffeine. The premise
+  blames a badly timed, unbuffered dose, and the payoff is a stimulant: the moment the page says
+  "have less caffeine", the offer contradicts the diagnosis. Keep the morning coffee, move and
+  change the afternoon one. (references/CAMPAIGN-PREMISE-STRATEGY.md)
+
+  ⚠️ NEVER PROMISE HER THE STUDY'S RESULT. It measured 68 minutes, in twelve people, at 400 mg.
+  The page says what was measured. It does not say what she will lose.
+
+  ⚠️ NO PRODUCT IS NAMED, and it is not caution. The offer is a dose and timing argument and Beyond
+  Daily's caffeine mg is still unknown (NUEVASHARK/FUNNEL-PLAN.md B8). Naming it here would invent
+  the one fact the whole argument rests on. The rep names it in the DM.
+
+  HOW THE NUMBER GETS HERE. Two ways, either alone is enough (confirm.js §CALCULATOR RESULT):
+  the GHL form widget forward-appends the iframe's query string onto its redirect target and
+  navigates the TOP window, and the calculator block also writes sessionStorage before showing the
+  form. If both fail the page still reads: every [data-sk-calc] node carries fallback text.
+
+  Design lives in _shared/confirm/v1 under .sk-conf. block.css here is palette only.
+-->
+<div class="sk-conf sk-conf-bleed sk-conf-light sk-conf-nva"
+     data-sk-calc-key="n-caffeine-curve"
+     data-sk-band-key="nueva_caffeine_band">
+
+  <!-- ===================== her number ===================== -->
+  <section class="sk-conf-offer sk-conf-offer-lead">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+
+          <p class="sk-conf-do">At the bedtime you gave us</p>
+
+          <p class="sk-conf-figure">
+            <!-- No fallback number, because inventing one would be lying about her.
+                 data-sk-calc-hide removes the figure entirely if nothing arrived. -->
+            <span class="sk-conf-figure-big" data-sk-calc="nueva_caffeine_at_bedtime" data-sk-calc-hide>&nbsp;</span>
+            <span class="sk-conf-figure-unit">mg of caffeine still circulating</span>
+          </p>
+
+          <div class="sk-conf-band" data-sk-band="clear" hidden>
+            <h3>Almost nothing is still working by the time you turn out the light.</h3>
+            <p>On the timings you gave, caffeine is not what is standing between you and a good
+              night. If you are still wrecked by the afternoon, something else is going on, and it
+              is worth finding out what rather than blaming the coffee.</p>
+          </div>
+          <div class="sk-conf-band" data-sk-band="light" hidden>
+            <h3>There is a little still working when you get into bed.</h3>
+            <p>Not much, and for some people not enough to matter. Whether it does is the kind of
+              thing you only find out by moving the last dose earlier for a week and seeing what
+              changes.</p>
+          </div>
+          <div class="sk-conf-band" data-sk-band="meaningful" hidden>
+            <h3>That is a meaningful amount to be falling asleep on.</h3>
+            <p>Enough to sit in the range where sleep gets measurably worse while it still feels
+              completely normal. Which is the part almost nobody catches.</p>
+          </div>
+          <div class="sk-conf-band" data-sk-band="high" hidden>
+            <h3>That is around the level the study measured.</h3>
+            <p>It puts you close to the condition researchers used when they found people losing
+              about an hour of sleep a night without noticing. Worth reading the next bit properly.</p>
+          </div>
+          <div class="sk-conf-band" data-sk-band="*" hidden>
+            <h3>Here is what the number means.</h3>
+            <p>We could not read your result on this page, so run the calculator again if you want
+              your own figure. The rest of this is true either way.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 1. you cannot feel it ===================== -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <h2>Why bad sleep does not feel like caffeine<span class="sk-conf-em">The people in the study could not tell either.</span></h2>
+          <p>Researchers gave twelve adults 400 mg of caffeine six hours before bed. They lost about
+            an hour of total sleep a night.</p>
+          <p>The part worth sitting with: <b>their own sleep diaries said they slept fine.</b> The
+            disruption only showed up on the equipment. At six hours out, self reporting missed it
+            completely.</p>
+          <p>So this is not something you can catch by paying closer attention to how you feel.
+            It does not feel like anything. It just quietly costs you.</p>
+          <p class="sk-conf-fine">Drake C, Roehrs T, Shambroom J, Roth T. Caffeine effects on sleep
+            taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med, 2013.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. the loop ===================== -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <h2>You are in a loop<span class="sk-conf-em">And the loop is the reason it never resolves.</span></h2>
+          <ol class="sk-conf-loop">
+            <li>You sleep worse than you think you do.</li>
+            <li>So the afternoon flattens you.</li>
+            <li>So you reach for something at 3pm.</li>
+            <li>Which is still in your blood at bedtime. Back to one.</li>
+          </ol>
+          <p>Each turn causes the next one. That is why trying harder does not get you out of it:
+            the crash is not a willpower failure, it is the loop doing exactly what it does.</p>
+          <p><b>The useful part is that it runs backwards just as well.</b> Break one link and the
+            whole thing turns around.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. the right lever, and the honest bit ===================== -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <h2>The lever most people pull is the wrong one<span class="sk-conf-em">Your morning coffee is not the problem.</span></h2>
+          <p>Morning caffeine is mostly gone by bedtime, and you like it. It is not what your number
+            is made of.</p>
+          <p>The afternoon one is. And nobody actually looks forward to that one:
+            <b>it is a rescue dose you take because you crashed.</b> That is the link worth breaking,
+            because it is the one you would not miss.</p>
+
+          <div class="sk-conf-warn">
+            <p><b>One honest warning, because you would work it out anyway.</b> If you keep the 3pm
+              coffee and add something else alongside it, that is more caffeine, not better timed
+              caffeine, and your number goes up. Put it back through the calculator and it will show
+              you exactly that.</p>
+            <p>It only works as a swap. One thing comes out of the afternoon, one thing goes in
+              earlier.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== the ask ===================== -->
+  <!-- ⚠️ HIDDEN UNTIL THE REP HAS A MESSENGER LINK. data-sk-requires names the custom value; the
+       loader fills it from the socket's data-cv-* (GHL substitutes the SOCKET, never this markup)
+       and confirm.js reveals it only when the value is a real handle rather than empty,
+       unsubstituted, or the onboarding instruction still sitting there. A rep with no Facebook
+       simply never shows this, instead of showing a button that opens a chat with nobody.
+
+       ⚠️ THE HREF IS A FUNNEL STEP, NOT A MESSENGER LINK, and it cannot be one: this markup is
+       fetched from GitHub Pages, so GHL never sees it and a merge field here would ship literal
+       braces. The step is a 0.5s timer that forwards to {{custom_values.nueva_rep_messenger}}, and
+       routing through it is also what turns the click into a pageview the Fire Lead workflow can
+       fire on.
+
+       ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a domain is
+       connected and 404s on a preview or an un-domained account.
+       (NOTES §Linking to another funnel STEP.) -->
+  <section class="sk-conf-offer sk-conf-offer-lead">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card">
+        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
+          <h2>Want to try the swap?<span class="sk-conf-em">Message me the word SAMPLE.</span></h2>
+          <p>I will send you a free one to try in place of your afternoon coffee, and tell you what
+            I changed and when I take it. No cost, and no obligation to do anything after it.</p>
+          <p class="sk-conf-do">Message me the word <b>SAMPLE</b>.</p>
+          <div class="sk-conf-btns" data-sk-requires="nueva_rep_messenger" hidden>
+            <a class="sk-conf-btn" href="n-caffeine-curve-redirect-dm">Message me SAMPLE</a>
+          </div>
+          <p class="sk-conf-fine">Your number is on its way to your inbox as well, so you have it
+            when you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sk-conf-foot">
+    <p class="sk-conf-fine">This is an estimate, not a measurement of you. It models caffeine
+      clearing at an average rate of about 5 hours per half, and people clear it at very different
+      speeds, which is why published advice on when to stop ranges anywhere from 4 to 11 hours
+      before bed. Milligram figures are the FDA's published values per 12 fluid ounces, using the
+      midpoint where the FDA gives a range. Your actual drinks may be larger, smaller or stronger.
+      This is not medical advice, and it is not a diagnosis. If you are worried about your sleep,
+      talk to your doctor. These statements have not been evaluated by the Food and Drug
+      Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+  </footer>
+
+</div>

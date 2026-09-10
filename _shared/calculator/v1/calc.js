@@ -206,8 +206,57 @@
         // {unit_short} is the bare noun ("cups") for use inside a line of copy.
         .replace(/\{unit_short\}/g, cfg.output && cfg.output.unitShort ? cfg.output.unitShort : "");
 
+      /* ── the handoff payload ────────────────────────────────────────────────────────────
+         ⚠️ ADDED 2026-09-10, ADDITIVE. A config with no `gate` behaves exactly as before; the
+         only calculator live on v1 besides this one (nueva/n-kids-hydration-check) has none and
+         is unaffected. Verified by querying its rendered page for `.sk-calc-gate`: zero matches.
+
+         WHY IT EXISTS. A calculator that computes a number and then asks for an email has to get
+         that number onto the CONTACT, and the only wire GHL gives you is a query parameter on the
+         URL the form loads with, matched to each field's `hiddenFieldQueryKey`. A form wired into
+         the page POPUP loads with the page, long before anyone has answered a question, so its
+         hidden fields are empty by the time she submits. Building the iframe HERE, after the
+         answer exists, is the whole trick. (Measured on the Beneve Water Report, 2026-09-09.) */
+      var payload = {};
+      if (cfg.payload) Object.keys(cfg.payload).forEach(function (k) {
+        var src = cfg.payload[k];
+        var v = src === "$result" ? needOut
+              : src === "$band"   ? (band.key || band.headline || "")
+              : answers[src];
+        // A select stores the option's value; the human-readable label is what a rep needs to read
+        // on a contact card, so prefer the label when the step declared options.
+        var st = (cfg.steps || []).filter(function (x) { return x.key === src; })[0];
+        if (st && st.options) {
+          var o = st.options.filter(function (x) { return String(x.value) === String(v); })[0];
+          if (o) v = o.label;
+        }
+        if (v !== undefined && v !== null && v !== "") payload[k] = String(v);
+      });
+      // Same origin, so the result STEP can read this without depending on GHL forwarding params.
+      // Belt and braces: the form redirect forward-appends the iframe's query string too, and
+      // either path alone is enough. (NOTES §A form redirect navigates the TOP window.)
+      try { sessionStorage.setItem("sk-calc:" + (cfg.key || "calc"), JSON.stringify(payload)); } catch (e) {}
+
       mount.innerHTML = '<div class="sk-calc-calcing" aria-hidden="true"><span></span><span></span><span></span></div>';
       setTimeout(function () {
+        /* ── GATED: the number lives on the result step, behind the opt in ────────────────── */
+        if (cfg.gate && cfg.gate.formHost && cfg.gate.formId) {
+          var q = Object.keys(payload).map(function (k) { return k + "=" + encodeURIComponent(payload[k]); });
+          var src = cfg.gate.formHost + "/" + cfg.gate.formId + (q.length ? "?" + q.join("&") : "");
+          mount.innerHTML =
+            '<div class="sk-calc-gate">' +
+              (cfg.gate.eyebrow  ? '<p class="sk-calc-eyebrow">' + esc(cfg.gate.eyebrow) + "</p>" : "") +
+              (cfg.gate.headline ? '<h3 class="sk-calc-gatehead">' + esc(fill(cfg.gate.headline)) + "</h3>" : "") +
+              (cfg.gate.body     ? '<p class="sk-calc-body">' + esc(fill(cfg.gate.body)) + "</p>" : "") +
+              '<iframe class="sk-calc-form" src="' + src + '" title="' + esc(cfg.gate.formTitle || "Get your result") + '" scrolling="no"></iframe>' +
+              '<button type="button" class="sk-calc-restart">' + esc(cfg.restartLabel || "Start over") + "</button>" +
+              (cfg.disclaimer ? '<p class="sk-calc-disc">' + esc(cfg.disclaimer) + "</p>" : "") +
+            "</div>";
+          mount.querySelector(".sk-calc-restart").addEventListener("click", function () {
+            Object.keys(answers).forEach(function (k) { delete answers[k]; }); i = 0; draw();
+          });
+          return;
+        }
         mount.innerHTML =
           '<div class="sk-calc-res" role="status" aria-live="polite">' +
             (cfg.output && cfg.output.eyebrow ? '<p class="sk-calc-eyebrow">' + esc(cfg.output.eyebrow) + "</p>" : "") +

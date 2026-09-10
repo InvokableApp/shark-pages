@@ -73,3 +73,18 @@
 @media (prefers-reduced-motion:reduce){
   .sk-calc *{animation:none!important;transition:none!important}
 }
+
+/* ── gated result: the number lives on the result step, behind the opt in ──────────────────
+   Added 2026-09-10 alongside cfg.gate in calc.js. Additive: no existing config renders these
+   selectors, verified against nueva/n-kids-hydration-check (zero matches). */
+.sk-calc-gate { text-align: center; }
+.sk-calc-gatehead {
+  margin: 0 0 .5rem; font-size: clamp(1.35rem, 3.4vw, 1.9rem); line-height: 1.15;
+  font-weight: 700; color: var(--sk-ink, #141313);
+}
+.sk-calc-gate .sk-calc-body { margin: 0 auto 1.25rem; max-width: 34rem; }
+.sk-calc-form {
+  display: block; width: 100%; max-width: 34rem; margin: 0 auto; border: 0;
+  min-height: 30rem; background: transparent;
+}
+.sk-calc-gate .sk-calc-restart { margin-top: .5rem; }

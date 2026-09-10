@@ -212,6 +212,70 @@
     return /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}\/\S+/i.test(v);
   }
 
+  /* ── CALCULATOR RESULT ─ additive 2026-09-10 ────────────────────────────────
+     A calculator hands its answer to the NEXT step, and this fills it in. The
+     result page is a plain funnel step, so there is no server session to read: the
+     number arrives two ways and either alone is enough.
+
+       1. THE QUERY STRING. GHL's form widget does `window.top.location.href = ...`
+          on redirect and FORWARD-APPENDS the iframe's own query string onto the
+          target. The calculator block puts the answers on that iframe URL to fill
+          the form's hidden fields, so they arrive here for free.
+          (NOTES §A form redirect navigates the TOP window.)
+       2. sessionStorage, written by the calculator block before it showed the form.
+          Same origin, and it does not depend on GHL's param forwarding continuing
+          to behave.
+
+     ⚠️ THE PAGE MUST STILL READ IF BOTH FAIL. Someone will open this URL directly,
+     from an email or a bookmark, with no number anywhere. Every [data-sk-calc] node
+     carries its own fallback text, and a node marked data-sk-calc-hide is removed
+     rather than left showing a blank. The argument on the page stands without her
+     number; only the personalisation goes.
+
+     ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-calc] and
+     zero [data-sk-band] nodes, verified across all five. */
+  function calcValues(scope) {
+    var out = {};
+    try {
+      var q = new URLSearchParams(window.location.search);
+      q.forEach(function (v, k) { if (v) out[k] = v; });
+    } catch (e) {}
+    var key = scope.getAttribute("data-sk-calc-key");
+    if (key) {
+      try {
+        var raw = sessionStorage.getItem("sk-calc:" + key);
+        if (raw) {
+          var o = JSON.parse(raw);
+          /* The query string wins: it is what the FORM was loaded with, so it is what
+             actually landed on the contact. If the two ever disagree, the page should
+             say the same thing the rep is looking at. */
+          Object.keys(o).forEach(function (k) { if (!out[k]) out[k] = o[k]; });
+        }
+      } catch (e) {}
+    }
+    return out;
+  }
+
+  function wireCalc(scope) {
+    var vals = calcValues(scope);
+    var nodes = scope.querySelectorAll("[data-sk-calc]");
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i], v = vals[n.getAttribute("data-sk-calc")];
+      if (v) { n.textContent = v; n.removeAttribute("hidden"); }
+      else if (n.hasAttribute("data-sk-calc-hide") && n.parentNode) n.parentNode.removeChild(n);
+    }
+    /* One band's copy shows, the rest are removed. With no band, the neutral node
+       (data-sk-band="*") survives so the page is never blank where copy should be. */
+    var band = vals[scope.getAttribute("data-sk-band-key") || "band"] || "";
+    var bands = scope.querySelectorAll("[data-sk-band]");
+    for (var j = bands.length - 1; j >= 0; j--) {
+      var b = bands[j], want = b.getAttribute("data-sk-band").split(/\s+/);
+      var keep = band ? want.indexOf(band) > -1 : want.indexOf("*") > -1;
+      if (!keep && b.parentNode) b.parentNode.removeChild(b);
+      else b.removeAttribute("hidden");
+    }
+  }
+
   function wireRequires(scope) {
     var nodes = scope.querySelectorAll("[data-sk-requires]");
     for (var i = 0; i < nodes.length; i++) {
@@ -241,6 +305,7 @@
 
     wireSms(scope);
     wireCopy(scope);
+    wireCalc(scope);      /* before wireRequires: a band node may itself carry data-sk-requires */
     wireRequires(scope);
 
     var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
