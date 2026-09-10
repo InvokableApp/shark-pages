@@ -15,6 +15,9 @@
       shared engine falls through to data-buy-url and every buy CTA goes straight to the rep's
       own Beneve link. The static hrefs are absolute too, so they still work with JS disabled.
     - cross-links repointed at this funnel's steps rather than the donor funnel's
+    - the two "What is your next move?" cards at the bottom now go to this funnel's own Product
+      and Opportunity STEPS, not out to beneve.com. The second lost its data-buy for that to
+      stick: the shared engine rewrites every [data-buy] href on load.
 
   Copy, layout, palette and assets are the donor's, untouched.
 -->
@@ -250,7 +253,7 @@
           <div class="sk-what-move-body">
             <h3>Shop as a customer</h3>
             <p>Start with one product and see how you feel. Subscribe and Save adds automatic savings and flexible deliveries on the ones you keep reaching for.</p>
-            <a class="sk-prod-btn" href="https://{{custom_values.beneve_buy_link}}" target="_blank" rel="noopener">Browse the products</a>
+            <a class="sk-prod-btn" href="/b-product-page">Browse the products</a>
           </div>
         </article>
 
@@ -259,7 +262,7 @@
           <div class="sk-what-move-body">
             <h3>Become an Influencer</h3>
             <p>Share what you already use and build a business around your own schedule, with training, tools and a community behind you.</p>
-            <a class="sk-prod-btn" href="https://{{custom_values.beneve_opportunity_url}}" target="_blank" rel="noopener" data-buy>See how it works</a>
+            <a class="sk-prod-btn" href="/b-opportunity-more-info">See how it works</a>
           </div>
         </article>
       </div>
