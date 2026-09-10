@@ -1,0 +1,37 @@
+/* beneve / b-what-is-beneve-overview / b-opportunity-more-info
+ *
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared with the
+ * product pages so every long-form page in the system reads as one family. This file declares
+ * ONLY the palette, on the block's own scope class.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-bnv-whatopp{
+  --sk-navy:   var(--bnv-navy,#1e386a);
+  --sk-navy-d: var(--bnv-navy-d,#14284c);
+  --sk-teal:   var(--bnv-teal,#79bdbe);
+  --sk-teal-d: var(--bnv-teal-d,#4e9799);
+  --sk-sage:   var(--bnv-sage,#879b53);
+  --sk-lime:   var(--bnv-lime,#bcd57a);
+  --sk-ink:    var(--bnv-ink,#16233d);
+  --sk-body:   var(--bnv-body,#4a5568);
+  --sk-cream:  var(--bnv-cream,#fffdfb);
+  --sk-mist:   var(--bnv-mist,#f2f5f8);
+  --sk-line:   var(--bnv-line,#e3e8ef);
+  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
+  --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
+}
+
+/* ---- A2P registration footer -------------------------------------------------------------
+ * Identical on all three a2p pages. Scoped under .sk-prod, which every block in this family
+ * carries, so it cannot leak into anything else on the page.
+ */
+.sk-prod .sk-a2p-foot{max-width:min(920px,92vw);margin:0 auto;padding:34px 0 46px;border-top:1px solid rgba(22,35,61,.12);text-align:center}
+.sk-prod .sk-a2p-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:0 0 18px}
+.sk-prod .sk-a2p-nav a{font-size:14px;font-weight:600;color:var(--sk-navy,#1e386a);text-decoration:none}
+.sk-prod .sk-a2p-nav a:hover{text-decoration:underline;text-underline-offset:3px}
+.sk-prod .sk-a2p-nav a[aria-current="page"]{color:var(--sk-body,#4a5568);font-weight:500;cursor:default;text-decoration:none;opacity:.7}
+.sk-prod .sk-a2p-fine{margin:0 0 14px;font-size:12.5px;line-height:1.6;color:var(--sk-body,#4a5568);opacity:.85}
+.sk-prod .sk-a2p-links{margin:0;font-size:14px;line-height:1.6}
+.sk-prod .sk-a2p-links a{color:var(--sk-navy,#1e386a);text-decoration:underline;text-underline-offset:2px}
+.sk-prod .sk-a2p-links span{color:var(--sk-body,#4a5568);opacity:.6;padding:0 6px}

@@ -1,0 +1,215 @@
+/* beneve / b-what-is-beneve-overview / b-what-is-beneve
+ *
+ * The design lives in _shared/product/v1/product.css, scoped under .sk-prod, and is shared with the
+ * product pages and the opportunity page so every long-form page in the system reads as one family.
+ * This file declares the palette on the block's own scope class, plus the three things the what-is
+ * page needs that no other page in the family has: a product grid, a video slot, and the two
+ * next-move cards. Everything below is scoped under .sk-prod-bnv-what so it cannot leak.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-bnv-what{
+  --sk-navy:   var(--bnv-navy,#1e386a);
+  --sk-navy-d: var(--bnv-navy-d,#14284c);
+  --sk-teal:   var(--bnv-teal,#79bdbe);
+  --sk-teal-d: var(--bnv-teal-d,#4e9799);
+  --sk-sage:   var(--bnv-sage,#879b53);
+  --sk-lime:   var(--bnv-lime,#bcd57a);
+  --sk-ink:    var(--bnv-ink,#16233d);
+  --sk-body:   var(--bnv-body,#4a5568);
+  --sk-cream:  var(--bnv-cream,#fffdfb);
+  --sk-mist:   var(--bnv-mist,#f2f5f8);
+  --sk-line:   var(--bnv-line,#e3e8ef);
+  --sk-serif:  var(--bnv-serif,"Cormorant Garamond",serif);
+  --sk-sans:   var(--bnv-sans,Inter,system-ui,sans-serif);
+}
+
+/* ── video slot ────────────────────────────────────────────────────────────────
+ * Renders a branded placeholder while data-video is empty. block.js swaps the inner
+ * panel for a Vimeo click to load facade the moment an id is present, so filling one
+ * in is a one line edit in block.html plus a push, never a rebuild. */
+.sk-prod-bnv-what .sk-what-video{
+  position:relative; border-radius:20px; overflow:hidden;
+  background:linear-gradient(150deg,var(--sk-navy) 0%,var(--sk-navy-d) 62%,#0d1b34 100%);
+  box-shadow:0 26px 60px -28px rgba(20,40,76,.55);
+  aspect-ratio:16/10;
+}
+.sk-prod-bnv-what .sk-what-video::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(70% 60% at 72% 18%,rgba(121,189,190,.28),transparent 66%);
+}
+.sk-prod-bnv-what .sk-what-video-in{
+  position:absolute; inset:0; z-index:1;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;
+  padding:1.5rem; text-align:center;
+}
+.sk-prod-bnv-what .sk-what-video-play{
+  width:66px; height:66px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.14); color:#fff;
+  border:1px solid rgba(255,255,255,.34);
+  backdrop-filter:blur(2px);
+}
+.sk-prod-bnv-what .sk-what-video-play svg{ width:26px; height:26px; margin-left:3px; }
+.sk-prod-bnv-what .sk-what-video-cap{
+  margin:0; color:rgba(255,255,255,.82);
+  font-family:var(--sk-sans); font-size:.92rem; line-height:1.45; max-width:26ch;
+}
+.sk-prod-bnv-what .sk-what-video-soon{
+  margin:0; color:rgba(255,255,255,.5);
+  font-family:var(--sk-sans); font-size:.72rem; letter-spacing:.13em; text-transform:uppercase;
+}
+.sk-prod-bnv-what .sk-what-video-btn{
+  position:absolute; inset:0; z-index:2; width:100%; height:100%;
+  border:0; padding:0; background:transparent; cursor:pointer;
+}
+.sk-prod-bnv-what .sk-what-video iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0; z-index:3;
+}
+.sk-prod-bnv-what .sk-what-video-hero{ aspect-ratio:4/3; }
+
+/* ── the opportunity section with NO video ────────────────────────────────────
+   .sk-prod-facts-grid is a two column shared component (_shared/product/v1) used by
+   every Beneve product page and by other systems, so it is NOT edited to suit this one
+   page. This modifier is page scoped and only collapses the grid where it is applied.
+
+   The checks list centers as a BLOCK but keeps its text left aligned, because a
+   centered bullet list is unreadable. That is the same treatment the shared stylesheet
+   already applies to this list at its mobile breakpoint, so the two agree. */
+.sk-prod-bnv-what .sk-what-opp-solo{
+  grid-template-columns:1fr;
+  max-width:min(46rem, 100%);
+  margin-inline:auto;
+  text-align:center;
+}
+.sk-prod-bnv-what .sk-what-opp-solo .sk-prod-checks{
+  margin-inline:auto;
+  text-align:left;
+  display:inline-grid;
+  justify-self:center;
+}
+/* The stat card is a flex ROW, so left alone in a centered column it stretches the
+   full width and its contents float in the middle of a mostly empty card. Shrink it
+   to its content and center the card itself instead. */
+.sk-prod-bnv-what .sk-what-opp-solo .sk-prod-use{
+  width:fit-content;
+  margin-inline:auto;
+  text-align:left;
+}
+
+/* ── product grid ─────────────────────────────────────────────────────────── */
+.sk-prod-bnv-what .sk-what-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem;
+  margin:3rem 0 0;
+}
+.sk-prod-bnv-what .sk-what-card{
+  position:relative; display:flex; flex-direction:column;
+  background:#fff; border:1px solid var(--sk-line); border-radius:18px;
+  padding:1.5rem 1.5rem 1.7rem;
+  box-shadow:0 18px 44px -32px rgba(20,40,76,.42);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.sk-prod-bnv-what .sk-what-card:hover{
+  transform:translateY(-4px); box-shadow:0 26px 56px -30px rgba(20,40,76,.5);
+}
+.sk-prod-bnv-what .sk-what-flag{
+  position:absolute; top:1rem; right:1rem; z-index:1;
+  font-family:var(--sk-sans); font-size:.62rem; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--sk-navy-d); background:var(--sk-lime);
+  padding:.3rem .55rem; border-radius:999px;
+}
+.sk-prod-bnv-what .sk-what-shot{
+  margin:0 0 1.1rem; border-radius:14px; overflow:hidden;
+  background:var(--sk-mist); aspect-ratio:1/1;
+  display:grid; place-items:center;
+}
+.sk-prod-bnv-what .sk-what-shot img{
+  width:100%; height:100%; object-fit:contain; display:block;
+}
+.sk-prod-bnv-what .sk-what-card h3{
+  margin:0 0 .25rem; font-family:var(--sk-serif);
+  font-size:1.45rem; line-height:1.15; font-weight:600; color:var(--sk-ink);
+}
+.sk-prod-bnv-what .sk-what-sub{
+  margin:0 0 .7rem; font-family:var(--sk-sans);
+  font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--sk-teal-d);
+}
+.sk-prod-bnv-what .sk-what-card p:last-child{
+  margin:0; font-family:var(--sk-sans); font-size:.95rem; line-height:1.6; color:var(--sk-body);
+}
+.sk-prod-bnv-what .sk-what-shop{ margin-top:2.8rem; }
+.sk-prod-bnv-what .sk-what-shop-note{
+  margin:.9rem 0 0; font-family:var(--sk-sans); font-size:.85rem; color:var(--sk-body); opacity:.8;
+}
+
+/* ── the app band ─────────────────────────────────────────────────────────── */
+.sk-prod-bnv-what .sk-what-app{ padding:5rem 0; background:var(--sk-mist); }
+.sk-prod-bnv-what .sk-what-app-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+}
+.sk-prod-bnv-what .sk-what-app-img{ margin:0; border-radius:20px; overflow:hidden; aspect-ratio:4/3; }
+.sk-prod-bnv-what .sk-what-app-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.sk-prod-bnv-what .sk-what-app-copy p{
+  margin:1rem 0 0; font-family:var(--sk-sans); font-size:1.02rem; line-height:1.7; color:var(--sk-body);
+}
+
+/* ── next move cards ──────────────────────────────────────────────────────── */
+.sk-prod-bnv-what .sk-what-move{
+  display:grid; grid-template-columns:1fr 1fr; gap:1.6rem;
+  margin:2.8rem 0 3rem; text-align:left;
+}
+.sk-prod-bnv-what .sk-what-move-card{
+  display:flex; flex-direction:column; overflow:hidden;
+  background:#fff; border:1px solid var(--sk-line); border-radius:20px;
+  box-shadow:0 20px 50px -34px rgba(20,40,76,.45);
+}
+.sk-prod-bnv-what .sk-what-move-img{ margin:0; aspect-ratio:16/9; overflow:hidden; }
+.sk-prod-bnv-what .sk-what-move-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.sk-prod-bnv-what .sk-what-move-body{
+  display:flex; flex-direction:column; align-items:flex-start; gap:.7rem;
+  padding:1.7rem 1.7rem 1.9rem; flex:1;
+}
+.sk-prod-bnv-what .sk-what-move-body h3{
+  margin:0; font-family:var(--sk-serif); font-size:1.65rem; line-height:1.15;
+  font-weight:600; color:var(--sk-ink);
+}
+.sk-prod-bnv-what .sk-what-move-body p{
+  margin:0 0 .5rem; font-family:var(--sk-sans); font-size:.98rem; line-height:1.65; color:var(--sk-body);
+  flex:1;
+}
+
+/* ── responsive ───────────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  /* The shared hero puts the product SHOT above the copy on mobile, which is right when the shot
+   * is the bottle you are about to buy. Here the hero art is a video that does not exist yet, so
+   * the headline goes first and the video follows it. */
+  .sk-prod-bnv-what .sk-prod-hero-copy{ order:1; }
+  .sk-prod-bnv-what .sk-what-video-hero{ order:2; }
+  .sk-prod-bnv-what .sk-what-grid{ grid-template-columns:repeat(2,1fr); }
+  .sk-prod-bnv-what .sk-what-app-grid,
+  .sk-prod-bnv-what .sk-what-move{ grid-template-columns:1fr; }
+  .sk-prod-bnv-what .sk-what-app{ padding:3.5rem 0; }
+  .sk-prod-bnv-what .sk-what-video-hero{ aspect-ratio:16/10; }
+}
+@media (max-width:560px){
+  .sk-prod-bnv-what .sk-what-grid{ grid-template-columns:1fr; gap:1.1rem; }
+  .sk-prod-bnv-what .sk-what-card{ padding:1.2rem 1.2rem 1.4rem; }
+  .sk-prod-bnv-what .sk-what-shot{ aspect-ratio:4/3; }
+  .sk-prod-bnv-what .sk-what-video-play{ width:54px; height:54px; }
+}
+
+/* ---- A2P registration footer -------------------------------------------------------------
+ * Identical on all three a2p pages. Scoped under .sk-prod, which every block in this family
+ * carries, so it cannot leak into anything else on the page.
+ */
+.sk-prod .sk-a2p-foot{max-width:min(920px,92vw);margin:0 auto;padding:34px 0 46px;border-top:1px solid rgba(22,35,61,.12);text-align:center}
+.sk-prod .sk-a2p-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:0 0 18px}
+.sk-prod .sk-a2p-nav a{font-size:14px;font-weight:600;color:var(--sk-navy,#1e386a);text-decoration:none}
+.sk-prod .sk-a2p-nav a:hover{text-decoration:underline;text-underline-offset:3px}
+.sk-prod .sk-a2p-nav a[aria-current="page"]{color:var(--sk-body,#4a5568);font-weight:500;cursor:default;text-decoration:none;opacity:.7}
+.sk-prod .sk-a2p-fine{margin:0 0 14px;font-size:12.5px;line-height:1.6;color:var(--sk-body,#4a5568);opacity:.85}
+.sk-prod .sk-a2p-links{margin:0;font-size:14px;line-height:1.6}
+.sk-prod .sk-a2p-links a{color:var(--sk-navy,#1e386a);text-decoration:underline;text-underline-offset:2px}
+.sk-prod .sk-a2p-links span{color:var(--sk-body,#4a5568);opacity:.6;padding:0 6px}
