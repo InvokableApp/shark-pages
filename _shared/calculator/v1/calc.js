@@ -53,6 +53,46 @@
       const heat = (c.heatMultiplier && c.heatMultiplier[v.heat]) || 1;
       return fromDrinks + (v.activityHours || 0) * (c.activityMlPerHour || 0) * heat;
     },
+    /**
+     * First-order exponential decay of one or more timed caffeine doses, summed at bedtime.
+     *
+     *   remaining = SUM over doses of  n * mgPerDrink * 0.5 ^ (hoursBeforeBed / halfLife)
+     *
+     * That is the standard first-order elimination model. Caffeine follows it closely enough at
+     * ordinary intakes for an estimate, which is all this is.
+     *
+     * ⚠️ EVERY NUMBER A REVIEWER WOULD ARGUE WITH IS IN THE CONFIG, NOT HERE: the half-life, the
+     * milligrams per drink, and the clock hour each window is placed at. The only thing this
+     * function decides is the shape of the curve.
+     *
+     * ⚠️ THE HALF-LIFE IS A POPULATION AVERAGE AND THE SPREAD BETWEEN PEOPLE IS LARGE. Drake 2013
+     * (J Clin Sleep Med) puts it plainly: "due to the high variability in the elimination
+     * half-life of caffeine administered to healthy adults, specific recommendations on what time
+     * of day to discontinue caffeine use vary widely from 4 to 11 hours prior to bedtime." The
+     * block is responsible for saying on the page that this is an estimate and not a measurement.
+     *
+     * A dose taken AFTER the stated bedtime is not decayed at all rather than being amplified:
+     * a negative elapsed time would make 0.5^negative a multiplier greater than one, which would
+     * silently invent caffeine the visitor never drank.
+     */
+    "caffeine-decay": function (v, c) {
+      const mg = (c.mgPerDrink && c.mgPerDrink[v.drink]) || 0;
+      const half = c.halfLifeHours || 5;
+      const bed = Number(v.bedtimeHour);
+      const at = function (hour, n) {
+        const count = Number(n) || 0;
+        if (!count || hour == null) return 0;
+        const elapsed = bed - Number(hour);
+        if (elapsed <= 0) return count * mg;          // drunk at or after bedtime: no decay yet
+        return count * mg * Math.pow(0.5, elapsed / half);
+      };
+      const w = c.windowHour || {};
+      // The last dose of the day dominates what is left at bedtime, so it is placed at the time
+      // the visitor actually gave rather than at a window midpoint. The earlier two use midpoints
+      // because being an hour out on a dose that has already run three half-lives changes little.
+      const lateHour = v.lastDrinkHour != null ? v.lastDrinkHour : w.afternoon;
+      return Math.round(at(w.morning, v.nMorning) + at(w.midday, v.nMidday) + at(lateHour, v.nAfternoon));
+    },
     /** Straight weighted sum, for score-style calculators. */
     "weighted-sum": function (v, c) {
       return Object.keys(c.weights || {}).reduce(function (t, k) {

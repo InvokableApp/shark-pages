@@ -1,0 +1,195 @@
+<!--
+  nueva/n-caffeine-curve/n-caffeine-curve
+  The Caffeine Curve. Second preset of the shared calculator mechanism.
+
+  WHAT THIS IS FOR. It estimates how much caffeine is still circulating when the visitor gets into
+  bed, from what she drinks and when. Campaign premise and the reasoning behind it:
+  references/CAMPAIGN-PREMISE-STRATEGY.md and NUEVASHARK/FUNNEL-PLAN.md B8.
+
+  WHY THIS PREMISE AND NOT "HOW TO AVOID THE 3PM CRASH". A behavioural premise implies the fix is
+  her habits, so a supplement payoff contradicts it and reads as a rug pull. This premise is
+  circumstantial: the effect is real, measured, and she cannot perceive it. That is the finding the
+  whole campaign rests on, and it is the paper's own words, not ours:
+
+    Drake C, Roehrs T, Shambroom J, Roth T. "Caffeine Effects on Sleep Taken 0, 3, or 6 Hours
+    before Going to Bed." J Clin Sleep Med. 2013. Randomised, double blind, placebo controlled
+    crossover, 12 healthy adults, 400 mg.
+      - 400 mg six hours before bed cost about 68 minutes of total sleep.
+      - "Caffeine-induced sleep disturbance was detected by both the self-report diary and
+        objective sleep measures when taken at bedtime and 3 hours prior to bedtime, whereas ONLY
+        THE OBJECTIVE MEASURE detected differences when caffeine was taken 6 hours prior to
+        bedtime."
+      - The authors call for "continued education regarding the sleep disruptive effects of
+        caffeine", which is what this tool is.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC3805807/
+
+  ⚠️ WHAT IT DELIBERATELY DOES NOT DO.
+    - It does not tell her she has a sleep disorder, is caffeine dependent, or is deficient in
+      anything. It estimates a milligram figure and says what the published research measured at
+      similar levels.
+    - It does not tell her to stop drinking caffeine, or to stop after a given hour. That would be
+      behavioural advice, and a caffeine product then argues against the tool that produced it.
+      The whole campaign turns on changing WHAT the late dose is, never on removing it. If a future
+      edit adds a "cut caffeine after 2pm" line, the campaign is broken, not improved.
+    - It does not claim she will lose 68 minutes of sleep. The study measured that, at 400 mg, in
+      twelve people. The bands say what was measured, never what will happen to her.
+
+  ⚠️ THE NUMBERS, AND WHICH OF THEM ARE OURS.
+    - mgPerDrink comes from the FDA's published per 12 fluid ounce figures, midpoint where a range
+      is given. Traceable, public, and names no brand.
+      https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much
+    - halfLifeHours 5 is a population average and the spread between people is large. Drake 2013:
+      recommendations on when to stop "vary widely from 4 to 11 hours prior to bedtime". The
+      disclaimer says so on the page.
+    - windowHour is OURS. It is where we place a dose the visitor described only as "morning" or
+      "midday", and it is the most arguable thing here after the half life.
+    - The band thresholds are OURS. 160 is set near where the study's own condition lands: 400 mg
+      six hours out, decayed at a 5 hour half life, leaves about 174 mg at bedtime.
+    Jeff and Joe: these are the numbers to argue with. All of them are in `constants` and `bands`,
+    none are in code.
+
+  🚧 THE CTA IS PROVISIONAL. It opens the page's own popup, and the popup copy is BLOCKED on two
+  things (NUEVASHARK/FUNNEL-PLAN.md B8): Nueva's supplement facts panel, because the offer is a
+  dose and timing argument and Beyond Daily's caffeine mg is unknown, and sign off on the
+  "burn fat naturally" claim strength. Nothing in this block makes a product claim, so the
+  diagnostic half can be reviewed and shipped while that is chased.
+
+  ⚠️ SELLS BEYOND DAILY, NEVER ADVANCED. Beyond Advanced stacks alpha yohimbine on a 98% caffeine
+  extract. Putting it behind a page about sleeping better is the rug pull arriving late.
+
+  ⚠️ NOT REVIEWED YET. _shared/calculator/v1/README.md: a calculator that outputs a health figure
+  needs a human reviewer before it ships, and must carry a disclaimer. It carries one. It has not
+  had the reviewer.
+
+  Design lives in _shared/calculator/v1/ under .sk-calc. This file holds the config and markup;
+  block.css holds only this preset's palette tokens. No em-dashes anywhere in the copy.
+-->
+<div class="sk-calc sk-calc-nva-caffeine">
+
+  <script type="application/json" class="sk-calc-config">
+  {
+    "nextLabel": "Continue",
+    "backLabel": "Back",
+    "restartLabel": "Start over",
+    "calculatingMs": 900,
+
+    "steps": [
+      {
+        "key": "bedtimeHour",
+        "question": "What time do you usually get into bed?",
+        "type": "choice",
+        "options": [
+          { "label": "Around 9:30", "value": 21.5 },
+          { "label": "Around 10:30", "value": 22.5 },
+          { "label": "Around 11:30", "value": 23.5 },
+          { "label": "After midnight", "value": 24.5 }
+        ]
+      },
+      {
+        "key": "drink",
+        "question": "What do you drink most days?",
+        "help": "Pick the one you have most often. We use the FDA's published figure for it.",
+        "type": "choice",
+        "options": [
+          { "label": "Brewed coffee", "note": "Figured as a 12 ounce cup", "value": "brewed" },
+          { "label": "An energy drink", "note": "Figured as a 12 ounce can", "value": "energy" },
+          { "label": "Black tea", "value": "blackTea" },
+          { "label": "Green tea", "value": "greenTea" },
+          { "label": "Soda", "value": "soda" }
+        ]
+      },
+      {
+        "key": "nMorning",
+        "question": "Before 10am, how many do you have?",
+        "help": "Your best guess is fine.",
+        "type": "number",
+        "min": 0, "max": 8, "step": 1,
+        "unit": "drinks",
+        "placeholder": "e.g. 2"
+      },
+      {
+        "key": "nMidday",
+        "question": "Between 10am and 2pm?",
+        "type": "number",
+        "min": 0, "max": 8, "step": 1,
+        "unit": "drinks",
+        "placeholder": "e.g. 1"
+      },
+      {
+        "key": "nAfternoon",
+        "question": "And after 2pm?",
+        "help": "This is the one that does most of the work in the answer.",
+        "type": "number",
+        "min": 0, "max": 8, "step": 1,
+        "unit": "drinks",
+        "placeholder": "e.g. 1"
+      },
+      {
+        "key": "lastDrinkHour",
+        "question": "Roughly when was that last one?",
+        "help": "If you had nothing after 2pm, pick the first answer.",
+        "type": "choice",
+        "options": [
+          { "label": "1pm or earlier", "value": 13 },
+          { "label": "Around 2 or 3", "value": 14.5 },
+          { "label": "Around 4 or 5", "value": 16.5 },
+          { "label": "Around 6 or 7", "value": 18.5 },
+          { "label": "8pm or later", "value": 20 }
+        ]
+      }
+    ],
+
+    "formula": "caffeine-decay",
+    "constants": {
+      "_note": "First order decay is in calc.js. Everything here is reviewable and this is where to change it.",
+      "_halfLifeHours": "Population average. Drake 2013 notes the spread is wide enough that published advice on when to stop ranges from 4 to 11 hours before bed. The page says this is an estimate.",
+      "halfLifeHours": 5,
+      "_mgPerDrink": "FDA published figures per 12 fluid ounces, midpoint where the FDA gives a range: brewed coffee 113 to 247, energy drinks 41 to 246, soft drinks 23 to 83. Black and green tea are single published figures.",
+      "mgPerDrink": { "brewed": 180, "energy": 144, "blackTea": 71, "greenTea": 37, "soda": 53 },
+      "_windowHour": "OURS. Where we place a dose described only as morning or midday. The afternoon entry is a fallback only: that dose is normally placed at the time she gave.",
+      "windowHour": { "morning": 7.5, "midday": 12, "afternoon": 15.5 }
+    },
+
+    "output": {
+      "eyebrow": "At bedtime",
+      "unitMl": 1,
+      "unitLabel": "mg still in your system",
+      "unitShort": "mg",
+      "needLine": "That is an estimate of how much caffeine is still circulating when you get into bed, from what you told us and an average clearance rate."
+    },
+
+    "bands": [
+      {
+        "max": 30,
+        "headline": "Almost nothing is still working by the time you turn out the light",
+        "body": "On these answers your last drink has mostly cleared before bed, which is the part most people get wrong without ever knowing it. Worth keeping. The one thing to watch is the afternoon: in the study behind this tool, a dose taken a full six hours before bed still cost about an hour of sleep a night, and the people in it could not tell. If your last one ever drifts later, that is where it starts."
+      },
+      {
+        "min": 30, "max": 80,
+        "headline": "About {need} mg is still working when you get into bed",
+        "body": "That is a small amount, roughly a cup of green tea sitting in your system at lights out. It is unlikely to be what keeps you awake, though it is not doing nothing either. The part worth knowing: in that study, at six hours out, nobody could feel the disruption. It showed up only on the monitors. So sleeping fine is not much evidence either way."
+      },
+      {
+        "min": 80, "max": 160,
+        "headline": "About {need} mg is still working when you get into bed",
+        "body": "That is in the range of a black tea or most of a soda, at the moment you are trying to fall asleep. Here is the part worth sitting with. In the study behind this tool, people at this sort of level did not report sleeping badly. Only the monitors saw it. And the lever most people reach for first is cutting caffeine, which is usually the wrong one, because the afternoon drink is not there for pleasure. It is there because of the crash."
+      },
+      {
+        "min": 160,
+        "headline": "About {need} mg is still working when you get into bed",
+        "body": "That is at or around the level in the study behind this tool, where 400 mg taken six hours before bed cost about an hour of total sleep a night. The finding that matters most is not the hour. It is that the people in it did not notice: they reported sleeping normally while the monitors recorded otherwise. Which means this is not something you can catch by paying closer attention to how you feel. And the afternoon drink doing most of it is not there for pleasure. It is there because of the crash."
+      }
+    ],
+
+    "cta": {
+      "label": "What to change",
+      "note": "One thing, and it is not your morning coffee.",
+      "action": "popup"
+    },
+
+    "disclaimer": "This is an estimate, not a measurement of you. It models caffeine clearing at an average rate of about 5 hours per half, and people clear it at very different speeds, which is why published advice on when to stop ranges anywhere from 4 to 11 hours before bed. Milligram figures are the FDA's published values per 12 fluid ounces, using the midpoint where the FDA gives a range. Your actual drinks may be larger, smaller or stronger. This is not medical advice, and it is not a diagnosis. If you are worried about your sleep, talk to your doctor. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease."
+  }
+  </script>
+
+  <div class="sk-calc-mount"></div>
+</div>

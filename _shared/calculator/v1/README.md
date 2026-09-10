@@ -43,7 +43,7 @@ account lookup, a real-time quote.
 
 `eval` / `new Function` over config would make every block a code-injection surface and let a
 preset ship arithmetic nobody reviewed. To add one, add a named function to `FORMULAS` in
-`calc.js`. Shipping: `paediatric-fluid`, `weighted-sum`.
+`calc.js`. Shipping: `paediatric-fluid`, `weighted-sum`, `caffeine-decay`.
 
 ## ⚠️ Clinical or financial constants belong in `constants`, not in code
 
@@ -51,6 +51,11 @@ So a subject-matter reviewer can change them without a developer, and so a diff 
 what changed. `paediatric-fluid` implements Holliday-Segar (100/50/20 mL per kg) because that is
 the standard maintenance-fluid estimate; the activity allowance and heat multipliers are the
 block's, and are the numbers most likely to need review.
+
+`caffeine-decay` implements first-order elimination and nothing else. The half-life, the
+milligrams per drink and the clock hour each window sits at are all config. ⚠️ The half-life is a
+population average with a very large spread between individuals, so a preset using it **must** say
+on the page that the number is an estimate rather than a measurement.
 
 ## The CTA opens the page's OWN popup
 
