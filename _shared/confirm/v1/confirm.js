@@ -30,11 +30,35 @@
  *      ADDITIVE. Every .sk-conf page shipped before this date has zero [data-sk-open] nodes
  *      (checked across all four), so this binds nothing on them.
  *
+ *      2026-09-10: if NOTHING listens to that event, the CTA now follows its href instead of
+ *      doing nothing at all. A no-id emit on a page with no popup is completely silent, which
+ *      made the Hormone Lunchbox group button look broken to a tester with no way to see why.
+ *      Of the 11 pages carrying [data-sk-open], exactly ONE is a .sk-conf page, so this
+ *      behaviour change reaches a single shipped page; the other ten are capture/v1.
+ *
  * ES5 only, no build step, no dependencies. GHL injects blocks with innerHTML, which does not
  * execute <script>, so the socket loader is what calls boot() (see HOSTED-BLOCKS-SOP).
  */
 (function () {
   "use strict";
+
+  /* "Did an overlay open?" without naming a popup id, because ids are minted per page
+     (hl_main_popup-<random>) and naming one breaks on the next install. Counts large,
+     visible, fixed-position boxes plus the length of the rendered text.
+     MEASURED, not assumed, 2026-09-10 on shark-test.com: clicking the opener on the Beneve
+     opt-in page (which HAS a popup) moved this from 1 fixed box / 2513 chars to 2 / 3096,
+     while the confirmation page (which has none) was byte-identical before and after.
+     800ms is well clear of the open animation, and it only ever delays the BROKEN case: a
+     page whose popup works never reaches the navigation branch. */
+  function popupSignature() {
+    var n = 0, all = document.getElementsByTagName("div");
+    for (var i = 0; i < all.length; i++) {
+      var st = window.getComputedStyle(all[i]);
+      if (st.position === "fixed" && st.display !== "none" && st.visibility !== "hidden" &&
+          all[i].getBoundingClientRect().width > 300) n++;
+    }
+    return n + ":" + ((document.body && document.body.innerText) || "").length;
+  }
 
   function playVideo(frame) {
     if (frame.getAttribute("data-playing") === "true") return;
@@ -367,7 +391,24 @@
         var t = e.target.closest ? e.target.closest("[data-sk-open]") : null;
         if (!t || !scope.contains(t)) return;
         e.preventDefault();
+
+        /* A NO-ID EMIT WITH NO POPUP ON THE PAGE IS SILENT (fixed 2026-09-10).
+           preventDefault used to be unconditional, so on a page carrying NO popup the event
+           went nowhere, navigation was suppressed, and the button was simply dead: no error,
+           no console warning, nothing to see. Nicole hit exactly that on the Beneve Hormone
+           Lunchbox confirmation page, which ships the split test's B block without B's popup.
+           So: emit, then check whether anything actually opened, and fall through to the href
+           if not. That restores the degradation this component already promises below, instead
+           of honouring it only when the script never runs at all. */
+        var sig = popupSignature();
         window.dispatchEvent(new Event("customWidgetOpenPopup"));
+
+        var href = t.getAttribute("href");
+        if (!href) return;
+        window.setTimeout(function () {
+          if (popupSignature() !== sig) return;   /* a popup opened: leave the reader in it */
+          window.location.href = href;            /* nothing listened: follow the link */
+        }, 800);
       });
     }
 
