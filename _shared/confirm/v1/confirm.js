@@ -261,11 +261,23 @@
     var nodes = scope.querySelectorAll("[data-sk-calc]");
     for (var i = 0; i < nodes.length; i++) {
       var n = nodes[i], v = vals[n.getAttribute("data-sk-calc")];
+      // ⚠️ AN HOUR ARRIVES AS A NUMBER LIKE "16.5" AND NOBODY READS THAT. A node marked
+      // data-sk-clock formats it as a time, which is the whole reason these values are worth
+      // showing: "your cutoff was 9:30am" lands, "your cutoff was 9.5" does not.
+      if (v != null && v !== "" && n.hasAttribute("data-sk-clock")) {
+        var h = Number(v);
+        if (!isNaN(h)) {
+          var hh = ((Math.floor(h) % 24) + 24) % 24, mm = Math.round((h % 1) * 60);
+          var ap = hh < 12 ? "am" : "pm", h12 = hh % 12 === 0 ? 12 : hh % 12;
+          v = h12 + (mm ? ":" + (mm < 10 ? "0" : "") + mm : "") + ap;
+        }
+      }
       if (v) { n.textContent = v; n.removeAttribute("hidden"); }
       else if (n.hasAttribute("data-sk-calc-hide") && n.parentNode) n.parentNode.removeChild(n);
     }
     /* One band's copy shows, the rest are removed. With no band, the neutral node
        (data-sk-band="*") survives so the page is never blank where copy should be. */
+    drawCurve(scope, vals);
     var band = vals[scope.getAttribute("data-sk-band-key") || "band"] || "";
     var bands = scope.querySelectorAll("[data-sk-band]");
     for (var j = bands.length - 1; j >= 0; j--) {
@@ -274,6 +286,62 @@
       if (!keep && b.parentNode) b.parentNode.removeChild(b);
       else b.removeAttribute("hidden");
     }
+  }
+
+  /* ── THE CURVE ─ additive 2026-09-10 ────────────────────────────────────────
+     Draws a calculator's own output as a line, from values the previous step put
+     on the query string. A page with no [data-sk-curve] node is untouched.
+
+     ⚠️ WHY THIS EXISTS AT ALL. The campaign is called the Caffeine Curve and the
+     result page showed a number. Jeff, 2026-09-10: "its interesting but its not
+     CAPTIVATING". A milligram figure has no reference frame, so nobody knows
+     whether theirs is bad. A line with her bedtime marked on it answers that
+     without a word of copy, and the second, dashed line is the entire offer made
+     visual: same caffeine, moved earlier, and you can see where the two separate.
+
+     ⚠️ SVG BUILT BY HAND, NO CHART LIBRARY. A hosted block cannot load a third
+     party script (the loader injects with innerHTML), and a chart library would be
+     tens of kilobytes to draw two polylines.
+
+     ⚠️ IT MUST DEGRADE. Open this page with no parameters and there is no curve to
+     draw, so the whole figure is removed rather than left as an empty box. */
+  function drawCurve(scope, vals) {
+    var host = scope.querySelector("[data-sk-curve]");
+    if (!host) return;
+    var series = String(vals.series || "").split(",").map(Number).filter(function (n) { return !isNaN(n); });
+    if (series.length < 4) { if (host.parentNode) host.parentNode.removeChild(host); return; }
+    var shifted = String(vals.shifted || "").split(",").map(Number).filter(function (n) { return !isNaN(n); });
+    var start = Number(vals.startHour), step = Number(vals.stepHours) || 0.5, bed = Number(vals.bedHour);
+    var W = 640, H = 260, PAD_L = 34, PAD_R = 14, PAD_T = 16, PAD_B = 26;
+    var max = Math.max.apply(null, series.concat(shifted).concat([1]));
+    var x = function (i) { return PAD_L + (i / (series.length - 1)) * (W - PAD_L - PAD_R); };
+    var y = function (v) { return PAD_T + (1 - v / max) * (H - PAD_T - PAD_B); };
+    var pts = function (arr) { return arr.map(function (v, i) { return x(i) + "," + y(v); }).join(" "); };
+    var hourAt = function (i) { return start + i * step; };
+    var idxOfHour = function (h) { return (h - start) / step; };
+    var clock = function (h) {
+      var hh = ((Math.floor(h) % 24) + 24) % 24, mm = Math.round((h % 1) * 60);
+      var ap = hh < 12 ? "am" : "pm", h12 = hh % 12 === 0 ? 12 : hh % 12;
+      return h12 + (mm ? ":" + (mm < 10 ? "0" : "") + mm : "") + ap;
+    };
+    var ticks = "";
+    for (var i = 0; i < series.length; i += Math.max(2, Math.round(series.length / 6))) {
+      ticks += '<text class="sk-curve-tick" x="' + x(i) + '" y="' + (H - 8) + '">' + clock(hourAt(i)) + "</text>";
+    }
+    var bedX = !isNaN(bed) ? x(Math.max(0, Math.min(series.length - 1, idxOfHour(bed)))) : null;
+    host.innerHTML =
+      '<svg class="sk-curve-svg" viewBox="0 0 ' + W + " " + H + '" role="img" ' +
+        'aria-label="Your caffeine level across the day, with bedtime marked">' +
+        (shifted.length === series.length
+          ? '<polyline class="sk-curve-alt" points="' + pts(shifted) + '"></polyline>' : "") +
+        '<polyline class="sk-curve-line" points="' + pts(series) + '"></polyline>' +
+        (bedX != null
+          ? '<line class="sk-curve-bed" x1="' + bedX + '" y1="' + PAD_T + '" x2="' + bedX + '" y2="' + (H - PAD_B) + '"></line>' +
+            '<text class="sk-curve-bedlabel" x="' + (bedX - 6) + '" y="' + (PAD_T + 12) + '">bedtime</text>' : "") +
+        '<text class="sk-curve-tick" x="4" y="' + (PAD_T + 10) + '">' + Math.round(max) + "mg</text>" +
+        ticks +
+      "</svg>";
+    host.removeAttribute("hidden");
   }
 
   function wireRequires(scope) {
