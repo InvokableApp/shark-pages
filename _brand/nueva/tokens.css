@@ -1,0 +1,33 @@
+/* _brand/nueva/tokens.css
+ *
+ * Nueva's palette, in the one place the loader looks for it. Beneve, Conectiv and FunnelShark
+ * already had one; Nueva did not, so every Nueva page in every account was requesting this file
+ * and getting a 404 on each load. The loader treats it as optional and paints anyway, so nothing
+ * was broken, but a permanent console error on every page is the kind of noise that hides a real
+ * one. (Found 2026-09-10 while chasing a reported 404 on the Caffeine Curve.)
+ *
+ * MEASURED, not chosen: nuevalife.com/nuevaassets/css/style.css, 2026-09-08. #0ABAB5 is the
+ * brand colour and appears 116 times. Nueva's palette is monochrome teal, so the token NAMES
+ * "sage" and "lime" carry deep and light teal rather than greens. The names are fixed by
+ * systems/_TEMPLATE.json; the hues are not.
+ *
+ * ⚠️ THESE ARE DEFAULTS, NOT OVERRIDES. Every block declares the same tokens on its own scope
+ * class, which is more specific and therefore wins. Adding this file changes nothing that is
+ * already shipped, and that is deliberate: it kills the 404 today and gives new blocks one
+ * place to inherit from instead of copying the palette a seventh time.
+ */
+:root {
+  --nva-navy:   #102a2a;
+  --nva-navy-d: #071116;
+  --nva-teal:   #0abab5;
+  --nva-teal-d: #00aaa6;
+  --nva-sage:   #087f7b;
+  --nva-lime:   #5fd9d5;
+  --nva-ink:    #141313;
+  --nva-body:   #4a5560;
+  --nva-cream:  #fcfeff;
+  --nva-mist:   #e8f8f6;
+  --nva-line:   #d5dfe1;
+  --nva-serif:  Montserrat, "Helvetica Neue", Arial, sans-serif;
+  --nva-sans:   Montserrat, system-ui, sans-serif;
+}
