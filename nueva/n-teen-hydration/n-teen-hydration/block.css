@@ -10,7 +10,9 @@
    voice. The Revive fork shipped that way until it was caught by eye. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
-.sk-calc.sk-calc-nva-teen{
+.sk-teen{
+  font-family:var(--sk-sans); color:var(--sk-ink); background:var(--sk-paper);
+  -webkit-font-smoothing:antialiased;
   --sk-brand:#0abab5;--sk-brand-text:#07766F;
   --sk-brand-d:#087F7B;
   --sk-accent:#087f7b;
@@ -47,7 +49,7 @@
    the other. Re-generate the asset and the hero still works; only `object-position` moves.
    ═══════════════════════════════════════════════════════════════════════════════════════════ */
 
-.sk-calc.sk-calc-nva-teen{
+.sk-teen{
   position:relative; isolation:isolate;
   padding:0; max-width:none;
   background:var(--sk-paper,#fcfeff);
@@ -61,18 +63,18 @@
    ⚠️ THE BAND CARRIES ITS OWN SOLID COLOUR. That is what makes every rule below safe: if the
    photograph fails to load, is slow, or is swapped for one with a bright corner, the type is
    still white on #071116. The image is an enhancement layered onto a ground that already works. */
-.sk-calc-nva-teen .sk-calc-top{
+.sk-teen .sk-teen-top{
   position:relative; z-index:0;
   width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
   background:#071116;
   overflow:hidden; isolation:isolate;
 }
 
-.sk-calc-nva-teen .sk-calc-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.sk-teen .sk-teen-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
 /* Pass 1 dropped the image to .94 brightness to help the scrim. It no longer has to help: the
    type is not on it. Saturation and contrast come back up, which is the difference between a
    photograph and a weather report. */
-.sk-calc-nva-teen .sk-calc-bg img{
+.sk-teen .sk-teen-bg img{
   position:absolute; inset:0; width:100%; height:100%; display:block;
   object-fit:cover; object-position:68% 34%;
   filter:saturate(1.2) contrast(1.08);
@@ -84,7 +86,7 @@
    bar and the card do not sit on a bright patch of sky.
    The teal wash is the one purely decorative layer and it is deliberately weak: Nueva's palette
    is monochrome teal, and a page whose only colour is a photograph reads as a stock template. */
-.sk-calc-nva-teen .sk-calc-scrim{
+.sk-teen .sk-teen-scrim{
   position:absolute; inset:0;
   background:
     radial-gradient(90% 70% at 4% 16%, rgba(10,186,181,.26), rgba(10,186,181,0) 62%),
@@ -100,18 +102,18 @@
    The page had no wordmark anywhere. A stranger asking for your child's age, weight and sport
    with no name attached is exactly the "toy" reading, and it is the cheapest thing on the page
    to fix. The mark is the SVG from _brand/nueva, never a media-library URL. */
-.sk-calc-nva-teen .sk-calc-brandbar{
+.sk-teen .sk-teen-brandbar{
   position:relative; z-index:2; max-width:1180px; margin:0 auto;
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
   padding:1.1rem clamp(1.25rem,5vw,3rem);
   border-bottom:1px solid rgba(255,255,255,.13);
 }
-.sk-calc-nva-teen .sk-calc-mark{
+.sk-teen .sk-teen-mark{
   display:inline-flex; align-items:center; gap:.55rem; color:#fff;
   font-size:.95rem; font-weight:800; letter-spacing:-.01em;
 }
-.sk-calc-nva-teen .sk-calc-mark svg{ width:22px; height:22px; color:var(--sk-lime,#7fe6e2); flex:none; }
-.sk-calc-nva-teen .sk-calc-by{
+.sk-teen .sk-teen-mark svg{ width:22px; height:22px; color:var(--sk-lime,#7fe6e2); flex:none; }
+.sk-teen .sk-teen-by{
   color:rgba(255,255,255,.58);
   font-size:.66rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap;
 }
@@ -121,96 +123,78 @@
    four lines of headline across the athlete's face and clipped the last pill off the right edge.
    The figure is right of centre by design; the type stays left of it and the mask guarantees the
    ground it lands on. */
-.sk-calc-nva-teen .sk-calc-hero{
+.sk-teen .sk-teen-hero{
   position:relative; z-index:2; max-width:1180px; margin:0 auto; text-align:left;
-  padding:clamp(3rem,6.5vw,5rem) clamp(1.25rem,5vw,3rem) clamp(5.5rem,8vw,7rem);
+  padding:clamp(3rem,6.5vw,5rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,4.5rem);
   min-height:clamp(400px,50vh,560px);
   display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
 }
-.sk-calc-nva-teen .sk-calc-hero > *{ max-width:min(600px,58%); }
-@media (max-width:1000px){ .sk-calc-nva-teen .sk-calc-hero > *{ max-width:min(600px,74%); } }
-@media (max-width:700px){  .sk-calc-nva-teen .sk-calc-hero > *{ max-width:100%; } }
+.sk-teen .sk-teen-hero > *{ max-width:min(600px,58%); }
+@media (max-width:1000px){ .sk-teen .sk-teen-hero > *{ max-width:min(600px,74%); } }
+@media (max-width:700px){  .sk-teen .sk-teen-hero > *{ max-width:100%; } }
 
-.sk-calc-nva-teen .sk-calc-hero .sk-calc-eyebrow{
+.sk-teen .sk-teen-hero .sk-teen-eyebrow{
   display:inline-flex; align-items:center; gap:.55rem;
   color:#7fe6e2; margin:0 0 1.05rem;
   font-weight:800; font-size:.71rem; letter-spacing:.2em; text-transform:uppercase;
 }
-.sk-calc-nva-teen .sk-calc-hero .sk-calc-eyebrow::before{
+.sk-teen .sk-teen-hero .sk-teen-eyebrow::before{
   content:""; width:26px; height:2px; border-radius:2px; background:var(--sk-brand,#0abab5); flex:none;
 }
-.sk-calc-nva-teen .sk-calc-hero h1{
+.sk-teen .sk-teen-hero h1{
   color:#fff; font-weight:800; margin:0 0 1.1rem;
   font-size:clamp(1.95rem,3.5vw,3.15rem); line-height:1.05; letter-spacing:-.025em; text-wrap:balance;
 }
-.sk-calc-nva-teen .sk-calc-hero h1 em{
+.sk-teen .sk-teen-hero h1 em{
   font-style:normal; color:var(--sk-lime,#7fe6e2); white-space:nowrap;
 }
-.sk-calc-nva-teen .sk-calc-hero .sk-calc-sub{
+.sk-teen .sk-teen-hero .sk-teen-sub{
   color:rgba(255,255,255,.82);
   font-size:clamp(1rem,1.5vw,1.1rem); line-height:1.62; margin:0 0 1.6rem;
 }
-.sk-calc-nva-teen .sk-calc-hero .sk-calc-pills{
+.sk-teen .sk-teen-hero .sk-teen-pills{
   display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; margin:0; padding:0; justify-content:flex-start;
 }
-.sk-calc-nva-teen .sk-calc-hero .sk-calc-pills li{
+.sk-teen .sk-teen-hero .sk-teen-pills li{
   background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24); color:#fff;
   font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   padding:.46rem .9rem; border-radius:999px;
 }
 
-/* ── the card ──────────────────────────────────────────────────────────────────────────────
-   It overlaps the band's lower edge, which is what stops the page reading as two stacked blocks
-   with a seam between them. It is also the widest thing on the page on purpose: the questions
-   are the product, and pass 1 had them in a 415px box adrift in white. */
-.sk-calc-nva-teen .sk-calc-mount{
-  position:relative; z-index:3;
-  max-width:720px; margin:clamp(-5rem,-6vw,-3.5rem) auto 0;
-  margin-inline:auto; width:calc(100% - 2 * clamp(1rem,5vw,2rem));
-  padding:clamp(1.6rem,3.4vw,2.6rem);
-  background:var(--sk-card,#fff);
-  border-radius:24px; border:1px solid rgba(8,127,123,.09);
-  box-shadow:0 2px 6px rgba(7,17,22,.05), 0 40px 80px -34px rgba(7,17,22,.42);
-}
 
-/* The shared progress track is a 4px hairline and on its own, at the very top of a big white
-   card, it reads as a scratch rather than progress. Pairing it with the count gives it a job. */
-.sk-calc-nva-teen .sk-calc-count{
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  margin:0 0 .7rem;
-  font-size:.7rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--sk-brand-text,#087f7b);
-}
-.sk-calc-nva-teen .sk-calc-count b{ color:var(--sk-faint,#5c6d71); font-weight:700; }
-.sk-calc-nva-teen .sk-calc-prog{ height:5px; margin-bottom:clamp(22px,4vw,30px); }
 
 /* ── the ground under the card ─────────────────────────────────────────────────────────────
    Pass 1 ended the page at the bottom of the card, leaving a few hundred pixels of empty white
    and nothing that answers "who is this and what happens to my answers". Three plain lines and
    the fine print. No new claims: everything here is either mechanical or already in cfg.fine. */
-/* ⚠️ THE SAME WIDTH AND THE SAME INNER PADDING AS THE CARD, deliberately duplicated rather than
-   eyeballed: a footer that is nearly aligned with the card above it reads as a mistake, where
-   clearly-not-aligned would read as a choice. Change one of these two and change both. */
-.sk-calc-nva-teen .sk-calc-foot{
+/* ⚠️ IT ALIGNS TO THE HERO, NOT TO THE MIDDLE OF THE PAGE. When the questions lived in a centred
+   card below the band, the footer was centred to match it. The card is gone, so the only vertical
+   line left on the page is the hero's left edge, and anything that does not sit on it reads as
+   drift. Same max-width and same inner padding as .sk-teen-hero, deliberately duplicated: change
+   one and change both. */
+.sk-teen .sk-teen-foot{
   position:relative; z-index:1;
-  max-width:720px; margin-inline:auto;
-  width:calc(100% - 2 * clamp(1rem,5vw,2rem));
-  padding:clamp(2rem,4vw,2.8rem) clamp(1.6rem,3.4vw,2.6rem) clamp(2.6rem,6vw,4rem);
+  max-width:1180px; margin-inline:auto;
+  padding:clamp(2.4rem,4.5vw,3.4rem) clamp(1.25rem,5vw,3rem) clamp(2.6rem,6vw,4rem);
   text-align:left;
 }
-.sk-calc-nva-teen .sk-calc-foot ul{
+/* The fine print is long and it is the one thing on the page nobody has to read at speed, so it
+   gets a measure rather than the full 1180. */
+.sk-teen .sk-teen-foot p{ max-width:66ch; }
+.sk-teen .sk-teen-foot ul{ max-width:66ch; }
+.sk-teen .sk-teen-foot ul{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   gap:.6rem 1.6rem; list-style:none; margin:0 0 1.3rem; padding:0;
 }
-.sk-calc-nva-teen .sk-calc-foot li{
+.sk-teen .sk-teen-foot li{
   display:flex; align-items:center; gap:.5rem;
   color:var(--sk-body,#4a5560); font-size:.86rem; font-weight:600;
 }
-.sk-calc-nva-teen .sk-calc-foot li::before{
+.sk-teen .sk-teen-foot li::before{
   content:""; flex:none; width:7px; height:7px; border-radius:50%;
   background:var(--sk-brand,#0abab5);
 }
-.sk-calc-nva-teen .sk-calc-foot p{
+.sk-teen .sk-teen-foot p{
   margin:0; padding-top:1.15rem; border-top:1px solid var(--sk-line,#d5dfe1);
   color:var(--sk-faint,#5c6d71); font-size:.74rem; line-height:1.65;
 }
@@ -229,19 +213,53 @@
    can actually fill, and the copy sits on flat colour below it. One variable holds the height so
    the photo band and the hero's top padding cannot drift apart. */
 @media (max-width:700px){
-  .sk-calc-nva-teen .sk-calc-top{ --photo-h:clamp(240px,38vh,330px); }
-  .sk-calc-nva-teen .sk-calc-bg{ inset:0 0 auto 0; height:var(--photo-h); }
-  .sk-calc-nva-teen .sk-calc-bg img{ object-position:64% 42%; }
-  .sk-calc-nva-teen .sk-calc-scrim{
+  .sk-teen .sk-teen-top{ --photo-h:clamp(240px,38vh,330px); }
+  .sk-teen .sk-teen-bg{ inset:0 0 auto 0; height:var(--photo-h); }
+  .sk-teen .sk-teen-bg img{ object-position:64% 42%; }
+  .sk-teen .sk-teen-scrim{
     background:
       radial-gradient(130% 70% at 50% 0%, rgba(10,186,181,.2), rgba(10,186,181,0) 64%),
       linear-gradient(180deg,
         rgba(7,17,22,.55) 0%, rgba(7,17,22,.06) 26%,
         rgba(7,17,22,.45) 64%, rgba(7,17,22,.92) 88%, #071116 100%);
   }
-  .sk-calc-nva-teen .sk-calc-hero{
+  .sk-teen .sk-teen-hero{
     justify-content:flex-start; min-height:0;
     /* 3.6rem is the brand bar, which sits inside the band and above this box. */
     padding-top:calc(var(--photo-h) - 3.6rem + 1.6rem);
   }
 }
+
+.sk-teen *, .sk-teen *::before, .sk-teen *::after{ box-sizing:border-box; }
+
+/* ── the button ────────────────────────────────────────────────────────────────────────────
+   ⚠️ #0ABAB5 IS A FILL, NEVER A GROUND FOR WHITE TYPE: white on it is 2.4:1 where AA wants 4.5.
+   Jeff, 2026-09-11: darken the button, keep the white text. --sk-brand-btn is the deep teal and
+   white on it measures 4.85:1. The bright teal stays in the glow, where nothing has to be read.
+   → _brand/nueva/tokens.css */
+.sk-teen .sk-teen-cta{
+  display:inline-flex; align-items:center; gap:.7rem;
+  margin:0 0 1.5rem; padding:1.05rem 1.9rem;
+  font:inherit; font-size:1.02rem; font-weight:800; letter-spacing:.005em; color:#fff;
+  background:var(--sk-brand-btn,#087f7b); border:0; border-radius:14px; cursor:pointer;
+  box-shadow:0 1px 2px rgba(7,17,22,.2), 0 14px 30px -12px rgba(10,186,181,.55);
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.sk-teen .sk-teen-cta svg{ width:19px; height:19px; flex:none; transition:transform .16s ease; }
+.sk-teen .sk-teen-cta:hover{ background:#0a938e; box-shadow:0 2px 4px rgba(7,17,22,.22), 0 18px 38px -12px rgba(10,186,181,.7); }
+.sk-teen .sk-teen-cta:hover svg{ transform:translateX(3px); }
+.sk-teen .sk-teen-cta:active{ transform:scale(.985); }
+.sk-teen .sk-teen-cta:focus-visible{ outline:3px solid var(--sk-lime,#7fe6e2); outline-offset:3px; }
+
+/* The repeat at the bottom is the same button with the shouting turned off: one loud CTA per
+   page, and this one is a convenience for somebody who read to the end, not a second offer. */
+.sk-teen .sk-teen-cta--ghost{
+  margin:.4rem 0 1.6rem; padding:.9rem 1.5rem; font-size:.95rem;
+  color:var(--sk-brand-text,#087f7b); background:transparent;
+  border:1.5px solid rgba(8,127,123,.35); box-shadow:none;
+}
+.sk-teen .sk-teen-cta--ghost:hover{ background:var(--sk-tint,#e8f8f6); box-shadow:none; }
+
+/* The pills sat above the button when the questions were on the page. They now read as fine
+   print UNDER the ask, which is where a "free, takes a minute" reassurance belongs. */
+.sk-teen .sk-teen-hero .sk-teen-pills{ margin-top:.2rem; }

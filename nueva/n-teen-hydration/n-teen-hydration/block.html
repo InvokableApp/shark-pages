@@ -29,187 +29,60 @@
   (2) SHILAJIT. Eight of the nine ingredients are ordinary sports-drink components; shilajit is an
   adaptogenic resin and is commonly labelled adults-only. Flagged, not resolved.
 
-  Design lives in _shared/calculator/v1/ under .sk-calc. This file holds the config and markup.
+  ⚠️ THIS BLOCK NO LONGER RUNS THE CALCULATOR. Jeff, 2026-09-11: native survey, in a native
+  popup. The questions are now `Nueva - Teen Hydration Check - Survey` inside the page's own
+  popup, and every CTA here does nothing but dispatch GHL's no-argument `customWidgetOpenPopup`.
+  That is the whole integration: no popup id, no native button, no survey id in this file.
+
+  ⚠️ AND IT NO LONGER LOADS _shared/calculator/v1. It is a lander now, not a calculator, so it
+  carries its own scope class (.sk-teen) and its own type. Nothing here is shared, which means
+  nothing here can reach another system's page.
 -->
-<div class="sk-calc sk-calc-nva-teen">
+<div class="sk-teen">
 
-  <script type="application/json" class="sk-calc-config">
-  {
-    "key": "n-teen-hydration",
-    "nextLabel": "Continue",
-    "backLabel": "Back",
-    "restartLabel": "Check another athlete",
-    "calculatingMs": 900,
-
-    "steps": [
-      {
-        "key": "age",
-        "question": "How old is your athlete?",
-        "type": "choice",
-        "options": [
-          { "label": "12 to 13", "value": "12-13" },
-          { "label": "14 to 15", "value": "14-15" },
-          { "label": "16 to 17", "value": "16-17" },
-          { "label": "18", "value": "18" }
-        ]
-      },
-      {
-        "key": "weightLb",
-        "question": "About how much do they weigh?",
-        "help": "In pounds. A rough guess is fine, and you can skip it.",
-        "type": "number",
-        "min": 60, "max": 300, "step": 1,
-        "unit": "lb",
-        "placeholder": "e.g. 130",
-        "skipLabel": "Not sure, use the average for their age"
-      },
-      {
-        "key": "sport",
-        "question": "What are they playing?",
-        "type": "choice",
-        "options": [
-          { "label": "Soccer", "value": "soccer" },
-          { "label": "Football", "value": "football" },
-          { "label": "Basketball", "value": "basketball" },
-          { "label": "Track, cross country or swim", "value": "endurance" },
-          { "label": "Something else", "value": "other" }
-        ]
-      },
-      {
-        "key": "activityHours",
-        "question": "On a practice or game day, how long are they actually going hard?",
-        "help": "Warm up through the final whistle. Not the whole day at the field.",
-        "type": "choice",
-        "options": [
-          { "label": "About an hour", "value": 1 },
-          { "label": "An hour and a half", "value": 1.5 },
-          { "label": "Two hours", "value": 2 },
-          { "label": "Three hours or more", "note": "Doubles, tournaments, all day events", "value": 3 }
-        ]
-      },
-      {
-        "key": "heat",
-        "question": "What is it usually like out there?",
-        "type": "choice",
-        "options": [
-          { "label": "Cool, or indoors", "value": "mild" },
-          { "label": "Warm", "value": "warm" },
-          { "label": "Hot, and they come off soaked", "value": "hot" }
-        ]
-      },
-      {
-        "key": "bottles",
-        "question": "On one of those days, how many bottles do they actually drink?",
-        "help": "A standard sports bottle, about 16 oz. Everything counts: water, sports drink, whatever is in the bag.",
-        "type": "number",
-        "min": 0, "max": 16, "step": 1,
-        "unit": "bottles",
-        "placeholder": "e.g. 3"
-      }
-    ],
-
-    "derive": [
-      {
-        "key": "weightLb",
-        "from": "age",
-        "_note": "US population median weight in POUNDS, used ONLY when the parent skips the weight question. A real teenager can sit a long way from the median, which is exactly why the question is asked first and this is the fallback.",
-        "table": { "12-13": 100, "14-15": 125, "16-17": 145, "18": 155 },
-        "fallback": 130
-      }
-    ],
-
-    "formula": "teen-fluid-oz",
-    "constants": {
-      "_note": "Everything a reviewer would argue with lives here rather than in code. Holliday-Segar (100/50/20 mL per kg) is the published paediatric maintenance standard and is in calc.js; the two values below are OURS.",
-      "_foodFraction": "Share of total daily fluid that arrives in food rather than a bottle, removed so the comparison is drinks against drinks. Commonly put at 20 to 30 percent.",
-      "foodFraction": 0.2,
-      "_activityMlPerHour": "Sweat loss per hour of hard effort. Adult athletes are commonly put at 400 to 800 mL/hr and young children far lower; an adolescent sits near the adult range, which is why this is double the kids preset's 250. The single value most likely to need a reviewer's eye.",
-      "activityMlPerHour": 500,
-      "heatMultiplier": { "mild": 1, "warm": 1.15, "hot": 1.3 },
-      "_bottleOz": "One standard sports bottle. The answer is reported in bottles because that is the unit a parent actually holds.",
-      "bottleOz": 16
-    },
-
-    "payload": {
-      "nueva_teen_need_oz": "$extra.needOz",
-      "nueva_teen_intake_oz": "$extra.intakeOz",
-      "nueva_teen_gap_bottles": "$extra.gapBottles",
-      "nueva_teen_band": "$extra.band",
-      "nueva_teen_sport": "sport",
-      "nueva_teen_age": "age",
-      "nueva_teen_hours": "activityHours",
-      "needOz": "$extra.needOz",
-      "needBottles": "$extra.needBottles",
-      "intakeOz": "$extra.intakeOz",
-      "intakeBottles": "$extra.intakeBottles",
-      "gapOz": "$extra.gapOz",
-      "gapBottles": "$extra.gapBottles",
-      "sweatOz": "$extra.sweatOz",
-      "baselineOz": "$extra.baselineOz",
-      "pct": "$extra.pct",
-      "band": "$extra.band"
-    },
-
-    "gate": {
-      "eyebrow": "Last step",
-      "headline": "Where should we send the number?",
-      "body": "We worked it out. Tell us where to send it and the next page shows what a day like that actually costs them, and how far off they are.",
-      "formTitle": "Get the number",
-      "formHost": "https://link.sharksuite.ai/widget/form",
-      "formId": "{{custom_values.nueva_teen_form_id}}"
-    },
-
-    "fine": "This is a general estimate of fluid for a body of that size and activity level, using the standard Holliday-Segar maintenance figures plus an allowance for sweat. It is not medical advice and it is not an assessment of any individual. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease."
-  }</script>
-
-  <!-- ⚠️ THE HEADLINE NAMES THE MECHANIC, THE TIME AND THE DELIVERABLE, in plain words, and the
-       button repeats the mechanic. No cleverness above the fold: that rule is in
-       references/shark-brand-voice.md and it exists because it was broken twice already. The two
-       numbers on the page (six questions, about a minute) must be TRUE and must agree. -->
-  <!-- ⚠️ THE BACKGROUND IS A REAL PHOTOGRAPH, NOT DECORATION, and the scrim over it is not
-       optional. Jeff, 2026-09-11: the first build "feels like a toy" — a form floating on white
-       reads as a widget, and nobody trusts a widget with a question about their kid. The image
-       gives the page a subject before a word is read. The scrim is what keeps the headline at
-       18:1 over it: a photo background is the one thing check-contrast.mjs cannot score (it
-       declines rather than guess at a pixel colour), so legibility here is guaranteed by the
-       gradient, not verified after the fact. -->
-  <div class="sk-calc-top">
-    <div class="sk-calc-bg" aria-hidden="true">
+  <div class="sk-teen-top">
+    <div class="sk-teen-bg" aria-hidden="true">
       <img src="https://invokableapp.github.io/shark-pages/nueva/n-teen-hydration/n-teen-hydration/assets/hero-field.webp" alt="">
-      <span class="sk-calc-scrim"></span>
+      <span class="sk-teen-scrim"></span>
     </div>
 
     <!-- ⚠️ WHO IS ASKING, AND WHY IT IS NOT THE NUEVASHARK WORDMARK. This page asks a parent for
-         a child's age, weight and sport. With nothing naming who is asking it reads as a widget,
-         which is the "toy" problem restated. But NUEVASHARK is the SYSTEM brand and it belongs on
-         REP-facing pages (the how-to pages and the marketing-links hub all carry it). The only
-         other avatar-facing Nueva lander in the system, the Revive page, identifies itself with
-         this droplet and a product word instead, so this page follows it rather than inventing a
-         second convention. The droplet is the same path, copied deliberately.
-         ⚠️ AND IT DOES NOT SAY "BY NUEVA" EITHER (Jeff, 2026-09-11). The lockup names the TOOL and
-         stops there. Nothing else on the page asserts an owner.
-         ⚠️ It does NOT say "Revive". The product is not named until the result, because naming it
-         above the fold turns a measurement into an ad and the measurement is what earns the ask. -->
-    <div class="sk-calc-brandbar">
-      <span class="sk-calc-mark">
+         a child's age, weight and sport. With nothing naming who is asking it reads as a widget.
+         But NUEVASHARK is the SYSTEM brand and belongs on REP-facing pages (the how-to pages and
+         the marketing-links hub all carry it). The only other avatar-facing Nueva lander, the
+         Revive page, identifies itself with this droplet and a product word instead, so this page
+         follows it rather than inventing a second convention.
+         ⚠️ It does not say "Revive" and it does not say "by Nueva" (Jeff, 2026-09-11). The lockup
+         names the TOOL and stops there. Nothing on the page asserts an owner. -->
+    <div class="sk-teen-brandbar">
+      <span class="sk-teen-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
         Hydration Check
       </span>
     </div>
 
-    <header class="sk-calc-hero">
-      <p class="sk-calc-eyebrow">For parents of teen athletes</p>
+    <header class="sk-teen-hero">
+      <p class="sk-teen-eyebrow">For parents of teen athletes</p>
       <!-- ⚠️ TWO WORDS IN TEAL, NOT SEVEN. The first draft coloured the whole phrase "how much
            your athlete should be drinking", which is three of five lines on a phone: at that
            length the accent stops being an accent and the headline just looks two-tone. "How
            much" is the payoff and it is where the eye should land. The sentence still names the
            mechanic, the count and the deliverable in plain words (shark-brand-voice §Opt-in). -->
       <h1>Answer 6 questions and see <em>how much</em> your athlete should be drinking on a game day</h1>
-      <p class="sk-calc-sub">
+      <p class="sk-teen-sub">
         Most of them are running on about half of it. Tell us their size, their sport and how long
         they are out there, and we will work out what a day like that actually costs them.
       </p>
-      <ul class="sk-calc-pills">
+
+      <!-- ⚠️ THE BUTTON REPEATS THE MECHANIC, never "Get Started" (shark-brand-voice §Opt-in and
+           quiz pages). The two numbers on this page have to be TRUE and have to agree: six
+           questions in the headline, six in the pills, six on the button. -->
+      <button class="sk-teen-cta" type="button" data-sk-popup>
+        Start The 6 Question Check
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <ul class="sk-teen-pills">
         <li>6 questions</li>
         <li>About a minute</li>
         <li>Free</li>
@@ -217,17 +90,21 @@
     </header>
   </div>
 
-  <div class="sk-calc-mount"></div>
-
-  <!-- The page used to end at the bottom of the card, on several hundred pixels of bare white.
-       Nothing below makes a new claim: the three lines are mechanical facts about the tool and
-       the paragraph is cfg.fine, which is already the copy the result step shows. -->
-  <div class="sk-calc-foot">
+  <!-- ⚠️ THE THREE LINES MAKE NO NEW CLAIM. Two are mechanical facts about the tool and the third
+       names what the estimate IS, which is the same hedge the fine print carries. Nothing here
+       says deficiency, symptom or consequence: not focus, not school, not performance. That is a
+       compliance line, not a style one. → NUEVASHARK/_assets/product/SOURCE.md -->
+  <div class="sk-teen-foot">
     <ul>
       <li>Six questions, about a minute</li>
       <li>An estimate, not an assessment</li>
       <li>No cost, and nothing to install</li>
     </ul>
+
+    <button class="sk-teen-cta sk-teen-cta--ghost" type="button" data-sk-popup>
+      Start The 6 Question Check
+    </button>
+
     <p>
       This is a general estimate of fluid for a body of that size and activity level, using the
       standard Holliday-Segar maintenance figures plus an allowance for sweat. It is not medical
