@@ -163,41 +163,6 @@
 
 
 
-/* ── the ground under the card ─────────────────────────────────────────────────────────────
-   Pass 1 ended the page at the bottom of the card, leaving a few hundred pixels of empty white
-   and nothing that answers "who is this and what happens to my answers". Three plain lines and
-   the fine print. No new claims: everything here is either mechanical or already in cfg.fine. */
-/* ⚠️ IT ALIGNS TO THE HERO, NOT TO THE MIDDLE OF THE PAGE. When the questions lived in a centred
-   card below the band, the footer was centred to match it. The card is gone, so the only vertical
-   line left on the page is the hero's left edge, and anything that does not sit on it reads as
-   drift. Same max-width and same inner padding as .sk-teen-hero, deliberately duplicated: change
-   one and change both. */
-.sk-teen .sk-teen-foot{
-  position:relative; z-index:1;
-  max-width:1180px; margin-inline:auto;
-  padding:clamp(2.4rem,4.5vw,3.4rem) clamp(1.25rem,5vw,3rem) clamp(2.6rem,6vw,4rem);
-  text-align:left;
-}
-/* The fine print is long and it is the one thing on the page nobody has to read at speed, so it
-   gets a measure rather than the full 1180. */
-.sk-teen .sk-teen-foot p{ max-width:66ch; }
-.sk-teen .sk-teen-foot ul{ max-width:66ch; }
-.sk-teen .sk-teen-foot ul{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:.6rem 1.6rem; list-style:none; margin:0 0 1.3rem; padding:0;
-}
-.sk-teen .sk-teen-foot li{
-  display:flex; align-items:center; gap:.5rem;
-  color:var(--sk-body,#4a5560); font-size:.86rem; font-weight:600;
-}
-.sk-teen .sk-teen-foot li::before{
-  content:""; flex:none; width:7px; height:7px; border-radius:50%;
-  background:var(--sk-brand,#0abab5);
-}
-.sk-teen .sk-teen-foot p{
-  margin:0; padding-top:1.15rem; border-top:1px solid var(--sk-line,#d5dfe1);
-  color:var(--sk-faint,#5c6d71); font-size:.74rem; line-height:1.65;
-}
 
 /* ── narrow widths: the photograph becomes a BAND, it does not become a backdrop ───────────
    ⚠️ A SIDE-BY-SIDE MASK CANNOT WORK IN A 393px COLUMN. At desktop the copy holds the left 58%
@@ -251,15 +216,35 @@
 .sk-teen .sk-teen-cta:active{ transform:scale(.985); }
 .sk-teen .sk-teen-cta:focus-visible{ outline:3px solid var(--sk-lime,#7fe6e2); outline-offset:3px; }
 
-/* The repeat at the bottom is the same button with the shouting turned off: one loud CTA per
-   page, and this one is a convenience for somebody who read to the end, not a second offer. */
-.sk-teen .sk-teen-cta--ghost{
-  margin:.4rem 0 1.6rem; padding:.9rem 1.5rem; font-size:.95rem;
-  color:var(--sk-brand-text,#087f7b); background:transparent;
-  border:1.5px solid rgba(8,127,123,.35); box-shadow:none;
-}
-.sk-teen .sk-teen-cta--ghost:hover{ background:var(--sk-tint,#e8f8f6); box-shadow:none; }
-
 /* The pills sat above the button when the questions were on the page. They now read as fine
    print UNDER the ask, which is where a "free, takes a minute" reassurance belongs. */
 .sk-teen .sk-teen-hero .sk-teen-pills{ margin-top:.2rem; }
+
+/* ── one screen, and nothing under it ──────────────────────────────────────────────────────
+   Jeff, 2026-09-11: "take that bottom white section off and just make the hero 100vh on desktop".
+   ⚠️ WHICH MAKES THE BAND THE WHOLE PAGE, so the two things that used to live below it had to be
+   decided rather than deleted. The three reassurance lines and the repeat CTA were padding and
+   are gone. The FDA line was not, and it sits in the band now (see block.html).
+   ⚠️ 100vh IS A DESKTOP-ONLY INSTRUCTION. On a phone the address bar makes vh lie, and this hero
+   already stacks a photo band over five lines of headline, so a forced 100vh would either clip
+   the button or leave a hole under it depending on the handset. Below 700px the band keeps
+   sizing to its content. */
+@media (min-width:701px){
+  .sk-teen .sk-teen-top{ min-height:100vh; display:flex; flex-direction:column; }
+  .sk-teen .sk-teen-hero{ flex:1; min-height:0; }
+  /* ⚠️ A FLEX ITEM SHRINK-WRAPS, so `max-width:1180px; margin:0 auto` stopped meaning "a 1180
+     column, centred" and started meaning "as narrow as the content". The brand bar collapsed to
+     the width of its own wordmark and its hairline became a 260px dash floating in the middle of
+     the screen. Both children need an explicit width now that their parent is a flex column. */
+  .sk-teen .sk-teen-brandbar,
+  .sk-teen .sk-teen-fine{ width:100%; }
+}
+
+/* The disclaimer, at the foot of the band. Small and quiet, but it has to be READABLE: at
+   rgba(255,255,255,.5) it was decoration. .62 on #071116 clears AA for small text. */
+.sk-teen .sk-teen-fine{
+  position:relative; z-index:2; max-width:1180px; margin:0 auto;
+  padding:0 clamp(1.25rem,5vw,3rem) clamp(1.6rem,3vw,2.2rem);
+  color:rgba(255,255,255,.62); font-size:.72rem; line-height:1.6;
+}
+
