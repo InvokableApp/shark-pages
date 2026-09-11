@@ -37,6 +37,23 @@
 -->
 <div class="sk-teen sk-teen-res">
 
+  <!-- ⚠️ THE STICKY BAR IS THE ONLY THING ON THIS PAGE THAT IS ALWAYS ON SCREEN, so it carries
+       the one action the page is for. It ships `hidden` and is revealed by block.js at the same
+       moment the result is: a visitor with no numbers has not earned an offer yet and gets the
+       "take the check" state instead.
+       ⚠️ IT IS position:sticky, NOT fixed. A fixed bar inside a GHL custom-code block escapes the
+       block's own stacking context and can sit over the page's other rows, including the builder
+       chrome. Sticky stays inside the block and needs no z-index arms race. -->
+  <div class="sk-teen-bar" data-res hidden>
+    <div class="sk-teen-bar-in">
+      <span class="sk-teen-bar-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        <b>Nueva Revive</b><span>free sample, no card</span>
+      </span>
+      <a class="sk-teen-cta sk-teen-cta--bar" href="https://{{custom_values.nueva_main_url}}/n-free-revive-sample">Try The Product, Free</a>
+    </div>
+  </div>
+
   <div class="sk-teen-top">
     <div class="sk-teen-brandbar">
       <span class="sk-teen-mark">
@@ -71,6 +88,29 @@
 
       <p class="sk-teen-band" data-band-head>&nbsp;</p>
       <p class="sk-teen-sub" data-band-body>&nbsp;</p>
+          <!-- ══ THE PRODUCT, INTRODUCED RIGHT UNDER THE NUMBER ═════════════════════════════
+           Jeff, 2026-09-11: "the product needs to be introduced right under the result too."
+           He is right and the reason is the gap: a parent has just been shown a shortfall, and
+           the moment they most want to know what to do about it is the moment they read it. The
+           full case still runs further down; this is the introduction, not the argument, so it
+           is four lines and a picture.
+           ⚠️ IT NAMES NO SERVING AND MAKES NO CLAIM. "What Nueva makes for the other half" points
+           at the sentence directly above it, which is about what sweat takes out. Every claim
+           about the product itself waits for the section below, where it is quoted rather than
+           written. -->
+      <div class="sk-teen-intro">
+        <img src="https://invokableapp.github.io/shark-pages/nueva/n-teen-hydration/n-teen-hydration-result/assets/revive-pouches.webp" alt="Two pouches of Nueva Revive, Citrus Crush and Island Punch" width="1400" height="1400" loading="lazy">
+        <div>
+          <p class="sk-teen-intro-kick">What Nueva makes for the other half</p>
+          <p class="sk-teen-intro-name">Nueva Revive</p>
+          <p class="sk-teen-intro-sub">One sachet in 8 to 12 oz of water, in place of one of those bottles rather than on top of them.</p>
+          <a class="sk-teen-cta sk-teen-cta--intro" href="https://{{custom_values.nueva_main_url}}/n-free-revive-sample">
+            Try It Free
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="sk-teen-intro-note">A free sample, no card. The full story is below.</p>
+        </div>
+      </div>
     </header>
 
     <!-- The state a direct visitor gets. It offers the only thing that would help them. -->
@@ -125,7 +165,7 @@
       </p>
     </div>
 
-    <div class="sk-teen-band">
+    <div class="sk-teen-photo">
       <img src="https://invokableapp.github.io/shark-pages/nueva/n-teen-hydration/n-teen-hydration-result/assets/drinking.webp" alt="A teenage athlete resting at the edge of a field, drinking a bright citrus-yellow drink" width="1536" height="1024" loading="lazy">
     </div>
 

@@ -228,7 +228,15 @@
 
 /* the photograph, edge to edge. It is the demonstration: the whole argument is about a drink,
    so at some point the page has to show one. */
-.sk-teen .sk-teen-band{
+/* ⚠️ .sk-teen-photo, NOT .sk-teen-band. This rule shipped as `.sk-teen-band` and that class was
+   already taken by the RESULT HEADLINE ("They are running on about 45 percent of that"), thirty
+   lines above. The full-bleed photo rule therefore landed on a paragraph: the headline got a
+   100vw pale-blue strip behind its white type and became unreadable, on the single most important
+   line of the page. It looked like a colour mistake and was a name collision.
+   The lesson is the cheap one: this block is one flat namespace with no nesting and no
+   compilation, so grep the class before adding a rule. "band" was a reasonable word for both
+   things, which is exactly why it was free to take twice. */
+.sk-teen .sk-teen-photo{
   width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
   max-height:min(56vh,520px); overflow:hidden; background:#dfeaf2;
 }
@@ -236,7 +244,7 @@
    photograph down to about 520px, and the default 50% centre put the crop line straight through
    the athlete's forehead: the one thing the picture is for, the drink going in, sat half out of
    shot. Re-generate the asset and this number moves with it. */
-.sk-teen .sk-teen-band img{ display:block; width:100%; height:100%; object-fit:cover; object-position:52% 26%; }
+.sk-teen .sk-teen-photo img{ display:block; width:100%; height:100%; object-fit:cover; object-position:52% 26%; }
 
 .sk-teen .sk-teen-cols{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.6rem 2.2rem;
@@ -369,3 +377,66 @@
 /* On the dark hero the same class has to invert, and it is the same class because it is the same
    sentence: the no-numbers state never reaches the paper section. */
 .sk-teen .sk-teen-top .sk-teen-fine{ color:rgba(255,255,255,.62); border-top-color:rgba(255,255,255,.14); }
+
+/* ── the sticky bar ───────────────────────────────────────────────────────────────────────
+   Jeff, 2026-09-11: "need a stick banner on top with a 'try the product, free' button".
+   ⚠️ position:sticky, NOT fixed. A fixed bar inside a GHL custom-code block escapes the block's
+   own stacking context and can float over the page's other rows. Sticky stays inside the block.
+   ⚠️ AND IT SITS ABOVE THE DARK HERO, so it is dark too: a white bar here would cut the page in
+   half at exactly the point the number is supposed to land. */
+.sk-teen .sk-teen-bar{
+  position:sticky; top:0; z-index:40;
+  background:rgba(7,17,22,.92); backdrop-filter:blur(10px) saturate(1.2);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.sk-teen .sk-teen-bar-in{
+  max-width:1180px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.7rem clamp(1rem,4vw,2rem);
+}
+.sk-teen .sk-teen-bar-mark{ display:inline-flex; align-items:center; gap:.6rem; min-width:0; }
+.sk-teen .sk-teen-bar-mark svg{ width:20px; height:20px; flex:none; color:var(--sk-lime,#7fe6e2); }
+.sk-teen .sk-teen-bar-mark b{ color:#fff; font-size:.93rem; font-weight:800; letter-spacing:-.01em; white-space:nowrap; }
+.sk-teen .sk-teen-bar-mark span{
+  color:rgba(255,255,255,.55); font-size:.7rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;
+}
+/* The subtitle is the first thing to go: at 560px the button must keep its full label, because
+   the label IS the offer. */
+@media (max-width:560px){ .sk-teen .sk-teen-bar-mark span{ display:none; } }
+@media (max-width:420px){ .sk-teen .sk-teen-bar-mark b{ display:none; } }
+.sk-teen .sk-teen-cta--bar{
+  margin:0; padding:.72rem 1.15rem; font-size:.86rem; border-radius:11px;
+  box-shadow:0 1px 2px rgba(7,17,22,.3), 0 8px 20px -10px rgba(10,186,181,.6);
+  white-space:nowrap;
+}
+
+/* ── the product, introduced under the number ─────────────────────────────────────────────
+   Four lines and a picture, on the dark ground, still inside the hero. The full case runs much
+   further down; this exists because the moment a parent most wants to know what to do about a
+   shortfall is the moment they read it. */
+.sk-teen .sk-teen-intro{
+  display:grid; grid-template-columns:132px 1fr; gap:clamp(1rem,3vw,1.8rem); align-items:center;
+  text-align:left; margin:clamp(2rem,4vw,2.8rem) 0 0;
+  padding:clamp(1rem,2.5vw,1.4rem); border-radius:20px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+}
+@media (max-width:560px){
+  .sk-teen .sk-teen-intro{ grid-template-columns:1fr; text-align:center; justify-items:center; }
+  .sk-teen .sk-teen-intro img{ max-width:170px; }
+}
+.sk-teen .sk-teen-intro img{
+  display:block; width:100%; height:auto; border-radius:14px; background:#fff;
+}
+.sk-teen .sk-teen-intro-kick{
+  margin:0 0 .25rem; color:var(--sk-lime,#7fe6e2);
+  font-size:.68rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+}
+.sk-teen .sk-teen-intro-name{
+  margin:0 0 .4rem; color:#fff; font-size:clamp(1.2rem,2.4vw,1.5rem); font-weight:800; letter-spacing:-.02em;
+}
+.sk-teen .sk-teen-intro-sub{
+  margin:0 0 1rem; color:rgba(255,255,255,.72); font-size:.95rem; line-height:1.55; max-width:44ch;
+}
+.sk-teen .sk-teen-cta--intro{ margin:0 0 .6rem; padding:.85rem 1.5rem; font-size:.95rem; }
+.sk-teen .sk-teen-intro-note{ margin:0; color:rgba(255,255,255,.45); font-size:.76rem; }
