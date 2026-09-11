@@ -4,6 +4,12 @@
    to its defaults for anything omitted (there is no partial mode).
    Same measured Nueva palette as the kids preset: nuevalife.com/nuevaassets/css/style.css,
    #0ABAB5 is the brand colour. */
+
+/* ⚠️ THE TOKEN NAMES THE FACE, IT DOES NOT LOAD IT. --sk-sans says Montserrat; without this
+   import the browser falls back to its default serif and every heading renders in the wrong
+   voice. The Revive fork shipped that way until it was caught by eye. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
 .sk-calc.sk-calc-nva-teen{
   --sk-brand:#0abab5;--sk-brand-text:#07766F;
   --sk-brand-d:#087F7B;
@@ -17,4 +23,86 @@
   --sk-line:#d5dfe1;
   --sk-faint:#5C6D71;
   --sk-sans:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════
+   Jeff, 2026-09-11: "it needs be like.... way better, add an image in the background, make this
+   feel real, right now it feels like a toy"
+
+   That is a trust problem, not a taste one. A form floating on white reads as a widget, and
+   nobody hands a widget details about their kid. So the page gets a SUBJECT before a word is
+   read: a real photograph, full bleed, the question set over it, and the questions themselves on
+   a card that sits ON the photo rather than replacing it.
+
+   ⚠️ THE SCRIM IS LOAD-BEARING. check-contrast.mjs cannot score text over a photograph: an image
+   background is opaque and its colour is unknowable from CSS, so the probe declines rather than
+   guess and will call this hero clean whatever it looks like. Legibility here is guaranteed by
+   the gradient under the type, not verified afterwards. That is also why the scrim and the
+   generated asset ship together: re-generate the image and this rule has to be re-checked by eye.
+   ═══════════════════════════════════════════════════════════════════════════════════════════ */
+.sk-calc.sk-calc-nva-teen{ position:relative; isolation:isolate; padding:0; }
+
+.sk-calc-nva-teen .sk-calc-bg{
+  position:absolute; inset:0 0 auto 0;
+  height:clamp(520px,72vh,760px);
+  z-index:-1; overflow:hidden;
+}
+.sk-calc-nva-teen .sk-calc-bg img{ width:100%; height:100%; object-fit:cover; object-position:62% 38%; display:block; }
+/* ⚠️ TWO GRADIENTS DOING TWO DIFFERENT JOBS, and the first draft had them fighting. A heavy
+   top-to-bottom veil plus a heavy left-to-right one compounded into a flat grey that killed the
+   photograph: the sky went to mud and the athlete disappeared. The veil now only does the FADE
+   into the page below, and the darkness that carries the type is a single soft wedge on the left,
+   where the copy sits and the figure does not. */
+.sk-calc-nva-teen .sk-calc-scrim{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(100deg, rgba(7,17,22,.72) 0%, rgba(7,17,22,.52) 34%, rgba(7,17,22,.12) 62%, rgba(7,17,22,0) 78%),
+    linear-gradient(180deg, rgba(7,17,22,.22) 0%, rgba(7,17,22,0) 26%, rgba(7,17,22,0) 58%, rgba(252,254,255,.82) 88%, var(--sk-paper,#fcfeff) 100%);
+}
+
+/* ⚠️ LEFT ALIGNED, BECAUSE THE PHOTOGRAPH HAS A SUBJECT IN IT. Centred copy over a centred
+   figure puts the headline across the athlete's chest, which is why the first draft read as a
+   caption rather than a page. The image was generated with the figure right of centre and open
+   field on the left precisely so the type has somewhere to live. Both halves have to agree: move
+   the figure and this alignment has to move with it. */
+.sk-calc-nva-teen .sk-calc-hero{
+  position:relative; max-width:1180px; margin:0 auto; text-align:left;
+  padding:clamp(3.4rem,8vw,6rem) clamp(1.2rem,5vw,3rem) clamp(2.4rem,5vw,3.4rem);
+}
+.sk-calc-nva-teen .sk-calc-hero > *{ max-width:min(620px,62%); }
+@media (max-width:820px){
+  .sk-calc-nva-teen .sk-calc-hero{ text-align:center; }
+  .sk-calc-nva-teen .sk-calc-hero > *{ max-width:100%; margin-inline:auto; }
+}
+.sk-calc-nva-teen .sk-calc-hero .sk-calc-eyebrow{
+  color:var(--sk-lime,#5fd9d5);
+  font-weight:800; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; margin:0 0 1rem;
+}
+.sk-calc-nva-teen .sk-calc-hero h1{
+  color:#fff; font-weight:800; margin:0 0 1rem;
+  font-size:clamp(2rem,4.6vw,3.3rem); line-height:1.06; letter-spacing:-.02em; text-wrap:balance;
+  text-shadow:0 2px 24px rgba(7,17,22,.45);
+}
+.sk-calc-nva-teen .sk-calc-hero .sk-calc-sub{
+  color:rgba(255,255,255,.9);
+  font-size:clamp(1rem,1.6vw,1.1rem); line-height:1.6; margin:0 0 1.5rem;
+  text-shadow:0 1px 14px rgba(7,17,22,.4);
+}
+.sk-calc-nva-teen .sk-calc-hero .sk-calc-pills{
+  display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; margin:0; padding:0;
+}
+.sk-calc-nva-teen .sk-calc-hero .sk-calc-pills li{
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px); color:#fff;
+  font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  padding:.44rem .85rem; border-radius:999px;
+}
+
+/* the questions, on a card that sits ON the photo */
+.sk-calc-nva-teen .sk-calc-mount{
+  position:relative; max-width:660px; margin:0 auto clamp(3rem,7vw,5rem);
+  padding:clamp(1.5rem,3.5vw,2.4rem);
+  background:var(--sk-card,#fff);
+  border-radius:22px; border:1px solid rgba(8,127,123,.10);
+  box-shadow:0 4px 10px rgba(7,17,22,.06), 0 32px 64px -28px rgba(7,17,22,.34);
 }
