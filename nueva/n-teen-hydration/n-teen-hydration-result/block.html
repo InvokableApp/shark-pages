@@ -88,6 +88,9 @@
 
       <p class="sk-teen-band" data-band-head>&nbsp;</p>
       <p class="sk-teen-sub" data-band-body>&nbsp;</p>
+      <!-- Printed copies only. A number with no date is a number somebody is still holding in
+           August, wondering whether it was a hot week. -->
+      <p class="sk-teen-printdate">Worked out on <span data-print-date></span>. Nueva Hydration Check.</p>
           <!-- ══ THE PRODUCT, INTRODUCED RIGHT UNDER THE NUMBER ═════════════════════════════
            Jeff, 2026-09-11: "the product needs to be introduced right under the result too."
            He is right and the reason is the gap: a parent has just been shown a shortfall, and
@@ -111,6 +114,22 @@
           <p class="sk-teen-intro-note">A free sample, no card. The full story is below.</p>
         </div>
       </div>
+
+      <!-- ⚠️ THE FALLBACK FOR THE EMAIL, AND A FEATURE IN ITS OWN RIGHT (Jeff, 2026-09-11: "can
+           we add a download my report button if we cant figure it out"). Emailing the number
+           depends on an unproven fact, whether a CONTACT merge field resolves inside a survey
+           routing rule's redirect URL. This does not depend on anything: every number is already
+           in this page, so the report is this page, printed.
+           ⚠️ window.print AND A PRINT STYLESHEET, not a PDF library. A hosted block cannot load a
+           third-party script (HOSTED-BLOCKS-SOP: the loader uses innerHTML), a CDN import would
+           be blocked anyway, and the browser's own "Save as PDF" is a better PDF than anything
+           bundled. The button is hidden when the page has no numbers, like everything else here. -->
+      <p class="sk-teen-print">
+        <button type="button" data-sk-print>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
+          Download my report
+        </button>
+      </p>
     </header>
 
     <!-- The state a direct visitor gets. It offers the only thing that would help them. -->
@@ -228,7 +247,7 @@
     </div>
 
     <!-- ── their comparison, condensed ──────────────────────────────────────────────────── -->
-    <div class="sk-teen-wrap">
+    <div class="sk-teen-wrap sk-teen-wrap--vs">
       <p class="sk-teen-kick">Nueva's own comparison</p>
       <h2>Against a typical hydration product</h2>
       <div class="sk-teen-vs">

@@ -440,3 +440,67 @@
 }
 .sk-teen .sk-teen-cta--intro{ margin:0 0 .6rem; padding:.85rem 1.5rem; font-size:.95rem; }
 .sk-teen .sk-teen-intro-note{ margin:0; color:rgba(255,255,255,.45); font-size:.76rem; }
+
+/* ── the print button ─────────────────────────────────────────────────────────────────────
+   Quiet. It sits under the offer and it is a convenience, not a second call to action: the page
+   has one of those and it is the free sample. */
+.sk-teen .sk-teen-print{ margin:1.4rem 0 0; text-align:center; }
+.sk-teen .sk-teen-print button{
+  display:inline-flex; align-items:center; gap:.5rem; cursor:pointer;
+  font:inherit; font-size:.84rem; font-weight:700; color:rgba(255,255,255,.62);
+  background:none; border:0; padding:.5rem .6rem; border-radius:8px;
+  text-decoration:underline; text-underline-offset:3px;
+}
+.sk-teen .sk-teen-print button svg{ width:16px; height:16px; }
+.sk-teen .sk-teen-print button:hover{ color:#fff; }
+.sk-teen .sk-teen-print button:focus-visible{ outline:3px solid var(--sk-lime,#7fe6e2); outline-offset:2px; }
+
+/* ── the printed report ───────────────────────────────────────────────────────────────────
+   ⚠️ THIS IS THE "DOWNLOAD MY REPORT" DELIVERABLE, so it is designed, not left to the browser.
+   What goes: the sticky bar, every button, the photograph, the infomercial and the fork. What
+   stays: the number, the bar, the band paragraph and the fine print, which is the whole of what
+   a parent asked for.
+   ⚠️ THE DARK HERO INVERTS. Printing #071116 edge to edge is a page of toner and an unreadable
+   sheet on most home printers, so the ground goes white and the type goes to ink. Every colour
+   below is stated literally for that reason, and print-color-adjust is deliberately NOT forced. */
+@media print{
+  .sk-teen .sk-teen-bar,
+  .sk-teen .sk-teen-photo,
+  .sk-teen .sk-teen-prodband,
+  .sk-teen .sk-teen-offer,
+  .sk-teen .sk-teen-fork,
+  .sk-teen .sk-teen-print,
+  .sk-teen .sk-teen-intro,
+  .sk-teen .sk-teen-cta,
+  .sk-teen .sk-teen-cols,
+  /* ⚠️ THE WHOLE SECTION, NOT JUST THE TABLE. Hiding .sk-teen-vs on its own left its kicker and
+     its headline behind: a printed page that says "Against a typical hydration product" and then
+     shows nothing. A print rule that hides content has to hide the heading that introduces it. */
+  .sk-teen .sk-teen-wrap--vs,
+  .sk-teen .sk-teen-vs{ display:none !important; }
+
+  .sk-teen, .sk-teen .sk-teen-top, .sk-teen .sk-teen-next{ background:#fff !important; }
+  .sk-teen .sk-teen-top::before, .sk-teen .sk-teen-offer::before{ display:none !important; }
+  .sk-teen .sk-teen-top{ width:auto; margin:0; }
+  .sk-teen .sk-teen-brandbar{ border-bottom:1px solid #d5dfe1; padding-inline:0; }
+  .sk-teen .sk-teen-mark{ color:#141313; }
+  .sk-teen .sk-teen-mark svg{ color:#087f7b; }
+  .sk-teen .sk-teen-by{ color:#5c6d71; }
+  .sk-teen .sk-teen-hero{ padding:1.5rem 0; }
+  .sk-teen .sk-teen-eyebrow{ color:#087f7b; }
+  .sk-teen .sk-teen-kicker,
+  .sk-teen .sk-teen-bottles,
+  .sk-teen .sk-teen-bar-key{ color:#4a5560; }
+  .sk-teen .sk-teen-bottles b, .sk-teen .sk-teen-bar-key b{ color:#141313; }
+  /* The clipped gradient prints as nothing at all on a printer that drops backgrounds, which
+     would remove the one number the report exists for. Flat ink instead. */
+  .sk-teen .sk-teen-big strong{ background:none !important; -webkit-text-fill-color:#087f7b; color:#087f7b !important; }
+  .sk-teen .sk-teen-big span{ color:#5c6d71; }
+  .sk-teen .sk-teen-band{ color:#141313; }
+  .sk-teen .sk-teen-sub{ color:#4a5560; }
+  .sk-teen .sk-teen-wrap{ padding:1.2rem 0; }
+  .sk-teen .sk-teen-fine{ color:#5c6d71; border-top:1px solid #d5dfe1; padding-top:1rem; }
+  .sk-teen .sk-teen-printdate{ display:block !important; color:#5c6d71; font-size:.78rem; margin:1.2rem 0 0; }
+}
+/* On screen the date line is not shown; it exists for the printed copy only. */
+.sk-teen .sk-teen-printdate{ display:none; }

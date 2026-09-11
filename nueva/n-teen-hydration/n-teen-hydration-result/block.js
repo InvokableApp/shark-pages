@@ -96,4 +96,25 @@
     "They drink about " + Math.round(i) + " ounces of about " + Math.round(n) + " ounces, roughly " + Math.round(p) + " percent.");
 
   show("[data-res]", true);
+
+  /* ── "Download my report" ────────────────────────────────────────────────────────────────
+     ⚠️ THE PAGE IS THE REPORT. Every number is already here, so printing it needs no library, no
+     CDN (a hosted block cannot load a third-party script anyway, HOSTED-BLOCKS-SOP) and no
+     server. The browser's own Save as PDF does the rest, and does it better.
+     ⚠️ THE PRINT STYLESHEET IS WHAT MAKES THIS A REPORT RATHER THAN A PRINTOUT. block.css hides
+     the sticky bar, the buttons and the infomercial at @media print, inverts the dark hero to ink
+     on white (nobody wants a page of toner) and adds the date. Change one and check the other. */
+  var printers = root.querySelectorAll("[data-sk-print]");
+  for (var j = 0; j < printers.length; j++) {
+    printers[j].addEventListener("click", function () { window.print(); });
+  }
+
+  /* The printed copy carries the date it was produced. A number with no date is a number somebody
+     will still be holding in August wondering whether it was a hot week. */
+  var stamp = root.querySelector("[data-print-date]");
+  if (stamp) {
+    try {
+      stamp.textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+    } catch (e) { /* a missing date is better than a broken page */ }
+  }
 })();
