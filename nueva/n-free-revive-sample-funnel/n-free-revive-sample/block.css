@@ -1102,3 +1102,18 @@
 /* The kicker sits on the mist panel, where #087F7B is 4.43:1. One notch deeper clears AA at 5.01
    and is indistinguishable at 11px. Same value as the hero pills, for the same reason. */
 .sk-prod-nva-revive .sk-prod-kicker{ color:#07766F; }
+
+/* ── header pill, second pass ───────────────────────────────────────────────────────────────
+   Still cramped after the first fix, because padding was the wrong lever: the pill is sized by
+   its own line-height plus padding, so shrinking the padding also shrank the pill and it kept the
+   same proportion of the bar. What it needed was an explicit height well under the bar's, so the
+   gap above and below is set deliberately instead of falling out of the type metrics. */
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-cta{
+  height:40px;
+  min-height:0;
+  padding:0 1.35rem;
+  display:inline-flex;
+  align-items:center;
+  line-height:1;
+  align-self:center;
+}
