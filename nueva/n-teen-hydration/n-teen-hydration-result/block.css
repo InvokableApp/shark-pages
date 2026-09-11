@@ -66,10 +66,18 @@
 }
 
 /* ── who is asking ─────────────────────────────────────────────────────────────────────────
-   The page had no wordmark anywhere. A stranger asking for your child's age, weight and sport
-   with no name attached is exactly the "toy" reading, and it is the cheapest thing on the page
-   to fix. The mark is the SVG from _brand/nueva, never a media-library URL. */
+   The mark is the SVG from _brand/nueva, never a media-library URL.
+
+   ⚠️ SCREEN: OFF. Jeff, 2026-09-11: "take off the hydration check header". By the time anyone
+   reaches this page they have already answered six questions on a page that named itself, so the
+   second wordmark only pushed the number down the fold. The sticky banner above now carries the
+   identity on screen.
+   ⚠️ PRINT: ON, and this is why the markup is still here rather than deleted. The sticky banner
+   is hidden at @media print, so removing this outright would have left the "Download my report"
+   deliverable as an anonymous sheet of numbers with a date on it. It is restored in the print
+   block below. Delete one and the other stops making sense. */
 .sk-teen .sk-teen-brandbar{
+  display:none;
   position:relative; z-index:2; max-width:1180px; margin:0 auto;
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
   padding:1.1rem clamp(1.25rem,5vw,3rem);
@@ -491,7 +499,8 @@
   .sk-teen, .sk-teen .sk-teen-top, .sk-teen .sk-teen-next{ background:#fff !important; }
   .sk-teen .sk-teen-top::before, .sk-teen .sk-teen-offer::before{ display:none !important; }
   .sk-teen .sk-teen-top{ width:auto; margin:0; }
-  .sk-teen .sk-teen-brandbar{ border-bottom:1px solid #d5dfe1; padding-inline:0; }
+  /* Back on for paper only: the report needs a name on it. */
+  .sk-teen .sk-teen-brandbar{ display:flex !important; border-bottom:1px solid #d5dfe1; padding-inline:0; }
   .sk-teen .sk-teen-mark{ color:#141313; }
   .sk-teen .sk-teen-mark svg{ color:#087f7b; }
   .sk-teen .sk-teen-by{ color:#5c6d71; }
