@@ -391,6 +391,10 @@
    half at exactly the point the number is supposed to land. */
 .sk-teen .sk-teen-stick{
   position:sticky; top:0; z-index:40;
+  /* Full-bleed, same escape as .sk-teen-top. Without it the bar sits inside GHL's row gutter
+     while the hero directly under it does not, and the page opens with a white margin either
+     side of the banner and none under it. Sticky and the 100vw trick compose fine. */
+  width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
   background:rgba(7,17,22,.92); backdrop-filter:blur(10px) saturate(1.2);
   border-bottom:1px solid rgba(255,255,255,.12);
 }
