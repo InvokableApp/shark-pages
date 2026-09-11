@@ -5,7 +5,7 @@
    Same measured Nueva palette as the kids preset: nuevalife.com/nuevaassets/css/style.css,
    #0ABAB5 is the brand colour. */
 .sk-calc.sk-calc-nva-teen{
-  --sk-brand:#0abab5;
+  --sk-brand:#0abab5;--sk-brand-text:#07766F;
   --sk-brand-d:#087F7B;
   --sk-accent:#087f7b;
   --sk-tint:#e8f8f6;

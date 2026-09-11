@@ -1,161 +1,161 @@
 {
- "system": "nueva",
- "blocks": [
-  {
-   "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read",
-   "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
-   "pageId": "goIvjBPPDid4pCifCsBy",
-   "elementId": "custom-code-8di8XCNqb2",
-   "elementTitle": "n-tone-and-tighten-guide-read",
-   "pattern": "A"
-  },
-  {
-   "path": "n-snow-slim-quiz/n-snow-slim-product",
-   "funnelId": "4JgMHmSkieZrRoyM0UoV",
-   "pageId": "hXfjcOPbzYYUomgJ18Gd",
-   "elementId": "custom-code-qkk6cijr4d",
-   "elementTitle": "n-snow-slim-product",
-   "pattern": "A"
-  },
-  {
-   "path": "n-snow-slim-quiz/n-snow-slim-snow-collagen-product",
-   "funnelId": "4JgMHmSkieZrRoyM0UoV",
-   "pageId": "F9Ty9dcvFqZndc5xRpGR",
-   "elementId": "custom-code-7bp0fb9vqd",
-   "elementTitle": "n-snow-slim-snow-collagen-product",
-   "pattern": "A"
-  },
-  {
-   "path": "n-snow-slim-quiz/n-snow-slim-body-product",
-   "funnelId": "4JgMHmSkieZrRoyM0UoV",
-   "pageId": "fRgULyBOTgMgLxZZ3H7X",
-   "elementId": "custom-code-cruc8dp6c3",
-   "elementTitle": "n-snow-slim-body-product",
-   "pattern": "A"
-  },
-  {
-   "path": "n-free-revive-sample-funnel/n-revive-sample-confirmed",
-   "funnelId": "9tN56Bs7l5GablgISUJx",
-   "pageId": "gIlFbSSTZkBx0uS2o6yu",
-   "elementId": "custom-code-ut8ghkhppd",
-   "elementTitle": "n-revive-sample-confirmed",
-   "pattern": "A"
-  },
-  {
-   "path": "how-to/n-snow-slim-quiz",
-   "funnelId": "4JgMHmSkieZrRoyM0UoV",
-   "pageId": "YdBH1TTTpSzid8CjLOIA",
-   "elementId": "custom-code-wfk4jc17jw",
-   "elementTitle": "n-snow-slim-quiz",
-   "pattern": "A"
-  },
-  {
-   "path": "how-to/n-tone-and-tighten-guide-funnel",
-   "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
-   "pageId": "cVUCMh8UlnIYKALSyFpb",
-   "elementId": "custom-code-wfk4jc17jw",
-   "elementTitle": "n-tone-and-tighten-guide-funnel",
-   "pattern": "A"
-  },
-  {
-   "path": "how-to/n-free-revive-sample-funnel",
-   "funnelId": "9tN56Bs7l5GablgISUJx",
-   "pageId": "Oiz3kjCIxkv7ha8OJN46",
-   "elementId": "custom-code-4qtlemkgy2",
-   "elementTitle": "n-free-revive-sample-funnel",
-   "pattern": "A"
-  },
-  {
-   "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation",
-   "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
-   "pageId": "5ad0X1tTTTEvhyEo0CpD",
-   "elementId": "custom-code-wfk4jc17jw",
-   "elementTitle": "n-tone-and-tighten-guide-confirmation",
-   "pattern": "A"
-  },
-  {
-   "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product",
-   "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
-   "pageId": "KkSzobaK1gJLrgWy71wv",
-   "elementId": "custom-code-4iwok1zft5",
-   "elementTitle": "n-tone-and-tighten-guide-product",
-   "pattern": "A"
-  },
-  {
-   "path": "n-your-marketing-links/n-marketing-links",
-   "funnelId": "TdwW3AoNtSaE9ZrmPIqE",
-   "pageId": "XEKpgMyUr5ArfYiVBKWy",
-   "elementId": "custom-code-hw3eybb26y",
-   "elementTitle": "n-marketing-links",
-   "pattern": "A"
-  },
-  {
-   "path": "n-caffeine-curve/n-caffeine-curve",
-   "funnelId": "7IYVHCyGkaMhYHBmMwQY",
-   "pageId": "0gOjhdWQL1XmFyGckYSP",
-   "elementId": "custom-code-yd9h956wzv",
-   "elementTitle": "n-caffeine-curve",
-   "pattern": "A"
-  },
-  {
-   "path": "n-caffeine-curve/n-caffeine-curve-result",
-   "funnelId": "7IYVHCyGkaMhYHBmMwQY",
-   "pageId": "OcUWPQ6S51PJZIr5uDfF",
-   "elementId": "custom-code-lrimo17i5s",
-   "elementTitle": "n-caffeine-curve-result",
-   "pattern": "A"
-  },
-  {
-   "path": "n-caffeine-curve/n-caffeine-curve-how-to",
-   "funnelId": "7IYVHCyGkaMhYHBmMwQY",
-   "pageId": "tvUXhwsb2APOHhEo1ksy",
-   "elementId": "custom-code-ybmtzjxx5h",
-   "elementTitle": "n-caffeine-curve-how-to",
-   "pattern": "A"
-  },
-  {
-   "path": "n-teen-hydration/n-teen-hydration",
-   "funnelId": "ccwqIx41IPl8mPxt9xIm",
-   "pageId": "HrLuGBClzUvpOp9f9Wsh",
-   "elementId": "custom-code-qwdr2vbp3c",
-   "elementTitle": "n-teen-hydration",
-   "pattern": "A"
-  },
-  {
-   "path": "n-teen-hydration/n-teen-hydration-result",
-   "funnelId": "ccwqIx41IPl8mPxt9xIm",
-   "pageId": "XCGmk1dYi59eNNHyKzA7",
-   "elementId": "custom-code-2ndpbna335",
-   "elementTitle": "n-teen-hydration-result",
-   "pattern": "A"
-  },
-  {
-   "path": "n-teen-hydration/n-teen-hydration-how-to",
-   "funnelId": "ccwqIx41IPl8mPxt9xIm",
-   "pageId": "32gdnw84yde1YD9cbytC",
-   "elementId": "custom-code-gqd7pxtlwb",
-   "elementTitle": "n-teen-hydration-how-to",
-   "pattern": "A"
-  }
- ],
- "installs": [
-  {
-   "path": "nueva---your-marketing-links/nueva-marketing-links",
-   "funnelId": "ZSoXULfLVi09SdWF7bBY",
-   "pageId": "BPtW8Oo2xU9EhaUI1g5e",
-   "elementId": "custom-code-8di8XCNqb2",
-   "elementTitle": "Custom Code",
-   "pattern": "A",
-   "locationId": "ucXosnBgZ6FxqeEBuApn"
-  },
-  {
-   "path": "n-your-marketing-links/n-marketing-links",
-   "funnelId": "TdwW3AoNtSaE9ZrmPIqE",
-   "pageId": "XEKpgMyUr5ArfYiVBKWy",
-   "elementId": "custom-code-hw3eybb26y",
-   "elementTitle": "n-marketing-links",
-   "pattern": "A",
-   "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
-  }
- ]
+  "system": "nueva",
+  "blocks": [
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "goIvjBPPDid4pCifCsBy",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "n-tone-and-tighten-guide-read",
+      "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "hXfjcOPbzYYUomgJ18Gd",
+      "elementId": "custom-code-qkk6cijr4d",
+      "elementTitle": "n-snow-slim-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-snow-collagen-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "F9Ty9dcvFqZndc5xRpGR",
+      "elementId": "custom-code-7bp0fb9vqd",
+      "elementTitle": "n-snow-slim-snow-collagen-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-snow-slim-quiz/n-snow-slim-body-product",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "fRgULyBOTgMgLxZZ3H7X",
+      "elementId": "custom-code-cruc8dp6c3",
+      "elementTitle": "n-snow-slim-body-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-free-revive-sample-funnel/n-revive-sample-confirmed",
+      "funnelId": "9tN56Bs7l5GablgISUJx",
+      "pageId": "gIlFbSSTZkBx0uS2o6yu",
+      "elementId": "custom-code-ut8ghkhppd",
+      "elementTitle": "n-revive-sample-confirmed",
+      "pattern": "A"
+    },
+    {
+      "path": "how-to/n-snow-slim-quiz",
+      "funnelId": "4JgMHmSkieZrRoyM0UoV",
+      "pageId": "YdBH1TTTpSzid8CjLOIA",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-snow-slim-quiz",
+      "pattern": "A"
+    },
+    {
+      "path": "how-to/n-tone-and-tighten-guide-funnel",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "cVUCMh8UlnIYKALSyFpb",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-tone-and-tighten-guide-funnel",
+      "pattern": "A"
+    },
+    {
+      "path": "how-to/n-free-revive-sample-funnel",
+      "funnelId": "9tN56Bs7l5GablgISUJx",
+      "pageId": "Oiz3kjCIxkv7ha8OJN46",
+      "elementId": "custom-code-4qtlemkgy2",
+      "elementTitle": "n-free-revive-sample-funnel",
+      "pattern": "A"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "5ad0X1tTTTEvhyEo0CpD",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-tone-and-tighten-guide-confirmation",
+      "pattern": "A"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product",
+      "funnelId": "ZzPMiKGtBajkJxiJ0kfE",
+      "pageId": "KkSzobaK1gJLrgWy71wv",
+      "elementId": "custom-code-4iwok1zft5",
+      "elementTitle": "n-tone-and-tighten-guide-product",
+      "pattern": "A"
+    },
+    {
+      "path": "n-your-marketing-links/n-marketing-links",
+      "funnelId": "TdwW3AoNtSaE9ZrmPIqE",
+      "pageId": "XEKpgMyUr5ArfYiVBKWy",
+      "elementId": "custom-code-hw3eybb26y",
+      "elementTitle": "n-marketing-links",
+      "pattern": "A"
+    },
+    {
+      "path": "n-caffeine-curve/n-caffeine-curve",
+      "funnelId": "7IYVHCyGkaMhYHBmMwQY",
+      "pageId": "0gOjhdWQL1XmFyGckYSP",
+      "elementId": "custom-code-yd9h956wzv",
+      "elementTitle": "n-caffeine-curve",
+      "pattern": "A"
+    },
+    {
+      "path": "n-caffeine-curve/n-caffeine-curve-result",
+      "funnelId": "7IYVHCyGkaMhYHBmMwQY",
+      "pageId": "OcUWPQ6S51PJZIr5uDfF",
+      "elementId": "custom-code-lrimo17i5s",
+      "elementTitle": "n-caffeine-curve-result",
+      "pattern": "A"
+    },
+    {
+      "path": "n-caffeine-curve/n-caffeine-curve-how-to",
+      "funnelId": "7IYVHCyGkaMhYHBmMwQY",
+      "pageId": "tvUXhwsb2APOHhEo1ksy",
+      "elementId": "custom-code-ybmtzjxx5h",
+      "elementTitle": "n-caffeine-curve-how-to",
+      "pattern": "A"
+    },
+    {
+      "path": "n-teen-hydration/n-teen-hydration",
+      "funnelId": "ccwqIx41IPl8mPxt9xIm",
+      "pageId": "HrLuGBClzUvpOp9f9Wsh",
+      "elementId": "custom-code-qwdr2vbp3c",
+      "elementTitle": "n-teen-hydration",
+      "pattern": "A"
+    },
+    {
+      "path": "n-teen-hydration/n-teen-hydration-result",
+      "funnelId": "ccwqIx41IPl8mPxt9xIm",
+      "pageId": "XCGmk1dYi59eNNHyKzA7",
+      "elementId": "custom-code-2ndpbna335",
+      "elementTitle": "n-teen-hydration-result",
+      "pattern": "A"
+    },
+    {
+      "path": "n-teen-hydration/n-teen-hydration-how-to",
+      "funnelId": "ccwqIx41IPl8mPxt9xIm",
+      "pageId": "32gdnw84yde1YD9cbytC",
+      "elementId": "custom-code-gqd7pxtlwb",
+      "elementTitle": "n-teen-hydration-how-to",
+      "pattern": "A"
+    }
+  ],
+  "installs": [
+    {
+      "path": "nueva---your-marketing-links/nueva-marketing-links",
+      "funnelId": "ZSoXULfLVi09SdWF7bBY",
+      "pageId": "BPtW8Oo2xU9EhaUI1g5e",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ucXosnBgZ6FxqeEBuApn"
+    },
+    {
+      "path": "n-your-marketing-links/n-marketing-links",
+      "funnelId": "TdwW3AoNtSaE9ZrmPIqE",
+      "pageId": "XEKpgMyUr5ArfYiVBKWy",
+      "elementId": "custom-code-hw3eybb26y",
+      "elementTitle": "n-marketing-links",
+      "pattern": "A",
+      "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+    }
+  ]
 }
