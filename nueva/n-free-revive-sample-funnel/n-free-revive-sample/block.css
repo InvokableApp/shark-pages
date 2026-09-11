@@ -21,7 +21,7 @@
   --ig-display: Montserrat,"Helvetica Neue",Arial,sans-serif;
   --ig-ease: cubic-bezier(.22,.61,.36,1);
   --ig-ember: #0abab5;
-  --ig-faint: #8aa0a4;
+  --ig-faint: #5c6d71;   /* was #8aa0a4: 2.72:1 on paper. Text-only token (1 use), so the value moves rather than the rule. */
   --ig-flare: #087F7B;
   --ig-frost: #141313;
   --ig-hair: #d5dfe1;
@@ -893,3 +893,208 @@
    wants. --ig-frost now means "ink", so the dark-band text gets its own token rather than a
    literal, and there is one place to change it. */
 .sk-prod-nva-revive{ --ig-frost-on-dark:#e8f8f6; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════
+   DESIGN PASS — 2026-09-11
+   Jeff: "the pink shaddow on the buttons, the crwded button in the header.... cmon, use your
+   design skills and make this page a showstopper"
+
+   Everything below overrides a donor rule rather than editing it, so the fork's history stays
+   readable and this pass can be lifted out in one block.
+
+   THE DIAGNOSIS. IGNYT's design language was neon on black: every button and card carried a
+   saturated glow at .5 to .75 alpha, which on a black page reads as light and is the whole look.
+   Ported onto Nueva's cream page, the same glows have nothing to glow against, so they render as
+   coloured haze pooling under every element. That is the "pink shadow", and it stayed wrong after
+   the hue was corrected from orange to teal, because the problem was never the hue.
+
+   THE REPLACEMENT. A real elevation ramp in Nueva's own near-black, two layers: a tight contact
+   shadow that gives an edge, and a wide soft one that gives lift. Colour is carried by the
+   element, not by its shadow. The primary CTA keeps ONE restrained teal tint so it still feels
+   branded rather than grey.
+   ═══════════════════════════════════════════════════════════════════════════════════════════ */
+.sk-prod-nva-revive{
+  --nva-e1: 0 1px 2px rgba(7,17,22,.05), 0 2px 6px -2px rgba(7,17,22,.10);
+  --nva-e2: 0 2px 4px rgba(7,17,22,.05), 0 12px 28px -12px rgba(7,17,22,.20);
+  --nva-e3: 0 4px 8px rgba(7,17,22,.05), 0 28px 56px -24px rgba(7,17,22,.26);
+  /* the one place a colour is allowed into a shadow, and it sits under the teal it belongs to */
+  --nva-cta:   0 2px 4px rgba(7,17,22,.08), 0 14px 30px -14px rgba(8,127,123,.55);
+  --nva-cta-h: 0 3px 6px rgba(7,17,22,.10), 0 22px 44px -18px rgba(8,127,123,.60);
+}
+
+/* ── primary CTA ────────────────────────────────────────────────────────────────────────── */
+.sk-prod-nva-revive .sk-prod-btn{
+  box-shadow:var(--nva-cta);
+  border-radius:999px;
+  transition:box-shadow .25s var(--ig-ease), transform .18s var(--ig-ease), background-color .2s var(--ig-ease);
+}
+.sk-prod-nva-revive .sk-prod-btn:hover{ box-shadow:var(--nva-cta-h); transform:translateY(-1px); }
+.sk-prod-nva-revive .sk-prod-btn:active{ transform:translateY(0); box-shadow:var(--nva-e1); }
+
+/* ── the header ─────────────────────────────────────────────────────────────────────────────
+   Two separate faults. The pill was 0.72rem of vertical padding inside a 76px bar, so it nearly
+   touched both edges, and its glow spilled THROUGH the bar's bottom border onto the page below,
+   which is the peach smear under the header in Jeff's screenshot. A glow inside a fixed bar can
+   never be contained; the fix is not a smaller glow, it is no glow. The bar also had no end
+   padding, so the pill sat flush against the viewport edge. */
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-in{
+  gap:2rem;
+  padding-inline:clamp(1.1rem,3.5vw,2.6rem);
+}
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-cta{
+  padding:.62rem 1.25rem;
+  font-size:.735rem;
+  letter-spacing:.08em;
+  border-radius:999px;
+  box-shadow:none;                      /* contained: nothing to spill past the bar */
+  background:var(--ig-ember);           /* bright teal reads as a highlight ON the dark bar */
+  color:var(--ig-black);                /* 7.7:1, and warmer than white against the navy */
+}
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-cta:hover{
+  background:var(--ig-lime,#5fd9d5);
+  box-shadow:none;
+  transform:none;
+}
+/* The links were 1.6rem apart and butted straight into the pill. Give the group room to breathe
+   and let it centre properly between wordmark and CTA. */
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-links{ gap:2.1rem; margin-inline:auto; }
+.sk-prod-nva-revive .sk-prod-nva-revive-nav-links a{ font-size:.72rem; letter-spacing:.16em; }
+
+/* ── hero: depth instead of haze ────────────────────────────────────────────────────────────
+   The halo was a .42-alpha teal radial, which on cream is a visible cyan cloud rather than light
+   behind a product. Pulled back to a whisper so it lifts the shot without announcing itself. */
+.sk-prod-nva-revive .sk-prod-halo{
+  background:radial-gradient(circle at 50% 55%,rgba(10,186,181,.16),rgba(95,217,213,.06) 45%,transparent 72%);
+}
+/* The donor comment above warns off `filter`, because the parallax transform creates a stacking
+   context. box-shadow is not a filter and is unaffected, and the shot is now an ordinary
+   rectangular photograph rather than the alpha-baked cutout that comment was written for. So it
+   gets treated as what it is: a framed image. */
+.sk-prod-nva-revive .sk-prod-hero-shot img{
+  border-radius:20px;
+  box-shadow:var(--nva-e3);
+}
+
+/* ── headline ───────────────────────────────────────────────────────────────────────────────
+   Tighter leading so four short lines read as one block, and the accent word finally clears AA:
+   the ramp started at #0ABAB5, which is 2.39:1 on paper where even large text wants 3:1. */
+.sk-prod-nva-revive .sk-prod-h1{
+  line-height:.92;
+  letter-spacing:-.03em;
+}
+.sk-prod-nva-revive .sk-prod-accent{
+  /* ⚠️ background-image, NOT the `background` shorthand. The donor rule sets `background:` and
+     then `background-clip:text`; a later `background:` shorthand RESETS background-clip to
+     border-box, which stops clipping the gradient to the glyphs and paints it as a solid teal
+     rectangle over the word. Caught on the first render of this pass. */
+  background-image:linear-gradient(96deg,#0a9d99,var(--ig-spark));
+}
+
+/* ── the pills ──────────────────────────────────────────────────────────────────────────────
+   Four tags, one of them three times the width of the others, so the row broke 3 + 1 and left
+   "No measuring" stranded on its own line. Tightening the type and the padding lets all four sit
+   on two balanced rows at any width instead of one ragged one. */
+.sk-prod-nva-revive .sk-prod-hero-tags{ gap:.5rem; }
+.sk-prod-nva-revive .sk-prod-hero-tags li{
+  /* ⚠️ NOT --ig-frost. That token was remapped to INK earlier in this file, so reaching for it
+     by its donor meaning paints a near-black pill. The mist lives in --sk-mist / --nva-mist. */
+  background:var(--nva-mist,#e8f8f6);
+  border:1px solid rgba(8,127,123,.18);
+  /* #087F7B is 4.43:1 on the mist fill, just under AA. One notch deeper clears it at 5.01 and is
+     indistinguishable at 11px. */
+  color:#07766F;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  padding:.44rem .8rem;
+  text-transform:uppercase;
+  border-radius:999px;
+}
+
+/* ── the CTA row ────────────────────────────────────────────────────────────────────────────
+   "What does it taste like?" was a bottom-bordered link sitting at the same optical weight as a
+   large filled pill, directly beside it, so the two competed. It becomes a quiet secondary. */
+.sk-prod-nva-revive .sk-prod-cta-row{ align-items:center; gap:1.6rem; }
+.sk-prod-nva-revive .sk-prod-btn-ghost{
+  border-bottom:0;
+  color:var(--ig-spark);
+  font-size:.86rem;
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:.32em;
+  text-decoration-thickness:1px;
+  text-decoration-color:rgba(8,127,123,.35);
+}
+.sk-prod-nva-revive .sk-prod-btn-ghost:hover{ text-decoration-color:var(--ig-spark); }
+/* ⚠️ NO OPACITY ON TEXT, and the colour lives on --ig-faint above rather than here. A flat
+   override at this selector loses anyway: the donor rule is three classes deep and wins on
+   specificity, which is why the first attempt at this changed nothing while looking correct. */
+
+/* ── the rest of the elevation, de-neoned ───────────────────────────────────────────────────
+   Same treatment for every remaining card, panel and strip that carried a coloured halo. */
+.sk-prod-nva-revive .sk-prod-card,
+.sk-prod-nva-revive .sk-prod-pillar,
+.sk-prod-nva-revive .sk-prod-nva-revive-faq-list details{ box-shadow:var(--nva-e1); }
+.sk-prod-nva-revive .sk-prod-nva-revive-covered{ background:var(--nva-mist,#e8f8f6); border-left-width:3px; }
+
+/* The same fine print also appears inside the dark closing CTA band, where a muted colour tuned
+   for cream is 3.53:1. Muted-on-dark is its own value; matched to the donor's three-class
+   specificity or it loses silently. */
+.sk-prod-nva-revive .sk-prod-nva-revive-cta-in .sk-prod-nva-revive-avail,
+.sk-prod-nva-revive .sk-prod-close .sk-prod-nva-revive-claim .sk-prod-nva-revive-avail{ color:#9ab0b4; }
+
+/* ── the closing band ───────────────────────────────────────────────────────────────────────
+   ⚠️ THE CONTRAST GATE CANNOT SEE THIS SECTION. Its background is a photograph, and an image
+   background is opaque with a colour that is unknowable from CSS, so check-contrast.mjs skips
+   every element on it rather than guess. It reported this page 100% clean while the closing
+   headline was near-black on mid-grey. Measured tools have edges; this one is the edge.
+
+   WHAT BROKE IT. The donor's texture was embers photographed on black, and `mix-blend-mode:
+   screen` at .5 dropped the black and left the embers glowing. Nueva's replacement texture is a
+   PALE TEAL WASH. Screen keeps the lighter of the two everywhere, so a light plate over a
+   near-black section returns the light plate: the band stopped being dark at all and every
+   piece of type on it, still coloured for a dark ground, landed on grey.
+
+   Screen is correct for a bright subject on black and wrong for everything else. The plate now
+   sits at low opacity with no blend, which is what a texture over a dark ground actually wants,
+   and the band is dark again. */
+.sk-prod-nva-revive .sk-prod-close::before{
+  mix-blend-mode:normal;
+  opacity:.16;
+}
+/* With the band dark again, its type goes back to the on-dark values. --ig-frost means INK now,
+   so the closing headline had been quietly asking for near-black on near-black. */
+.sk-prod-nva-revive .sk-prod-close-h,
+.sk-prod-nva-revive .sk-prod-close .sk-prod-sub,
+.sk-prod-nva-revive .sk-prod-close .sk-prod-lede{ color:var(--ig-frost-on-dark); }
+.sk-prod-nva-revive .sk-prod-close .sk-prod-kicker,
+.sk-prod-nva-revive .sk-prod-close .sk-prod-eyebrow{ color:var(--ig-lime,#5fd9d5); }
+/* The FDA disclaimer is the one sentence on this page that has to be legible no matter what. */
+.sk-prod-nva-revive .sk-prod-fine{ color:#9ab0b4; }
+
+/* ── every remaining dark band, in one place ────────────────────────────────────────────────
+   ⚠️ THIS PAGE IS NOT ALL-LIGHT AND NOT ALL-DARK, AND THAT IS THE WHOLE TRAP. The donor was a
+   dark page throughout, so every text rule in it names a light colour. Nueva's fork turned the
+   MAJORITY of sections light, which is why --ig-frost was repointed from mist to ink. But four
+   bands kept the donor's dark treatment deliberately, and on those the repointed token is now
+   near-black on near-black. Fixing them one screenshot at a time is how the closing band and the
+   people grid each cost a separate round trip.
+
+   So: the dark bands are enumerated here, once, and everything inside them takes the on-dark
+   values. A new dark section goes in this list, and the contrast gate cannot be trusted to find
+   it, because every one of these carries a photo or gradient the probe declines to score. */
+.sk-prod-nva-revive .sk-prod-nva-revive-people,
+.sk-prod-nva-revive .sk-prod-nva-revive-faq,
+.sk-prod-nva-revive .sk-prod-nva-revive-cta-in{
+  --ig-frost:var(--ig-frost-on-dark);   /* rebind INSIDE the band: every child rule follows */
+  --ig-body:#9ab0b4;
+  --ig-faint:#8fa5a9;
+}
+.sk-prod-nva-revive .sk-prod-nva-revive-people .sk-prod-kicker,
+.sk-prod-nva-revive .sk-prod-nva-revive-faq .sk-prod-kicker{ color:var(--ig-lime,#5fd9d5); }
+/* Cards sitting ON a dark band are still light cards, so they must NOT inherit the rebind. */
+.sk-prod-nva-revive .sk-prod-nva-revive-faq .sk-prod-card,
+.sk-prod-nva-revive .sk-prod-nva-revive-faq details{
+  --ig-frost:#141313;
+  --ig-body:#4a5560;
+  --ig-faint:#5c6d71;
+}
