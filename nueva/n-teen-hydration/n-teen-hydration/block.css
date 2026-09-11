@@ -284,7 +284,17 @@
 /* ── "How we work it out" ──────────────────────────────────────────────────────────────────
    A disclosure, closed by default: the hero is 100vh on desktop and the CTA has to stay above
    the fold. Styled to read as an offered explanation rather than more fine print. */
-.sk-teen .sk-teen-method{ max-width:44rem; margin:0 auto 1rem; text-align:left; }
+.sk-teen .sk-teen-method{
+  /* ⚠️ position:relative + z-index:2, THE SAME LIFT .sk-teen-fine CARRIES. Without it the label
+     sat UNDER .sk-teen-scrim, the hero's gradient overlay, and did not appear. It was painting
+     the whole time: computed colour white, opacity 1, 143x16 of layout reserved. The chevron
+     looked fine only because it sits where the gradient is still transparent. Diagnosed with
+     elementFromPoint at the label's centre, which named the scrim; three guesses before that
+     (text-fill-color, a bare text node in an inline-flex summary, the font) were all wrong. */
+  position:relative; z-index:2;
+  max-width:1180px; margin:0 auto; padding:0 clamp(1.25rem,5vw,3rem);
+  text-align:left;
+}
 .sk-teen .sk-teen-method summary{
   cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:.45rem;
   font-size:.84rem; font-weight:700; letter-spacing:.02em;
@@ -302,8 +312,6 @@
 .sk-teen .sk-teen-method p{
   margin:.55rem 0 0; font-size:.84rem; line-height:1.6; color:rgba(255,255,255,.62);
 }
-/* ⚠️ THE LABEL IS IN A <span>, NOT A BARE TEXT NODE. With the summary at display:inline-flex the
-   bare text reserved its 157px of layout and never painted, while the ::before chevron in the same
-   element rendered fine. Measured, not guessed: computed color was rgba(255,255,255,.78),
-   opacity 1, -webkit-text-fill-color white. An explicit flex item paints. */
+/* The label is wrapped in a <span>. That was added chasing a wrong diagnosis (the real cause was
+   the scrim, see above) and is kept only because an explicit flex item is the clearer markup. */
 .sk-teen .sk-teen-method summary span{ display:inline-block; }
