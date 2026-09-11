@@ -77,11 +77,14 @@
    deliverable as an anonymous sheet of numbers with a date on it. It is restored in the print
    block below. Delete one and the other stops making sense. */
 .sk-teen .sk-teen-brandbar{
-  display:none;
   position:relative; z-index:2; max-width:1180px; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  /* ⚠️ display:none LIVES HERE, NOT ABOVE THE OTHER DECLARATIONS. A first pass added it as the
+     rule's first line and lost to the `display:flex` three lines down: same rule, same
+     specificity, last one wins. The flex properties are kept because print turns it back on. */
+  align-items:center; justify-content:space-between; gap:1rem;
   padding:1.1rem clamp(1.25rem,5vw,3rem);
   border-bottom:1px solid rgba(255,255,255,.13);
+  display:none;
 }
 .sk-teen .sk-teen-mark{
   display:inline-flex; align-items:center; gap:.55rem; color:#fff;
