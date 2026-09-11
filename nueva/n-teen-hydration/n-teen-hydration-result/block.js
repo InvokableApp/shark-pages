@@ -118,3 +118,24 @@
     } catch (e) { /* a missing date is better than a broken page */ }
   }
 })();
+
+/* ── every CTA opens the page's native popup ───────────────────────────────────────────────
+   Jeff, 2026-09-11: "every cta on the page should be a free sample cta that opens the popup".
+   The popup holds the DM-the-rep button, so the page itself now navigates nowhere except back to
+   the lander and the how-to.
+
+   ⚠️ NO POPUP ID. A no-argument `customWidgetOpenPopup` resolves to popupList[0], and popup ids
+   (`hl_main_popup-<random>`) are minted per page and RE-MINTED on snapshot install, so a
+   hardcoded one works here and silently does nothing in every buyer account.
+   ⚠️ ONE POPUP PER PAGE IS THEREFORE A CONSTRAINT. Add a second and popupList[0] is whichever
+   GHL happens to order first. */
+(function () {
+  var root = document.querySelector(".sk-teen-res");
+  if (!root) return;
+  var open = function (e) {
+    e.preventDefault();
+    window.dispatchEvent(new Event("customWidgetOpenPopup"));
+  };
+  var btns = root.querySelectorAll("[data-sk-popup]");
+  for (var i = 0; i < btns.length; i++) btns[i].addEventListener("click", open);
+})();

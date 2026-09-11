@@ -50,7 +50,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
         <b>Nueva Revive</b><span>free sample, no card</span>
       </span>
-      <a class="sk-teen-cta sk-teen-cta--stick" href="https://{{custom_values.nueva_main_url}}/n-free-revive-sample">Try The Product, Free</a>
+      <button type="button" class="sk-teen-cta sk-teen-cta--stick" data-sk-popup>Try The Product, Free</button>
     </div>
   </div>
 
@@ -107,10 +107,10 @@
           <p class="sk-teen-intro-kick">For what the sweat took out</p>
           <p class="sk-teen-intro-name">Nueva Revive</p>
           <p class="sk-teen-intro-sub">One sachet in 8 to 12 oz of water, swapped in for one of those bottles.</p>
-          <a class="sk-teen-cta sk-teen-cta--intro" href="https://{{custom_values.nueva_main_url}}/n-free-revive-sample">
+          <button type="button" class="sk-teen-cta sk-teen-cta--intro" data-sk-popup>
             Try It Free
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <p class="sk-teen-intro-note">A free sample, no card.</p>
         </div>
       </div>
@@ -289,10 +289,10 @@
           <!-- ⚠️ THE SCHEME IS TYPED AND THE DOMAIN IS THE CUSTOM VALUE. nueva_main_url is stored
                WITHOUT https:// by house convention, so a bare href is a push-block hard gate and a
                broken relative path. No funnel path segment: steps resolve at the domain root. -->
-          <a class="sk-teen-cta sk-teen-cta--big" href="https://{{custom_values.nueva_main_url}}/n-free-revive-sample">
+          <button type="button" class="sk-teen-cta sk-teen-cta--big" data-sk-popup>
             Claim The Free Sample
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <p class="sk-teen-offer-note">30 day risk free guarantee on anything you buy later. 4.9 average rating.</p>
         </div>
         <div class="sk-teen-offer-shot">
@@ -304,23 +304,19 @@
     <div class="sk-teen-wrap">
       <div class="sk-teen-fork">
         <p class="sk-teen-fork-head">Not sure it is right for your athlete?</p>
-        <p class="sk-teen-fork-sub">Ask first. Pick whichever is easier, same person either way.</p>
+        <!-- ⚠️ THIS SECTION USED TO FORK TWO WAYS, sms: and Messenger, and it no longer can.
+             Jeff, 2026-09-11: "every cta on the page should be a free sample cta that opens the
+             popup". A button labelled "Text a rep" that opens a popup instead of the SMS app is a
+             lie about its own destination, so the choice of channel moved INSIDE the popup, where
+             the rep's DM button lives. One button, one promise. -->
+        <p class="sk-teen-fork-sub">Ask when you claim the sample. It goes to a person, not a form.</p>
         <div class="sk-teen-fork-btns">
-          <!-- ⚠️ Scheme hardcoded, rest is the custom value, same reason as above. -->
-          <a class="sk-teen-cta sk-teen-cta--alt" href="sms:{{custom_values.nueva_rep_sms}}">
+          <button type="button" class="sk-teen-cta sk-teen-cta--alt" data-sk-popup>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
-            Text a rep
-          </a>
-          <!-- ⚠️ THIS GOES THROUGH THE FUNNEL'S "Redirect DM" STEP, NOT STRAIGHT AT THE CV.
-               An outbound <a> to Facebook is invisible to GHL: no pageview, so no trigger, so
-               nothing can tell the rep that someone is on their way into Messenger. The step is a
-               blank page whose only field is redirectUrl -> {{custom_values.nueva_rep_messenger}},
-               which makes the click-out a PAGEVIEW and therefore observable. -->
-          <a class="sk-teen-cta sk-teen-cta--alt" href="https://{{custom_values.nueva_main_url}}/n-teen-hydration-redirect-dm">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c5 0 9 3.7 9 8.3 0 4.6-4 8.3-9 8.3a10 10 0 0 1-2.6-.3L5 21l.9-3.3A8 8 0 0 1 3 11.3C3 6.7 7 3 12 3z"/><path d="m7.5 13.5 3-3.2 2.2 2.2 3.3-3.3"/></svg>
-            Message on Facebook
-          </a>
+            Ask For A Free Sample
+          </button>
         </div>
+      </div>
       </div>
 
       <p class="sk-teen-fine">
