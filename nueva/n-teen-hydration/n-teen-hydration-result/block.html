@@ -1,4 +1,131 @@
-<!-- Teen Hydration Check · result · socket nueva/n-teen-hydration/n-teen-hydration-result -->
-<div class="sk-conf sk-conf-nva">
-  <!-- content -->
+<!--
+  nueva/n-teen-hydration/n-teen-hydration-result
+  Step 2 of the Teen Hydration Check funnel. This is where the NUMBER gets shown.
+
+  ⚠️ EVERY NUMBER ON THIS PAGE ARRIVES IN THE QUERY STRING, and that is the whole architecture.
+  A native GHL survey cannot do arithmetic: it matches exact answer strings and redirects. So the
+  survey's 240 conditional rules are a LOOKUP TABLE. Each rule knows its own combination of
+  weight, hours, heat and bottles, so 06-routing.mjs computes that combination's answer with
+  hydration() in _lib.mjs and writes the result into the rule's redirect URL as literals:
+
+      /n-teen-hydration-result?n=106&i=48&g=58&nb=6.6&gb=3.6&p=45&b=wellShort
+
+        n   ounces a body that size, doing that much, in that heat, would use in a day
+        i   ounces they actually drink, from the bottles answer
+        g   the gap, in ounces                 nb / gb  the same two, in 16 oz bottles
+        p   intake as a percentage of need     b   which of the four bands that lands in
+
+  ⚠️ SO THE NAMES ARE A CONTRACT WITH 06-routing.mjs. Rename one here and 240 rules go on sending
+  the old key: the page reads undefined, shows the no-numbers state, and nothing errors anywhere.
+
+  ⚠️ AND THE PAGE RECOMPUTES NOTHING. It is given the answer. That is deliberate: two copies of a
+  formula drift, and the survey's copy is the one that decided which page the visitor is on.
+
+  ⚠️ NO PRODUCT IS NAMED ON THIS PAGE. Not Revive, not any ingredient. Two reasons and both hold
+  independently: the offer belongs on the next step, and Nueva publishes no supplement facts panel
+  for Revive (probed 2026-09-11: not on the product page, not in the DOM, image slots 2-5 are
+  149-byte placeholders), so there is no dose, no sugar figure and no confirmation of what is in it
+  for a teenager. SHILAJIT is also still open with the company: eight of the nine ingredients are
+  ordinary sports-drink components and that one is commonly labelled adults-only.
+  → NUEVASHARK/_assets/product/SOURCE.md
+
+  ⚠️ WHICH MEANS THE THREE "WHAT USUALLY CLOSES IT" LINES ARE ABOUT TIMING, NOT ABOUT A PRODUCT.
+  Before, during, after. That is advice about when to drink water, it names no ingredient and
+  promises no outcome, and it stays true whatever the panel turns out to say.
+
+  ⚠️ IT ADDRESSES THE PARENT, NEVER THE TEENAGER. "Your athlete", never "you".
+-->
+<div class="sk-teen sk-teen-res">
+
+  <div class="sk-teen-top">
+    <div class="sk-teen-brandbar">
+      <span class="sk-teen-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        Hydration Check
+      </span>
+      <span class="sk-teen-by">Their result</span>
+    </div>
+
+    <!-- ⚠️ SHIPS HIDDEN AND IS REVEALED BY block.js ONLY WHEN THE NUMBERS PARSE. If someone opens
+         this URL directly, or a rule ever sends a malformed one, the page must not show "About
+         undefined oz" or a zero that reads like a real answer. The no-numbers state below is what
+         they get instead, and it is the DEFAULT state, not the error state: nothing is hidden
+         until JS proves it has something to show. -->
+    <header class="sk-teen-hero" data-res hidden>
+      <p class="sk-teen-eyebrow">On a day like the one you described</p>
+
+      <p class="sk-teen-kicker">Your athlete would use about</p>
+      <p class="sk-teen-big"><strong data-n>0</strong><span>oz</span></p>
+      <p class="sk-teen-bottles">roughly <b data-nb>0</b> bottles, at 16 oz a bottle</p>
+
+      <!-- The bar is the argument. Two numbers in a sentence are an assertion; the same two as
+           lengths are something a parent can see without doing arithmetic. -->
+      <div class="sk-teen-bar" role="img" data-bar-label>
+        <span class="sk-teen-bar-fill" data-fill></span>
+        <span class="sk-teen-bar-mark"></span>
+      </div>
+      <p class="sk-teen-bar-key">
+        <span><i class="sk-teen-dot sk-teen-dot--in"></i>They drink about <b data-i>0</b> oz</span>
+        <span><i class="sk-teen-dot sk-teen-dot--need"></i>A day like that costs about <b data-n2>0</b> oz</span>
+      </p>
+
+      <p class="sk-teen-band" data-band-head>&nbsp;</p>
+      <p class="sk-teen-sub" data-band-body>&nbsp;</p>
+    </header>
+
+    <!-- The state a direct visitor gets. It offers the only thing that would help them. -->
+    <header class="sk-teen-hero" data-nores>
+      <p class="sk-teen-eyebrow">Nothing to show yet</p>
+      <h1>This page shows the number <em>after</em> the check</h1>
+      <p class="sk-teen-sub">
+        It takes about a minute. Six questions about your athlete's size, their sport and how long
+        they are actually out there.
+      </p>
+      <a class="sk-teen-cta" href="https://{{custom_values.nueva_main_url}}/n-teen-hydration">
+        Start The 6 Question Check
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </header>
+  </div>
+
+  <div class="sk-teen-next" data-res hidden>
+    <div class="sk-teen-next-in">
+      <h2>What usually closes it</h2>
+      <!-- ⚠️ TIMING ONLY. No ingredient, no product, no promise. Every line here would still be
+           true if Nueva did not exist, which is exactly the test a claim has to pass on a page
+           aimed at the parent of a minor. -->
+      <ol class="sk-teen-steps">
+        <li><b>Before</b><span>A bottle in the hour before they leave, not in the car park. Arriving already behind is the hardest hole to climb out of.</span></li>
+        <li><b>During</b><span>Something every break rather than one long drink at half time. Most of the gap is built here.</span></li>
+        <li><b>After</b><span>The rest of it over the evening. A hot day does not finish when the whistle goes.</span></li>
+      </ol>
+
+      <div class="sk-teen-fork">
+        <p class="sk-teen-fork-head">Want a hand working out what goes in the bottle?</p>
+        <p class="sk-teen-fork-sub">Pick whichever is easier. Same person either way.</p>
+        <div class="sk-teen-fork-btns">
+          <!-- ⚠️ THE SCHEME IS HARDCODED, THE REST IS THE CUSTOM VALUE. A bare
+               href="{{custom_values.x}}" is a push-block hard gate: the values are stored WITHOUT
+               a scheme by house convention, so without the prefix the browser reads the whole
+               thing as a relative path. -->
+          <a class="sk-teen-cta" href="sms:{{custom_values.nueva_rep_sms}}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+            Text a rep
+          </a>
+          <a class="sk-teen-cta sk-teen-cta--alt" href="https://{{custom_values.nueva_rep_messenger}}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c5 0 9 3.7 9 8.3 0 4.6-4 8.3-9 8.3a10 10 0 0 1-2.6-.3L5 21l.9-3.3A8 8 0 0 1 3 11.3C3 6.7 7 3 12 3z"/><path d="m7.5 13.5 3-3.2 2.2 2.2 3.3-3.3"/></svg>
+            Message on Facebook
+          </a>
+        </div>
+      </div>
+
+      <p class="sk-teen-fine">
+        A general estimate of fluid for a body of that size and activity level, using the standard
+        Holliday-Segar maintenance figures plus an allowance for sweat. Not medical advice, and not
+        an assessment of any individual. These statements have not been evaluated by the Food and
+        Drug Administration. This product is not intended to diagnose, treat, cure or prevent any
+        disease.
+      </p>
+    </div>
+  </div>
 </div>

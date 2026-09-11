@@ -1,24 +1,255 @@
-/* nueva / n-teen-hydration / n-teen-hydration-result
- *
- * The design lives in _shared/confirm/v1/, scoped under .sk-conf, and is shared by every
- * result page in every system. This file declares ONLY the palette, on the block's own scope
- * class, and it cascades into the shared component. No brand swatch is touched.
- */
-@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
+/* nueva/n-teen-hydration/n-teen-hydration-result — the result page.
 
-.sk-conf-nva{
-  --sk-navy:    var(--nva-navy,#102a2a);
-  --sk-navy-d:  var(--nva-navy-d,#071116);
-  --sk-teal:    var(--nva-teal,#0abab5);
-  --sk-teal-d:  var(--nva-teal-d,#00aaa6);
-  --sk-sage:    var(--nva-sage,#087f7b);
-  --sk-lime:    var(--nva-lime,#5fd9d5);
-  --sk-ink:     var(--nva-ink,#141313);
-  --sk-body:    var(--nva-body,#4a5560);
-  --sk-cream:   var(--nva-cream,#fcfeff);
-  --sk-mist:    var(--nva-mist,#e8f8f6);
-  --sk-line:    var(--nva-line,#d5dfe1);
-  --sk-_note:   var(--nva-_note,Measured from nuevalife.com/nuevaassets/css/style.css 2026-09-08. #0ABAB5 is the brand colour (116 uses). Nueva's palette is monochrome teal, so 'sage' and 'lime' carry deep and light teal rather than greens; the token NAMES are fixed by systems/_TEMPLATE.json, the hues are not.);
-  --sk-serif:  var(--nva-serif,Montserrat,"Helvetica Neue",Arial,sans-serif);
-  --sk-sans:   var(--nva-sans,Montserrat,system-ui,sans-serif);
+   ⚠️ STANDALONE, AND IT REPLACED A _shared/confirm/v1 STUB. That component is the generic
+   "thanks, check your email" page: headline, body, button. This page's job is a number, a
+   comparison bar against a second number, one of four band paragraphs and a two-way handoff.
+   Pushing four campaign-specific concepts into a file that 174 blocks across seven systems fetch
+   at request time is the larger blast radius, so this one carries its own everything.
+
+   ⚠️ IT SHARES THE LANDER'S LANGUAGE ON PURPOSE, not by accident of copy-paste: same #071116
+   band, same lockup, same button, same Montserrat. A visitor crosses from one to the other in a
+   single click and the two pages have to read as one thing. Change a token in either and change
+   it in both; they are deliberately not sharing a file, so nothing enforces this but the note.
+
+   Palette measured from nuevalife.com/nuevaassets/css/style.css: #0ABAB5 is the brand colour. */
+
+/* ⚠️ THE TOKEN NAMES THE FACE, IT DOES NOT LOAD IT. --sk-sans says Montserrat; without this
+   import the browser falls back to its default serif and every heading renders in the wrong
+   voice. The Revive fork shipped that way until it was caught by eye. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+.sk-teen{
+  font-family:var(--sk-sans); color:var(--sk-ink); background:var(--sk-paper);
+  -webkit-font-smoothing:antialiased;
+  --sk-brand:#0abab5;--sk-brand-text:#07766F;
+  --sk-brand-d:#087F7B;
+  --sk-accent:#087f7b;
+  --sk-tint:#e8f8f6;
+  --sk-ink:#141313;
+  --sk-ink-d:#102a2a;
+  --sk-body:#4a5560;
+  --sk-paper:#fcfeff;
+  --sk-card:#ffffff;
+  --sk-line:#d5dfe1;
+  --sk-faint:#5C6D71;
+  --sk-sans:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
+
+.sk-teen{
+  position:relative; isolation:isolate;
+  padding:0; max-width:none;
+  background:var(--sk-paper,#fcfeff);
+}
+
+/* ── the dark band ───────────────────────────────────────────────────────────────────────
+   ⚠️ GHL BOXES THE BLOCK INTO ITS ROW (measured on the lander: about 535px). The local harness
+   renders a block at the full viewport, so "full bleed" looks full bleed locally and ships as a
+   narrow panel. 100vw plus a negative half-gutter is the only way out of a container whose width
+   the block does not control.
+   ⚠️ NO PHOTOGRAPH ON THIS PAGE, deliberately. The lander needs an image because it has to earn
+   a minute of a stranger's attention. This page already has it: they answered six questions and
+   came for a number, and a picture behind that number would only be something for the eye to do
+   instead of reading it. Same ground, same lockup, no subject. */
+.sk-teen .sk-teen-top{
+  position:relative; z-index:0;
+  width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  background:#071116;
+  overflow:hidden; isolation:isolate;
+}
+/* One weak teal wash so the band is a brand colour rather than a black rectangle. Nueva's palette
+   is monochrome teal, so this is the only place depth can come from on a page with no photograph. */
+.sk-teen .sk-teen-top::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(10,186,181,.22), rgba(10,186,181,0) 62%),
+    radial-gradient(70% 50% at 50% 100%, rgba(10,186,181,.10), rgba(10,186,181,0) 70%);
+}
+
+/* ── who is asking ─────────────────────────────────────────────────────────────────────────
+   The page had no wordmark anywhere. A stranger asking for your child's age, weight and sport
+   with no name attached is exactly the "toy" reading, and it is the cheapest thing on the page
+   to fix. The mark is the SVG from _brand/nueva, never a media-library URL. */
+.sk-teen .sk-teen-brandbar{
+  position:relative; z-index:2; max-width:1180px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.1rem clamp(1.25rem,5vw,3rem);
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.sk-teen .sk-teen-mark{
+  display:inline-flex; align-items:center; gap:.55rem; color:#fff;
+  font-size:.95rem; font-weight:800; letter-spacing:-.01em;
+}
+.sk-teen .sk-teen-mark svg{ width:22px; height:22px; color:var(--sk-lime,#7fe6e2); flex:none; }
+.sk-teen .sk-teen-by{
+  color:rgba(255,255,255,.58);
+  font-size:.66rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap;
+}
+
+/* ── the button ────────────────────────────────────────────────────────────────────────────
+   ⚠️ #0ABAB5 IS A FILL, NEVER A GROUND FOR WHITE TYPE: white on it is 2.4:1 where AA wants 4.5.
+   Jeff, 2026-09-11: darken the button, keep the white text. --sk-brand-btn is the deep teal and
+   white on it measures 4.85:1. The bright teal stays in the glow, where nothing has to be read.
+   → _brand/nueva/tokens.css */
+.sk-teen .sk-teen-cta{
+  /* ⚠️ ANCHORS HERE, BUTTONS ON THE LANDER. Same class, so the reset has to be explicit: an <a>
+     arrives underlined and in the UA link colour, and without this the fork rendered as two
+     underlined blue-ish links sitting inside button shapes. */
+  text-decoration:none;
+  display:inline-flex; align-items:center; gap:.7rem;
+  margin:0 0 1.5rem; padding:1.05rem 1.9rem;
+  font:inherit; font-size:1.02rem; font-weight:800; letter-spacing:.005em; color:#fff;
+  background:var(--sk-brand-btn,#087f7b); border:0; border-radius:14px; cursor:pointer;
+  box-shadow:0 1px 2px rgba(7,17,22,.2), 0 14px 30px -12px rgba(10,186,181,.55);
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.sk-teen .sk-teen-cta svg{ width:19px; height:19px; flex:none; transition:transform .16s ease; }
+.sk-teen .sk-teen-cta:hover{ background:#0a938e; box-shadow:0 2px 4px rgba(7,17,22,.22), 0 18px 38px -12px rgba(10,186,181,.7); }
+.sk-teen .sk-teen-cta:hover svg{ transform:translateX(3px); }
+.sk-teen .sk-teen-cta:active{ transform:scale(.985); }
+.sk-teen .sk-teen-cta:focus-visible{ outline:3px solid var(--sk-lime,#7fe6e2); outline-offset:3px; }
+
+/* The pills sat above the button when the questions were on the page. They now read as fine
+   print UNDER the ask, which is where a "free, takes a minute" reassurance belongs. */
+.sk-teen .sk-teen-hero .sk-teen-pills{ margin-top:.2rem; }
+
+
+.sk-teen *, .sk-teen *::before, .sk-teen *::after{ box-sizing:border-box; }
+.sk-teen [hidden]{ display:none !important; }
+
+/* ── the hero ─────────────────────────────────────────────────────────────────────────────
+   Centred here, where the lander is left-aligned. The lander is left because a photograph with a
+   subject in it needs the type out of the way; there is no photograph here, and a single number
+   is the one thing on either page that genuinely belongs in the middle. */
+.sk-teen .sk-teen-hero{
+  position:relative; z-index:2; max-width:760px; margin:0 auto; text-align:center;
+  padding:clamp(2.6rem,6vw,4.4rem) clamp(1.25rem,5vw,3rem) clamp(2.6rem,5vw,3.6rem);
+}
+.sk-teen .sk-teen-eyebrow{
+  display:inline-flex; align-items:center; gap:.55rem;
+  color:#7fe6e2; margin:0 0 1.3rem;
+  font-weight:800; font-size:.71rem; letter-spacing:.2em; text-transform:uppercase;
+}
+.sk-teen .sk-teen-eyebrow::before{
+  content:""; width:26px; height:2px; border-radius:2px; background:var(--sk-brand,#0abab5); flex:none;
+}
+.sk-teen .sk-teen-hero h1{
+  color:#fff; font-weight:800; margin:0 0 1.1rem;
+  font-size:clamp(1.9rem,3.4vw,2.9rem); line-height:1.06; letter-spacing:-.025em; text-wrap:balance;
+}
+.sk-teen .sk-teen-hero h1 em{ font-style:normal; color:var(--sk-lime,#7fe6e2); }
+.sk-teen .sk-teen-sub{
+  color:rgba(255,255,255,.8);
+  font-size:clamp(1rem,1.5vw,1.08rem); line-height:1.62; margin:0 auto 1.6rem; max-width:56ch;
+}
+.sk-teen .sk-teen-kicker{
+  margin:0 0 .2rem; color:rgba(255,255,255,.72); font-size:1rem; font-weight:500;
+}
+
+/* ── the number ───────────────────────────────────────────────────────────────────────────
+   ⚠️ THE GRADIENT IS PAINTED WITH background-image, NOT THE background SHORTHAND. The shorthand
+   resets background-clip, and a clipped-text headline whose clip has been reset renders as a
+   solid teal rectangle with invisible type inside it. That exact bug shipped on the Revive lander
+   and was found by eye, not by the contrast probe, because a probe cannot score clipped text. */
+.sk-teen .sk-teen-big{
+  margin:0 0 .35rem; display:flex; align-items:baseline; justify-content:center; gap:.4rem;
+  line-height:1;
+}
+.sk-teen .sk-teen-big strong{
+  font-size:clamp(4.4rem,15vw,8rem); font-weight:900; letter-spacing:-.045em; line-height:.9;
+  background-image:linear-gradient(135deg,#7fe6e2,var(--sk-brand,#0abab5));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.sk-teen .sk-teen-big span{
+  font-size:clamp(1.3rem,3vw,1.9rem); font-weight:800; color:rgba(255,255,255,.55); letter-spacing:-.01em;
+}
+.sk-teen .sk-teen-bottles{
+  margin:0 0 2rem; color:rgba(255,255,255,.7); font-size:.98rem;
+}
+.sk-teen .sk-teen-bottles b{ color:#fff; font-weight:800; }
+
+/* ── the bar ──────────────────────────────────────────────────────────────────────────────
+   Two numbers in a sentence are an assertion. The same two as lengths are something a parent can
+   see without doing arithmetic, which is the entire reason this page exists. */
+.sk-teen .sk-teen-bar{
+  position:relative; height:16px; border-radius:99px; overflow:hidden;
+  background:rgba(255,255,255,.11); border:1px solid rgba(255,255,255,.14);
+  margin:0 0 .8rem;
+}
+.sk-teen .sk-teen-bar-fill{
+  display:block; height:100%; width:0; border-radius:99px;
+  background:linear-gradient(90deg,var(--sk-brand,#0abab5),#7fe6e2);
+  transition:width 1.1s cubic-bezier(.22,.9,.3,1);
+}
+@media (prefers-reduced-motion:reduce){ .sk-teen .sk-teen-bar-fill{ transition:none; } }
+.sk-teen .sk-teen-bar-key{
+  display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; justify-content:center;
+  margin:0 0 2rem; color:rgba(255,255,255,.66); font-size:.83rem;
+}
+.sk-teen .sk-teen-bar-key b{ color:#fff; font-weight:700; }
+.sk-teen .sk-teen-dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:.45rem; }
+.sk-teen .sk-teen-dot--in{ background:var(--sk-brand,#0abab5); }
+.sk-teen .sk-teen-dot--need{ background:rgba(255,255,255,.3); }
+.sk-teen .sk-teen-bar-mark{ display:none; }
+
+.sk-teen .sk-teen-band{
+  margin:0 0 .7rem; color:#fff; font-weight:800;
+  font-size:clamp(1.3rem,2.6vw,1.8rem); line-height:1.2; letter-spacing:-.02em; text-wrap:balance;
+}
+
+/* ── what usually closes it, on paper ─────────────────────────────────────────────────────
+   The band carries the diagnosis and this carries the advice, and the change of ground is the
+   signal that one has ended and the other begun. */
+.sk-teen .sk-teen-next{ background:var(--sk-paper,#fcfeff); }
+.sk-teen .sk-teen-next-in{
+  max-width:760px; margin:0 auto;
+  padding:clamp(2.6rem,6vw,4rem) clamp(1.25rem,5vw,3rem) clamp(2.6rem,6vw,4rem);
+}
+.sk-teen .sk-teen-next h2{
+  margin:0 0 1.6rem; color:var(--sk-ink,#141313); font-weight:800;
+  font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.025em;
+}
+.sk-teen .sk-teen-steps{ list-style:none; margin:0 0 2.6rem; padding:0; display:grid; gap:1rem; }
+.sk-teen .sk-teen-steps li{
+  display:grid; grid-template-columns:6.2rem 1fr; gap:.2rem 1rem; align-items:baseline;
+  padding:1.1rem 1.2rem; border-radius:16px;
+  background:var(--sk-card,#fff); border:1px solid var(--sk-line,#d5dfe1);
+}
+.sk-teen .sk-teen-steps b{
+  color:var(--sk-brand-text,#087f7b);
+  font-size:.72rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+}
+.sk-teen .sk-teen-steps span{ color:var(--sk-body,#4a5560); font-size:.97rem; line-height:1.6; }
+@media (max-width:560px){
+  .sk-teen .sk-teen-steps li{ grid-template-columns:1fr; gap:.35rem; }
+}
+
+/* ── the fork ─────────────────────────────────────────────────────────────────────────────
+   ⚠️ TWO BUTTONS, EQUAL WEIGHT, AND THAT IS THE POINT (Jeff: "an option, either sms or fb
+   message"). Styling one as primary would turn a choice into a recommendation and quietly cost
+   whichever half of the audience does not use that channel. */
+.sk-teen .sk-teen-fork{
+  padding:1.8rem 1.6rem; border-radius:20px; text-align:center;
+  background:var(--sk-tint,#e8f8f6); border:1px solid rgba(8,127,123,.14);
+}
+.sk-teen .sk-teen-fork-head{
+  margin:0 0 .35rem; color:var(--sk-ink,#141313); font-weight:800;
+  font-size:clamp(1.1rem,2.3vw,1.32rem); letter-spacing:-.015em;
+}
+.sk-teen .sk-teen-fork-sub{ margin:0 0 1.4rem; color:var(--sk-body,#4a5560); font-size:.93rem; }
+.sk-teen .sk-teen-fork-btns{ display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; }
+.sk-teen .sk-teen-fork .sk-teen-cta{ margin:0; }
+/* The alternate is the same button in the opposite direction: a tinted panel needs the second
+   option to read as equal, not as an afterthought, so it keeps the weight and changes the ground. */
+.sk-teen .sk-teen-cta--alt{
+  color:var(--sk-brand-text,#087f7b); background:#fff;
+  border:1.5px solid rgba(8,127,123,.3); box-shadow:0 1px 2px rgba(7,17,22,.06);
+}
+.sk-teen .sk-teen-cta--alt:hover{ background:#fff; border-color:var(--sk-brand,#0abab5); box-shadow:0 2px 8px rgba(7,17,22,.1); }
+
+.sk-teen .sk-teen-fine{
+  margin:2.4rem 0 0; padding-top:1.3rem; border-top:1px solid var(--sk-line,#d5dfe1);
+  color:var(--sk-faint,#5c6d71); font-size:.74rem; line-height:1.65;
+}
+/* On the dark hero the same class has to invert, and it is the same class because it is the same
+   sentence: the no-numbers state never reaches the paper section. */
+.sk-teen .sk-teen-top .sk-teen-fine{ color:rgba(255,255,255,.62); border-top-color:rgba(255,255,255,.14); }
