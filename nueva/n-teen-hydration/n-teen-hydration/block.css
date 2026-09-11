@@ -302,3 +302,8 @@
 .sk-teen .sk-teen-method p{
   margin:.55rem 0 0; font-size:.84rem; line-height:1.6; color:rgba(255,255,255,.62);
 }
+/* ⚠️ THE LABEL IS IN A <span>, NOT A BARE TEXT NODE. With the summary at display:inline-flex the
+   bare text reserved its 157px of layout and never painted, while the ::before chevron in the same
+   element rendered fine. Measured, not guessed: computed color was rgba(255,255,255,.78),
+   opacity 1, -webkit-text-fill-color white. An explicit flex item paints. */
+.sk-teen .sk-teen-method summary span{ display:inline-block; }
