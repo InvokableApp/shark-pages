@@ -280,3 +280,25 @@
 /* The overlay's host is a bare <body> child that exists only to re-apply the .sk-teen scope.
    display:contents so it adds no box of its own. */
 .sk-teen.sk-teen-calc-host{ display:contents; }
+
+/* ── "How we work it out" ──────────────────────────────────────────────────────────────────
+   A disclosure, closed by default: the hero is 100vh on desktop and the CTA has to stay above
+   the fold. Styled to read as an offered explanation rather than more fine print. */
+.sk-teen .sk-teen-how{ max-width:44rem; margin:0 auto 1rem; text-align:left; }
+.sk-teen .sk-teen-how summary{
+  cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:.45rem;
+  font-size:.84rem; font-weight:700; letter-spacing:.02em;
+  color:rgba(255,255,255,.78); padding:.3rem 0;
+}
+.sk-teen .sk-teen-how summary::-webkit-details-marker{ display:none; }
+.sk-teen .sk-teen-how summary::before{
+  content:""; width:7px; height:7px; flex:none;
+  border-right:2px solid var(--sk-lime,#7fe6e2); border-bottom:2px solid var(--sk-lime,#7fe6e2);
+  transform:rotate(-45deg); transition:transform .18s ease;
+}
+.sk-teen .sk-teen-how[open] summary::before{ transform:rotate(45deg); }
+.sk-teen .sk-teen-how summary:hover{ color:#fff; }
+.sk-teen .sk-teen-how summary:focus-visible{ outline:3px solid var(--sk-lime,#7fe6e2); outline-offset:3px; border-radius:4px; }
+.sk-teen .sk-teen-how p{
+  margin:.55rem 0 0; font-size:.84rem; line-height:1.6; color:rgba(255,255,255,.62);
+}
