@@ -378,34 +378,39 @@
    sentence: the no-numbers state never reaches the paper section. */
 .sk-teen .sk-teen-top .sk-teen-fine{ color:rgba(255,255,255,.62); border-top-color:rgba(255,255,255,.14); }
 
+/* ⚠️ NAMED sk-teen-stick, NOT sk-teen-bar. This block is ONE FLAT NAMESPACE with no nesting
+   and no compile step, so a class used twice does not warn, it merges. It has now bitten this
+   page twice: .sk-teen-band was the result headline AND the photo strip, and .sk-teen-bar was the
+   comparison bar AND this banner, which handed the banner height:16px + overflow:hidden and
+   clipped it into a floating pill. GREP THE CLASS BEFORE ADDING A RULE. */
 /* ── the sticky bar ───────────────────────────────────────────────────────────────────────
    Jeff, 2026-09-11: "need a stick banner on top with a 'try the product, free' button".
    ⚠️ position:sticky, NOT fixed. A fixed bar inside a GHL custom-code block escapes the block's
    own stacking context and can float over the page's other rows. Sticky stays inside the block.
    ⚠️ AND IT SITS ABOVE THE DARK HERO, so it is dark too: a white bar here would cut the page in
    half at exactly the point the number is supposed to land. */
-.sk-teen .sk-teen-bar{
+.sk-teen .sk-teen-stick{
   position:sticky; top:0; z-index:40;
   background:rgba(7,17,22,.92); backdrop-filter:blur(10px) saturate(1.2);
   border-bottom:1px solid rgba(255,255,255,.12);
 }
-.sk-teen .sk-teen-bar-in{
+.sk-teen .sk-teen-stick-in{
   max-width:1180px; margin:0 auto;
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
   padding:.7rem clamp(1rem,4vw,2rem);
 }
-.sk-teen .sk-teen-bar-mark{ display:inline-flex; align-items:center; gap:.6rem; min-width:0; }
-.sk-teen .sk-teen-bar-mark svg{ width:20px; height:20px; flex:none; color:var(--sk-lime,#7fe6e2); }
-.sk-teen .sk-teen-bar-mark b{ color:#fff; font-size:.93rem; font-weight:800; letter-spacing:-.01em; white-space:nowrap; }
-.sk-teen .sk-teen-bar-mark span{
+.sk-teen .sk-teen-stick-mark{ display:inline-flex; align-items:center; gap:.6rem; min-width:0; }
+.sk-teen .sk-teen-stick-mark svg{ width:20px; height:20px; flex:none; color:var(--sk-lime,#7fe6e2); }
+.sk-teen .sk-teen-stick-mark b{ color:#fff; font-size:.93rem; font-weight:800; letter-spacing:-.01em; white-space:nowrap; }
+.sk-teen .sk-teen-stick-mark span{
   color:rgba(255,255,255,.55); font-size:.7rem; font-weight:700;
   letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;
 }
 /* The subtitle is the first thing to go: at 560px the button must keep its full label, because
    the label IS the offer. */
-@media (max-width:560px){ .sk-teen .sk-teen-bar-mark span{ display:none; } }
-@media (max-width:420px){ .sk-teen .sk-teen-bar-mark b{ display:none; } }
-.sk-teen .sk-teen-cta--bar{
+@media (max-width:560px){ .sk-teen .sk-teen-stick-mark span{ display:none; } }
+@media (max-width:420px){ .sk-teen .sk-teen-stick-mark b{ display:none; } }
+.sk-teen .sk-teen-cta--stick{
   margin:0; padding:.72rem 1.15rem; font-size:.86rem; border-radius:11px;
   box-shadow:0 1px 2px rgba(7,17,22,.3), 0 8px 20px -10px rgba(10,186,181,.6);
   white-space:nowrap;
@@ -464,7 +469,7 @@
    sheet on most home printers, so the ground goes white and the type goes to ink. Every colour
    below is stated literally for that reason, and print-color-adjust is deliberately NOT forced. */
 @media print{
-  .sk-teen .sk-teen-bar,
+  .sk-teen .sk-teen-stick,
   .sk-teen .sk-teen-photo,
   .sk-teen .sk-teen-prodband,
   .sk-teen .sk-teen-offer,
