@@ -54,6 +54,67 @@
       return fromDrinks + (v.activityHours || 0) * (c.activityMlPerHour || 0) * heat;
     },
     /**
+     * Teen athlete fluid need on a training day, in US FLUID OUNCES.
+     *
+     * Same Holliday-Segar baseline as `paediatric-fluid` above, because it is defined by weight
+     * and does not stop applying at thirteen: 1500 mL for the first 20 kg plus 20 mL for every kg
+     * after. What changes for an adolescent is the ACTIVITY term. Children sweat considerably
+     * less than adults; a teenager training hard is much closer to the adult range, which is why
+     * `activityMlPerHour` is a config value and the teen preset sets it far above the kids one.
+     *
+     * ⚠️ IT ANSWERS IN OUNCES AND BOTTLES, NOT MILLILITRES. The audience is a US parent holding a
+     * water bottle, and "about seven bottles" is a thing they can picture and act on where
+     * "3200 mL" is not. Millilitres stay inside the maths.
+     *
+     * ⚠️ IT ESTIMATES FLUID. IT DOES NOT ASSESS A CHILD. There is no deficiency here, no symptom,
+     * and no recommendation to take anything: it compares what a body that size doing that much
+     * on a day like that would use, against what the parent said they drink. The page is
+     * responsible for keeping it in those terms. → NUEVASHARK/_assets/product/SOURCE.md
+     */
+    "teen-fluid-oz": function (v, c) {
+      const ML_PER_OZ = 29.5735;
+      const kg = (v.weightLb || 0) / 2.20462;
+      let base = 0;
+      if (kg <= 10) base = kg * 100;
+      else if (kg <= 20) base = 1000 + (kg - 10) * 50;
+      else base = 1500 + (kg - 20) * 20;
+
+      // the share that arrives in food rather than in a bottle, removed so the comparison is
+      // drinks against drinks (same reasoning as paediatric-fluid above)
+      const fromDrinks = base * (1 - (c.foodFraction || 0));
+      const heat = (c.heatMultiplier && c.heatMultiplier[v.heat]) || 1;
+      const sweatMl = (v.activityHours || 0) * (c.activityMlPerHour || 0) * heat;
+
+      const needOz = (fromDrinks + sweatMl) / ML_PER_OZ;
+      const bottleOz = c.bottleOz || 16;
+      const intakeOz = (v.bottles || 0) * bottleOz;
+      const gapOz = needOz - intakeOz;
+      const pct = needOz > 0 ? intakeOz / needOz : 1;
+
+      // Bands describe the GAP, never the child. "Short by about three bottles" is arithmetic.
+      let band = "onTrack";
+      if (pct < 0.6) band = "wellShort";
+      else if (pct < 0.85) band = "short";
+      else if (pct < 1) band = "close";
+
+      return {
+        value: Math.round(needOz),
+        extra: {
+          needOz: Math.round(needOz),
+          needBottles: Math.round((needOz / bottleOz) * 10) / 10,
+          intakeOz: Math.round(intakeOz),
+          intakeBottles: v.bottles || 0,
+          gapOz: Math.round(Math.max(gapOz, 0)),
+          gapBottles: Math.round((Math.max(gapOz, 0) / bottleOz) * 10) / 10,
+          sweatOz: Math.round(sweatMl / ML_PER_OZ),
+          baselineOz: Math.round(fromDrinks / ML_PER_OZ),
+          pct: Math.round(pct * 100),
+          band: band,
+          bottleOz: bottleOz,
+        },
+      };
+    },
+    /**
      * First-order exponential decay of one or more timed caffeine doses, summed at bedtime.
      *
      *   remaining = SUM over doses of  n * mgPerDrink * 0.5 ^ (hoursBeforeBed / halfLife)

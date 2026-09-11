@@ -1,0 +1,24 @@
+/* nueva / n-teen-hydration / n-teen-hydration-how-to
+ *
+ * The design lives in _shared/howto/v1/, scoped under .sk-howto, and is shared by every
+ * howto page in every system. This file declares ONLY the palette, on the block's own scope
+ * class, and it cascades into the shared component. No brand swatch is touched.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/howto/v1/howto.css");
+
+.sk-howto-nva{
+  --sk-navy:    var(--nva-navy,#102a2a);
+  --sk-navy-d:  var(--nva-navy-d,#071116);
+  --sk-teal:    var(--nva-teal,#0abab5);
+  --sk-teal-d:  var(--nva-teal-d,#00aaa6);
+  --sk-sage:    var(--nva-sage,#087f7b);
+  --sk-lime:    var(--nva-lime,#5fd9d5);
+  --sk-ink:     var(--nva-ink,#141313);
+  --sk-body:    var(--nva-body,#4a5560);
+  --sk-cream:   var(--nva-cream,#fcfeff);
+  --sk-mist:    var(--nva-mist,#e8f8f6);
+  --sk-line:    var(--nva-line,#d5dfe1);
+  --sk-_note:   var(--nva-_note,Measured from nuevalife.com/nuevaassets/css/style.css 2026-09-08. #0ABAB5 is the brand colour (116 uses). Nueva's palette is monochrome teal, so 'sage' and 'lime' carry deep and light teal rather than greens; the token NAMES are fixed by systems/_TEMPLATE.json, the hues are not.);
+  --sk-serif:  var(--nva-serif,Montserrat,"Helvetica Neue",Arial,sans-serif);
+  --sk-sans:   var(--nva-sans,Montserrat,system-ui,sans-serif);
+}

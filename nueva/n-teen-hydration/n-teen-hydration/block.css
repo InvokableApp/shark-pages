@@ -1,0 +1,20 @@
+/* nueva/n-teen-hydration/n-teen-hydration: palette only.
+   Design lives in _shared/calculator/v1/calc.css under .sk-calc. This file declares the FULL
+   token set on this preset's own scope class, because the shared component falls back silently
+   to its defaults for anything omitted (there is no partial mode).
+   Same measured Nueva palette as the kids preset: nuevalife.com/nuevaassets/css/style.css,
+   #0ABAB5 is the brand colour. */
+.sk-calc.sk-calc-nva-teen{
+  --sk-brand:#0abab5;
+  --sk-brand-d:#087F7B;
+  --sk-accent:#087f7b;
+  --sk-tint:#e8f8f6;
+  --sk-ink:#141313;
+  --sk-ink-d:#102a2a;
+  --sk-body:#4a5560;
+  --sk-paper:#fcfeff;
+  --sk-card:#ffffff;
+  --sk-line:#d5dfe1;
+  --sk-faint:#5C6D71;
+  --sk-sans:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
