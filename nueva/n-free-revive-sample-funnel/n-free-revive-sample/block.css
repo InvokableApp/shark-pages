@@ -22,8 +22,8 @@
   --ig-ease: cubic-bezier(.22,.61,.36,1);
   --ig-ember: #0abab5;
   --ig-faint: #8aa0a4;
-  --ig-flare: #00aaa6;
-  --ig-frost: #e8f8f6;
+  --ig-flare: #087F7B;
+  --ig-frost: #141313;
   --ig-hair: #d5dfe1;
   --ig-panel: #102a2a;
   --ig-spark: #087f7b;
@@ -40,7 +40,7 @@
   --sk-sans:     Montserrat,system-ui,sans-serif;
   --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
   --sk-teal:     #0abab5;
-  --sk-teal-d:   #00aaa6;
+  --sk-teal-d:   #087F7B;
   --sk-tint:     #e8f8f6;
 }
 
@@ -68,7 +68,7 @@
 /* The accent word is the only place the ramp runs inside type. Solid ember is the fallback
    for engines that will not clip a gradient to text. */
 .sk-prod-nva-revive .sk-prod-accent{
-  color:var(--ig-ember);
+  color:var(--ig-spark);
   background:linear-gradient(96deg,var(--ig-ember),var(--ig-spark));
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -95,7 +95,7 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-strip{
   display:flex;align-items:center;justify-content:center;gap:.85rem;flex-wrap:wrap;
   padding:.7rem 1.2rem;
-  background:linear-gradient(90deg,var(--ig-ash),var(--ig-ember) 45%,var(--ig-flare));
+  background:linear-gradient(90deg,var(--ig-panel),var(--ig-spark) 45%,var(--ig-flare));
   color:#fff;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 68,"wght" 700;
@@ -107,7 +107,7 @@
 .sk-prod-nva-revive .sk-prod-prog{background:rgba(242,244,248,.06)}
 .sk-prod-nva-revive .sk-prod-prog i{
   background:linear-gradient(90deg,var(--ig-ash),var(--ig-ember) 42%,var(--ig-flare) 74%,var(--ig-spark));
-  box-shadow:0 0 14px rgba(250,67,0,.7);
+  box-shadow:0 0 14px rgba(10,186,181,.7);
 }
 
 /* ============================ HERO ============================ */
@@ -125,7 +125,7 @@
   width:min(560px,100%);
 }
 .sk-prod-nva-revive .sk-prod-halo{
-  background:radial-gradient(circle at 50% 52%,rgba(250,67,0,.42),rgba(255,182,39,.12) 42%,transparent 70%);
+  background:radial-gradient(circle at 50% 52%,rgba(10,186,181,.42),rgba(95,217,213,.12) 42%,transparent 70%);
 }
 
 /* pills: the shared component paints these #fff */
@@ -141,21 +141,21 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-covered{
   margin:0 0 1.5rem;padding:.75rem 1rem;
   border-left:2px solid var(--ig-ember);
-  background:rgba(250,67,0,.07);
+  background:rgba(10,186,181,.07);
   color:var(--ig-frost);font-size:.95rem;
 }
 
 /* ============================ BUTTONS ============================ */
 .sk-prod-nva-revive .sk-prod-btn{
-  background:var(--ig-ember);color:#fff;
+  background:var(--ig-spark);color:#fff;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 82,"wght" 800;
   font-weight:800;text-transform:uppercase;letter-spacing:.05em;
-  box-shadow:0 10px 30px -8px rgba(250,67,0,.6);
+  box-shadow:0 10px 30px -8px rgba(10,186,181,.6);
 }
 .sk-prod-nva-revive .sk-prod-btn:hover{
   background:var(--ig-flare);
-  box-shadow:0 18px 40px -10px rgba(250,67,0,.75);
+  box-shadow:0 18px 40px -10px rgba(10,186,181,.75);
 }
 .sk-prod-nva-revive .sk-prod-btn-lg{font-size:1.02rem;padding:1.15rem 2.3rem}
 .sk-prod-nva-revive .sk-prod-btn-ghost{
@@ -165,7 +165,7 @@
 
 /* mobile bar */
 .sk-prod-nva-revive .sk-prod-bar{
-  background:rgba(7,7,10,.94);
+  background:rgba(7,17,22,.94);
   border-bottom:1px solid var(--ig-hair);
   backdrop-filter:blur(10px);
 }
@@ -190,7 +190,7 @@
 }
 .sk-prod-nva-revive .sk-prod-pillar:hover{
   border-color:var(--sk-tint);
-  box-shadow:0 18px 40px -18px rgba(250,67,0,.5);
+  box-shadow:0 18px 40px -18px rgba(10,186,181,.5);
 }
 .sk-prod-nva-revive .sk-prod-pillar h3{
   color:var(--ig-frost);
@@ -205,16 +205,16 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-cta{
   padding:clamp(2.4rem,5vw,3.6rem) 0;
   background:
-    radial-gradient(120% 160% at 50% 0%,rgba(250,67,0,.16),transparent 62%),
+    radial-gradient(120% 160% at 50% 0%,rgba(10,186,181,.16),transparent 62%),
     var(--ig-black);
   border-bottom:1px solid var(--ig-hair);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-cta-in{
   display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap;
 }
-.sk-prod-nva-revive .sk-prod-nva-revive-cta-in p{
+.sk-prod-nva-revive .sk-prod-nva-revive-cta-in p{color:var(--ig-frost-on-dark);
   margin:0;max-width:24em;
-  color:var(--ig-frost);
+  color:var(--ig-frost-on-dark);
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 88,"wght" 700;
   text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;
@@ -239,7 +239,7 @@
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 62,"wght" 900;
   font-size:2.1rem;line-height:1;
-  color:var(--ig-ember);
+  color:var(--ig-spark);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-paths h3{
   margin:0 0 .45rem;font-size:1.02rem;color:var(--ig-frost);
@@ -259,14 +259,14 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-stats div{
   padding:1.4rem 1.2rem;
   border:1px solid var(--ig-hair);border-radius:18px;
-  background:linear-gradient(160deg,rgba(250,67,0,.10),transparent 70%);
+  background:linear-gradient(160deg,rgba(10,186,181,.10),transparent 70%);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-stats b{
   display:block;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 72,"wght" 900;
   font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;
-  color:var(--ig-ember);
+  color:var(--ig-spark);
   margin-bottom:.5rem;
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-stats > div > span{font-size:.9rem;color:var(--ig-body);display:block}
@@ -282,7 +282,7 @@
 .sk-prod-nva-revive .sk-prod-note{
   color:var(--ig-body);
   border-left-color:var(--ig-ember);
-  background:rgba(250,67,0,.06);
+  background:rgba(10,186,181,.06);
   padding:.8rem 1rem;
 }
 
@@ -296,7 +296,7 @@
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-step-n{
   flex:0 0 34px;height:34px;display:grid;place-items:center;border-radius:50%;
-  background:var(--ig-ember);color:#fff;
+  background:var(--ig-spark);color:#fff;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 80,"wght" 800;
   font-size:.95rem;
@@ -341,7 +341,7 @@
   position:relative;
   padding:clamp(3.4rem,8vw,6.5rem) 0;
   background:
-    radial-gradient(90% 120% at 50% 100%,rgba(250,67,0,.26),transparent 64%),
+    radial-gradient(90% 120% at 50% 100%,rgba(10,186,181,.26),transparent 64%),
     var(--ig-black);
   border-top:1px solid var(--ig-hair);
   overflow:hidden;
@@ -363,7 +363,7 @@
    fix belongs here rather than in the shared file, because editing v1 would repaint the
    close section of every other system on its next load. */
 .sk-prod-nva-revive .sk-prod-close::after{
-  background:radial-gradient(circle,rgba(250,67,0,.30),rgba(250,67,0,0) 66%);
+  background:radial-gradient(circle,rgba(10,186,181,.30),rgba(10,186,181,0) 66%);
 }
 .sk-prod-nva-revive .sk-prod-close > *{position:relative;z-index:1}
 
@@ -490,7 +490,7 @@
   padding:clamp(3rem,7vw,6rem) 0;
   border-bottom:1px solid var(--ig-hair);
   background:
-    radial-gradient(70% 90% at 12% 0%,rgba(250,67,0,.10),transparent 60%),
+    radial-gradient(70% 90% at 12% 0%,rgba(10,186,181,.10),transparent 60%),
     var(--ig-black);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-people-grid{
@@ -508,25 +508,25 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-people-grid figure:hover img{transform:scale(1.05)}
 /* The scrim is what keeps the caption readable over an unpredictable photograph. Without
    it a bright frame swallows white text and only some of the three break. */
-.sk-prod-nva-revive .sk-prod-nva-revive-people-grid figcaption{
+.sk-prod-nva-revive .sk-prod-nva-revive-people-grid figcaption{color:var(--ig-frost-on-dark);color:var(--ig-frost-on-dark);
   position:absolute;inset:auto 0 0 0;padding:1.6rem 1.2rem 1.1rem;
-  background:linear-gradient(to top,rgba(7,7,10,.93) 30%,rgba(7,7,10,.7) 60%,transparent);
+  background:linear-gradient(to top,rgba(7,17,22,.93) 30%,rgba(7,17,22,.7) 60%,transparent);
 }
-.sk-prod-nva-revive .sk-prod-nva-revive-people-grid figcaption b{
-  display:block;color:var(--ig-frost);margin-bottom:.2rem;
+.sk-prod-nva-revive .sk-prod-nva-revive-people-grid figcaption b{color:var(--ig-frost-on-dark);
+  display:block;color:var(--ig-frost-on-dark);margin-bottom:.2rem;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 84,"wght" 700;
   text-transform:uppercase;letter-spacing:.02em;font-size:.95rem;
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-people-grid figcaption span{
-  display:block;color:#B3BCC9;font-size:.86rem;line-height:1.4;
+  display:block;color:#8aa0a4;font-size:.86rem;line-height:1.4;
 }
 
 /* ============================ RITUAL SHOT ============================ */
 .sk-prod-nva-revive .sk-prod-nva-revive-ritual{
   margin:0;border-radius:20px;overflow:hidden;
   border:1px solid var(--ig-hair);
-  box-shadow:0 30px 70px -30px rgba(250,67,0,.45);
+  box-shadow:0 30px 70px -30px rgba(10,186,181,.45);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-ritual img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -548,7 +548,7 @@
 
 .sk-prod-nva-revive .sk-prod-nva-revive-nav{
   position:sticky;top:0;z-index:60;
-  background:rgba(7,7,10,.86);
+  background:rgba(7,17,22,.86);
   backdrop-filter:blur(14px) saturate(140%);
   -webkit-backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid var(--ig-hair);
@@ -562,9 +562,9 @@
    already load to ORYGN's own IGNYT lockup. Swap in the real logo asset when we have it. */
 .sk-prod-nva-revive .sk-prod-nva-revive-mark{
   display:inline-flex;align-items:center;gap:.55rem;flex:0 0 auto;
-  color:var(--ig-frost);text-decoration:none;
+  color:var(--ig-frost-on-dark);text-decoration:none;
 }
-.sk-prod-nva-revive .sk-prod-nva-revive-mark svg{width:20px;height:20px;color:var(--ig-ember)}
+.sk-prod-nva-revive .sk-prod-nva-revive-mark svg{width:20px;height:20px;color:var(--ig-spark)}
 .sk-prod-nva-revive .sk-prod-nva-revive-mark span{
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 108,"wght" 500;
@@ -573,7 +573,7 @@
 
 .sk-prod-nva-revive .sk-prod-nva-revive-nav-links{display:flex;align-items:center;gap:1.6rem;min-width:0}
 .sk-prod-nva-revive .sk-prod-nva-revive-nav-links a{
-  color:var(--ig-body);text-decoration:none;white-space:nowrap;
+  color:var(--ig-frost-on-dark);text-decoration:none;white-space:nowrap;
   font-family:var(--ig-display);
   font-variation-settings:"wdth" 74,"wght" 600;
   font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
@@ -584,7 +584,7 @@
 
 .sk-prod-nva-revive .sk-prod-nva-revive-nav-cta{
   flex:0 0 auto;padding:.72rem 1.35rem;font-size:.78rem;letter-spacing:.06em;
-  box-shadow:0 6px 18px -6px rgba(250,67,0,.7);
+  box-shadow:0 6px 18px -6px rgba(10,186,181,.7);
 }
 
 /* The reading gauge is nested INSIDE the header, so it rides along as the bottom rule.
@@ -603,7 +603,7 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-cta-slim{
   border-top:1px solid var(--ig-hair);
   border-bottom:1px solid var(--ig-hair);
-  background:linear-gradient(90deg,rgba(250,67,0,.09),transparent 55%);
+  background:linear-gradient(90deg,rgba(10,186,181,.09),transparent 55%);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-cta-slim > div{
   display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;
@@ -659,8 +659,8 @@
 .sk-prod-nva-revive .sk-prod-nva-revive-timer{
   display:flex;align-items:center;gap:.5rem;flex:0 0 auto;
   padding:.42rem .8rem;border-radius:999px;
-  border:1px solid rgba(250,67,0,.38);
-  background:rgba(250,67,0,.10);
+  border:1px solid rgba(10,186,181,.38);
+  background:rgba(10,186,181,.10);
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-timer[hidden]{display:none}
 .sk-prod-nva-revive .sk-prod-nva-revive-timer-dot{
@@ -668,9 +668,9 @@
   animation:sk-prod-nva-revive-pulse 2.4s var(--ig-ease) infinite;
 }
 @keyframes sk-prod-nva-revive-pulse{
-  0%{box-shadow:0 0 0 0 rgba(250,67,0,.55)}
-  70%{box-shadow:0 0 0 7px rgba(250,67,0,0)}
-  100%{box-shadow:0 0 0 0 rgba(250,67,0,0)}
+  0%{box-shadow:0 0 0 0 rgba(10,186,181,.55)}
+  70%{box-shadow:0 0 0 7px rgba(10,186,181,0)}
+  100%{box-shadow:0 0 0 0 rgba(10,186,181,0)}
 }
 .sk-prod-nva-revive .sk-prod-nva-revive-timer-label{
   color:var(--ig-flare);
@@ -887,3 +887,9 @@
 @media (max-width:1100px){
   .sk-prod-nva-revive .sk-prod-nva-revive-cta-slim .sk-prod-nva-revive-claim{width:100%;align-items:center}
 }
+
+/* ⚠️ THE ONE PLACE THIS PAGE IS STILL DARK. The sticky nav band keeps the donor's dark treatment
+   on a page that is otherwise light, so it needs the light text the rest of the page no longer
+   wants. --ig-frost now means "ink", so the dark-band text gets its own token rather than a
+   literal, and there is one place to change it. */
+.sk-prod-nva-revive{ --ig-frost-on-dark:#e8f8f6; }

@@ -329,7 +329,7 @@
   margin-bottom:1.5rem;
   font-size:.58rem;font-weight:850;letter-spacing:.2em;text-transform:uppercase;
 }
-.sk-brf-step-n{color:var(--sk-teal)}
+.sk-brf-step-n{color:var(--sk-brand-text, var(--sk-teal))}
 .sk-brf-step-when{color:rgba(var(--sk-ink-rgb),.42)}
 .sk-brf-step h3{
   margin:0 0 1rem;color:var(--sk-ink);

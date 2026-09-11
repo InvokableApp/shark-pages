@@ -31,3 +31,32 @@
   --nva-serif:  Montserrat, "Helvetica Neue", Arial, sans-serif;
   --nva-sans:   Montserrat, system-ui, sans-serif;
 }
+
+/* ⚠️ #00AAA6 IS NOT THE DEEP TEAL, AND ASKING IT TO BE ONE IS HOW THE PAGES BECAME UNREADABLE.
+ * It is a real Nueva hue and it stays above, but it is the same lightness as the brand teal with
+ * the blue pulled out: 2.84:1 on paper, where AA wants 4.5. When a shared component asks for the
+ * deep variant (--sk-teal-d / --sk-brand-deep / --sk-brand-d) it means "the one small text can be
+ * written in", and that is --nva-sage. Measured 2026-09-10, after 19 declarations across the
+ * system had independently guessed #00AAA6 and two had guessed #079F9B.
+ *   brand fills, icons, rules, the bright end of a ramp   --nva-teal  #0ABAB5   never text
+ *   small text, eyebrows, kickers, hovers, links          --nva-sage  #087F7B   4.79:1
+ */
+
+/* ⚠️ THE BRAND TEAL IS A FILL, NOT A TYPEFACE, AND THIS TOKEN IS HOW THAT IS ENFORCED.
+ * #0ABAB5 scores 2.39:1 as text on paper where AA wants 4.5, so the shared components read
+ * --sk-brand-text wherever they set a `color:` and fall back to --sk-brand for systems that do
+ * not declare one. Nueva declares it, and every eyebrow, kicker, numeral and link hover in every
+ * shared component follows without a single per-page override.
+ *   fills, icons, rules, the bright end of a ramp   --nva-teal  #0ABAB5   never text
+ *   any text at all                                --nva-sage  #087F7B   4.79:1
+ * Measured 2026-09-10 across all 24 Nueva blocks. → web/scripts/shark-pages/check-contrast.mjs
+ */
+:root {
+  --sk-brand-text: #087F7B;
+  /* The primary button's ground. Jeff, 2026-09-11: darken the button, keep the white text, so
+     #0ABAB5 stays the loud thing in fills and accents and stops carrying type. White on this is
+     4.85:1. Every button ground in the shared components is a ramp from the brand to its deep
+     variant, and only the BRIGHT stop reads this token, so Nueva's button lands flat and every
+     other system's ramp is untouched. */
+  --sk-brand-btn:  #087F7B;
+}

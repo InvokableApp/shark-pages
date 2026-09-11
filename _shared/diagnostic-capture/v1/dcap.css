@@ -71,7 +71,7 @@
 .sk-dcap .sk-dcap-eyebrow{
   display:inline-flex;align-items:center;gap:.7rem;margin:0 0 1.4rem;
   font-family:var(--_sans);font-size:.68rem;font-weight:600;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--_brand);
+  text-transform:uppercase;color:var(--sk-brand-text, var(--_brand));
 }
 .sk-dcap .sk-dcap-eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
 .sk-dcap .sk-dcap-lede{font-size:clamp(1.02rem,1.5vw,1.16rem);line-height:1.72;max-width:56ch}
@@ -111,8 +111,8 @@
   max-width:640px;
 }
 .sk-dcap .sk-dcap-hero h1{color:#fff}
-.sk-dcap .sk-dcap-hero h1 em{font-style:italic;color:var(--_accent)}
-.sk-dcap .sk-dcap-hero .sk-dcap-eyebrow{color:var(--_accent)}
+.sk-dcap .sk-dcap-hero h1 em{font-style:italic;color:var(--sk-brand-text, var(--_accent))}
+.sk-dcap .sk-dcap-hero .sk-dcap-eyebrow{color:var(--sk-brand-text, var(--_accent))}
 .sk-dcap .sk-dcap-hero .sk-dcap-lede{color:rgba(255,255,255,.8);margin-top:1.7rem}
 .sk-dcap .sk-dcap-hero .sk-dcap-note{color:rgba(255,255,255,.55)}
 .sk-dcap .sk-dcap-hero .sk-dcap-btn{margin-top:2.3rem}
@@ -181,7 +181,7 @@
 .sk-dcap .sk-dcap-lane-body p{font-size:.95rem}
 .sk-dcap .sk-dcap-lane-tag{
   display:block;margin:0 0 .9rem;font-size:.66rem;font-weight:600;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--_brand);
+  text-transform:uppercase;color:var(--sk-brand-text, var(--_brand));
 }
 
 /* ── split: image one side, numbered list the other ───────────────────────── */
@@ -209,7 +209,7 @@
 .sk-dcap .sk-dcap-list>li::before{
   content:counter(sk-dcap-i,decimal-leading-zero);
   position:absolute;left:0;top:1.55rem;
-  font-family:var(--_serif);font-size:1.5rem;line-height:1;color:var(--_brand);
+  font-family:var(--_serif);font-size:1.5rem;line-height:1;color:var(--sk-brand-text, var(--_brand));
 }
 .sk-dcap .sk-dcap-list>li:first-child::before{top:.1rem}
 .sk-dcap .sk-dcap-list h3{font-size:1.16rem;margin-bottom:.35rem}
@@ -225,7 +225,7 @@
 }
 .sk-dcap .sk-dcap-close-in{position:relative;z-index:3;padding:clamp(4.4rem,10vw,7.5rem) 0}
 .sk-dcap .sk-dcap-close h2{color:#fff;max-width:18ch;margin:0 auto}
-.sk-dcap .sk-dcap-close .sk-dcap-eyebrow{color:var(--_accent)}
+.sk-dcap .sk-dcap-close .sk-dcap-eyebrow{color:var(--sk-brand-text, var(--_accent))}
 .sk-dcap .sk-dcap-close .sk-dcap-lede{color:rgba(255,255,255,.78);margin-top:1.3rem}
 .sk-dcap .sk-dcap-close .sk-dcap-btn{margin-top:2.2rem}
 .sk-dcap .sk-dcap-close .sk-dcap-note{color:rgba(255,255,255,.5)}

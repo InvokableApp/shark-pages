@@ -27,13 +27,13 @@
   --panel: #ffffff;
 
   --sk-brand:    #0abab5;
-  --sk-brand-d:  #00aaa6;
+  --sk-brand-d:  #087F7B;
   --sk-accent:   #087f7b;
   --sk-tint:     #e8f8f6;
   --sk-ink:      #141313;
   --sk-ink-d:    #102a2a;
   --sk-body:     #4a5560;
-  --sk-faint:    #d5dfe1;
+  --sk-faint:    #5C6D71;
   --sk-paper:    #fcfeff;
   --sk-card:     #ffffff;
   --sk-warm:     #e8f8f6;
@@ -265,7 +265,7 @@
 .sk-nva-guide .food-card{ display:flex; gap:.24in; padding-bottom:.14in; border-bottom:1px solid var(--hair); }
 .sk-nva-guide .food-card:last-child{ border-bottom:none; }
 .sk-nva-guide .food-num{ font-family:'Newsreader',serif; font-weight:400; font-size:26px;
-  color:var(--gold); line-height:1; min-width:.5in; font-variant-numeric:tabular-nums; }
+  color:var(--green-deep); line-height:1; min-width:.5in; font-variant-numeric:tabular-nums; }
 .sk-nva-guide .food-body{ flex:1; }
 .sk-nva-guide .food-head-row{ display:flex; align-items:baseline; justify-content:space-between; gap:.2in; }
 .sk-nva-guide .food-name{ font-family:'Newsreader',serif; font-weight:500; font-size:19px;
@@ -371,7 +371,7 @@
 .sk-nva-guide .gnav a:hover{ opacity:1; }
 .sk-nva-guide .gnav .brand{ font-family:'Newsreader',serif; font-weight:600; font-size:15px; color:#fff; letter-spacing:0; text-transform:none; margin-right:6px; }
 .sk-nva-guide .gnav .spacer{ flex:1; }
-.sk-nva-guide .gnav .nav-cta{ background:var(--green); color:#fff; padding:8px 16px; border-radius:8px; text-transform:none; letter-spacing:.01em; font-size:12px; opacity:1; }
+.sk-nva-guide .gnav .nav-cta{ background:var(--green-deep); color:#fff; padding:8px 16px; border-radius:8px; text-transform:none; letter-spacing:.01em; font-size:12px; opacity:1; }
 .sk-nva-guide .gnav .nav-cta:hover{ background:var(--green-deep); }
 .sk-nva-guide .product-btn{ display:inline-block; margin-top:16px; background:var(--forest); color:var(--cream);
   font:600 13px/1 var(--sk-sans); letter-spacing:.02em; padding:13px 26px; border-radius:9px; text-decoration:none; }

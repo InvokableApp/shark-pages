@@ -271,7 +271,7 @@
   background:#fff;border:0;border-radius:999px;
   padding:.6rem 1.4rem;margin-bottom:1.9rem;
   font-size:.8rem;font-weight:600;letter-spacing:.005em;text-transform:none;
-  color:var(--sk-accent,#2e5233);
+  color:var(--sk-brand-text, var(--sk-accent,#2e5233));
   box-shadow:0 3px 14px -4px rgba(30,35,25,.18), 0 1px 3px rgba(30,35,25,.06);
 }
 .sk-conf-light .sk-conf-top .sk-conf-note{color:var(--sk-body,#4a5568);font-size:1.06rem;margin-top:1.6rem}
@@ -280,11 +280,11 @@
 .sk-conf-light .sk-conf-top .sk-conf-lede{color:var(--sk-body,#4a5568)}
 
 /* the italic clause inside the headline, and the "read below" kicker under it */
-.sk-conf .sk-conf-em{font-style:italic;color:var(--sk-accent,#2e5233)}
+.sk-conf .sk-conf-em{font-style:italic;color:var(--sk-brand-text, var(--sk-accent,#2e5233))}
 .sk-conf .sk-conf-kicker{
   max-width:620px;margin:.85rem auto 0;
   font-size:1.08rem;font-weight:700;font-style:italic;
-  color:var(--sk-accent,#2e5233);
+  color:var(--sk-brand-text, var(--sk-accent,#2e5233));
 }
 
 /* ── the offer card ────────────────────────────────────────────────────────────
@@ -321,7 +321,7 @@
 }
 .sk-conf .sk-conf-badge{
   display:inline-block;align-self:flex-start;margin:0 0 1.15rem;
-  background:var(--sk-badge,#fbf0cf);color:var(--sk-accent,#2e5233);
+  background:var(--sk-badge,#fbf0cf);color:var(--sk-brand-text, var(--sk-accent,#2e5233));
   border-radius:999px;padding:.5rem 1.1rem;
   font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
   font-variant-numeric:lining-nums;
@@ -398,7 +398,7 @@
 .sk-conf .sk-conf-chip{
   display:grid;place-items:center;align-self:flex-start;
   width:52px;height:52px;margin:0 0 1.5rem;
-  border-radius:14px;background:var(--sk-badge,#fbf0cf);color:var(--sk-accent,#2e5233);
+  border-radius:14px;background:var(--sk-badge,#fbf0cf);color:var(--sk-brand-text, var(--sk-accent,#2e5233));
 }
 .sk-conf .sk-conf-chip svg{width:26px;height:26px}
 
@@ -541,7 +541,7 @@
 .sk-conf .sk-conf-mid .sk-conf-num,
 .sk-conf-light .sk-conf-num{background:var(--sk-mist,#f4f6f9);border-color:var(--sk-line,#e3e8ef)}
 .sk-conf .sk-conf-mid .sk-conf-num-k,
-.sk-conf-light .sk-conf-num-k{color:var(--sk-accent,#2e5233)}
+.sk-conf-light .sk-conf-num-k{color:var(--sk-brand-text, var(--sk-accent,#2e5233))}
 .sk-conf .sk-conf-mid .sk-conf-num-n,
 .sk-conf-light .sk-conf-num-n{color:var(--sk-ink,#16233d)}
 .sk-conf .sk-conf-mid .sk-conf-num-t,
@@ -736,7 +736,7 @@
 .sk-conf-figure { text-align: center; margin: 0 0 1.5rem; }
 .sk-conf-figure-big {
   display: block; font-weight: 800; line-height: .95; letter-spacing: -.02em;
-  font-size: clamp(3.2rem, 13vw, 6rem); color: var(--sk-teal, #0abab5);
+  font-size: clamp(3.2rem, 13vw, 6rem); color:var(--sk-brand-text, var(--sk-teal, #0abab5));
 }
 .sk-conf-figure-unit {
   display: block; margin-top: .4rem; font-weight: 600;
@@ -787,5 +787,5 @@
 .sk-conf-facts { display: grid; gap: .75rem; grid-template-columns: 1fr; margin: 0 0 1.4rem; }
 @media (min-width: 34rem) { .sk-conf-facts { grid-template-columns: 1fr 1fr; } }
 .sk-conf-fact { background: var(--sk-mist, #e8f8f6); border-radius: .7rem; padding: .9rem 1rem; text-align: center; }
-.sk-conf-fact b { display: block; font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.1; color: var(--sk-teal, #0abab5); }
+.sk-conf-fact b { display: block; font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.1; color:var(--sk-brand-text, var(--sk-teal, #0abab5)); }
 .sk-conf-fact span { display: block; margin-top: .3rem; font-size: .85rem; line-height: 1.35; color: var(--sk-body, #4a5560); }

@@ -58,7 +58,7 @@
 @keyframes sk-calc-bounce{0%,80%,100%{transform:scale(.65);opacity:.45}40%{transform:scale(1);opacity:1}}
 
 .sk-calc-res{text-align:center}
-.sk-calc-eyebrow{margin:0 0 6px;font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--sk-accent)}
+.sk-calc-eyebrow{margin:0 0 6px;font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--sk-brand-text, var(--sk-accent))}
 .sk-calc-big{margin:0 0 10px;font-size:clamp(1.15rem,4vw,1.4rem);color:var(--sk-body);line-height:1.2}
 .sk-calc-big strong{display:block;font-size:clamp(3.1rem,13vw,4.6rem);line-height:1;font-weight:800;letter-spacing:-.03em;
   background:linear-gradient(135deg,var(--sk-brand),var(--sk-accent));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -112,5 +112,5 @@
 .sk-calc-pills { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 0 .5rem; padding: 0; list-style: none; }
 .sk-calc-pills li {
   font-size: .82rem; font-weight: 600; letter-spacing: .01em; padding: .34rem .8rem;
-  border-radius: 999px; background: var(--sk-tint, #e8f8f6); color: var(--sk-accent, #087f7b);
+  border-radius: 999px; background: var(--sk-tint, #e8f8f6); color:var(--sk-brand-text, var(--sk-accent, #087f7b));
 }

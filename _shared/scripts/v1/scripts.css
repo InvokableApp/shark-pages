@@ -132,7 +132,7 @@
   flex: none;
   width: 15px;
   height: 15px;
-  color: var(--sk-brand);
+  color:var(--sk-brand-text, var(--sk-brand));
 }
 
 /* ---------------- utility row ----------------
@@ -295,7 +295,7 @@
   font-size: 14px;
 }
 
-.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color: var(--sk-brand); }
+.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color:var(--sk-brand-text, var(--sk-brand)); }
 
 /* ---------------- the steps ----------------
    A numbered sequence, because the order is the instruction: call, then text,

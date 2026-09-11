@@ -7,7 +7,7 @@
    teal rather than a second hue. */
 .sk-calc.sk-calc-nva-kids{
   --sk-brand:#0abab5;
-  --sk-brand-d:#00aaa6;
+  --sk-brand-d:#087F7B;
   --sk-accent:#087f7b;
   --sk-tint:#e8f8f6;
   --sk-ink:#141313;
@@ -16,6 +16,6 @@
   --sk-paper:#fcfeff;
   --sk-card:#ffffff;
   --sk-line:#d5dfe1;
-  --sk-faint:#7b8792;
+  --sk-faint:#5C6D71;
   --sk-sans:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }

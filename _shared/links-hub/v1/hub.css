@@ -486,7 +486,7 @@
 }
 .sk-hub .sk-chip:hover,
 .sk-hub .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
-.sk-hub .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-hub .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color:var(--sk-brand-text, var(--sk-brand)); }
 
 /* ---------------- footer ---------------- */
 
@@ -729,7 +729,7 @@
   box-shadow: var(--sk-shadow);
   transition: color .18s, border-color .18s, transform .18s;
 }
-.sk-hub .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-hub .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color:var(--sk-brand-text, var(--sk-brand)); }
 .sk-hub .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
 .sk-hub .sk-a2hs:active { transform: translateY(1px); }
 
@@ -1154,7 +1154,7 @@
 }
 .sk-hub .sk-vidbtn:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
 .sk-hub .sk-vidbtn:active { transform: scale(.98); }
-.sk-hub .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-hub .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color:var(--sk-brand-text, var(--sk-brand)); }
 
 .sk-hub .sk-art--play {
   position: relative;
@@ -1220,7 +1220,7 @@
   box-shadow: var(--sk-shadow-lift);
   animation: sk-hub-bob 1.9s ease-in-out infinite;
 }
-.sk-hub .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+.sk-hub .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color:var(--sk-brand-text, var(--sk-brand)); }
 
 @keyframes sk-hub-bob {
   0%, 100% { transform: translateY(0); }
@@ -1332,7 +1332,7 @@
   list-style: none;
 }
 .sk-hub .sk-watch summary::-webkit-details-marker { display: none; }
-.sk-hub .sk-watch summary svg { width: 18px; height: 18px; flex: none; color: var(--sk-brand); stroke-width: 1.7; }
+.sk-hub .sk-watch summary svg { width: 18px; height: 18px; flex: none; color:var(--sk-brand-text, var(--sk-brand)); stroke-width: 1.7; }
 .sk-hub .sk-watch summary em { font-style: normal; font-weight: 500; color: var(--sk-ink-faint); }
 .sk-hub .sk-watch-body { padding-top: 12px; }
 .sk-hub .sk-watch video {

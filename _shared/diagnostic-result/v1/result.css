@@ -50,7 +50,7 @@
 /* ---------------------------------------------------------------- typography */
 .sk-dres .sk-dres-eyebrow{
   margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--_brand);
+  text-transform:uppercase;color:var(--sk-brand-text, var(--_brand));
 }
 .sk-dres .sk-dres-kicker{
   margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:.22em;
@@ -95,7 +95,7 @@
   display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin:0 0 9px;
   font-size:14px;font-weight:600;letter-spacing:.01em;
 }
-.sk-dres .sk-dres-meter-head em{font-style:normal;font-weight:600;color:var(--_brand);font-size:13px}
+.sk-dres .sk-dres-meter-head em{font-style:normal;font-weight:600;color:var(--sk-brand-text, var(--_brand));font-size:13px}
 .sk-dres .sk-dres-track{height:7px;border-radius:999px;background:#f2ece2;overflow:hidden}
 /* Bars grow from 0 to their value once the loader has cleared, so the score reads as something
    being measured rather than a static graphic. The width is carried in --sk-w so the keyframe
@@ -125,7 +125,7 @@
 .sk-dres .sk-dres-steps>li::before{
   content:counter(sk-dres-step,decimal-leading-zero);
   position:absolute;left:0;top:23px;
-  font-family:var(--_serif);font-size:22px;line-height:1;color:var(--_brand);
+  font-family:var(--_serif);font-size:22px;line-height:1;color:var(--sk-brand-text, var(--_brand));
   letter-spacing:.02em;
 }
 .sk-dres .sk-dres-steps h3{
@@ -169,7 +169,7 @@
   font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   background:#f6efe3;color:var(--_brandd);border:1px solid var(--_line);
 }
-.sk-dres .sk-dres-card--lead .sk-dres-rank{background:linear-gradient(100deg,var(--_brand),var(--_accent));color:#fff;border-color:transparent}
+.sk-dres .sk-dres-card--lead .sk-dres-rank{background:linear-gradient(100deg,var(--sk-brand-btn, var(--_brand)),var(--_accent));color:#fff;border-color:transparent}
 .sk-dres .sk-dres-shot{margin:0 0 16px;text-align:center}
 .sk-dres .sk-dres-shot img{max-width:100%;height:auto;max-height:190px;display:inline-block}
 .sk-dres .sk-dres-card h3{
@@ -194,7 +194,7 @@
   transition:background .25s var(--_ease),transform .25s var(--_ease),box-shadow .25s var(--_ease);
 }
 .sk-dres .sk-dres-btn:hover{background:#1b1815;transform:translateY(-2px);box-shadow:0 16px 32px rgba(43,39,33,.26)}
-.sk-dres .sk-dres-btn--gold{background:linear-gradient(100deg,var(--_brand),var(--_accent));color:#fff}
+.sk-dres .sk-dres-btn--gold{background:linear-gradient(100deg,var(--sk-brand-btn, var(--_brand)),var(--_accent));color:#fff}
 .sk-dres .sk-dres-btn--gold:hover{background:linear-gradient(100deg,var(--_brandd),var(--_brand));box-shadow:0 16px 32px rgba(169,127,63,.36)}
 .sk-dres .sk-dres-btn svg{width:17px;height:17px;flex:none}
 .sk-dres .sk-dres-btn-ghost{
