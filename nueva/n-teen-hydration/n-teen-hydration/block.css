@@ -277,3 +277,6 @@
   margin:0 0 .35rem; font-size:1.12rem; font-weight:800; letter-spacing:-.01em; color:#fff;
 }
 .sk-teen .sk-teen-calc-sub{ margin:0; font-size:.9rem; color:rgba(255,255,255,.62); }
+/* The overlay's host is a bare <body> child that exists only to re-apply the .sk-teen scope.
+   display:contents so it adds no box of its own. */
+.sk-teen.sk-teen-calc-host{ display:contents; }

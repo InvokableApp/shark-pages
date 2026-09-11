@@ -54,8 +54,17 @@
       '<p class="sk-teen-calc-head" data-calc-line>Working out their number</p>' +
       '<p class="sk-teen-calc-sub">This takes a few seconds.</p>' +
     '</div>';
-  // Inside .sk-teen so the scoped CSS applies; position:fixed is what lifts it over the popup.
-  root.appendChild(ov);
+  /* ⚠️ IT HAS TO BE A CHILD OF <body>, NOT OF THE BLOCK. Appending it inside .sk-teen looked
+     right and tested green on every property read (hidden:false, lines rotating) while being
+     INVISIBLE on screen: GHL's page sections create their own stacking contexts, so a fixed
+     child of the block is positioned against the viewport but still painted inside its
+     ancestor's layer, underneath the popup. No z-index can climb out of a stacking context.
+     ⚠️ AND IT HAS TO CARRY .sk-teen, because this sheet is scoped `.sk-teen .sk-teen-calc`.
+     display:contents on the host keeps the wrapper from generating a box of its own. */
+  var host = document.createElement("div");
+  host.className = "sk-teen sk-teen-calc-host";
+  host.appendChild(ov);
+  document.body.appendChild(host);
 
   /* True statements about what the model actually does, in order. A rotation of invented steps
      would be theatre; these are the three terms of the sum on the result page. */
