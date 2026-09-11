@@ -232,7 +232,11 @@
   width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
   max-height:min(56vh,520px); overflow:hidden; background:#dfeaf2;
 }
-.sk-teen .sk-teen-band img{ display:block; width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+/* ⚠️ AIMED AT THE FACE AND THE GLASS, not at the middle of the frame. The band crops a 3:2
+   photograph down to about 520px, and the default 50% centre put the crop line straight through
+   the athlete's forehead: the one thing the picture is for, the drink going in, sat half out of
+   shot. Re-generate the asset and this number moves with it. */
+.sk-teen .sk-teen-band img{ display:block; width:100%; height:100%; object-fit:cover; object-position:52% 26%; }
 
 .sk-teen .sk-teen-cols{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.6rem 2.2rem;
