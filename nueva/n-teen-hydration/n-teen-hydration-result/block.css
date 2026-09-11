@@ -526,28 +526,34 @@
 /* On screen the date line is not shown; it exists for the printed copy only. */
 .sk-teen .sk-teen-printdate{ display:none; }
 
-/* ── "Where this number comes from" ────────────────────────────────────────────────────────
+/* ── "Where this number comes from" ──────────────────────────────────────────────────────────
+   ⚠️ NAMED sk-teen-method, NOT sk-teen-how. `.sk-teen-how` was ALREADY the Mix / Stir / Drink
+   steps block thirty lines up, so the first version of this section inherited its counter badges,
+   its cards and its three-column grid, and rendered as a broken table of double-numbered boxes.
+   That is the FOURTH name collision on this page (.sk-teen-band, .sk-teen-bar, .sk-teen-how).
+   One flat namespace, no nesting, no compile step: GREP THE CLASS BEFORE YOU NAME A RULE. -*/
+/* ────────────────────────────────────────────────────────
    Always open on the result page: the parent is holding a number, so the method is the next
    fair question rather than an optional aside. */
-.sk-teen .sk-teen-how--open{
+.sk-teen .sk-teen-method{
   max-width:44rem; margin:0 auto 2rem; padding:1.5rem 1.6rem;
   text-align:left; border:1px solid var(--sk-line,#d5dfe1); border-radius:16px;
   background:#fbfdfd;
 }
-.sk-teen .sk-teen-how--open h3{
+.sk-teen .sk-teen-method h3{
   margin:0 0 .9rem; font-size:1rem; font-weight:800; letter-spacing:-.01em; color:var(--sk-ink,#141313);
 }
-.sk-teen .sk-teen-how--open ol{ margin:0 0 .9rem; padding-left:1.15rem; }
-.sk-teen .sk-teen-how--open li{
+.sk-teen .sk-teen-method ol{ margin:0 0 .9rem; padding-left:1.15rem; }
+.sk-teen .sk-teen-method li{
   margin:0 0 .55rem; font-size:.9rem; line-height:1.55; color:var(--sk-body,#4a5560);
 }
-.sk-teen .sk-teen-how--open li b{ color:var(--sk-ink,#141313); font-weight:700; }
-.sk-teen .sk-teen-how--open p{
+.sk-teen .sk-teen-method li b{ color:var(--sk-ink,#141313); font-weight:700; }
+.sk-teen .sk-teen-method p{
   margin:0; font-size:.86rem; line-height:1.55; color:var(--sk-body,#4a5560);
 }
 /* It belongs on the printed report: a number with no method is a number nobody can check. */
 @media print{
-  .sk-teen .sk-teen-how--open{ border-color:#d5dfe1; background:#fff; break-inside:avoid; }
-  .sk-teen .sk-teen-how--open h3{ color:#141313; }
-  .sk-teen .sk-teen-how--open li, .sk-teen .sk-teen-how--open p{ color:#4a5560; }
+  .sk-teen .sk-teen-method{ border-color:#d5dfe1; background:#fff; break-inside:avoid; }
+  .sk-teen .sk-teen-method h3{ color:#141313; }
+  .sk-teen .sk-teen-method li, .sk-teen .sk-teen-method p{ color:#4a5560; }
 }
