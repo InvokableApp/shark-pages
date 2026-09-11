@@ -106,3 +106,48 @@
   border-radius:22px; border:1px solid rgba(8,127,123,.10);
   box-shadow:0 4px 10px rgba(7,17,22,.06), 0 32px 64px -28px rgba(7,17,22,.34);
 }
+
+/* ── the two things the LIVE page showed that the local render could not ────────────────────
+   ⚠️ 1. GHL BOXES THE BLOCK INTO ITS ROW. The local harness renders the block at the full
+   viewport, so "full bleed" looked full bleed. On the real page the row is about 535px wide, the
+   photograph became a narrow panel, and the headline wrapped to eight lines. A hosted block has
+   to break itself out, and 100vw plus a negative half-gutter margin is the only way to do it from
+   inside a container whose width it does not control.
+
+   ⚠️ 2. THE SCRIM WAS A FIXED HEIGHT AND THE CONTENT WAS NOT. clamp(520px,72vh,760px) covered the
+   hero at desktop width and fell short the moment the copy wrapped taller, dropping the last two
+   lines of the sub onto bare white at 1.01:1. check-contrast FLAGGED IT and it was nearly
+   dismissed as the usual photo-background false positive, which would have shipped unreadable
+   text. The scrim now sizes to the hero it covers instead of guessing.
+   ── */
+.sk-calc-nva-teen .sk-calc-top{
+  position:relative;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  overflow:hidden;
+}
+.sk-calc-nva-teen .sk-calc-bg{
+  position:absolute; inset:0;        /* the hero's own box, not a guessed height */
+  height:auto;
+  z-index:0;
+}
+.sk-calc-nva-teen .sk-calc-hero{
+  z-index:1;
+  min-height:clamp(420px,54vh,620px);
+  display:flex; flex-direction:column; justify-content:center;
+  align-items:flex-start;
+  padding-bottom:clamp(3rem,6vw,4.5rem);
+}
+@media (max-width:820px){
+  .sk-calc-nva-teen .sk-calc-hero{ align-items:center; }
+}
+/* The type has to survive the narrow row too, so it scales from the CONTAINER, not the viewport. */
+.sk-calc-nva-teen .sk-calc-hero h1{ font-size:clamp(1.75rem,3.4vw,3.1rem); }
+.sk-calc-nva-teen .sk-calc-hero > *{ max-width:min(620px,70%); }
+@media (max-width:1100px){ .sk-calc-nva-teen .sk-calc-hero > *{ max-width:min(620px,88%); } }
+@media (max-width:820px){ .sk-calc-nva-teen .sk-calc-hero > *{ max-width:100%; } }
+
+/* the card overlaps the photo's lower edge, which is what stops the page reading as two stacked
+   blocks with a seam between them */
+.sk-calc-nva-teen .sk-calc-mount{ margin-top:clamp(-3.5rem,-4vw,-2rem); z-index:2; }
