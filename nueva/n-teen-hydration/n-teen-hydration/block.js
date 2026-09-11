@@ -24,3 +24,76 @@
   var btns = scope.querySelectorAll("[data-sk-popup]");
   for (var i = 0; i < btns.length; i++) btns[i].addEventListener("click", open);
 })();
+
+/* ── "Working out their number" ────────────────────────────────────────────────────────────
+   Jeff, 2026-09-11: submit sits for a moment before the result page appears, so the visitor gets
+   a dead popup and no signal that anything happened.
+
+   ⚠️ THIS CANNOT BE A NATIVE PROCESSING SLIDE. A survey's footer JS does NOT run inside a popup
+   embed (QUIZ-FUNNEL-SOP §52, measured on Beneve), which is why the generator's processing slide
+   was dropped from this survey in the first place: it would have loaded and never advanced.
+
+   ⚠️ IT CAN BE DONE HERE ONLY BECAUSE THE SURVEY IS NOT IFRAMED. Measured on the live popup: it
+   renders inline as <form class="ghl-survey-form"> in the page's own DOM, so this block's script
+   can see its slides and its buttons. If GHL ever moves surveys into an iframe this stops working
+   silently, and the check below (no form found) is what makes it fail quietly rather than throw.
+
+   ⚠️ THE LISTENER IS ON document, NOT on the block. The survey lives in the POPUP, which is not
+   inside .sk-teen, so a scoped listener would never see the click. */
+(function () {
+  var root = document.querySelector(".sk-teen");
+  if (!root) return;
+
+  var ov = document.createElement("div");
+  ov.className = "sk-teen-calc";
+  ov.setAttribute("aria-live", "polite");
+  ov.hidden = true;
+  ov.innerHTML =
+    '<div class="sk-teen-calc-in">' +
+      '<span class="sk-teen-calc-ring" aria-hidden="true"></span>' +
+      '<p class="sk-teen-calc-head" data-calc-line>Working out their number</p>' +
+      '<p class="sk-teen-calc-sub">This takes a few seconds.</p>' +
+    '</div>';
+  // Inside .sk-teen so the scoped CSS applies; position:fixed is what lifts it over the popup.
+  root.appendChild(ov);
+
+  /* True statements about what the model actually does, in order. A rotation of invented steps
+     would be theatre; these are the three terms of the sum on the result page. */
+  var LINES = ["Working out their number", "Adding what the sweat costs", "Almost there"];
+  var timers = [];
+  var clear = function () { timers.forEach(clearTimeout); timers = []; };
+
+  var show = function () {
+    var line = ov.querySelector("[data-calc-line]");
+    ov.hidden = false;
+    clear();
+    LINES.slice(1).forEach(function (t, i) {
+      timers.push(setTimeout(function () { line.textContent = t; }, (i + 1) * 1800));
+    });
+    /* ⚠️ IT MUST BE ABLE TO GO AWAY AGAIN. If the submit fails validation, or Cloudflare's
+       Turnstile challenge blocks it, no navigation happens and a permanent overlay would strand
+       the visitor behind a spinner with their answers underneath it. */
+    timers.push(setTimeout(hide, 15000));
+  };
+  var hide = function () { clear(); ov.hidden = true; };
+
+  document.addEventListener("click", function (e) {
+    /* ⚠️ TWO CLASS FAMILIES, AND THE POPUP USES THE OTHER ONE (QUIZ-FUNNEL-SOP §102).
+       Page-embed and popup render `.ghl-btn.ghl-footer-next` / `.ghl-footer-buttons .ghl-btn`;
+       the bare widget renders `.ghl-next-button` / `.ghl-mobile-next`. A probe of the live popup
+       showed the widget family, so both are matched: keying on the one I happened to observe is
+       how this silently stops firing the day GHL renders the other. */
+    var btn = e.target && e.target.closest &&
+      e.target.closest(".ghl-next-button, .ghl-mobile-next, .ghl-footer-next, .ghl-footer-buttons .ghl-btn");
+    if (!btn) return;
+    /* Only the LAST slide submits; every earlier one is a Continue and must not trigger this.
+       Found by position rather than by slide number or button label: the slide count changes
+       whenever a question is added, and the label is editable in the survey builder. */
+    var slides = document.querySelectorAll(".form-builder--wrap-questions");
+    if (!slides.length) return;
+    if (slides[slides.length - 1].classList.contains("ghl-page-current")) show();
+  }, true);
+
+  // Navigation is the success case: keep it up until the browser tears the page down.
+  window.addEventListener("pagehide", clear);
+})();

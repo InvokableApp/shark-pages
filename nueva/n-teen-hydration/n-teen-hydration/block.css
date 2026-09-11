@@ -248,3 +248,32 @@
   color:rgba(255,255,255,.62); font-size:.72rem; line-height:1.6;
 }
 
+
+/* ── the "working it out" overlay ──────────────────────────────────────────────────────────
+   Lives inside .sk-teen so this scoped sheet reaches it, but position:fixed so it covers the
+   popup rather than sitting in the page flow. The z-index is deliberately absurd: it has to beat
+   GHL's own popup chrome, which is not ours to renumber. */
+.sk-teen .sk-teen-calc{
+  position:fixed; inset:0; z-index:2147483000;
+  display:grid; place-items:center; padding:1.5rem;
+  background:rgba(7,17,22,.94); backdrop-filter:blur(6px);
+  color:#fff; text-align:center;
+}
+.sk-teen .sk-teen-calc[hidden]{ display:none; }
+.sk-teen .sk-teen-calc-in{ max-width:22rem; }
+.sk-teen .sk-teen-calc-ring{
+  display:block; width:44px; height:44px; margin:0 auto 1.1rem;
+  border-radius:50%; border:3px solid rgba(255,255,255,.18);
+  border-top-color:var(--sk-lime,#7fe6e2);
+  animation:sk-teen-spin .9s linear infinite;
+}
+@keyframes sk-teen-spin{ to{ transform:rotate(360deg); } }
+/* A spinner that cannot spin should not pretend to. The text still rotates, so the state is
+   still legible without the motion. */
+@media (prefers-reduced-motion:reduce){
+  .sk-teen .sk-teen-calc-ring{ animation:none; border-top-color:rgba(255,255,255,.18); }
+}
+.sk-teen .sk-teen-calc-head{
+  margin:0 0 .35rem; font-size:1.12rem; font-weight:800; letter-spacing:-.01em; color:#fff;
+}
+.sk-teen .sk-teen-calc-sub{ margin:0; font-size:.9rem; color:rgba(255,255,255,.62); }
