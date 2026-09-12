@@ -242,3 +242,43 @@
   margin:.7rem auto 0;max-width:36ch;
   color:var(--ig-faint);font-size:.86rem;line-height:1.5;
 }
+
+/* ============================ READABILITY CORRECTIONS (2026-09-12) ============================
+   Found by audit-live-page.mjs against the real URL. Four of these five were PRE-EXISTING and
+   shipped: two whole sections of this page were rendering near-black text on a near-black
+   background, at 1.03:1 and 1.22:1.
+
+   ROOT CAUSE, and it will recur on every block forked from this donor. The donor
+   (glp/glp-free-ignyt-sample) is a DARK-THEME page: --ig-frost is #F2F4F8, a near-white TEXT
+   colour, sitting on --ig-panel #0D0E13 and --ig-black. Nueva's fork remapped --ig-frost to
+   #141313, Nueva's near-black ink, and --ig-card to #ffffff, flipping the page to a light theme
+   -- but --ig-panel and --ig-black stayed DARK, because they are backgrounds and a background
+   token maps to a background token. So the two dark bands kept their dark backgrounds and lost
+   their light text. Nothing errored; the tokens were all defined and all "correct".
+
+   Fixed by naming the light text on the dark bands, NOT by lightening --ig-frost, which is the
+   right ink everywhere else on this page (the hero H1, the identity mark, the white step cards). */
+
+/* The dark band behind "What happens next" (--ig-panel #102a2a). Its white step cards are
+   already correct; only the two headings sit directly on the panel. */
+.sk-prod-nva-revivec .sk-prod-nva-revivec-next .sk-prod-h2{color:var(--sk-cream)}
+.sk-prod-nva-revivec .sk-prod-nva-revivec-next .sk-prod-kicker{color:var(--ig-ember)}
+
+/* The closing band (--ig-black #071116). 1.03:1 means the closing line was invisible. */
+.sk-prod-nva-revivec .sk-prod-nva-revivec-foot-h{color:var(--sk-cream)}
+
+/* Brand teal #0abab5 is 2.39:1 on white and fails even the 3:1 large-text bar, so the accent
+   half of the headline was the least readable half. The ramp is kept, because it is the one
+   place type carries the gradient, and both stops are pulled down until the LIGHTEST point of
+   it clears 3:1 (#0a9d99 measures 3.34:1). Scoped to this page's class, not the shared
+   .sk-prod-nva-revive one, so the lander is not silently restyled from here. */
+.sk-prod-nva-revivec .sk-prod-accent{
+  color:var(--ig-flare);
+  background:linear-gradient(96deg,#0a9d99,#076b68);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Mine, from this session: --ig-faint is a 2.72:1 grey. The line under the button names the two
+   channels, so it is load-bearing, not decoration. */
+.sk-prod-nva-revivec .sk-prod-nva-revivec-channels{color:#566468}
