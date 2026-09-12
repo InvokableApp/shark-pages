@@ -53,7 +53,9 @@
       <div class="sk-prod-nva-revivesms-card">
         <p class="sk-prod-nva-revivesms-k">Text the word SAMPLE to</p>
         <p class="sk-prod-nva-revivesms-n" data-rep-phone-print>{{custom_values.nueva_rep_phone}}</p>
-        <button type="button" class="sk-prod-btn sk-prod-btn-ghost sk-prod-nva-revivesms-copy" data-sms-copy hidden>
+        <!-- ghost ONLY, never alongside sk-prod-btn: the shared component paints btn with a navy
+             fill and ghost with navy TEXT, so the two together render navy on navy (1:1). -->
+        <button type="button" class="sk-prod-btn-ghost sk-prod-nva-revivesms-copy" data-sms-copy hidden>
           Copy the number
         </button>
         <p class="sk-prod-nva-revivesms-t">

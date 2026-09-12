@@ -45,10 +45,28 @@
   if (!cta) return;
 
   var slot = cta.querySelector("[data-rep-phone]");
-  var raw = slot ? slot.textContent : "";
-  var digits = raw.replace(/[^\d+]/g, "");
-  var plus = digits.charAt(0) === "+";
-  var nums = digits.replace(/\D/g, "");
+  var raw = (slot ? slot.textContent : "").trim();
+
+  /* ⚠️ VALIDATE THAT THE VALUE *IS* A NUMBER, NEVER THAT IT *CONTAINS* ONE.
+   *
+   * The obvious implementation, `raw.replace(/[^\d+]/g, "")`, is what shipped first and it is
+   * wrong in the exact state this page spends most of its life in. On a snapshot account
+   * nueva_rep_phone holds its instruction sentence, and that sentence ENDS IN AN EXAMPLE NUMBER:
+   *
+   *   "Enter the mobile number your lead notifications should text, in the format +15551234567."
+   *
+   * Stripping non-digits out of that prose yields 11 digits beginning with 1, which every
+   * length check below would have accepted. The page then rendered a confident, correctly
+   * formatted sms: link to a number belonging to nobody, with no error anywhere. Measured on the
+   * live page 2026-09-12. A dead button is a visible failure; a plausible wrong number is not.
+   *
+   * So: any LETTER means this is prose, not a phone number, and the value is rejected outright.
+   * That also rejects "555-123-4567 ext 2", correctly. An sms: URI cannot carry an extension,
+   * and the digit-strip reading of it produced "+55512345672", a different number entirely.
+   */
+  var looksLikePhone = raw !== "" && !/[A-Za-z]/.test(raw) && /^\+?[\d\s().-]+$/.test(raw);
+  var nums = looksLikePhone ? raw.replace(/\D/g, "") : "";
+  var plus = looksLikePhone && raw.charAt(0) === "+";
 
   // 10 digits is the bare US number, 11 starting with 1 is the same number with its country
   // code. Anything else is left alone rather than guessed at: a wrong normalisation sends the

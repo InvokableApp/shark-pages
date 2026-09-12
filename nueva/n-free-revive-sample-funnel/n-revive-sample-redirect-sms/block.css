@@ -64,6 +64,11 @@
 }
 .sk-prod-nva-revivesms-mark svg{width:20px;height:20px;flex:none}
 
+/* Brand teal #0abab5 measures 2.41:1 on white, which fails even the 3:1 large-text threshold.
+   The accent half of the headline is the same sentence as the rest of it, so it has to be
+   readable, not just decorative: --sk-teal-d clears 4.5:1 and is still unmistakably Nueva. */
+.sk-prod-nva-revivesms .sk-prod-accent{color:var(--sk-teal-d)}
+
 .sk-prod-nva-revivesms .sk-prod-h1{
   font-family:var(--nsms-display);
   font-weight:800;
@@ -150,12 +155,24 @@
 /* Shipped hidden and revealed by JS: with no clipboard API there is nothing to copy WITH,
    and a button that silently fails is worse than no button. */
 .sk-prod-nva-revivesms-copy[hidden]{display:none}
+/* The shared ghost style is a TEXT link, so it arrives with no background of its own and the
+   UA button default (transparent) shows through. Colour and border are restated here rather
+   than inherited, because the shared rule falls back to #1e386a, a blue from another system's
+   palette that is off Nueva's teal entirely. */
 .sk-prod-nva-revivesms-copy{
+  display:inline-block;
   margin-bottom:14px;
+  padding:2px 0;
+  border:0;
+  border-bottom:1.5px solid rgba(8,127,123,.35);
+  background:none;
+  cursor:pointer;
   font-family:var(--sk-sans);
   font-size:.86rem;
   font-weight:700;
+  color:var(--nsms-deep);
 }
+.sk-prod-nva-revivesms-copy:hover{border-bottom-color:var(--nsms-teal)}
 .sk-prod-nva-revivesms-t{
   margin:0;
   font-family:var(--sk-sans);
@@ -164,12 +181,15 @@
   color:var(--nsms-body);
 }
 
+/* 11px legal copy has to CLEAR 4.5:1, not sit near it. The donor's #8aa0a4 measured 2.75:1 on
+   white (audit-live-page, 2026-09-12), which is unreadable at any size and indefensible on the
+   one paragraph that exists for compliance reasons. */
 .sk-prod-nva-revivesms .sk-prod-fine{
   max-width:46ch;
   margin:0 auto;
   font-size:.7rem;
   line-height:1.5;
-  color:#8aa0a4;
+  color:#566468;
 }
 
 @media (max-width:520px){
