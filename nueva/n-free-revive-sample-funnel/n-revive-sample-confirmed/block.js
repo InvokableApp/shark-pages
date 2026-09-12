@@ -1,30 +1,26 @@
-/* glp / glp-free-ignyt-sample / ignyt-sample-confirmation
+/* nueva / n-free-revive-sample-funnel / n-revive-sample-confirmed
  *
- * Loads the shared product-page engine for its scroll reveals, and hardens the one control
- * on the page: the sms: link that opens the visitor's messaging app with the word SAMPLE
- * already typed and the rep's number already in the To field.
+ * One job now: the single CTA opens the page's own popup, where the visitor picks text or
+ * Facebook Messenger. Each choice in the popup points at its own redirect step, so whichever
+ * they pick is a pageview and can carry a rep-notification trigger.
  *
- * THE PREFILL IS THE MARKUP, NOT THIS FILE. href="sms:{number}?&body=SAMPLE" is what does
- * the work, and it works with JS off. The `?&` is not a typo: Android wants ?body=, iOS 8+
- * wants &body=, and this shape satisfies both and degrades to a plain compose on anything
- * that ignores the parameter. What no page can do is press send for them.
+ * THE PHONE PARSING THAT USED TO LIVE HERE IS GONE, on purpose. This page printed the rep's
+ * number three times and hard-coded an sms: link, which made it a single-channel SMS ask and
+ * outranked the Messenger option before the visitor saw it. The number now lives only on the
+ * SMS redirect step, whose whole job is the text. One page owns it, so there is one place for
+ * it to be wrong. (That block also carries the fix for the parser bug this one had: the CV
+ * holds instruction text CONTAINING an example number, and a digit-strip happily extracted it.
+ * See NOTES §Redirect targets.)
  *
- * What this file adds is the two things a merge field breaks:
+ * WHY THE EVENT AND NOT A POPUP ID. GHL's page runtime registers a window-level event API for
+ * custom widgets, and it takes NO argument:
  *
- *   1. THE NUMBER IS A HUMAN-FORMATTED STRING, AND AN sms: URI IS NOT.
- *      rep_phone is filled by hand at onboarding, so it arrives as "(555) 123-4567" or
- *      "555-123-4567 ext 2" or with a stray space. Spaces and parens inside the URI are
- *      where prefill quietly stops working on some handsets. GHL substitutes server-side,
- *      before this runs, so by the time we look the real string is in the DOM and can be
- *      normalised to digits.
+ *     window.dispatchEvent(new Event("customWidgetOpenPopup"));
  *
- *   2. ON A SNAPSHOT THE CV IS INSTRUCTION TEXT, NOT A NUMBER.
- *      rep_phone holds "Add the phone number they can text and call you at here." until a
- *      buyer fills it, which is correct for a snapshot account (CLAUDE.md, Account TYPES).
- *      Printed inside a pill button that is a whole sentence, so when the value carries no
- *      usable number the label falls back to "Text SAMPLE now" and the button stops
- *      pretending to be a link. Nothing is "fixed" here: the page is just legible in both
- *      the snapshot state and the live state.
+ * Popup ids are `hl_main_popup-<random>`, minted per page and at risk of re-minting on snapshot
+ * install, so hardcoding one breaks in every other account. The event resolves to the page's
+ * first popup, which is the only popup this page has. NOTES §Custom-code block → open the page
+ * POPUP.
  */
 (function () {
   var BASE = "https://invokableapp.github.io/shark-pages/";
@@ -37,48 +33,21 @@
     document.head.appendChild(s);
   });
 
-  var cta = document.querySelector("[data-sms-cta]");
-  if (!cta) return;
-  var slot = cta.querySelector("[data-rep-phone]");
-  var raw = (slot ? slot.textContent : "").trim();
+  var btn = document.querySelector("[data-open-popup]");
+  if (!btn) return;
 
-  /* ⚠️ VALIDATE THAT THE VALUE *IS* A NUMBER, NEVER THAT IT *CONTAINS* ONE.
-   *
-   * This was `raw.replace(/[^\d+]/g, "")` until 2026-09-12, and that is wrong in exactly the
-   * state point 2 above describes. The instruction sentence sitting in nueva_rep_phone ENDS IN
-   * AN EXAMPLE NUMBER:
-   *
-   *   "Enter the mobile number your lead notifications should text, in the format +15551234567."
-   *
-   * Stripping non-digits out of that prose yields 11 digits beginning with 1, so the length
-   * checks below accepted it and the page rendered a confident, correctly formatted sms: link
-   * to a number belonging to nobody. The fallback that exists precisely to prevent this never
-   * ran. Measured on the live sibling Redirect SMS page; this block had the same defect.
-   *
-   * Any LETTER means prose, not a phone number, so the value is rejected outright. That also
-   * correctly rejects "555-123-4567 ext 2", which the old digit-strip turned into
-   * "+55512345672", a different number. An sms: URI cannot carry an extension anyway.
-   */
-  var looksLikePhone = raw !== "" && !/[A-Za-z]/.test(raw) && /^\+?[\d\s().-]+$/.test(raw);
-  var nums = looksLikePhone ? raw.replace(/\D/g, "") : "";
-  var plus = looksLikePhone && raw.charAt(0) === "+";
-
-  // 10 digits is the bare US number, 11 starting with 1 is the same number with its country
-  // code. Anything else is left alone rather than guessed at: a wrong normalisation sends
-  // the text to nobody, which is worse than an unformatted one that the handset can still parse.
-  var e164 = plus ? "+" + nums
-    : nums.length === 10 ? "+1" + nums
-    : nums.length === 11 && nums.charAt(0) === "1" ? "+" + nums
-    : nums;
-
-  if (nums.length < 10) {
-    // unresolved merge field, or an operator typo. Say the ask without the number.
-    var label = cta.querySelector("[data-sms-label]");
-    if (label) label.textContent = "Text SAMPLE now";
-    cta.removeAttribute("href");
-    cta.setAttribute("role", "text");
-    return;
-  }
-
-  cta.setAttribute("href", "sms:" + e164 + "?&body=SAMPLE");
+  btn.addEventListener("click", function () {
+    // ⚠️ NO SILENT FALLBACK. Sending them to one channel because the popup is missing would
+    // quietly delete the other channel and look like it worked, which is the failure nobody
+    // notices. If the popup is not on the page, say so loudly and do nothing else.
+    if (!document.querySelector('[id^="hl_main_popup-"]')) {
+      console.warn(
+        "[shark] n-revive-sample-confirmed: no popup on this page, so the CTA has nothing to " +
+        "open. Build the popup in the GHL page builder with the two channel buttons:\n" +
+        "  text       https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-sms\n" +
+        "  messenger  https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-dm"
+      );
+    }
+    window.dispatchEvent(new Event("customWidgetOpenPopup"));
+  });
 })();

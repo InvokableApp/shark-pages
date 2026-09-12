@@ -132,35 +132,9 @@
   font-size:clamp(1.02rem,1.5vw,1.14rem);
 }
 
-/* The rep card. Deliberately the brightest object on the page after the tick. */
-/* WIDTH AND GAP ARE MATCHED TO THE BUTTON ON PURPOSE (fixed 2026-09-02). The card is the
-   button's caption: it repeats the number for anyone whose tap does nothing. Shipped at
-   30rem against a 420px button, with a 7px gap under the button and 58px above it, so the
-   rhythm read backwards: the button floated away from the sentence that asks for the text
-   and sat glued to the card, and the card overhung it on both sides. Same width, and a gap
-   under the button roughly half the one above it, reads as one control with its footnote. */
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card{
-  max-width:min(420px,100%);margin:1.25rem auto 0;padding:1.4rem 1.5rem;
-  border:1px solid rgba(10,186,181,.34);border-radius:20px;
-  background:linear-gradient(160deg,rgba(10,186,181,.12),rgba(7,17,22,.9));
-  text-align:left;
-}
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card-k{
-  margin:0 0 .35rem;color:var(--ig-flare);
-  font-family:var(--ig-display);font-variation-settings:"wdth" 62,"wght" 700;
-  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
-}
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card-n{
-  margin:0 0 .5rem;color:var(--ig-frost);
-  font-family:var(--ig-display);font-variation-settings:"wdth" 88,"wght" 700;
-  font-size:1.4rem;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;
-}
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card-c{
-  margin:0 0 .6rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
-  color:var(--ig-frost);font-size:.95rem;
-}
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card-c i{width:4px;height:4px;border-radius:50%;background:var(--ig-ember);flex:0 0 auto}
-.sk-prod-nva-revivec .sk-prod-nva-revivec-card-t{margin:0;color:var(--ig-faint);font-size:.84rem}
+/* The rep card that used to sit here is GONE, along with its width-and-gap tuning: it printed
+   the rep's number, which made this page a single-channel SMS ask. The number now lives only on
+   the SMS redirect step. The button's caption is .sk-prod-nva-revivec-channels, further down. */
 
 /* ============================ NEXT STEPS ============================ */
 .sk-prod-nva-revivec .sk-prod-nva-revivec-next{
@@ -244,13 +218,27 @@
 }
 .sk-prod-nva-revivec .sk-prod-btn svg{width:1.1em;height:1.1em;stroke:#fff}
 
-/* The text-now control. It is a real link, not a form control, because the page's one ask is
-   to open the messaging app with the word already in it. Sized like the lander's primary CTA
-   so a visitor arriving from that page recognises it as the same button. */
-.sk-prod-nva-revivec .sk-prod-nva-revivec-text{
+/* The one control on the page. It is a real <button>, not a link, because it opens the page's
+   popup and goes nowhere on its own: an <a> with no destination is a lie to anything that reads
+   the page, including a middle-click. Sized like the lander's primary CTA so a visitor arriving
+   from that page recognises it as the same button.
+   (This replaced .sk-prod-nva-revivec-text, the old direct sms: link, when the channel choice
+   moved into the popup. UA buttons inherit none of font/colour/border, so those are restated
+   here even though the shared .sk-prod-btn covers an <a>.) */
+.sk-prod-nva-revivec .sk-prod-nva-revivec-open{
   margin:.75rem 0 0;
   width:min(420px,100%);justify-content:center;
+  border:0;cursor:pointer;
+  font:inherit;font-size:1.05rem;
 }
 @media (max-width:900px){
-  .sk-prod-nva-revivec .sk-prod-nva-revivec-text{width:100%;font-size:1.16rem}
+  .sk-prod-nva-revivec .sk-prod-nva-revivec-open{width:100%;font-size:1.16rem}
+}
+
+/* The honest expectation-setter under the button: it names the two channels so the fork inside
+   the popup is not a surprise. Deliberately quiet, so it reads as a footnote to the button
+   rather than as a second decision to make before clicking. */
+.sk-prod-nva-revivec .sk-prod-nva-revivec-channels{
+  margin:.7rem auto 0;max-width:36ch;
+  color:var(--ig-faint);font-size:.86rem;line-height:1.5;
 }

@@ -1,10 +1,21 @@
 <!--
   nueva/n-free-revive-sample-funnel/n-revive-sample-confirmed
-  FORKED from glp/glp-free-ignyt-sample/ignyt-sample-confirmation by fork-blocks.mjs.
 
-  ⚠️ STRUCTURE AND PALETTE ONLY. The copy below, and every image in assets/, is still the
-  donor's. That includes product photography and supplement-facts panels, which are factual
-  claims about a DIFFERENT PRODUCT and must not ship. Rewriting them is the reskin pass.
+  THE CHANNEL CHOICE LIVES IN THE POPUP, NOT ON THIS PAGE (Jeff, 2026-09-12, equal billing for
+  text and Messenger). So this page has exactly ONE call to action and it opens the page's own
+  popup. The two channels are peers inside it, each pointing at its own redirect step:
+
+      text       https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-sms
+      messenger  https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-dm
+
+  ⚠️ THE REP'S NUMBER IS DELIBERATELY NOT ON THIS PAGE ANY MORE. It used to be printed three
+  times here, which made this a single-channel SMS ask and quietly outranked the Messenger
+  option before the visitor ever saw it. The number now lives on the SMS redirect step, which is
+  the one page whose job is the text. One page owns it, so there is one place it can be wrong.
+
+  ⚠️ The popup itself is built in the GHL UI by Jeff. Until it exists the button fires the event
+  and nothing opens. block.js says so in the console rather than silently navigating somewhere
+  the visitor did not choose.
 -->
 <div class="sk-prod sk-prod-nva-revive sk-prod-nva-revivec">
 
@@ -30,32 +41,26 @@
       </div>
 
       <p class="sk-prod-eyebrow" data-rise data-delay="1">One more step</p>
-      <h1 class="sk-prod-h1" data-rise data-delay="2">Confirm your shipping<br><span class="sk-prod-accent">information with us.</span></h1>
+      <h1 class="sk-prod-h1" data-rise data-delay="2">Confirm your shipping<br><span class="sk-prod-accent">address with us.</span></h1>
 
       <p class="sk-prod-nva-revivec-lede" data-rise data-delay="3">
-        To do this, please text SAMPLE to {{custom_values.nueva_rep_phone}} right now. This will
-        allow us to confirm you're a human and confirm your shipping address.
+        Send us one quick message. It confirms you are a real person and it confirms where the
+        sample is going.
       </p>
 
-      <!-- ON A PHONE THIS IS A ONE TAP ACTION, and that is the whole point: the page asks
-           for a text, so the page hands them the text. sms: with a prefilled body is
-           supported on iOS and Android; the ?&body= form is the one that works on both
-           (iOS wants ?body= after a number with no other params, Android wants ?body=, and
-           this shape degrades to a plain compose on anything that ignores it).
-           The number is still printed above in case the tap does nothing, which is what
-           happens on a desktop with no messaging app. -->
-      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-nva-revivec-text" data-rise data-delay="4"
-         data-sms-cta href="sms:{{custom_values.nueva_rep_phone}}?&body=SAMPLE">
-        <span data-sms-label>Text SAMPLE to <span data-rep-phone>{{custom_values.nueva_rep_phone}}</span></span>
+      <!-- ONE button, and it opens the popup. The label names the OUTCOME rather than a
+           channel: a button that says "Text a rep" and then opens a popup is lying about where
+           it goes (Teen Hydration, 2026-09-11). The line underneath sets the expectation
+           honestly, so the fork inside the popup is not a surprise. -->
+      <button type="button" class="sk-prod-btn sk-prod-btn-lg sk-prod-nva-revivec-open"
+              data-open-popup data-rise data-delay="4">
+        <span>Confirm your address</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      </button>
 
-      <div class="sk-prod-nva-revivec-card" data-rise data-delay="5">
-        <p class="sk-prod-nva-revivec-card-k">Text the word SAMPLE to</p>
-        <p class="sk-prod-nva-revivec-card-n">{{custom_values.nueva_rep_phone}}</p>
-        <p class="sk-prod-nva-revivec-card-t">That's it. Text us now to confirm. We are pumped for
-          you to try Nueva Revive.</p>
-      </div>
+      <p class="sk-prod-nva-revivec-channels" data-rise data-delay="5">
+        Use text or Facebook Messenger, whichever you prefer.
+      </p>
     </div>
   </section>
 
@@ -69,9 +74,9 @@
       <ol class="sk-prod-nva-revivec-steps">
         <li data-rise data-delay="1">
           <span class="sk-prod-nva-revivec-n">01</span>
-          <h3>You text SAMPLE</h3>
-          <p>To {{custom_values.nueva_rep_phone}}, right now. It confirms you are a real person and
-            it confirms where the sample is going.</p>
+          <h3>You send one message</h3>
+          <p>By text or by Facebook Messenger. It confirms you are a real person and it confirms
+            where the sample is going.</p>
         </li>
         <li data-rise data-delay="2">
           <span class="sk-prod-nva-revivec-n">02</span>
@@ -87,7 +92,7 @@
     </div>
   </section>
 
-  <!-- ============================ WHAT YOU'RE GETTING ============================ -->
+  <!-- ============================ WHAT YOU ARE GETTING ============================ -->
   <section class="sk-prod-nva-revivec-what">
     <div class="sk-prod-wrap sk-prod-nva-revivec-what-grid">
       <figure class="sk-prod-nva-revivec-shot" data-rise>
@@ -97,20 +102,24 @@
       <div>
         <p class="sk-prod-kicker" data-rise>While you wait</p>
         <h2 class="sk-prod-h2" data-rise data-delay="1">What's in the envelope.</h2>
+        <!-- Nueva's own product wording, copied and not paraphrased: paraphrasing a supplement
+             claim means making one. -->
         <p class="sk-prod-nva-revivec-p" data-rise data-delay="2">
-          Nueva Revive is a cellular hydration sachet, built on Nueva's Aquivance Five-Layer
-          Hydration Technology. It is electrolytes, amino acids and marine minerals rather
-          than salt and sugar.
+          Nueva Revive is a cellular hydration sachet, built on
+          <!-- voice-gate:off -->Nueva's Aquivance Five-Layer Hydration Technology<!-- voice-gate:on -->.
+          It is electrolytes, amino acids and marine minerals, not salt and sugar.
         </p>
         <ul class="sk-prod-checks sk-prod-nva-revivec-checks" data-rise data-delay="3">
+          <!-- voice-gate:off -->
           <li>Supports cellular hydration</li>
           <li>Sodium, potassium and magnesium</li>
           <li>Glycine and L-taurine</li>
           <li>Coconut water and SolarSea AC marine minerals</li>
           <li>Shilajit and vitamin C</li>
+          <!-- voice-gate:on -->
         </ul>
         <p class="sk-prod-note" data-rise data-delay="4">
-          It is a drink, not a chalky shake. Most people take it cold with ice.
+          It's a drink, not a chalky shake. Most people take it cold with ice.
         </p>
       </div>
     </div>
@@ -119,7 +128,7 @@
   <!-- ============================ FOOT ============================ -->
   <section class="sk-prod-nva-revivec-foot">
     <div class="sk-prod-wrap sk-prod-center">
-      <p class="sk-prod-nva-revivec-foot-h" data-rise>Text SAMPLE now and we will get it in the mail.</p>
+      <p class="sk-prod-nva-revivec-foot-h" data-rise>Send your message now and we'll get the sample in the mail.</p>
       <p class="sk-prod-fine" data-rise data-delay="1">
         * Subject to sample availability. One trial per household while supplies last. These statements have not been evaluated
         by the Food and Drug Administration. This product is not intended to diagnose, treat,
