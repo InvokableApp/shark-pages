@@ -1,0 +1,179 @@
+/* nueva/n-free-revive-sample-funnel/n-revive-sample-redirect-sms
+ * Palette is Nueva's, declared on the block's own scope class so no shared brand swatch is
+ * touched. The @import pins the shared component version: do not bump it here, that is a
+ * deliberate migration (see _shared/README.md).
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+.sk-prod-nva-revivesms{
+  /* The tokens _shared/product/v1 reads. Same values as the sibling Confirmed block, which is
+     the page this one is reached from: a visitor crosses between them in one tap and any drift
+     shows up as a colour change mid-journey. */
+  --sk-body:     #4a5560;
+  --sk-cream:    #fcfeff;
+  --sk-ink:      #141313;
+  --sk-lime:     #5fd9d5;
+  --sk-line:     #d5dfe1;
+  --sk-mist:     #e8f8f6;
+  --sk-navy:     #102a2a;
+  --sk-navy-d:   #071116;
+  --sk-sage:     #087f7b;
+  --sk-sans:     Montserrat,system-ui,sans-serif;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-teal:     #0abab5;
+  --sk-teal-d:   #087F7B;
+  --sk-tint:     #e8f8f6;
+
+  --nsms-display: Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --nsms-ink:     #141313;
+  --nsms-body:    #4a5560;
+  --nsms-hair:    #d5dfe1;
+  --nsms-teal:    #0abab5;
+  --nsms-deep:    #087f7b;
+  --nsms-panel:   #102a2a;
+}
+
+/* A hand-off page is SHORT by definition, so it is centred in the viewport rather than
+   sitting at the top of a tall empty page. min-height uses svh with a vh fallback: on iOS
+   Safari 100vh is taller than the visible area and pushes the fallback card under the
+   toolbar, which is exactly the content a desktop-free visitor needs to see. */
+.sk-prod-nva-revivesms-hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  min-height:100svh;
+  padding:48px 20px;
+  background:linear-gradient(180deg,#ffffff 0%,var(--sk-mist) 100%);
+  overflow:hidden;
+}
+
+.sk-prod-nva-revivesms-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:22px;
+  font-family:var(--nsms-display);
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--nsms-deep);
+}
+.sk-prod-nva-revivesms-mark svg{width:20px;height:20px;flex:none}
+
+.sk-prod-nva-revivesms .sk-prod-h1{
+  font-family:var(--nsms-display);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:-.025em;
+  line-height:.96;
+  color:var(--nsms-ink);
+  margin:0 0 18px;
+}
+
+.sk-prod-nva-revivesms-lede{
+  max-width:34ch;
+  margin:0 auto 22px;
+  font-family:var(--sk-sans);
+  font-size:1.02rem;
+  line-height:1.55;
+  color:var(--nsms-body);
+}
+
+/* Empty until block.js writes it, and it must take up no room while empty or the layout
+   jumps the moment the hand-off fires. :empty rather than a hidden attribute so the element
+   stays in the accessibility tree as a live region from first paint. */
+.sk-prod-nva-revivesms-status{
+  min-height:1.4em;
+  margin:0 0 14px;
+  font-family:var(--sk-sans);
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  color:var(--nsms-deep);
+}
+.sk-prod-nva-revivesms-status:empty{min-height:0;margin:0}
+
+.sk-prod-nva-revivesms-go{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:26px;
+  font-family:var(--sk-sans);
+  font-weight:700;
+}
+.sk-prod-nva-revivesms-go svg{width:18px;height:18px;flex:none}
+/* When the number is unusable the anchor loses its href (see block.js) and stops being a
+   control. It must stop LOOKING like one too, or the page offers a button that does nothing. */
+.sk-prod-nva-revivesms-go:not([href]){
+  opacity:.55;
+  cursor:default;
+  pointer-events:none;
+}
+.sk-prod-nva-revivesms-go:not([href]) svg{display:none}
+
+.sk-prod-nva-revivesms-card{
+  max-width:420px;
+  margin:0 auto 26px;
+  padding:24px 22px;
+  border:1px solid var(--nsms-hair);
+  border-radius:16px;
+  background:#ffffff;
+  box-shadow:0 10px 30px rgba(16,42,42,.06);
+}
+.sk-prod-nva-revivesms-k{
+  margin:0 0 6px;
+  font-family:var(--sk-sans);
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--nsms-body);
+}
+/* user-select:all so one tap on a phone selects the whole number, and the digits are tabular
+   so a long number does not reflow as JS rewrites it into E.164. */
+.sk-prod-nva-revivesms-n{
+  margin:0 0 14px;
+  font-family:var(--nsms-display);
+  font-size:1.5rem;
+  font-weight:800;
+  letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+  color:var(--nsms-panel);
+  user-select:all;
+  overflow-wrap:anywhere;
+}
+/* Shipped hidden and revealed by JS: with no clipboard API there is nothing to copy WITH,
+   and a button that silently fails is worse than no button. */
+.sk-prod-nva-revivesms-copy[hidden]{display:none}
+.sk-prod-nva-revivesms-copy{
+  margin-bottom:14px;
+  font-family:var(--sk-sans);
+  font-size:.86rem;
+  font-weight:700;
+}
+.sk-prod-nva-revivesms-t{
+  margin:0;
+  font-family:var(--sk-sans);
+  font-size:.86rem;
+  line-height:1.5;
+  color:var(--nsms-body);
+}
+
+.sk-prod-nva-revivesms .sk-prod-fine{
+  max-width:46ch;
+  margin:0 auto;
+  font-size:.7rem;
+  line-height:1.5;
+  color:#8aa0a4;
+}
+
+@media (max-width:520px){
+  .sk-prod-nva-revivesms-hero{padding:36px 16px}
+  .sk-prod-nva-revivesms .sk-prod-h1{font-size:2rem}
+  .sk-prod-nva-revivesms-n{font-size:1.32rem}
+}

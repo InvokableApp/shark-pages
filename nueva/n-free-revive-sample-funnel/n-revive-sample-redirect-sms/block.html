@@ -1,0 +1,73 @@
+<!--
+  nueva/n-free-revive-sample-funnel/n-revive-sample-redirect-sms
+
+  The SMS twin of the Redirect DM step. Its job is to be a PAGEVIEW (so the rep notification
+  has something to trigger on) and then hand off to the visitor's messaging app.
+
+  WHY THIS IS A REAL PAGE AND NOT A 0.5s MINUTE-TIMER LIKE THE DM STEP
+  `sms:` is an OS protocol hand-off, not a web URL. On a phone it opens Messages; on a DESKTOP
+  it opens nothing at all, and a timer page would leave the visitor staring at a blank screen
+  with the rep's number nowhere on it. So the number is always on the page, in text, before any
+  hand-off is attempted. The hand-off is the enhancement, the number is the page.
+
+  Everything below therefore reads correctly in three states, and is written to be true in all
+  of them at once: phone with the app opening, desktop with no app, and a snapshot account where
+  nueva_rep_phone still holds its instruction sentence instead of a number.
+-->
+<div class="sk-prod sk-prod-nva-revivesms" data-sk-requires="nueva_rep_phone">
+
+  <section class="sk-prod-nva-revivesms-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-wrap sk-prod-center">
+
+      <span class="sk-prod-nva-revivesms-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        <span>Nueva Revive</span>
+      </span>
+
+      <p class="sk-prod-eyebrow">One more step</p>
+      <h1 class="sk-prod-h1">Text SAMPLE to<br><span class="sk-prod-accent">confirm your address.</span></h1>
+
+      <p class="sk-prod-nva-revivesms-lede">
+        It confirms you are a real person and it confirms where the sample is going.
+      </p>
+
+      <!-- JS-ONLY, and empty until the hand-off is actually attempted. Written by block.js
+           rather than shipped in the markup, because "opening your messaging app" is a lie on
+           a laptop, where nothing opens. aria-live so a screen reader hears the state change. -->
+      <p class="sk-prod-nva-revivesms-status" data-sms-status role="status" aria-live="polite"></p>
+
+      <!-- The prefill is THE MARKUP, and it works with JS off. `?&body=` is not a typo: it is
+           the shape iOS and Android both accept, and it degrades to a plain compose elsewhere.
+           block.js only normalises the number, because a hand-typed CV arrives as "(555)
+           123-4567" and parens inside an sms: URI are where prefill quietly stops working. -->
+      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-nva-revivesms-go"
+         data-sms-cta href="sms:{{custom_values.nueva_rep_phone}}?&body=SAMPLE">
+        <span data-sms-label>Text SAMPLE to <span data-rep-phone>{{custom_values.nueva_rep_phone}}</span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <!-- THE FALLBACK IS NOT AN AFTERTHOUGHT. On a desktop this card is the entire page: the
+           number in selectable text, and a copy button, so the visitor can pick their phone up
+           and send it by hand. -->
+      <div class="sk-prod-nva-revivesms-card">
+        <p class="sk-prod-nva-revivesms-k">Text the word SAMPLE to</p>
+        <p class="sk-prod-nva-revivesms-n" data-rep-phone-print>{{custom_values.nueva_rep_phone}}</p>
+        <button type="button" class="sk-prod-btn sk-prod-btn-ghost sk-prod-nva-revivesms-copy" data-sms-copy hidden>
+          Copy the number
+        </button>
+        <p class="sk-prod-nva-revivesms-t">
+          If your messaging app did not open, send it yourself. On a computer, text it from your phone.
+        </p>
+      </div>
+
+      <p class="sk-prod-fine">
+        * Subject to sample availability. One trial per household while supplies last. These
+        statements have not been evaluated by the Food and Drug Administration. This product is
+        not intended to diagnose, treat, cure or prevent any disease.
+      </p>
+
+    </div>
+  </section>
+
+</div>
