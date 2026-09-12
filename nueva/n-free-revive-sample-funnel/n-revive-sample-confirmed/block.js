@@ -37,17 +37,26 @@
   if (!btn) return;
 
   btn.addEventListener("click", function () {
-    // ⚠️ NO SILENT FALLBACK. Sending them to one channel because the popup is missing would
-    // quietly delete the other channel and look like it worked, which is the failure nobody
-    // notices. If the popup is not on the page, say so loudly and do nothing else.
-    if (!document.querySelector('[id^="hl_main_popup-"]')) {
-      console.warn(
-        "[shark] n-revive-sample-confirmed: no popup on this page, so the CTA has nothing to " +
-        "open. Build the popup in the GHL page builder with the two channel buttons:\n" +
-        "  text       https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-sms\n" +
-        "  messenger  https://{{custom_values.nueva_main_url}}/n-revive-sample-redirect-dm"
-      );
-    }
     window.dispatchEvent(new Event("customWidgetOpenPopup"));
+
+    // ⚠️ CHECK THE OUTCOME, NOT A PRECONDITION. The first version of this tested for
+    // [id^="hl_main_popup-"] BEFORE dispatching and warned if it was absent. GHL renders the
+    // popup LAZILY: measured 2026-09-12 on this live page, the element count is 0 at load and
+    // 1 once the event fires. So the precondition check was false on every click of a page
+    // whose popup works perfectly, and it cried wolf every time. Asking afterwards whether a
+    // popup actually appeared is the only version of this question that has a true answer.
+    //
+    // NO SILENT FALLBACK either way: sending them to one channel because the popup is missing
+    // would quietly delete the other channel and look like it worked, which is the failure
+    // nobody notices.
+    setTimeout(function () {
+      if (document.querySelector('[id^="hl_main_popup-"]')) return;
+      console.warn(
+        "[shark] n-revive-sample-confirmed: the CTA fired customWidgetOpenPopup and no popup " +
+        "appeared. This page needs ONE popup, holding the two channel buttons:\n" +
+        "  text       -> funnel step /n-revive-sample-redirect-sms\n" +
+        "  messenger  -> funnel step /n-revive-sample-redirect-dm"
+      );
+    }, 600);
   });
 })();
