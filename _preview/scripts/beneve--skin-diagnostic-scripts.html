@@ -141,7 +141,7 @@ html,body{margin:0;padding:0;background:#e9e9ec}
   flex: none;
   width: 15px;
   height: 15px;
-  color: var(--sk-brand);
+  color:var(--sk-brand-text, var(--sk-brand));
 }
 
 /* ---------------- utility row ----------------
@@ -149,6 +149,109 @@ html,body{margin:0;padding:0;background:#e9e9ec}
    It is still a UTILITY, so per design system 4 it stays understated and never
    takes the gradient. Copy is the primary action on this page and nothing else
    may compete with it. */
+
+/* ── FUNNEL MENU ──────────────────────────────────────────────────────────
+   Added 2026-09-14, ADDITIVE to v1: a funnel with no nav.json emits no .sk-nav,
+   so every page that shipped before this is byte-identical. Verified against the
+   sibling systems' pages — zero .sk-nav matches outside Beneve.
+
+   Two tiers because they are two different things, and flattening them loses
+   that: the three PITCH decks apply to any lead, the funnel pages belong to one
+   funnel each. Hubs read as buttons; funnel pages read as a list, because eleven
+   equal-weight pills is a wall the rep has to parse instead of scan.
+
+   The current page is a <span>, not a dead <a> — a link to the page you are on
+   is a promise the browser cannot keep. */
+
+.sk-scripts .sk-nav {
+  margin: 0 auto 22px;
+  padding: 16px 18px;
+  max-width: 640px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  text-align: center;
+}
+
+.sk-scripts .sk-nav-hubs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sk-scripts .sk-nav-hub {
+  flex: 1 1 auto;
+  min-width: 96px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-paper);
+  color: var(--sk-ink-soft);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+
+.sk-scripts .sk-nav-hub:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+.sk-scripts .sk-nav-hub.is-here {
+  background: var(--sk-brand);
+  border-color: var(--sk-brand);
+  color: var(--sk-brand-text);
+}
+
+.sk-scripts .sk-nav-label {
+  margin: 16px 0 8px;
+  color: var(--sk-ink-faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sk-scripts .sk-nav-pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* NO separator rules between these. A divider drawn with `+ *::before` cannot know
+   where the line wraps, so the first item of every wrapped row inherits an orphan
+   rule floating at the start of the line. Spacing carries the separation instead,
+   and the current page is bold, which is the only distinction that has to survive. */
+.sk-scripts .sk-nav-pages > * { padding: 3px 0; }
+
+.sk-scripts .sk-nav-page {
+  color: var(--sk-ink-soft);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.sk-scripts .sk-nav-page:hover { color: var(--sk-brand-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+.sk-scripts .sk-nav-page.is-here,
+.sk-scripts .sk-nav-hub.is-here { cursor: default; }
+.sk-scripts .sk-nav-page.is-here {
+  color: var(--sk-ink);
+  font-variation-settings: "wght" 700;
+}
+
+@media (max-width: 480px) {
+  .sk-scripts .sk-nav { padding: 14px 12px; }
+  .sk-scripts .sk-nav-hub { min-width: 0; flex: 1 1 30%; letter-spacing: .08em; padding: 9px 8px; }
+  .sk-scripts .sk-nav-pages { font-size: 13px; }
+}
 
 .sk-scripts .sk-util {
   display: flex;
@@ -304,7 +407,7 @@ html,body{margin:0;padding:0;background:#e9e9ec}
   font-size: 14px;
 }
 
-.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color: var(--sk-brand); }
+.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color:var(--sk-brand-text, var(--sk-brand)); }
 
 /* ---------------- the steps ----------------
    A numbered sequence, because the order is the instruction: call, then text,
@@ -692,11 +795,30 @@ html,body{margin:0;padding:0;background:#e9e9ec}
   <div class="sk-grain" aria-hidden="true"></div>
 
   <header class="sk-head">
-    <img class="sk-logo" src="https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg" alt="Beneve Shark, AI Marketing System">
+    <img class="sk-logo" src="https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg" alt="Marketing Shark, AI Marketing System">
     <h1 class="sk-title">How to follow up with your <em>Skin Diagnostic</em> leads</h1>
     <p class="sk-sub">Every lead here already has a free ninety day routine. Your job is to get them to start it.</p>
     <span class="sk-funnel"><i data-sk-icon="funnel"></i>Skin Diagnostic Leads</span>
   </header>
+
+  <nav class="sk-nav no-print" aria-label="All scripts in this system">
+    <div class="sk-nav-hubs">
+      <a class="sk-nav-hub" href="https://{{custom_values.beneve_scripts_base_url}}/scripts">Opportunity</a>
+      <a class="sk-nav-hub" href="https://{{custom_values.beneve_scripts_base_url}}/product-scripts">Product</a>
+      <a class="sk-nav-hub" href="https://{{custom_values.beneve_scripts_base_url}}/additional-scripts">Additional</a>
+    </div>
+    <p class="sk-nav-label">Funnel scripts</p>
+    <div class="sk-nav-pages">
+      <span class="sk-nav-page is-here" aria-current="page">Skin Diagnostic</span>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/hormone-recipe-scripts">Hormone Lunchbox</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/glp-foods-guide-scripts">GLP Foods Guide</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/side-hustle-scripts">Side Hustle Quiz</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/water-report-scripts">Water Report</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/disruptor-quiz-scripts">Disruptor Diagnostic</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/clean-iced-coffee-scripts">Clean Iced Coffee</a>
+      <a class="sk-nav-page" href="https://{{custom_values.beneve_scripts_base_url}}/influencer-aptitude-scripts">Influencer Aptitude</a>
+    </div>
+  </nav>
 
   <div class="sk-util no-print">
     <button type="button" class="sk-print" data-sk-print aria-label="Print this page or save it as a PDF">

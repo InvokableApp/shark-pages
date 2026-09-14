@@ -1,0 +1,21 @@
+{
+ "_comment": "Funnel-level menu shared by every scripts page in this funnel. The generator reads it if present and marks the current page by slug, so adding a page means one edit here, not eleven. baseCv is the custom value the links are built from — NOT a literal host, because the same block serves any account that installs the snapshot.",
+ "baseCv": "beneve_scripts_base_url",
+ "hubsLabel": "Pitch scripts",
+ "pagesLabel": "Funnel scripts",
+ "hubs": [
+  { "label": "Opportunity", "slug": "scripts" },
+  { "label": "Product", "slug": "product-scripts" },
+  { "label": "Additional", "slug": "additional-scripts" }
+ ],
+ "pages": [
+  { "label": "Skin Diagnostic", "slug": "skin-diagnostic-scripts" },
+  { "label": "Hormone Lunchbox", "slug": "hormone-recipe-scripts" },
+  { "label": "GLP Foods Guide", "slug": "glp-foods-guide-scripts" },
+  { "label": "Side Hustle Quiz", "slug": "side-hustle-scripts" },
+  { "label": "Water Report", "slug": "water-report-scripts" },
+  { "label": "Disruptor Diagnostic", "slug": "disruptor-quiz-scripts" },
+  { "label": "Clean Iced Coffee", "slug": "clean-iced-coffee-scripts" },
+  { "label": "Influencer Aptitude", "slug": "influencer-aptitude-scripts" }
+ ]
+}

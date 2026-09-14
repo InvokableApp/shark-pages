@@ -136,6 +136,14 @@
       "elementId": "custom-code-gqd7pxtlwb",
       "elementTitle": "n-teen-hydration-how-to",
       "pattern": "A"
+    },
+    {
+      "path": "n-free-revive-sample-funnel/n-revive-sample-redirect-sms",
+      "funnelId": "9tN56Bs7l5GablgISUJx",
+      "pageId": "9EhgTVjX8evq2zjuPk3G",
+      "elementId": "custom-code-ut8ghkhppd",
+      "elementTitle": "n-revive-sample-redirect-sms",
+      "pattern": "A"
     }
   ],
   "installs": [
