@@ -591,5 +591,23 @@
 
 @media (max-width: 899px) {
   .sk-howto .sk-shot-fig.is-desk-only { display: none; }
-  .sk-howto .sk-ads-mobile { display: inline-flex; }
+  .sk-howto .sk-ads-mobile { display: flex; }
+
+  /* The sidebar sentence goes with the picture. Left in, it told a phone reader
+     to "log in on a computer to find it" directly above the button that opens it
+     on the phone: an instruction contradicted by the control beneath it. */
+  .sk-howto .sk-desk-only { display: none; }
+
+  /* On a phone the likelier reader is a PRO member who just wants the training,
+     so that becomes the primary and Upgrade drops to the existing ghost style.
+     Declarations mirror .sk-btn--ghost rather than reusing the class, because the
+     demotion is viewport-conditional and the markup cannot change class at 899px. */
+  .sk-howto .sk-ads-mobile { order: 1; margin-top: 15px; }
+  .sk-howto .sk-ads-upgrade {
+    order: 2;
+    background: var(--sk-card);
+    border: 1px solid var(--sk-line);
+    color: var(--sk-ink);
+  }
+  .sk-howto .sk-ads-upgrade:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
 }
