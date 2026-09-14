@@ -573,3 +573,23 @@
   .sk-howto { grid-template-columns: 1fr min(1180px, 100%) 1fr; }
   .sk-howto .sk-title { font-size: 52px; }
 }
+
+/* ── Ads panel: the sidebar screenshot is DESKTOP-ONLY ADVICE ────────────────
+   Added 2026-09-14, ADDITIVE to v1.
+
+   The shot shows where the Ads Training tab sits in the sidebar, and the copy
+   says outright that the sidebar is desktop only. On a phone it is a picture of
+   something the reader cannot act on, so it gets replaced by a button that goes
+   straight to the training.
+
+   ⚠️ Both selectors are INERT unless the config sets `ads.trainingUrl`: the
+   generator only emits `.is-desk-only` and `.sk-ads-mobile` for a page that has
+   a mobile destination to offer. Verified unused across all 52 how-to pages in
+   five systems before this was written, so GLP, Vital, Conectiv and Nueva are
+   byte-identical until their configs opt in. */
+.sk-howto .sk-ads-mobile { display: none; }
+
+@media (max-width: 899px) {
+  .sk-howto .sk-shot-fig.is-desk-only { display: none; }
+  .sk-howto .sk-ads-mobile { display: inline-flex; }
+}

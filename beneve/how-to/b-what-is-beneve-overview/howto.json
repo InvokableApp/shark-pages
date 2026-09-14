@@ -51,7 +51,9 @@
  "ads": {
   "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/v1/assets/ads-sidebar.webp",
   "url": "https://marketingshark.io/get-ads",
-  "label": "Upgrade to run ads"
+  "label": "Upgrade to run ads",
+  "trainingUrl": "https://marketingshark.io/training-ads",
+  "trainingLabel": "Open the ads training"
  },
  "sub": "The overview page for both sides of Beneve: the products, and the way to earn from sharing them."
 }
