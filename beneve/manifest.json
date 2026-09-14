@@ -728,36 +728,9 @@
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
     },
     {
-      "path": "how-to/b-disruptor-quiz-funnel",
-      "funnelId": "rGffsC2X5sNXagfRb6Hz",
-      "pageId": "LqgkhdPkRJOciniOrCH1",
-      "elementId": "custom-code-a4rsl5mr0z",
-      "elementTitle": "b-disruptor-quiz-how-to",
-      "pattern": "A",
-      "locationId": "4LHtjbobpDp6Jz3pwIKU"
-    },
-    {
       "path": "how-to/b-hormone-lunchbox-guide",
       "funnelId": "GMTCslOq17yjPZDyxchT",
       "pageId": "3KrAKpSA498AAlR5jk6E",
-      "elementId": "custom-code-LazZRp3TTK",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "4LHtjbobpDp6Jz3pwIKU"
-    },
-    {
-      "path": "how-to/b-influencer-aptitude-test",
-      "funnelId": "c0rzGe4qfY3HEPXctxEx",
-      "pageId": "3xIcJUKS5B31OJ2Qhc1U",
-      "elementId": "custom-code-LazZRp3TTK",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "4LHtjbobpDp6Jz3pwIKU"
-    },
-    {
-      "path": "how-to/b-clean-iced-coffee-recipes",
-      "funnelId": "CJmUskh7l7y8oPdcJZ80",
-      "pageId": "rS2GHBUI3oXB1zQoc69b",
       "elementId": "custom-code-LazZRp3TTK",
       "elementTitle": "Custom Code",
       "pattern": "A",
@@ -852,6 +825,33 @@
       "elementTitle": "Original Coffee Sticks",
       "pattern": "A",
       "locationId": "cK1GiCXygEx16yqyzeFe"
+    },
+    {
+      "path": "how-to/b-water-report-funnel",
+      "funnelId": "l5wHw77MjObvMGlMJIGp",
+      "pageId": "fLpDMvR0NkhWjBhnuVb9",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "b-water-report-funnel",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/b-what-is-beneve-overview",
+      "funnelId": "okNtN0qXgAqKILBy2tCf",
+      "pageId": "xpr06Y6FPqPK9YLyAqYP",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "b-what-is-beneve-overview",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "how-to/beneve---your-marketing-links",
+      "funnelId": "kUIpYHuCpC6HZ7o0R48X",
+      "pageId": "MCSyvGdkRfhnVHbJyp47",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "beneve---your-marketing-links",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
