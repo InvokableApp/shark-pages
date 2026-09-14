@@ -40,5 +40,10 @@
    "url": "https://{{custom_values.beneve_scripts_base_url}}/additional-scripts"
   }
  ],
+ "ads": {
+  "shot": "https://invokableapp.github.io/shark-pages/_shared/howto/v1/assets/ads-sidebar.webp",
+  "url": "https://marketingshark.io/get-ads",
+  "label": "Upgrade to run ads"
+ },
  "sub": "A short test on how someone already talks to people, and which way of sharing Beneve fits that."
 }
