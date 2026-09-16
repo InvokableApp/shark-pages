@@ -22,8 +22,8 @@
   to read this and see herself in it.
 
   MOBILE: THE BUTTON MUST BE ABOVE THE FOLD (Jeff, 2026-09-02). It was at 1879px on a 393x852
-  iPhone, 1027px below it, because the 9:19.5 phone mockup stands between the reader and the CTA
-  on a single-column layout. Fixed with `sk-conf-top-tight` + `sk-conf-card-cta-first` from
+  iPhone, 1027px below it, because the mockup stands between the reader and the CTA on a
+  single-column layout. Fixed with `sk-conf-top-tight` + `sk-conf-card-cta-first` from
   _shared/confirm/v1, which shrink the hero and reorder the card on mobile only. If you edit the
   copy here, RE-MEASURE: a third headline line or an extra sentence in the ask puts it back under.
 
@@ -62,11 +62,12 @@
 
   Deliberately NO video. A's card carries a 44MB clip about the sample pack, which is the wrong
   film for this page, and shipping the same video under a different offer is the exact confound
-  the paragraph above rules out. The media cell instead carries the drawn phone from
-  _shared/confirm/v1 (`sk-conf-phone`, built for the sample-request page), showing the group the
-  reader is being invited into. It is markup, so it weighs nothing, stays sharp, inherits the
-  page palette, and says what the group IS better than a stock photo of strangers would. With no
-  video there is no behaviour on this page, the only script it needs is the popup trigger.
+  the paragraph above rules out. The media cell instead carries a drawn GROUP FEED from
+  _shared/confirm/v1 (`sk-conf-fbg`, added 2026-09-16), showing the post and the replies the
+  reader is being invited into. It replaced the drawn handset (`sk-conf-phone`), which said two
+  people texting when the offer is a group she posts into. Drawn rather than screenshotted, so it
+  weighs nothing, stays sharp and carries words we chose. With no video there is no behaviour on
+  this page, the only script it needs is the popup trigger.
 
   ⚠️ CTA is DOCUMENT-relative, `b-hormone-group-join-redirect`, no leading slash. That step
   exists in the funnel ("Group Join Redirect"). A root-relative `/b-hormone-group-join-redirect`
@@ -108,33 +109,82 @@
     <div class="sk-conf-wrap">
       <div class="sk-conf-card sk-conf-card-cta-first">
 
-        <!-- ── media cell · the drawn group thread ──────────────────────────
-             `sk-conf-phone` from _shared/confirm/v1. Four messages, in the order a
-             newcomer would actually read them: someone struggling, someone a few
-             months ahead answering, and a win. That is the whole pitch for a support
-             group, so it is shown rather than described.
+        <!-- ── media cell · the group's own feed ────────────────────────────
+             `sk-conf-fbg` from _shared/confirm/v1 (additive, 2026-09-16). It replaced
+             the drawn HANDSET that used to sit here. Jeff: "the phone mockup doesnt
+             really make sense. the group is a group for women who talk about hormones."
+             An iMessage thread says two people texting; the offer is a group she posts
+             into and other women answer, so the unit is the post and its replies.
 
-             The win is a BEHAVIOUR ("I packed lunch every day"), never a symptom
-             clearing up. A drawn testimonial saying the food fixed someone's sleep
-             would be a health claim we wrote ourselves, on a page that carries no
-             product and therefore no disclaimer for one. -->
+             THE THREAD IS EMPATHY, NOT A SUCCESS STORY (Jeff, 2026-09-16: "can you make
+             the conversation like.... more empathetic?"). It was a woman struggling, a
+             quick reassurance, and then a win: "week 6 and I packed lunch every day".
+             The win moved the subject onto us. What a woman reading this page at 11pm
+             needs to see is that if she posts the worst version of her week, three
+             people will answer her kindly, so all three replies do that and nothing
+             else sells.
+
+             ⚠️ NOTHING HERE CLAIMS AN OUTCOME AND NOTHING COUNTS ANYTHING. No reply says
+             a symptom lifted, no reply mentions food, the guide or a product, and there
+             are no member or comment numbers: those are claims about the size, activity
+             and results of somebody else's community, and this page has already had to
+             pull one false claim of that kind. "It got better for me" is out for the
+             same reason. The names are first names on drawn avatars, and the caption
+             says what this is rather than calling it a screenshot. -->
         <div class="sk-conf-card-media">
-          <div class="sk-conf-phone">
-            <div class="sk-conf-phone-screen">
-              <div class="sk-conf-phone-bar">
-                <span class="sk-conf-phone-who">The Hormone Lunchbox Group</span>
+          <div class="sk-conf-fbg">
+            <div class="sk-conf-fbg-cover"></div>
+            <div class="sk-conf-fbg-id">
+              <p class="sk-conf-fbg-name">The Hormone Lunchbox Group</p>
+              <p class="sk-conf-fbg-meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                Private group · Only members see what is posted
+              </p>
+            </div>
+
+            <div class="sk-conf-fbg-post">
+              <div class="sk-conf-fbg-head">
+                <span class="sk-conf-fbg-av" aria-hidden="true">D</span>
+                <div>
+                  <p class="sk-conf-fbg-who">Dana</p>
+                  <p class="sk-conf-fbg-when">2h</p>
+                </div>
               </div>
-              <div class="sk-conf-phone-body">
-                <p class="sk-conf-phone-day">Today</p>
-                <div class="sk-conf-bub sk-conf-bub-in">Wide awake at 3am again. Is this ever going to settle down? 😩</div>
-                <div class="sk-conf-bub sk-conf-bub-in">You are not the only one, I promise. Ask in here before you Google it.</div>
-                <div class="sk-conf-bub sk-conf-bub-out">Week 6 and I packed lunch every single day. Never thought I would say that 🙌</div>
-                <div class="sk-conf-bub sk-conf-bub-in">Six weeks! 👏 Post the lunchbox, we all want to see it.</div>
-                <div class="sk-conf-phone-input">Message</div>
+              <p class="sk-conf-fbg-txt">Third night this week I have been wide awake at 3am, and
+                then I am no use to anyone by the afternoon. I keep getting told it is just my age.
+                Some days I do not feel like myself at all.</p>
+
+              <div class="sk-conf-fbg-react" aria-hidden="true">
+                <span class="sk-conf-fbg-emo">💜</span>
+                <span class="sk-conf-fbg-emo">🥰</span>
+                <span class="sk-conf-fbg-emo">❤️</span>
+              </div>
+              <div class="sk-conf-fbg-acts" aria-hidden="true"><span>Like</span><span>Comment</span></div>
+
+              <div class="sk-conf-fbg-cmts">
+                <div class="sk-conf-fbg-cmt">
+                  <span class="sk-conf-fbg-av sk-conf-fbg-av--b" aria-hidden="true">R</span>
+                  <p class="sk-conf-fbg-bub"><b>Ruth</b>You are not imagining it and you are not being
+                    dramatic. I could have written this two years ago, word for word.</p>
+                </div>
+                <div class="sk-conf-fbg-cmt">
+                  <span class="sk-conf-fbg-av sk-conf-fbg-av--c" aria-hidden="true">P</span>
+                  <p class="sk-conf-fbg-bub"><b>Priya</b>The 3am waking was the hardest part for me
+                    too. Be gentle with yourself on the wrecked days. They are not a failure.</p>
+                </div>
+                <div class="sk-conf-fbg-cmt">
+                  <span class="sk-conf-fbg-av sk-conf-fbg-av--d" aria-hidden="true">K</span>
+                  <p class="sk-conf-fbg-bub"><b>Kim</b>Ask in here before you Google at 3am. Someone
+                    is nearly always awake. 💜</p>
+                </div>
+              </div>
+
+              <div class="sk-conf-fbg-write" aria-hidden="true">
+                <span>Write a comment...</span>
               </div>
             </div>
           </div>
-          <p class="sk-conf-phone-cap">Real women, learning this in real time.</p>
+          <p class="sk-conf-phone-cap">The kind of thing posted in there most days.</p>
         </div>
 
         <!-- ── copy cell · the invitation ────────────────────────────────── -->

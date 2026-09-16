@@ -789,3 +789,100 @@
 .sk-conf-fact { background: var(--sk-mist, #e8f8f6); border-radius: .7rem; padding: .9rem 1rem; text-align: center; }
 .sk-conf-fact b { display: block; font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.1; color:var(--sk-brand-text, var(--sk-teal, #0abab5)); }
 .sk-conf-fact span { display: block; margin-top: .3rem; font-size: .85rem; line-height: 1.35; color: var(--sk-body, #4a5560); }
+
+/* ── THE FACEBOOK GROUP MOCKUP ─ additive 2026-09-16 ──────────────────────────
+   Jeff, 2026-09-16, on the Hormone Lunchbox group page: "the phone mockup doesnt
+   really make sense. the group is a group for women who talk about hormones."
+   He was right. A green iMessage thread in a handset says private texting between
+   two people, and the offer is a group you post into and other women answer.
+
+   So this is the FEED UNIT, not a phone: the group's own header, one post, the
+   reactions, and the replies underneath it. Same reasoning as the drawn phone
+   (`.sk-conf-phone`, still used by the sample page and by Nueva, untouched): drawn
+   rather than screenshotted, so it inherits the page type, stays sharp at any
+   density, weighs nothing, and carries words we chose.
+
+   ⚠️ NO COUNTS, NO LOGO, ANYWHERE IN HERE. A "2.4K members" or "17 comments" is a
+   claim about the size and the activity of somebody else's community, and this page
+   has already had to pull one false claim about that group (see the block comment on
+   beneve-hormone-lunchbox-confirmation-group). The reaction row carries icons and no
+   number for the same reason. No Facebook wordmark or logo either: the UI pattern is
+   what reads as Facebook, and the mark is not ours to draw.
+
+   The palette here is Facebook's own greys and blue rather than the page palette,
+   because the whole job of the unit is to be recognised in half a second as the
+   place the button is about to take her. */
+.sk-conf .sk-conf-fbg{
+  width:100%;max-width:340px;margin:0 auto;text-align:left;
+  background:#fff;border:1px solid #dfe3e8;border-radius:12px;overflow:hidden;
+  box-shadow:0 22px 44px -26px rgba(20,25,20,.42);
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+}
+/* the group's cover strip. A wash, not a photograph: a stock kitchen here would be a
+   picture of a group that does not exist. */
+.sk-conf .sk-conf-fbg-cover{
+  height:62px;
+  background:linear-gradient(118deg,var(--sk-accent,#2e5233) 0%,var(--sk-teal-d,#4e9799) 100%);
+}
+.sk-conf .sk-conf-fbg-id{padding:.7rem .85rem .6rem;border-bottom:1px solid #eceef1}
+.sk-conf .sk-conf-fbg-name{
+  margin:0;font-size:.92rem;font-weight:700;color:#050505;line-height:1.25;
+}
+.sk-conf .sk-conf-fbg-meta{
+  margin:.18rem 0 0;font-size:.72rem;color:#65676b;display:flex;align-items:center;gap:.3rem;
+}
+.sk-conf .sk-conf-fbg-meta svg{width:11px;height:11px;flex:none}
+
+.sk-conf .sk-conf-fbg-post{padding:.75rem .85rem .5rem}
+.sk-conf .sk-conf-fbg-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.sk-conf .sk-conf-fbg-av{
+  flex:none;width:32px;height:32px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.74rem;font-weight:700;color:#fff;background:#8d9db4;
+}
+.sk-conf .sk-conf-fbg-av--b{background:#a68a6d}
+.sk-conf .sk-conf-fbg-av--c{background:#7b9a86}
+.sk-conf .sk-conf-fbg-av--d{background:#9a8bab}
+.sk-conf .sk-conf-fbg-who{margin:0;font-size:.79rem;font-weight:600;color:#050505;line-height:1.2}
+.sk-conf .sk-conf-fbg-when{margin:.1rem 0 0;font-size:.68rem;color:#65676b}
+.sk-conf .sk-conf-fbg-txt{
+  margin:0;font-size:.8rem;line-height:1.45;color:#050505;
+}
+/* the reaction row: icons, no number. See the note at the top of this block. */
+.sk-conf .sk-conf-fbg-react{
+  display:flex;align-items:center;gap:.25rem;margin:.6rem 0 .45rem;
+  padding-bottom:.45rem;border-bottom:1px solid #eceef1;font-size:.72rem;
+}
+.sk-conf .sk-conf-fbg-emo{
+  width:17px;height:17px;border-radius:999px;display:flex;align-items:center;
+  justify-content:center;font-size:.6rem;background:#f0f2f5;border:1.5px solid #fff;
+}
+.sk-conf .sk-conf-fbg-emo + .sk-conf-fbg-emo{margin-left:-7px}
+.sk-conf .sk-conf-fbg-acts{
+  display:flex;gap:1.15rem;font-size:.74rem;font-weight:600;color:#65676b;
+  padding:.1rem 0 .5rem;
+}
+.sk-conf .sk-conf-fbg-cmts{display:flex;flex-direction:column;gap:.45rem}
+.sk-conf .sk-conf-fbg-cmt{display:flex;gap:.45rem;align-items:flex-start}
+.sk-conf .sk-conf-fbg-cmt .sk-conf-fbg-av{width:26px;height:26px;font-size:.65rem}
+.sk-conf .sk-conf-fbg-bub{
+  background:#f0f2f5;border-radius:16px;padding:.42rem .68rem;
+  font-size:.75rem;line-height:1.4;color:#050505;
+}
+.sk-conf .sk-conf-fbg-bub b{display:block;font-size:.72rem;font-weight:700;margin-bottom:.05rem}
+.sk-conf .sk-conf-fbg-write{
+  display:flex;align-items:center;gap:.45rem;margin:.65rem 0 .2rem;
+}
+.sk-conf .sk-conf-fbg-write span{
+  flex:1;background:#f0f2f5;border-radius:999px;padding:.4rem .75rem;
+  font-size:.72rem;color:#8a8d91;
+}
+/* On a card-led page the mockup sits UNDER the button and only has to be recognisable, so it
+   comes down the same way the handset does. Type shrinks, the unit does not get cropped: this
+   one has no fixed aspect ratio, so it simply gets shorter. */
+@media (max-width:860px){
+  .sk-conf-card-cta-first .sk-conf-fbg{max-width:300px}
+  .sk-conf-card-cta-first .sk-conf-fbg-cover{height:50px}
+  .sk-conf-card-cta-first .sk-conf-fbg-txt{font-size:.76rem}
+  .sk-conf-card-cta-first .sk-conf-fbg-bub{font-size:.72rem}
+}
