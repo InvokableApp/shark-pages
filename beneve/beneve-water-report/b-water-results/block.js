@@ -39,6 +39,10 @@
   var DM_STEP = root.getAttribute("data-dm-step") || "";
   var pane = root.querySelector(".sk-wat-report");
   var KEYWORD = "WATER";
+  // The SAME mockup the static offer section further down uses, and the same one the Disruptor
+  // campaign ships, so one PNG serves three places and no copy of it lands in this folder
+  // (CLAUDE.md: git is for capabilities, not binaries). If the reset forks, this forks with it.
+  var RESET_SHOT = "https://invokableapp.github.io/shark-pages/beneve/beneve-disruptor-quiz/b-disruptor-quiz-advanced-result/assets/program.png";
 
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
@@ -89,7 +93,14 @@
       '</b> for you. Paste it and send.</p>';
   }
 
-  // ⚠️ THE BLURB SITS ABOVE THE NUMBERS, WHICH IS THE ONLY PLACE IT WORKS. Jeff, 2026-09-09:
+  // ⚠️ THE BLURB LIVES INSIDE THE MASTHEAD, above the numbers and inside the dark hero. It was a
+  // quiet band between the hero and the first figure until 2026-09-16, and Jeff read the page and
+  // said the reset "isnt in your face enough... thats the whole point of the page, you know?" So
+  // it is a bordered card carrying the PDF mockup, not a band: the stroke and the cover are what
+  // make a reader who came for two numbers notice that something is being offered.
+  // ⚠️ IT IS PASSED TO mast() AS `extra`, NOT CONCATENATED AFTER IT. Appending it outside puts it
+  // back on the paper background and the dark-hero colours stop making sense.
+  // Jeff, 2026-09-09:
   // "confused about what these things mean? download our 3 day reset, page whatever will explain
   // some of these chemicals." The report deliberately never interprets, so the reader meets a
   // table of compound names with no idea what they are, and that gap is the offer. It names the
@@ -98,13 +109,18 @@
   // G.days.length * 2 + 3. It was 8 until the guide gained its mechanisms page on 2026-09-09,
   // which is exactly how this number goes stale. Re-derive it whenever the guide gains a page.
   function blurb() {
-    return '<section class="sk-wat-blurb"><div class="sk-dres-wrap"><div class="sk-wat-blurb-in">' +
-      '<div><p class="sk-wat-blurb-t">Not sure what any of these are?</p>' +
-      '<p class="sk-wat-blurb-p">Page 9 of the 3 Day Reset is how to read a report like this one: ' +
-      'what the lead figure means, what the PFAS count means, and which filter standard takes out ' +
-      'what. It is free and I will send it over.</p></div>' +
-      ctaButton("sk-wat-blurb-btn") +
-      '</div></div></section>';
+    return '<div class="sk-wat-blurb">' +
+      '<figure class="sk-wat-blurb-shot">' +
+        '<img src="' + RESET_SHOT + '" alt="The 3 Day Reset, a free PDF" loading="eager" decoding="async">' +
+      '</figure>' +
+      '<div class="sk-wat-blurb-body">' +
+        '<p class="sk-wat-blurb-k">Free PDF</p>' +
+        '<p class="sk-wat-blurb-t">Not sure what any of these are?</p>' +
+        '<p class="sk-wat-blurb-p">Page 9 of the 3 Day Reset is how to read a report like this one: ' +
+        'what the lead figure means, what the PFAS count means, and which filter standard takes out ' +
+        'what. It is free and I will send it over.</p>' +
+        ctaButton("sk-wat-blurb-btn") +
+      '</div></div>';
   }
 
   // ⚠️ THE ASK IS BUILT FROM THEIR OWN RESULT. A generic "want a free guide" is a different offer
@@ -263,7 +279,7 @@
       pfasSub = "Your system was not in the EPA's monitoring round.";
     }
 
-    var h = mast(d.system.name, addr, meta, zipCaveat(d) + inboxLine()) + blurb() + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
+    var h = mast(d.system.name, addr, meta, zipCaveat(d) + inboxLine() + blurb()) + figs(leadTxt, leadSub, leadFlag, pfasTxt, pfasSub, pfasFlag);
 
     if (dets && dets.length) {
       h += '<section class="sk-wat-tablewrap"><div class="sk-dres-wrap">' +
@@ -292,7 +308,7 @@
     var meta = [];
     if (system) meta.push(["Water system", system]);
     if (date) meta.push(["Federal data as published", date]);
-    var h = mast(system || "Your water report", addr || address, meta, inboxLine()) + blurb() +
+    var h = mast(system || "Your water report", addr || address, meta, inboxLine() + blurb()) +
       figs(lead ? esc(lead) : "No result on file", "The federal action level is 15 ppb.", false,
            pfas ? esc(pfas) + ' <small>detected</small>' : "Not sampled",
            "Measured in the EPA's national PFAS round.", false) +
