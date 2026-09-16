@@ -343,10 +343,24 @@
 .sk-wat-rep .sk-wat-blurb-btn svg{width:1.05em;height:1.05em;transition:transform .3s}
 .sk-wat-rep .sk-wat-blurb-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
 .sk-wat-rep .sk-wat-blurb-btn:hover svg{transform:translateX(4px)}
+/* ⚠️ PHONE IS THE PAGE'S REAL SIZE, so the card is not a shrunken version of the desktop one.
+   Jeff, 2026-09-16: "lets make the pdf bigger on mobile and lets make the headlines bigger on
+   mobile too." The cover goes to 168px, over half the column, and the headline goes up with it.
+   The clamp minimums elsewhere on this page were tuned for the desktop end of the range and left
+   the phone reading small; the block below raises the floors, it does not touch the ceilings. */
 @media(max-width:620px){
-  .sk-wat-rep .sk-wat-blurb{display:block;padding:1.1rem 1.15rem}
-  .sk-wat-rep .sk-wat-blurb-shot{width:96px;margin:0 0 .9rem}
-  .sk-wat-rep .sk-wat-blurb-btn{display:flex;justify-content:center;width:100%}
+  .sk-wat-rep .sk-wat-blurb{display:block;padding:1.3rem 1.25rem}
+  .sk-wat-rep .sk-wat-blurb-shot{width:168px;margin:0 0 1.1rem}
+  .sk-wat-rep .sk-wat-blurb-t{font-size:1.38rem;line-height:1.2;margin:0 0 .5rem}
+  .sk-wat-rep .sk-wat-blurb-p{font-size:.98rem}
+  .sk-wat-rep .sk-wat-blurb-btn{display:flex;justify-content:center;width:100%;font-size:.96rem}
+
+  /* the other headlines on the page, same reason */
+  .sk-wat-rep .sk-wat-mast h1{font-size:2.4rem;max-width:none}
+  .sk-wat-rep .sk-ask-t{font-size:1.8rem}
+  .sk-wat-rep .sk-wat-th{font-size:1.55rem}
+  .sk-wat-rep .sk-wat-ask2 h2{font-size:1.9rem}
+  .sk-wat-rep .sk-prog-h2{font-size:2.4rem}
 }
 
 /* the line that says what the button does. It exists because the button copies a word to the
