@@ -132,6 +132,23 @@
   margin:0 0 5px;font-size:1.06rem;font-weight:650;letter-spacing:-.005em;color:var(--_ink);
 }
 .sk-dres .sk-dres-steps p{margin:0;color:var(--_body);font-size:15.5px}
+/* The "what this looks like" list under a habit (ADDITIVE to v1, 2026-09-16). Jeff: "flesh
+   these ideas out more, and be more explanatory" plus "do option b with the bullet points, much
+   more readable". A habit paragraph carries the reason; this carries the instructions, so it has
+   to scan at arm's length. New class, so no page published against v1 before today matches it. */
+.sk-dres .sk-dres-how{
+  list-style:none;margin:12px 0 0;padding:0;display:grid;gap:7px;
+  border-left:2px solid var(--_line);padding-left:16px;
+}
+.sk-dres .sk-dres-how>li{
+  margin:0;font-size:14.5px;line-height:1.6;color:var(--_body);
+}
+.sk-dres .sk-dres-how>li strong{color:var(--_ink);font-weight:650}
+@media (min-width:760px){
+  .sk-dres .sk-dres-how{gap:8px;padding-left:18px}
+  .sk-dres .sk-dres-how>li{font-size:15px}
+}
+
 .sk-dres .sk-dres-when{
   display:inline-block;margin:0 0 7px;padding:3px 10px;border-radius:999px;
   background:#f6efe3;border:1px solid var(--_line);
