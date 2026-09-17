@@ -144,6 +144,54 @@
       "elementId": "custom-code-ut8ghkhppd",
       "elementTitle": "n-revive-sample-redirect-sms",
       "pattern": "A"
+    },
+    {
+      "path": "n-side-hustle-quiz-funnel/n-opportunity-explained",
+      "funnelId": "m1XAoag8WJTglTWntCxH",
+      "pageId": "SwRchy3H1xeywq2ULZZM",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-opportunity-explained",
+      "pattern": "A"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "PuEZt3cjGvyC4JrWVseC",
+      "elementId": "custom-code-zhdg7sb6t5",
+      "elementTitle": "n-no-crash-plan",
+      "pattern": "A"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-confirmation",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "cgNsDwqXT6g8zcBQaNFX",
+      "elementId": "custom-code-yw3zyev5lg",
+      "elementTitle": "n-no-crash-plan-confirmation",
+      "pattern": "A"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-companion",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "UWPsfTaWNlP3eRwPYj2O",
+      "elementId": "custom-code-1ik0awhe00",
+      "elementTitle": "n-no-crash-plan-companion",
+      "pattern": "A"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-read",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "Ubetq287qtZZudxamKiF",
+      "elementId": "custom-code-wx6ug1gfic",
+      "elementTitle": "n-no-crash-plan-read",
+      "pattern": "A"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-how-to",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "LyNKJ8o7LNG1cGFFINBB",
+      "elementId": "custom-code-xw1ak299z3",
+      "elementTitle": "n-no-crash-plan-how-to",
+      "pattern": "A"
     }
   ],
   "installs": [
