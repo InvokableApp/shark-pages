@@ -212,6 +212,15 @@
       "elementTitle": "n-marketing-links",
       "pattern": "A",
       "locationId": "DS2WOWmJ3mmZ0vCsxv8H"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-read",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "Ubetq287qtZZudxamKiF",
+      "elementId": "custom-code-wx6ug1gfic",
+      "elementTitle": "n-no-crash-plan-read",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }

@@ -1,4 +1,4 @@
-/* The No Crash Plan — the LIVE WEB GUIDE, "Everyday Well".
+/* The No Crash Plan. The LIVE WEB GUIDE, "Everyday Well".
  *
  * ⚠️ DELIBERATELY NOT THE PRINT GUIDE, AND NOT THE OTHER SHARK WEB GUIDES.
  * Every previous guide page in this factory is the print document flowed onto a screen:
@@ -15,11 +15,11 @@
  *   · photographs as rounded 16:9 plates, never full-bleed print bands.
  *
  * ⛔ NOT NUEVA. Neutral wellness brand, sage only, no teal and no product.
- * Scoped to .ew-read so nothing here can leak into the rest of a GHL page.
+ * Scoped to .sk-ew-read so nothing here can leak into the rest of a GHL page.
  */
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600;650;700&display=swap");
 
-.ew-read{
+.sk-ew-read{
   --night:#12160f;        /* the ground the whole page sits on */
   --night-2:#1b2118;      /* a raised dark panel */
   --paper:#faf9f5;
@@ -46,15 +46,15 @@
   line-height:1.62;
   -webkit-font-smoothing:antialiased;
 }
-.ew-read *{ box-sizing:border-box; margin:0; padding:0; }
-.ew-read img{ max-width:100%; display:block; }
+.sk-ew-read *{ box-sizing:border-box; margin:0; padding:0; }
+.sk-ew-read img{ max-width:100%; display:block; }
 
 /* ---------- nav ----------
    ⚠️ ONE ROW ON MOBILE, always. A nav that wraps grows taller than the scroll-margin
    reserved on the sections, and every jump lands underneath the bar. So it scrolls
    sideways instead of wrapping, and both the bar height and the anchor offset are
    driven off --navh. (leadmag-web-guide-sop §7) */
-.ew-read .ewnav{
+.sk-ew-read .ewnav{
   position:sticky; top:0; z-index:40;
   height:var(--navh);
   background:rgba(18,22,15,.93);
@@ -65,25 +65,25 @@
   overflow-x:auto; overflow-y:hidden; flex-wrap:nowrap;
   scrollbar-width:none;
 }
-.ew-read .ewnav::-webkit-scrollbar{ display:none; }
-.ew-read .ewnav-brand{
+.sk-ew-read .ewnav::-webkit-scrollbar{ display:none; }
+.sk-ew-read .ewnav-brand{
   font-family:var(--serif); font-weight:400; font-size:15px; color:var(--paper);
   margin-right:14px; white-space:nowrap; flex-shrink:0; letter-spacing:.01em;
 }
-.ew-read .ewnav a{
+.sk-ew-read .ewnav a{
   color:rgba(250,249,245,.66); text-decoration:none; white-space:nowrap; flex-shrink:0;
   font-size:12.5px; font-weight:500; letter-spacing:.03em;
   padding:7px 11px; border-radius:999px;
 }
-.ew-read .ewnav a:hover{ color:var(--paper); background:rgba(250,249,245,.09); }
-.ew-read .ewnav .sp{ flex:1 0 12px; }
+.sk-ew-read .ewnav a:hover{ color:var(--paper); background:rgba(250,249,245,.09); }
+.sk-ew-read .ewnav .sp{ flex:1 0 12px; }
 /* ⚠️ PINNED AS ONE OPAQUE GROUP, not as two separately sticky pills. The bar scrolls
    sideways on a phone, so an offer button at the end of the row is simply not on screen
    on the device most of this traffic arrives from. Sticking the two pills individually
    made the scrolling anchors run visibly THROUGH the outlined Print button, because it
    has no background of its own. One sticky end-cap carrying the nav's own colour gives
    the anchors something to disappear behind. */
-.ew-read .ewnav-end{
+.sk-ew-read .ewnav-end{
   position:sticky; right:-14px; margin-left:auto; flex-shrink:0;
   display:flex; align-items:center; gap:6px;
   align-self:stretch;              /* full bar height, so the cap has no visible edge */
@@ -91,178 +91,178 @@
   background:linear-gradient(90deg,rgba(20,24,17,0) 0,rgb(20,24,17) 20px);
 }
 /* Print is an outlined secondary so it never competes with the offer. */
-.ew-read .ewnav-print{
+.sk-ew-read .ewnav-print{
   border:1px solid rgba(250,249,245,.3); color:rgba(250,249,245,.8) !important;
 }
-.ew-read .ewnav-cta{
+.sk-ew-read .ewnav-cta{
   background:var(--sage); color:var(--night) !important; font-weight:650;
 }
-.ew-read .ewnav-cta:hover{ background:var(--sage-lift); }
+.sk-ew-read .ewnav-cta:hover{ background:var(--sage-lift); }
 /* scroll progress, hairline along the bottom of the bar */
-.ew-read .ewnav-bar{ position:absolute; left:0; right:0; bottom:0; height:2px; background:transparent; }
-.ew-read .ewnav-bar i{ display:block; height:100%; width:0; background:var(--sage); transition:width .12s linear; }
+.sk-ew-read .ewnav-bar{ position:absolute; left:0; right:0; bottom:0; height:2px; background:transparent; }
+.sk-ew-read .ewnav-bar i{ display:block; height:100%; width:0; background:var(--sage); transition:width .12s linear; }
 
-.ew-read section[id]{ scroll-margin-top:calc(var(--navh) + 12px); }
+.sk-ew-read section[id]{ scroll-margin-top:calc(var(--navh) + 12px); }
 
 /* ---------- hero ---------- */
-.ew-read .ewhero{
+.sk-ew-read .ewhero{
   position:relative; min-height:78vh; display:flex; align-items:flex-end;
   background-size:cover; background-position:center; background-color:var(--night-2);
   padding:40px 22px 34px;
 }
-.ew-read .ewhero::after{
+.sk-ew-read .ewhero::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg,rgba(18,22,15,.22) 0%,rgba(18,22,15,.74) 58%,rgba(18,22,15,.96) 100%);
 }
-.ew-read .ewhero-in{ position:relative; z-index:1; width:100%; max-width:760px; margin:0 auto; color:var(--paper); }
-.ew-read .ewhero .mark{
+.sk-ew-read .ewhero-in{ position:relative; z-index:1; width:100%; max-width:760px; margin:0 auto; color:var(--paper); }
+.sk-ew-read .ewhero .mark{
   font-family:var(--serif); font-size:14px; color:rgba(250,249,245,.8); letter-spacing:.02em; margin-bottom:18px;
 }
-.ew-read .ewhero h1{
+.sk-ew-read .ewhero h1{
   font-family:var(--serif); font-weight:400; font-size:clamp(40px,8.6vw,74px); line-height:1.02; letter-spacing:-.01em;
 }
-.ew-read .ewhero .sub{
+.sk-ew-read .ewhero .sub{
   margin-top:16px; font-size:11px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
 }
-.ew-read .ewhero .tag{ margin-top:14px; font-size:16px; line-height:1.55; color:rgba(250,249,245,.82); max-width:30em; }
+.sk-ew-read .ewhero .tag{ margin-top:14px; font-size:16px; line-height:1.55; color:rgba(250,249,245,.82); max-width:30em; }
 /* the hero curve is the page's signature: it flattens as the reader scrolls */
-.ew-read .ewhero .curvewrap{ margin-top:26px; max-width:560px; }
+.sk-ew-read .ewhero .curvewrap{ margin-top:26px; max-width:560px; }
 
 /* ---------- the reading column ---------- */
-.ew-read .ewbody{ max-width:820px; margin:0 auto; padding:34px 18px 60px; }
-.ew-read .card{
+.sk-ew-read .ewbody{ max-width:820px; margin:0 auto; padding:34px 18px 60px; }
+.sk-ew-read .card{
   background:var(--paper); border-radius:var(--radius); padding:38px 40px;
   margin:18px 0; box-shadow:0 1px 0 rgba(250,249,245,.06);
 }
-.ew-read .card.tone{ background:var(--tint); }
-.ew-read .eyebrow{
+.sk-ew-read .card.tone{ background:var(--tint); }
+.sk-ew-read .eyebrow{
   font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase;
   color:var(--sage-mid); margin-bottom:12px;
 }
-.ew-read h2{
+.sk-ew-read h2{
   font-family:var(--serif); font-weight:400; font-size:clamp(28px,5.4vw,38px);
   line-height:1.12; letter-spacing:-.01em; color:var(--ink);
 }
-.ew-read .stand{
+.sk-ew-read .stand{
   font-family:var(--serif); font-size:20px; line-height:1.45; color:var(--sage-deep);
   margin-top:14px; font-weight:400;
 }
-.ew-read .card p{ margin-top:15px; color:#33392f; }
-.ew-read .card p strong{ color:var(--ink); font-weight:650; }
-.ew-read .sec-sub{
+.sk-ew-read .card p{ margin-top:15px; color:#33392f; }
+.sk-ew-read .card p strong{ color:var(--ink); font-weight:650; }
+.sk-ew-read .sec-sub{
   margin-top:26px; font-size:12px; font-weight:700; letter-spacing:.13em;
   text-transform:uppercase; color:var(--sage-deep);
 }
-.ew-read .card ul,.ew-read .card ol{ margin-top:12px; padding-left:20px; }
-.ew-read .card li{ margin-top:8px; color:#33392f; }
-.ew-read .card ul li::marker{ color:var(--sage); }
-.ew-read .card ol li::marker{ color:var(--sage-deep); font-weight:650; }
-.ew-read blockquote{
+.sk-ew-read .card ul,.sk-ew-read .card ol{ margin-top:12px; padding-left:20px; }
+.sk-ew-read .card li{ margin-top:8px; color:#33392f; }
+.sk-ew-read .card ul li::marker{ color:var(--sage); }
+.sk-ew-read .card ol li::marker{ color:var(--sage-deep); font-weight:650; }
+.sk-ew-read blockquote{
   margin-top:22px; padding:16px 20px; border-left:3px solid var(--sage);
   background:var(--tint); border-radius:0 12px 12px 0;
 }
-.ew-read blockquote p{ margin:0; color:var(--sage-deep); }
-.ew-read table{ width:100%; border-collapse:collapse; margin-top:16px; font-size:15px; }
-.ew-read th{
+.sk-ew-read blockquote p{ margin:0; color:var(--sage-deep); }
+.sk-ew-read table{ width:100%; border-collapse:collapse; margin-top:16px; font-size:15px; }
+.sk-ew-read th{
   text-align:left; font-size:10px; letter-spacing:.16em; text-transform:uppercase;
   color:var(--sage-mid); font-weight:650; padding:0 0 9px; border-bottom:1px solid var(--hair);
 }
-.ew-read th:last-child,.ew-read td:last-child{ text-align:right; }
-.ew-read td{ padding:11px 0; border-bottom:1px solid var(--hair); }
-.ew-read tbody tr:last-child td{ border-bottom:none; }
-.ew-read td:last-child{ font-weight:650; color:var(--sage-deep); }
+.sk-ew-read th:last-child,.sk-ew-read td:last-child{ text-align:right; }
+.sk-ew-read td{ padding:11px 0; border-bottom:1px solid var(--hair); }
+.sk-ew-read tbody tr:last-child td{ border-bottom:none; }
+.sk-ew-read td:last-child{ font-weight:650; color:var(--sage-deep); }
 
 /* ---------- the curve ---------- */
-.ew-read .curve{ display:block; width:100%; height:auto; }
-.ew-read .curve .spike{ fill:none; stroke:var(--clay); stroke-width:2.6; stroke-linecap:round; }
-.ew-read .curve .steady{ fill:none; stroke:var(--sage); stroke-width:2.6; stroke-linecap:round; }
-.ew-read .curve .axis{ stroke:var(--hair); stroke-width:1; }
-.ew-read .curve .base{ stroke:var(--hair); stroke-width:1; stroke-dasharray:3 4; }
-.ew-read .curve text{ font-family:var(--sans); font-size:9px; letter-spacing:.14em; text-transform:uppercase; fill:var(--grey); }
-.ew-read .curve .lbl-spike{ fill:#b35f49; }
-.ew-read .curve .lbl-steady{ fill:var(--sage-deep); }
-.ew-read .ewhero .curve .spike{ stroke:var(--clay-lift); }
-.ew-read .ewhero .curve .axis,.ew-read .ewhero .curve .base{ stroke:rgba(250,249,245,.26); }
-.ew-read .ewhero .curve text{ fill:rgba(250,249,245,.62); }
-.ew-read .plate{ margin:24px 0 8px; }
-.ew-read .curve-caption{ font-size:13px; color:var(--grey); margin-top:10px; }
+.sk-ew-read .curve{ display:block; width:100%; height:auto; }
+.sk-ew-read .curve .spike{ fill:none; stroke:var(--clay); stroke-width:2.6; stroke-linecap:round; }
+.sk-ew-read .curve .steady{ fill:none; stroke:var(--sage); stroke-width:2.6; stroke-linecap:round; }
+.sk-ew-read .curve .axis{ stroke:var(--hair); stroke-width:1; }
+.sk-ew-read .curve .base{ stroke:var(--hair); stroke-width:1; stroke-dasharray:3 4; }
+.sk-ew-read .curve text{ font-family:var(--sans); font-size:9px; letter-spacing:.14em; text-transform:uppercase; fill:var(--grey); }
+.sk-ew-read .curve .lbl-spike{ fill:#b35f49; }
+.sk-ew-read .curve .lbl-steady{ fill:var(--sage-deep); }
+.sk-ew-read .ewhero .curve .spike{ stroke:var(--clay-lift); }
+.sk-ew-read .ewhero .curve .axis,.sk-ew-read .ewhero .curve .base{ stroke:rgba(250,249,245,.26); }
+.sk-ew-read .ewhero .curve text{ fill:rgba(250,249,245,.62); }
+.sk-ew-read .plate{ margin:24px 0 8px; }
+.sk-ew-read .curve-caption{ font-size:13px; color:var(--grey); margin-top:10px; }
 
 /* the numbered sequence on the mechanism section */
-.ew-read .seq{ margin-top:22px; }
-.ew-read .seq-row{ display:flex; gap:16px; padding:15px 0; border-top:1px solid var(--hair); }
-.ew-read .seq-row:first-child{ border-top:none; }
-.ew-read .seq-n{
+.sk-ew-read .seq{ margin-top:22px; }
+.sk-ew-read .seq-row{ display:flex; gap:16px; padding:15px 0; border-top:1px solid var(--hair); }
+.sk-ew-read .seq-row:first-child{ border-top:none; }
+.sk-ew-read .seq-n{
   flex:0 0 30px; font-family:var(--serif); font-size:24px; line-height:1;
   color:var(--sage); font-weight:400; padding-top:3px;
 }
-.ew-read .seq-body p{ margin:0; }
-.ew-read .keyline{
+.sk-ew-read .seq-body p{ margin:0; }
+.sk-ew-read .keyline{
   margin-top:22px; padding:22px 24px; background:var(--night-2); border-radius:14px;
   color:var(--paper); font-family:var(--serif); font-size:19px; line-height:1.48;
 }
-.ew-read .keyline strong{ color:var(--sage-lift); font-weight:400; }
+.sk-ew-read .keyline strong{ color:var(--sage-lift); font-weight:400; }
 
 /* ---------- a MOVE ----------
    The oversized numeral is the structural device that separates this page from the
    print guide, which carries the same content under an ordinary heading. */
-.ew-read .move{ position:relative; overflow:hidden; padding-top:0; }
-.ew-read .move .shot{
+.sk-ew-read .move{ position:relative; overflow:hidden; padding-top:0; }
+.sk-ew-read .move .shot{
   width:calc(100% + 80px); margin:-38px -40px 26px; aspect-ratio:16/9;
   object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;
 }
-.ew-read .move .numwrap{ display:flex; align-items:baseline; gap:14px; }
-.ew-read .move .num{
+.sk-ew-read .move .numwrap{ display:flex; align-items:baseline; gap:14px; }
+.sk-ew-read .move .num{
   font-family:var(--serif); font-weight:300; font-size:76px; line-height:.8;
   color:transparent; -webkit-text-stroke:1.5px var(--sage); letter-spacing:-.03em;
   flex-shrink:0;
 }
-.ew-read .move h2{ font-size:clamp(25px,4.6vw,32px); }
+.sk-ew-read .move h2{ font-size:clamp(25px,4.6vw,32px); }
 
 /* ---------- week band ----------
    The print guide gives each week a full-bleed photographic leaf. On screen that is a
    dead scroll, so the same photograph becomes a short band the reader passes through. */
-.ew-read .band{
+.sk-ew-read .band{
   position:relative; border-radius:var(--radius); overflow:hidden; margin:34px 0 18px;
   min-height:230px; display:flex; align-items:flex-end;
   background-size:cover; background-position:center; background-color:var(--night-2);
 }
-.ew-read .band::after{
+.sk-ew-read .band::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg,rgba(18,22,15,0) 30%,rgba(18,22,15,.82) 100%);
 }
-.ew-read .band-in{ position:relative; z-index:1; padding:26px 28px; color:var(--paper); width:100%; }
-.ew-read .band .lab{
+.sk-ew-read .band-in{ position:relative; z-index:1; padding:26px 28px; color:var(--paper); width:100%; }
+.sk-ew-read .band .lab{
   font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
 }
-.ew-read .band h2{ color:var(--paper); margin-top:6px; }
-.ew-read .band .curvewrap{ max-width:330px; margin-top:12px; }
+.sk-ew-read .band h2{ color:var(--paper); margin-top:6px; }
+.sk-ew-read .band .curvewrap{ max-width:330px; margin-top:12px; }
 
 /* ---------- calendar ---------- */
-.ew-read .cal-wk{
+.sk-ew-read .cal-wk{
   font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase;
   color:var(--sage-mid); margin:22px 0 10px;
 }
-.ew-read .cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:7px; }
-.ew-read .cal-cell{
+.sk-ew-read .cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:7px; }
+.sk-ew-read .cal-cell{
   border:1px solid var(--hair); border-radius:10px; padding:8px 6px 9px; text-align:center; background:#fff;
 }
-.ew-read .cal-day{ font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); }
-.ew-read .cal-n{ font-family:var(--serif); font-size:19px; line-height:1.1; color:var(--ink); }
-.ew-read .cal-boxes{ display:flex; gap:3px; justify-content:center; margin-top:7px; }
-.ew-read .cal-box{
+.sk-ew-read .cal-day{ font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); }
+.sk-ew-read .cal-n{ font-family:var(--serif); font-size:19px; line-height:1.1; color:var(--ink); }
+.sk-ew-read .cal-boxes{ display:flex; gap:3px; justify-content:center; margin-top:7px; }
+.sk-ew-read .cal-box{
   width:15px; height:15px; border:1px solid var(--sage); border-radius:4px;
   font-size:7.5px; line-height:14px; color:var(--sage-mid); font-weight:650;
 }
-@media (max-width:620px){ .ew-read .cal-grid{ grid-template-columns:repeat(4,1fr); } }
+@media (max-width:620px){ .sk-ew-read .cal-grid{ grid-template-columns:repeat(4,1fr); } }
 
 /* ---------- journal ---------- */
-.ew-read table.jr{ margin-top:18px; }
-.ew-read .jr-head th{ padding-bottom:9px; }
-.ew-read .jr td{ height:38px; }
-.ew-read .jr td.d{ width:44px; font-family:var(--serif); font-size:16px; color:var(--sage-deep); }
-.ew-read .jr td:last-child{ text-align:left; font-weight:400; }
-.ew-read .scale-dots{ display:flex; gap:7px; }
-.ew-read .scale-dots i{
+.sk-ew-read table.jr{ margin-top:18px; }
+.sk-ew-read .jr-head th{ padding-bottom:9px; }
+.sk-ew-read .jr td{ height:38px; }
+.sk-ew-read .jr td.d{ width:44px; font-family:var(--serif); font-size:16px; color:var(--sage-deep); }
+.sk-ew-read .jr td:last-child{ text-align:left; font-weight:400; }
+.sk-ew-read .scale-dots{ display:flex; gap:7px; }
+.sk-ew-read .scale-dots i{
   width:13px; height:13px; border:1px solid var(--sage); border-radius:50%; display:block;
 }
 
@@ -271,50 +271,50 @@
    The redirect forwards to the same place, and its pageview is what fires the escalation
    and tells the rep. Linked direct, the button still works and the lead silently never
    escalates. (leadmag-web-guide-sop §Offer CTAs) */
-.ew-read .offer{
+.sk-ew-read .offer{
   background:var(--night-2); border-radius:var(--radius); padding:34px 36px; margin:22px 0;
   color:var(--paper); border:1px solid rgba(168,184,153,.22);
 }
-.ew-read .offer .lab{
+.sk-ew-read .offer .lab{
   font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
 }
-.ew-read .offer h3{
+.sk-ew-read .offer h3{
   font-family:var(--serif); font-weight:400; font-size:26px; line-height:1.2; margin-top:10px; color:var(--paper);
 }
-.ew-read .offer p{ margin-top:12px; color:rgba(250,249,245,.76); font-size:15.5px; }
-.ew-read .offer .btnrow{ margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
-.ew-read .btn{
+.sk-ew-read .offer p{ margin-top:12px; color:rgba(250,249,245,.76); font-size:15.5px; }
+.sk-ew-read .offer .btnrow{ margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.sk-ew-read .btn{
   display:inline-block; background:var(--sage); color:var(--night); text-decoration:none;
   font-weight:650; font-size:15px; padding:14px 26px; border-radius:999px; letter-spacing:.01em;
 }
-.ew-read .btn:hover{ background:var(--sage-lift); }
-.ew-read .btn-ghost{
+.sk-ew-read .btn:hover{ background:var(--sage-lift); }
+.sk-ew-read .btn-ghost{
   display:inline-block; color:var(--sage-lift); text-decoration:none; font-weight:600; font-size:14.5px;
   padding:14px 6px; border-bottom:1px solid rgba(168,184,153,.4);
 }
-.ew-read .btn-ghost:hover{ color:var(--paper); }
+.sk-ew-read .btn-ghost:hover{ color:var(--paper); }
 
 /* the closing ask, inside the reading column */
-.ew-read .ask{ margin-top:26px; padding:26px 28px; background:var(--night-2); border-radius:16px; color:var(--paper); }
-.ew-read .ask .lab{ font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift); }
-.ew-read .ask p{ color:rgba(250,249,245,.85); }
-.ew-read .ask p strong{ color:var(--paper); }
+.sk-ew-read .ask{ margin-top:26px; padding:26px 28px; background:var(--night-2); border-radius:16px; color:var(--paper); }
+.sk-ew-read .ask .lab{ font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift); }
+.sk-ew-read .ask p{ color:rgba(250,249,245,.85); }
+.sk-ew-read .ask p strong{ color:var(--paper); }
 
 /* ---------- fine print + foot ---------- */
-.ew-read .fine{ background:transparent; box-shadow:none; padding:30px 40px 0; }
-.ew-read .fine h2{ font-size:13px; font-family:var(--sans); font-weight:650; letter-spacing:.16em; text-transform:uppercase; color:rgba(250,249,245,.5); }
-.ew-read .fine p{ color:rgba(250,249,245,.42); font-size:12.5px; line-height:1.6; margin-top:10px; }
-.ew-read .ewfoot{
+.sk-ew-read .fine{ background:transparent; box-shadow:none; padding:30px 40px 0; }
+.sk-ew-read .fine h2{ font-size:13px; font-family:var(--sans); font-weight:650; letter-spacing:.16em; text-transform:uppercase; color:rgba(250,249,245,.5); }
+.sk-ew-read .fine p{ color:rgba(250,249,245,.42); font-size:12.5px; line-height:1.6; margin-top:10px; }
+.sk-ew-read .ewfoot{
   text-align:center; padding:34px 18px 46px; color:rgba(250,249,245,.35); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
 }
 
 @media (max-width:620px){
   /* the brand gives up its room first: the anchors and the offer matter more */
-  .ew-read .ewnav-brand{ font-size:13px; margin-right:8px; }
-  .ew-read .ewnav a{ padding:7px 9px; }
-  .ew-read .card{ padding:28px 22px; border-radius:16px; }
-  .ew-read .move .shot{ width:calc(100% + 44px); margin:-28px -22px 22px; }
-  .ew-read .offer{ padding:26px 22px; }
-  .ew-read .fine{ padding:26px 22px 0; }
-  .ew-read .move .num{ font-size:56px; }
+  .sk-ew-read .ewnav-brand{ font-size:13px; margin-right:8px; }
+  .sk-ew-read .ewnav a{ padding:7px 9px; }
+  .sk-ew-read .card{ padding:28px 22px; border-radius:16px; }
+  .sk-ew-read .move .shot{ width:calc(100% + 44px); margin:-28px -22px 22px; }
+  .sk-ew-read .offer{ padding:26px 22px; }
+  .sk-ew-read .fine{ padding:26px 22px 0; }
+  .sk-ew-read .move .num{ font-size:56px; }
 }

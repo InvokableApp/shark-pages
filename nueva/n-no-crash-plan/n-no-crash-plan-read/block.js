@@ -1,16 +1,16 @@
-/* The No Crash Plan — live web guide behaviour.
+/* The No Crash Plan. Live web guide behaviour.
  *
  * Three jobs, no dependencies, safe to run inside a GHL custom-code block:
  *   1. the hero curve FLATTENS as the reader scrolls (the page's signature motion)
  *   2. a scroll-progress hairline under the sticky nav
  *   3. per-section print buttons, isolated so the surrounding funnel chrome never prints
  *
- * ⚠️ Runs inside a GHL page, so everything is scoped to .ew-read and every lookup is
+ * ⚠️ Runs inside a GHL page, so everything is scoped to .sk-ew-read and every lookup is
  * guarded. A throw here takes the rest of the page's scripts down with it.
  */
 (function () {
   "use strict";
-  var root = document.querySelector(".ew-read");
+  var root = document.querySelector(".sk-ew-read");
   if (!root) return;
 
   /* ---------- 1 + 2. scroll ----------
@@ -69,14 +69,14 @@
       '<!doctype html><html><head><meta charset="utf-8"><title>' + (label || "Print") + "</title>" +
       (href ? '<link rel="stylesheet" href="' + href + '">' : "") +
       "<style>@page{margin:14mm}body{margin:0;background:#fff}" +
-      ".ew-read{background:#fff}" +
-      ".ew-read .card{box-shadow:none;border-radius:0;margin:0;padding:0;background:#fff}" +
-      ".ew-read .pf-print{display:none}" +
+      ".sk-ew-read{background:#fff}" +
+      ".sk-ew-read .card{box-shadow:none;border-radius:0;margin:0;padding:0;background:#fff}" +
+      ".sk-ew-read .pf-print{display:none}" +
       "*{-webkit-print-color-adjust:exact;print-color-adjust:exact}</style>" +
-      '</head><body><div class="ew-read"></div></body></html>'
+      '</head><body><div class="sk-ew-read"></div></body></html>'
     );
     d.close();
-    var host = d.querySelector(".ew-read");
+    var host = d.querySelector(".sk-ew-read");
     var clone = d.importNode(el, true);
     // The button itself rides along in the clone. The print CSS hides it, but that depends
     // on a stylesheet that is fetched over the network and may lose the race, so the node
@@ -118,6 +118,6 @@
 
   // The injected buttons must never appear in a full-page print either.
   var st = document.createElement("style");
-  st.textContent = "@media print{.ew-read .pf-print{display:none !important}}";
+  st.textContent = "@media print{.sk-ew-read .pf-print{display:none !important}}";
   document.head.appendChild(st);
 })();
