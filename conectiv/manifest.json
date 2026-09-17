@@ -40,6 +40,14 @@
       "elementId": "custom-code-3cwxphfn91",
       "elementTitle": "free-sample-confirmation",
       "pattern": "A"
+    },
+    {
+      "path": "how-to/c-free-coffee-sample",
+      "funnelId": "twEEoBi5Jn31x1Hk9sK1",
+      "pageId": "WOsao4oRqOUL27jElgS0",
+      "elementId": "custom-code-x34beylsyf",
+      "elementTitle": "how-to",
+      "pattern": "A"
     }
   ],
   "installs": [
