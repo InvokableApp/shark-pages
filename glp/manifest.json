@@ -928,6 +928,42 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "kFlqAs5MxlxyOfiMKc2p"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "agVC6e6mEXQNJAx39yCf",
+      "pageId": "YzlfIwrZJXfkFaFYBsdv",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "qGGXbFcLhVZc5fFIsNNz"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "6vI6FmVUkNBllr3Bbq3w",
+      "pageId": "41aXiXnrucnbUCJcXT9G",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "p8QLwkzeEyyGMs164HT8"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "GwzVrfjtXRwiIZEDXN3J",
+      "pageId": "SkRxOIYl6lTD91BXtm4I",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hsn0XCvJhamCNQ1128U3"
+    },
+    {
+      "path": "glp-free-ignyt-sample/ignyt-sample-confirmation-v2",
+      "funnelId": "THsns1ySiqDPQzNIYaiU",
+      "pageId": "mnMqx2fLFrN2F4B09WoJ",
+      "elementId": "custom-code-ut8ghkhppd",
+      "elementTitle": "ignyt-sample-confirmation",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
