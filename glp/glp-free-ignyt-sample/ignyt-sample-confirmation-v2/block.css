@@ -299,7 +299,7 @@
    renders navy on navy). */
 .sk-prod-igc .sk-prod-igc-dm{
   display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
-  margin:.7rem 0 0;width:min(420px,100%);
+  margin:1.25rem 0 0;width:min(420px,100%);
   padding:.95rem 1.5rem;border:1.5px solid rgba(250,67,0,.45);border-radius:999px;
   background:rgba(250,67,0,.06);color:var(--ig-frost);
   font-family:var(--sk-sans);font-weight:600;font-size:1rem;line-height:1.2;

@@ -89,9 +89,21 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
 
+      <div class="sk-prod-igc-card" data-rise data-delay="5">
+        <p class="sk-prod-igc-card-k">Text the word SAMPLE to</p>
+        <p class="sk-prod-igc-card-n">{{custom_values.rep_phone}}</p>
+        <p class="sk-prod-igc-card-t">That's it. Text us now to confirm. We are pumped for
+          you to try IGNYT.</p>
+      </div>
+
       <!-- THE SECOND ROUTE. Ghost styling and the word "instead" keep the text primary: this is
            the alternate for someone who would rather not hand over a phone number, not an equal
            billing fork (that is Nueva's popup pattern, deliberately not copied here).
+
+           PLACED UNDER THE NUMBER CARD, not between the button and the card (Jeff, 2026-09-17).
+           The card is the text button's own caption, it repeats the number for anyone whose tap
+           does nothing, and splitting the two with a second control broke that pairing. The text
+           ask now reads as one complete unit before the alternate is offered at all.
 
            ⚠️ IT POINTS AT A FUNNEL STEP, NOT AT THE MESSENGER LINK. The href is the DM Redirect
            step, whose native minute-timer forwards to {{custom_values.your_facebook_messenger_link}}.
@@ -104,18 +116,12 @@
            `https://{{custom_values.…}}/slug` form would have added a second CV that can be
            wrong. The one place it does not resolve is GHL's /preview/{pageId} URL, which has no
            funnel domain. Test this button on the published page, not in preview. -->
-      <a class="sk-prod-btn-ghost sk-prod-igc-dm" data-rise data-delay="5"
+      <a class="sk-prod-btn-ghost sk-prod-igc-dm" data-rise data-delay="6"
          href="/ignyt-sample-redirect">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.9 1.19 5.44 3.13 7.2.16.14.26.35.27.57l.05 1.77c.02.56.6.93 1.11.7l1.97-.87c.17-.07.36-.09.54-.04 1.2.33 2.47.5 3.93.5 5.64 0 10-4.13 10-9.83S17.64 2 12 2zm6 7.46-2.94 4.66c-.47.74-1.47.93-2.18.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.94-4.66c.47-.74 1.47-.93 2.18-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.18.69.63z"/></svg>
         <span>Message us on Facebook instead</span>
       </a>
 
-      <div class="sk-prod-igc-card" data-rise data-delay="6">
-        <p class="sk-prod-igc-card-k">Text the word SAMPLE to</p>
-        <p class="sk-prod-igc-card-n">{{custom_values.rep_phone}}</p>
-        <p class="sk-prod-igc-card-t">That's it. Text us now to confirm. We are pumped for
-          you to try IGNYT.</p>
-      </div>
     </div>
   </section>
 
