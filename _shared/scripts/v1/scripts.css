@@ -750,3 +750,186 @@
 @media print{
   .sk-scripts.sk-has-tracks .sk-group[data-track]{ display: block !important; }
 }
+
+/* ============================================================
+   PER STEP CHANNELS + MULTI PART STEPS (added 2026-09-17)
+
+   WHY. Joe's Refined Cup sample-to-sale sequence is written twice: once as a
+   voice note and text, once as an email. It is the same six steps either way,
+   so two stacked sequences would make the rep read the whole page twice to find
+   the half that applies to them. Jeff, 2026-09-17: the choice belongs INSIDE
+   each step, where the rep already is.
+
+   Distinct from `tracks` above, which switches the WHOLE page between two
+   different sequences. Channels switch one step between two renderings of the
+   SAME move. A page can use either; no page uses both yet.
+
+   Two additions, both purely additive and both inert on a page whose markup
+   does not carry them (verified by querying .sk-chan / .sk-part against every
+   other scripts page: zero matches):
+
+   1. `.sk-chan`      the tab pair, and one `.sk-chan-panel` per channel
+   2. `.sk-part`      a step that holds more than one copyable artifact, e.g. a
+                      voice note plus three rotating texts. Its copy control is a
+                      compact pill beside the label instead of the full width
+                      gradient bar, because four of those in one card turns a
+                      script sheet into a wall of buttons and none of them reads
+                      as primary any more.
+
+   NO JS DEGRADES TO EVERYTHING VISIBLE, same contract as tracks: the hiding is
+   gated on .sk-has-chan, which only the script adds.
+   ============================================================ */
+
+.sk-scripts .sk-chan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 5px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+}
+
+.sk-scripts .sk-chan-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 9px;
+  padding: 9px 10px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+
+.sk-scripts .sk-chan-btn:hover { color: var(--sk-brand-deep); }
+.sk-scripts .sk-chan-btn:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 2px; }
+
+.sk-scripts .sk-chan-btn[aria-pressed="true"] {
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  box-shadow: var(--sk-shadow);
+}
+
+/* The note under the tabs, e.g. "pick one, rotate between them". */
+.sk-scripts .sk-chan-note {
+  margin: 12px 0 0;
+  color: var(--sk-ink-faint);
+  font-size: 13.4px;
+  line-height: 1.45;
+}
+
+/* Only the script hides anything. */
+.sk-scripts.sk-has-chan .sk-chan-panel { display: none; }
+.sk-scripts.sk-has-chan .sk-chan-panel.sk-on { display: block; }
+
+/* Screen only: the tabs already say which channel is showing. */
+.sk-scripts .sk-chan-print { display: none; }
+
+/* ---- a step with more than one copyable artifact ---- */
+
+.sk-scripts .sk-part + .sk-part { margin-top: 18px; }
+
+.sk-scripts .sk-part-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 0;
+}
+
+.sk-scripts .sk-kicker {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+}
+
+/* The compact variant of the primary action. Same gesture, quieter, because in a
+   multi part step there are three or four of them and the full width gradient bar
+   stops meaning "the thing to do" once it repeats. */
+.sk-scripts .sk-copy--sm {
+  width: auto;
+  min-height: 0;
+  margin-top: 0;
+  padding: 7px 13px;
+  border-radius: 9px;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .09em;
+}
+
+.sk-scripts .sk-copy--sm svg { width: 14px; height: 14px; }
+
+/* A part's own script box sits directly under its head row, so it does not need
+   the 14px the standalone one carries. */
+.sk-scripts .sk-part .sk-script { margin-top: 9px; }
+
+@media (max-width: 480px) {
+  .sk-scripts .sk-part-head { align-items: flex-start; }
+}
+
+/* ---- link cards, after the sequence ----
+   The how-to page this absorbed carried a couple of destinations (training hub
+   and so on). They are not scripts, so they sit after the sequence as plain
+   cards rather than competing with the copy buttons. */
+
+.sk-scripts .sk-linkcard { display: block; }
+.sk-scripts .sk-linkcard .sk-link-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  color: var(--sk-ink);
+}
+.sk-scripts .sk-linkcard .sk-link-tease {
+  margin: 6px 0 0;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+.sk-scripts .sk-linkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 11px 17px;
+  border: 1px solid var(--sk-line);
+  border-radius: 11px;
+  background: var(--sk-card);
+  color: var(--sk-ink);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 13px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease;
+}
+.sk-scripts .sk-linkbtn:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+/* The printed sheet carries EVERY channel, each under its own label. A rep pins
+   this by the phone and will use both; a sheet that silently drops the email
+   half is worse than a longer sheet. Same reasoning as tracks. */
+@media print {
+  .sk-scripts.sk-has-chan .sk-chan-panel { display: block !important; }
+  .sk-scripts .sk-chan-print {
+    display: block;
+    margin: 16px 0 0;
+    font-family: Archivo, ui-sans-serif, sans-serif;
+    font-variation-settings: "wdth" 100, "wght" 700;
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .sk-scripts .sk-part { break-inside: avoid; }
+}

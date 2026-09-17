@@ -1,0 +1,347 @@
+{
+ "system": "conectiv",
+ "funnel": "how-to",
+ "page": "c-free-coffee-sample",
+ "stepName": "Free Coffee Sample",
+ "logo": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+ "logoAlt": "Conectiv Shark AI Marketing System",
+ "title": "How to use your Free Coffee Sample funnel",
+ "titleHtml": "How to use your <em>Free Coffee Sample</em> funnel",
+ "sub": "Watch the training, then work the sequence below. This funnel does not deliver anything on its own, you mail the sample, so the follow up is the funnel.",
+ "funnelLabel": "Free Coffee Sample Funnel",
+ "stepsLabel": "The follow up sequence, in order",
+ "video": {
+  "vimeo": "1227817012",
+  "poster": "https://i.vimeocdn.com/video/2202132160-ff37e75ff8f512c0be7eddb2e8d0aae8c98c3db488cf69ea444c9b7b1a485b8e-d_1280",
+  "title": "Coffee funnel training video",
+  "caption": "Watch this before you start reaching out. About a minute and a half."
+ },
+ "steps": [
+  {
+   "num": "1",
+   "title": "Confirm the mailing address",
+   "lead": "Send this the same day the request comes in. Nothing ships until you have the address in writing.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Voice note and text",
+     "note": "Send the voice note and one text together. Rotate through the three texts so every lead does not get the same words.",
+     "parts": [
+      {
+       "kicker": "Voice note",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the address confirmation voice note",
+       "script": [
+        "Hey [Name], this is [Your Name] reaching out to you in reference to the free coffee sample you requested. I just need to confirm your mailing address. If you can text me back that info, or send me a voice note with it, I'll get your sample out in the mail right away! Samples are moving fast this week, so I want to get yours locked in."
+       ]
+      },
+      {
+       "kicker": "Text, option 1",
+       "copyButton": "Copy",
+       "copyLabel": "Copy text option 1",
+       "script": [
+        "Good morning [Name]! This is [Your Name] 👋 Your free sample of the world's best coffee is ready to go out, I just need to confirm your mailing address first!"
+       ]
+      },
+      {
+       "kicker": "Text, option 2",
+       "copyButton": "Copy",
+       "copyLabel": "Copy text option 2",
+       "script": [
+        "Hi [Name], good afternoon! It's [Your Name] here. Your world's best coffee sample is on the way, can you confirm the best address to send it to?"
+       ]
+      },
+      {
+       "kicker": "Text, option 3",
+       "copyButton": "Copy",
+       "copyLabel": "Copy text option 3",
+       "script": [
+        "Hey [Name]! It's [Your Name] 😊 Just locking in the details on your free coffee sample so I can get it shipped, can you send over your mailing address?"
+       ]
+      }
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject, pick one",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the subject lines",
+       "script": [
+        "Your free sample of the world's best coffee is ready to go!",
+        "Quick thing before we ship your coffee sample",
+        "[Name], confirming your address for your free sample"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the address confirmation email",
+       "script": [
+        "Good morning [Name]!",
+        "This is [Your Name] 👋 Your free sample of the world's best coffee is ready to go out, I just need to confirm your mailing address before it ships.",
+        "Can you reply with the best address to send it to? Samples are moving fast this week, so I want to get yours locked in.",
+        "Oh, and if it's easier for you, feel free to send over your phone number too. Texting tends to be a little faster and more convenient for getting things confirmed! Either way works for me 😊",
+        "Talk soon!",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "2",
+   "title": "Confirm it is shipping, then send tracking",
+   "lead": "Send the first one as soon as they give you the address. Send the second only once it has actually gone in the mail.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Voice note and text",
+     "parts": [
+      {
+       "kicker": "Voice note",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the address confirmed voice note",
+       "script": [
+        "Thank you so much, [Name]! I've got your address confirmed and I'm getting your coffee sample sent out. You should have it in your hands within [X] business days. Once it's on its way, I'll follow up and let you know, and I'll also be reaching out with a few specials we've got going on. Talk soon!"
+       ]
+      },
+      {
+       "kicker": "Text, once it ships",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the tracking number text",
+       "script": [
+        "Hey [Name], your sample is officially on its way! Here's your tracking number so you can watch for it: [Tracking Number]"
+       ]
+      }
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the address confirmed subject",
+       "script": [
+        "You're all set, [Name]! Your coffee is on the way"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the address confirmed email",
+       "script": [
+        "Thank you so much, [Name]!",
+        "I've got your address confirmed and I'm getting your world's best coffee sample sent out. You should have it in your hands within [X] business days.",
+        "Once it's shipped, I'll follow up with your tracking info, and I'll also be sharing a few specials we've got going on. Talk soon!",
+        "[Your Name]"
+       ]
+      },
+      {
+       "kicker": "Subject, once it ships",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the shipped subject",
+       "script": [
+        "Your coffee sample has shipped! 📦"
+       ]
+      },
+      {
+       "kicker": "Body, once it ships",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the tracking number email",
+       "script": [
+        "Hey [Name], your sample is officially on its way! Here's your tracking number so you can follow along:",
+        "[Tracking Number]",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "3",
+   "title": "Tell them how to prepare it",
+   "lead": "Send this once they have received it, or a day or two after you expect it to land.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Text",
+     "copyButton": "Copy this text",
+     "copyLabel": "Copy the how to prepare text",
+     "script": [
+      "Hey [Name]! Your world's best coffee sample should be landing soon (or already has 😊). Here's a quick video on how to prepare the world's best coffee for the best cup: [Link to video or document]",
+      "A little bit about what makes it different, we put the health in the habit. This isn't just coffee, it's real Arabica coffee infused with collagen for your skin and hair, B12 for smooth energy without the crash or jitters, and a blend of superfood antioxidants (acai, mangosteen, pomegranate) to fuel your day from the inside out."
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the how to prepare subject",
+       "script": [
+        "Here's how to prepare your world's best coffee ☕"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the how to prepare email",
+       "script": [
+        "Hey [Name]!",
+        "Your world's best coffee sample should be landing soon (or already has 😊). Here's a quick video on how to prepare it for the best cup:",
+        "[Link to video or document]",
+        "A little bit about what makes it different, we put the health in the habit. This isn't just coffee, it's real Arabica coffee infused with collagen for your skin and hair, B12 for smooth energy without the crash or jitters, and a blend of superfood antioxidants (acai, mangosteen, pomegranate) to fuel your day from the inside out.",
+        "Let me know if you have any questions!",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "4",
+   "title": "Ask for the testimony at 48 hours",
+   "lead": "Send this if you have not heard back within 48 hours of step 3.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Text or voice note",
+     "copyButton": "Copy this message",
+     "copyLabel": "Copy the 48 hour testimony message",
+     "script": [
+      "Hey [Name], just checking in! I hope you've gotten a chance to try the world's best coffee. I'd love to hear your honest feedback, the good, the bad, all of it!",
+      "Quick heads up, if you reply with a few sentences (or even a quick video) about what you thought, within the next 48 hours you'll be entered for a chance at a free vacation 🌴 so I don't want you to miss out. Just reply here with your thoughts!"
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the testimony subject",
+       "script": [
+        "Checking in + a little something for you 🌴"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the testimony email",
+       "script": [
+        "Hey [Name], just checking in!",
+        "I hope you've gotten a chance to try the world's best coffee. I'd love to hear your honest feedback, the good, the bad, all of it!",
+        "Quick heads up, if you reply with a few sentences (or even a quick video) about what you thought, within the next 48 hours you'll be entered for a chance at a free vacation, so I don't want you to miss out. Just reply here with your thoughts!",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "5",
+   "title": "Ask for the call",
+   "lead": "Send this once they have told you something good about the coffee. This is the close, and it only works after the testimony.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Voice note or text",
+     "copyButton": "Copy this message",
+     "copyLabel": "Copy the sales call request",
+     "script": [
+      "That's so great to hear, [Name]! So happy you loved it 🙌 I'd love to jump on a quick call with you to talk about how you can grab more of the world's best coffee. We've got some specials running through [date] that you might qualify for, and I'd love to show you how you can get your coffee for about $3 a cup.",
+      "Let me know when you can hop on a quick call, or if you'd rather skip the call and just grab it directly, here's the link: [Order Link]"
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the sales call subject",
+       "script": [
+        "Let's talk about getting you more coffee!"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the sales call email",
+       "script": [
+        "That's so great to hear, [Name]! So happy you loved it 🙌",
+        "I'd love to jump on a quick call with you to talk about how you can grab more of the world's best coffee. We've got some specials running through [date] that you might qualify for, and I'd love to show you how you can get your coffee for about $3 a cup.",
+        "Can you send me your best contact number so we can connect? Or if you'd rather skip the call, here's the link to grab it directly: [Order Link]",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "num": "6",
+   "title": "Reopen a silent lead",
+   "lead": "Send this 5 to 7 days after no response to step 1 or step 4. This is your last, low pressure touch.",
+   "channels": [
+    {
+     "key": "text",
+     "label": "Text or voice note",
+     "copyButton": "Copy this message",
+     "copyLabel": "Copy the re-engagement message",
+     "script": [
+      "Hey [Name], I don't want to keep bugging you 😊 Just wanted to check in one more time, I've still got your free coffee sample set aside if you want it. No pressure at all, just say the word whenever you're ready!"
+     ]
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "parts": [
+      {
+       "kicker": "Subject",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the re-engagement subject",
+       "script": [
+        "Still thinking of you, [Name] 😊"
+       ]
+      },
+      {
+       "kicker": "Body",
+       "copyButton": "Copy",
+       "copyLabel": "Copy the re-engagement email",
+       "script": [
+        "Hey [Name], I don't want to keep bugging you!",
+        "Just wanted to check in one more time, I've still got your free coffee sample set aside if you want it. No pressure at all, just reply whenever you're ready.",
+        "[Your Name]"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "linksLabel": "Assets and training",
+ "links": [
+  {
+   "title": "Training hub",
+   "tease": "Every training for your marketing system in one place, not just this funnel.",
+   "label": "Open the training hub",
+   "url": "https://conectivshark.com/training-hub"
+  }
+ ],
+ "tip": "<strong>Tip:</strong> Steps 1 and 2 lean on voice notes to keep it personal. Steps 3 and 4 can go by text since they are quick and informational. Step 5 is your close, so use a voice note or a call request, whichever feels more natural for the lead. Step 6 keeps the door open without being pushy, and it often revives leads who simply got busy. Personalize [Name], [Your Name], [X], [Tracking Number], [date] and [Order Link] before you send anything.",
+ "footer": "Free Coffee Sample follow up · Quick reference · Keep this handy by your phone"
+}

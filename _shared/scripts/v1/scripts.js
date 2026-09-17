@@ -154,8 +154,13 @@
       (function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
-          var step = btn.closest(".sk-step") || scope;
-          var src = step.querySelector(".sk-script");
+          /* Resolve the SMALLEST container the button sits in, so a step may hold
+             several copyable artifacts (a voice note plus three rotating texts).
+             On every page written before 2026-09-17 there is no .sk-part and no
+             .sk-chan-panel, so this resolves to .sk-step exactly as it always did. */
+          var host = btn.closest(".sk-part") || btn.closest(".sk-chan-panel") ||
+                     btn.closest(".sk-step") || scope;
+          var src = host.querySelector(".sk-script");
           if (src) copyText(scriptText(src), btn);
         });
       })(copiers[c]);
@@ -230,4 +235,52 @@
     btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-track")); });
   }
   show(btns[0].getAttribute("data-sk-track"));
+})();
+
+/* ---- PER STEP CHANNELS (added 2026-09-17) --------------------------------
+   A step whose config declares `channels` renders a tab pair and one
+   .sk-chan-panel per channel. This shows one channel at a time, per step, so a
+   rep who works by text never scrolls past the email half and vice versa.
+
+   Distinct from TRACKS above: tracks switch the whole page between two different
+   sequences, channels switch one step between two renderings of the same move.
+
+   Same no-JS contract as tracks: the root only gets .sk-has-chan once this runs,
+   so a reader with no JS sees every channel rather than an empty step. Nothing
+   here runs on a page without channel buttons, which is every other page.
+
+   Each step is wired independently ON PURPOSE. A rep may want the voice note in
+   step 1 and the email in step 5, and a page-wide switch would take that away. */
+(function () {
+  var roots = document.querySelectorAll(".sk-scripts");
+  for (var r = 0; r < roots.length; r++) {
+    var root = roots[r];
+    var steps = root.querySelectorAll(".sk-step");
+    var any = false;
+
+    for (var i = 0; i < steps.length; i++) {
+      (function (step) {
+        var btns = step.querySelectorAll("[data-sk-chan]");
+        if (!btns.length) return;
+        any = true;
+
+        var show = function (key) {
+          for (var b = 0; b < btns.length; b++) {
+            btns[b].setAttribute("aria-pressed", String(btns[b].getAttribute("data-sk-chan") === key));
+          }
+          var panels = step.querySelectorAll(".sk-chan-panel");
+          for (var p = 0; p < panels.length; p++) {
+            panels[p].classList.toggle("sk-on", panels[p].getAttribute("data-chan") === key);
+          }
+        };
+
+        for (var k = 0; k < btns.length; k++) {
+          btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-chan")); });
+        }
+        show(btns[0].getAttribute("data-sk-chan"));
+      })(steps[i]);
+    }
+
+    if (any) root.classList.add("sk-has-chan");
+  }
 })();
