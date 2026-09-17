@@ -1,16 +1,17 @@
-/* nueva / n-no-crash-plan / n-no-crash-plan
+/* nueva/n-no-crash-plan/n-no-crash-plan
+ * Loader stub. Behaviour lives in _shared/capture/v1/capture.js, shared by every capture page:
+ * the mobile CTA bar, the scroll reveal, and the popup open that every [data-sk-open] button
+ * on this page depends on.
  *
- * Loads the shared capture engine and nothing else. Behaviour is shared, so a fix there
- * reaches every page of this type in every system on one git push.
+ * A hosted block is injected with innerHTML, so a <script src> inside the markup never executes.
+ * The script has to be appended from here.
+ *
+ * This page overrides the shared HERO LAYOUT in its own block.css and nothing else, so the
+ * shared engine works here exactly as it does on every other opt-in.
  */
 (function () {
-  var BASE = "https://invokableapp.github.io/shark-pages/";
-  ["_shared/capture/v1/capture.js"].forEach(function (p) {
-    if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
-    var s = document.createElement("script");
-    s.src = BASE + p;
-    s.async = false;
-    s.setAttribute("data-shark-shared", p);
-    document.head.appendChild(s);
-  });
+  var s = document.createElement("script");
+  s.src = "https://invokableapp.github.io/shark-pages/_shared/capture/v1/capture.js";
+  s.defer = true;
+  document.body.appendChild(s);
 })();

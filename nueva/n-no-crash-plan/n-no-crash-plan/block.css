@@ -1,24 +1,212 @@
-/* nueva / n-no-crash-plan / n-no-crash-plan
+/* nueva/n-no-crash-plan/n-no-crash-plan
  *
- * The design lives in _shared/capture/v1/, scoped under .sk-cap, and is shared by every
- * capture page in every system. This file declares ONLY the palette, on the block's own scope
- * class, and it cascades into the shared component. No brand swatch is touched.
+ * The No Crash Plan opt-in, branded EVERYDAY WELL.
+ *
+ * ⚠️ NOT NUEVA. Sage and warm paper only, no teal, no product. The palette is the guide's,
+ * so the lander and the document read as one object. See the note at the top of block.html.
+ *
+ * ⚠️ CENTERED hero. The shared capture component ships the house left-copy / right-art grid,
+ * and every opt-in in this factory uses it, which is the reason this page does not. The
+ * @import still pins the shared component (mobile bar, reveal, popup wiring, form styling);
+ * only the hero LAYOUT is overridden, and the override lives here so no sibling page moves.
+ *
+ * Relationship to the web guide: that page is DARK with paper cards floating on it. This one
+ * is the inverse, paper with one dark section, so the pair reads as the same brand in two
+ * moods rather than two designs.
+ *
+ * The @import pins the shared version: do not bump it here, that is a deliberate migration
+ * (see _shared/README.md).
  */
 @import url("https://invokableapp.github.io/shark-pages/_shared/capture/v1/capture.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600;650;700&display=swap");
 
-.sk-cap-nva{
-  --sk-navy:    var(--nva-navy,#102a2a);
-  --sk-navy-d:  var(--nva-navy-d,#071116);
-  --sk-teal:    var(--nva-teal,#0abab5);
-  --sk-teal-d:  var(--nva-teal-d,#00aaa6);
-  --sk-sage:    var(--nva-sage,#087f7b);
-  --sk-lime:    var(--nva-lime,#5fd9d5);
-  --sk-ink:     var(--nva-ink,#141313);
-  --sk-body:    var(--nva-body,#4a5560);
-  --sk-cream:   var(--nva-cream,#fcfeff);
-  --sk-mist:    var(--nva-mist,#e8f8f6);
-  --sk-line:    var(--nva-line,#d5dfe1);
-  --sk-_note:   var(--nva-_note,Measured from nuevalife.com/nuevaassets/css/style.css 2026-09-08. #0ABAB5 is the brand colour (116 uses). Nueva's palette is monochrome teal, so 'sage' and 'lime' carry deep and light teal rather than greens; the token NAMES are fixed by systems/_TEMPLATE.json, the hues are not.);
-  --sk-serif:  var(--nva-serif,Montserrat,"Helvetica Neue",Arial,sans-serif);
-  --sk-sans:   var(--nva-sans,Montserrat,system-ui,sans-serif);
+.sk-cap-ew{
+  --paper:#faf9f5;
+  --paper-2:#f4f3ec;
+  --tint:#f0f2ea;
+  --sage:#8a9a7b;
+  --sage-mid:#6d7d5e;
+  --sage-deep:#4c5a41;
+  --sage-lift:#a8b899;
+  --night:#12160f;
+  --night-2:#1b2118;
+  --ink:#1f2420;
+  --body:#3a4035;
+  --grey:#6f7568;
+  --hair:#e3e4db;
+  --clay:#c9705a;
+
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+
+  /* The shared component reads these for the mobile bar and the form. Re-pointing them here
+     is what dresses the shared furniture in Everyday Well rather than Nueva. */
+  --sk-brand:var(--sage);
+  --sk-brand-d:var(--sage-mid);
+  --sk-accent:var(--sage-deep);
+  --sk-ink:var(--ink);
+  --sk-body:var(--body);
+  --sk-paper:var(--paper);
+  --sk-line:var(--hair);
+  --sk-serif:var(--serif);
+  --sk-sans:var(--sans);
+
+  background:var(--paper);
+  color:var(--body);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.sk-cap-ew *{ box-sizing:border-box; }
+.sk-cap-ew img{ max-width:100%; display:block; }
+
+.sk-cap-ew .ew-wrap{ width:100%; max-width:1040px; margin:0 auto; padding:0 22px; }
+.sk-cap-ew .ew-narrow{ max-width:680px; }
+
+.sk-cap-ew .ew-eyebrow{
+  display:block; font-size:10.5px; font-weight:650; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--sage-mid);
+}
+.sk-cap-ew h1,.sk-cap-ew h2,.sk-cap-ew h3{
+  font-family:var(--serif); font-weight:400; color:var(--ink); letter-spacing:-.01em; margin:0;
+}
+
+/* ---------- HERO: centered stack ---------- */
+.sk-cap-ew .ew-hero{
+  text-align:center;
+  padding:64px 0 0;
+  background:
+    radial-gradient(120% 70% at 50% 0%, var(--tint) 0%, var(--paper) 62%);
+}
+.sk-cap-ew .ew-mark{
+  font-family:var(--serif); font-size:15px; color:var(--sage-deep); margin-bottom:34px;
+}
+.sk-cap-ew .ew-hero h1{
+  font-size:clamp(36px,6.2vw,62px); line-height:1.04; margin:14px auto 0; max-width:15ch;
+}
+.sk-cap-ew .ew-lede{
+  margin:20px auto 0; max-width:50ch; font-size:17px; line-height:1.58; color:var(--body);
+}
+.sk-cap-ew .ew-pills{
+  list-style:none; margin:26px 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+}
+.sk-cap-ew .ew-pills li{
+  font-size:12px; font-weight:600; letter-spacing:.04em; color:var(--sage-deep);
+  background:#fff; border:1px solid var(--hair); border-radius:999px; padding:7px 15px;
+}
+.sk-cap-ew .ew-btn{
+  display:inline-block; margin-top:28px;
+  background:var(--sage-deep); color:var(--paper);
+  font-family:var(--sans); font-weight:650; font-size:16px; letter-spacing:.01em;
+  border:0; border-radius:999px; padding:17px 38px; cursor:pointer;
+  transition:background .15s ease, transform .15s ease;
+}
+.sk-cap-ew .ew-btn:hover{ background:var(--sage-mid); transform:translateY(-1px); }
+.sk-cap-ew .ew-note{ margin-top:12px; font-size:12.5px; color:var(--grey); letter-spacing:.02em; }
+
+.sk-cap-ew .ew-curve{ max-width:520px; margin:34px auto 0; }
+.sk-cap-ew .ew-curve svg{ display:block; width:100%; height:auto; }
+.sk-cap-ew .ew-curve .spike{ fill:none; stroke:var(--clay); stroke-width:2.6; stroke-linecap:round; }
+.sk-cap-ew .ew-curve .axis{ stroke:var(--hair); stroke-width:1; }
+.sk-cap-ew .ew-curve .base{ stroke:var(--hair); stroke-width:1; stroke-dasharray:3 4; }
+
+/* The cover sits half in the hero and half in the next section, so the fold has somewhere to
+   go instead of ending on a button. */
+.sk-cap-ew .ew-cover{ margin:40px auto -70px; max-width:330px; }
+.sk-cap-ew .ew-cover img{
+  width:100%; height:auto; border-radius:3px;
+  box-shadow:0 30px 60px -22px rgba(31,36,32,.42), 0 2px 6px rgba(31,36,32,.10);
+}
+
+/* ---------- sections ---------- */
+.sk-cap-ew .ew-sec{ padding:104px 0 76px; }
+.sk-cap-ew .ew-head{ text-align:center; max-width:640px; margin:0 auto 40px; }
+.sk-cap-ew .ew-head h2{ font-size:clamp(27px,4.4vw,38px); line-height:1.14; margin-top:12px; }
+
+.sk-cap-ew .ew-cards{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.sk-cap-ew .ew-card{
+  background:#fff; border:1px solid var(--hair); border-radius:16px; padding:28px 26px;
+}
+.sk-cap-ew .ew-card h3{ font-size:19px; line-height:1.28; }
+.sk-cap-ew .ew-card p{ margin:12px 0 0; font-size:15px; color:var(--body); }
+
+/* the one dark section, which ties back to the web guide */
+.sk-cap-ew .ew-dark{ background:var(--night); }
+.sk-cap-ew .ew-dark .ew-eyebrow{ color:var(--sage-lift); }
+.sk-cap-ew .ew-dark h2{ color:var(--paper); }
+.sk-cap-ew .ew-dark .ew-prose p{ color:rgba(250,249,245,.82); }
+
+.sk-cap-ew .ew-prose{ text-align:center; }
+.sk-cap-ew .ew-prose p{ margin:0 0 16px; font-size:17px; line-height:1.62; }
+.sk-cap-ew .ew-prose p:last-child{ margin-bottom:0; }
+.sk-cap-ew .ew-plain p{ color:var(--body); }
+
+/* real pages of the guide, shown as paper */
+.sk-cap-ew .ew-shots{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:44px;
+}
+.sk-cap-ew .ew-shots figure{ margin:0; text-align:center; }
+.sk-cap-ew .ew-shots img{
+  width:100%; height:auto; border:1px solid var(--hair); border-radius:3px;
+  box-shadow:0 16px 34px -18px rgba(31,36,32,.34);
+}
+.sk-cap-ew .ew-shots figcaption{
+  margin-top:14px; font-size:12.5px; color:var(--grey); letter-spacing:.02em;
+}
+
+.sk-cap-ew .ew-list{ list-style:none; margin:0 auto; padding:0; max-width:640px; }
+.sk-cap-ew .ew-list li{
+  padding:18px 0; border-top:1px solid var(--hair); font-size:16px; color:var(--body);
+}
+.sk-cap-ew .ew-list li:first-child{ border-top:none; }
+.sk-cap-ew .ew-list strong{ color:var(--ink); font-weight:650; }
+.sk-cap-ew .ew-mid-cta{ text-align:center; }
+
+/* ---------- photographic band ---------- */
+.sk-cap-ew .ew-band{ position:relative; padding:96px 0; text-align:center; overflow:hidden; }
+.sk-cap-ew .ew-band-art{
+  position:absolute; inset:0; background:url("assets/band-walk.jpg") center/cover no-repeat;
+}
+.sk-cap-ew .ew-band::after{
+  content:""; position:absolute; inset:0; background:rgba(18,22,15,.62);
+}
+.sk-cap-ew .ew-band-in{ position:relative; z-index:1; }
+.sk-cap-ew .ew-band .ew-eyebrow{ color:var(--sage-lift); }
+.sk-cap-ew .ew-band h2{ color:var(--paper); font-size:clamp(26px,4.2vw,36px); margin-top:12px; }
+.sk-cap-ew .ew-band p{ margin:18px auto 0; max-width:54ch; color:rgba(250,249,245,.84); font-size:16.5px; }
+
+/* ---------- close ---------- */
+.sk-cap-ew .ew-close{ text-align:center; padding:96px 0 84px; background:var(--tint); }
+.sk-cap-ew .ew-close h2{ font-size:clamp(26px,4.4vw,38px); line-height:1.14; }
+.sk-cap-ew .ew-close .ew-lede{ margin-top:16px; }
+.sk-cap-ew .ew-foot{
+  margin-top:56px; font-family:var(--serif); font-size:14px; color:var(--sage-deep);
+}
+
+/* ---------- reveal ----------
+   The shared engine adds .sk-cap-in when an element scrolls into view. Kept subtle: a lander
+   that animates hard reads as a template. */
+.sk-cap-ew [data-sk-rev]{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+.sk-cap-ew [data-sk-rev].sk-cap-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .sk-cap-ew [data-sk-rev]{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .sk-cap-ew .ew-cards{ grid-template-columns:1fr; }
+  .sk-cap-ew .ew-shots{ grid-template-columns:1fr; max-width:330px; margin-left:auto; margin-right:auto; }
+}
+@media (max-width:620px){
+  .sk-cap-ew .ew-hero{ padding-top:44px; }
+  .sk-cap-ew .ew-mark{ margin-bottom:24px; }
+  .sk-cap-ew .ew-sec{ padding:88px 0 60px; }
+  .sk-cap-ew .ew-cover{ max-width:250px; margin-bottom:-52px; }
+  .sk-cap-ew .ew-btn{ width:100%; padding:17px 22px; }
+  .sk-cap-ew .ew-band{ padding:72px 0; }
+  .sk-cap-ew .ew-close{ padding:76px 0 64px; }
 }
