@@ -319,7 +319,7 @@
   .sk-ew-comp .move .num{ font-size:56px; }
 }
 
-/* companion-web.css — loaded AFTER the rescoped crash-guide sheet.
+/* companion-web.css: loaded AFTER the rescoped crash-guide sheet.
    Only the verdict chip, which is the one thing this document has and that one does not.
 
    ⚠️ THESE SIT ON A PAPER CARD, NOT ON THE DARK GROUND. The page's ground is near-black and

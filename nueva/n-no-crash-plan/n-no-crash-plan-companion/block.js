@@ -1,4 +1,4 @@
-/* companion-web.js — the nav progress bar, and nothing else.
+/* companion-web.js: the nav progress bar, and nothing else.
  *
  * The crash guide's script also drives a hero curve that flattens as you scroll. This page has
  * no curve: its argument is a graded list, not a shape, and animating something here would be
