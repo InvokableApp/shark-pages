@@ -53,6 +53,54 @@
 .sk-ew-conf .ew-lede{ font-size:18px; }
 
 /* ---------- sections ---------- */
+/* ---------- STICKY ALERT BAR ----------
+   ⚠️ `position:sticky` AND NOT `fixed`. Fixed would float over the whole GHL page, including
+   anything the operator later adds above or below this block, and it needs a body offset that a
+   block cannot set. Sticky is proven inside a GHL custom-code block (the web guide's nav uses
+   it), and it pins to the top of the viewport the moment the page scrolls.
+
+   ⚠️ TERRACOTTA IS THE SYSTEM'S OWN ALERT TONE, not a new colour: it already draws the crash
+   line on the guide's chart and the Skip verdict in the companion. The point of the bar is that
+   it does not belong to the calm page it sits on. */
+.sk-ew-conf{ --alert:#b35f49; --alert-deep:#9c4f3b; }
+.sk-ew-conf .ew-bar{
+  position:sticky; top:0; z-index:50;
+  background:var(--alert); color:#fdf6f3;
+  border-bottom:1px solid rgba(0,0,0,.14);
+}
+.sk-ew-conf .ew-bar-in{
+  max-width:var(--wide); margin:0 auto; padding:11px var(--gutter);
+  display:flex; align-items:center; gap:14px; text-align:left;
+}
+/* A single quiet pulse. It reads as "unread", which is the register the bar wants, and it stops
+   short of the blinking-banner idiom this brand would not survive. Motion-safe by default. */
+.sk-ew-conf .ew-bar-dot{
+  flex:0 0 auto; width:8px; height:8px; border-radius:50%; background:#fdf6f3;
+  animation:ew-bar-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ew-bar-pulse{ 0%,100%{ opacity:.35; } 50%{ opacity:1; } }
+@media (prefers-reduced-motion:reduce){ .sk-ew-conf .ew-bar-dot{ animation:none; opacity:.9; } }
+
+.sk-ew-conf .ew-bar-txt{ flex:1 1 auto; min-width:0; font-size:15px; line-height:1.35; }
+.sk-ew-conf .ew-bar-txt strong{ font-weight:650; }
+.sk-ew-conf .ew-bar-sub{ color:rgba(253,246,243,.78); }
+.sk-ew-conf .ew-bar-btn{
+  flex:0 0 auto; background:#fdf6f3; color:var(--alert-deep); text-decoration:none;
+  font-weight:700; font-size:14px; letter-spacing:.01em;
+  padding:10px 18px; border-radius:999px; white-space:nowrap;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.sk-ew-conf .ew-bar-btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px -6px rgba(0,0,0,.45); }
+
+@media (max-width:620px){
+  .sk-ew-conf .ew-bar-in{ padding:9px 16px; gap:10px; }
+  .sk-ew-conf .ew-bar-txt{ font-size:13.5px; }
+  /* The second clause is the first thing to go: on a phone the bar has to stay one line tall or
+     it eats the top of every screen for the whole page. */
+  .sk-ew-conf .ew-bar-sub{ display:none; }
+  .sk-ew-conf .ew-bar-btn{ padding:9px 14px; font-size:13px; }
+}
+
 /* ⚠️ THE CONFIRMATION BLOCK IS SHORT ON PURPOSE. It used to run a full screen and end in a
    mockup of the guide she had just been sent, which pushed the one thing this page is FOR below
    the fold. Everything here is now "it is in your inbox, check spam" and two secondary buttons. */
