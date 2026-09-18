@@ -81,7 +81,9 @@
 @keyframes ew-bar-pulse{ 0%,100%{ opacity:.35; } 50%{ opacity:1; } }
 @media (prefers-reduced-motion:reduce){ .sk-ew-conf .ew-bar-dot{ animation:none; opacity:.9; } }
 
-.sk-ew-conf .ew-bar-txt{ flex:1 1 auto; min-width:0; font-size:15px; line-height:1.35; }
+/* `balance` so the phone's two lines split evenly instead of stranding "guide." on its own.
+   Unsupported browsers just wrap normally, which is what they did before. */
+.sk-ew-conf .ew-bar-txt{ flex:1 1 auto; min-width:0; font-size:15px; line-height:1.35; text-wrap:balance; }
 .sk-ew-conf .ew-bar-txt strong{ font-weight:650; }
 .sk-ew-conf .ew-bar-sub{ color:rgba(253,246,243,.78); }
 .sk-ew-conf .ew-bar-btn{
