@@ -248,6 +248,15 @@
       "elementTitle": "n-no-crash-plan-how-to",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-companion",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "UWPsfTaWNlP3eRwPYj2O",
+      "elementId": "custom-code-1ik0awhe00",
+      "elementTitle": "n-no-crash-plan-companion",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
