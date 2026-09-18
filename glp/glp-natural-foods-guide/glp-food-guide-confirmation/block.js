@@ -11,9 +11,9 @@
  *
  *   1. THE CV HOLDS A BARE DOMAIN, NOT A URL. GLP's convention is domain with no scheme (its
  *      sibling CV says so in its own instruction text: "with no https://"). An href of
- *      "profitwithlise.online/glp-food-guide-dm-redirect" is a RELATIVE PATH, so the browser
+ *      "yourdomain.com/glp-food-guide-dm-redirect" is a RELATIVE PATH, so the browser
  *      resolves it against the current host and you get
- *      theirdomain.com/profitwithlise.online/glp-food-guide-dm-redirect. The scheme is added
+ *      currenthost.com/yourdomain.com/glp-food-guide-dm-redirect. The scheme is added
  *      here, exactly as the Nueva confirmation does for its PDF custom value.
  *
  *   2. AN UNFILLED CV MUST NOT PRODUCE A DEAD LINK. On the snapshot this CV holds "Enter the
