@@ -1,5 +1,12 @@
 # Hosted guide PDFs
 
+⚠️ **PUBLISH THE `-lite` BUILD, NEVER THE PLAIN ONE.** Both guides render twice: `what-to-take.pdf`
+off full PNGs for print, and `what-to-take-lite.pdf` off the JPG pack. The full companion build is
+**8.7 MB** and this is a document a rep sends to someone on a phone. The lite build is 1.8 MB and
+is the one that goes here.
+`node NUEVASHARK/campaigns/no-crash-plan/make-lite.mjs companion` then
+`LITE=1 node .../companion/build/render-pdf.mjs`.
+
 ## Why they live here and not in a GHL media library
 
 `POST /medias/upload-file` is **location-PIT-only**, and the Nueva snapshot account has no PIT,

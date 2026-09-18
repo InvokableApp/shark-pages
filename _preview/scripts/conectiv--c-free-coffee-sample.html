@@ -1,0 +1,1910 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>conectiv · c-free-coffee-sample</title>
+<style>
+html,body{margin:0;padding:0;background:#e9e9ec}
+/* stands in for the GHL section the block is embedded into */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   SHARED "FUNNEL SCRIPTS" STYLESHEET
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE stylesheet for every scripts page in every system. Scoped under
+   .sk-scripts, which every scripts block carries alongside its own mandated
+   .sk-{system}-{funnel}-{page} class. The per-page block.css declares only the
+   nine palette tokens on that page class, and they cascade into everything here.
+
+   WHAT THIS PAGE IS. A rep just got a lead. They open this on a phone, read
+   what to do, hit Copy, and paste into their messages app. So the script text
+   is not decoration, it is the payload: it gets the most contrast, the widest
+   measure and the primary action. Everything else recedes.
+
+   Replaces 18 hand forked copies of a generic Inter card design that lived
+   inline in the GHL pages. Colour is per system, everything else is per design
+   system. Changing a component here changes every scripts page on one git push.
+
+   Do not add colour literals below. If a value is not in the token block, it is
+   an ink/paper mix and belongs in the per-page tokens instead.
+   ============================================================ */
+
+.sk-scripts *,
+.sk-scripts *::before,
+.sk-scripts *::after { box-sizing: border-box; }
+
+.sk-scripts {
+  /* structural tokens: identical in every system, per design system 7.2 */
+  --sk-r: 18px;
+  --sk-r-sm: 12px;
+  --sk-pad: 20px;
+  --sk-shadow: 0 1px 2px rgba(18, 24, 15, .04), 0 8px 24px -12px rgba(18, 24, 15, .18);
+  --sk-shadow-lift: 0 2px 4px rgba(18, 24, 15, .05), 0 18px 40px -18px rgba(18, 24, 15, .28);
+
+  /* Full bleed ground, capped content, measure as a grid column. Same reasoning
+     as the how-to pages: the block paints the paper, so capping the block itself
+     leaves the GHL section showing through at the sides, and `margin-inline:auto`
+     on the children is silently reset by the `margin` shorthand the cards set. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(48px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-scripts .sk-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+
+.sk-scripts > *:not(.sk-grain) {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------- header ---------------- */
+
+.sk-scripts .sk-head {
+  padding: 38px 4px 20px;
+  text-align: center;
+}
+
+.sk-scripts .sk-logo {
+  display: block;
+  width: 168px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 22px;
+}
+
+.sk-scripts .sk-title {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sk-scripts .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sk-scripts .sk-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* which funnel's leads these scripts are for, set as data rather than prose */
+.sk-scripts .sk-funnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 7px 13px 7px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+  text-align: left;
+}
+
+.sk-scripts .sk-funnel svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color:var(--sk-brand-text, var(--sk-brand));
+}
+
+/* ---------------- utility row ----------------
+   Print is a real need here: reps tape this to the wall or keep it in the truck.
+   It is still a UTILITY, so per design system 4 it stays understated and never
+   takes the gradient. Copy is the primary action on this page and nothing else
+   may compete with it. */
+
+/* ── FUNNEL MENU ──────────────────────────────────────────────────────────
+   Added 2026-09-14, ADDITIVE to v1: a funnel with no nav.json emits no .sk-nav,
+   so every page that shipped before this is byte-identical. Verified against the
+   sibling systems' pages — zero .sk-nav matches outside Beneve.
+
+   Two tiers because they are two different things, and flattening them loses
+   that: the three PITCH decks apply to any lead, the funnel pages belong to one
+   funnel each. Hubs read as buttons; funnel pages read as a list, because eleven
+   equal-weight pills is a wall the rep has to parse instead of scan.
+
+   The current page is a <span>, not a dead <a> — a link to the page you are on
+   is a promise the browser cannot keep. */
+
+.sk-scripts .sk-nav {
+  margin: 0 auto 22px;
+  padding: 16px 18px;
+  max-width: 640px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  text-align: center;
+}
+
+.sk-scripts .sk-nav-hubs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sk-scripts .sk-nav-hub {
+  flex: 1 1 auto;
+  min-width: 96px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-paper);
+  /* --sk-ink-faint, the same grey as the FUNNEL SCRIPTS label below, so the two
+     tiers read as one quiet block and the active pill is the only thing shouting. */
+  color: var(--sk-ink-faint);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+
+.sk-scripts .sk-nav-hub:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+.sk-scripts .sk-nav-hub.is-here {
+  background: var(--sk-brand);
+  border-color: var(--sk-brand);
+  /* --sk-brand-text is a HOOK, not a token any palette defines. An undefined custom
+     property makes the whole declaration invalid at computed-value time, so the colour
+     INHERITS rather than falling back — which rendered the active pill dark-on-navy,
+     nearly unreadable, and looked like a design choice rather than a bug. Always give
+     var() a fallback when the name is not in the nine-token palette. */
+  color: var(--sk-brand-text, var(--sk-card));
+}
+
+.sk-scripts .sk-nav-label {
+  margin: 16px 0 8px;
+  color: var(--sk-ink-faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sk-scripts .sk-nav-pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* NO separator rules between these. A divider drawn with `+ *::before` cannot know
+   where the line wraps, so the first item of every wrapped row inherits an orphan
+   rule floating at the start of the line. Spacing carries the separation instead,
+   and the current page is bold, which is the only distinction that has to survive. */
+.sk-scripts .sk-nav-pages > * { padding: 3px 0; }
+
+.sk-scripts .sk-nav-page {
+  color: var(--sk-ink-soft);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.sk-scripts .sk-nav-page:hover { color: var(--sk-brand-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+.sk-scripts .sk-nav-page.is-here,
+.sk-scripts .sk-nav-hub.is-here { cursor: default; }
+.sk-scripts .sk-nav-page.is-here {
+  color: var(--sk-ink);
+  font-variation-settings: "wght" 700;
+}
+
+@media (max-width: 480px) {
+  .sk-scripts .sk-nav { padding: 14px 12px; }
+  .sk-scripts .sk-nav-hub { min-width: 0; flex: 1 1 30%; letter-spacing: .08em; padding: 9px 8px; }
+  .sk-scripts .sk-nav-pages { font-size: 13px; }
+}
+
+.sk-scripts .sk-util {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 22px;
+}
+
+.sk-scripts .sk-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.sk-scripts .sk-print:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+.sk-scripts .sk-print:active { transform: translateY(1px); }
+.sk-scripts .sk-print svg { flex: none; width: 15px; height: 15px; }
+
+/* ---------------- group header ---------------- */
+
+.sk-scripts .sk-group { margin: 0 0 26px; }
+
+.sk-scripts .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 0 13px;
+  padding: 14px 2px 11px;
+  background: linear-gradient(var(--sk-paper) 62%, transparent);
+}
+
+.sk-scripts .sk-group-label {
+  flex: none;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-ink);
+}
+
+.sk-scripts .sk-group-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--sk-line);
+}
+
+.sk-scripts .sk-group-count {
+  flex: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- card ---------------- */
+
+.sk-scripts .sk-card {
+  margin: 0 0 12px;
+  padding: var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+
+.sk-scripts .sk-card:last-child { margin-bottom: 0; }
+
+/* ---------------- video facade ----------------
+   The player is never in the markup: data-vimeo plus a poster, the iframe is
+   injected on click. Design system 4. */
+
+.sk-scripts .sk-vid { padding: 0; overflow: hidden; }
+
+.sk-scripts .sk-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  display: block;
+  background-color: var(--sk-ink);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sk-scripts .sk-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 8, .1) 0%, rgba(8, 10, 8, .42) 100%);
+  transition: opacity .3s ease;
+}
+
+.sk-scripts .sk-frame:hover::after { opacity: .72; }
+
+.sk-scripts .sk-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 28px -8px rgba(8, 10, 8, .55);
+  color: #fff;
+  transition: transform .28s cubic-bezier(.2, .7, .3, 1);
+}
+
+.sk-scripts .sk-frame:hover .sk-play { transform: translate(-50%, -50%) scale(1.07); }
+.sk-scripts .sk-frame:active .sk-play { transform: translate(-50%, -50%) scale(.97); }
+.sk-scripts .sk-play svg { width: 25px; height: 25px; margin-left: 3px; }
+
+.sk-scripts .sk-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sk-scripts .sk-frame[data-playing="true"] { cursor: default; }
+.sk-scripts .sk-frame[data-playing="true"]::after,
+.sk-scripts .sk-frame[data-playing="true"] .sk-play { display: none; }
+
+.sk-scripts .sk-vid-cap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px var(--sk-pad);
+  border-top: 1px solid var(--sk-line-soft);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+}
+
+.sk-scripts .sk-vid-cap svg { flex: none; width: 16px; height: 16px; color:var(--sk-brand-text, var(--sk-brand)); }
+
+/* ---------------- the steps ----------------
+   A numbered sequence, because the order is the instruction: call, then text,
+   then follow up. Numerals are data, so they are mono on a tint chip. */
+
+.sk-scripts .sk-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-scripts .sk-step { margin: 0 0 12px; }
+.sk-scripts .sk-step:last-child { margin-bottom: 0; }
+
+.sk-scripts .sk-step-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.sk-scripts .sk-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sk-scripts .sk-step-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  letter-spacing: -.005em;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+.sk-scripts .sk-step-lead {
+  margin: 5px 0 0;
+  max-width: 38ch;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+
+/* ---------------- the script itself ----------------
+   The payload. Content to be TAKEN rather than read, so it gets the quotation
+   treatment the how-to pages give an Ask AI prompt: a brand rule down the left,
+   paper ground so it separates from the card, full ink for contrast because a
+   rep is reading it aloud off a phone. Text stays selectable. The button is the
+   fast path, not the only one. */
+
+.sk-scripts .sk-script {
+  margin: 14px 0 0;
+  padding: 16px 17px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.sk-scripts .sk-script p { margin: 0 0 11px; }
+.sk-scripts .sk-script p:last-child { margin-bottom: 0; }
+.sk-scripts .sk-script strong { font-weight: 600; }
+
+/* A raw asset URL inside a script is a thing to be SENT, not clicked, and some
+   of them are 120 characters of CDN path. Wrapping beats truncating: the rep
+   sometimes reads it back to check the paste landed. */
+.sk-scripts .sk-script a {
+  color: var(--sk-brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+/* The bracketed slots the rep must personalise, marked so they cannot be missed.
+   The negative inline margin matters: a padded inline pill pushes the character
+   after it away, so "Hey [Name], it's" renders as "Hey [Name] , it's" and reads
+   as a typo in the script the rep is about to send. The margin pulls the pill
+   back over its own padding and the punctuation sits tight again. */
+.sk-scripts .sk-slot {
+  display: inline;
+  padding: 1px 3px;
+  margin: 0 -3px;
+  border-radius: 5px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .88em;
+  white-space: nowrap;
+}
+
+/* ---------------- primary action ---------------- */
+
+.sk-scripts .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .12s ease, background .2s ease;
+}
+
+.sk-scripts .sk-copy:hover { box-shadow: var(--sk-shadow-lift); }
+.sk-scripts .sk-copy:active { transform: translateY(1px); }
+.sk-scripts .sk-copy svg { flex: none; width: 17px; height: 17px; }
+.sk-scripts .sk-copy[data-done="true"] { background: var(--sk-brand-deep); }
+
+/* ---------------- tip ---------------- */
+
+.sk-scripts .sk-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 20px 0 0;
+  padding: 15px 17px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  color: var(--sk-ink);
+  font-size: 14.4px;
+  line-height: 1.5;
+}
+
+.sk-scripts .sk-tip svg { flex: none; width: 17px; height: 17px; margin-top: 2px; color: var(--sk-brand-deep); }
+.sk-scripts .sk-tip strong { font-weight: 600; }
+
+/* ---------------- footer ---------------- */
+
+.sk-scripts .sk-foot {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sk-line);
+  color: var(--sk-ink-faint);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ---------------- focus, always visible ---------------- */
+
+.sk-scripts a:focus-visible,
+.sk-scripts button:focus-visible,
+.sk-scripts [tabindex]:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------------- entry motion ---------------- */
+
+@keyframes sk-scripts-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sk-scripts .sk-head > * {
+  animation: sk-scripts-rise .55s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.sk-scripts .sk-logo   { animation-delay: .02s; }
+.sk-scripts .sk-title  { animation-delay: .08s; }
+.sk-scripts .sk-sub    { animation-delay: .14s; }
+.sk-scripts .sk-funnel { animation-delay: .20s; }
+
+.sk-motion .sk-scripts [data-sk-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s cubic-bezier(.2, .7, .3, 1), transform .5s cubic-bezier(.2, .7, .3, 1);
+  transition-delay: calc(var(--sk-i, 0) * .05s);
+}
+
+.sk-motion .sk-scripts [data-sk-reveal].sk-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-scripts .sk-head > * { animation: none; }
+  .sk-motion .sk-scripts [data-sk-reveal] { opacity: 1; transform: none; transition: none; }
+  .sk-scripts .sk-play,
+  .sk-scripts .sk-copy,
+  .sk-scripts .sk-frame::after { transition: none; }
+}
+
+/* ---------------- wider than a phone ---------------- */
+
+@media (min-width: 560px) {
+  .sk-scripts { padding-bottom: 64px; }
+  .sk-scripts .sk-head { padding-top: 52px; }
+  .sk-scripts .sk-sub { max-width: 44ch; }
+  .sk-scripts .sk-step-lead { max-width: 52ch; }
+}
+
+/* ---------------- desktop ----------------
+   Reps read this on a phone, but they also work from a laptop. The column
+   widens, and it stops at 720px rather than the how-to pages' 1180: this page
+   is a column of prose to be read aloud, and script text at 1180px is a wall.
+   Nothing here becomes a grid, because the steps are a SEQUENCE and putting
+   step 3 beside step 1 would break the one instruction the page carries. */
+
+@media (min-width: 900px) {
+  .sk-scripts {
+    grid-template-columns: 1fr min(720px, 100%) 1fr;
+    padding: 0 32px calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .sk-scripts .sk-head { padding: 64px 4px 26px; }
+  .sk-scripts .sk-logo { width: 200px; margin-bottom: 26px; }
+  .sk-scripts .sk-title { font-size: 44px; letter-spacing: -.016em; }
+  .sk-scripts .sk-sub { margin-top: 14px; font-size: 16.5px; max-width: 52ch; }
+  .sk-scripts .sk-script { font-size: 15.5px; padding: 18px 20px; }
+}
+
+/* ---------------- print ----------------
+   A rep keeps this by the phone, so the printed sheet is a real deliverable and
+   not an afterthought. Ground goes white, the page furniture that cannot be
+   acted on paper goes away (video, buttons, grain, sticky headers), and each
+   step is kept whole across a page break. Link targets are printed after the
+   text, because a URL a rep cannot see is a URL they cannot dial back to. */
+
+@media print {
+  .sk-scripts {
+    display: block;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    font-size: 11.5pt;
+  }
+
+  /* the whole video BAND goes, group header included: hiding only the card left
+     a titled "Watch first" rule with nothing under it on the printed sheet */
+  .sk-scripts .sk-grain,
+  .sk-scripts .sk-util,
+  .sk-scripts .sk-copy,
+  .sk-scripts .sk-group--vid,
+  .sk-scripts .no-print { display: none !important; }
+
+  .sk-scripts .sk-head { padding: 0 0 14pt; text-align: left; }
+  .sk-scripts .sk-logo { width: 128pt; margin: 0 0 12pt; }
+  .sk-scripts .sk-title { font-size: 20pt; }
+  .sk-scripts .sk-title em { color: #000; -webkit-text-fill-color: #000; background: none; }
+  .sk-scripts .sk-sub { max-width: none; margin-left: 0; }
+
+  .sk-scripts .sk-group-head { position: static; background: none; padding: 10pt 0 6pt; }
+  .sk-scripts .sk-group-count { display: none; }
+
+  .sk-scripts .sk-card,
+  .sk-scripts .sk-step {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border-color: #bbb;
+  }
+
+  .sk-scripts .sk-num { background: none; border: 1pt solid #000; color: #000; }
+  .sk-scripts .sk-script { background: #fff; border-color: #999; border-left: 2pt solid #000; }
+  .sk-scripts .sk-slot { background: none; color: #000; font-weight: 600; }
+  .sk-scripts .sk-tip { background: none; border-color: #bbb; }
+
+  /* Print the address behind a link, because paper has no click. A link whose
+     text already IS the address is marked .sk-url and skips this, otherwise the
+     sheet carries the same 100 character CDN path twice in a row. */
+  .sk-scripts .sk-script a { color: #000; }
+  .sk-scripts .sk-script a:not(.sk-url)::after {
+    content: " (" attr(href) ")";
+    font-size: .82em;
+    overflow-wrap: anywhere;
+  }
+
+  .sk-scripts .sk-head > *,
+  .sk-motion .sk-scripts [data-sk-reveal] { animation: none; opacity: 1; transform: none; }
+}
+
+/* ============================ TRACKS (added 2026-09-03) ============================
+   Some funnels are worked two different ways and the difference is the FIRST MOVE, not a
+   detail. Free IGNYT Sample is the first: a stranger who opted in from an ad needs the
+   voicemail, the text and the chase, while someone who replied to the rep's own social
+   post needs a link and nothing else. A single flat list makes the second rep read past
+   four steps that do not apply, which is how a rep decides the page is not worth opening.
+
+   ADDITIVE TO v1 ON PURPOSE. Every selector here is new, so the 18 pages that carry no
+   `tracks` in their config match none of it (verified by querying these selectors against
+   the siblings, expecting zero). Per _shared/README.md an additive edit to a published
+   version is allowed; changing an existing rule would have needed a v2 fork.
+
+   NO-JS DEGRADES TO EVERYTHING VISIBLE. The hiding is gated on .sk-has-tracks, which only
+   the script adds, so a reader with no JS gets both tracks in full rather than a page with
+   its content missing. */
+.sk-scripts .sk-tracks{ margin: 0 0 22px; }
+.sk-scripts .sk-tracks-q{
+  margin: 0 0 10px; font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--sk-ink-faint);
+}
+.sk-scripts .sk-tracks-btns{ display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 620px){ .sk-scripts .sk-tracks-btns{ grid-template-columns: 1fr; } }
+
+.sk-scripts .sk-track-btn{
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  padding: 14px 16px; border-radius: 12px;
+  border: 1px solid var(--sk-line); background: var(--sk-paper); color: var(--sk-ink);
+  font: inherit; transition: border-color .15s, background .15s, box-shadow .15s;
+}
+.sk-scripts .sk-track-btn b{ display: block; font-size: 15px; font-weight: 700; }
+.sk-scripts .sk-track-btn span{
+  display: block; margin-top: 3px; font-size: 13px; line-height: 1.4; color: var(--sk-ink-soft);
+}
+.sk-scripts .sk-track-btn:hover{ border-color: var(--sk-brand); }
+.sk-scripts .sk-track-btn:focus-visible{ outline: 2px solid var(--sk-brand); outline-offset: 2px; }
+.sk-scripts .sk-track-btn[aria-pressed="true"]{
+  border-color: var(--sk-brand); background: var(--sk-tint);
+  box-shadow: inset 0 0 0 1px var(--sk-brand);
+}
+
+/* Only the script hides anything. */
+.sk-scripts.sk-has-tracks .sk-group[data-track]{ display: none; }
+.sk-scripts.sk-has-tracks .sk-group[data-track].sk-on{ display: block; }
+
+/* The printed sheet carries BOTH tracks. A rep pins this by the phone and will meet both
+   situations; a sheet that silently omits one is worse than a longer sheet. */
+@media print{
+  .sk-scripts.sk-has-tracks .sk-group[data-track]{ display: block !important; }
+}
+
+/* ============================================================
+   PER STEP CHANNELS + MULTI PART STEPS (added 2026-09-17)
+
+   WHY. Joe's Refined Cup sample-to-sale sequence is written twice: once as a
+   voice note and text, once as an email. It is the same six steps either way,
+   so two stacked sequences would make the rep read the whole page twice to find
+   the half that applies to them. Jeff, 2026-09-17: the choice belongs INSIDE
+   each step, where the rep already is.
+
+   Distinct from `tracks` above, which switches the WHOLE page between two
+   different sequences. Channels switch one step between two renderings of the
+   SAME move. A page can use either; no page uses both yet.
+
+   Two additions, both purely additive and both inert on a page whose markup
+   does not carry them (verified by querying .sk-chan / .sk-part against every
+   other scripts page: zero matches):
+
+   1. `.sk-chan`      the tab pair, and one `.sk-chan-panel` per channel
+   2. `.sk-part`      a step that holds more than one copyable artifact, e.g. a
+                      voice note plus three rotating texts. Its copy control is a
+                      compact pill beside the label instead of the full width
+                      gradient bar, because four of those in one card turns a
+                      script sheet into a wall of buttons and none of them reads
+                      as primary any more.
+
+   NO JS DEGRADES TO EVERYTHING VISIBLE, same contract as tracks: the hiding is
+   gated on .sk-has-chan, which only the script adds.
+   ============================================================ */
+
+.sk-scripts .sk-chan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 5px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-paper);
+}
+
+.sk-scripts .sk-chan-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 9px;
+  padding: 9px 10px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+
+.sk-scripts .sk-chan-btn:hover { color: var(--sk-brand-deep); }
+.sk-scripts .sk-chan-btn:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 2px; }
+
+.sk-scripts .sk-chan-btn[aria-pressed="true"] {
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  box-shadow: var(--sk-shadow);
+}
+
+/* The note under the tabs, e.g. "pick one, rotate between them". */
+.sk-scripts .sk-chan-note {
+  margin: 12px 0 0;
+  color: var(--sk-ink-faint);
+  font-size: 13.4px;
+  line-height: 1.45;
+}
+
+/* Only the script hides anything. */
+.sk-scripts.sk-has-chan .sk-chan-panel { display: none; }
+.sk-scripts.sk-has-chan .sk-chan-panel.sk-on { display: block; }
+
+/* Screen only: the tabs already say which channel is showing. */
+.sk-scripts .sk-chan-print { display: none; }
+
+/* ---- a step with more than one copyable artifact ---- */
+
+.sk-scripts .sk-part + .sk-part { margin-top: 18px; }
+
+.sk-scripts .sk-part-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 0;
+}
+
+.sk-scripts .sk-kicker {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+}
+
+/* The compact variant of the primary action. Same gesture, quieter, because in a
+   multi part step there are three or four of them and the full width gradient bar
+   stops meaning "the thing to do" once it repeats. */
+.sk-scripts .sk-copy--sm {
+  width: auto;
+  min-height: 0;
+  margin-top: 0;
+  padding: 7px 13px;
+  border-radius: 9px;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .09em;
+}
+
+.sk-scripts .sk-copy--sm svg { width: 14px; height: 14px; }
+
+/* A part's own script box sits directly under its head row, so it does not need
+   the 14px the standalone one carries. */
+.sk-scripts .sk-part .sk-script { margin-top: 9px; }
+
+@media (max-width: 480px) {
+  .sk-scripts .sk-part-head { align-items: flex-start; }
+}
+
+/* ---- link cards, after the sequence ----
+   The how-to page this absorbed carried a couple of destinations (training hub
+   and so on). They are not scripts, so they sit after the sequence as plain
+   cards rather than competing with the copy buttons. */
+
+.sk-scripts .sk-linkcard { display: block; }
+.sk-scripts .sk-linkcard .sk-link-name {
+  margin: 0;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.24;
+  color: var(--sk-ink);
+}
+.sk-scripts .sk-linkcard .sk-link-tease {
+  margin: 6px 0 0;
+  color: var(--sk-ink-soft);
+  font-size: 14.6px;
+  line-height: 1.45;
+}
+.sk-scripts .sk-linkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 11px 17px;
+  border: 1px solid var(--sk-line);
+  border-radius: 11px;
+  background: var(--sk-card);
+  color: var(--sk-ink);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 13px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease;
+}
+.sk-scripts .sk-linkbtn:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); }
+
+/* The printed sheet carries EVERY channel, each under its own label. A rep pins
+   this by the phone and will use both; a sheet that silently drops the email
+   half is worse than a longer sheet. Same reasoning as tracks. */
+@media print {
+  .sk-scripts.sk-has-chan .sk-chan-panel { display: block !important; }
+  .sk-scripts .sk-chan-print {
+    display: block;
+    margin: 16px 0 0;
+    font-family: Archivo, ui-sans-serif, sans-serif;
+    font-variation-settings: "wdth" 100, "wght" 700;
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .sk-scripts .sk-part { break-inside: avoid; }
+}
+
+/* CONECTIV / how-to / c-free-coffee-sample
+ *
+ * The design lives in _shared/scripts/v1/scripts.css, scoped under .sk-scripts,
+ * and is shared by every scripts page in every system. This file declares ONLY
+ * the nine palette tokens, on the block's own scope class, and they cascade into
+ * the shared components. Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+
+
+.sk-conectiv-how-to-c-free-coffee-sample {
+  --sk-brand:      #2563EB;
+  --sk-brand-deep: #155EEF;
+  --sk-brand-tint: #EAF0FD;
+  --sk-ink:        #0B1220;
+  --sk-ink-soft:   #5B6577;
+  --sk-ink-faint:  #8B93A5;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DFE4EF;
+  --sk-line-soft:  #E9EDF5;
+  --sk-card:       #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+<!--
+  CONECTIV / how-to / c-free-coffee-sample
+  Follow-up scripts for Free Coffee Sample Funnel.
+
+  THIS BLOCK IS GENERATED. The content is scripts.json in this folder; the
+  design, components and behaviour are shared and live in _shared/scripts/v1/.
+  Regenerate with web/scripts/shark-pages/new-scripts-page.mjs, do not hand edit.
+  See references/FUNNEL-SCRIPTS-PAGE-SOP.md.
+-->
+<div class="sk-conectiv-how-to-c-free-coffee-sample sk-scripts">
+
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <img class="sk-logo" src="https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml" alt="Conectiv Shark AI Marketing System">
+    <h1 class="sk-title">How to use your <em>Free Coffee Sample</em> funnel</h1>
+    <p class="sk-sub">Watch the training, then work the sequence below. This funnel does not deliver anything on its own, you mail the sample, so the follow up is the funnel.</p>
+    <span class="sk-funnel"><i data-sk-icon="funnel"></i>Free Coffee Sample Funnel</span>
+  </header>
+
+
+  <section class="sk-group sk-group--vid" aria-label="Training video">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Watch first</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">1</span>
+    </div>
+
+    <article class="sk-card sk-vid" data-sk-reveal>
+      <div class="sk-frame" data-vimeo="1227817012" data-poster="https://i.vimeocdn.com/video/2202132160-ff37e75ff8f512c0be7eddb2e8d0aae8c98c3db488cf69ea444c9b7b1a485b8e-d_1280"
+           role="button" tabindex="0" aria-label="Coffee funnel training video">
+        <span class="sk-play"><i data-sk-icon="play"></i></span>
+      </div>
+      <p class="sk-vid-cap"><i data-sk-icon="eye"></i>Watch this before you start reaching out. About a minute and a half.</p>
+    </article>
+  </section>
+
+  <section class="sk-group" aria-label="What to do">
+    <div class="sk-group-head">
+      <span class="sk-group-label">The follow up sequence, in order</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">6</span>
+    </div>
+
+    <div class="sk-util no-print">
+      <button type="button" class="sk-print" data-sk-print aria-label="Print this page or save it as a PDF">
+        <i data-sk-icon="printer"></i>Print or save as PDF
+      </button>
+    </div>
+    <ol class="sk-steps">
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:1">
+      <div class="sk-step-head">
+        <span class="sk-num">1</span>
+        <div>
+          <h3 class="sk-step-name">Confirm the mailing address</h3>
+          <p class="sk-step-lead">Send this the same day the request comes in. Nothing ships until you have the address in writing.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Voice note and text</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Voice note and text</p>
+        <p class="sk-chan-note">Send the voice note and one text together. Rotate through the three texts so every lead does not get the same words.</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Voice note</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the address confirmation voice note">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>, this is <span class="sk-slot">[Your Name]</span> reaching out to you in reference to the free coffee sample you requested. I just need to confirm your mailing address. If you can text me back that info, or send me a voice note with it, I'll get your sample out in the mail right away! Samples are moving fast this week, so I want to get yours locked in.</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Text, option 1</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy text option 1">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Good morning <span class="sk-slot">[Name]</span>! This is <span class="sk-slot">[Your Name]</span> 👋 Your free sample of the world's best coffee is ready to go out, I just need to confirm your mailing address first!</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Text, option 2</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy text option 2">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hi <span class="sk-slot">[Name]</span>, good afternoon! It's <span class="sk-slot">[Your Name]</span> here. Your world's best coffee sample is on the way, can you confirm the best address to send it to?</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Text, option 3</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy text option 3">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>! It's <span class="sk-slot">[Your Name]</span> 😊 Just locking in the details on your free coffee sample so I can get it shipped, can you send over your mailing address?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject, pick one</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the subject lines">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Your free sample of the world's best coffee is ready to go!</p>
+            <p>Quick thing before we ship your coffee sample</p>
+            <p><span class="sk-slot">[Name]</span>, confirming your address for your free sample</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the address confirmation email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Good morning <span class="sk-slot">[Name]</span>!</p>
+            <p>This is <span class="sk-slot">[Your Name]</span> 👋 Your free sample of the world's best coffee is ready to go out, I just need to confirm your mailing address before it ships.</p>
+            <p>Can you reply with the best address to send it to? Samples are moving fast this week, so I want to get yours locked in.</p>
+            <p>Oh, and if it's easier for you, feel free to send over your phone number too. Texting tends to be a little faster and more convenient for getting things confirmed! Either way works for me 😊</p>
+            <p>Talk soon!</p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:2">
+      <div class="sk-step-head">
+        <span class="sk-num">2</span>
+        <div>
+          <h3 class="sk-step-name">Confirm it is shipping, then send tracking</h3>
+          <p class="sk-step-lead">Send the first one as soon as they give you the address. Send the second only once it has actually gone in the mail.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Voice note and text</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Voice note and text</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Voice note</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the address confirmed voice note">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Thank you so much, <span class="sk-slot">[Name]</span>! I've got your address confirmed and I'm getting your coffee sample sent out. You should have it in your hands within <span class="sk-slot">[X]</span> business days. Once it's on its way, I'll follow up and let you know, and I'll also be reaching out with a few specials we've got going on. Talk soon!</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Text, once it ships</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the tracking number text">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>, your sample is officially on its way! Here's your tracking number so you can watch for it: <span class="sk-slot">[Tracking Number]</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the address confirmed subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>You're all set, <span class="sk-slot">[Name]</span>! Your coffee is on the way</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the address confirmed email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Thank you so much, <span class="sk-slot">[Name]</span>!</p>
+            <p>I've got your address confirmed and I'm getting your world's best coffee sample sent out. You should have it in your hands within <span class="sk-slot">[X]</span> business days.</p>
+            <p>Once it's shipped, I'll follow up with your tracking info, and I'll also be sharing a few specials we've got going on. Talk soon!</p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject, once it ships</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the shipped subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Your coffee sample has shipped! 📦</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body, once it ships</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the tracking number email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>, your sample is officially on its way! Here's your tracking number so you can follow along:</p>
+            <p><span class="sk-slot">[Tracking Number]</span></p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:3">
+      <div class="sk-step-head">
+        <span class="sk-num">3</span>
+        <div>
+          <h3 class="sk-step-name">Tell them how to prepare it</h3>
+          <p class="sk-step-lead">Send this once they have received it, or a day or two after you expect it to land.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Text</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Text</p>
+        <div class="sk-script">
+          <p>Hey <span class="sk-slot">[Name]</span>! Your world's best coffee sample should be landing soon (or already has 😊). Here's a quick video on how to prepare the world's best coffee for the best cup: <span class="sk-slot">[Link to video or document]</span></p>
+          <p>A little bit about what makes it different, we put the health in the habit. This isn't just coffee, it's real Arabica coffee infused with collagen for your skin and hair, B12 for smooth energy without the crash or jitters, and a blend of superfood antioxidants (acai, mangosteen, pomegranate) to fuel your day from the inside out.</p>
+        </div>
+
+        <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+                aria-label="Copy the how to prepare text">
+          <i data-sk-icon="copy"></i><span data-copy-label>Copy this text</span>
+        </button>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the how to prepare subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Here's how to prepare your world's best coffee ☕</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the how to prepare email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>!</p>
+            <p>Your world's best coffee sample should be landing soon (or already has 😊). Here's a quick video on how to prepare it for the best cup:</p>
+            <p><span class="sk-slot">[Link to video or document]</span></p>
+            <p>A little bit about what makes it different, we put the health in the habit. This isn't just coffee, it's real Arabica coffee infused with collagen for your skin and hair, B12 for smooth energy without the crash or jitters, and a blend of superfood antioxidants (acai, mangosteen, pomegranate) to fuel your day from the inside out.</p>
+            <p>Let me know if you have any questions!</p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:4">
+      <div class="sk-step-head">
+        <span class="sk-num">4</span>
+        <div>
+          <h3 class="sk-step-name">Ask for the testimony at 48 hours</h3>
+          <p class="sk-step-lead">Send this if you have not heard back within 48 hours of step 3.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Text or voice note</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Text or voice note</p>
+        <div class="sk-script">
+          <p>Hey <span class="sk-slot">[Name]</span>, just checking in! I hope you've gotten a chance to try the world's best coffee. I'd love to hear your honest feedback, the good, the bad, all of it!</p>
+          <p>Quick heads up, if you reply with a few sentences (or even a quick video) about what you thought, within the next 48 hours you'll be entered for a chance at a free vacation 🌴 so I don't want you to miss out. Just reply here with your thoughts!</p>
+        </div>
+
+        <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+                aria-label="Copy the 48 hour testimony message">
+          <i data-sk-icon="copy"></i><span data-copy-label>Copy this message</span>
+        </button>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the testimony subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Checking in + a little something for you 🌴</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the testimony email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>, just checking in!</p>
+            <p>I hope you've gotten a chance to try the world's best coffee. I'd love to hear your honest feedback, the good, the bad, all of it!</p>
+            <p>Quick heads up, if you reply with a few sentences (or even a quick video) about what you thought, within the next 48 hours you'll be entered for a chance at a free vacation, so I don't want you to miss out. Just reply here with your thoughts!</p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:5">
+      <div class="sk-step-head">
+        <span class="sk-num">5</span>
+        <div>
+          <h3 class="sk-step-name">Ask for the call</h3>
+          <p class="sk-step-lead">Send this once they have told you something good about the coffee. This is the close, and it only works after the testimony.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Voice note or text</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Voice note or text</p>
+        <div class="sk-script">
+          <p>That's so great to hear, <span class="sk-slot">[Name]</span>! So happy you loved it 🙌 I'd love to jump on a quick call with you to talk about how you can grab more of the world's best coffee. We've got some specials running through <span class="sk-slot">[date]</span> that you might qualify for, and I'd love to show you how you can get your coffee for about $3 a cup.</p>
+          <p>Let me know when you can hop on a quick call, or if you'd rather skip the call and just grab it directly, here's the link: <span class="sk-slot">[Order Link]</span></p>
+        </div>
+
+        <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+                aria-label="Copy the sales call request">
+          <i data-sk-icon="copy"></i><span data-copy-label>Copy this message</span>
+        </button>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the sales call subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Let's talk about getting you more coffee!</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the sales call email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>That's so great to hear, <span class="sk-slot">[Name]</span>! So happy you loved it 🙌</p>
+            <p>I'd love to jump on a quick call with you to talk about how you can grab more of the world's best coffee. We've got some specials running through <span class="sk-slot">[date]</span> that you might qualify for, and I'd love to show you how you can get your coffee for about $3 a cup.</p>
+            <p>Can you send me your best contact number so we can connect? Or if you'd rather skip the call, here's the link to grab it directly: <span class="sk-slot">[Order Link]</span></p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="sk-step sk-card" data-sk-reveal style="--sk-i:6">
+      <div class="sk-step-head">
+        <span class="sk-num">6</span>
+        <div>
+          <h3 class="sk-step-name">Reopen a silent lead</h3>
+          <p class="sk-step-lead">Send this 5 to 7 days after no response to step 1 or step 4. This is your last, low pressure touch.</p>
+        </div>
+      </div>
+
+      <div class="sk-chan no-print" role="group" aria-label="Choose how to send this">
+        <button type="button" class="sk-chan-btn" data-sk-chan="text" aria-pressed="true">Text or voice note</button>
+        <button type="button" class="sk-chan-btn" data-sk-chan="email" aria-pressed="false">Email</button>
+      </div>
+
+      <div class="sk-chan-panel sk-on" data-chan="text">
+        <p class="sk-chan-print">Text or voice note</p>
+        <div class="sk-script">
+          <p>Hey <span class="sk-slot">[Name]</span>, I don't want to keep bugging you 😊 Just wanted to check in one more time, I've still got your free coffee sample set aside if you want it. No pressure at all, just say the word whenever you're ready!</p>
+        </div>
+
+        <button type="button" class="sk-copy no-print" data-sk-copy data-copy-done="Copied"
+                aria-label="Copy the re-engagement message">
+          <i data-sk-icon="copy"></i><span data-copy-label>Copy this message</span>
+        </button>
+      </div>
+
+      <div class="sk-chan-panel" data-chan="email">
+        <p class="sk-chan-print">Email</p>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Subject</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the re-engagement subject">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Still thinking of you, <span class="sk-slot">[Name]</span> 😊</p>
+          </div>
+        </div>
+
+        <div class="sk-part">
+          <div class="sk-part-head">
+            <p class="sk-kicker">Body</p>
+            <button type="button" class="sk-copy sk-copy--sm no-print" data-sk-copy data-copy-done="Copied"
+                    aria-label="Copy the re-engagement email">
+              <i data-sk-icon="copy"></i><span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <div class="sk-script">
+            <p>Hey <span class="sk-slot">[Name]</span>, I don't want to keep bugging you!</p>
+            <p>Just wanted to check in one more time, I've still got your free coffee sample set aside if you want it. No pressure at all, just reply whenever you're ready.</p>
+            <p><span class="sk-slot">[Your Name]</span></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    </ol>
+  </section>
+
+  <section class="sk-group" aria-label="Assets and training">
+    <div class="sk-group-head">
+      <span class="sk-group-label">Assets and training</span>
+      <span class="sk-group-rule"></span>
+      <span class="sk-group-count">1</span>
+    </div>
+
+    <article class="sk-card sk-linkcard" data-sk-reveal>
+      <h3 class="sk-link-name">Training hub</h3>
+      <p class="sk-link-tease">Every training for your marketing system in one place, not just this funnel.</p>
+      <a class="sk-linkbtn" href="https://conectivshark.com/training-hub" target="_blank" rel="noopener">Open the training hub</a>
+    </article>
+  </section>
+
+  <aside class="sk-tip" data-sk-reveal>
+    <i data-sk-icon="bulb"></i>
+    <div><strong>Tip:</strong> Steps 1 and 2 lean on voice notes to keep it personal. Steps 3 and 4 can go by text since they are quick and informational. Step 5 is your close, so use a voice note or a call request, whichever feels more natural for the lead. Step 6 keeps the door open without being pushy, and it often revives leads who simply got busy. Personalize <span class="sk-slot">[Name]</span>, <span class="sk-slot">[Your Name]</span>, <span class="sk-slot">[X]</span>, <span class="sk-slot">[Tracking Number]</span>, <span class="sk-slot">[date]</span> and <span class="sk-slot">[Order Link]</span> before you send anything.</div>
+  </aside>
+
+  <footer class="sk-foot">Free Coffee Sample follow up · Quick reference · Keep this handy by your phone</footer>
+
+</div>
+
+<script>/* shark-reveal.js — shared scroll-effects engine for hosted blocks.
+ *
+ * Load it from a block's block.js:
+ *   (function(){var s=document.createElement("script");
+ *    s.src="https://invokableapp.github.io/shark-pages/_shared/shark-reveal/v1/shark-reveal.js";
+ *    document.head.appendChild(s);})();
+ *
+ * It is declarative and design-agnostic: it only toggles classes and sets a
+ * --sk-i index. The block's own CSS decides what the motion looks like.
+ *
+ *   data-sk-reveal            element animates in when it enters the viewport (once)
+ *   data-sk-stagger           on a PARENT: its data-sk-reveal children get --sk-i 0,1,2…
+ *   data-sk-count="4200"      number counts up to this value the first time it is seen
+ *   data-sk-count-suffix="+"  appended after the counted number
+ *   data-sk-parallax="0.12"   translates on scroll by (progress * strength * height)
+ *
+ * PROGRESSIVE ENHANCEMENT, deliberately: this script adds `sk-motion` to <html>,
+ * and the hiding CSS is written as `.sk-motion [data-sk-reveal]{opacity:0}`. So if
+ * Pages is slow, the file 404s, or JS is off, every element renders fully visible.
+ * Never write the hidden state without the .sk-motion guard.
+ *
+ * Honours prefers-reduced-motion: everything is revealed at once, counters jump to
+ * their final value, parallax is skipped.
+ */
+(function () {
+  if (window.__sharkReveal) return;
+  window.__sharkReveal = true;
+
+  var root = document.documentElement;
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var io = "IntersectionObserver" in window;
+
+  if (calm || !io) { root.classList.add("sk-motion-off"); finishAll(); return; }
+  root.classList.add("sk-motion");
+
+  function finishAll() {
+    each("[data-sk-reveal]", function (el) { el.classList.add("sk-in"); });
+    each("[data-sk-count]", function (el) { el.textContent = fmt(+el.getAttribute("data-sk-count")) + suffix(el); });
+  }
+  function each(sel, fn) {
+    var n = document.querySelectorAll(sel);
+    for (var i = 0; i < n.length; i++) fn(n[i], i);
+  }
+  function suffix(el) { return el.getAttribute("data-sk-count-suffix") || ""; }
+  function fmt(v) { return v >= 1000 ? v.toLocaleString("en-US") : String(v); }
+
+  // stagger: index each revealing child of a data-sk-stagger parent
+  each("[data-sk-stagger]", function (p) {
+    var kids = p.querySelectorAll("[data-sk-reveal]");
+    for (var i = 0; i < kids.length; i++) kids[i].style.setProperty("--sk-i", i);
+  });
+
+  var revealer = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("sk-in");
+      revealer.unobserve(e.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  each("[data-sk-reveal]", function (el) { revealer.observe(el); });
+
+  // count-up, eased, ~1.1s
+  var counter = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      if (!e.isIntersecting) continue;
+      counter.unobserve(e.target);
+      run(e.target);
+    }
+  }, { threshold: 0.4 });
+  each("[data-sk-count]", function (el) {
+    el.textContent = "0" + suffix(el);
+    counter.observe(el);
+  });
+
+  function run(el) {
+    var target = +el.getAttribute("data-sk-count");
+    var dp = (el.getAttribute("data-sk-count-decimals") | 0);
+    var sfx = suffix(el), t0 = null, DUR = 1100;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var v = target * eased;
+      el.textContent = (dp ? v.toFixed(dp) : fmt(Math.round(v))) + sfx;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = (dp ? target.toFixed(dp) : fmt(target)) + sfx;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // parallax — transform only, batched into one rAF, never touches layout
+  var pxs = document.querySelectorAll("[data-sk-parallax]");
+  if (pxs.length) {
+    var ticking = false;
+    var tick = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      for (var i = 0; i < pxs.length; i++) {
+        var el = pxs[i], r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;
+        var progress = (r.top + r.height / 2 - vh / 2) / vh;   // -1 … 1 through the viewport
+        var strength = parseFloat(el.getAttribute("data-sk-parallax")) || 0.1;
+        el.style.transform = "translate3d(0," + (-progress * strength * r.height).toFixed(2) + "px,0)";
+      }
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    tick();
+  }
+})();
+</script>
+<script>/* scripts.js: shared behaviour for every "funnel scripts" page.
+ *
+ * Loaded from each block's block.js. Four jobs, nothing else:
+ *
+ *   1. COPY. The reason the page exists. A rep taps Copy and pastes the script
+ *      into their messages app, so what lands on the clipboard has to be what
+ *      they would have typed: plain text, blank line between paragraphs, the
+ *      bracketed slots intact, and any link as a bare URL rather than as link
+ *      text. Never innerHTML, never a trailing "Copy script" label.
+ *
+ *   2. VIDEO FACADE. Markup ships a poster and a play button, never an iframe.
+ *      The vimeo player is only injected on click. Design system 4.
+ *
+ *   3. PRINT. Reps keep this sheet by the phone. The button just calls print();
+ *      the whole deliverable is the @media print block in scripts.css.
+ *
+ *   4. ICONS. Inline SVG path data from one map, per design system 4: never an
+ *      icon font, never a remote sprite.
+ *
+ * The scroll-reveal engine is shared separately (_shared/shark-reveal/v1/shark-reveal.js)
+ * and is pulled in by each block.js alongside this file.
+ */
+(function () {
+  if (window.__sharkScripts) return;
+  window.__sharkScripts = true;
+
+  var NS = "http://www.w3.org/2000/svg";
+
+  /* 24x24 viewBox, fill none, stroke currentColor. Keep new entries in this shape. */
+  var I = {
+    play:    "M7 4.5v15l13-7.5z",
+    funnel:  "M3 4h18l-7 8v7l-4 2v-9z",
+    copy:    "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z",
+    check:   "M4.5 12.5l5 5 10-11",
+    printer: "M7 8.5V4h10v4.5M7 17.5H5.5A1.5 1.5 0 014 16v-5a1.5 1.5 0 011.5-1.5h13A1.5 1.5 0 0120 11v5a1.5 1.5 0 01-1.5 1.5H17M7 14h10v6H7z",
+    bulb:    "M9.5 17.5h5M10 20.5h4M12 3.5a5.5 5.5 0 00-3.2 9.97c.5.36.8.94.8 1.56v.47h4.8v-.47c0-.62.3-1.2.8-1.56A5.5 5.5 0 0012 3.5z",
+    eye:     "M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12zM12 14.8a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6z"
+  };
+
+  function icon(name) {
+    var d = I[name];
+    if (!d) return null;
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.7");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.setAttribute("aria-hidden", "true");
+    var p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    /* the play triangle reads as a solid mark, not an outline */
+    if (name === "play") { p.setAttribute("fill", "currentColor"); svg.setAttribute("stroke-width", "1"); }
+    svg.appendChild(p);
+    return svg;
+  }
+
+  function paintIcons(scope) {
+    var els = scope.querySelectorAll("[data-sk-icon]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.firstElementChild) continue;
+      var svg = icon(el.getAttribute("data-sk-icon"));
+      if (svg) el.appendChild(svg);
+    }
+  }
+
+  /* Paragraph to plain text.
+     innerText alone is nearly right and wrong in one place that matters: a link
+     whose visible text is not its URL would paste as words with the address
+     dropped, and the address IS the thing the lead needs. So an anchor gives up
+     its href whenever the two differ. */
+  function paraText(p) {
+    var out = "";
+    var walk = function (node) {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        var n = node.childNodes[i];
+        if (n.nodeType === 3) { out += n.nodeValue; continue; }
+        if (n.nodeType !== 1) continue;
+        if (n.tagName === "BR") { out += "\n"; continue; }
+        if (n.tagName === "A") {
+          var txt = (n.textContent || "").trim();
+          var href = n.getAttribute("href") || "";
+          out += (txt && href && txt.replace(/\/$/, "") !== href.replace(/\/$/, "")) ? txt + " " + href : (txt || href);
+          continue;
+        }
+        walk(n);
+      }
+    };
+    walk(p);
+    return out.replace(/[ \t]+/g, " ").trim();
+  }
+
+  function scriptText(box) {
+    var ps = box.querySelectorAll("p");
+    var parts = [];
+    for (var i = 0; i < ps.length; i++) {
+      var t = paraText(ps[i]);
+      if (t) parts.push(t);
+    }
+    /* blank line between paragraphs: this is how it reads in a messages app */
+    return parts.join("\n\n");
+  }
+
+  /* Label swaps to a confirmation for 1.9s, then restores, so the rep gets
+     feedback without a toast or a layout shift. execCommand is the fallback:
+     the clipboard API needs a secure context, and a GHL page on a not-yet-SSL
+     domain is exactly where this would otherwise fail silently. */
+  function copyText(text, btn) {
+    var label = btn.querySelector("[data-copy-label]") || btn;
+    var was = label.textContent;
+    var done = function () {
+      btn.setAttribute("data-done", "true");
+      label.textContent = btn.getAttribute("data-copy-done") || "Copied";
+      setTimeout(function () { btn.removeAttribute("data-done"); label.textContent = was; }, 1900);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacy(text, done); });
+    } else legacy(text, done);
+  }
+
+  function legacy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* nothing else to try */ }
+    document.body.removeChild(ta);
+  }
+
+  function playVideo(frame) {
+    if (frame.getAttribute("data-playing") === "true") return;
+    var id = frame.getAttribute("data-vimeo");
+    if (!id) return;
+    var f = document.createElement("iframe");
+    f.src = "https://player.vimeo.com/video/" + encodeURIComponent(id) +
+            "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
+    f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("title", frame.getAttribute("aria-label") || "Training video");
+    f.setAttribute("loading", "lazy");
+    frame.setAttribute("data-playing", "true");
+    frame.appendChild(f);
+  }
+
+  function wire(scope) {
+    paintIcons(scope);
+
+    var copiers = scope.querySelectorAll("[data-sk-copy]");
+    for (var c = 0; c < copiers.length; c++) {
+      (function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          /* Resolve the SMALLEST container the button sits in, so a step may hold
+             several copyable artifacts (a voice note plus three rotating texts).
+             On every page written before 2026-09-17 there is no .sk-part and no
+             .sk-chan-panel, so this resolves to .sk-step exactly as it always did. */
+          var host = btn.closest(".sk-part") || btn.closest(".sk-chan-panel") ||
+                     btn.closest(".sk-step") || scope;
+          var src = host.querySelector(".sk-script");
+          if (src) copyText(scriptText(src), btn);
+        });
+      })(copiers[c]);
+    }
+
+    var printers = scope.querySelectorAll("[data-sk-print]");
+    for (var p = 0; p < printers.length; p++) {
+      printers[p].addEventListener("click", function (e) { e.preventDefault(); window.print(); });
+    }
+
+    var frames = scope.querySelectorAll("[data-vimeo]");
+    for (var i = 0; i < frames.length; i++) {
+      (function (frame) {
+        /* the poster is a background-image so it never counts as a broken <img>
+           in a headless check and never reflows the card while loading */
+        var poster = frame.getAttribute("data-poster");
+        if (poster) frame.style.backgroundImage = "url('" + poster + "')";
+        frame.addEventListener("click", function () { playVideo(frame); });
+        frame.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVideo(frame); }
+        });
+      })(frames[i]);
+    }
+  }
+
+  function boot() {
+    var blocks = document.querySelectorAll(".sk-scripts");
+    for (var i = 0; i < blocks.length; i++) wire(blocks[i]);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+
+/* ---- TRACKS (added 2026-09-03) -------------------------------------------
+   Pages whose config declares `tracks` render one .sk-group per track plus the
+   shared block. This shows one track at a time.
+
+   The root only gets .sk-has-tracks once this runs, so the CSS that hides a
+   track cannot apply before the script does. With JS off, or if this file fails
+   to load, every track stays visible: a longer page, never an empty one.
+
+   Nothing here runs on a page without track buttons, which is all 18 others. */
+(function () {
+  var root = document.querySelector(".sk-scripts");
+  if (!root) return;
+  var btns = root.querySelectorAll("[data-sk-track]");
+  if (!btns.length) return;
+
+  root.classList.add("sk-has-tracks");
+
+  function show(key) {
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", String(btns[i].getAttribute("data-sk-track") === key));
+    }
+    var groups = root.querySelectorAll(".sk-group[data-track]");
+    for (var j = 0; j < groups.length; j++) {
+      var on = groups[j].getAttribute("data-track") === key;
+      groups[j].classList.toggle("sk-on", on);
+      // ⚠️ A HIDDEN CARD NEVER INTERSECTS, so the reveal observer never fires for it and it
+      // is still at opacity 0 when its track is switched on. Measured on the live page:
+      // 4 cards stuck invisible, and switching to that track showed an EMPTY group, which
+      // reads as a broken page rather than a missing animation. Reveal on reveal.
+      if (on) {
+        var cards = groups[j].querySelectorAll("[data-sk-reveal]");
+        for (var c = 0; c < cards.length; c++) cards[c].classList.add("sk-in");
+      }
+    }
+  }
+
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-track")); });
+  }
+  show(btns[0].getAttribute("data-sk-track"));
+})();
+
+/* ---- PER STEP CHANNELS (added 2026-09-17) --------------------------------
+   A step whose config declares `channels` renders a tab pair and one
+   .sk-chan-panel per channel. This shows one channel at a time, per step, so a
+   rep who works by text never scrolls past the email half and vice versa.
+
+   Distinct from TRACKS above: tracks switch the whole page between two different
+   sequences, channels switch one step between two renderings of the same move.
+
+   Same no-JS contract as tracks: the root only gets .sk-has-chan once this runs,
+   so a reader with no JS sees every channel rather than an empty step. Nothing
+   here runs on a page without channel buttons, which is every other page.
+
+   Each step is wired independently ON PURPOSE. A rep may want the voice note in
+   step 1 and the email in step 5, and a page-wide switch would take that away. */
+(function () {
+  var roots = document.querySelectorAll(".sk-scripts");
+  for (var r = 0; r < roots.length; r++) {
+    var root = roots[r];
+    var steps = root.querySelectorAll(".sk-step");
+    var any = false;
+
+    for (var i = 0; i < steps.length; i++) {
+      (function (step) {
+        var btns = step.querySelectorAll("[data-sk-chan]");
+        if (!btns.length) return;
+        any = true;
+
+        var show = function (key) {
+          for (var b = 0; b < btns.length; b++) {
+            btns[b].setAttribute("aria-pressed", String(btns[b].getAttribute("data-sk-chan") === key));
+          }
+          var panels = step.querySelectorAll(".sk-chan-panel");
+          for (var p = 0; p < panels.length; p++) {
+            panels[p].classList.toggle("sk-on", panels[p].getAttribute("data-chan") === key);
+          }
+        };
+
+        for (var k = 0; k < btns.length; k++) {
+          btns[k].addEventListener("click", function () { show(this.getAttribute("data-sk-chan")); });
+        }
+        show(btns[0].getAttribute("data-sk-chan"));
+      })(steps[i]);
+    }
+
+    if (any) root.classList.add("sk-has-chan");
+  }
+})();
+</script>
+</body>
+</html>

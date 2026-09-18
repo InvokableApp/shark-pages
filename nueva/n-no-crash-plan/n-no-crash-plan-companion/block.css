@@ -342,3 +342,17 @@
 .sk-ew-comp .v-thin { background:transparent; color:#6f7568; border:1px solid #d7d9cf; }
 .sk-ew-comp .v-skip { background:transparent; color:#b35f49; border:1px solid #e0b9ad; }
 .sk-ew-comp .ent-note{ font-size:12.5px; font-style:italic; color:#6f7568; margin-left:8px; }
+
+/* SECTION BANDS. Same images, same crop positions and the same job as the print build's: a
+   marker at the top of a section, not art between entries. The card is a rounded paper panel, so
+   the band is inset to the card's own corners rather than run full-bleed the way it does on a
+   printed sheet. */
+.sk-ew-comp .card.has-band{ padding-top:0; overflow:hidden; }
+.sk-ew-comp .cardband{
+  height:190px; margin:0 -40px 30px; background-size:cover; background-repeat:no-repeat;
+}
+/* 620px, not a round 640: it is the breakpoint the shared sheet already uses, and a band that
+   went flush at a different width than the card it sits in would be visible as a seam. */
+@media (max-width:620px){
+  .sk-ew-comp .cardband{ height:140px; margin:0 -22px 22px; }
+}
