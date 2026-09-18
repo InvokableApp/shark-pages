@@ -61,8 +61,19 @@
 .sk-cap-ew *{ box-sizing:border-box; }
 .sk-cap-ew img{ max-width:100%; display:block; }
 
-.sk-cap-ew .ew-wrap{ width:100%; max-width:1040px; margin:0 auto; padding:0 22px; }
-.sk-cap-ew .ew-narrow{ max-width:680px; }
+/* ---------- THE GRID: exactly TWO column widths, nothing else ----------
+   Measured 2026-09-17, the page had SIX: hero h1 571, hero lede 531, dark prose 636,
+   section heads 640, band copy 680, card rows 996. Every one was individually reasonable
+   (a ch-based max-width here, a different one there) and together they read as drift,
+   because no two blocks shared an edge down the page.
+
+   --measure  every piece of prose: heads, ledes, lists, the h1
+   --wide     only the things that are genuinely wide: the card row and the page shots
+
+   Anything new on this page uses one of these two. A third width is the bug coming back. */
+.sk-cap-ew{ --measure:640px; --wide:1000px; --gutter:28px; }
+.sk-cap-ew .ew-wrap{ width:100%; max-width:var(--wide); margin:0 auto; padding:0 var(--gutter); }
+.sk-cap-ew .ew-narrow{ max-width:calc(var(--measure) + var(--gutter) * 2); }
 
 .sk-cap-ew .ew-eyebrow{
   display:block; font-size:10.5px; font-weight:650; letter-spacing:.22em;
@@ -83,10 +94,10 @@
   font-family:var(--serif); font-size:15px; color:var(--sage-deep); margin-bottom:34px;
 }
 .sk-cap-ew .ew-hero h1{
-  font-size:clamp(36px,6.2vw,62px); line-height:1.04; margin:14px auto 0; max-width:15ch;
+  font-size:clamp(34px,5.6vw,56px); line-height:1.06; margin:14px auto 0; max-width:var(--measure);
 }
 .sk-cap-ew .ew-lede{
-  margin:20px auto 0; max-width:50ch; font-size:17px; line-height:1.58; color:var(--body);
+  margin:20px auto 0; max-width:var(--measure); font-size:17px; line-height:1.58; color:var(--body);
 }
 .sk-cap-ew .ew-pills{
   list-style:none; margin:26px 0 0; padding:0;
@@ -122,7 +133,7 @@
 
 /* ---------- sections ---------- */
 .sk-cap-ew .ew-sec{ padding:104px 0 76px; }
-.sk-cap-ew .ew-head{ text-align:center; max-width:640px; margin:0 auto 40px; }
+.sk-cap-ew .ew-head{ text-align:center; max-width:var(--measure); margin:0 auto 40px; }
 .sk-cap-ew .ew-head h2{ font-size:clamp(27px,4.4vw,38px); line-height:1.14; margin-top:12px; }
 
 .sk-cap-ew .ew-cards{
@@ -158,7 +169,7 @@
   margin-top:14px; font-size:12.5px; color:var(--grey); letter-spacing:.02em;
 }
 
-.sk-cap-ew .ew-list{ list-style:none; margin:0 auto; padding:0; max-width:640px; }
+.sk-cap-ew .ew-list{ list-style:none; margin:0 auto; padding:0; max-width:var(--measure); }
 .sk-cap-ew .ew-list li{
   padding:18px 0; border-top:1px solid var(--hair); font-size:16px; color:var(--body);
 }
@@ -177,7 +188,7 @@
 .sk-cap-ew .ew-band-in{ position:relative; z-index:1; }
 .sk-cap-ew .ew-band .ew-eyebrow{ color:var(--sage-lift); }
 .sk-cap-ew .ew-band h2{ color:var(--paper); font-size:clamp(26px,4.2vw,36px); margin-top:12px; }
-.sk-cap-ew .ew-band p{ margin:18px auto 0; max-width:54ch; color:rgba(250,249,245,.84); font-size:16.5px; }
+.sk-cap-ew .ew-band p{ margin:18px auto 0; max-width:var(--measure); color:rgba(250,249,245,.84); font-size:16.5px; }
 
 /* ---------- close ---------- */
 .sk-cap-ew .ew-close{ text-align:center; padding:96px 0 84px; background:var(--tint); }
@@ -202,6 +213,7 @@
   .sk-cap-ew .ew-shots{ grid-template-columns:1fr; max-width:330px; margin-left:auto; margin-right:auto; }
 }
 @media (max-width:620px){
+  .sk-cap-ew{ --gutter:22px; }
   .sk-cap-ew .ew-hero{ padding-top:44px; }
   .sk-cap-ew .ew-mark{ margin-bottom:24px; }
   .sk-cap-ew .ew-sec{ padding:88px 0 60px; }
