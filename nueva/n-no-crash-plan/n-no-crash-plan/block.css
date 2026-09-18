@@ -143,8 +143,32 @@
 
 /* The cover sits half in the hero and half in the next section, so the fold has somewhere to
    go instead of ending on a button. */
-.sk-cap-ew .ew-cover{ margin:40px auto -70px; max-width:330px; }
+.sk-cap-ew .ew-cover{ margin:40px auto -70px; max-width:330px; position:relative; }
+
+/* Two sheets fanned out behind the cover so it reads as a booklet with pages in it, not a
+   flat JPEG. They pivot on the bottom-left corner, which is how a real stack splays. Paper
+   only, no content: anything legible back there competes with the cover. */
+.sk-cap-ew .ew-cover::before,
+.sk-cap-ew .ew-cover::after{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:#fbfaf6; border-radius:3px; transform-origin:0 100%;
+  /* a hairline so the sheets read as paper EDGES on a cream ground. Without it they are pure
+     shadow and disappear into the background at this value. */
+  border:1px solid rgba(31,36,32,.13);
+}
+/* ::before is the FAR sheet and ::after the NEAR one, deliberately: with equal z-index the
+   later pseudo-element paints on top, which is the order a real stack sits in. */
+.sk-cap-ew .ew-cover::before{
+  background:#f3f1e9;
+  transform:rotate(6.4deg) translateX(13px);
+  box-shadow:0 22px 44px -22px rgba(31,36,32,.30);
+}
+.sk-cap-ew .ew-cover::after{
+  transform:rotate(3.1deg) translateX(6px);
+  box-shadow:0 16px 34px -20px rgba(31,36,32,.34);
+}
 .sk-cap-ew .ew-cover img{
+  position:relative; z-index:1;
   width:100%; height:auto; border-radius:3px;
   box-shadow:0 30px 60px -22px rgba(31,36,32,.42), 0 2px 6px rgba(31,36,32,.10);
 }
@@ -236,6 +260,9 @@
   .sk-cap-ew .ew-mark{ margin-bottom:24px; }
   .sk-cap-ew .ew-sec{ padding:88px 0 60px; }
   .sk-cap-ew .ew-cover{ max-width:250px; margin-bottom:-52px; }
+  /* tighter fan on a phone, where the sheets have far less room to splay into */
+  .sk-cap-ew .ew-cover::before{ transform:rotate(3.6deg) translateX(7px); }
+  .sk-cap-ew .ew-cover::after{ transform:rotate(1.8deg) translateX(4px); }
   .sk-cap-ew .ew-btn{ width:100%; padding:17px 22px; }
   .sk-cap-ew .ew-band{ padding:72px 0; }
   .sk-cap-ew .ew-close{ padding:76px 0 64px; }
