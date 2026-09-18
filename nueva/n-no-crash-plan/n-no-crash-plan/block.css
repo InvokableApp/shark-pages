@@ -111,8 +111,21 @@
 .sk-cap-ew .ew-mark{
   font-family:var(--serif); font-size:15px; color:var(--sage-deep); margin-bottom:34px;
 }
+/* ⚠️ TWO LINES, not three. The h1 was inheriting the prose measure (640px), which at 56px broke
+   a 51 character headline across three lines and made the fold feel like a wall. Widened to the
+   headline's own measure and balanced, so the two lines come out even instead of 40/40/20.
+   A phone still gets three: 51 characters in 346px would need ~21px type to fit two, and a
+   headline that small is a worse problem than a third line. */
 .sk-cap-ew .ew-hero h1{
-  font-size:clamp(34px,5.6vw,56px); line-height:1.06; margin:14px auto 0; max-width:var(--measure);
+  font-size:clamp(34px,5.6vw,56px); line-height:1.06; margin:14px auto 0;
+  /* ⚠️ THE HEADLINE GETS ITS OWN MEASURE, the one deliberate exception to the two-widths rule
+     above. It was inheriting `--measure` (640px, the PROSE width), which at 56px broke a 51
+     character headline over three lines and made the fold read as a wall of type. A headline and
+     a paragraph want different measures for the same reason a poster and a book do.
+     `balance` so the two lines come out even rather than 60/40.
+     A phone still gets three: 51 characters in 346px would need ~21px type to fit two, and a
+     headline that small is a worse problem than a third line. */
+  max-width:20ch; text-wrap:balance;
 }
 .sk-cap-ew .ew-lede{
   margin:20px auto 0; max-width:var(--measure); font-size:17px; line-height:1.58; color:var(--body);
@@ -155,30 +168,22 @@
 }
 .sk-cap-ew .ew-cover{ margin:0; max-width:300px; position:relative; }
 
-/* Two sheets fanned out behind the cover so it reads as a booklet with pages in it, not a
-   flat JPEG. They pivot on the bottom-left corner, which is how a real stack splays. Paper
-   only, no content: anything legible back there competes with the cover. */
-.sk-cap-ew .ew-cover::before,
-.sk-cap-ew .ew-cover::after{
-  content:""; position:absolute; inset:0; z-index:0;
-  background:#fbfaf6; border-radius:3px; transform-origin:0 100%;
-  /* a hairline so the sheets read as paper EDGES on a cream ground. Without it they are pure
-     shadow and disappear into the background at this value. */
+/* Three real pages fanned behind the cover, pivoting on the bottom-left corner, which is how a
+   real stack splays. Only 10-18px of each shows: enough to read as paper with something printed
+   on it, not enough to read. The rotations step rather than repeat, because three sheets at the
+   same angle look like one thick sheet. */
+.sk-cap-ew .ew-pg{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  border-radius:3px; transform-origin:0 100%;
   border:1px solid rgba(31,36,32,.13);
+  /* the pages are cream-on-cream, so they need an edge or they vanish into the background */
+  box-shadow:0 18px 40px -22px rgba(31,36,32,.30);
 }
-/* ::before is the FAR sheet and ::after the NEAR one, deliberately: with equal z-index the
-   later pseudo-element paints on top, which is the order a real stack sits in. */
-.sk-cap-ew .ew-cover::before{
-  background:#f3f1e9;
-  transform:rotate(6.4deg) translateX(13px);
-  box-shadow:0 22px 44px -22px rgba(31,36,32,.30);
-}
-.sk-cap-ew .ew-cover::after{
-  transform:rotate(3.1deg) translateX(6px);
-  box-shadow:0 16px 34px -20px rgba(31,36,32,.34);
-}
-.sk-cap-ew .ew-cover img{
-  position:relative; z-index:1;
+.sk-cap-ew .ew-pg3{ z-index:0; transform:rotate(7.6deg) translateX(15px); }
+.sk-cap-ew .ew-pg2{ z-index:1; transform:rotate(5.0deg) translateX(10px); }
+.sk-cap-ew .ew-pg1{ z-index:2; transform:rotate(2.5deg) translateX(5px); }
+.sk-cap-ew .ew-front{
+  position:relative; z-index:3;
   width:100%; height:auto; border-radius:3px;
   box-shadow:0 30px 60px -22px rgba(31,36,32,.42), 0 2px 6px rgba(31,36,32,.10);
 }
@@ -206,20 +211,6 @@
 .sk-cap-ew .ew-prose{ text-align:center; }
 .sk-cap-ew .ew-prose p{ margin:0 0 16px; font-size:17px; line-height:1.62; }
 .sk-cap-ew .ew-prose p:last-child{ margin-bottom:0; }
-
-/* real pages of the guide, shown as paper */
-.sk-cap-ew .ew-shots{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:44px;
-}
-.sk-cap-ew .ew-shots figure{ margin:0; text-align:center; }
-.sk-cap-ew .ew-shots img{
-  width:100%; height:auto; border:1px solid var(--hair); border-radius:3px;
-  box-shadow:0 16px 34px -18px rgba(31,36,32,.34);
-}
-.sk-cap-ew .ew-shots figcaption{
-  margin-top:14px; font-size:12.5px; color:var(--grey); letter-spacing:.02em;
-}
-
 .sk-cap-ew .ew-mid-cta{ text-align:center; }
 
 /* ---------- close ---------- */
@@ -246,9 +237,7 @@
      and on a phone it is the first proof that there is a real artefact behind the button. */
   .sk-cap-ew .ew-intro{ grid-template-columns:1fr; gap:28px; justify-items:center; }
   .sk-cap-ew .ew-intro .ew-head{ text-align:center; }
-  .sk-cap-ew .ew-head-sub{ margin-left:auto; margin-right:auto; }
-  .sk-cap-ew .ew-shots{ grid-template-columns:1fr; max-width:330px; margin-left:auto; margin-right:auto; }
-}
+  .sk-cap-ew .ew-head-sub{ margin-left:auto; margin-right:auto; }}
 @media (max-width:620px){
   .sk-cap-ew{ --gutter:22px; }
   .sk-cap-ew .ew-hero{ padding-top:44px; }

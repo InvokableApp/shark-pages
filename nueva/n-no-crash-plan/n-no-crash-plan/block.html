@@ -74,9 +74,18 @@
            are one object rather than two screens apart. Centred under the hero it was a picture
            of a PDF; here it is the answer to the sentence next to it. -->
       <div class="ew-intro">
+        <!-- ⚠️ THE SHEETS BEHIND THE COVER ARE REAL PAGES NOW, not the blank paper they used to
+             be, and only their edges show. Two things at once: it proves there is a document
+             behind the button rather than a mockup of one, and it is the safe way to show the
+             inside. The three-across grid this replaces rendered those same pages large enough
+             to READ on a wide screen, which handed over the walk instructions and the whole
+             "what doesn't count" list. A sliver proves; a legible page gives it away. -->
         <figure class="ew-cover" data-sk-rev>
-          <img src="assets/guide-cover.jpg" width="900" height="1165"
-               alt="The cover of The No Crash Plan" loading="lazy" decoding="async">
+          <img class="ew-pg ew-pg3" src="assets/page-journal.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-pg ew-pg2" src="assets/page-calendar.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-pg ew-pg1" src="assets/page-move.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-front" src="assets/guide-cover.jpg" width="900" height="1165"
+               alt="The No Crash Plan, a nineteen page guide" loading="lazy" decoding="async">
         </figure>
         <div class="ew-head" data-sk-rev>
           <!-- ⚠️ NOT "it isn't willpower, it's a dip". That construction is already carrying the
@@ -107,6 +116,12 @@
             going to sleep badly again.</p>
         </div>
       </div>
+
+      <!-- The mid-page CTA, kept when the section that used to hold it was cut. Three buttons on
+           a page this short is the right number: hero, here, close. -->
+      <div class="ew-mid-cta" data-sk-rev>
+        <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
+      </div>
     </div>
   </section>
 
@@ -128,26 +143,6 @@
     </div>
   </section>
 
-  <!-- ── WHAT IS IN IT ────────────────────────────────────────────────────── -->
-  <section class="ew-sec">
-    <div class="ew-wrap">
-      <div class="ew-head" data-sk-rev>
-        <span class="ew-eyebrow">Inside the plan</span>
-        <h2>The three moves, a snack list, and two pages to print</h2>
-      </div>
-
-      <div class="ew-shots" data-sk-rev>
-        <figure><img src="assets/page-move.jpg" width="900" height="1165" alt="A page explaining one of the three moves" loading="lazy" decoding="async"><figcaption>The three moves, and why each one works</figcaption></figure>
-        <figure><img src="assets/page-calendar.jpg" width="900" height="1165" alt="The printable fourteen day calendar" loading="lazy" decoding="async"><figcaption>A printable 14 day calendar</figcaption></figure>
-        <figure><img src="assets/page-journal.jpg" width="900" height="1165" alt="The journal page" loading="lazy" decoding="async"><figcaption>A journal page, one line a day</figcaption></figure>
-      </div>
-
-
-      <div class="ew-mid-cta" data-sk-rev>
-        <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
-      </div>
-    </div>
-  </section>
 
   <!-- ── CLOSE ────────────────────────────────────────────────────────────── -->
   <section class="ew-close">
