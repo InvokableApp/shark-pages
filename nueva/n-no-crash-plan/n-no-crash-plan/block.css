@@ -141,9 +141,19 @@
 .sk-cap-ew .ew-curve .axis{ stroke:var(--hair); stroke-width:1; }
 .sk-cap-ew .ew-curve .base{ stroke:var(--hair); stroke-width:1; stroke-dasharray:3 4; }
 
-/* The cover sits half in the hero and half in the next section, so the fold has somewhere to
-   go instead of ending on a button. */
-.sk-cap-ew .ew-cover{ margin:40px auto -70px; max-width:330px; position:relative; }
+/* ---------- THE RECOGNITION SECTION: mockup left, copy right ----------
+   The cover used to sit centred between the hero and this section, straddling the seam. It read
+   as a picture of a PDF. Beside the copy it reads as the answer to the sentence next to it, which
+   is the only reason a mockup earns its space on a lander at all. */
+.sk-cap-ew .ew-intro{
+  display:grid; grid-template-columns:minmax(0,300px) 1fr;
+  gap:clamp(30px,5vw,72px); align-items:center; margin-bottom:58px;
+}
+.sk-cap-ew .ew-intro .ew-head{ text-align:left; margin:0; max-width:none; }
+.sk-cap-ew .ew-head-sub{
+  margin-top:16px; font-size:17px; line-height:1.6; color:var(--body); max-width:38ch;
+}
+.sk-cap-ew .ew-cover{ margin:0; max-width:300px; position:relative; }
 
 /* Two sheets fanned out behind the cover so it reads as a booklet with pages in it, not a
    flat JPEG. They pivot on the bottom-left corner, which is how a real stack splays. Paper
@@ -196,7 +206,6 @@
 .sk-cap-ew .ew-prose{ text-align:center; }
 .sk-cap-ew .ew-prose p{ margin:0 0 16px; font-size:17px; line-height:1.62; }
 .sk-cap-ew .ew-prose p:last-child{ margin-bottom:0; }
-.sk-cap-ew .ew-plain p{ color:var(--body); }
 
 /* real pages of the guide, shown as paper */
 .sk-cap-ew .ew-shots{
@@ -211,26 +220,7 @@
   margin-top:14px; font-size:12.5px; color:var(--grey); letter-spacing:.02em;
 }
 
-.sk-cap-ew .ew-list{ list-style:none; margin:0 auto; padding:0; max-width:var(--measure); }
-.sk-cap-ew .ew-list li{
-  padding:18px 0; border-top:1px solid var(--hair); font-size:16px; color:var(--body);
-}
-.sk-cap-ew .ew-list li:first-child{ border-top:none; }
-.sk-cap-ew .ew-list strong{ color:var(--ink); font-weight:650; }
 .sk-cap-ew .ew-mid-cta{ text-align:center; }
-
-/* ---------- photographic band ---------- */
-.sk-cap-ew .ew-band{ position:relative; padding:96px 0; text-align:center; overflow:hidden; }
-.sk-cap-ew .ew-band-art{
-  position:absolute; inset:0; background:url("assets/band-walk.jpg") center/cover no-repeat;
-}
-.sk-cap-ew .ew-band::after{
-  content:""; position:absolute; inset:0; background:rgba(18,22,15,.62);
-}
-.sk-cap-ew .ew-band-in{ position:relative; z-index:1; }
-.sk-cap-ew .ew-band .ew-eyebrow{ color:var(--sage-lift); }
-.sk-cap-ew .ew-band h2{ color:var(--paper); font-size:clamp(26px,4.2vw,36px); margin-top:12px; }
-.sk-cap-ew .ew-band p{ margin:18px auto 0; max-width:var(--measure); color:rgba(250,249,245,.84); font-size:16.5px; }
 
 /* ---------- close ---------- */
 .sk-cap-ew .ew-close{ text-align:center; padding:96px 0 84px; background:var(--tint); }
@@ -252,6 +242,11 @@
 /* ---------- responsive ---------- */
 @media (max-width:860px){
   .sk-cap-ew .ew-cards{ grid-template-columns:1fr; }
+  /* Stacked, and the cover leads: a face-on document is the fastest thing to read at a glance,
+     and on a phone it is the first proof that there is a real artefact behind the button. */
+  .sk-cap-ew .ew-intro{ grid-template-columns:1fr; gap:28px; justify-items:center; }
+  .sk-cap-ew .ew-intro .ew-head{ text-align:center; }
+  .sk-cap-ew .ew-head-sub{ margin-left:auto; margin-right:auto; }
   .sk-cap-ew .ew-shots{ grid-template-columns:1fr; max-width:330px; margin-left:auto; margin-right:auto; }
 }
 @media (max-width:620px){
@@ -259,11 +254,10 @@
   .sk-cap-ew .ew-hero{ padding-top:44px; }
   .sk-cap-ew .ew-mark{ margin-bottom:24px; }
   .sk-cap-ew .ew-sec{ padding:88px 0 60px; }
-  .sk-cap-ew .ew-cover{ max-width:250px; margin-bottom:-52px; }
+  .sk-cap-ew .ew-cover{ max-width:240px; }
   /* tighter fan on a phone, where the sheets have far less room to splay into */
   .sk-cap-ew .ew-cover::before{ transform:rotate(3.6deg) translateX(7px); }
   .sk-cap-ew .ew-cover::after{ transform:rotate(1.8deg) translateX(4px); }
   .sk-cap-ew .ew-btn{ width:100%; padding:17px 22px; }
-  .sk-cap-ew .ew-band{ padding:72px 0; }
-  .sk-cap-ew .ew-close{ padding:76px 0 64px; }
+    .sk-cap-ew .ew-close{ padding:76px 0 64px; }
 }

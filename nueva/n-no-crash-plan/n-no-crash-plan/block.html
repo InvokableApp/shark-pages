@@ -63,19 +63,32 @@
         </svg>
       </div>
 
-      <figure class="ew-cover" data-sk-rev>
-        <img src="assets/guide-cover.jpg" width="900" height="1165"
-             alt="The cover of The No Crash Plan" loading="eager" decoding="async">
-      </figure>
     </div>
   </section>
 
   <!-- ── SOUND FAMILIAR ───────────────────────────────────────────────────── -->
   <section class="ew-sec">
     <div class="ew-wrap">
-      <div class="ew-head" data-sk-rev>
-        <span class="ew-eyebrow">Sound familiar?</span>
-        <h2>You were fine all morning</h2>
+      <!-- ⚠️ THE MOCKUP LIVES HERE, NOT IN THE HERO, and the pairing is the argument: the
+           document sits beside "it isn't you", so the reassurance and the thing that delivers it
+           are one object rather than two screens apart. Centred under the hero it was a picture
+           of a PDF; here it is the answer to the sentence next to it. -->
+      <div class="ew-intro">
+        <figure class="ew-cover" data-sk-rev>
+          <img src="assets/guide-cover.jpg" width="900" height="1165"
+               alt="The cover of The No Crash Plan" loading="lazy" decoding="async">
+        </figure>
+        <div class="ew-head" data-sk-rev>
+          <!-- ⚠️ NOT "it isn't willpower, it's a dip". That construction is already carrying the
+               mechanism section's opening line, and `copy-lint` counts "X is not A, it is B" as a
+               family: two of them on one page is a voice, not a choice. The eyebrow does the
+               you-are-not-alone beat, the headline does the solution, the sub names the tools. -->
+          <span class="ew-eyebrow">You're not the only one</span>
+          <h2>The dip is fixable, and the fix takes ten minutes a day</h2>
+          <p class="ew-head-sub">Nineteen pages: what's actually happening at 3pm, three changes
+            that take about ten minutes, a snack list for home, work and the car, and two pages
+            you print and tick off.</p>
+        </div>
       </div>
       <div class="ew-cards" data-sk-rev>
         <div class="ew-card">
@@ -129,12 +142,6 @@
         <figure><img src="assets/page-journal.jpg" width="900" height="1165" alt="The journal page" loading="lazy" decoding="async"><figcaption>A journal page, one line a day</figcaption></figure>
       </div>
 
-      <ul class="ew-list" data-sk-rev>
-        <li><strong>The three moves.</strong> A five to ten minute walk after lunch, the one that does the most. One that takes sixty seconds. One that changes the order of your breakfast.</li>
-        <li><strong>The snack list.</strong> Pickles and the brine, celery with hummus, jerky, cottage cheese, a boiled egg, plain Greek yogurt with cinnamon.</li>
-        <li><strong>The two printables.</strong> A 14 day calendar with three boxes a day, one per move. A journal page you fill in with one line a day.</li>
-        <li><strong>What to do if it doesn't work.</strong> How to tell whether it was your sleep, the days you skipped, or something a walk after lunch was never going to fix.</li>
-      </ul>
 
       <div class="ew-mid-cta" data-sk-rev>
         <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
@@ -142,41 +149,16 @@
     </div>
   </section>
 
-  <!-- ── THE FIRST MOVE ───────────────────────────────────────────────────── -->
-  <section class="ew-band" data-sk-rev>
-    <div class="ew-band-art"></div>
-    <div class="ew-wrap ew-narrow ew-band-in">
-      <span class="ew-eyebrow">Start here</span>
-      <h2>The whole first week is one walk</h2>
-      <p>Five to ten minutes after one meal a day, ideally lunch. Working muscle pulls glucose
-        out of your blood without waiting for insulin, so walking while the food is still being
-        absorbed lowers the peak. A smaller peak means a smaller dip.</p>
-    </div>
-  </section>
-
-  <!-- ── WHO IT IS NOT FOR ────────────────────────────────────────────────── -->
-  <section class="ew-sec">
-    <div class="ew-wrap ew-narrow">
-      <div class="ew-head" data-sk-rev>
-        <span class="ew-eyebrow">Before you download it</span>
-        <h2>Who this isn't for</h2>
-      </div>
-      <div class="ew-prose ew-plain" data-sk-rev>
-        <p>This isn't a diet and it isn't a weight loss plan. Nothing in it changes what you
-          weigh in two weeks, and it doesn't ask you to give anything up.</p>
-        <p>If your afternoons are hard because you aren't sleeping, or because of a medication,
-          or because of something going on medically, a walk after lunch isn't the answer to
-          that and we're not going to pretend otherwise.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ── CLOSE ────────────────────────────────────────────────────────────── -->
   <section class="ew-close">
     <div class="ew-wrap ew-narrow">
-      <h2>Day one is a ten minute walk</h2>
-      <p class="ew-lede">Do it after your next meal and day one is done. It's the move that
-        does the most, so if you only ever change one thing, change this one.</p>
+      <!-- ⚠️ THE LAST CTA IS A CLOSE, NOT A LESSON. It used to teach the day-one move ("Day one
+           is a ten minute walk"), which gave away the easiest part of the plan AND ended the page
+           on a soft note. The job of this slot is one thing: make not clicking feel stupid.
+           Jeff, 2026-09-18: *"last cta should just be a hard sell."* -->
+      <h2>Get the plan and start this afternoon</h2>
+      <p class="ew-lede">Nineteen pages, a snack list, and two pages you print and tick off.
+        Everything you need to stop losing your afternoons, and it takes about ten minutes a day.</p>
       <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
       <p class="ew-note">Free. It lands in your inbox in about a minute.</p>
       <div class="ew-foot">everyday well</div>
