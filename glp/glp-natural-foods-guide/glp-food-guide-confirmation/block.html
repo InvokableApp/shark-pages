@@ -17,14 +17,22 @@
   desktop-only and once mobile-only, purely to run two font sizes; the component does that
   with a clamp).
 
-  BUTTON DESTINATIONS ARE THE LIVE PAGE'S, UNCHANGED:
-    button 1  stepPath 02f23d32-c111-4748-b4ec-c4d598ba9805  =  Recipe Guide      /glp-food-guide-read
-    button 2  stepPath 015243c8-9ccf-4049-995c-30e3e20637a0  =  Product Tour Page /glp-food-guide-product
+  BUTTON DESTINATIONS WERE RE-POINTED, 2026-09-18, ON JEFF'S CALL. Every CTA on this page now
+  goes to the DM Redirect step (73988474, /glp-food-guide-dm-redirect) and opens the route sheet.
+  What the native page shipped, and why neither destination survived:
 
-  ⚠️ FLAGGED, NOT FIXED: button 1 reads "message a leader now" but its step is the Recipe
-     Guide, not the DM Redirect step this funnel carries (73988474, /glp-food-guide-dm-redirect).
-     That is how the live page is wired today, so it is how this block is wired. Re-pointing a
-     CTA is a brief change, not a design change. Jeff's call.
+    button 1  ->  Recipe Guide      /glp-food-guide-read      but its label said "message a leader now"
+    button 2  ->  Product Tour Page /glp-food-guide-product   but its subtext said "request product /
+                                                              sample info from a team member now"
+
+  Both labels described a DM while both destinations went somewhere else. The wiring simply
+  predated the DM Redirect step: this funnel gained it recently, which is why the installed fleet
+  is still on 6 steps and the snapshot has 7. Conectiv's equivalent funnel, built later, has no
+  Product Tour step at all and sends both its DM controls to the DM redirect.
+
+  ⚠️ THE PRODUCT TOUR PAGE NOW HAS NO INBOUND LINK from anywhere in this funnel. All seven pages
+     were scanned and this block's button 2 was its only entrance. If that page is meant to stay
+     reachable it needs one somewhere else. Flagged to Jeff 2026-09-18.
 
   Hrefs are DOCUMENT-relative (no leading slash) so they resolve against the current step
   path and work with or without a connected domain. A root-relative href 404s on a funnel
