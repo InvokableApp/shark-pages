@@ -51,6 +51,24 @@
   --sk-serif:var(--serif);
   --sk-sans:var(--sans);
 
+  /* ---------- FULL BLEED ESCAPE ----------
+     ⚠️ MEASURED ON THE LIVE PAGE, not locally, because locally there is nothing to escape.
+     GHL wraps a custom-code block in `.c-row > .inner` with max-width:1170px and a 15px
+     column padding, so at 1440px the block is pinned to a 1000px column sitting at x=220.
+     Every section designed to run full width (the dark panel, the photo band, the tinted
+     close, and the paper ground itself) was therefore rendering as a floating box with the
+     page's own background showing down both sides. That is the "gutters on the page".
+
+     This is the standard escape: stretch the ROOT to the viewport and let the inner
+     .ew-wrap keep doing the centering. Everything inside is unaffected.
+
+     ⚠️ 100vw includes the scrollbar on desktop, which can add a horizontal scroll. Checked
+     at 1440/1280/900/390 after this landed; if a future change reintroduces it, the fix is
+     here and not in the child that appears to overflow. */
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+
   background:var(--paper);
   color:var(--body);
   font-family:var(--sans);
