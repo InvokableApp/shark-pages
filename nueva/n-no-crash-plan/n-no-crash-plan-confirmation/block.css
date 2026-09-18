@@ -41,7 +41,7 @@
 .sk-ew-conf .ew-narrow{ max-width:var(--measure); }
 
 .sk-ew-conf h1,.sk-ew-conf h2{ font-family:var(--serif); font-weight:400; color:var(--ink); margin:0; letter-spacing:-.01em; }
-.sk-ew-conf h1{ font-size:clamp(30px,4.6vw,44px); line-height:1.1; max-width:16ch; margin:14px auto 0; }
+.sk-ew-conf h1{ font-size:clamp(30px,4.6vw,44px); line-height:1.1; max-width:22ch; margin:14px auto 0; }
 .sk-ew-conf h2{ font-size:clamp(25px,3.8vw,34px); line-height:1.15; margin-top:12px; }
 .sk-ew-conf p{ margin:16px auto 0; max-width:var(--measure); color:var(--body); font-size:17px; }
 

@@ -230,6 +230,15 @@
       "elementTitle": "n-no-crash-plan",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan-confirmation",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "cgNsDwqXT6g8zcBQaNFX",
+      "elementId": "custom-code-yw3zyev5lg",
+      "elementTitle": "n-no-crash-plan-confirmation",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
