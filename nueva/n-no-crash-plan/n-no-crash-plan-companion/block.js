@@ -1,16 +1,19 @@
-/* nueva / n-no-crash-plan / n-no-crash-plan-companion
+/* companion-web.js — the nav progress bar, and nothing else.
  *
- * Loads the shared product engine and nothing else. Behaviour is shared, so a fix there
- * reaches every page of this type in every system on one git push.
+ * The crash guide's script also drives a hero curve that flattens as you scroll. This page has
+ * no curve: its argument is a graded list, not a shape, and animating something here would be
+ * motion for its own sake. Kept separate rather than shared so neither page carries dead code.
  */
 (function () {
-  var BASE = "https://invokableapp.github.io/shark-pages/";
-  ["_shared/product/v1/product.js"].forEach(function (p) {
-    if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
-    var s = document.createElement("script");
-    s.src = BASE + p;
-    s.async = false;
-    s.setAttribute("data-shark-shared", p);
-    document.head.appendChild(s);
-  });
+  var root = document.querySelector(".sk-ew-comp");
+  if (!root) return;
+  var bar = root.querySelector(".ewnav-bar i");
+  if (!bar) return;
+  var tick = function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + "%";
+  };
+  window.addEventListener("scroll", tick, { passive: true });
+  window.addEventListener("resize", tick);
+  tick();
 })();

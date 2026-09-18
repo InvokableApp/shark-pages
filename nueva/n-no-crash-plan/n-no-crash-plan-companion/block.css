@@ -1,24 +1,344 @@
-/* nueva / n-no-crash-plan / n-no-crash-plan-companion
+/* The No Crash Plan. The LIVE WEB GUIDE, "Everyday Well".
  *
- * The design lives in _shared/product/v1/, scoped under .sk-prod, and is shared by every
- * product page in every system. This file declares ONLY the palette, on the block's own scope
- * class, and it cascades into the shared component. No brand swatch is touched.
+ * ⚠️ DELIBERATELY NOT THE PRINT GUIDE, AND NOT THE OTHER SHARK WEB GUIDES.
+ * Every previous guide page in this factory is the print document flowed onto a screen:
+ * 8.5x11 `.page` boxes, cream ground, hard edges, a serif title on paper. That look is
+ * right in a PDF and reads as a photocopy on a phone. This page is built for the screen
+ * instead, and the differences are the point, not decoration:
+ *
+ *   · a DARK ground with the reading column floating on it as rounded paper cards,
+ *     where the print guide is paper-with-dark-accents. The page is the inverse.
+ *   · generous corner radius. The print guide has none anywhere.
+ *   · oversized outline NUMERALS carrying the three moves, instead of headings alone.
+ *   · a hero whose curve FLATTENS AS YOU SCROLL, so the guide's argument is the page's
+ *     main motion. See block.js.
+ *   · photographs as rounded 16:9 plates, never full-bleed print bands.
+ *
+ * ⛔ NOT NUEVA. Neutral wellness brand, sage only, no teal and no product.
+ * Scoped to .sk-ew-comp so nothing here can leak into the rest of a GHL page.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600;650;700&display=swap");
 
-.sk-prod-nva{
-  --sk-navy:    var(--nva-navy,#102a2a);
-  --sk-navy-d:  var(--nva-navy-d,#071116);
-  --sk-teal:    var(--nva-teal,#0abab5);
-  --sk-teal-d:  var(--nva-teal-d,#00aaa6);
-  --sk-sage:    var(--nva-sage,#087f7b);
-  --sk-lime:    var(--nva-lime,#5fd9d5);
-  --sk-ink:     var(--nva-ink,#141313);
-  --sk-body:    var(--nva-body,#4a5560);
-  --sk-cream:   var(--nva-cream,#fcfeff);
-  --sk-mist:    var(--nva-mist,#e8f8f6);
-  --sk-line:    var(--nva-line,#d5dfe1);
-  --sk-_note:   var(--nva-_note,Measured from nuevalife.com/nuevaassets/css/style.css 2026-09-08. #0ABAB5 is the brand colour (116 uses). Nueva's palette is monochrome teal, so 'sage' and 'lime' carry deep and light teal rather than greens; the token NAMES are fixed by systems/_TEMPLATE.json, the hues are not.);
-  --sk-serif:  var(--nva-serif,Montserrat,"Helvetica Neue",Arial,sans-serif);
-  --sk-sans:   var(--nva-sans,Montserrat,system-ui,sans-serif);
+.sk-ew-comp{
+  --night:#12160f;        /* the ground the whole page sits on */
+  --night-2:#1b2118;      /* a raised dark panel */
+  --paper:#faf9f5;
+  --sage:#8a9a7b;
+  --sage-lift:#a8b899;    /* sage readable ON the dark ground */
+  --sage-deep:#4c5a41;
+  --sage-mid:#6d7d5e;
+  --clay:#c9705a;         /* the problem line. same hue as the print guide */
+  --clay-lift:#e08c73;
+  --ink:#1f2420;
+  --grey:#6f7568;
+  --hair:#e3e4db;
+  --tint:#f0f2ea;
+  --navh:56px;            /* ⚠️ single source: nav height AND anchor scroll-margin */
+  --radius:20px;
+
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+
+  background:var(--night);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
 }
+.sk-ew-comp *{ box-sizing:border-box; margin:0; padding:0; }
+.sk-ew-comp img{ max-width:100%; display:block; }
+
+/* ---------- nav ----------
+   ⚠️ ONE ROW ON MOBILE, always. A nav that wraps grows taller than the scroll-margin
+   reserved on the sections, and every jump lands underneath the bar. So it scrolls
+   sideways instead of wrapping, and both the bar height and the anchor offset are
+   driven off --navh. (leadmag-web-guide-sop §7) */
+.sk-ew-comp .ewnav{
+  position:sticky; top:0; z-index:40;
+  height:var(--navh);
+  background:rgba(18,22,15,.93);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(250,249,245,.1);
+  display:flex; align-items:center; gap:2px;
+  padding:0 14px;
+  overflow-x:auto; overflow-y:hidden; flex-wrap:nowrap;
+  scrollbar-width:none;
+}
+.sk-ew-comp .ewnav::-webkit-scrollbar{ display:none; }
+.sk-ew-comp .ewnav-brand{
+  font-family:var(--serif); font-weight:400; font-size:15px; color:var(--paper);
+  margin-right:14px; white-space:nowrap; flex-shrink:0; letter-spacing:.01em;
+}
+.sk-ew-comp .ewnav a{
+  color:rgba(250,249,245,.66); text-decoration:none; white-space:nowrap; flex-shrink:0;
+  font-size:12.5px; font-weight:500; letter-spacing:.03em;
+  padding:7px 11px; border-radius:999px;
+}
+.sk-ew-comp .ewnav a:hover{ color:var(--paper); background:rgba(250,249,245,.09); }
+.sk-ew-comp .ewnav .sp{ flex:1 0 12px; }
+/* ⚠️ PINNED AS ONE OPAQUE GROUP, not as two separately sticky pills. The bar scrolls
+   sideways on a phone, so an offer button at the end of the row is simply not on screen
+   on the device most of this traffic arrives from. Sticking the two pills individually
+   made the scrolling anchors run visibly THROUGH the outlined Print button, because it
+   has no background of its own. One sticky end-cap carrying the nav's own colour gives
+   the anchors something to disappear behind. */
+.sk-ew-comp .ewnav-end{
+  position:sticky; right:-14px; margin-left:auto; flex-shrink:0;
+  display:flex; align-items:center; gap:6px;
+  align-self:stretch;              /* full bar height, so the cap has no visible edge */
+  padding:0 14px 0 22px;
+  background:linear-gradient(90deg,rgba(20,24,17,0) 0,rgb(20,24,17) 20px);
+}
+/* Print is an outlined secondary so it never competes with the offer. */
+.sk-ew-comp .ewnav-print{
+  border:1px solid rgba(250,249,245,.3); color:rgba(250,249,245,.8) !important;
+}
+.sk-ew-comp .ewnav-cta{
+  background:var(--sage); color:var(--night) !important; font-weight:650;
+}
+.sk-ew-comp .ewnav-cta:hover{ background:var(--sage-lift); }
+/* scroll progress, hairline along the bottom of the bar */
+.sk-ew-comp .ewnav-bar{ position:absolute; left:0; right:0; bottom:0; height:2px; background:transparent; }
+.sk-ew-comp .ewnav-bar i{ display:block; height:100%; width:0; background:var(--sage); transition:width .12s linear; }
+
+.sk-ew-comp section[id]{ scroll-margin-top:calc(var(--navh) + 12px); }
+
+/* ---------- hero ---------- */
+.sk-ew-comp .ewhero{
+  position:relative; min-height:78vh; display:flex; align-items:flex-end;
+  background-size:cover; background-position:center; background-color:var(--night-2);
+  padding:40px 22px 34px;
+}
+.sk-ew-comp .ewhero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(18,22,15,.22) 0%,rgba(18,22,15,.74) 58%,rgba(18,22,15,.96) 100%);
+}
+.sk-ew-comp .ewhero-in{ position:relative; z-index:1; width:100%; max-width:760px; margin:0 auto; color:var(--paper); }
+.sk-ew-comp .ewhero .mark{
+  font-family:var(--serif); font-size:14px; color:rgba(250,249,245,.8); letter-spacing:.02em; margin-bottom:18px;
+}
+.sk-ew-comp .ewhero h1{
+  font-family:var(--serif); font-weight:400; font-size:clamp(40px,8.6vw,74px); line-height:1.02; letter-spacing:-.01em;
+}
+.sk-ew-comp .ewhero .sub{
+  margin-top:16px; font-size:11px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
+}
+.sk-ew-comp .ewhero .tag{ margin-top:14px; font-size:16px; line-height:1.55; color:rgba(250,249,245,.82); max-width:30em; }
+/* the hero curve is the page's signature: it flattens as the reader scrolls */
+.sk-ew-comp .ewhero .curvewrap{ margin-top:26px; max-width:560px; }
+
+/* ---------- the reading column ---------- */
+.sk-ew-comp .ewbody{ max-width:820px; margin:0 auto; padding:34px 18px 60px; }
+.sk-ew-comp .card{
+  background:var(--paper); border-radius:var(--radius); padding:38px 40px;
+  margin:18px 0; box-shadow:0 1px 0 rgba(250,249,245,.06);
+}
+.sk-ew-comp .card.tone{ background:var(--tint); }
+.sk-ew-comp .eyebrow{
+  font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--sage-mid); margin-bottom:12px;
+}
+.sk-ew-comp h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(28px,5.4vw,38px);
+  line-height:1.12; letter-spacing:-.01em; color:var(--ink);
+}
+.sk-ew-comp .stand{
+  font-family:var(--serif); font-size:20px; line-height:1.45; color:var(--sage-deep);
+  margin-top:14px; font-weight:400;
+}
+.sk-ew-comp .card p{ margin-top:15px; color:#33392f; }
+.sk-ew-comp .card p strong{ color:var(--ink); font-weight:650; }
+.sk-ew-comp .sec-sub{
+  margin-top:26px; font-size:12px; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--sage-deep);
+}
+.sk-ew-comp .card ul,.sk-ew-comp .card ol{ margin-top:12px; padding-left:20px; }
+.sk-ew-comp .card li{ margin-top:8px; color:#33392f; }
+.sk-ew-comp .card ul li::marker{ color:var(--sage); }
+.sk-ew-comp .card ol li::marker{ color:var(--sage-deep); font-weight:650; }
+.sk-ew-comp blockquote{
+  margin-top:22px; padding:16px 20px; border-left:3px solid var(--sage);
+  background:var(--tint); border-radius:0 12px 12px 0;
+}
+.sk-ew-comp blockquote p{ margin:0; color:var(--sage-deep); }
+.sk-ew-comp table{ width:100%; border-collapse:collapse; margin-top:16px; font-size:15px; }
+.sk-ew-comp th{
+  text-align:left; font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--sage-mid); font-weight:650; padding:0 0 9px; border-bottom:1px solid var(--hair);
+}
+.sk-ew-comp th:last-child,.sk-ew-comp td:last-child{ text-align:right; }
+.sk-ew-comp td{ padding:11px 0; border-bottom:1px solid var(--hair); }
+.sk-ew-comp tbody tr:last-child td{ border-bottom:none; }
+.sk-ew-comp td:last-child{ font-weight:650; color:var(--sage-deep); }
+
+/* ---------- the curve ---------- */
+.sk-ew-comp .curve{ display:block; width:100%; height:auto; }
+.sk-ew-comp .curve .spike{ fill:none; stroke:var(--clay); stroke-width:2.6; stroke-linecap:round; }
+.sk-ew-comp .curve .steady{ fill:none; stroke:var(--sage); stroke-width:2.6; stroke-linecap:round; }
+.sk-ew-comp .curve .axis{ stroke:var(--hair); stroke-width:1; }
+.sk-ew-comp .curve .base{ stroke:var(--hair); stroke-width:1; stroke-dasharray:3 4; }
+.sk-ew-comp .curve text{ font-family:var(--sans); font-size:9px; letter-spacing:.14em; text-transform:uppercase; fill:var(--grey); }
+.sk-ew-comp .curve .lbl-spike{ fill:#b35f49; }
+.sk-ew-comp .curve .lbl-steady{ fill:var(--sage-deep); }
+.sk-ew-comp .ewhero .curve .spike{ stroke:var(--clay-lift); }
+.sk-ew-comp .ewhero .curve .axis,.sk-ew-comp .ewhero .curve .base{ stroke:rgba(250,249,245,.26); }
+.sk-ew-comp .ewhero .curve text{ fill:rgba(250,249,245,.62); }
+.sk-ew-comp .plate{ margin:24px 0 8px; }
+.sk-ew-comp .curve-caption{ font-size:13px; color:var(--grey); margin-top:10px; }
+
+/* the numbered sequence on the mechanism section */
+.sk-ew-comp .seq{ margin-top:22px; }
+.sk-ew-comp .seq-row{ display:flex; gap:16px; padding:15px 0; border-top:1px solid var(--hair); }
+.sk-ew-comp .seq-row:first-child{ border-top:none; }
+.sk-ew-comp .seq-n{
+  flex:0 0 30px; font-family:var(--serif); font-size:24px; line-height:1;
+  color:var(--sage); font-weight:400; padding-top:3px;
+}
+.sk-ew-comp .seq-body p{ margin:0; }
+.sk-ew-comp .keyline{
+  margin-top:22px; padding:22px 24px; background:var(--night-2); border-radius:14px;
+  color:var(--paper); font-family:var(--serif); font-size:19px; line-height:1.48;
+}
+.sk-ew-comp .keyline strong{ color:var(--sage-lift); font-weight:400; }
+
+/* ---------- a MOVE ----------
+   The oversized numeral is the structural device that separates this page from the
+   print guide, which carries the same content under an ordinary heading. */
+.sk-ew-comp .move{ position:relative; overflow:hidden; padding-top:0; }
+.sk-ew-comp .move .shot{
+  width:calc(100% + 80px); margin:-38px -40px 26px; aspect-ratio:16/9;
+  object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;
+}
+.sk-ew-comp .move .numwrap{ display:flex; align-items:baseline; gap:14px; }
+.sk-ew-comp .move .num{
+  font-family:var(--serif); font-weight:300; font-size:76px; line-height:.8;
+  color:transparent; -webkit-text-stroke:1.5px var(--sage); letter-spacing:-.03em;
+  flex-shrink:0;
+}
+.sk-ew-comp .move h2{ font-size:clamp(25px,4.6vw,32px); }
+
+/* ---------- week band ----------
+   The print guide gives each week a full-bleed photographic leaf. On screen that is a
+   dead scroll, so the same photograph becomes a short band the reader passes through. */
+.sk-ew-comp .band{
+  position:relative; border-radius:var(--radius); overflow:hidden; margin:34px 0 18px;
+  min-height:230px; display:flex; align-items:flex-end;
+  background-size:cover; background-position:center; background-color:var(--night-2);
+}
+.sk-ew-comp .band::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(18,22,15,0) 30%,rgba(18,22,15,.82) 100%);
+}
+.sk-ew-comp .band-in{ position:relative; z-index:1; padding:26px 28px; color:var(--paper); width:100%; }
+.sk-ew-comp .band .lab{
+  font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
+}
+.sk-ew-comp .band h2{ color:var(--paper); margin-top:6px; }
+.sk-ew-comp .band .curvewrap{ max-width:330px; margin-top:12px; }
+
+/* ---------- calendar ---------- */
+.sk-ew-comp .cal-wk{
+  font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--sage-mid); margin:22px 0 10px;
+}
+.sk-ew-comp .cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:7px; }
+.sk-ew-comp .cal-cell{
+  border:1px solid var(--hair); border-radius:10px; padding:8px 6px 9px; text-align:center; background:#fff;
+}
+.sk-ew-comp .cal-day{ font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); }
+.sk-ew-comp .cal-n{ font-family:var(--serif); font-size:19px; line-height:1.1; color:var(--ink); }
+.sk-ew-comp .cal-boxes{ display:flex; gap:3px; justify-content:center; margin-top:7px; }
+.sk-ew-comp .cal-box{
+  width:15px; height:15px; border:1px solid var(--sage); border-radius:4px;
+  font-size:7.5px; line-height:14px; color:var(--sage-mid); font-weight:650;
+}
+@media (max-width:620px){ .sk-ew-comp .cal-grid{ grid-template-columns:repeat(4,1fr); } }
+
+/* ---------- journal ---------- */
+.sk-ew-comp table.jr{ margin-top:18px; }
+.sk-ew-comp .jr-head th{ padding-bottom:9px; }
+.sk-ew-comp .jr td{ height:38px; }
+.sk-ew-comp .jr td.d{ width:44px; font-family:var(--serif); font-size:16px; color:var(--sage-deep); }
+.sk-ew-comp .jr td:last-child{ text-align:left; font-weight:400; }
+.sk-ew-comp .scale-dots{ display:flex; gap:7px; }
+.sk-ew-comp .scale-dots i{
+  width:13px; height:13px; border:1px solid var(--sage); border-radius:50%; display:block;
+}
+
+/* ---------- the offer ----------
+   ⚠️ Every CTA points at a funnel REDIRECT STEP, never straight at a product link.
+   The redirect forwards to the same place, and its pageview is what fires the escalation
+   and tells the rep. Linked direct, the button still works and the lead silently never
+   escalates. (leadmag-web-guide-sop §Offer CTAs) */
+.sk-ew-comp .offer{
+  background:var(--night-2); border-radius:var(--radius); padding:34px 36px; margin:22px 0;
+  color:var(--paper); border:1px solid rgba(168,184,153,.22);
+}
+.sk-ew-comp .offer .lab{
+  font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift);
+}
+.sk-ew-comp .offer h3{
+  font-family:var(--serif); font-weight:400; font-size:26px; line-height:1.2; margin-top:10px; color:var(--paper);
+}
+.sk-ew-comp .offer p{ margin-top:12px; color:rgba(250,249,245,.76); font-size:15.5px; }
+.sk-ew-comp .offer .btnrow{ margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.sk-ew-comp .btn{
+  display:inline-block; background:var(--sage); color:var(--night); text-decoration:none;
+  font-weight:650; font-size:15px; padding:14px 26px; border-radius:999px; letter-spacing:.01em;
+}
+.sk-ew-comp .btn:hover{ background:var(--sage-lift); }
+.sk-ew-comp .btn-ghost{
+  display:inline-block; color:var(--sage-lift); text-decoration:none; font-weight:600; font-size:14.5px;
+  padding:14px 6px; border-bottom:1px solid rgba(168,184,153,.4);
+}
+.sk-ew-comp .btn-ghost:hover{ color:var(--paper); }
+
+/* the closing ask, inside the reading column */
+.sk-ew-comp .ask{ margin-top:26px; padding:26px 28px; background:var(--night-2); border-radius:16px; color:var(--paper); }
+.sk-ew-comp .ask .lab{ font-size:10px; font-weight:650; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-lift); }
+.sk-ew-comp .ask p{ color:rgba(250,249,245,.85); }
+.sk-ew-comp .ask p strong{ color:var(--paper); }
+
+/* ---------- fine print + foot ---------- */
+.sk-ew-comp .fine{ background:transparent; box-shadow:none; padding:30px 40px 0; }
+.sk-ew-comp .fine h2{ font-size:13px; font-family:var(--sans); font-weight:650; letter-spacing:.16em; text-transform:uppercase; color:rgba(250,249,245,.5); }
+.sk-ew-comp .fine p{ color:rgba(250,249,245,.42); font-size:12.5px; line-height:1.6; margin-top:10px; }
+.sk-ew-comp .ewfoot{
+  text-align:center; padding:34px 18px 46px; color:rgba(250,249,245,.35); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+}
+
+@media (max-width:620px){
+  /* the brand gives up its room first: the anchors and the offer matter more */
+  .sk-ew-comp .ewnav-brand{ font-size:13px; margin-right:8px; }
+  .sk-ew-comp .ewnav a{ padding:7px 9px; }
+  .sk-ew-comp .card{ padding:28px 22px; border-radius:16px; }
+  .sk-ew-comp .move .shot{ width:calc(100% + 44px); margin:-28px -22px 22px; }
+  .sk-ew-comp .offer{ padding:26px 22px; }
+  .sk-ew-comp .fine{ padding:26px 22px 0; }
+  .sk-ew-comp .move .num{ font-size:56px; }
+}
+
+/* companion-web.css — loaded AFTER the rescoped crash-guide sheet.
+   Only the verdict chip, which is the one thing this document has and that one does not.
+
+   ⚠️ THESE SIT ON A PAPER CARD, NOT ON THE DARK GROUND. The page's ground is near-black and
+   the reading column floats on it as light cards, so the first version of this file used the
+   dark-ground palette and made every entry NAME invisible: white on cream. Colour the chip for
+   the surface it actually lands on, which is the card. */
+.sk-ew-comp .entry{ margin-top:24px; }
+.sk-ew-comp .ent-name{
+  font-weight:700; color:#1f2420; margin-right:9px;
+}
+.sk-ew-comp .chip{
+  display:inline-block; font-size:10px; font-weight:650; letter-spacing:.13em;
+  text-transform:uppercase; padding:3px 8px 2px; border-radius:4px; vertical-align:2px;
+  white-space:nowrap;
+}
+/* Readable without colour as well as with it: solid for the two recommendations, outline for
+   the two rejections. Same rule and the same four values as the print sheet. */
+.sk-ew-comp .v-yes  { background:#4c5a41; color:#faf9f5; }
+.sk-ew-comp .v-maybe{ background:#8a9a7b; color:#1f2420; }
+.sk-ew-comp .v-thin { background:transparent; color:#6f7568; border:1px solid #d7d9cf; }
+.sk-ew-comp .v-skip { background:transparent; color:#b35f49; border:1px solid #e0b9ad; }
+.sk-ew-comp .ent-note{ font-size:12.5px; font-style:italic; color:#6f7568; margin-left:8px; }
