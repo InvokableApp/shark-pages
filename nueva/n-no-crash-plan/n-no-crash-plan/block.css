@@ -161,7 +161,12 @@
    is the only reason a mockup earns its space on a lander at all. */
 .sk-cap-ew .ew-intro{
   display:grid; grid-template-columns:minmax(0,300px) 1fr;
-  gap:clamp(30px,5vw,72px); align-items:center; margin-bottom:58px;
+  /* ⚠️ THE GAP HAS TO CLEAR THE FAN, NOT THE FIGURE. The sheets are rotated up to 9deg, so the
+     back one's painted box overhangs its grid cell by ~64px on the right: at every width from
+     940 to 1440 the old 30-72px gap let the top sheet run UNDER the headline (measured -2px at
+     1440, -27px at 940). A rotated child does not widen its column, it just overlaps the next
+     one, and nothing about the layout looks broken until you read the text. */
+  gap:clamp(64px,7vw,108px); align-items:center; margin-bottom:58px;
 }
 .sk-cap-ew .ew-intro .ew-head{ text-align:left; margin:0; max-width:none; }
 .sk-cap-ew .ew-head-sub{
