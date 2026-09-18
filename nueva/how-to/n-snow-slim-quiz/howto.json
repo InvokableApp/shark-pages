@@ -34,7 +34,7 @@
    "url": "https://{{custom_values.nueva_main_url}}/n-snow-slim"
   },
   {
-   "icon": "link",
+   "icon": "copy",
    "title": "Your marketing links",
    "primary": false,
    "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",

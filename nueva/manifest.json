@@ -239,6 +239,15 @@
       "elementTitle": "n-no-crash-plan-confirmation",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "how-to/n-no-crash-plan-funnel",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "LyNKJ8o7LNG1cGFFINBB",
+      "elementId": "custom-code-xw1ak299z3",
+      "elementTitle": "n-no-crash-plan-how-to",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
