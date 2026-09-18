@@ -205,8 +205,17 @@
 
           <p class="sk-conf-ask">Tap below to message a team leader for <u>product or sample info</u> now.</p>
 
+          <!-- RE-POINTED 2026-09-18 from the Product Tour step to the DM route (Jeff: "shouldnt
+               that go to the dm redirect?"). It was the one control on this page still going
+               somewhere else, and the copy directly above it says "message a team leader", as did
+               the original native button's own subtext ("request product / sample info from a team
+               member now"). The wiring simply predated the DM Redirect step existing: this funnel
+               only gained it recently, which is why the installed fleet is still on 6 steps.
+               Conectiv's equivalent funnel, built later, has no Product Tour step at all and sends
+               both its DM controls here. Now all three CTAs on this page are one control. -->
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" data-sk-step="glp-food-guide-product" href="glp-food-guide-product">
+            <a class="sk-conf-btn" data-sk-route-open
+               data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
               Yeah... Show me the GLP alternatives! 👀
             </a>
           </div>
