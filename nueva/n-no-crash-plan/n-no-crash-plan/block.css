@@ -179,9 +179,9 @@
   /* the pages are cream-on-cream, so they need an edge or they vanish into the background */
   box-shadow:0 18px 40px -22px rgba(31,36,32,.30);
 }
-.sk-cap-ew .ew-pg3{ z-index:0; transform:rotate(7.6deg) translateX(15px); }
-.sk-cap-ew .ew-pg2{ z-index:1; transform:rotate(5.0deg) translateX(10px); }
-.sk-cap-ew .ew-pg1{ z-index:2; transform:rotate(2.5deg) translateX(5px); }
+.sk-cap-ew .ew-pg3{ z-index:0; transform:rotate(9deg)   translateX(17px); }
+.sk-cap-ew .ew-pg2{ z-index:1; transform:rotate(5.8deg) translateX(11px); }
+.sk-cap-ew .ew-pg1{ z-index:2; transform:rotate(2.8deg) translateX(5px); }
 .sk-cap-ew .ew-front{
   position:relative; z-index:3;
   width:100%; height:auto; border-radius:3px;
