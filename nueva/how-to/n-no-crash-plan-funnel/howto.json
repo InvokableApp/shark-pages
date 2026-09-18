@@ -1,0 +1,61 @@
+{
+ "_why": [
+  "The No Crash Plan, rep-facing. Built 2026-09-17.",
+  "",
+  "⚠️ THIS PAGE IS NUEVA BRANDED and the funnel it explains is not. The lander, the guide and",
+  "the confirmation page all ship under EVERYDAY WELL, a neutral brand invented for this lead",
+  "magnet, so that a rep can post it into a group without it reading as an MLM pitch. This page",
+  "is the only surface in the campaign a lead never sees, which is exactly why it carries the",
+  "Nueva mark. Do not 'fix' the front end to match it.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE, same as the other three Nueva how-to pages: no Nueva walkthrough",
+  "has been recorded, and a page with no video is honest where a page with a competitor's video",
+  "is not. Add them here and re-run the generator.",
+  "",
+  "THE SUPPLEMENT GUIDE LINK RESOLVES TO NOTHING YET. nueva_no_crash_plan_supplement_pdf_url",
+  "still holds its onboarding instruction because the companion guide is not written. That is",
+  "correct on a snapshot and it is on MUST-BLANK-BEFORE-SNAPSHOT.md as a live-account check."
+ ],
+ "system": "nueva",
+ "funnel": "how-to",
+ "page": "n-no-crash-plan-funnel",
+ "funnelName": "The No Crash Plan",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
+ "videos": [],
+ "links": [
+  {
+   "icon": "book",
+   "title": "The plan your leads get",
+   "primary": true,
+   "tease": "Read it before your first conversation. It is fourteen days, three small changes, about ten minutes a day, and no product anywhere in it.",
+   "label": "Read the plan",
+   "url": "https://{{custom_values.nueva_main_url}}/n-no-crash-plan-read"
+  },
+  {
+   "icon": "book",
+   "title": "The second guide, the one you send",
+   "primary": true,
+   "tease": "When someone asks for the supplement guide, this is the link you paste. You will get a text the moment they ask, and that text carries this link too.",
+   "label": "Open the supplement guide",
+   "url": "https://{{custom_values.nueva_no_crash_plan_supplement_pdf_url}}"
+  },
+  {
+   "icon": "book",
+   "title": "The plan PDF",
+   "primary": false,
+   "tease": "The downloadable version the delivery email sends, for anyone who would rather print the calendar.",
+   "label": "Open the PDF",
+   "url": "https://{{custom_values.nueva_no_crash_plan_guide_pdf_url}}"
+  },
+  {
+   "icon": "link",
+   "title": "Your marketing links",
+   "primary": false,
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
+  }
+ ],
+ "sub": "A free fourteen day plan for the afternoon crash. Two things make this funnel different: it ships under a neutral brand called Everyday Well, with no Nueva mark on it anywhere, so you can post it into a group. And the people who ask you for the second guide are the ones worth your time, because asking costs them something. You get a text when it happens. Your check ins are on day 3, day 8 and day 14, and they are about how she is doing, never about the download."
+}
