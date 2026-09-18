@@ -36,6 +36,7 @@
   --hair:#e3e4db;
   --clay:#c9705a;
 
+  --art-strip:url('assets/strip.jpg');
   --serif:'Fraunces',Georgia,serif;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
@@ -249,4 +250,51 @@
   .sk-cap-ew .ew-cover::after{ transform:rotate(1.8deg) translateX(4px); }
   .sk-cap-ew .ew-btn{ width:100%; padding:17px 22px; }
     .sk-cap-ew .ew-close{ padding:76px 0 64px; }
+}
+
+/* ---------- THE BREATH ----------
+   A photograph on the seam between the problem and the offer, with no copy on it at all. It is
+   the one beat this page can afford, and it stops three text sections running into each other.
+   Full-bleed already: `.sk-cap-ew` escapes the GHL row, so this sits edge to edge inside it. */
+.sk-cap-ew .ew-strip{
+  height:clamp(190px,26vw,320px);
+  background:var(--art-strip) center 62% / cover no-repeat;
+}
+
+/* ---------- WHAT YOU GET ----------
+   The section carries the CTA now, so the copy column needs the button and its note to sit under
+   the prose rather than centred like the hero's. */
+.sk-cap-ew .ew-get .ew-head .ew-btn{ margin-top:26px; }
+.sk-cap-ew .ew-get .ew-head .ew-note{ margin-left:0; text-align:left; max-width:44ch; }
+
+/* The one line that survives the mechanism section. Centred under the cards, quiet, and it is
+   the only place on the page that says "there is a reason for this". */
+.sk-cap-ew .ew-after{
+  margin:34px auto 0; max-width:52ch; text-align:center;
+  font-family:var(--serif); font-size:20px; line-height:1.45; color:var(--ink);
+}
+
+/* ---------- THE STICKY BAR, ON DESKTOP TOO ----------
+   ⚠️ OVERRIDDEN HERE, NOT IN THE SHARED COMPONENT. `_shared/capture/v1` ships the bar as
+   mobile-only (`display:flex` inside a max-width:900px query), and that file is loaded by every
+   capture page in every system: editing it to suit this lander would put a sticky bar on all of
+   them. → _shared/README.md
+   `[hidden]` still wins, so the pre-JS state is unchanged and capture.js still owns when it
+   shows: once the hero CTA has scrolled off the top. */
+.sk-cap-ew .sk-cap-bar{
+  display:flex;
+  background:var(--night, #12160f);
+  box-shadow:0 6px 20px rgba(31,36,32,.22);
+}
+.sk-cap-ew .sk-cap-bar[hidden]{ display:none !important; }
+.sk-cap-ew .sk-cap-bar-name{
+  color:#faf9f5; font-family:var(--serif); font-size:16px; font-weight:400; letter-spacing:.01em;
+}
+.sk-cap-ew .sk-cap-bar .sk-cap-btn{
+  background:var(--sage-lift, #a8b899); color:var(--night, #12160f);
+  font-family:var(--sans); font-weight:700;
+}
+@media (min-width:901px){
+  /* a little more room to breathe on a wide screen, where the bar is a rule across the page */
+  .sk-cap-ew .sk-cap-bar{ padding:13px clamp(20px,5vw,64px); gap:20px; }
 }

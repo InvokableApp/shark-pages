@@ -26,14 +26,11 @@
 -->
 <div class="sk-cap sk-cap-ew">
 
-  <!-- Mobile CTA bar. Ships hidden; the shared engine drops the attribute and reveals it on
-       the first scroll. Docks at the TOP, the house position. -->
   <div class="sk-cap-bar" hidden>
     <span class="sk-cap-bar-name">The No Crash Plan</span>
     <button type="button" class="sk-cap-btn" data-sk-open>Download the free plan</button>
   </div>
 
-  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
   <section class="ew-hero">
     <div class="ew-wrap">
       <div class="ew-mark">everyday well</div>
@@ -66,44 +63,16 @@
     </div>
   </section>
 
-  <!-- ── SOUND FAMILIAR ───────────────────────────────────────────────────── -->
+  <!-- ── 2. THE PROBLEM ───────────────────────────────────────────────────── -->
+  <!-- Recognition, and nothing else. Three cards, then one line that says there is a reason,
+       which is the whole of what used to be a dark section explaining insulin. The mechanism is
+       a good READ and it is not a reason to opt in: she already knows what 3pm feels like, and
+       the explanation is nineteen pages away. -->
   <section class="ew-sec">
     <div class="ew-wrap">
-      <!-- ⚠️ THE MOCKUP LIVES HERE, NOT IN THE HERO, and the pairing is the argument: the
-           document sits beside "it isn't you", so the reassurance and the thing that delivers it
-           are one object rather than two screens apart. Centred under the hero it was a picture
-           of a PDF; here it is the answer to the sentence next to it. -->
-      <div class="ew-intro">
-        <!-- ⚠️ THE SHEETS BEHIND THE COVER ARE REAL PAGES NOW, not the blank paper they used to
-             be, and only their edges show. Two things at once: it proves there is a document
-             behind the button rather than a mockup of one, and it is the safe way to show the
-             inside. The three-across grid this replaces rendered those same pages large enough
-             to READ on a wide screen, which handed over the walk instructions and the whole
-             "what doesn't count" list. A sliver proves; a legible page gives it away.
-
-             ⚠️ EVERY SHEET IN THE FAN IS CREAM AND TEXT-ONLY. The first build used the Move 1
-             page, which carries a full-bleed PHOTO across its top: rotated behind the cover that
-             read as a dark rectangle poking out of the corner, which looks like a rendering bug
-             rather than a page. It was also the page with the walk instructions on it. Any sheet
-             added here has to be checked for a dark band at the top edge AND for being sauce. -->
-        <figure class="ew-cover" data-sk-rev>
-          <img class="ew-pg ew-pg3" src="assets/page-journal.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="ew-pg ew-pg2" src="assets/page-calendar.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="ew-pg ew-pg1" src="assets/page-crash.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="ew-front" src="assets/guide-cover.jpg" width="900" height="1165"
-               alt="The No Crash Plan, a nineteen page guide" loading="lazy" decoding="async">
-        </figure>
-        <div class="ew-head" data-sk-rev>
-          <!-- ⚠️ NOT "it isn't willpower, it's a dip". That construction is already carrying the
-               mechanism section's opening line, and `copy-lint` counts "X is not A, it is B" as a
-               family: two of them on one page is a voice, not a choice. The eyebrow does the
-               you-are-not-alone beat, the headline does the solution, the sub names the tools. -->
-          <span class="ew-eyebrow">You're not the only one</span>
-          <h2>The dip is fixable, and the fix takes ten minutes a day</h2>
-          <p class="ew-head-sub">Nineteen pages: what's actually happening at 3pm, three changes
-            that take about ten minutes, a snack list for home, work and the car, and two pages
-            you print and tick off.</p>
-        </div>
+      <div class="ew-head" data-sk-rev>
+        <span class="ew-eyebrow">Sound familiar?</span>
+        <h2>You were fine all morning</h2>
       </div>
       <div class="ew-cards" data-sk-rev>
         <div class="ew-card">
@@ -122,41 +91,46 @@
             going to sleep badly again.</p>
         </div>
       </div>
+      <p class="ew-after" data-sk-rev>It isn't willpower. It's a dip that starts at lunch, and
+        that's the thing the plan flattens.</p>
+    </div>
+  </section>
 
-      <!-- The mid-page CTA, kept when the section that used to hold it was cut. Three buttons on
-           a page this short is the right number: hero, here, close. -->
-      <div class="ew-mid-cta" data-sk-rev>
-        <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
+  <!-- ── 3. A BREATH ──────────────────────────────────────────────────────── -->
+  <!-- Photograph only, no copy. It sits on the seam between the problem and the offer, which is
+       the one place a lander can afford a beat, and it is the cheapest way to stop three text
+       sections running together. Pulled from the guide's own art so the page and the document
+       look like one publication. -->
+  <div class="ew-strip" data-sk-rev role="presentation"></div>
+
+  <!-- ── 4. WHAT YOU GET ──────────────────────────────────────────────────── -->
+  <section class="ew-sec ew-get">
+    <div class="ew-wrap">
+      <div class="ew-intro">
+        <figure class="ew-cover" data-sk-rev>
+          <img class="ew-pg ew-pg3" src="assets/page-journal.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-pg ew-pg2" src="assets/page-calendar.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-pg ew-pg1" src="assets/page-crash.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="ew-front" src="assets/guide-cover.jpg" width="900" height="1165"
+               alt="The No Crash Plan, a nineteen page guide" loading="lazy" decoding="async">
+        </figure>
+        <div class="ew-head" data-sk-rev>
+          <span class="ew-eyebrow">What you get</span>
+          <h2>The dip is fixable, and the fix takes ten minutes a day</h2>
+          <p class="ew-head-sub">Nineteen pages: what's actually happening at 3pm, three changes
+            that take about ten minutes, a snack list for home, work and the car, and two pages
+            you print and tick off.</p>
+          <button type="button" class="sk-cap-btn ew-btn" data-sk-open>Download The Free Plan</button>
+          <p class="ew-note">Free. It lands in your inbox in about a minute. It won't fix
+            afternoons that are really a sleep or a medication problem.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── WHY IT HAPPENS ───────────────────────────────────────────────────── -->
-  <section class="ew-sec ew-dark">
-    <div class="ew-wrap ew-narrow">
-      <div class="ew-head" data-sk-rev>
-        <span class="ew-eyebrow">Why it happens</span>
-        <h2>The crash is what creates the craving</h2>
-      </div>
-      <div class="ew-prose" data-sk-rev>
-        <p>You eat lunch and your blood sugar climbs. Insulin clears it and overshoots, so an
-          hour or two later you're lower than you were before you ate. Low blood sugar feels
-          like tiredness, and it makes you want sugar, because sugar is the fastest way back up.</p>
-        <p>So the craving at 3pm isn't a willpower problem. It's a dip that started at lunch,
-          and that's why trying harder has never worked. Make the climb smaller and the dip
-          gets smaller with it.</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── CLOSE ────────────────────────────────────────────────────────────── -->
+  <!-- ── 5. CLOSE ─────────────────────────────────────────────────────────── -->
   <section class="ew-close">
     <div class="ew-wrap ew-narrow">
-      <!-- ⚠️ THE LAST CTA IS A CLOSE, NOT A LESSON. It used to teach the day-one move ("Day one
-           is a ten minute walk"), which gave away the easiest part of the plan AND ended the page
-           on a soft note. The job of this slot is one thing: make not clicking feel stupid.
-           Jeff, 2026-09-18: *"last cta should just be a hard sell."* -->
       <h2>Get the plan and start this afternoon</h2>
       <p class="ew-lede">Nineteen pages, a snack list, and two pages you print and tick off.
         Everything you need to stop losing your afternoons, and it takes about ten minutes a day.</p>
