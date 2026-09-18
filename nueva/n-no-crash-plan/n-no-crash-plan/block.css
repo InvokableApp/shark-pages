@@ -160,19 +160,24 @@
    as a picture of a PDF. Beside the copy it reads as the answer to the sentence next to it, which
    is the only reason a mockup earns its space on a lander at all. */
 .sk-cap-ew .ew-intro{
-  display:grid; grid-template-columns:minmax(0,300px) 1fr;
+  /* ⚠️ THE ART COLUMN IS WIDER THAN THE ARTWORK, ON PURPOSE. A viewport-scaled gap could not fix
+     this: the fan's overhang is a function of the COVER's width and its rotation, both fixed in
+     px, while a vw gap shrinks exactly when the overlap needs it most (measured -2px at 1024 and
+     -8px at 940 with a 7vw gap). So the track reserves the overhang instead: 300px of cover plus
+     72px of room for the sheets to rotate into, and the gap is then a real gap. */
+  display:grid; grid-template-columns:minmax(0,372px) 1fr;
   /* ⚠️ THE GAP HAS TO CLEAR THE FAN, NOT THE FIGURE. The sheets are rotated up to 9deg, so the
      back one's painted box overhangs its grid cell by ~64px on the right: at every width from
      940 to 1440 the old 30-72px gap let the top sheet run UNDER the headline (measured -2px at
      1440, -27px at 940). A rotated child does not widen its column, it just overlaps the next
      one, and nothing about the layout looks broken until you read the text. */
-  gap:clamp(64px,7vw,108px); align-items:center; margin-bottom:58px;
+  gap:clamp(24px,3vw,56px); align-items:center; margin-bottom:58px;
 }
 .sk-cap-ew .ew-intro .ew-head{ text-align:left; margin:0; max-width:none; }
 .sk-cap-ew .ew-head-sub{
   margin-top:16px; font-size:17px; line-height:1.6; color:var(--body); max-width:38ch;
 }
-.sk-cap-ew .ew-cover{ margin:0; max-width:300px; position:relative; }
+.sk-cap-ew .ew-cover{ margin:0 auto 0 0; max-width:300px; position:relative; }
 
 /* Three real pages fanned behind the cover, pivoting on the bottom-left corner, which is how a
    real stack splays. Only 10-18px of each shows: enough to read as paper with something printed
