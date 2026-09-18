@@ -117,11 +117,24 @@
 
      Ported from glp-free-ignyt-sample's block.js, which is where the mechanic was
      first built. It lives here now so the next giveaway inherits it. */
+  /* GENERALISED 2026-09-18 from ONE cta to ALL of them. The GLP Foods confirmation offers the
+     text both inside its route sheet and as a plain line on the page, because someone who has
+     already decided to text should not have to open a chooser to do it. Each cta prefers a
+     phone slot INSIDE itself and falls back to the scope-level one, which is what a
+     single-cta page has.
+
+     PROVABLY A NO-OP for every page shipped before today: counted across all seven pages on
+     this component, each carries 0 or 1 [data-sms-cta] and 0 or 1 [data-rep-phone]. With one
+     cta this walks the same single element, reads the same slot through the fallback, and
+     does the same thing it always did. */
   function wireSms(scope) {
-    var cta = scope.querySelector("[data-sms-cta]");
+    var ctas = scope.querySelectorAll("[data-sms-cta]");
+    for (var n = 0; n < ctas.length; n++) wireOneSms(scope, ctas[n]);
+  }
+  function wireOneSms(scope, cta) {
     if (!cta) return;
     var word = (cta.getAttribute("data-sms-body") || "CONFIRM").trim();
-    var slot = scope.querySelector("[data-rep-phone]");
+    var slot = cta.querySelector("[data-rep-phone]") || scope.querySelector("[data-rep-phone]");
     var raw = slot ? slot.textContent : "";
     var digits = raw.replace(/[^\d+]/g, "");
     var plus = digits.charAt(0) === "+";

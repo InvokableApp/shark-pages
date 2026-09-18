@@ -80,3 +80,17 @@
    toward, so it is the one that carries every ask. */
 .sk-conf-glpf .sk-conf-mid .sk-conf-btn{background:var(--sk-accent);color:#fff}
 .sk-conf-glpf .sk-conf-mid .sk-conf-btn:hover{background:var(--sk-accent-d)}
+
+/* The page-level text option, directly under the primary CTA. Quiet on purpose: the button
+   above it is the ask, this is the shortcut for someone who already knows they want to text.
+   The number is underlined rather than button-shaped so it does not read as a second CTA
+   competing with the first. */
+.sk-conf-glpf .sk-conf-glpf-textline{
+  margin:.65rem 0 0;font-size:.92rem;opacity:1;
+}
+.sk-conf-glpf .sk-conf-glpf-textline a{
+  color:var(--sk-brand-text);font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--sk-accent);padding-bottom:1px;
+}
+.sk-conf-glpf .sk-conf-glpf-textline a:hover{color:var(--sk-accent-d)}
+.sk-conf-glpf .sk-conf-glpf-textline a:focus-visible{outline:2px solid var(--sk-accent);outline-offset:3px}

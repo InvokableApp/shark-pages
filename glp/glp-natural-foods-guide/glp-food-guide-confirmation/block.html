@@ -35,7 +35,8 @@
 -->
 <div class="sk-conf sk-conf-glpf"
      data-cv-rep_phone="{{custom_values.rep_phone}}"
-     data-cv-your_facebook_messenger_link="{{custom_values.your_facebook_messenger_link}}">
+     data-cv-your_facebook_messenger_link="{{custom_values.your_facebook_messenger_link}}"
+     data-cv-your_email_designated_domain="{{custom_values.your_email_designated_domain}}">
 
   <!-- ============ BAND 1 · the confirmation, with the video beside it ============
        The video used to sit in its own band below this one. It says "watch this WHILE
@@ -120,12 +121,25 @@
            href is the Messenger route, so the control still works with JS off and still
            does the right thing if the sheet is ever removed. -->
       <div class="sk-conf-btns">
-        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open href="glp-food-guide-dm-redirect">
+        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
+           data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
           Yeah! Send me product / sample info! 🔥
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
       <p class="sk-conf-ask">Click above to message a leader now. 💬</p>
+
+      <!-- THE TEXT OPTION, ON THE PAGE. It is also inside the sheet, and that is deliberate:
+           the sheet is for someone deciding HOW to reach us, this is for someone who already
+           knows they want to text and should not have to open anything to do it. One tap.
+           Same custom value, same E.164 normalisation, and it removes itself on a snapshot
+           where the number is still instruction text (confirm.js wireSms). -->
+      <p class="sk-conf-fine sk-conf-glpf-textline">
+        Prefer to text?
+        <a data-sms-cta data-sms-body="INFO" href="sms:{{custom_values.rep_phone}}?&amp;body=INFO">
+          <span data-sms-label>Text INFO to <span data-rep-phone>{{custom_values.rep_phone}}</span></span>
+        </a>
+      </p>
     </div>
   </section>
 
@@ -181,7 +195,7 @@
           <p class="sk-conf-ask">Tap below to message a team leader for <u>product or sample info</u> now.</p>
 
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" href="glp-food-guide-product">
+            <a class="sk-conf-btn" data-sk-step="glp-food-guide-product" href="glp-food-guide-product">
               Yeah... Show me the GLP alternatives! 👀
             </a>
           </div>
@@ -233,7 +247,8 @@
 
       <div class="sk-conf-routes-list">
 
-        <a class="sk-conf-route" data-sk-route href="glp-food-guide-dm-redirect">
+        <a class="sk-conf-route" data-sk-route
+           data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.3 2 2 6.2 2 11.7c0 3.1 1.4 5.9 3.7 7.7v3.1l3.4-1.9c.9.3 1.9.4 2.9.4 5.7 0 10-4.2 10-9.3S17.7 2 12 2zm1 12.5l-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8z"/></svg>
           <span>Message on Facebook<small>Opens Messenger</small></span>
         </a>
