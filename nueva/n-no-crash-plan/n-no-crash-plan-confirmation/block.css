@@ -1,24 +1,101 @@
-/* nueva / n-no-crash-plan / n-no-crash-plan-confirmation
+/* nueva/n-no-crash-plan/n-no-crash-plan-confirmation
  *
- * The design lives in _shared/confirm/v1/, scoped under .sk-conf, and is shared by every
- * confirmation page in every system. This file declares ONLY the palette, on the block's own scope
- * class, and it cascades into the shared component. No brand swatch is touched.
+ * Everyday Well, same tokens as the opt-in so the three pages read as one object. This page
+ * imports no shared component: it has no capture form, no popup and no mobile CTA bar, so the
+ * capture component would ship furniture nothing on the page uses.
+ *
+ * ⚠️ THE FULL-BLEED ESCAPE IS NOT OPTIONAL and it cannot be seen locally. GHL wraps a
+ * custom-code block in `.c-row > .inner` at max-width 1170px with 15px of column padding, so
+ * at 1440px the block is pinned to a 1000px column at x=220 and every full-width section
+ * renders as a floating box with the page background down both sides. Measured on the LIVE
+ * opt-in page, 2026-09-17. → references/PAGE-COPY-SOP.md §6
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600;650;700&display=swap");
 
-.sk-conf-nva{
-  --sk-navy:    var(--nva-navy,#102a2a);
-  --sk-navy-d:  var(--nva-navy-d,#071116);
-  --sk-teal:    var(--nva-teal,#0abab5);
-  --sk-teal-d:  var(--nva-teal-d,#00aaa6);
-  --sk-sage:    var(--nva-sage,#087f7b);
-  --sk-lime:    var(--nva-lime,#5fd9d5);
-  --sk-ink:     var(--nva-ink,#141313);
-  --sk-body:    var(--nva-body,#4a5560);
-  --sk-cream:   var(--nva-cream,#fcfeff);
-  --sk-mist:    var(--nva-mist,#e8f8f6);
-  --sk-line:    var(--nva-line,#d5dfe1);
-  --sk-_note:   var(--nva-_note,Measured from nuevalife.com/nuevaassets/css/style.css 2026-09-08. #0ABAB5 is the brand colour (116 uses). Nueva's palette is monochrome teal, so 'sage' and 'lime' carry deep and light teal rather than greens; the token NAMES are fixed by systems/_TEMPLATE.json, the hues are not.);
-  --sk-serif:  var(--nva-serif,Montserrat,"Helvetica Neue",Arial,sans-serif);
-  --sk-sans:   var(--nva-sans,Montserrat,system-ui,sans-serif);
+.sk-ew-conf{
+  --paper:#faf9f5;
+  --tint:#f0f2ea;
+  --sage-mid:#6d7d5e;
+  --sage-deep:#4c5a41;
+  --sage-lift:#a8b899;
+  --night:#12160f;
+  --ink:#1f2420;
+  --body:#3a4035;
+  --grey:#6f7568;
+
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+
+  /* two column widths for the whole page, never six. → PAGE-COPY-SOP §6 */
+  --measure:640px;
+  --wide:1000px;
+  --gutter:28px;
+
+  width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sk-ew-conf *{ box-sizing:border-box; }
+.sk-ew-conf .ew-wrap{ width:100%; max-width:var(--wide); margin:0 auto; padding:0 var(--gutter); text-align:center; }
+.sk-ew-conf .ew-narrow{ max-width:var(--measure); }
+
+.sk-ew-conf h1,.sk-ew-conf h2{ font-family:var(--serif); font-weight:400; color:var(--ink); margin:0; letter-spacing:-.01em; }
+.sk-ew-conf h1{ font-size:clamp(30px,4.6vw,44px); line-height:1.1; max-width:16ch; margin:14px auto 0; }
+.sk-ew-conf h2{ font-size:clamp(25px,3.8vw,34px); line-height:1.15; margin-top:12px; }
+.sk-ew-conf p{ margin:16px auto 0; max-width:var(--measure); color:var(--body); font-size:17px; }
+
+.sk-ew-conf .ew-mark{ font-family:var(--serif); font-style:italic; font-size:19px; color:var(--sage-mid); letter-spacing:.02em; }
+.sk-ew-conf .ew-eyebrow{
+  display:block; margin-top:34px; font-size:12px; font-weight:650; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--sage-mid);
+}
+.sk-ew-conf .ew-lede{ font-size:18px; }
+
+/* ---------- sections ---------- */
+.sk-ew-conf .ew-top{ padding:56px 0 0; }
+.sk-ew-conf .ew-gate{ background:var(--night); margin-top:-70px; padding:130px 0 92px; }
+.sk-ew-conf .ew-gate h2{ color:#faf9f5; }
+.sk-ew-conf .ew-gate .ew-eyebrow{ color:var(--sage-lift); margin-top:0; }
+.sk-ew-conf .ew-gate p{ color:rgba(250,249,245,.82); }
+.sk-ew-conf .ew-start{ background:var(--tint); padding:76px 0 64px; }
+
+/* ---------- buttons ---------- */
+.sk-ew-conf .ew-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+.sk-ew-conf .ew-btn{
+  display:inline-block; background:var(--sage-deep); color:#fff; text-decoration:none;
+  font-weight:650; font-size:16px; padding:15px 26px; border-radius:10px; transition:filter .15s ease;
+}
+.sk-ew-conf .ew-btn:hover{ filter:brightness(1.1); }
+.sk-ew-conf .ew-btn-2{ background:transparent; color:var(--sage-deep); border:1px solid var(--sage-deep); }
+.sk-ew-conf .ew-gate .ew-btn-lg{ margin-top:30px; padding:18px 34px; font-size:17px; background:var(--sage-lift); color:var(--night); }
+.sk-ew-conf .ew-alt{ margin-top:16px; font-size:15px; }
+.sk-ew-conf .ew-alt a{ color:var(--sage-lift); }
+
+/* The cover overlaps the dark section, the same move the opt-in makes, so the two pages share a
+   silhouette and not only a palette. Fanned into a booklet for the same reason it is on the
+   lander: a flat rectangle reads as a JPEG, a fanned one reads as a document with pages in it. */
+.sk-ew-conf .ew-cover{ position:relative; max-width:260px; margin:44px auto 0; }
+.sk-ew-conf .ew-cover::before,
+.sk-ew-conf .ew-cover::after{
+  content:""; position:absolute; inset:0; z-index:0; background:#fbfaf6; border-radius:3px;
+  border:1px solid rgba(31,36,32,.13); transform-origin:0 100%;
+}
+.sk-ew-conf .ew-cover::before{ background:#f3f1e9; transform:rotate(6.4deg) translateX(13px); }
+.sk-ew-conf .ew-cover::after{ transform:rotate(3.1deg) translateX(6px); }
+.sk-ew-conf .ew-cover img{
+  position:relative; z-index:1; width:100%; height:auto; border-radius:3px;
+  box-shadow:0 30px 60px -22px rgba(31,36,32,.42);
+}
+
+.sk-ew-conf .ew-foot{ margin-top:46px; font-family:var(--serif); font-style:italic; font-size:17px; color:var(--grey); }
+
+@media (max-width:620px){
+  .sk-ew-conf{ --gutter:22px; }
+  .sk-ew-conf .ew-ctas{ flex-direction:column; }
+  .sk-ew-conf .ew-btn{ width:100%; }
+  .sk-ew-conf .ew-cover{ max-width:210px; }
+  .sk-ew-conf .ew-cover::before{ transform:rotate(3.6deg) translateX(7px); }
+  .sk-ew-conf .ew-cover::after{ transform:rotate(1.8deg) translateX(4px); }
+  .sk-ew-conf .ew-gate{ padding:112px 0 72px; }
 }

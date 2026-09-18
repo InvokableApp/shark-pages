@@ -221,6 +221,15 @@
       "elementTitle": "n-no-crash-plan-read",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-no-crash-plan/n-no-crash-plan",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "PuEZt3cjGvyC4JrWVseC",
+      "elementId": "custom-code-zhdg7sb6t5",
+      "elementTitle": "n-no-crash-plan",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
