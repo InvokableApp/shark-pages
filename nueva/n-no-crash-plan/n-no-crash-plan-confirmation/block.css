@@ -53,12 +53,29 @@
 .sk-ew-conf .ew-lede{ font-size:18px; }
 
 /* ---------- sections ---------- */
-.sk-ew-conf .ew-top{ padding:56px 0 0; }
-.sk-ew-conf .ew-gate{ background:var(--night); margin-top:-70px; padding:130px 0 92px; }
-.sk-ew-conf .ew-gate h2{ color:#faf9f5; }
+/* ⚠️ THE CONFIRMATION BLOCK IS SHORT ON PURPOSE. It used to run a full screen and end in a
+   mockup of the guide she had just been sent, which pushed the one thing this page is FOR below
+   the fold. Everything here is now "it is in your inbox, check spam" and two secondary buttons. */
+.sk-ew-conf .ew-top{ padding:52px 0 46px; }
+
+/* The dark section no longer tucks under an overlapping cover, so the -70px pull and the 130px
+   top padding that compensated for it are both gone. The art moved INSIDE this section. */
+.sk-ew-conf .ew-gate{ background:var(--night); padding:64px 0 72px; }
+.sk-ew-conf .ew-gate h2{ color:#faf9f5; font-size:clamp(27px,4.2vw,38px); margin-top:10px; }
 .sk-ew-conf .ew-gate .ew-eyebrow{ color:var(--sage-lift); margin-top:0; }
-.sk-ew-conf .ew-gate p{ color:rgba(250,249,245,.82); }
-.sk-ew-conf .ew-start{ background:var(--tint); padding:76px 0 64px; }
+.sk-ew-conf .ew-gate p{ color:rgba(250,249,245,.82); margin-left:0; margin-right:0; }
+.sk-ew-conf .ew-gate .ew-note{ color:rgba(250,249,245,.62); font-size:16px; }
+.sk-ew-conf .ew-start{ background:var(--tint); padding:70px 0 60px; }
+
+/* Cover LEFT, ask RIGHT, so the picture and the button are one object rather than a picture with
+   a paragraph somewhere under it. Falls back to stacked below the phone breakpoint, where the
+   cover leads because a face-on document is the fastest thing to understand at a glance. */
+.sk-ew-conf .ew-gate-grid{
+  display:flex; align-items:center; gap:clamp(28px,5vw,64px); text-align:left;
+  max-width:var(--wide);
+}
+.sk-ew-conf .ew-gate-copy{ flex:1 1 auto; min-width:0; }
+.sk-ew-conf .ew-gate-copy .ew-eyebrow{ display:block; }
 
 /* ---------- buttons ---------- */
 .sk-ew-conf .ew-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
@@ -68,14 +85,16 @@
 }
 .sk-ew-conf .ew-btn:hover{ filter:brightness(1.1); }
 .sk-ew-conf .ew-btn-2{ background:transparent; color:var(--sage-deep); border:1px solid var(--sage-deep); }
-.sk-ew-conf .ew-gate .ew-btn-lg{ margin-top:30px; padding:18px 34px; font-size:17px; background:var(--sage-lift); color:var(--night); }
-.sk-ew-conf .ew-alt{ margin-top:16px; font-size:15px; }
+.sk-ew-conf .ew-gate .ew-btn-lg{ margin-top:26px; padding:18px 34px; font-size:17px; background:var(--sage-lift); color:var(--night); }
+.sk-ew-conf .ew-alt{ margin:14px 0 0; font-size:15px; }
 .sk-ew-conf .ew-alt a{ color:var(--sage-lift); }
 
-/* The cover overlaps the dark section, the same move the opt-in makes, so the two pages share a
-   silhouette and not only a palette. Fanned into a booklet for the same reason it is on the
-   lander: a flat rectangle reads as a JPEG, a fanned one reads as a document with pages in it. */
-.sk-ew-conf .ew-cover{ position:relative; max-width:260px; margin:44px auto 0; }
+/* ⚠️ THIS IS THE SUPPLEMENT GUIDE'S COVER, NOT THE CRASH GUIDE'S, and the swap is the point of
+   the page rather than a decoration change. She already has the crash guide; showing it again
+   advertises something she owns. The document she cannot get without asking a person for it is
+   the one worth a picture. Fanned into a booklet for the same reason it is on the lander: a flat
+   rectangle reads as a JPEG, a fanned one reads as a document with pages in it. */
+.sk-ew-conf .ew-cover{ position:relative; flex:0 0 clamp(190px,26vw,260px); margin:0; }
 .sk-ew-conf .ew-cover::before,
 .sk-ew-conf .ew-cover::after{
   content:""; position:absolute; inset:0; z-index:0; background:#fbfaf6; border-radius:3px;
@@ -94,8 +113,11 @@
   .sk-ew-conf{ --gutter:22px; }
   .sk-ew-conf .ew-ctas{ flex-direction:column; }
   .sk-ew-conf .ew-btn{ width:100%; }
-  .sk-ew-conf .ew-cover{ max-width:210px; }
+  .sk-ew-conf .ew-cover{ flex:0 0 auto; max-width:200px; margin:0 auto; }
   .sk-ew-conf .ew-cover::before{ transform:rotate(3.6deg) translateX(7px); }
   .sk-ew-conf .ew-cover::after{ transform:rotate(1.8deg) translateX(4px); }
-  .sk-ew-conf .ew-gate{ padding:112px 0 72px; }
+  .sk-ew-conf .ew-gate{ padding:52px 0 60px; }
+  .sk-ew-conf .ew-gate-grid{ flex-direction:column; text-align:center; gap:30px; }
+  .sk-ew-conf .ew-gate-copy p{ margin-left:auto; margin-right:auto; }
+  .sk-ew-conf .ew-btn-lg{ width:100%; }
 }
