@@ -1,0 +1,65 @@
+/* conectiv / c-natural-glp-foods-guide-free-resource / c-natural-glp-foods-guide-confirmation
+ *
+ * Runs _shared/confirm/v1. The @import pins the version: do not bump it here, that is a
+ * deliberate migration (_shared/README.md).
+ *
+ * PALETTE IS CONECTIV'S SYSTEM TEAL, NOT THIS PAGE'S NATIVE GREEN. The native page is
+ * #1a3626 green on #faf7f2 cream. Jeff chose the system palette (2026-09-18) so that both
+ * Conectiv confirmations read as one system rather than two, which is the consistency the
+ * whole SOP library exists to enforce.
+ *
+ * ⚠️ THESE TOKENS ARE DUPLICATED FROM
+ *      conectiv/c-free-coffee-sample/c-free-coffee-sample-confirmation/block.css
+ *    and that file is the source of truth. Keep them in sync; if a third Conectiv page on
+ *    this component appears, promote them instead of copying a third time.
+ *
+ * ⚠️ _brand/conectiv/tokens.css IS NOT THE SOURCE. The loader fetches it for every block
+ *    under conectiv/, but it holds an older BLUE palette (--ctv-blue #2563eb) from a previous
+ *    design era. The coffee-sample page already ignores it and declares teal locally; this
+ *    page does the same. Nothing here references a --ctv-* var, so the blue is inert.
+ *    Worth reconciling one day, but not as a side effect of building a page.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+.sk-conf-ctv{
+  --sk-navy:   #0f3b3d;
+  --sk-navy-d: #082a2b;
+  --sk-teal:   #1a9184;
+  --sk-teal-d: #12706b;
+  --sk-sage:   #b9834f;
+  --sk-lime:   #e6c79b;
+  --sk-ink:    #16232b;
+  --sk-body:   #55636b;
+  --sk-cream:  #fcfbf8;
+  --sk-mist:   #f1f5f3;
+  --sk-line:   #e3ebe8;
+  --sk-serif:  Jost, "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --sk-sans:   Inter, system-ui, -apple-system, sans-serif;
+}
+.sk-conf-ctv h1,.sk-conf-ctv h2{font-weight:300;letter-spacing:-.015em}
+
+/* The accent set the route sheet and the mid band's button read from. confirm.css uses
+ * --sk-accent as BOTH a button ground (white label on it) and as body TYPE on cream, and one
+ * value cannot serve both at AA. Split, and measured with check-contrast.mjs, same as the GLP
+ * page: the teal is deep enough to carry white, and the type tone goes deeper still. */
+.sk-conf-ctvglp{
+  --sk-accent:      #12706b;   /* button fill, white label */
+  --sk-accent-d:    #0d5754;   /* button hover             */
+  --sk-brand-text:  #0b514e;   /* accent AS TYPE, on cream */
+  --sk-badge:       #dcefec;
+  --sk-panel:       #fcfbf8;
+}
+
+/* The page-level text option, under the hero's controls. Quiet on purpose: the buttons above
+   are the ask, this is the shortcut for someone who has already decided to text. It sits on
+   the DARK band here (the GLP page puts it on cream), so it takes light treatment. */
+.sk-conf-ctvglp .sk-conf-ctvglp-textline{
+  margin:1.1rem 0 0;font-size:.92rem;color:rgba(255,255,255,.8);opacity:1;
+}
+.sk-conf-ctvglp .sk-conf-ctvglp-textline a{
+  color:var(--sk-lime);font-weight:700;text-decoration:none;
+  border-bottom:2px solid rgba(230,199,155,.55);padding-bottom:1px;
+}
+.sk-conf-ctvglp .sk-conf-ctvglp-textline a:hover{border-bottom-color:var(--sk-lime)}
+.sk-conf-ctvglp .sk-conf-ctvglp-textline a:focus-visible{outline:2px solid var(--sk-lime);outline-offset:3px}

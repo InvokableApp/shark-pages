@@ -413,10 +413,17 @@
 
      ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-route-open]
      and zero [data-sk-routes] nodes, so this binds nothing on them. */
+  /* GENERALISED 2026-09-18 from ONE opener to ALL of them, for the Conectiv GLP Foods
+     confirmation, which repeats its "DM Me For GLP Alternatives" control in two bands. They
+     share ONE sheet: the sheet is the answer to "how do you want to reach me", and that
+     answer does not change depending on which copy of the question was asked.
+
+     PROVABLY A NO-OP for every page shipped before today: counted, exactly one page carries
+     [data-sk-route-open] at all (GLP Foods) and it carries one. */
   function wireRoutes(scope) {
-    var opener = scope.querySelector("[data-sk-route-open]");
+    var openers = scope.querySelectorAll("[data-sk-route-open]");
     var sheet = scope.querySelector("[data-sk-routes]");
-    if (!opener || !sheet || sheet.getAttribute("data-sk-routes-wired")) return;
+    if (!openers.length || !sheet || sheet.getAttribute("data-sk-routes-wired")) return;
     sheet.setAttribute("data-sk-routes-wired", "1");
 
     /* Drop any route the page could not resolve a destination for. */
@@ -432,11 +439,14 @@
        is removed entirely if there is no survivor, so it can never be a dead control. */
     if (live.length < 2) {
       if (sheet.parentNode) sheet.parentNode.removeChild(sheet);
-      if (!live.length) { if (opener.parentNode) opener.parentNode.removeChild(opener); return; }
-      opener.setAttribute("href", live[0].getAttribute("href"));
-      var tgt = live[0].getAttribute("target");
-      if (tgt) { opener.setAttribute("target", tgt); opener.setAttribute("rel", "noopener"); }
-      opener.removeAttribute("data-sk-route-open");
+      for (var o = 0; o < openers.length; o++) {
+        var op = openers[o];
+        if (!live.length) { if (op.parentNode) op.parentNode.removeChild(op); continue; }
+        op.setAttribute("href", live[0].getAttribute("href"));
+        var tgt = live[0].getAttribute("target");
+        if (tgt) { op.setAttribute("target", tgt); op.setAttribute("rel", "noopener"); }
+        op.removeAttribute("data-sk-route-open");
+      }
       return;
     }
 
@@ -470,7 +480,7 @@
     }
     function onKey(e) { if (e.key === "Escape") close(); }
 
-    opener.addEventListener("click", open);
+    for (var k = 0; k < openers.length; k++) openers[k].addEventListener("click", open);
     /* Backdrop only: a click that started inside the box must not close it. */
     sheet.addEventListener("click", function (e) { if (e.target === sheet) close(); });
     var x = sheet.querySelector("[data-sk-routes-close]");

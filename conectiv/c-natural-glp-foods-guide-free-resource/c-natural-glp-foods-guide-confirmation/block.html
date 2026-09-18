@@ -1,0 +1,163 @@
+<!--
+  conectiv/c-natural-glp-foods-guide-free-resource/c-natural-glp-foods-guide-confirmation
+
+  Step 2 of "Conectiv - GLP Foods Lead Mag - Funnel", rebuilt on _shared/confirm/v1. Sibling of
+  glp/glp-natural-foods-guide/glp-food-guide-confirmation: same campaign archetype, different
+  system, and DELIBERATELY NOT A COPY OF IT. What differs is listed here because each difference
+  was measured on this account, not inherited.
+
+  NO VIDEO. This funnel has none, so there is no split hero: the standard centred hero, which is
+  what the other pages on this component use. The split variant is opt-in per page.
+
+  IT ALREADY HAD A CTA GLP LACKS. "Access The Free Guide Now" hands over the guide immediately
+  instead of only pointing at the inbox. Kept, and kept as the PRIMARY control.
+
+  THE DM BUTTONS WERE ALREADY WIRED CORRECTLY. Both point at the DM Redirect step
+  (3ee45070, /c-glp-dm-redirect), which forwards to {{custom_values.conectiv__your_messenger}}.
+  Nothing was re-pointed. (Their native visitWebsite url carried a vestigial
+  conectiv__amaze_link, which `action: go-to-funnel-step` ignored. Not carried across.)
+
+  ⚠️ THE DOMAIN CV IS NOT THE ONE GLP USES, AND THE SIMILAR NAME IS A TRAP.
+     conectiv__main_url                  "Enter your main domain ... (e.g. yourbrand.com)"
+     conectiv__email_designated_domain   "Enter your GHL email SENDING domain (e.g. mail.yourbrand.com)"
+     GLP's your_email_designated_domain holds the connected apex domain, so it is right there.
+     Conectiv splits the two, and a mail subdomain does not serve funnel pages. Using the
+     same-sounding CV here would build every step link on mail.yourbrand.com and kill them all.
+     This page uses conectiv__main_url. (CLAUDE.md: nothing generalises between systems
+     without measuring.)
+
+  COPY IS THIS PAGE'S OWN WORDS, carried verbatim, including the product name AMAZE. The only
+  change is sentence case on the headline and dropping the duplicated second DM button's
+  trailing ellipsis inconsistency.
+
+  No em-dashes anywhere in shipped copy.
+-->
+<div class="sk-conf sk-conf-ctv sk-conf-ctvglp"
+     data-cv-conectiv__your_phone="{{custom_values.conectiv__your_phone}}"
+     data-cv-conectiv__main_url="{{custom_values.conectiv__main_url}}">
+
+  <!-- ===================== BAND 1 · the confirmation ===================== -->
+  <section class="sk-conf-top">
+    <div class="sk-conf-wrap">
+      <span class="sk-conf-pill">📥 Check your inbox</span>
+
+      <h1>Your GLP Foods Guide Is <span class="sk-conf-hl">On Its Way.</span></h1>
+
+      <p class="sk-conf-note">
+        We have sent the GLP Foods Guide to your email. It should arrive within the next two
+        minutes. If you do not see it, please check your <b>Promotions</b>, <b>Updates</b> or
+        <b>Spam</b> folders, as it could be there.
+      </p>
+
+      <p class="sk-conf-lede">
+        While you wait: if you want an easy way to quiet food cravings and support your weight,
+        tap <span class="sk-conf-hl">DM Me For GLP Alternatives</span> below and shoot me a
+        message. These products could be a perfect fit.
+      </p>
+
+      <!-- The guide is the thing they asked for, so it is the primary control. The DM is the
+           optional second step and sits beside it as a ghost, not competing for the same eye. -->
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn sk-conf-btn-lg"
+           data-sk-step="c-natural-glp-foods-guide-read" href="c-natural-glp-foods-guide-read">
+          Access The Free Guide Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="sk-conf-btn sk-conf-btn-ghost sk-conf-btn-lg" data-sk-route-open
+           data-sk-step="c-glp-dm-redirect" href="c-glp-dm-redirect">
+          DM Me For GLP Alternatives
+        </a>
+      </div>
+
+      <!-- The text option, on the page. Also inside the sheet, deliberately: the sheet is for
+           someone deciding HOW to reach out, this is for someone who already knows. Removes
+           itself when the number is still instruction text (block.js). -->
+      <p class="sk-conf-fine sk-conf-ctvglp-textline">
+        Prefer to text?
+        <a data-sms-cta data-sms-body="GLP" href="sms:{{custom_values.conectiv__your_phone}}?&amp;body=GLP">
+          <span data-sms-label>Text GLP to <span data-rep-phone>{{custom_values.conectiv__your_phone}}</span></span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 2 · step one was food =====================
+       This page's second block, kept whole. AMAZE is named because the live page names it;
+       the SHARK brand still routes rather than sells, and the CTA hands off to a human. -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <hr class="sk-conf-rule">
+
+      <h2>Supporting These Hormones With Food Is Step One, And It Is Not Always Easy To Do On Your Own.</h2>
+
+      <p class="sk-conf-body">
+        If you would like an easy way to go further, take a look at the all natural GLP support
+        product going viral in the wellness community.
+      </p>
+
+      <p class="sk-conf-body">
+        AMAZE is a daily gut-health formula built to support the same GLP pathways, to help quiet
+        the food noise, cut cravings, and support your weight journey.
+      </p>
+
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
+           data-sk-step="c-glp-dm-redirect" href="c-glp-dm-redirect">
+          DM Me For GLP Alternatives
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the disclaimer ===================== -->
+  <section class="sk-conf-foot">
+    <div class="sk-conf-wrap">
+      <p>The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+      <p>We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+      <p>Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+      <p>These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding weight loss, appetite, or any other outcome.</p>
+    </div>
+  </section>
+
+  <!-- ===================== THE ROUTE SHEET =====================
+       ONE sheet, opened by BOTH DM controls. The answer to "how do you want to reach me" does
+       not change depending on which copy of the question was asked.
+
+       Messenger goes to the DM Redirect STEP, not to a messenger URL: that step already
+       forwards to conectiv__your_messenger, so the account owns the redirect and this block
+       never has to know the rep's messenger address.
+
+       ⚠️ ON THE SNAPSHOT ONLY THE MESSENGER ROUTE SURVIVES. conectiv__your_phone holds
+          "Enter your phone number" until a buyer fills it, which is correct for a snapshot.
+          confirm.js drops the text route, removes the sheet, and both DM controls quietly
+          become plain links to the DM step. A one-option chooser is worse than none.
+
+       ⚠️ NOTHING LISTENS FOR THE WORD "GLP" YET. Same open item as GLP Foods and the IGNYT
+          sample: the text lands in the rep's own inbox, there is no inbound-SMS keyword
+          workflow on this campaign. -->
+  <div class="sk-conf-routes" data-sk-routes role="dialog" aria-modal="true" aria-label="Choose how to get in touch">
+    <div class="sk-conf-routes-box">
+      <button class="sk-conf-routes-x" data-sk-routes-close type="button" aria-label="Close">&times;</button>
+
+      <h3>How would you like to reach me?</h3>
+      <p>Either one comes straight to me. Pick whichever you actually use.</p>
+
+      <div class="sk-conf-routes-list">
+
+        <a class="sk-conf-route" data-sk-route
+           data-sk-step="c-glp-dm-redirect" href="c-glp-dm-redirect">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.3 2 2 6.2 2 11.7c0 3.1 1.4 5.9 3.7 7.7v3.1l3.4-1.9c.9.3 1.9.4 2.9.4 5.7 0 10-4.2 10-9.3S17.7 2 12 2zm1 12.5l-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8z"/></svg>
+          <span>Message on Facebook<small>Opens Messenger</small></span>
+        </a>
+
+        <a class="sk-conf-route sk-conf-route-alt" data-sk-route data-sms-cta data-sms-body="GLP"
+           href="sms:{{custom_values.conectiv__your_phone}}?&amp;body=GLP">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+          <span data-sms-label>Send a text<small>To <span data-rep-phone>{{custom_values.conectiv__your_phone}}</span></small></span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
