@@ -1,0 +1,250 @@
+<!--
+  glp/glp-natural-foods-guide/glp-food-guide-confirmation
+
+  Step 2 of the GLP Shark Natural GLP Foods Guide funnel, rebuilt on _shared/confirm/v1.
+
+  WHY THIS PAGE IS THE ONE THAT LOOKED WRONG. The shared confirmation component was
+  DERIVED from this page's shape (see the header of _shared/confirm/v1/confirm.css:
+  "read off the shipped GLP Foods confirmation page"). Every other system's guide
+  confirmation has been running the polished version of this layout for weeks while the
+  original stayed hand built in the GHL builder. This closes that loop: the page that
+  taught the component now runs it.
+
+  NOTHING WAS RE-WRITTEN AND NOTHING WAS RE-POINTED. Every headline, every line of body
+  copy, every button label and sub-label, the Vimeo id and all four disclaimer paragraphs
+  are the live page's own words, carried across verbatim apart from sentence case and the
+  removal of the double "While you wait" heading (the live page shipped that twice, once
+  desktop-only and once mobile-only, purely to run two font sizes; the component does that
+  with a clamp).
+
+  BUTTON DESTINATIONS ARE THE LIVE PAGE'S, UNCHANGED:
+    button 1  stepPath 02f23d32-c111-4748-b4ec-c4d598ba9805  =  Recipe Guide      /glp-food-guide-read
+    button 2  stepPath 015243c8-9ccf-4049-995c-30e3e20637a0  =  Product Tour Page /glp-food-guide-product
+
+  ⚠️ FLAGGED, NOT FIXED: button 1 reads "message a leader now" but its step is the Recipe
+     Guide, not the DM Redirect step this funnel carries (73988474, /glp-food-guide-dm-redirect).
+     That is how the live page is wired today, so it is how this block is wired. Re-pointing a
+     CTA is a brief change, not a design change. Jeff's call.
+
+  Hrefs are DOCUMENT-relative (no leading slash) so they resolve against the current step
+  path and work with or without a connected domain. A root-relative href 404s on a funnel
+  with no domain. (NOTES §Linking to another funnel STEP.)
+
+  No custom values on this page, so there is no merge-field guard to write.
+  No em-dashes anywhere in shipped copy.
+-->
+<div class="sk-conf sk-conf-glpf"
+     data-cv-rep_phone="{{custom_values.rep_phone}}"
+     data-cv-your_facebook_messenger_link="{{custom_values.your_facebook_messenger_link}}">
+
+  <!-- ============ BAND 1 · the confirmation, with the video beside it ============
+       The video used to sit in its own band below this one. It says "watch this WHILE
+       YOU WAIT", and a band below the fold is not "while you wait", it is "after you
+       scroll". Side by side, the instruction and the thing to do are on screen together.
+       Still a click-to-load facade: no Vimeo iframe until somebody presses play. -->
+  <section class="sk-conf-top sk-conf-top-split">
+    <div class="sk-conf-wrap sk-conf-split">
+
+      <div class="sk-conf-split-copy">
+        <span class="sk-conf-pill">✅ You are in</span>
+
+        <h1>
+          Your GLP Foods Guide Is On Its Way To Your Inbox<br>
+          <span class="sk-conf-hl">In About 2 Minutes.</span>
+        </h1>
+
+        <p class="sk-conf-note">
+          Check your email inbox. If you do not see your guide there, check your <b>SPAM</b> folder.
+        </p>
+      </div>
+
+      <div class="sk-conf-split-media">
+        <p class="sk-conf-eyebrow">While you wait, watch this</p>
+        <div class="sk-conf-frame"
+             data-vimeo="1217352598"
+             data-poster="https://i.vimeocdn.com/video/2190148802-8543012b7ab20493e2b6383410b41b29218d341431821599ca0acc3f7892b568-d_1280.jpg"
+             role="button" tabindex="0" aria-label="Play: while you wait for your GLP Foods Guide">
+          <span class="sk-conf-play">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.14-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>
+          </span>
+        </div>
+        <p class="sk-conf-split-cap">You are going to love this. 🤯</p>
+      </div>
+
+    </div>
+
+    <!-- Full width under the split: a numbered sequence in a half column wraps every
+         line and stops reading as a sequence. -->
+    <div class="sk-conf-wrap sk-conf-steps-wrap">
+      <div class="sk-conf-steps">
+        <div class="sk-conf-step">
+          <b>1</b>
+          <h3>Your guide lands in about 2 minutes</h3>
+          <p>It comes by email. If it is not in your inbox, it is in spam, so check there before you give up on it.</p>
+        </div>
+        <div class="sk-conf-step">
+          <b>2</b>
+          <h3>Watch the short video while you wait</h3>
+          <p>It covers the part of this that most people have never heard, and it is the reason the guide works.</p>
+        </div>
+        <div class="sk-conf-step">
+          <b>3</b>
+          <h3>Ask a team member about products and samples</h3>
+          <p>Only if you want to go further than food. The guide stands on its own either way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 3 · the bridge =====================
+       The live page's first bridge block, kept whole. The SHARK brand routes, it never sells:
+       the CTA hands the reader to a human on the team, not to a checkout. -->
+  <section class="sk-conf-mid">
+    <div class="sk-conf-wrap">
+      <hr class="sk-conf-rule">
+
+      <h2>Are You Looking For An Easy Way To Quiet Food Cravings And Support Your Weight Naturally?</h2>
+
+      <p class="sk-conf-body">
+        Tap the <span class="sk-conf-em">Product / Sample Information</span> button below and message a
+        team member to request info about the products explained in the video, and even potential
+        sampling options.
+      </p>
+
+      <p class="sk-conf-body">
+        These products could be a perfect fit to help fuel your body's natural production of GLP and
+        support your weight loss journey. Again, naturally.
+      </p>
+
+      <!-- Opens the route sheet at the foot of this block rather than navigating. The
+           href is the Messenger route, so the control still works with JS off and still
+           does the right thing if the sheet is ever removed. -->
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open href="glp-food-guide-dm-redirect">
+          Yeah! Send me product / sample info! 🔥
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="sk-conf-ask">Click above to message a leader now. 💬</p>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 4 · step one was food =====================
+       The live page's second bridge block and its second CTA, which goes to a DIFFERENT step.
+       Kept as its own band so the two CTAs stop competing for the same eye inside one section,
+       which is what they were doing before.
+
+       ⚠️ THE PHONE MOCK IS THE ONE PIECE OF NET-NEW CONTENT ON THIS PAGE. Everything else is
+          the live page's own words. It is the house pattern for exactly this band (see
+          nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation) and it
+          exists because the card is a two cell layout and the ask is "send a message": showing
+          the message is what the left cell is for. It is illustrative, it makes no product
+          claim, and it can be cut if Jeff wants the page to stay strictly verbatim. -->
+  <section class="sk-conf-offer">
+    <div class="sk-conf-wrap">
+      <div class="sk-conf-card sk-conf-card-cta-first">
+
+        <div class="sk-conf-card-media">
+          <div class="sk-conf-phone">
+            <div class="sk-conf-phone-screen">
+              <div class="sk-conf-phone-bar">
+                <span class="sk-conf-phone-who">Your team member</span>
+              </div>
+              <div class="sk-conf-phone-body">
+                <p class="sk-conf-phone-day">Today</p>
+                <div class="sk-conf-bub sk-conf-bub-out">Got the guide, thank you. Starting with the breakfast list tomorrow.</div>
+                <div class="sk-conf-bub sk-conf-bub-in">Perfect place to start. Breakfast is the meal most people get wrong.</div>
+                <div class="sk-conf-bub sk-conf-bub-out">What were the products in the video?</div>
+                <div class="sk-conf-bub sk-conf-bub-in">Happy to send the info over, and I can check on sampling. No pressure either way.</div>
+                <div class="sk-conf-phone-input">Message</div>
+              </div>
+            </div>
+          </div>
+          <p class="sk-conf-phone-cap">However far you want to take it, entirely up to you.</p>
+        </div>
+
+        <div class="sk-conf-card-copy">
+          <span class="sk-conf-badge">🌿 Step two, if you want it</span>
+
+          <h2>Supporting These Hormones With Food Is Step One, And It Is Not Always Easy On Your Own.</h2>
+
+          <p>
+            If you would like an easy way to go further, take a look at the all natural GLP support
+            products going viral in the wellness community.
+          </p>
+
+          <p>
+            They are formulated to support the same GLP pathways, to help quiet the food noise, cut
+            cravings, and support your weight journey.
+          </p>
+
+          <p class="sk-conf-ask">Tap below to message a team leader for <u>product or sample info</u> now.</p>
+
+          <div class="sk-conf-btns">
+            <a class="sk-conf-btn" href="glp-food-guide-product">
+              Yeah... Show me the GLP alternatives! 👀
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAND 5 · the disclaimer ===================== -->
+  <section class="sk-conf-foot">
+    <div class="sk-conf-wrap">
+      <p>The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+      <p>We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+      <p>Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+      <p>These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding weight loss, appetite, or any other outcome.</p>
+    </div>
+  </section>
+
+  <!-- ===================== THE ROUTE SHEET =====================
+       Opened by the primary CTA. Two ways to reach the same human, and the reader picks.
+
+       MESSENGER goes to this funnel's DM Redirect STEP, not to a messenger URL. That step
+       is a shim whose only job is to forward to {{custom_values.your_facebook_messenger_link}},
+       so the account already owns the redirect and this block does not have to know the
+       rep's messenger address. Document-relative href, so it resolves with or without a
+       connected domain.
+
+       TEXT is a real sms: link. Its number comes from {{custom_values.rep_phone}}, which
+       confirm.js normalises to E.164 before writing the href, because a rep types
+       "(555) 123-4567" at onboarding and parens inside an sms: URI are where prefill
+       quietly stops working on some handsets.
+
+       ⚠️ ON THE SNAPSHOT ONLY THE MESSENGER ROUTE SURVIVES, AND THAT IS CORRECT.
+          rep_phone holds "Add the phone number they can text and call you at here."
+          until a buyer fills it. confirm.js blanks the href, drops the text route, and
+          the CTA quietly becomes a plain link to the DM step. A buyer who fills the CV
+          gets both routes and the sheet, with no edit to this block.
+
+       ⚠️ NOTHING IS LISTENING FOR THE WORD "INFO" YET. The text arrives in the rep's own
+          inbox and no inbound-SMS keyword workflow exists on this campaign. Same open
+          item as the IGNYT sample confirmation. Flagged, not assumed. -->
+  <div class="sk-conf-routes" data-sk-routes role="dialog" aria-modal="true" aria-label="Choose how to message a team member">
+    <div class="sk-conf-routes-box">
+      <button class="sk-conf-routes-x" data-sk-routes-close type="button" aria-label="Close">&times;</button>
+
+      <h3>How would you like to reach us?</h3>
+      <p>Either one goes to a real person on the team. Pick whichever you actually use.</p>
+
+      <div class="sk-conf-routes-list">
+
+        <a class="sk-conf-route" data-sk-route href="glp-food-guide-dm-redirect">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.3 2 2 6.2 2 11.7c0 3.1 1.4 5.9 3.7 7.7v3.1l3.4-1.9c.9.3 1.9.4 2.9.4 5.7 0 10-4.2 10-9.3S17.7 2 12 2zm1 12.5l-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8z"/></svg>
+          <span>Message on Facebook<small>Opens Messenger</small></span>
+        </a>
+
+        <a class="sk-conf-route sk-conf-route-alt" data-sk-route data-sms-cta data-sms-body="INFO"
+           href="sms:{{custom_values.rep_phone}}?&amp;body=INFO">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+          <span data-sms-label>Send a text<small>To <span data-rep-phone>{{custom_values.rep_phone}}</span></small></span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>

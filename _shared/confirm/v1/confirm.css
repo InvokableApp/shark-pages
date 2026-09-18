@@ -886,3 +886,139 @@
   .sk-conf-card-cta-first .sk-conf-fbg-txt{font-size:.76rem}
   .sk-conf-card-cta-first .sk-conf-fbg-bub{font-size:.72rem}
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VARIANT: SPLIT HERO  ─ additive 2026-09-18 (GLP Natural Foods Guide)
+
+   `sk-conf-top-split` on the hero section, with a `.sk-conf-split` wrap inside it
+   holding a copy cell and a media cell. Two columns on desktop, stacked on mobile.
+
+   WHY IT IS A VARIANT AND NOT A NEW BAND. The confirmation shape puts the video in
+   its own band UNDER the hero, which is right when the video is the second thing you
+   want read. On a page whose video is the thing to do WHILE YOU WAIT, a separate band
+   pushes it below the fold and it stops being "while you wait", it becomes "after you
+   scroll". Putting it beside the confirmation makes the instruction and the thing to
+   do visible at once, which is the whole claim the copy makes.
+
+   The hero's own steps list stays FULL WIDTH below the split, because a numbered
+   sequence in a half-width column wraps every line and stops scanning as a sequence.
+
+   ADDITIVE: every .sk-conf page shipped before today has zero .sk-conf-top-split and
+   zero .sk-conf-split nodes, so none of this binds on them. Verified by query, not by
+   assumption (see the note in confirm.js's split-hero section). */
+.sk-conf .sk-conf-top-split .sk-conf-split{
+  max-width:1160px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(1.8rem,4vw,3.4rem);align-items:center;text-align:left;
+}
+/* The copy cell goes left-aligned because it now has a column edge to sit against.
+   Centred type in a half-width column reads as a caption, not as the page's headline. */
+.sk-conf .sk-conf-top-split .sk-conf-split-copy{text-align:left}
+.sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-note,
+.sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-lede{margin-left:0;margin-right:0}
+.sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-btns{justify-content:flex-start}
+/* The frame's default top margin is for a centred band with a heading above it. In the
+   media cell it is the only child and the grid's gap already spaces it. */
+.sk-conf .sk-conf-top-split .sk-conf-split-media .sk-conf-frame{margin-top:0}
+.sk-conf .sk-conf-split-cap{
+  margin:.85rem 0 0;font-size:.85rem;font-weight:600;
+  color:rgba(255,255,255,.82);text-align:center;
+}
+/* The label above the video inside the hero. Smaller than a band heading, because in
+   the split it is captioning a cell rather than introducing a section. */
+.sk-conf .sk-conf-top-split .sk-conf-split-media .sk-conf-eyebrow{
+  margin:0 0 .85rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);text-align:center;
+}
+/* The steps sit under the split and share its measure. Left at the component's default
+   640px they were centred under a 1160px hero, which reads as a narrower column that
+   happened to land there rather than as the same block of content. Matching the edges
+   and running three across uses the width the split already claimed, and each step is
+   one short scannable unit rather than a wrapped paragraph. */
+.sk-conf .sk-conf-top-split .sk-conf-steps-wrap{max-width:1160px}
+.sk-conf .sk-conf-top-split .sk-conf-steps{
+  margin-top:clamp(2rem,4vw,2.8rem);max-width:none;
+  grid-template-columns:repeat(3,1fr);align-items:start;
+}
+@media (max-width:860px){
+  .sk-conf .sk-conf-top-split .sk-conf-steps{grid-template-columns:1fr;max-width:640px}
+}
+
+@media (max-width:860px){
+  .sk-conf .sk-conf-top-split .sk-conf-split{grid-template-columns:1fr;text-align:center}
+  .sk-conf .sk-conf-top-split .sk-conf-split-copy{text-align:center}
+  .sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-note,
+  .sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-lede{margin-left:auto;margin-right:auto}
+  .sk-conf .sk-conf-top-split .sk-conf-split-copy .sk-conf-btns{justify-content:center}
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VARIANT: ROUTE CHOOSER  ─ additive 2026-09-18 (GLP Natural Foods Guide)
+
+   A CTA carrying `data-sk-route-open` opens a small in-block sheet offering the reader
+   two ways to reach the same human: Messenger or a text.
+
+   WHY THIS IS NOT THE GHL POPUP. `data-sk-open` above fires GHL's own popup, whose
+   CONTENT is authored in the builder per page and per account. That is right when the
+   popup holds account-specific content (a rep's name and photo). It is wrong here:
+   the two routes are the same on every account, so authoring them in GHL means
+   rebuilding them by hand in every install and losing them on the next snapshot. This
+   sheet is markup in the block, so it travels, and it needs no popup id, which is the
+   thing HOSTED-BLOCKS-SOP §7 warns is minted per page and cannot be hardcoded.
+
+   ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-route-open] and
+   zero [data-sk-routes] nodes. Verified by query. */
+.sk-conf .sk-conf-routes{
+  position:fixed;inset:0;z-index:2147483000;
+  display:none;place-items:center;padding:1.25rem;
+  background:rgba(8,16,12,.62);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+}
+.sk-conf .sk-conf-routes[data-open="true"]{display:grid}
+.sk-conf .sk-conf-routes-box{
+  position:relative;width:min(420px,100%);
+  background:var(--sk-cream,#fffdfb);color:var(--sk-body,#4a5568);
+  border-radius:18px;padding:2rem 1.6rem 1.7rem;text-align:center;
+  box-shadow:0 30px 70px -20px rgba(8,16,12,.6);
+  animation:sk-conf-routes-in .22s cubic-bezier(.2,.7,.3,1) both;
+}
+@keyframes sk-conf-routes-in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .sk-conf .sk-conf-routes-box{animation:none}
+}
+.sk-conf .sk-conf-routes-box h3{
+  font-family:var(--sk-serif,Georgia,serif);color:var(--sk-ink,#16233d);
+  font-size:1.45rem;font-weight:600;line-height:1.15;margin:0;
+}
+.sk-conf .sk-conf-routes-box p{margin:.7rem 0 0;font-size:.95rem}
+.sk-conf .sk-conf-routes-list{display:grid;gap:.7rem;margin-top:1.5rem}
+/* Each route is a full-width control, not a link in a sentence: the sheet exists to be
+   tapped, and on a phone a thumb needs a target, not a phrase. */
+.sk-conf .sk-conf-route{
+  display:flex;align-items:center;gap:.85rem;
+  padding:.95rem 1.1rem;border-radius:12px;text-decoration:none;text-align:left;
+  background:var(--sk-accent,#2e5233);color:#fff;
+  font-family:var(--sk-sans,Inter,system-ui,sans-serif);
+  font-size:1rem;font-weight:600;
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.sk-conf .sk-conf-route:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(8,16,12,.22)}
+.sk-conf .sk-conf-route svg{width:1.3em;height:1.3em;flex:0 0 auto}
+.sk-conf .sk-conf-route small{display:block;font-size:.78rem;font-weight:500;opacity:.85;margin-top:.1rem}
+/* The second route is the quieter one: same size target, less ink, so the sheet reads
+   as a preference rather than as an upsell with a decline link under it. */
+.sk-conf .sk-conf-route-alt{
+  background:transparent;color:var(--sk-ink,#16233d);
+  border:1px solid var(--sk-line,#e3e8ef);
+}
+.sk-conf .sk-conf-route-alt:hover{background:var(--sk-mist,#f2f5f8);box-shadow:none}
+.sk-conf .sk-conf-routes-x{
+  position:absolute;top:.6rem;right:.7rem;
+  width:34px;height:34px;display:grid;place-items:center;
+  border:0;border-radius:999px;background:transparent;cursor:pointer;
+  color:var(--sk-body,#4a5568);font-size:1.35rem;line-height:1;
+}
+.sk-conf .sk-conf-routes-x:hover{background:var(--sk-mist,#f2f5f8)}
+.sk-conf .sk-conf-routes-x:focus-visible,
+.sk-conf .sk-conf-route:focus-visible{outline:2px solid var(--sk-accent,#2e5233);outline-offset:3px}

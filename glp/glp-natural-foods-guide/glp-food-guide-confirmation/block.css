@@ -1,0 +1,82 @@
+/* glp / glp-natural-foods-guide / glp-food-guide-confirmation
+ *
+ * Runs _shared/confirm/v1. This file declares ONLY this page's palette tokens on its own
+ * scope class, which is the whole contract for a page on that component. The @import pins
+ * the version: do not bump it here, that is a deliberate migration (_shared/README.md).
+ *
+ * THE PALETTE IS NOT INVENTED. Every value below was read straight off the live page's own
+ * pageStyles block in GHL, so the rebuild lands on the colours the funnel already ships:
+ *
+ *   #1d3a2b   the dark confirmation band          (--color-eclyeqry, the live band 1 and 3 bg)
+ *   #4a7a5c   the mid green                       (--color-lrzhzvhx)
+ *   #f5f2eb   the cream ground                    (--color-pcwqaykt)
+ *   #f6f3ec   the live page's primary button fill
+ *   #ec5e2a   ORYGN burnt orange, deep            (--color-6a57d5de0dd30f856deef7d5)
+ *   #f2782f   ORYGN burnt orange, light           (--color-6a57d5de0dd30f856deef7d6)
+ *
+ * Nothing here touches a GHL brand swatch. A swatch is account-wide and shared with every
+ * other GLP funnel, so recolouring one to suit this page would repaint pages nobody asked
+ * about (CLAUDE.md, the brand-swatch rule). These are local custom properties on this block.
+ *
+ * WHICH COLOUR CARRIES THE CTA, and why it is not the green. The confirmation band is forest
+ * green, so a green button on it is camouflage. The live page already solved this by going
+ * cream for the primary. The orange does the same job with more urgency and is the funnel's
+ * own second brand colour, used on the product tour it hands off to, so the button and its
+ * destination agree.
+ *
+ * TYPE is the live page's: Playfair Display for headings, Inter for body. Both are already
+ * loaded by the GHL page, and both are requested here too so the block renders identically
+ * in preview and in any account whose theme fonts differ.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/confirm/v1/confirm.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+.sk-conf-glpf{
+  --sk-navy:     #1d3a2b;   /* dark band, the live page's own forest      */
+  --sk-navy-d:   #12261b;   /* dark band, gradient foot                   */
+  --sk-teal:     #4a7a5c;   /* rules, play button, accents                */
+  --sk-teal-d:   #35604a;   /* play button, deep stop                     */
+  --sk-sage:     #4a7a5c;
+  --sk-lime:     #f2782f;   /* the CTA on the dark band                   */
+  --sk-ink:      #16281e;   /* headings                                   */
+  --sk-body:     #4d5a52;   /* body copy                                  */
+  --sk-cream:    #fbf9f4;   /* raised paper                               */
+  --sk-mist:     #f5f2eb;   /* tinted band, the live page's own cream     */
+  --sk-line:     #e4ded1;   /* hairline                                   */
+
+  /* The offer card's accent set (variant tokens, confirm.css §VARIANTS).
+   *
+   * THE ORANGE IS SPLIT IN TWO ON PURPOSE. confirm.css uses --sk-accent for BOTH a button
+   * FILL (white label on it) and a TEXT colour on cream (.sk-conf-em, .sk-conf-badge,
+   * .sk-conf-kicker). One value cannot serve both: the brand's #f2782f gave white-on-orange
+   * at 3.39:1 and orange-on-cream at 3.22:1, and AA wants 4.5:1 for text this size. The
+   * component already anticipates this and reads --sk-brand-text first wherever the accent
+   * is being used as TYPE, so the fill goes deeper and the type goes deeper still.
+   * Measured with check-contrast.mjs, not eyeballed. */
+  --sk-accent:      #cf4a1b;   /* button fill, white label    4.72:1 */
+  --sk-accent-d:    #a83a12;   /* button hover                       */
+  --sk-brand-text:  #9c3410;   /* accent AS TYPE, on cream    6.3:1  */
+  --sk-badge:       #fdeadc;
+  --sk-panel:    #fbf9f4;
+  --sk-glow-a:   rgba(242,120,47,.34);
+  --sk-glow-b:   rgba(74,122,92,.30);
+
+  --sk-serif:    "Playfair Display",Georgia,serif;
+  --sk-sans:     Inter,system-ui,-apple-system,sans-serif;
+}
+
+/* The lime slot is orange here, and confirm.css sets INK text on it because its own lime is
+   pale. Orange is not, so the label inverts to white or it sits at 2.4:1 and fails. This is
+   the one place a token cannot reach, same reason the IGNYT block overrides its card fills. */
+.sk-conf-glpf .sk-conf-top .sk-conf-btn{color:#fff}
+.sk-conf-glpf .sk-conf-top .sk-conf-btn-ghost{color:#fff}
+
+/* BOTH CTAs ON THIS PAGE ASK FOR THE SAME THING: message a team member. They go to two
+   different steps, but to the reader they are one action offered twice, so they have to
+   look like one action. confirm.css paints the mid band's button with --sk-navy, which is
+   this page's forest: correct on a system whose navy is not also its ground colour, wrong
+   here, where it left a green button on cream above an orange button on white. Orange is
+   the funnel's second brand colour and the colour of the product tour both buttons lead
+   toward, so it is the one that carries every ask. */
+.sk-conf-glpf .sk-conf-mid .sk-conf-btn{background:var(--sk-accent);color:#fff}
+.sk-conf-glpf .sk-conf-mid .sk-conf-btn:hover{background:var(--sk-accent-d)}

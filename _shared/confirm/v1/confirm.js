@@ -376,6 +376,94 @@
     }
   }
 
+
+  /* ── THE ROUTE CHOOSER ─ additive 2026-09-18 ────────────────────────────────
+     Jeff, on the GLP Natural Foods Guide confirmation: "make the button go to a popup
+     that is option to message rep (redirect step in funnel) or sms".
+
+     A CTA carrying `data-sk-route-open` opens the block's own sheet, `[data-sk-routes]`,
+     instead of navigating. Both live in the markup, so both travel in a snapshot and
+     neither needs the per-page popup id that HOSTED-BLOCKS-SOP §7 warns cannot be
+     hardcoded.
+
+     ⚠️ THE SHEET IS MOVED TO <body>. A GHL section can carry transform, filter or
+     overflow, any of which makes a position:fixed descendant resolve against that
+     ancestor instead of the viewport, so the overlay lands inside the band it was
+     authored in and covers a third of the screen. Reparenting to body is the only
+     reliable fix and it is what the builder's own popups do.
+
+     ⚠️ A ROUTE WITH NO HREF IS REMOVED, NOT DISABLED. The sms route's number comes from
+     a custom value that is instruction text on a snapshot (CLAUDE.md, Account TYPES).
+     wireSms already blanks the href in that case; here, if that leaves ONE route
+     standing, the opener stops opening a sheet at all and becomes a plain link to the
+     survivor. A one-option chooser is a worse experience than no chooser.
+
+     ADDITIVE: every .sk-conf page shipped before today has zero [data-sk-route-open]
+     and zero [data-sk-routes] nodes, so this binds nothing on them. */
+  function wireRoutes(scope) {
+    var opener = scope.querySelector("[data-sk-route-open]");
+    var sheet = scope.querySelector("[data-sk-routes]");
+    if (!opener || !sheet || sheet.getAttribute("data-sk-routes-wired")) return;
+    sheet.setAttribute("data-sk-routes-wired", "1");
+
+    /* Drop any route the page could not resolve a destination for. */
+    var routes = sheet.querySelectorAll("[data-sk-route]");
+    var live = [];
+    for (var i = 0; i < routes.length; i++) {
+      var href = (routes[i].getAttribute("href") || "").trim();
+      if (!href || href === "#") { if (routes[i].parentNode) routes[i].parentNode.removeChild(routes[i]); }
+      else live.push(routes[i]);
+    }
+
+    /* Nothing left, or only one: no sheet. The opener becomes the survivor's link, or
+       is removed entirely if there is no survivor, so it can never be a dead control. */
+    if (live.length < 2) {
+      if (sheet.parentNode) sheet.parentNode.removeChild(sheet);
+      if (!live.length) { if (opener.parentNode) opener.parentNode.removeChild(opener); return; }
+      opener.setAttribute("href", live[0].getAttribute("href"));
+      var tgt = live[0].getAttribute("target");
+      if (tgt) { opener.setAttribute("target", tgt); opener.setAttribute("rel", "noopener"); }
+      opener.removeAttribute("data-sk-route-open");
+      return;
+    }
+
+    /* Reparent INSIDE A CLONE OF THE BLOCK'S OWN SCOPE, never bare onto body. Every rule
+       in this file is written `.sk-conf .sk-conf-x`, and the palette tokens live on the
+       page's own class (.sk-conf-glpf and friends), so a sheet appended straight to body
+       matches nothing and renders as an unstyled div in normal flow. Carrying the block's
+       full className onto a wrapper keeps both the component rules and the page's palette,
+       and costs one empty div. */
+    if (!sheet.closest("[data-sk-routes-host]")) {
+      var host = document.createElement("div");
+      host.className = scope.className;
+      host.setAttribute("data-sk-routes-host", "1");
+      host.appendChild(sheet);
+      document.body.appendChild(host);
+    }
+
+    var last = null;
+    function open(e) {
+      if (e) e.preventDefault();
+      last = document.activeElement;
+      sheet.setAttribute("data-open", "true");
+      var first = sheet.querySelector("[data-sk-route]");
+      if (first) first.focus();
+      document.addEventListener("keydown", onKey);
+    }
+    function close() {
+      sheet.removeAttribute("data-open");
+      document.removeEventListener("keydown", onKey);
+      if (last && last.focus) last.focus();
+    }
+    function onKey(e) { if (e.key === "Escape") close(); }
+
+    opener.addEventListener("click", open);
+    /* Backdrop only: a click that started inside the box must not close it. */
+    sheet.addEventListener("click", function (e) { if (e.target === sheet) close(); });
+    var x = sheet.querySelector("[data-sk-routes-close]");
+    if (x) x.addEventListener("click", close);
+  }
+
   function wire(scope) {
     /* ── popup CTA ──────────────────────────────────────────────────────────────
        Delegated from the block root so a button added to the markup later needs no
@@ -416,6 +504,7 @@
     wireCopy(scope);
     wireCalc(scope);      /* before wireRequires: a band node may itself carry data-sk-requires */
     wireRequires(scope);
+    wireRoutes(scope);     /* after wireSms: it reads the hrefs wireSms resolved */
 
     var frames = scope.querySelectorAll("[data-vimeo],[data-video]");
     for (var i = 0; i < frames.length; i++) {
