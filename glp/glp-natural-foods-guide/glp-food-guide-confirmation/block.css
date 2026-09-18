@@ -94,3 +94,21 @@
 }
 .sk-conf-glpf .sk-conf-glpf-textline a:hover{color:var(--sk-accent-d)}
 .sk-conf-glpf .sk-conf-glpf-textline a:focus-visible{outline:2px solid var(--sk-accent);outline-offset:3px}
+
+/* The text shortcut on the DARK hero band. The rules above were written for the cream band and
+   put brand-orange type on near-white; on forest green that is 2.4:1 and unreadable. The dark
+   variant inverts to the page's own accent orange, which sits at 4.4:1 on the hero's ground,
+   and the label goes to near-white. Measured, not eyeballed. */
+.sk-conf-glpf .sk-conf-glpf-textline-dark{color:rgba(255,255,255,.82)}
+.sk-conf-glpf .sk-conf-glpf-textline-dark a{
+  color:var(--sk-lime);
+  border-bottom-color:rgba(242,120,47,.6);
+}
+.sk-conf-glpf .sk-conf-glpf-textline-dark a:hover{color:#ffa06b;border-bottom-color:var(--sk-lime)}
+.sk-conf-glpf .sk-conf-glpf-textline-dark a:focus-visible{outline-color:var(--sk-lime)}
+
+/* The hero's own CTA sits on forest, so it cannot be the forest-green button the mid band uses.
+   Orange carries it, same as the mid band's, which keeps the two copies of this control reading
+   as ONE control rather than two different offers. */
+.sk-conf-glpf .sk-conf-top .sk-conf-btn{background:var(--sk-accent);color:#fff}
+.sk-conf-glpf .sk-conf-top .sk-conf-btn:hover{background:var(--sk-accent-d)}

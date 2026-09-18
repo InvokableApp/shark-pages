@@ -57,6 +57,29 @@
         <p class="sk-conf-note">
           Check your email inbox. If you do not see your guide there, check your <b>SPAM</b> folder.
         </p>
+
+        <!-- THE ASK, IN THE HERO (Jeff, 2026-09-18: "put the cta up in the hero under the
+             paragraph"). It used to appear for the first time three bands down, which meant the
+             one action this page wants was never on screen with the confirmation that earns it.
+             It is the SAME control as the one in band 3, not a different offer: same sheet, same
+             two routes. Band 3 keeps its own copy of it because that band's body copy argues for
+             it and says "the button below" in as many words. -->
+        <div class="sk-conf-btns">
+          <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
+             data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
+            Yeah! Send me product / sample info! 🔥
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <!-- The text shortcut follows its button rather than staying behind in band 3: the pair
+             is one offer. On the DARK band it takes light treatment (block.css). -->
+        <p class="sk-conf-fine sk-conf-glpf-textline sk-conf-glpf-textline-dark">
+          Prefer to text?
+          <a data-sms-cta data-sms-body="INFO" href="sms:{{custom_values.rep_phone}}?&amp;body=INFO">
+            <span data-sms-label>Text INFO to <span data-rep-phone>{{custom_values.rep_phone}}</span></span>
+          </a>
+        </p>
       </div>
 
       <div class="sk-conf-split-media">
@@ -128,18 +151,6 @@
         </a>
       </div>
       <p class="sk-conf-ask">Click above to message a leader now. 💬</p>
-
-      <!-- THE TEXT OPTION, ON THE PAGE. It is also inside the sheet, and that is deliberate:
-           the sheet is for someone deciding HOW to reach us, this is for someone who already
-           knows they want to text and should not have to open anything to do it. One tap.
-           Same custom value, same E.164 normalisation, and it removes itself on a snapshot
-           where the number is still instruction text (confirm.js wireSms). -->
-      <p class="sk-conf-fine sk-conf-glpf-textline">
-        Prefer to text?
-        <a data-sms-cta data-sms-body="INFO" href="sms:{{custom_values.rep_phone}}?&amp;body=INFO">
-          <span data-sms-label>Text INFO to <span data-rep-phone>{{custom_values.rep_phone}}</span></span>
-        </a>
-      </p>
     </div>
   </section>
 
