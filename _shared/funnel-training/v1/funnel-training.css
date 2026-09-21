@@ -2037,3 +2037,9 @@
   }
   .sk-ftrain .sk-vids:not(.sk-solo) .sk-vid-item .sk-frame { border-left: 0; border-right: 0; }
 }
+
+/* The block paints its own paper, so when it is shorter than the screen the GHL
+   page's own white shows underneath it and the design reads as ending halfway
+   down. That is the NORMAL state now: with every part closed the page is about
+   630px on a phone. Measured on the live snapshot page, 2026-09-21. */
+.sk-ftrain { min-height: 100vh; }

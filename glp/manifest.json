@@ -964,6 +964,15 @@
       "elementTitle": "ignyt-sample-confirmation",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "BHECev3EqcSkpKe0BHa4",
+      "pageId": "DLnWCdQpQ226aF0rgaqh",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
