@@ -2043,3 +2043,58 @@
    down. That is the NORMAL state now: with every part closed the page is about
    630px on a phone. Measured on the live snapshot page, 2026-09-21. */
 .sk-ftrain { min-height: 100vh; }
+
+/* ============================================================
+   Joe round 3, tab 3 (FUNNEL TRAINING EDITS / OPTIMIZATIONS)
+   ============================================================ */
+
+/* "Lets maybe flesh these out on like 4 separate lines and maybe in italics -
+   would just make it more readable." One run-on bold sentence carrying four
+   distinct questions reads as a wall; as four lines it reads as a checklist a
+   rep can actually work through. */
+.sk-ftrain .sk-asks {
+  max-width: var(--sk-col);
+  margin: 0 auto 18px;
+  padding: 0;
+  list-style: none;
+}
+.sk-ftrain .sk-asks li {
+  position: relative;
+  margin: 0 0 7px;
+  padding-left: 18px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-ftrain .sk-asks li::before {
+  content: "";
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sk-brand);
+}
+
+/* "Lets make FINAL RECAP much bigger and maybe black." Was a 12px uppercase
+   eyebrow, which read as a label on the cards rather than the close of the
+   whole training. */
+.sk-ftrain .sk-recap-head {
+  margin: 0 0 18px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 800;
+  font-size: 27px;
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--sk-ink);
+}
+@media (min-width: 900px) {
+  .sk-ftrain .sk-recap-head { font-size: 32px; }
+}
+
+/* "Lets get some line breaks / spacing in here to just break some of this like
+   paragraph text up below each heading." The notes are now several <p> each,
+   so they need the gap a single block never did. */
+.sk-ftrain .sk-step-note + .sk-step-note { margin-top: 9px; }
