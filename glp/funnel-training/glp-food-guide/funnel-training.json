@@ -1,16 +1,23 @@
 {
   "system": "glp",
-  "slug": "glp-food-guide",
-  "funnelName": "Natural GLP Foods Guide",
-  "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
-  "ghlStep": "🔥 How To Market / Use This Funnel",
+  "brand": "GLP Shark",
+  "host": "https://glpshark.com",
   "locationId": "hKYM2WhsSBKHjvCPGkZo",
-  "_comment_videos": "Slot -> vimeo id. HOWITWORKS is per funnel; COMMUNITIES and FOLLOWUP are SYSTEM-level and identical on every page; ORGANIC and ADS are meant to be system-level too but Joe has not shot them yet, so they are stand-ins.",
+  "logo": "logo-glp.svg",
+  "logoUrl": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+  "palette": {
+    "sk-brand": "#EC5E2A",
+    "sk-brand-deep": "#C94A1E",
+    "sk-brand-tint": "#FDF0EA",
+    "sk-ink": "#101410",
+    "sk-ink-soft": "#56605A",
+    "sk-ink-faint": "#8B948E",
+    "sk-paper": "#F7F4F1",
+    "sk-line": "#E6E0DA",
+    "sk-line-soft": "#EFE9E3",
+    "sk-card": "#FFFFFF"
+  },
   "videos": {
-    "howItWorks": {
-      "id": "1228587183",
-      "status": "real"
-    },
     "organic": {
       "id": "1219006718",
       "status": "STAND-IN"
@@ -26,20 +33,28 @@
     "followUp": {
       "id": "1227449690",
       "status": "real"
+    },
+    "howItWorks": {
+      "id": "1228587183",
+      "status": "real"
     }
   },
-  "_comment_flow": "The three funnel-flow screenshots, captured by _capture-flow.mjs from the live funnel. Slugs come from the funnel doc, never typed.",
+  "links": {
+    "support": "https://glpshark.com/support",
+    "adsTraining": "https://glpshark.com/get-ads",
+    "readyToPostImages": "",
+    "buyLeads": "",
+    "confirmationPage": "https://glpshark.com/glp-food-guide-confirmation",
+    "postingDoc": "https://docs.google.com/document/d/1f9FnewylFSHBLZ3c5BIPOr9P0tMmck53gug68MmhvAk/edit?usp=sharing"
+  },
+  "slug": "glp-food-guide",
+  "funnelName": "Natural GLP Foods Guide",
+  "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
+  "ghlStep": "🔥 How To Market / Use This Funnel",
   "flow": {
-    "host": "https://glpshark.com",
     "optIn": "/glp-food-guide",
     "confirmation": "/glp-food-guide-confirmation",
     "ctaText": "Download Free Recipe Guide!"
   },
-  "links": {
-    "confirmationPage": "https://glpshark.com/glp-food-guide-confirmation",
-    "postingDoc": "https://docs.google.com/document/d/1f9FnewylFSHBLZ3c5BIPOr9P0tMmck53gug68MmhvAk/edit?usp=sharing",
-    "readyToPostImages": "",
-    "adsTraining": "https://glpshark.com/get-ads",
-    "buyLeads": ""
-  }
+  "flowDir": "flow/glp-food-guide"
 }
