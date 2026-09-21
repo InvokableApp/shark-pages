@@ -39,10 +39,21 @@
       "status": "real"
     }
   },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Opt-In",
+    "confirmStep": "Confirmation",
+    "ctaText": "Download Free Recipe Guide!",
+    "formMode": "popup"
+  },
   "links": {
     "support": "https://glpshark.com/support",
     "adsTraining": "https://glpshark.com/get-ads",
-    "readyToPostImages": "",
+    "readyToPostImages": "https://canva.link/gszpkrgjxsn7fga",
     "buyLeads": "",
     "confirmationPage": "https://glpshark.com/glp-food-guide-confirmation",
     "postingDoc": "https://docs.google.com/document/d/1f9FnewylFSHBLZ3c5BIPOr9P0tMmck53gug68MmhvAk/edit?usp=sharing"
@@ -51,10 +62,5 @@
   "funnelName": "Natural GLP Foods Guide",
   "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
   "ghlStep": "🔥 How To Market / Use This Funnel",
-  "flow": {
-    "optIn": "/glp-food-guide",
-    "confirmation": "/glp-food-guide-confirmation",
-    "ctaText": "Download Free Recipe Guide!"
-  },
   "flowDir": "flow/glp-food-guide"
 }
