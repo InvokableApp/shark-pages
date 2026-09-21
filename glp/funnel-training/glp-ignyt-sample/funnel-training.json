@@ -1,0 +1,66 @@
+{
+  "system": "glp",
+  "brand": "GLP Shark",
+  "host": "https://glpshark.com",
+  "locationId": "hKYM2WhsSBKHjvCPGkZo",
+  "logo": "logo-glp.svg",
+  "logoUrl": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+  "palette": {
+    "sk-brand": "#EC5E2A",
+    "sk-brand-deep": "#C94A1E",
+    "sk-brand-tint": "#FDF0EA",
+    "sk-ink": "#101410",
+    "sk-ink-soft": "#56605A",
+    "sk-ink-faint": "#8B948E",
+    "sk-paper": "#F7F4F1",
+    "sk-line": "#E6E0DA",
+    "sk-line-soft": "#EFE9E3",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1228911616",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1223695508",
+      "status": "STAND-IN"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1228589751",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page offering the free sample",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Sample Opt-In",
+    "confirmStep": "Sample Confirmed",
+    "ctaText": "REQUEST A SAMPLE",
+    "formMode": "popup"
+  },
+  "links": {
+    "support": "https://glpshark.com/support",
+    "adsTraining": "https://glpshark.com/get-ads",
+    "readyToPostImages": "",
+    "buyLeads": "",
+    "confirmationPage": "https://glpshark.com/sample-confirmed",
+    "postingDoc": ""
+  },
+  "slug": "glp-ignyt-sample",
+  "funnelName": "GLP - IGNYT Sample",
+  "ghlFunnel": "GLP - IGNYT Sample - Funnel",
+  "ghlStep": "HOW TO USE THIS FUNNEL",
+  "flowDir": "flow/glp-ignyt-sample"
+}
