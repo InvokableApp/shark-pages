@@ -1,0 +1,45 @@
+{
+  "system": "glp",
+  "slug": "glp-food-guide",
+  "funnelName": "Natural GLP Foods Guide",
+  "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
+  "ghlStep": "🔥 How To Market / Use This Funnel",
+  "locationId": "hKYM2WhsSBKHjvCPGkZo",
+  "_comment_videos": "Slot -> vimeo id. HOWITWORKS is per funnel; COMMUNITIES and FOLLOWUP are SYSTEM-level and identical on every page; ORGANIC and ADS are meant to be system-level too but Joe has not shot them yet, so they are stand-ins.",
+  "videos": {
+    "howItWorks": {
+      "id": "1228587183",
+      "status": "real"
+    },
+    "organic": {
+      "id": "1219006718",
+      "status": "STAND-IN"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1223695508",
+      "status": "STAND-IN"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    }
+  },
+  "_comment_flow": "The three funnel-flow screenshots, captured by _capture-flow.mjs from the live funnel. Slugs come from the funnel doc, never typed.",
+  "flow": {
+    "host": "https://glpshark.com",
+    "optIn": "/glp-food-guide",
+    "confirmation": "/glp-food-guide-confirmation",
+    "ctaText": "Download Free Recipe Guide!"
+  },
+  "links": {
+    "confirmationPage": "https://glpshark.com/glp-food-guide-confirmation",
+    "postingDoc": "https://docs.google.com/document/d/1f9FnewylFSHBLZ3c5BIPOr9P0tMmck53gug68MmhvAk/edit?usp=sharing",
+    "readyToPostImages": "",
+    "adsTraining": "https://glpshark.com/get-ads",
+    "buyLeads": ""
+  }
+}
