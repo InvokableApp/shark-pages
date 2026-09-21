@@ -39,23 +39,28 @@
       "status": "real"
     }
   },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Opt In",
+    "confirmStep": "Confirmation",
+    "ctaText": "Get the free guide",
+    "formMode": "popup"
+  },
   "links": {
     "support": "https://glpshark.com/support",
     "adsTraining": "https://glpshark.com/get-ads",
     "readyToPostImages": "",
     "buyLeads": "",
     "confirmationPage": "",
-    "postingDoc": ""
+    "postingDoc": "https://docs.google.com/document/d/1tG2kZbrQlmLUsnFhYWhVutaBSfdz6rABW6wUuSrYrPw/edit?usp=sharing"
   },
   "slug": "glp-workout-guide",
   "funnelName": "Free GLP Workout Download",
   "ghlFunnel": "Free GLP Workout Download (Lead Mag Funnel)",
   "ghlStep": "🔥 HOW TO MARKET / USE THIS FUNNEL",
-  "flow": {
-    "optInStep": "Opt In",
-    "confirmStep": "Confirmation",
-    "ctaText": "Get the free guide",
-    "formMode": "popup"
-  },
   "flowDir": "flow/glp-workout-guide"
 }
