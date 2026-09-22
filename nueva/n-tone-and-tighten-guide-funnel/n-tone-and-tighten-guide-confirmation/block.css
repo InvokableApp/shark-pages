@@ -105,7 +105,29 @@
 .sk-conf-nva .sk-conf-alt a:hover{ border-bottom-color:var(--sk-teal); }
 
 
-/* ---------- the four grades ----------
+/* ---------- what she gets by asking ----------
+   ⚠️ The four grade chips that used to live here are GONE, and the rule they were
+   deleted for is worth keeping: a DM-gated asset cannot publish its own verdicts.
+   Listing what is worth it and what is a skip answers the question the message was
+   supposed to be for. The list below names the same ingredients and withholds where
+   each one lands.
+
+   The marker is a rule rather than a bullet: three items is a set, not a sequence,
+   so a number would imply an order that is not there. */
+.sk-conf-nva .sk-conf-gets{
+  list-style:none; margin:1.15rem 0 0; padding:0; display:grid; gap:.85rem;
+}
+.sk-conf-nva .sk-conf-gets li{
+  position:relative; padding-left:1.05rem;
+  font-size:.98rem; line-height:1.55; color:var(--sk-body);
+}
+.sk-conf-nva .sk-conf-gets li::before{
+  content:""; position:absolute; left:0; top:.55em;
+  width:5px; height:5px; border-radius:50%; background:var(--sk-teal);
+}
+.sk-conf-nva .sk-conf-gets b{ color:var(--sk-ink); font-weight:700; }
+
+/* ---------- retired: the four grades ----------
    The guide's own verdicts, used as the list's structure rather than as decoration:
    the grade is the fact she wants, and running worst to best means the first thing
    she reads is the one that saves her money. Four tones, not four colours, so the
