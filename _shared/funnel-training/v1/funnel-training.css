@@ -2098,3 +2098,126 @@
    paragraph text up below each heading." The notes are now several <p> each,
    so they need the gap a single block never did. */
 .sk-ftrain .sk-step-note + .sk-step-note { margin-top: 9px; }
+
+/* ============================================================
+   Joe round 4 — the Figma comment pass (39 notes, 2026-09-22)
+   ============================================================ */
+
+/* "Make this a big headline, similar to the system of FUNNEL TRAINING PAGE at
+   the top." Section heads were 17px, which read as bold body copy rather than
+   as the start of a new section. Applies to every .sk-sec-head on all 3 tabs. */
+.sk-ftrain .sk-sec-head {
+  margin: 46px auto 16px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 800;
+  font-size: 26px;
+  line-height: 1.16;
+  letter-spacing: -.015em;
+  color: var(--sk-ink);
+}
+@media (min-width: 900px) {
+  .sk-ftrain .sk-sec-head { margin: 56px auto 18px; font-size: 32px; }
+}
+
+/* the three strategy cards are the same idea one level down, so they get the
+   same treatment without competing with the section heads above them */
+.sk-ftrain .sk-vid-name {
+  font-variation-settings: "wdth" 92, "wght" 800;
+  font-size: 19px;
+  letter-spacing: -.01em;
+}
+@media (min-width: 900px) { .sk-ftrain .sk-vid-name { font-size: 22px; } }
+
+/* "Get a little bit of space in here" - around the part-1 video */
+.sk-ftrain .sk-panel-body > .sk-vid-item:first-of-type { margin: 26px auto 34px; }
+
+/* "Move this bar / text up on top of the image, lets also make the copy be
+   darker / bold (its kinda easy to miss right now). Do the same for the other
+   two screenshots." The caption was a strip under the shot in faint grey; now
+   it sits over the image itself. */
+.sk-ftrain .sk-viz figure { position: relative; }
+.sk-ftrain .sk-viz figcaption {
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  z-index: 2;
+  padding: 10px 12px;
+  border-radius: 12px 12px 0 0;
+  background: color-mix(in srgb, var(--sk-card) 92%, transparent);
+  backdrop-filter: blur(8px) saturate(140%);
+  border-bottom: 1px solid var(--sk-line);
+  font-variation-settings: "wght" 700;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--sk-ink);
+  text-align: center;
+}
+.sk-ftrain .sk-viz img { border-radius: 12px; }
+
+/* "Lets center this text above the buttons" / "like the other page, centered
+   please" - the closing head on all three tabs */
+.sk-ftrain .sk-next { text-align: center; }
+.sk-ftrain .sk-sec-head + .sk-next { margin-top: 4px; }
+.sk-ftrain .sk-panel-body > .sk-sec-head:has(+ .sk-next) { text-align: center; }
+
+/* "And make sure its centered" - the confirmation-page aside */
+.sk-ftrain .sk-aside { text-align: center; }
+.sk-ftrain .sk-aside .sk-btn-row { justify-content: center; }
+
+/* "Understand this:" - bold AND underlined */
+.sk-ftrain .sk-ul { text-decoration: underline; text-underline-offset: 3px; }
+
+/* "Bold and italicize this line" */
+.sk-ftrain .sk-bi { font-weight: 700; font-style: italic; }
+
+/* "Lets make this BOLD RED and run an underline underneath (Sharpie if we can!)"
+   Jeff confirmed red text with a red underline. A real sharpie stroke, not
+   text-decoration: the wobble is what makes it read as hand drawn. */
+.sk-ftrain .sk-sharpie {
+  position: relative;
+  color: #D92B1F;
+  font-variation-settings: "wght" 800;
+  white-space: nowrap;
+}
+.sk-ftrain .sk-sharpie::after {
+  content: "";
+  position: absolute;
+  right: -2px; bottom: -7px; left: -2px;
+  height: 9px;
+  background: no-repeat center/100% 100%
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 10" preserveAspectRatio="none"><path d="M2 7.2C28 4.1 62 2.9 99 3.4c34 .5 67 1.9 99 4.2" fill="none" stroke="%23D92B1F" stroke-width="3.2" stroke-linecap="round"/></svg>');
+}
+
+/* "Make it a green check emoji icon too" / "make it a red X emoji" */
+.sk-ftrain .sk-branch-emoji { margin-right: 7px; font-size: 15px; line-height: 1; }
+.sk-ftrain .sk-branch--yes { background: #E8F6EC; color: #176B32; border-color: #BFE3CB; }
+.sk-ftrain .sk-branch--no  { background: #FDECEA; color: #A32017; border-color: #F3C7C2; }
+
+/* Joe's lead-in lines that introduce the script box below them */
+.sk-ftrain .sk-lead-in {
+  margin-top: 20px;
+  font-variation-settings: "wght" 700;
+  color: var(--sk-ink);
+}
+
+/* "run a little arrow swooping down to the box below" */
+.sk-ftrain .sk-swoop { position: relative; padding-bottom: 34px; font-variation-settings: "wght" 700; }
+.sk-ftrain .sk-swoop-arrow {
+  position: absolute;
+  bottom: 0; left: 8px;
+  width: 54px; height: 30px;
+  background: no-repeat left top/contain
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 30"><path d="M3 2c10 14 24 20 43 21" fill="none" stroke="%23EC5E2A" stroke-width="2.4" stroke-linecap="round"/><path d="M38 17l9 6-10 4" fill="none" stroke="%23EC5E2A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+/* "Put a subheadline underneath that says..." */
+.sk-ftrain .sk-btn-sub {
+  margin: 9px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--sk-ink-soft);
+  text-align: center;
+}
+
+/* the ad-creative aside now lives inside the paid-ads card, so it loses the
+   standalone margins it had when it sat on its own under the row */
+.sk-ftrain .sk-vid-clip .sk-note { margin: 18px 0 0; }
