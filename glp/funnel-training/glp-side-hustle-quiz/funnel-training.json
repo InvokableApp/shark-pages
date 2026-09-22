@@ -61,5 +61,17 @@
   "funnelName": "Side Hustle Opportunity Quiz",
   "ghlFunnel": "Side Hustle Opportunity Quiz Funnel",
   "ghlStep": "🔥 HOW TO MARKET / USE THIS FUNNEL",
-  "flowDir": "flow/glp-side-hustle-quiz"
+  "flowDir": "flow/glp-side-hustle-quiz",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
 }

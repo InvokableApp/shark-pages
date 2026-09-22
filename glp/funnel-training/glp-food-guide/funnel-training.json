@@ -62,5 +62,17 @@
   "funnelName": "Natural GLP Foods Guide",
   "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
   "ghlStep": "🔥 How To Market / Use This Funnel",
-  "flowDir": "flow/glp-food-guide"
+  "flowDir": "flow/glp-food-guide",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
 }

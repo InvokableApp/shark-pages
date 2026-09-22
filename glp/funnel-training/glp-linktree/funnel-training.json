@@ -19,8 +19,8 @@
   },
   "videos": {
     "organic": {
-      "id": "1228911616",
-      "status": "real"
+      "id": "1219006718",
+      "status": "STAND-IN"
     },
     "communities": {
       "id": "1227065680",
@@ -35,44 +35,37 @@
       "status": "real"
     },
     "howItWorks": {
-      "id": "1228589751",
-      "status": "real"
+      "id": "",
+      "status": "pending"
     }
   },
   "flow": {
     "captions": [
-      "Opt in page offering the free sample",
+      "Opt in page showcasing the lead magnet",
       "Lead submits their info…",
       "Confirmation page with call to action (specified below)"
-    ],
-    "optInStep": "Sample Opt-In",
-    "confirmStep": "Sample Confirmed",
-    "ctaText": "REQUEST A SAMPLE",
-    "formMode": "popup"
+    ]
   },
   "links": {
     "support": "https://glpshark.com/support",
     "adsTraining": "https://glpshark.com/get-ads",
-    "readyToPostImages": "https://canva.link/qtfm73vucfijq5z",
+    "readyToPostImages": "",
     "buyLeads": "",
-    "confirmationPage": "https://glpshark.com/sample-confirmed",
-    "postingDoc": "https://docs.google.com/document/d/1xpMOecl0_0vq4bm3SHepVtZMuz0-bL9RS2D7bhqJ6jQ/edit?usp=sharing"
+    "confirmationPage": ""
   },
-  "slug": "glp-ignyt-sample",
-  "funnelName": "GLP - IGNYT Sample",
-  "ghlFunnel": "GLP - IGNYT Sample - Funnel",
+  "slug": "glp-linktree",
+  "funnelName": "Your Linktree",
+  "ghlFunnel": "Links Page for Sharing On Social Profiles",
   "ghlStep": "HOW TO USE THIS FUNNEL",
-  "flowDir": "flow/glp-ignyt-sample",
   "parts": [
-    "howItWorks",
-    "generateLeads",
-    "followUp"
+    "howItWorks"
   ],
   "sections": {
-    "flowViz": true,
-    "optInExplainer": true,
-    "primaryGoal": true,
-    "nextSteps": true
+    "flowViz": false,
+    "optInExplainer": false,
+    "primaryGoal": false,
+    "nextSteps": false
   },
-  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+  "flowDir": "flow/glp-linktree",
+  "headerSub": "Everything you need to understand how to use this funnel to build your business."
 }

@@ -62,5 +62,17 @@
   "funnelName": "Free GLP Workout Download",
   "ghlFunnel": "Free GLP Workout Download (Lead Mag Funnel)",
   "ghlStep": "🔥 HOW TO MARKET / USE THIS FUNNEL",
-  "flowDir": "flow/glp-workout-guide"
+  "flowDir": "flow/glp-workout-guide",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
 }

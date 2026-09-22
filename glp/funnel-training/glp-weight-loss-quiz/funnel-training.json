@@ -61,5 +61,17 @@
   "funnelName": "Weight Loss Supplement Recommendation",
   "ghlFunnel": "Weight Loss Supplement Recommendation (Quiz Funnel)",
   "ghlStep": "🔥 HOW TO MARKET / USE THIS FUNNEL",
-  "flowDir": "flow/glp-weight-loss-quiz"
+  "flowDir": "flow/glp-weight-loss-quiz",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
 }
