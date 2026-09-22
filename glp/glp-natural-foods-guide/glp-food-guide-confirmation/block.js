@@ -80,8 +80,24 @@
     if (!cv("rep_phone")) {
       var line = root.querySelector(".sk-conf-glpf-textline");
       if (line && line.parentNode) line.parentNode.removeChild(line);
-      var mline = root.querySelector("[data-glpf-textline]");
-      if (mline && mline.parentNode) mline.parentNode.removeChild(mline);
+
+      /* THE PANEL'S TEXT LINE STAYS, and that is a deliberate exception to the rule one
+         line above. Jess asked for it twice, 2026-09-22, after it vanished on her: the
+         panel is the one place the text route is the ONLY alternative to Messenger, so
+         removing it leaves a single-option "choice". The page-level line above has the
+         hero CTA beside it and loses nothing by going.
+
+         What it does lose is the LINK. An sms: href built from instruction text dials a
+         sentence, so the anchor is unwrapped to plain text and the copy reads as written
+         until a rep fills the custom value in, at which point wireSms makes it tappable
+         again with no edit here. */
+      var mlink = root.querySelector("[data-glpf-textline] a");
+      if (mlink && mlink.parentNode) {
+        var txt = document.createElement("span");
+        txt.className = "sk-conf-glpf-modal-phone";
+        while (mlink.firstChild) txt.appendChild(mlink.firstChild);
+        mlink.parentNode.replaceChild(txt, mlink);
+      }
     }
 
     /* ── THE PRODUCT PANEL ────────────────────────────────────────────────────────────

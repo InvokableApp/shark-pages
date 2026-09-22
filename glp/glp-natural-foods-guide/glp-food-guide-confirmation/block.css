@@ -249,3 +249,8 @@
   .sk-conf-glpf .sk-conf-glpf-modal-h{font-size:1.3rem;padding:0 1.9rem}
   .sk-conf-glpf .sk-conf-glpf-modal-rule{margin:.9rem 0 1.1rem}
 }
+
+/* The panel's phone, once block.js has unwrapped it from a dead sms: link on a snapshot.
+   It keeps the link's weight and colour so the line does not change shape when a rep
+   fills the custom value in and it becomes tappable again. */
+.sk-conf-glpf .sk-conf-glpf-modal-phone{color:var(--sk-accent-d,#ec5e2a);font-weight:700}
