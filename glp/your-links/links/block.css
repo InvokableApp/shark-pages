@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* ============================================================
-   GLP SHARK, PUBLIC LINK HUB
+   GLP SHARK, PUBLIC LINK HUB  (glp/your-links/links)
    Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
 
    This is the AUDIENCE facing page a rep posts in their social bio.
@@ -13,11 +13,11 @@
    Palette is the nine GLP tokens, design system section 2, unchanged.
    ============================================================ */
 
-.sk-glp-links-link-hub *,
-.sk-glp-links-link-hub *::before,
-.sk-glp-links-link-hub *::after { box-sizing: border-box; }
+.sk-glp-links *,
+.sk-glp-links *::before,
+.sk-glp-links *::after { box-sizing: border-box; }
 
-.sk-glp-links-link-hub {
+.sk-glp-links {
   --sk-brand:      #EC5E2A;
   --sk-brand-deep: #C94A1E;
   --sk-brand-tint: #FDF0EA;
@@ -46,9 +46,9 @@
   position: relative;
   isolation: isolate;
 }
-.sk-glp-links-link-hub > * { grid-column: 2; padding-inline: 16px; }
+.sk-glp-links > * { grid-column: 2; padding-inline: 16px; }
 
-.sk-glp-links-link-hub .sk-grain {
+.sk-glp-links .sk-grain {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
   grid-column: 1 / -1; padding: 0;
   mix-blend-mode: multiply; opacity: .5;
@@ -56,19 +56,19 @@
 }
 
 /* ---------- header ---------- */
-.sk-glp-links-link-hub .sk-head {
+.sk-glp-links .sk-head {
   position: relative; z-index: 1;
   padding-top: 40px; padding-bottom: 26px;
   text-align: center;
 }
-.sk-glp-links-link-hub .sk-mono {
+.sk-glp-links .sk-mono {
   display: block;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
   color: var(--sk-brand-deep);
   margin: 0 0 12px;
 }
-.sk-glp-links-link-hub .sk-name {
+.sk-glp-links .sk-name {
   font-family: Archivo, system-ui, sans-serif;
   font-variation-settings: "wdth" 112, "wght" 700;
   font-size: clamp(27px, 8.2vw, 36px);
@@ -76,33 +76,33 @@
   text-wrap: balance;
   margin: 0;
 }
-.sk-glp-links-link-hub .sk-name .sk-hl {
+.sk-glp-links .sk-name .sk-hl {
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.sk-glp-links-link-hub .sk-sub {
+.sk-glp-links .sk-sub {
   font-size: 15px; line-height: 1.5; color: var(--sk-ink-soft);
   max-width: 32ch; margin: 12px auto 0; text-wrap: balance;
 }
 
 /* ---------- groups ---------- */
-.sk-glp-links-link-hub .sk-body { position: relative; z-index: 1; }
-.sk-glp-links-link-hub .sk-group { margin: 0 0 26px; }
-.sk-glp-links-link-hub .sk-group-head {
+.sk-glp-links .sk-body { position: relative; z-index: 1; }
+.sk-glp-links .sk-group { margin: 0 0 26px; }
+.sk-glp-links .sk-group-head {
   display: flex; align-items: center; gap: 12px;
   margin: 0 0 12px;
 }
-.sk-glp-links-link-hub .sk-group-label {
+.sk-glp-links .sk-group-label {
   font-family: Archivo, system-ui, sans-serif;
   font-variation-settings: "wdth" 88, "wght" 700;
   font-size: 11.5px; letter-spacing: .17em; text-transform: uppercase;
   color: var(--sk-ink-faint);
   white-space: nowrap;
 }
-.sk-glp-links-link-hub .sk-rule { flex: 1; height: 1px; background: var(--sk-line); }
+.sk-glp-links .sk-rule { flex: 1; height: 1px; background: var(--sk-line); }
 
 /* ---------- a row ---------- */
-.sk-glp-links-link-hub .sk-row {
+.sk-glp-links .sk-row {
   display: flex; align-items: center; gap: 14px;
   width: 100%; min-height: 72px;
   padding: 14px var(--sk-pad);
@@ -114,51 +114,51 @@
   color: inherit; text-decoration: none;
   transition: box-shadow .2s ease, transform .12s ease, border-color .2s ease;
 }
-.sk-glp-links-link-hub .sk-row:hover { box-shadow: var(--sk-shadow-lift); border-color: var(--sk-line-soft); }
-.sk-glp-links-link-hub .sk-row:active { transform: translateY(1px); }
-.sk-glp-links-link-hub .sk-row:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+.sk-glp-links .sk-row:hover { box-shadow: var(--sk-shadow-lift); border-color: var(--sk-line-soft); }
+.sk-glp-links .sk-row:active { transform: translateY(1px); }
+.sk-glp-links .sk-row:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
 
-.sk-glp-links-link-hub .sk-mark {
+.sk-glp-links .sk-mark {
   flex: 0 0 auto;
   width: 42px; height: 42px;
   display: grid; place-items: center;
   background: var(--sk-brand-tint); color: var(--sk-brand-deep);
   border-radius: var(--sk-r-sm);
 }
-.sk-glp-links-link-hub .sk-mark svg { width: 22px; height: 22px; }
+.sk-glp-links .sk-mark svg { width: 22px; height: 22px; }
 
-.sk-glp-links-link-hub .sk-text { flex: 1 1 auto; min-width: 0; }
-.sk-glp-links-link-hub .sk-row-name {
+.sk-glp-links .sk-text { flex: 1 1 auto; min-width: 0; }
+.sk-glp-links .sk-row-name {
   display: block;
   font-family: Archivo, system-ui, sans-serif;
   font-variation-settings: "wdth" 100, "wght" 650;
   font-size: 15.5px; line-height: 1.25; letter-spacing: -.004em;
 }
-.sk-glp-links-link-hub .sk-row-tease {
+.sk-glp-links .sk-row-tease {
   display: block;
   font-size: 13.5px; line-height: 1.4; color: var(--sk-ink-soft);
   margin-top: 3px;
 }
-.sk-glp-links-link-hub .sk-chev { flex: 0 0 auto; color: var(--sk-ink-faint); }
-.sk-glp-links-link-hub .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-glp-links .sk-chev { flex: 0 0 auto; color: var(--sk-ink-faint); }
+.sk-glp-links .sk-chev svg { width: 18px; height: 18px; display: block; }
 
 /* the shop rows carry the accent so a buying visitor can find them at a glance */
-.sk-glp-links-link-hub .sk-row--buy .sk-mark {
+.sk-glp-links .sk-row--buy .sk-mark {
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
   color: #fff;
 }
 
 /* ---------- socials ---------- */
-.sk-glp-links-link-hub .sk-foot { position: relative; z-index: 1; padding-top: 10px; }
+.sk-glp-links .sk-foot { position: relative; z-index: 1; padding-top: 10px; }
 /* the social row now sits inside its own section in the body flow, so it
    carries the same left alignment as the cards above it rather than the
    centred footer treatment it had when it was furniture */
-.sk-glp-links-link-hub .sk-social {
+.sk-glp-links .sk-social {
   display: flex; flex-wrap: wrap; gap: 10px;
   margin: 0;
 }
-.sk-glp-links-link-hub .sk-social:empty { display: none; }
-.sk-glp-links-link-hub .sk-soc {
+.sk-glp-links .sk-social:empty { display: none; }
+.sk-glp-links .sk-soc {
   width: 46px; height: 46px;
   display: grid; place-items: center;
   background: var(--sk-card);
@@ -168,25 +168,25 @@
   box-shadow: var(--sk-shadow);
   transition: color .2s ease, border-color .2s ease, transform .12s ease;
 }
-.sk-glp-links-link-hub .sk-soc svg { width: 20px; height: 20px; display: block; }
-.sk-glp-links-link-hub .sk-soc:hover { color: var(--sk-brand-deep); border-color: var(--sk-brand); }
-.sk-glp-links-link-hub .sk-soc:active { transform: translateY(1px); }
-.sk-glp-links-link-hub .sk-soc:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+.sk-glp-links .sk-soc svg { width: 20px; height: 20px; display: block; }
+.sk-glp-links .sk-soc:hover { color: var(--sk-brand-deep); border-color: var(--sk-brand); }
+.sk-glp-links .sk-soc:active { transform: translateY(1px); }
+.sk-glp-links .sk-soc:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
 
-.sk-glp-links-link-hub .sk-legal {
+.sk-glp-links .sk-legal {
   font-size: 11.5px; line-height: 1.5; color: var(--sk-ink-faint);
   text-align: center; max-width: 44ch; margin: 0 auto;
 }
-.sk-glp-links-link-hub .sk-legal:empty { display: none; }
+.sk-glp-links .sk-legal:empty { display: none; }
 
 /* ---------- setup card, snapshot and half filled accounts ---------- */
-.sk-glp-links-link-hub .sk-setup {
+.sk-glp-links .sk-setup {
   position: relative; z-index: 1;
   background: #FFF8E8; border: 1px solid #F0DFB4; border-radius: var(--sk-r);
   padding: var(--sk-pad); margin: 0 0 26px;
   color: #6B4E16; font-size: 14.6px; line-height: 1.5;
 }
-.sk-glp-links-link-hub .sk-setup b {
+.sk-glp-links .sk-setup b {
   display: block;
   font-family: Archivo, system-ui, sans-serif;
   font-variation-settings: "wdth" 100, "wght" 700;
@@ -195,23 +195,23 @@
 }
 
 /* ---------- motion ---------- */
-@keyframes sk-glp-links-link-hub-rise {
+@keyframes sk-glp-links-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
 }
-.sk-glp-links-link-hub .sk-head,
-.sk-glp-links-link-hub .sk-group,
-.sk-glp-links-link-hub .sk-foot {
-  animation: sk-glp-links-link-hub-rise .55s cubic-bezier(.2,.7,.3,1) both;
+.sk-glp-links .sk-head,
+.sk-glp-links .sk-group,
+.sk-glp-links .sk-foot {
+  animation: sk-glp-links-rise .55s cubic-bezier(.2,.7,.3,1) both;
 }
-.sk-glp-links-link-hub .sk-group:nth-of-type(1) { animation-delay: .06s; }
-.sk-glp-links-link-hub .sk-group:nth-of-type(2) { animation-delay: .12s; }
-.sk-glp-links-link-hub .sk-group:nth-of-type(3) { animation-delay: .18s; }
-.sk-glp-links-link-hub .sk-group:nth-of-type(4) { animation-delay: .24s; }
-.sk-glp-links-link-hub .sk-foot { animation-delay: .3s; }
+.sk-glp-links .sk-group:nth-of-type(1) { animation-delay: .06s; }
+.sk-glp-links .sk-group:nth-of-type(2) { animation-delay: .12s; }
+.sk-glp-links .sk-group:nth-of-type(3) { animation-delay: .18s; }
+.sk-glp-links .sk-group:nth-of-type(4) { animation-delay: .24s; }
+.sk-glp-links .sk-foot { animation-delay: .3s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sk-glp-links-link-hub .sk-head,
-  .sk-glp-links-link-hub .sk-group,
-  .sk-glp-links-link-hub .sk-foot { animation: none; }
+  .sk-glp-links .sk-head,
+  .sk-glp-links .sk-group,
+  .sk-glp-links .sk-foot { animation: none; }
 }

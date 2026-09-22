@@ -13,9 +13,9 @@
 */
 (function () {
   var root = document.currentScript && document.currentScript.closest
-    ? document.currentScript.closest('.sk-glp-links-link-hub')
+    ? document.currentScript.closest('.sk-glp-links')
     : null;
-  if (!root) root = document.querySelector('.sk-glp-links-link-hub');
+  if (!root) root = document.querySelector('.sk-glp-links');
   if (!root || root.getAttribute('data-built') === '1') return;
   root.setAttribute('data-built', '1');
 
@@ -80,7 +80,7 @@
         name: 'See what I do',
         tease: 'A short tour of the products and the business.' }
     ]},
-    { label: 'Free resources', items: [
+    { label: 'Resources', items: [
       { icon: 'leaf', cvKey: 'glp_foods_guide_funnel_link', slug: 'glp-food-guide',
         name: 'Natural GLP foods guide',
         tease: 'The everyday foods to build your meals around.' },
