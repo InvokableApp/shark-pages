@@ -155,3 +155,21 @@
 
 /* 4 · "You are going to love this. 🤯" — up two points, .85rem to 1rem. */
 .sk-conf-glpf .sk-conf-split-cap{font-size:1rem}
+
+/* ── LAYOUT · Jess's follow-ups, 2026-09-22 ──────────────────────────────────────────
+
+   13 · THE THREE STEP CARDS WERE DIFFERENT HEIGHTS. The component sets align-items:start
+   on that grid, so each card was only as tall as its own copy: card 3's heading is one
+   line where card 1's is two, and the boxes ended visibly unequal. Stretch makes every
+   card the height of the tallest, which is what she asked for and, importantly, does it
+   WITHOUT touching a font size ("Don't change the font size, just make the boxes the
+   same size").
+
+   14 · THE "YOU ARE IN" PILL SAT LOWER THAN "WHILE YOU WAIT, WATCH THIS". The split hero
+   centres its two cells, and the copy cell is the shorter of the two, so centring pushed
+   its first child down the page while the media cell's eyebrow stayed at the top. Both
+   cells now start at the top, so the pill and the eyebrow are the same distance down.
+   Page-scoped: the component's centring is right for pages whose two cells are closer in
+   height, and four other systems run it. */
+.sk-conf-glpf .sk-conf-top-split .sk-conf-steps{align-items:stretch}
+.sk-conf-glpf .sk-conf-top-split .sk-conf-split{align-items:start}
