@@ -1,21 +1,34 @@
 <!--
   nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation
 
-  What replaced the donor page, and why each part is what it is:
+  ⚠️ RESHAPED 2026-09-22 (Jeff). The page now has ONE job after the confirmation: get her to DM
+  the rep for the companion guide. What changed and why:
 
-  1. THE VIDEO IS GONE. The facade pointed at a 44MB .mov on the SHARK LEAD GEN account's CDN and
-     a poster served from BENEVE's GitHub Pages folder. A Nueva lead was being shown Beneve's
-     trial-pack clip. FUNNEL-PLAN B4 asks for a presenter video here and nobody has recorded one,
-     so there is no video rather than someone else's.
+  1. THE GUIDE BUTTONS MOVED INTO THE HERO. They were a full card of their own halfway down the
+     page, which put the thing she just asked for below the fold and left the card slot spent on
+     something she had already decided to do. Read online and Download now sit under the
+     confirmation line, which is where she is already looking.
 
-  2. THE OFFER CARD IS GONE. It sold a four day sample of Beneve Glutathione+ "from our
-     recommended partner, Beneve", and its button linked to /b-hormone-lunchbox-sample, a step
-     that does not exist in this funnel. Which Nueva product this funnel pushes is still an open
-     decision, so nothing is sold here yet.
+  2. THE CARD SLOT IS NOW THE COMPANION AD. That is the whole point of the page: the workout
+     guide is delivered, and the second asset is the one that has to be asked for.
 
-  3. WHAT IS HERE INSTEAD is the dual CTA the web-guide SOP asks for (read online + download the
-     PDF, two equal buttons) and the soft reach-out FUNNEL-PLAN B4 actually specifies. That is the
-     three-party model: the guide routes the lead back to the rep, it never sells.
+  3. THE PHONE-MOCKUP REACH-OUT CARD IS GONE. Its ask was a soft, unspecified "message the person
+     who sent you this". The companion ad is the same ask with a reason and a keyword attached,
+     and two reach-out asks on one page compete: the vaguer one wins nothing and costs the
+     sharper one its weight. Restore it from git if the specific ask underperforms.
+
+  ⚠️ THE COMPANION PDF IS DM-GATED AND HAS NO LINK ON THIS PAGE, DELIBERATELY. The gate is the
+     mechanism, not a limitation: the rep hands it over in conversation, which is what qualifies
+     the lead, and a PDF that never sits on a public URL is a far smaller compliance surface than
+     a public page. Do not "fix" this by adding a download button.
+     → NUEVASHARK/campaigns/tone-and-tighten/companion/
+
+  Earlier history, still true:
+  · THE VIDEO IS GONE. The donor facade pointed at a 44MB .mov on the SHARK LEAD GEN CDN with a
+    poster from BENEVE's Pages folder, so a Nueva lead was shown Beneve's trial-pack clip.
+    FUNNEL-PLAN B4 asks for a presenter video and nobody has recorded one, so there is none
+    rather than someone else's.
+  · THE DONOR OFFER CARD IS GONE. It sold a Beneve sample and linked to a step in another funnel.
 
   ⚠️ Both custom values are optional and guarded in block.js. On a snapshot account every custom
      value holds its own instruction text, and the shared loader substitutes merge fields raw, so
@@ -25,7 +38,12 @@
      data-cv-nueva_rep_first_name="{{custom_values.nueva_rep_first_name}}"
      data-cv-nueva_tone_and_tighten_guide_pdf_url="{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}">
 
-  <!-- ===================== BAND 1 · the confirmation ===================== -->
+  <!-- ===================== BAND 1 · the confirmation, and the guide itself =====================
+       Two equal buttons per references/leadmag-web-guide-sop.md: the web guide opens instantly on
+       a phone with no download friction, the PDF is the keepable copy. The read link is authored
+       SIBLING-RELATIVE so it survives any funnel path. The PDF link carries no href until block.js
+       resolves one, because an unfilled custom value would ship a button pointing at "https://".
+       If that happens the READ IT ONLINE button is still here, so she is never stranded. -->
   <section class="sk-conf-top">
     <div class="sk-conf-wrap">
       <span class="sk-conf-pill">✅ You are in. Your guide is on its way.</span>
@@ -39,95 +57,63 @@
         Check your email. If you do not see it there, check your <b>SPAM</b> folder.
       </p>
 
-      <p class="sk-conf-kicker">Or skip the wait and start reading it right now.</p>
-    </div>
-  </section>
+      <p class="sk-conf-kicker">Or skip the wait and open it right now. Both are the same guide.</p>
 
-  <!-- ===================== BAND 2 · read it now =========================
-       Two equal buttons, per references/leadmag-web-guide-sop.md: the web guide opens
-       instantly on a phone with no download friction, and the PDF is the keepable copy.
-       The read link is authored SIBLING-RELATIVE so it survives any funnel path. The PDF
-       link carries no href until block.js resolves one, because an unfilled custom value
-       would otherwise ship a button pointing at "https://". -->
-  <section class="sk-conf-offer">
-    <div class="sk-conf-wrap">
-      <div class="sk-conf-card sk-conf-card-cta-first">
-        <div class="sk-conf-card-copy sk-conf-card-copy-plain">
-          <span class="sk-conf-badge">📖 Read it now</span>
-
-          <h2>Eight Workouts And Twelve Recipes, Open In One Tap.</h2>
-
-          <p>
-            The whole guide is a web page as well as a PDF, so you can read it on your phone
-            without downloading anything. Start with the eight week schedule: it tells you exactly
-            which of the eight sessions to do on which day.
-          </p>
-
-          <p class="sk-conf-ask">Pick whichever suits you. <u>Both are the same guide.</u></p>
-
-          <div class="sk-conf-btns">
-            <a class="sk-conf-btn" href="n-tone-and-tighten-guide-read">READ IT ONLINE</a>
-            <a class="sk-conf-btn sk-conf-btn-ghost" data-cv-href="nueva_tone_and_tighten_guide_pdf_url"
-               target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
-          </div>
-        </div>
+      <div class="sk-conf-btns">
+        <a class="sk-conf-btn" href="n-tone-and-tighten-guide-read">READ IT ONLINE</a>
+        <a class="sk-conf-btn sk-conf-btn-ghost" data-cv-href="nueva_tone_and_tighten_guide_pdf_url"
+           target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== BAND 3 · the soft reach-out =====================
-       FUNNEL-PLAN B4: "DM me and I'll send info and a coupon code, no pressure." No product is
-       named, because which one this funnel pushes is undecided, and because naming one here
-       would be the SHARK brand selling rather than routing. -->
-  <section class="sk-conf-mid">
+  <!-- ===================== BAND 2 · the companion guide ad =====================
+       The ONE thing this page asks for. Written as an honest description of the asset rather than
+       as a tease, because the asset is genuinely mostly bad news about supplements and promising
+       her a shortcut here would misrepresent what she gets.
+
+       ⚠️ NO PRODUCT IS NAMED, and that is not squeamishness. The three-party model says the SHARK
+       brand routes and never sells; the guide itself is where a product gets discussed, after a
+       person has handed it over. → CLAUDE.md, three-party copy model. -->
+  <section class="sk-conf-offer">
     <div class="sk-conf-wrap">
-      <div class="sk-conf-card sk-conf-card-flip">
+      <div class="sk-conf-card">
 
         <div class="sk-conf-card-media">
-          <div class="sk-conf-phone">
-            <div class="sk-conf-phone-screen">
-              <div class="sk-conf-phone-bar">
-                <span class="sk-conf-phone-who" data-cv-opt="nueva_rep_first_name"><span data-cv-val></span></span>
-              </div>
-              <div class="sk-conf-phone-body">
-                <p class="sk-conf-phone-day">Today</p>
-                <div class="sk-conf-bub sk-conf-bub-out">Got the guide, thank you. Starting W1 tomorrow 💪</div>
-                <div class="sk-conf-bub sk-conf-bub-in">Love that. W1 is the one everybody underestimates, go lighter than you think on the hinges.</div>
-                <div class="sk-conf-bub sk-conf-bub-out">Also, what do you take alongside it?</div>
-                <div class="sk-conf-bub sk-conf-bub-in">Happy to talk that through. No pressure either way, the guide works on its own.</div>
-                <div class="sk-conf-phone-input">Message</div>
-              </div>
-            </div>
-          </div>
-          <p class="sk-conf-phone-cap">However far you want to take it, entirely up to you.</p>
+          <img src="https://invokableapp.github.io/shark-pages/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
+               alt="The cover of the companion guide, Which One Is Right For Me?"
+               loading="lazy" width="1000" height="1294">
+          <p class="sk-conf-card-cap">Ten pages. Not sent automatically.</p>
         </div>
 
         <div class="sk-conf-card-copy">
-          <span class="sk-conf-badge">💬 One more thing</span>
+          <span class="sk-conf-badge">💬 Ask for the companion guide</span>
 
-          <h2>Message The Person Who Sent You This.</h2>
+          <h2>“Which One Is Right For Me?”</h2>
 
           <p>
-            Someone shared this guide with you because they thought it would help. They can answer
-            anything the guide leaves open: how to adjust the eight week schedule around your week,
-            what to do if a session feels too easy, and how to hit the protein number without
-            living in the kitchen.
+            Training is the part that works. The question everybody asks next is whether anything
+            in a bottle is worth the money, and most of what gets sold for this is not.
           </p>
 
           <p>
-            They can also talk you through what Nueva makes, if and when you want that
-            conversation. Not before.
+            So there is a second guide. It grades fifteen of the most common weight management
+            ingredients four ways, from <b>worth it</b> down to <b>skip</b>, and more than half of
+            them do not pass. It shows you the four questions that tell you which is which, so you
+            can read any label yourself in about a minute.
           </p>
 
-          <p class="sk-conf-ask">Two things worth telling them: <u>which workout you started with,
-            and what your protein number came out at.</u></p>
+          <p class="sk-conf-ask">
+            It is not emailed and it is not on this site. Message the person who sent you this and
+            say <b>COMPARE</b>, and they will send it over.
+          </p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ===================== BAND 4 · the disclaimer ===================== -->
+  <!-- ===================== BAND 3 · the disclaimer ===================== -->
   <section class="sk-conf-foot">
     <div class="sk-conf-wrap">
       <p>This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>

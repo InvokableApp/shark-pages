@@ -25,3 +25,34 @@
   --sk-teal:     #0abab5;
   --sk-teal-d:   #087F7B;
 }
+
+/* ---------- hero buttons on a LIGHT band ----------
+ * ⚠️ THE SHARED SHEET HAS NO RULE FOR THIS. v1 styles `.sk-conf-top .sk-conf-btn` for the NAVY
+ * hero only: lime fill, and a ghost that is white text on a white hairline. Until this page,
+ * nothing had put buttons in a light hero, so here they would render lime-on-cream beside an
+ * invisible outline.
+ *
+ * Fixed HERE and deliberately not in _shared/confirm/v1: that file is fetched at request time by
+ * every shipped page in every system and every buyer account, so editing it to fix one page is
+ * the same action as changing all of them. → shark-pages/_shared/README.md
+ *
+ * Specificity ties the shared rule (0,3,0 both ways) and wins on order, because the @import sits
+ * at the top of this file.
+ */
+.sk-conf-nva .sk-conf-top .sk-conf-btn{ background:var(--sk-accent); color:#fff; }
+.sk-conf-nva .sk-conf-top .sk-conf-btn:hover{ background:var(--sk-accent-d); }
+.sk-conf-nva .sk-conf-top .sk-conf-btn-ghost{
+  background:#fff; color:var(--sk-accent); border:1px solid var(--sk-line);
+}
+.sk-conf-nva .sk-conf-top .sk-conf-btn-ghost:hover{ background:var(--sk-mist); box-shadow:none; }
+
+/* ---------- the companion cover reads as a DOCUMENT ----------
+ * The cover art is a bright, high-key photograph on white paper, which is right for the PDF and
+ * wrong for a thumbnail: against the card's white panel it has no edge and dissolves into the
+ * background. A hairline and a soft drop give it a paper edge, so it reads as a thing she can be
+ * handed rather than as a photo that happens to have type on it. */
+.sk-conf-nva .sk-conf-card-media img{
+  border:1px solid var(--sk-line);
+  border-radius:4px;
+  box-shadow:0 18px 38px -18px rgba(16,42,42,.42), 0 2px 6px rgba(16,42,42,.06);
+}
