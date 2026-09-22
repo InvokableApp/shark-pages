@@ -89,12 +89,17 @@
    sits above this with no extra stacking. */
 .sk-cap-nva-tone .sk-cap-hero::before{
   content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  /* ⚠️ ANCHORED TO THE TOP, not centred. The hero is far wider than the photo, so
-     cover crops vertically, and a centred crop takes the slice off the TOP: her
-     head came off at the hero's top edge, which reads as a mistake rather than a
-     backdrop. Cropping the floor instead costs nothing. */
-  background:url("assets/hero-bg.webp") no-repeat 72% top/cover;
-  opacity:.2;
+  /* ⚠️ NO PERSON IN THIS PHOTOGRAPH, and that is the fix rather than a style choice.
+     The hero is a two column grid: type on the left, the guide cover on the right.
+     A figure has nowhere to stand. The first version put a woman mid set at 70% of
+     the frame, which is exactly where the cover sits, so the subject of the photo
+     spent its life behind a book with only a head showing above it (Jeff,
+     2026-09-22: "its just getting hidden behind the mockup"). Her room does the
+     same job with nothing to hide: teal mat, teal dumbbells, morning light.
+     Centred now, because with no head there is nothing for a vertical crop to
+     behead, and centring keeps the window light out of the corner. */
+  background:url("assets/hero-bg.webp") no-repeat 55% center/cover;
+  opacity:.26;
   filter:saturate(.45) contrast(1.05);
   /* ⚠️ RADIAL, not a left-to-right ramp. The ramp fell to zero at the left and then
      held FULL strength everywhere else, so the photo met the hero's top, right and
@@ -102,8 +107,8 @@
      ran off the right edge as a hard line and her head was sheared flat by the top.
      One radial falloff pinned behind the cover fades all four edges at once and still
      leaves the left third clean for the type. */
-  -webkit-mask-image:radial-gradient(78% 128% at 86% 46%,#000 0%,rgba(0,0,0,.62) 44%,rgba(0,0,0,0) 79%);
-          mask-image:radial-gradient(78% 128% at 86% 46%,#000 0%,rgba(0,0,0,.62) 44%,rgba(0,0,0,0) 79%);
+  -webkit-mask-image:radial-gradient(92% 135% at 78% 48%,#000 0%,rgba(0,0,0,.7) 46%,rgba(0,0,0,0) 84%);
+          mask-image:radial-gradient(92% 135% at 78% 48%,#000 0%,rgba(0,0,0,.7) 46%,rgba(0,0,0,0) 84%);
 }
 /* The shared sheet's bottom glow is a 60% tall box pinned to the bottom of the hero,
    and a radial gradient is BRIGHTEST along its own top edge, so the box boundary reads
