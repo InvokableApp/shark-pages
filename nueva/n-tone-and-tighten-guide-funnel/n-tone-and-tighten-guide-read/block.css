@@ -276,6 +276,40 @@
 .sk-nva-guide .food-lab{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.12em;
   font-weight:600; font-size:8px; color:var(--green-deep); margin-right:.04in; }
 .sk-nva-guide .food-rec{ font-size:10px; color:var(--grey); font-style:italic; margin-top:.03in; }
+/* ---- 7b. THE MOVEMENT LIBRARY ----
+   Reference, not narrative: a reader arrives here mid workout with a phone in one hand, so
+   every entry is a labelled row they can find at a glance rather than a paragraph they have to
+   read through. Same card frame as the workout index so the two read as one part, with the
+   label column doing the work the eye needs. */
+.sk-nva-guide .moves{ display:flex; flex-direction:column; }
+.sk-nva-guide .move-list{ display:flex; flex-direction:column; gap:.16in; }
+.sk-nva-guide .move-card{ display:flex; gap:.24in; padding-bottom:.16in; border-bottom:1px solid var(--hair);
+  scroll-margin-top:64px; }
+.sk-nva-guide .move-card:last-child{ border-bottom:none; }
+.sk-nva-guide .move-num{ font-family:'Newsreader',serif; font-weight:400; font-size:26px;
+  color:var(--green-deep); line-height:1; min-width:.5in; font-variant-numeric:tabular-nums; }
+.sk-nva-guide .move-body{ flex:1; }
+.sk-nva-guide .move-head{ display:flex; align-items:baseline; justify-content:space-between; gap:.2in; }
+.sk-nva-guide .move-name{ font-family:'Newsreader',serif; font-weight:500; font-size:19px;
+  color:var(--forest); line-height:1.1; }
+.sk-nva-guide .move-kit{ font-family:var(--sk-sans); font-size:8px; letter-spacing:.08em;
+  text-transform:uppercase; font-weight:600; color:var(--green-deep); text-align:right;
+  white-space:normal; max-width:2.1in; }
+.sk-nva-guide .move-also{ font-size:10px; color:var(--grey); font-style:italic; margin-top:.02in; }
+.sk-nva-guide .move-row{ font-size:11px; color:var(--ink); line-height:1.5; margin-top:.06in; }
+.sk-nva-guide .move-lab{ display:block; font-family:var(--sk-sans); text-transform:uppercase;
+  letter-spacing:.12em; font-weight:600; font-size:8px; color:var(--green-deep); margin-bottom:.01in; }
+/* The cue is the one line worth stopping for, so it is the only thing on the card with a
+   ground. Everything else stays quiet or the emphasis means nothing. */
+.sk-nva-guide .move-cue{ background:var(--green-tint); border-left:2px solid var(--green);
+  padding:.07in .1in; margin-top:.08in; }
+.sk-nva-guide .move-easier{ color:var(--grey); }
+/* The cross link from a workout card into the library. */
+.sk-nva-guide .food-moves{ font-size:10px; color:var(--grey); margin-top:.05in; }
+.sk-nva-guide .move-link{ color:var(--green-deep); text-decoration:underline;
+  text-underline-offset:2px; text-decoration-thickness:1px; }
+.sk-nva-guide .move-link:hover{ color:var(--green); }
+
 /* evidence chip */
 .sk-nva-guide .evidence{ font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.1em; text-transform:uppercase;
   font-weight:600; white-space:nowrap; padding:.03in .08in; border-radius:3px; }
@@ -340,11 +374,11 @@
 
 /* ---- 11. typographic polish: kill widows & orphans everywhere ---- */
 /* balance = even line lengths for short blocks (headings, decks) so no lone trailing word */
-.sk-nva-guide .cover-title,.sk-nva-guide .cover-sub,.sk-nva-guide .divider-title,.sk-nva-guide .divider-blurb,.sk-nva-guide .page-title,.sk-nva-guide .recipe-name,.sk-nva-guide .foods-head,.sk-nva-guide .food-name,.sk-nva-guide .formula,.sk-nva-guide .why,.sk-nva-guide .recipe-note,.sk-nva-guide .cta-title,.sk-nva-guide .cta-lead,.sk-nva-guide .callout-title,.sk-nva-guide .food-foods,.sk-nva-guide .food-rec{
+.sk-nva-guide .cover-title,.sk-nva-guide .cover-sub,.sk-nva-guide .divider-title,.sk-nva-guide .divider-blurb,.sk-nva-guide .page-title,.sk-nva-guide .recipe-name,.sk-nva-guide .foods-head,.sk-nva-guide .food-name,.sk-nva-guide .formula,.sk-nva-guide .why,.sk-nva-guide .recipe-note,.sk-nva-guide .cta-title,.sk-nva-guide .cta-lead,.sk-nva-guide .callout-title,.sk-nva-guide .food-foods,.sk-nva-guide .food-rec,.sk-nva-guide .move-name{
   text-wrap:balance;
 }
 /* pretty = pulls up single-word last lines on flowing paragraphs */
-.sk-nva-guide .prose p,.sk-nva-guide .prose li,.sk-nva-guide .food-why,.sk-nva-guide .food-uses,.sk-nva-guide .callout-p,.sk-nva-guide .cta-body,.sk-nva-guide ol.method li,.sk-nva-guide .grocery-cols li{
+.sk-nva-guide .prose p,.sk-nva-guide .prose li,.sk-nva-guide .food-why,.sk-nva-guide .food-uses,.sk-nva-guide .move-row,.sk-nva-guide .food-moves,.sk-nva-guide .callout-p,.sk-nva-guide .cta-body,.sk-nva-guide ol.method li,.sk-nva-guide .grocery-cols li{
   text-wrap:pretty;
 }
 /* never auto-hyphenate; let words break at spaces, not mid-word */
