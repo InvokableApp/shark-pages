@@ -28,3 +28,87 @@
  * that every other lander in every system fetches at request time.
  */
 .sk-cap-nva-tone .sk-cap-meta{ justify-content:flex-start; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO, REDESIGNED 2026-09-22. Two measured causes, both in the shared sheet,
+   both fixed here page-scoped rather than there:
+
+   1. `.sk-cap h1{font-size:clamp(2.3rem,5vw,4rem)}`. At 1280px that resolves to
+      the 4rem cap, inside a hero column of roughly 560px. A 900 weight headline
+      at 64px wrapped to FIVE lines, and the ragged block was most of the "jacked
+      up" feeling.
+   2. `.sk-cap-hero-copy>*+*{margin-top:1.25rem}`. One identical gap between all
+      six stacked elements, so eyebrow, headline, lede, button, facts and note
+      all read as equally related. Nothing groups, so nothing leads.
+
+   Neither is wrong in the shared component. They are right for the short headline
+   in a centred hero it was built for.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ⚠️ SCOPED TO THE DESKTOP BREAKPOINT ON PURPOSE. The shared sheet collapses this
+   grid to one column at max-width:900px. An unscoped override here has the same
+   specificity (0,2,0) and sits LATER in the cascade, so it wins INSIDE that media
+   query too: the first version of this rule held the two column grid at 390px and
+   squeezed the headline into a 190px ribbon. Measured on the mobile screenshot. */
+@media (min-width:901px){
+  .sk-cap-nva-tone .sk-cap-hero-grid{ grid-template-columns:1.18fr .82fr; align-items:center; }
+}
+
+.sk-cap-nva-tone .sk-cap-hero h1{
+  font-size:clamp(2.05rem,3.4vw,3.05rem);
+  line-height:.99;
+  letter-spacing:-.032em;
+  font-weight:900;
+  text-wrap:balance;                 /* evens the rag; ignored where unsupported */
+  /* ⚠️ NO max-width HERE. Two earlier attempts (13ch, then 17ch) both left dead
+     column to the headline's right, because a ch cap and the grid column are two
+     different measures and they do not agree at any viewport. The column IS the
+     measure; the deliberate break below is what controls the rag. */
+}
+/* The turn onto the promise. Breaking here is deliberate: the counts are one
+   thought and what they do for her is the next, so the break carries the
+   sentence's own joint instead of falling wherever the column ends. */
+.sk-cap-nva-tone .sk-h1-turn{ display:block; }
+.sk-cap-nva-tone .sk-fig{
+  color:var(--sk-teal); font-weight:900; font-variant-numeric:lining-nums tabular-nums;
+}
+
+/* ---------- the rhythm ----------
+   Four deliberate gaps instead of one repeated one. The big gap sits before the
+   button, because that is the only place on this page where she does something. */
+.sk-cap-nva-tone .sk-cap-hero-copy>*+*{ margin-top:0; }
+.sk-cap-nva-tone .sk-cap-hero h1{ margin-top:.8rem; }
+.sk-cap-nva-tone .sk-cap-lede{ margin-top:1.3rem; max-width:42ch; font-size:1.06rem; line-height:1.55; }
+.sk-cap-nva-tone .sk-cap-hero .sk-cap-btn{ margin-top:2.3rem; }
+.sk-cap-nva-tone .sk-spec{ margin-top:1.1rem; }
+.sk-cap-nva-tone .sk-cap-hero .sk-cap-note{ margin-top:.65rem; font-size:.8rem; }
+
+/* ---------- the spec line ----------
+   Not chips. A chip is a control, and these are not clickable, which is why the
+   pill row read as a second dead row of buttons under the real one. Hairline
+   separators and small caps put them where they belong: a caption under the CTA. */
+.sk-cap-nva-tone .sk-spec{
+  list-style:none; padding:0;
+  display:flex; flex-wrap:wrap; align-items:center;
+  gap:.55rem .95rem;
+  font-size:.78rem; font-weight:600; letter-spacing:.055em; text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+}
+.sk-cap-nva-tone .sk-spec li{ display:inline-flex; align-items:center; }
+.sk-cap-nva-tone .sk-spec li+li::before{
+  content:""; width:1px; height:.85em; margin-right:.95rem;
+  background:rgba(255,255,255,.26);
+}
+
+@media (max-width:860px){
+  /* Separators stop helping once the row wraps: a leading hairline on a line of
+     its own reads as a bullet nobody asked for. */
+  .sk-cap-nva-tone .sk-cap-hero h1{ max-width:none; }
+  .sk-cap-nva-tone .sk-spec{ gap:.4rem 0; flex-direction:column; align-items:flex-start; }
+  .sk-cap-nva-tone .sk-spec li+li::before{ display:none; }
+}
+
+@media (max-width:560px){
+  .sk-cap-nva-tone .sk-cap-hero .sk-cap-btn{ margin-top:1.8rem; }
+  .sk-cap-nva-tone .sk-cap-lede{ max-width:none; }
+}
