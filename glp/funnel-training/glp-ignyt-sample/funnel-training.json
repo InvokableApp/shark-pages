@@ -27,8 +27,8 @@
       "status": "real"
     },
     "ads": {
-      "id": "1223695508",
-      "status": "STAND-IN"
+      "id": "1229242447",
+      "status": "real"
     },
     "followUp": {
       "id": "1227449690",
@@ -61,7 +61,7 @@
   "slug": "glp-ignyt-sample",
   "funnelName": "GLP - IGNYT Sample",
   "ghlFunnel": "GLP - IGNYT Sample - Funnel",
-  "ghlStep": "HOW TO USE THIS FUNNEL",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
   "flowDir": "flow/glp-ignyt-sample",
   "parts": [
     "howItWorks",

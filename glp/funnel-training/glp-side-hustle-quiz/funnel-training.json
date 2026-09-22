@@ -19,16 +19,16 @@
   },
   "videos": {
     "organic": {
-      "id": "1219006718",
-      "status": "STAND-IN"
+      "id": "1229235533",
+      "status": "real"
     },
     "communities": {
       "id": "1227065680",
       "status": "real"
     },
     "ads": {
-      "id": "1223695508",
-      "status": "STAND-IN"
+      "id": "1229242447",
+      "status": "real"
     },
     "followUp": {
       "id": "1227449690",
@@ -60,7 +60,7 @@
   "slug": "glp-side-hustle-quiz",
   "funnelName": "Side Hustle Opportunity Quiz",
   "ghlFunnel": "Side Hustle Opportunity Quiz Funnel",
-  "ghlStep": "🔥 HOW TO MARKET / USE THIS FUNNEL",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
   "flowDir": "flow/glp-side-hustle-quiz",
   "parts": [
     "howItWorks",

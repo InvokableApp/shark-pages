@@ -20,15 +20,15 @@
   "videos": {
     "organic": {
       "id": "1219006718",
-      "status": "STAND-IN"
+      "status": "real"
     },
     "communities": {
       "id": "1227065680",
       "status": "real"
     },
     "ads": {
-      "id": "1223695508",
-      "status": "STAND-IN"
+      "id": "1229242447",
+      "status": "real"
     },
     "followUp": {
       "id": "1227449690",
@@ -61,7 +61,7 @@
   "slug": "glp-food-guide",
   "funnelName": "Natural GLP Foods Guide",
   "ghlFunnel": "GLP Shark - Natural GLP Foods Guide",
-  "ghlStep": "🔥 How To Market / Use This Funnel",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
   "flowDir": "flow/glp-food-guide",
   "parts": [
     "howItWorks",
