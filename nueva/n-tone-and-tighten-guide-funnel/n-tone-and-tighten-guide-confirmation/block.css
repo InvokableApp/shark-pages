@@ -103,3 +103,34 @@
   border-bottom:2px solid rgba(10,186,181,.4); padding-bottom:1px;
 }
 .sk-conf-nva .sk-conf-alt a:hover{ border-bottom-color:var(--sk-teal); }
+
+
+/* ---------- the four grades ----------
+   The guide's own verdicts, used as the list's structure rather than as decoration:
+   the grade is the fact she wants, and running worst to best means the first thing
+   she reads is the one that saves her money. Four tones, not four colours, so the
+   chips read as a scale instead of a traffic light. Literal hex, never a theme
+   swatch: a swatch is account-wide and shared (CLAUDE.md). */
+.sk-conf-nva .sk-conf-grades{
+  list-style:none; margin:1.15rem 0 0; padding:0;
+  display:grid; gap:.7rem;
+}
+.sk-conf-nva .sk-conf-grades li{
+  display:grid; grid-template-columns:auto 1fr; gap:.7rem; align-items:baseline;
+  font-size:.98rem; line-height:1.5; color:var(--sk-body);
+}
+.sk-conf-nva .sk-conf-grades b{
+  display:inline-block; white-space:nowrap;
+  padding:.2rem .55rem; border-radius:6px;
+  font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+}
+.sk-conf-nva .sk-conf-grades .g-skip{ background:#eceff0; color:#6d7b7b; }
+.sk-conf-nva .sk-conf-grades .g-thin{ background:#e2eeed; color:#4f7a78; }
+.sk-conf-nva .sk-conf-grades .g-try { background:#cdf0ee; color:#0a6f6c; }
+.sk-conf-nva .sk-conf-grades .g-yes { background:var(--sk-teal-d); color:#fff; }
+
+@media (max-width:520px){
+  /* the chip on its own line once the column is too narrow to hang a sentence beside it */
+  .sk-conf-nva .sk-conf-grades li{ grid-template-columns:1fr; gap:.3rem; }
+  .sk-conf-nva .sk-conf-grades b{ justify-self:start; }
+}
