@@ -19,3 +19,12 @@
   --sk-teal:     #0abab5;
   --sk-teal-d:   #087F7B;
 }
+
+/* ---------- the fact pills under the hero button ----------
+ * `sk-cap-meta` ships in _shared/capture/v1 and had never been used on a page: it was added for
+ * the Beneve Skin Diagnostic, whose hero is a single CENTRED column, so it centres itself. This
+ * hero is a two column grid with left aligned copy, where centred pills float away from the
+ * button they belong to. Left aligned here, page-scoped, rather than changing the shared file
+ * that every other lander in every system fetches at request time.
+ */
+.sk-cap-nva-tone .sk-cap-meta{ justify-content:flex-start; }
