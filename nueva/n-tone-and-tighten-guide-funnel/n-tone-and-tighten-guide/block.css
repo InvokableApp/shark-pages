@@ -96,16 +96,31 @@
   background:url("assets/hero-bg.webp") no-repeat 72% top/cover;
   opacity:.2;
   filter:saturate(.45) contrast(1.05);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.5) 54%,#000 78%);
-          mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.5) 54%,#000 78%);
+  /* ⚠️ RADIAL, not a left-to-right ramp. The ramp fell to zero at the left and then
+     held FULL strength everywhere else, so the photo met the hero's top, right and
+     bottom edges at full opacity and each one showed as a straight cut: the baseboard
+     ran off the right edge as a hard line and her head was sheared flat by the top.
+     One radial falloff pinned behind the cover fades all four edges at once and still
+     leaves the left third clean for the type. */
+  -webkit-mask-image:radial-gradient(78% 128% at 86% 46%,#000 0%,rgba(0,0,0,.62) 44%,rgba(0,0,0,0) 79%);
+          mask-image:radial-gradient(78% 128% at 86% 46%,#000 0%,rgba(0,0,0,.62) 44%,rgba(0,0,0,0) 79%);
+}
+/* The shared sheet's bottom glow is a 60% tall box pinned to the bottom of the hero,
+   and a radial gradient is BRIGHTEST along its own top edge, so the box boundary reads
+   as a straight horizontal line right across the hero. Invisible on the flat navy it
+   ships with; over a photograph it is the first thing you see. Same glow, same colour,
+   given the whole hero to fade across instead of a clipped box. */
+.sk-cap-nva-tone .sk-cap-hero::after{
+  inset:0; height:auto;
+  background:radial-gradient(72% 62% at 72% 82%,rgba(95,217,213,.16),rgba(95,217,213,0) 72%);
 }
 /* Stacked, the copy sits ON the photo instead of beside it, so it drops back
    further and fades from the BOTTOM instead of the left. */
 @media (max-width:900px){
   .sk-cap-nva-tone .sk-cap-hero::before{
     opacity:.11; background-position:74% center;
-    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 45%,#000 100%);
-            mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 45%,#000 100%);
+    -webkit-mask-image:radial-gradient(120% 70% at 62% 82%,#000 0%,rgba(0,0,0,.55) 48%,rgba(0,0,0,0) 82%);
+            mask-image:radial-gradient(120% 70% at 62% 82%,#000 0%,rgba(0,0,0,.55) 48%,rgba(0,0,0,0) 82%);
   }
 }
 
