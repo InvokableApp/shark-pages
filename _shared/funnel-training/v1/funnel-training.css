@@ -2351,3 +2351,48 @@
 @media (min-width: 900px) {
   .sk-ftrain .sk-viz figcaption { flex: none; font-size: 12.4px; }
 }
+
+
+/* ============================================================
+   ROUND 7 — the flow tiles again, pushed further (Jeff, 2026-09-22).
+
+   Round 6 made the caption stop reading as part of the screenshot.
+   This makes it read as a LABEL BAR: solid brand orange, white text,
+   and the number chip inverted to white-on-orange so it still reads
+   as a chip once the band around it is orange. The tiles also get
+   taller, so more of each page shows under its label.
+   ============================================================ */
+
+/* taller: 16/10 was wide enough that each tile showed only a sliver of
+   its page once the label bar sat on top of it */
+.sk-ftrain .sk-viz img { aspect-ratio: 4 / 3; }
+
+/* the label bar itself */
+.sk-ftrain .sk-viz figcaption {
+  background: var(--sk-brand);
+  color: #FFFFFF;
+  border-bottom: 0;
+  padding: 11px 13px;
+}
+
+/* inverted chip: white disc, brand-coloured numeral */
+.sk-ftrain .sk-viz figcaption::before {
+  background: #FFFFFF;
+  color: var(--sk-brand);
+}
+
+
+/* ---- the label is a HEADER ROW, not an overlay ----
+   Joe's Figma note was "move this bar / text up on top of the image", i.e. up
+   from underneath the shot to the top of the tile. Absolute positioning read
+   that as "floating over the pixels", which costs the top ~50px of every
+   screenshot: on the side-hustle results tile it covered the headline the tile
+   exists to show. A first-row header satisfies the instruction and hides
+   nothing. */
+.sk-ftrain .sk-viz figure { display: flex; flex-direction: column; }
+.sk-ftrain .sk-viz figcaption {
+  position: static;
+  order: -1;
+  border-radius: 0;
+}
+.sk-ftrain .sk-viz img { border-radius: 0; }
