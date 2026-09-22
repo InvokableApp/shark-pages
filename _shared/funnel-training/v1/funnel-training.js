@@ -107,9 +107,20 @@ if (!window.__sharkFunnelTraining) {
        the short label rides on the header as data-nav, because "How to Approach
        & Follow Up With Leads" cannot fit in a third of a phone. */
     var bar = document.createElement("nav");
+    var segs = [];
     bar.className = "sk-bottomnav";
     bar.setAttribute("aria-label", panels.length === 1
       ? "This training" : "The " + panels.length + " parts of this training");
+
+    /* Joe, 2026-09-22: "on sticky footer let's put QUICK NAVIGATION above the
+       three icons". The bar was three unlabelled segments, so what it WAS took
+       a tap to find out. aria-hidden because the nav already carries the same
+       thing as its accessible name, and a screen reader does not need it twice. */
+    var barLabel = document.createElement("span");
+    barLabel.className = "sk-nav-label";
+    barLabel.setAttribute("aria-hidden", "true");
+    barLabel.textContent = "QUICK NAVIGATION";
+    bar.appendChild(barLabel);
 
     panels.forEach(function (panel, i) {
       var acc = panel.querySelector(".sk-acc");
@@ -143,6 +154,7 @@ if (!window.__sharkFunnelTraining) {
       segText.textContent = acc.getAttribute("data-nav") || acc.querySelector(".sk-part-name").textContent;
       seg.appendChild(segText);
       bar.appendChild(seg);
+      segs.push(seg);
       seg.addEventListener("click", function () { open(i, true); });
 
       tab.addEventListener("click", function () { open(i, false); });
@@ -161,7 +173,9 @@ if (!window.__sharkFunnelTraining) {
         panel.querySelector(".sk-acc").setAttribute("aria-expanded", on ? "true" : "false");
         strip.children[i].setAttribute("aria-selected", on ? "true" : "false");
         strip.children[i].setAttribute("tabindex", on ? "0" : "-1");
-        bar.children[i].setAttribute("aria-current", on ? "true" : "false");
+        /* NOT bar.children[i] - the bar also carries the QUICK NAVIGATION
+           label as its first child, so child index and part index disagree. */
+        segs[i].setAttribute("aria-current", on ? "true" : "false");
         /* a reveal element inside a closed panel never intersects, so it would
            sit at opacity 0 for good once the panel opened. Opening the panel
            settles its own contents. */

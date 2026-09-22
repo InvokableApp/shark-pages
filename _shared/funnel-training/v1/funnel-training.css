@@ -2587,3 +2587,36 @@
 @media (max-width: 899px) {
   .sk-ftrain .sk-panel-body > .sk-chapter-sub + .sk-sec-head { margin-top: 30px; margin-bottom: 12px; }
 }
+
+/* ================ ROUND 11 - JOE, 2026-09-22 16:53 ================ */
+
+/* ---- "Center it (watch this video)" ----
+   The one section head that sits directly ABOVE its video rather than beside
+   prose, so it reads as a callout over the frame rather than as a signpost in
+   a column of left-aligned labels. Scoped to the modifier, NOT to .sk-sec-head:
+   the other four heads stay left aligned, which is what Joe was looking at when
+   he asked for this one. */
+.sk-ftrain .sk-sec-head--center { text-align: center; }
+
+/* ---- "on sticky footer let's put QUICK NAVIGATION above the three icons,
+        in maybe a grey text - not super big but not tiny either" ----
+   The label is the bar's first child and spans all three columns, so the icons
+   keep their equal thirds underneath it. Grey = the same --sk-ink-faint the
+   unselected segments already wear, so the bar stays one colour family. */
+.sk-ftrain .sk-nav-label {
+  grid-column: 1 / -1;
+  margin: 1px 0 3px;
+  color: var(--sk-ink-faint);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 10px;
+  letter-spacing: .13em;
+  line-height: 1;
+  text-align: center;
+}
+
+/* the bar grew a row, so the page's clearance under it grows with it or the
+   footer slides back under the bar (round 8's bug, reopened by round 11) */
+.sk-ftrain { padding-bottom: calc(114px + env(safe-area-inset-bottom)); }
+
+@media (min-width: 900px) { .sk-ftrain { padding-bottom: 64px; } }
