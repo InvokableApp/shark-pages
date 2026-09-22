@@ -8,6 +8,13 @@
   hardcoded rep name. Nothing of that survives here: every card is a real Nueva funnel and
   every data-cv is a Nueva custom value that exists in the account.
 
+  ⚠️ THE THREE PER-PRODUCT VALUES ARE GONE FROM THIS SOCKET (2026-09-22), replaced by
+  nueva_user_name. Nueva attributes by subdomain, so every one of the 27 catalog links is
+  derived from {username}.nuevalife.com plus a fixed ?productcode=, the same way funnel links
+  are derived from the domain plus a slug. nueva_snow_slim_link / _snow_collagen_link /
+  _body_link still EXIST in the account and are still read by campaign pages, they are just no
+  longer read here. See block.js for the reasoning.
+
   ⚠️ data-cv-* attributes are read from the SOCKET, not from this file. GHL substitutes merge
   fields only in its own HTML, so ADDING a custom value here needs a push-block re-push per
   account; changing markup, copy or behaviour does not (MARKETING-LINKS-PAGE-SOP).
@@ -17,9 +24,7 @@
      data-cv-nueva_rep_first_name="{{custom_values.nueva_rep_first_name}}"
      data-cv-nueva_buy_link="{{custom_values.nueva_buy_link}}"
      data-cv-nueva_opportunity_url="{{custom_values.nueva_opportunity_url}}"
-     data-cv-nueva_snow_slim_link="{{custom_values.nueva_snow_slim_link}}"
-     data-cv-nueva_snow_collagen_link="{{custom_values.nueva_snow_collagen_link}}"
-     data-cv-nueva_body_link="{{custom_values.nueva_body_link}}"
+     data-cv-nueva_user_name="{{custom_values.nueva_user_name}}"
      data-cv-nueva_shark_affiliate_link="{{custom_values.nueva_shark_affiliate_link}}">
   <div class="sk-grain" aria-hidden="true"></div>
 

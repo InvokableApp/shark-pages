@@ -51,14 +51,61 @@ window.SHARK_HUB = {
       ]
     }
   ],
+  /* WHOLE CATALOG FROM ONE CUSTOM VALUE. Nueva attributes by SUBDOMAIN: a rep's entire
+     replicated site lives at {username}.nuevalife.com, and every product is the same
+     ?productcode= on it. So a product link is DERIVED, never stored, exactly the way funnel
+     links are derived from nueva_main_url plus a slug. Jeff, 2026-09-22, on the funnel links:
+     "we know the cv for default domain and we know the slugs so we can do it the way we do the
+     marketing-links pages."
+
+     What this replaces: four per-product custom values covering four of twenty-eight SKUs. The
+     alternative was minting twenty-four more values for a rep to paste by hand, each one a
+     chance to paste someone else's subdomain and credit them the sale.
+
+     ⚠️ compose() RENDERS NOTHING WHEN THE USERNAME IS EMPTY, and that is the point. A Nueva
+     product URL with no subdomain resolves to a real page with NO sponsor on it, so a link that
+     silently loses the rep's credit is worse than no link at all. Every row below disappears
+     until nueva_user_name is filled.
+
+     ⚠️ nueva_user_name MUST BE ON THE SOCKET (block.html data-cv-*). Adding a custom value to a
+     hosted block needs a push-block re-push per account; changing these rows does not.
+
+     Every productcode below was fetched under a real rep subdomain on 2026-09-22 and returned
+     200 with the right product title. */
+  compose: { cv: 'nueva_user_name', base: 'https://{id}.nuevalife.com' },
   lists: [
     { label: 'Direct product links', icon: 'cart', name: 'Product links',
-      tease: 'Every link, ready to copy', perRep: true, items: [
-        { cv: "nueva_buy_link",          name: "Nueva Shop" },
-        { cv: "nueva_opportunity_url",   name: "Become a Social Marketer" },
-        { cv: "nueva_snow_slim_link",    name: "Snow Slim" },
-        { cv: "nueva_snow_collagen_link", name: "Snow Collagen" },
-        { cv: "nueva_body_link",         name: "Body" }
+      tease: 'Every product, ready to copy', perRep: true, items: [
+        { path: "shop.html",                          name: "Nueva Shop (everything)" },
+        { path: "opportunity.html",                   name: "Become a Social Marketer" },
+        { path: "product.html?productcode=mp8916-vm", name: "Nitro" },
+        { path: "product.html?productcode=mp8924",    name: "Nitro+ 12-Pack Case" },
+        { path: "product.html?productcode=nv-rev",    name: "Revive" },
+        { path: "product.html?productcode=mp8907-vm", name: "Snow Slim" },
+        { path: "product.html?productcode=mp8900",    name: "Snow Collagen" },
+        { path: "product.html?productcode=mp8908",    name: "Morning Coffee" },
+        { path: "product.html?productcode=nv1210",    name: "Boost" },
+        { path: "product.html?productcode=nv1208",    name: "Alive" },
+        { path: "product.html?productcode=nv-bio",    name: "Biotic" },
+        { path: "product.html?productcode=mp8903",    name: "Body" },
+        { path: "product.html?productcode=bb7035",    name: "Elevate" },
+        { path: "product.html?productcode=bb7037",    name: "Beauty" },
+        { path: "product.html?productcode=nvtravel",  name: "Travel" }
+      ] },
+    { label: 'Bundles and systems', icon: 'cart', name: 'Bundle links',
+      tease: 'The packs, ready to copy', perRep: true, items: [
+        { path: "product.html?productcode=nv9988", name: "Signature Power Pack" },
+        { path: "product.html?productcode=bb7032", name: "Ultimate Pack" },
+        { path: "product.html?productcode=nv9999", name: "Body Kickstart Bundle" },
+        { path: "product.html?productcode=mp8943", name: "Slim Body System" },
+        { path: "product.html?productcode=bb7036", name: "Body+ Elevate Pack" },
+        { path: "product.html?productcode=mp8941", name: "Body System" },
+        { path: "product.html?productcode=bb7033", name: "Slim Body+ System" },
+        { path: "product.html?productcode=mp8909", name: "Nitro Set" },
+        { path: "product.html?productcode=nv3101", name: "Slim Body Kickstart" },
+        { path: "product.html?productcode=bb7031", name: "Choice Pack" },
+        { path: "product.html?productcode=bb7034", name: "Body+" },
+        { path: "product.html?productcode=nv3100", name: "Body Kickstart" }
       ] }
   ],
   affiliate: { cv: 'nueva_shark_affiliate_link', name: 'Your Nueva Shark affiliate link',
