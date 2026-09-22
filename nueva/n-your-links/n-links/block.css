@@ -202,14 +202,14 @@
 }
 
 /* ---------- motion ---------- */
-@keyframes sk-glp-links-rise {
+@keyframes sk-nva-links-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
 }
 .sk-nva-links .sk-head,
 .sk-nva-links .sk-group,
 .sk-nva-links .sk-foot {
-  animation: sk-glp-links-rise .55s cubic-bezier(.2,.7,.3,1) both;
+  animation: sk-nva-links-rise .55s cubic-bezier(.2,.7,.3,1) both;
 }
 .sk-nva-links .sk-group:nth-of-type(1) { animation-delay: .06s; }
 .sk-nva-links .sk-group:nth-of-type(2) { animation-delay: .12s; }
