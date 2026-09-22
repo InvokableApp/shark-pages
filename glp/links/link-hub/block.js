@@ -100,7 +100,7 @@
     { label: 'Test drive the product', items: [
       { icon: 'gift', cvKey: 'ignyt_sample_funnel_link', slug: 'sample',
         name: 'Test drive IGNYT',
-        tease: 'Try it yourself before you buy anything.' }
+        tease: 'Try it for yourself. I\u2019ll show you how.' }
     ]}
   ];
 
@@ -221,7 +221,7 @@
     nameEl.remove();
   }
   if (live) {
-    subEl.textContent = 'Free guides, quizzes and tools. Tap any one to get started.';
+    subEl.textContent = 'Everything in one place. Tap any one to get started.';
   } else {
     subEl.remove();
   }
