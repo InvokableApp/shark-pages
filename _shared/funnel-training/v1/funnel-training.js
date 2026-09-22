@@ -131,7 +131,13 @@ if (!window.__sharkFunnelTraining) {
       seg.className = "sk-navseg";
       seg.type = "button";
       seg.setAttribute("aria-controls", wrap.id);
-      var segIcon = icon(acc.getAttribute("data-nav-icon"));
+      /* Joe, 2026-09-22: "use the same colored icons to match". The bar carried
+         outline SVGs that matched nothing else on the page, while the part
+         headers carry an emoji. CLONED from the header rather than listed here
+         a second time, so a bar segment cannot end up wearing an emoji its own
+         part does not. Falls back to the SVG for any part with no emoji. */
+      var emoji = acc.querySelector(".sk-part-icon");
+      var segIcon = emoji ? emoji.cloneNode(true) : icon(acc.getAttribute("data-nav-icon"));
       if (segIcon) seg.appendChild(segIcon);
       var segText = document.createElement("span");
       segText.textContent = acc.getAttribute("data-nav") || acc.querySelector(".sk-part-name").textContent;

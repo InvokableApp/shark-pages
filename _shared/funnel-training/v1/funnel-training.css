@@ -2525,3 +2525,37 @@
   .sk-ftrain .sk-acc .sk-part-num { margin-top: 1px; }
   .sk-ftrain .sk-acc .sk-chev { align-self: center; }
 }
+
+
+/* ============================================================
+   ROUND 10 — Joe's second phone pass (2026-09-22)
+   ============================================================ */
+
+/* ---- "Fix text riding up on left line" ----
+   .sk-vid-clip > .sk-prose carries `padding: 14px 0 0`, added when the
+   disclosure came out of part 2. On DESKTOP that is right: the grid places the
+   copy in column 2, so it never approaches the card edge. On a phone there is
+   no grid, so the copy sat hard against the card's left border while the
+   buttons under it kept their gutter. Same gutter as .sk-btn-row so everything
+   that is text lines up down the card. */
+@media (max-width: 899px) {
+  .sk-ftrain .sk-vid-clip > .sk-prose { padding: 14px 14px 16px; }
+}
+
+/* ---- "Make the numbers show on the first line" ----
+   "TRAFFIC STRATEGY 1: ORGANIC POSTING!" wrapped between STRATEGY and the
+   number, so two of the three cards read "TRAFFIC STRATEGY / 1: ORGANIC
+   POSTING!" and the number looked like it belonged to the second line. The
+   label and its number are one unit. */
+.sk-ftrain .sk-nowrap { white-space: nowrap; }
+
+/* ---- the sticky footer wears the same emoji as the cards ----
+   The segments carried outline SVG icons that matched nothing else on the page.
+   The emoji is cloned from the part header, so the bar and the card it opens
+   can never drift apart. */
+.sk-ftrain .sk-navseg .sk-part-icon {
+  display: block;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1;
+}
