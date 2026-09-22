@@ -162,6 +162,22 @@
   .sk-cap-nva-tone .sk-cap-bar .sk-cap-btn{ padding:.68rem 1.4rem; font-size:.88rem; }
 }
 
+/* ---------- What is inside: the spread tracks the list ----------
+   The shared grid centres the two columns, so a short image beside a six item list
+   sits marooned in the middle with air above and below it and no relationship to
+   whatever she is reading. Top aligned and stuck, the spread stays beside the list
+   the whole way down the section and releases at the end of it.
+
+   ⚠️ `align-items:start` is REQUIRED, not cosmetic. Under the inherited `center` the
+   grid item is centred as a whole and has nowhere to travel, so `position:sticky`
+   computes and does nothing. Desktop only: stacked, the image is above the copy and
+   sticking it would pin a picture over the text she is trying to read.
+   ⚠️ `top` clears the sticky header, which is 58px plus its shadow. */
+@media (min-width:901px){
+  .sk-cap-nva-tone .sk-cap-inside{ align-items:start; }
+  .sk-cap-nva-tone .sk-cap-inside > :first-child{ position:sticky; top:104px; }
+}
+
 /* ---------- the close ----------
    Same voice as the hero, one octave down: the teal picks out the thing that is
    starting, the measure is short enough to read as a statement rather than a line
