@@ -275,6 +275,15 @@
       "elementTitle": "n-marketing-links",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-companion",
+      "funnelId": "xNJhPdwo3zLb7MAe4uUf",
+      "pageId": "DBrfpvt5QFSzITCYgsT1",
+      "elementId": "custom-code-ip4wmms30l",
+      "elementTitle": "n-tone-and-tighten-companion",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
