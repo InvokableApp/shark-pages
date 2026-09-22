@@ -80,6 +80,52 @@
     if (!cv("rep_phone")) {
       var line = root.querySelector(".sk-conf-glpf-textline");
       if (line && line.parentNode) line.parentNode.removeChild(line);
+      var mline = root.querySelector("[data-glpf-textline]");
+      if (mline && mline.parentNode) mline.parentNode.removeChild(mline);
+    }
+
+    /* ── THE PRODUCT PANEL ────────────────────────────────────────────────────────────
+       The page's three CTAs open this block's own modal. It is wired HERE and not in the
+       shared engine because the shared route sheet is a two-route chooser that removes
+       itself below two live routes: on a snapshot rep_phone is instruction text, so the
+       sms route goes and the sheet would delete a panel that is supposed to have one
+       button. Page-local markup, page-local behaviour, nothing shared touched.
+
+       ⚠️ THE PANEL IS MOVED TO <body>, inside a clone of this block's own scope. A GHL
+       section can carry transform/filter/overflow, any of which makes a position:fixed
+       descendant resolve against that section instead of the viewport, so the overlay
+       lands inside one band and covers a third of the screen. Carrying the block's
+       className onto the host keeps both the component rules and this page's palette,
+       which a bare append to body would lose. Same fix, and same reason, as confirm.js. */
+    var modal = root.querySelector("[data-glpf-modal]");
+    var openers = root.querySelectorAll("[data-glpf-open]");
+    if (modal && openers.length) {
+      var host = document.createElement("div");
+      host.className = root.className;
+      host.setAttribute("data-glpf-modal-host", "1");
+      host.appendChild(modal);
+      document.body.appendChild(host);
+
+      var last = null;
+      var onKey = function (e) { if (e.key === "Escape") close(); };
+      function open(e) {
+        if (e) e.preventDefault();
+        last = document.activeElement;
+        modal.setAttribute("data-open", "true");
+        var f = modal.querySelector("[data-glpf-close]");
+        if (f) f.focus();
+        document.addEventListener("keydown", onKey);
+      }
+      function close() {
+        modal.removeAttribute("data-open");
+        document.removeEventListener("keydown", onKey);
+        if (last && last.focus) last.focus();
+      }
+      for (var m = 0; m < openers.length; m++) openers[m].addEventListener("click", open);
+      /* Backdrop only: a click that began inside the box must not close it. */
+      modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+      var x = modal.querySelector("[data-glpf-close]");
+      if (x) x.addEventListener("click", close);
     }
   }
 

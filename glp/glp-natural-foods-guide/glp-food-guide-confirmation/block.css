@@ -173,3 +173,79 @@
    height, and four other systems run it. */
 .sk-conf-glpf .sk-conf-top-split .sk-conf-steps{align-items:stretch}
 .sk-conf-glpf .sk-conf-top-split .sk-conf-split{align-items:start}
+
+/* ── THE PRODUCT PANEL · 2026-09-22 ──────────────────────────────────────────────────
+   The block's own modal, replacing the shared route sheet. Every rule is page-scoped:
+   the shared component knows nothing about this, so nothing here can reach another
+   system's confirmation page.
+
+   THE BOX IS WHITE, NOT THE PAGE'S CREAM, AND THAT IS DELIBERATE. The product shot is a
+   JPEG on a white ground with no alpha, so on cream it reads as a white rectangle pasted
+   onto the panel. White ground, page-orange headline and button: the page's colours where
+   they show, the image's ground where it has to match. */
+.sk-conf-glpf .sk-conf-glpf-modal{
+  position:fixed;inset:0;z-index:2147483000;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;background:rgba(18,38,27,.72);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+}
+.sk-conf-glpf .sk-conf-glpf-modal[data-open]{display:flex}
+.sk-conf-glpf .sk-conf-glpf-modal-box{
+  position:relative;width:100%;max-width:860px;max-height:calc(100vh - 48px);overflow-y:auto;
+  background:#fff;border-radius:18px;padding:clamp(1.6rem,3vw,2.4rem);
+  box-shadow:0 30px 80px rgba(0,0,0,.35);text-align:center;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-x{
+  position:absolute;top:10px;right:14px;z-index:2;
+  border:0;background:none;cursor:pointer;
+  font-size:2rem;line-height:1;color:#9aa39d;padding:.2rem .4rem;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-x:hover{color:var(--sk-ink)}
+.sk-conf-glpf .sk-conf-glpf-modal-h{
+  margin:0;color:var(--sk-accent-d,#ec5e2a);
+  font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.15;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-rule{
+  border:0;border-top:1px solid var(--sk-line,#e4ded1);margin:1.1rem 0 1.4rem;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-split{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1rem,2.4vw,1.8rem);align-items:center;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-media img{display:block;width:100%;height:auto}
+.sk-conf-glpf .sk-conf-glpf-modal-copy{text-align:left}
+.sk-conf-glpf .sk-conf-glpf-modal-lede{
+  margin:0 0 1.1rem;color:var(--sk-ink,#16281e);
+  font-size:1.02rem;line-height:1.5;font-weight:500;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-btn{
+  display:block;text-decoration:none;text-align:center;
+  background:var(--sk-accent,#f2782f);color:#fff;
+  border-radius:12px;padding:.95rem 1.2rem;
+  transition:background .15s ease;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-btn:hover{background:var(--sk-accent-d,#ec5e2a)}
+.sk-conf-glpf .sk-conf-glpf-modal-btn:focus-visible{outline:3px solid var(--sk-ink);outline-offset:3px}
+.sk-conf-glpf .sk-conf-glpf-modal-btn-t{
+  display:block;font-size:clamp(1.15rem,2vw,1.5rem);font-weight:700;letter-spacing:.01em;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-btn-s{
+  display:block;margin-top:.15rem;font-size:.92rem;font-weight:500;color:rgba(255,255,255,.92);
+}
+.sk-conf-glpf .sk-conf-glpf-modal-text{
+  margin:.9rem 0 0;color:var(--sk-ink,#16281e);font-size:.95rem;font-weight:600;
+}
+.sk-conf-glpf .sk-conf-glpf-modal-text a{color:var(--sk-accent-d,#ec5e2a);font-weight:700}
+
+/* The image column is desktop only, the same call the donor popup makes: on a phone the
+   panel has to be reachable by thumb and the product shot is the first thing that can go. */
+@media (max-width:700px){
+  .sk-conf-glpf .sk-conf-glpf-modal{padding:14px}
+  .sk-conf-glpf .sk-conf-glpf-modal-split{grid-template-columns:1fr}
+  .sk-conf-glpf .sk-conf-glpf-modal-media{display:none}
+  .sk-conf-glpf .sk-conf-glpf-modal-copy{text-align:center}
+  /* The close control sits in the headline's top right, so on a narrow box the headline
+     has to keep clear of it or the last word runs under the x. Sizing down a step also
+     stops the check emoji orphaning onto a line of its own. */
+  .sk-conf-glpf .sk-conf-glpf-modal-h{font-size:1.3rem;padding:0 1.9rem}
+  .sk-conf-glpf .sk-conf-glpf-modal-rule{margin:.9rem 0 1.1rem}
+}

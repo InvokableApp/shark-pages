@@ -115,7 +115,7 @@
              two routes. Band 3 keeps its own copy of it because that band's body copy argues for
              it and says "the button below" in as many words. -->
         <div class="sk-conf-btns">
-          <a class="sk-conf-btn sk-conf-btn-lg" data-sk-open
+          <a class="sk-conf-btn sk-conf-btn-lg" data-glpf-open
              data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
             Yeah! Send me product &amp; sample info! 🔥
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -194,7 +194,7 @@
            href is the Messenger route, so the control still works with JS off and still
            does the right thing if the sheet is ever removed. -->
       <div class="sk-conf-btns">
-        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-open
+        <a class="sk-conf-btn sk-conf-btn-lg" data-glpf-open
            data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
           Yeah! Send me product &amp; sample info! 🔥
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -264,7 +264,7 @@
                Conectiv's equivalent funnel, built later, has no Product Tour step at all and sends
                both its DM controls here. Now all three CTAs on this page are one control. -->
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" data-sk-open
+            <a class="sk-conf-btn" data-glpf-open
                data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
               Yeah... Show me the GLP alternatives! 👀
             </a>
@@ -285,51 +285,62 @@
     </div>
   </section>
 
-  <!-- ===================== THE ROUTE SHEET =====================
-       Opened by the primary CTA. Two ways to reach the same human, and the reader picks.
+  <!-- ===================== THE PRODUCT PANEL =====================
+       REPLACED THE ROUTE SHEET, 2026-09-22 (Jeff: "can you build a popup in the page that
+       doesnt trigger the native ghl popup and make it look like the above one?").
 
-       MESSENGER goes to this funnel's DM Redirect STEP, not to a messenger URL. That step
-       is a shim whose only job is to forward to {{custom_values.your_facebook_messenger_link}},
-       so the account already owns the redirect and this block does not have to know the
-       rep's messenger address. Document-relative href, so it resolves with or without a
-       connected domain.
+       WHY NOT THE SHARED ROUTE SHEET. It is a two-route chooser and it DELETES ITSELF below
+       two live routes: on a snapshot rep_phone is instruction text, wireSms blanks the sms
+       href, one route survives and wireRoutes removes the sheet and turns the opener into a
+       plain link. That is right for a chooser and fatal for a promotional panel, which has
+       one button and must still be there when the phone number is not filled.
 
-       TEXT is a real sms: link. Its number comes from {{custom_values.rep_phone}}, which
-       confirm.js normalises to E.164 before writing the href, because a rep types
-       "(555) 123-4567" at onboarding and parens inside an sms: URI are where prefill
-       quietly stops working on some handsets.
+       WHY NOT THE NATIVE GHL POPUP. It works and it is built, but it lives in the page
+       document, so it does not travel with a git push and every account needs it installed
+       separately. This panel is markup like the rest of the page.
 
-       ⚠️ ON THE SNAPSHOT ONLY THE MESSENGER ROUTE SURVIVES, AND THAT IS CORRECT.
-          rep_phone holds "Add the phone number they can text and call you at here."
-          until a buyer fills it. confirm.js blanks the href, drops the text route, and
-          the CTA quietly becomes a plain link to the DM step. A buyer who fills the CV
-          gets both routes and the sheet, with no edit to this block.
+       THE DESIGN IS THE ACCOUNT'S OWN, copied from the popup on the Weight Loss Supplement
+       Recommendation info page: headline, rule, product shot beside the copy, one large
+       button carrying its own sub-label, then the text alternative. The product image is
+       VENDORED into this block's assets/ rather than hot-linked from the GHL media library,
+       so it survives the page being installed anywhere.
 
-       ⚠️ NOTHING IS LISTENING FOR THE WORD "INFO" YET. The text arrives in the rep's own
-          inbox and no inbound-SMS keyword workflow exists on this campaign. Same open
-          item as the IGNYT sample confirmation. Flagged, not assumed. -->
-  <div class="sk-conf-routes" data-sk-routes role="dialog" aria-modal="true" aria-label="Choose how to message a team member">
-    <div class="sk-conf-routes-box">
-      <button class="sk-conf-routes-x" data-sk-routes-close type="button" aria-label="Close">&times;</button>
+       The button is a real link to the DM Redirect step and is upgraded to the buyer's own
+       domain by block.js, exactly like the CTAs on the page behind it. -->
+  <div class="sk-conf-glpf-modal" data-glpf-modal role="dialog" aria-modal="true" aria-labelledby="sk-glpf-modal-h">
+    <div class="sk-conf-glpf-modal-box">
+      <button class="sk-conf-glpf-modal-x" data-glpf-close type="button" aria-label="Close">&times;</button>
 
-      <h3>How would you like to reach us?</h3>
-      <p>Either one goes to a real person on the team. Pick whichever you actually use.</p>
+      <h2 class="sk-conf-glpf-modal-h" id="sk-glpf-modal-h">Want To Try The Products? ✅</h2>
+      <hr class="sk-conf-glpf-modal-rule">
 
-      <div class="sk-conf-routes-list">
+      <div class="sk-conf-glpf-modal-split">
+        <div class="sk-conf-glpf-modal-media">
+          <img src="https://invokableapp.github.io/shark-pages/glp/glp-natural-foods-guide/glp-food-guide-confirmation/assets/orygn-products.webp" width="733" height="900" loading="lazy" decoding="async"
+               alt="ORYGN triGLP drops, IGNYT metabolic booster pouch and two IGNYT sticks">
+        </div>
 
-        <a class="sk-conf-route" data-sk-route
-           data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.3 2 2 6.2 2 11.7c0 3.1 1.4 5.9 3.7 7.7v3.1l3.4-1.9c.9.3 1.9.4 2.9.4 5.7 0 10-4.2 10-9.3S17.7 2 12 2zm1 12.5l-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.4 5.8z"/></svg>
-          <span>Message on Facebook<small>Opens Messenger</small></span>
-        </a>
+        <div class="sk-conf-glpf-modal-copy">
+          <p class="sk-conf-glpf-modal-lede">
+            Message "PRODUCT INFO" to a trusted team member on Facebook now! They can send you
+            more information on the product, <u>sampling options</u> and even
+            <u>special pricing</u> details! 🔥
+          </p>
 
-        <a class="sk-conf-route sk-conf-route-alt" data-sk-route data-sms-cta data-sms-body="INFO"
-           href="sms:{{custom_values.rep_phone}}?&amp;body=INFO">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-          <span data-sms-label>Send a text<small>To <span data-rep-phone>{{custom_values.rep_phone}}</span></small></span>
-        </a>
+          <a class="sk-conf-glpf-modal-btn" data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
+            <span class="sk-conf-glpf-modal-btn-t">CLICK HERE 💬</span>
+            <span class="sk-conf-glpf-modal-btn-s">Message "PRODUCT INFO" to us on Facebook!</span>
+          </a>
 
+          <p class="sk-conf-glpf-modal-text" data-glpf-textline>
+            Rather text? 📲 Text "PRODUCT INFO" to:
+            <a data-sms-cta data-sms-body="PRODUCT INFO" href="sms:{{custom_values.rep_phone}}?&amp;body=PRODUCT INFO">
+              <span data-sms-label><span data-rep-phone>{{custom_values.rep_phone}}</span></span>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
