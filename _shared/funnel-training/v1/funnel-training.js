@@ -179,9 +179,22 @@ if (!window.__sharkFunnelTraining) {
            above finished collapsing; the correction after the animation is what
            actually lands it. The second scroll is skipped when it would move
            less than a few pixels, so the common case is one smooth glide. */
-        var acc = panels[active].querySelector(".sk-acc");
+        /* ⚠️ THE TARGET DIFFERS BY BREAKPOINT, and picking the wrong one fails
+           SILENTLY. The obvious anchor is the part's accordion header, and on a
+           phone that is right. On desktop .sk-acc is display:none, so its
+           getBoundingClientRect() is all zeros, y computes to roughly the
+           current scroll position, and the page does not move at all — which is
+           exactly what the in-page "learn how to generate leads" buttons did
+           (Jess, 2026-09-22: "they don't go back to the top of the page").
+           On desktop the tab strip is the right anchor anyway: land there and
+           the reader sees which tab is now active as well as its first line. */
+        var visible = function (el) {
+          return el && el.getClientRects().length > 0;
+        };
         var land = function () {
-          var y = Math.max(0, acc.getBoundingClientRect().top + window.scrollY - 12);
+          var acc = panels[active].querySelector(".sk-acc");
+          var target = visible(acc) ? acc : (visible(strip) ? strip : panels[active]);
+          var y = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 12);
           if (Math.abs(y - window.scrollY) < 4) return;
           window.scrollTo({ top: y, behavior: "smooth" });
         };
