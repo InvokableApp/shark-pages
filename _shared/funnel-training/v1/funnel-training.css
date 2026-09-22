@@ -2559,3 +2559,31 @@
   font-size: 17px;
   line-height: 1;
 }
+
+
+/* ---- "Let's increase space between these boxes / section. Little tight
+        everywhere" (Joe, 2026-09-22) ----
+   The rhythm was tuned on desktop, where a wider measure makes the same gap
+   read as larger. On a phone every box sits nearly edge to edge, so 12px
+   between two cards and 5px above the aside ran them together into one grey
+   mass. Phone only: desktop reads correctly as it is. */
+@media (max-width: 899px) {
+  .sk-ftrain .sk-things { gap: 18px; }
+  .sk-ftrain .sk-thing { padding: 18px 17px; }
+  .sk-ftrain .sk-aside { margin-top: 20px; padding: 18px; }
+  .sk-ftrain .sk-sec-head { margin-top: 42px; margin-bottom: 18px; }
+  /* the first head in a panel introduces the panel, so it needs no run-up */
+  .sk-ftrain .sk-panel-body > .sk-sec-head:first-of-type { margin-top: 30px; }
+  .sk-ftrain .sk-prose > * + * { margin-top: 15px; }
+  .sk-ftrain .sk-next { margin-top: 4px; }
+}
+
+/* ---- the video headline (Joe: "Headline above video / WATCH THIS VIDEO! /
+        same font / style as the line below video") ----
+   It IS a .sk-sec-head, which is the line below the video, so it needs no type
+   of its own. It only needs to sit closer to the frame it introduces than a
+   section head normally would. */
+.sk-ftrain .sk-sec-head + .sk-vids { margin-top: 0; }
+@media (max-width: 899px) {
+  .sk-ftrain .sk-panel-body > .sk-chapter-sub + .sk-sec-head { margin-top: 30px; margin-bottom: 12px; }
+}
