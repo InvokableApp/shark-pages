@@ -2480,3 +2480,48 @@
   .sk-ftrain .sk-foot { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
   .sk-ftrain .sk-tabs[data-parts="1"] ~ .sk-foot { padding-bottom: 0; }
 }
+
+
+/* ============================================================
+   ROUND 9 — Joe's phone pass (2026-09-22)
+   ============================================================ */
+
+/* ---- ONE NAME, TWO LENGTHS ----
+   Joe wants the phone cards to read "How To Generate Leads With This Funnel".
+   The desktop TAB STRIP is built by cloning .sk-part-name, so writing the long
+   name into the markup would push it into a third of the strip as well. Both
+   lengths ship and the breakpoint picks one; the emoji is phone-only for the
+   same reason. Joe: "Keep the 1,2,3 though etc that's good" - the number chips
+   are untouched. */
+.sk-ftrain .sk-part-long { display: none; }
+.sk-ftrain .sk-part-icon { display: none; }
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-part-short { display: none; }
+  .sk-ftrain .sk-part-long  { display: inline; }
+  .sk-ftrain .sk-part-icon  {
+    display: inline;
+    margin-right: 7px;
+    font-size: 1.05em;
+    line-height: 1;
+  }
+
+  /* "Let's make that headline bigger, maybe double the size" */
+  .sk-ftrain .sk-pick {
+    margin-bottom: 16px;
+    font-size: 27px;
+    line-height: 1.18;
+    font-variation-settings: "wdth" 94, "wght" 800;
+    letter-spacing: -.01em;
+  }
+
+  .sk-ftrain .sk-acc[aria-expanded="false"] .sk-part-name::after {
+    content: "(Click to expand this section)";
+  }
+
+  /* the longer names wrap to two lines, and a centred number then sits beside
+     the SECOND line, reading as if it belonged to the wrong row */
+  .sk-ftrain .sk-acc { align-items: flex-start; }
+  .sk-ftrain .sk-acc .sk-part-num { margin-top: 1px; }
+  .sk-ftrain .sk-acc .sk-chev { align-self: center; }
+}

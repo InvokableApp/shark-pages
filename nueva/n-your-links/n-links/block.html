@@ -1,0 +1,40 @@
+<!--
+  nueva/n-your-links/n-links
+  The PUBLIC link hub: the page a rep posts in their social bio. A visitor taps
+  one row and lands in that funnel. This is NOT the rep console, which lives at
+  nueva/n-your-marketing-links/n-marketing-links and is for the rep's own eyes.
+
+  ⚠️ LINK MODEL: DOMAIN CUSTOM VALUE PLUS A FIXED SLUG, not one custom value per
+  funnel. Jeff, 2026-09-22: "we know the cv for default domain and we know the
+  slugs so we can do it the way we do the marketing-links pages, glp is the
+  exception in this case." GLP ships per-funnel link values in its snapshot, so
+  its fork of this page reads them; nothing else does, and inventing them for
+  Nueva would be six more values for a rep to fill for no gain.
+
+  GHL substitutes merge fields only in its own HTML, so every value the block
+  reads is declared here and carried in on the socket as data-cv-*. ADDING one
+  here needs a push-block re-push per account; changing markup does not.
+-->
+<div class="sk-nva-links"
+     data-cv-nueva_main_url="{{custom_values.nueva_main_url}}"
+     data-cv-nueva_rep_full_name="{{custom_values.nueva_rep_full_name}}"
+     data-cv-nueva_buy_link="{{custom_values.nueva_buy_link}}"
+     data-cv-nueva_opportunity_url="{{custom_values.nueva_opportunity_url}}"
+     data-cv-nueva_income_disclaimer="{{custom_values.nueva_income_disclaimer}}"
+     data-cv-nueva_facebook="{{custom_values.nueva_facebook}}"
+     data-cv-nueva_instagram="{{custom_values.nueva_instagram}}"
+     data-cv-nueva_tiktok="{{custom_values.nueva_tiktok}}"
+     data-cv-nueva_youtube="{{custom_values.nueva_youtube}}">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <h1 class="sk-name" data-name></h1>
+    <p class="sk-sub" data-sub></p>
+  </header>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <p class="sk-legal" data-legal></p>
+  </footer>
+</div>

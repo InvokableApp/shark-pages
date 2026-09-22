@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+/* ============================================================
+   NUEVA, PUBLIC LINK HUB  (nueva/n-your-links/n-links)
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   This is the AUDIENCE facing page a rep posts in their social bio.
+   It is not the rep console at nueva/n-your-marketing-links/n-marketing-links.
+   A stranger lands here from a phone and wants to tap one thing, so the
+   accordion, the copy buttons and the group counts are all deliberately
+   absent: rows tap straight through to the funnel.
+
+   Forked from glp/your-links/links 2026-09-22. Same layout, Nueva's palette
+   and type. The LINK MODEL differs and that is the whole reason for the fork:
+   GLP ships one custom value per funnel, Nueva resolves {domain}/{slug} like
+   every other system. Jeff, 2026-09-22: "glp is the exception in this case".
+
+   Palette is systems/nueva.json, measured off nuevalife.com. Monochrome teal,
+   so there is no second hue to reach for: hierarchy comes from weight and
+   space, not colour.
+   ============================================================ */
+
+.sk-nva-links *,
+.sk-nva-links *::before,
+.sk-nva-links *::after { box-sizing: border-box; }
+
+.sk-nva-links {
+  --sk-brand:      #0ABAB5;
+  --sk-brand-deep: #087F7B;
+  --sk-brand-tint: #E8F8F6;
+  --sk-ink:        #141313;
+  --sk-ink-soft:   #4A5560;
+  --sk-ink-faint:  #8A949C;
+  --sk-paper:      #FCFEFF;
+  --sk-line:       #D5DFE1;
+  --sk-line-soft:  #E6EEF0;
+  --sk-card:       #ffffff;
+
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow:      0 1px 2px rgba(16,42,42,.04), 0 8px 24px -12px rgba(16,42,42,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(16,42,42,.05), 0 18px 40px -18px rgba(16,42,42,.28);
+
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 0 calc(48px + env(safe-area-inset-bottom));
+  position: relative;
+  isolation: isolate;
+}
+.sk-nva-links > * { grid-column: 2; padding-inline: 16px; }
+
+.sk-nva-links .sk-grain {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  grid-column: 1 / -1; padding: 0;
+  mix-blend-mode: multiply; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+/* ---------- header ---------- */
+.sk-nva-links .sk-head {
+  position: relative; z-index: 1;
+  padding-top: 40px; padding-bottom: 26px;
+  text-align: center;
+}
+.sk-nva-links .sk-mono {
+  display: block;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  margin: 0 0 12px;
+}
+.sk-nva-links .sk-name {
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04; letter-spacing: -.012em; text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0;
+}
+.sk-nva-links .sk-name .sk-hl {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sk-nva-links .sk-sub {
+  font-size: 15px; line-height: 1.5; color: var(--sk-ink-soft);
+  max-width: 32ch; margin: 12px auto 0; text-wrap: balance;
+}
+
+/* ---------- groups ---------- */
+.sk-nva-links .sk-body { position: relative; z-index: 1; }
+.sk-nva-links .sk-group { margin: 0 0 26px; }
+.sk-nva-links .sk-group-head {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 12px;
+}
+.sk-nva-links .sk-group-label {
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 11.5px; letter-spacing: .17em; text-transform: uppercase;
+  color: var(--sk-ink-faint);
+  white-space: nowrap;
+}
+.sk-nva-links .sk-rule { flex: 1; height: 1px; background: var(--sk-line); }
+
+/* ---------- a row ---------- */
+.sk-nva-links .sk-row {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; min-height: 72px;
+  padding: 14px var(--sk-pad);
+  margin: 0 0 10px;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  box-shadow: var(--sk-shadow);
+  color: inherit; text-decoration: none;
+  transition: box-shadow .2s ease, transform .12s ease, border-color .2s ease;
+}
+.sk-nva-links .sk-row:hover { box-shadow: var(--sk-shadow-lift); border-color: var(--sk-line-soft); }
+.sk-nva-links .sk-row:active { transform: translateY(1px); }
+.sk-nva-links .sk-row:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+
+.sk-nva-links .sk-mark {
+  flex: 0 0 auto;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--sk-brand-tint); color: var(--sk-brand-deep);
+  border-radius: var(--sk-r-sm);
+}
+.sk-nva-links .sk-mark svg { width: 22px; height: 22px; }
+
+.sk-nva-links .sk-text { flex: 1 1 auto; min-width: 0; }
+.sk-nva-links .sk-row-name {
+  display: block;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15.5px; line-height: 1.25; letter-spacing: -.004em;
+}
+.sk-nva-links .sk-row-tease {
+  display: block;
+  font-size: 13.5px; line-height: 1.4; color: var(--sk-ink-soft);
+  margin-top: 3px;
+}
+.sk-nva-links .sk-chev { flex: 0 0 auto; color: var(--sk-ink-faint); }
+.sk-nva-links .sk-chev svg { width: 18px; height: 18px; display: block; }
+
+/* the shop rows carry the accent so a buying visitor can find them at a glance */
+.sk-nva-links .sk-row--buy .sk-mark {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+}
+
+/* ---------- socials ---------- */
+.sk-nva-links .sk-foot { position: relative; z-index: 1; padding-top: 10px; }
+/* the social row now sits inside its own section in the body flow, so it
+   carries the same left alignment as the cards above it rather than the
+   centred footer treatment it had when it was furniture */
+.sk-nva-links .sk-social {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin: 0;
+}
+.sk-nva-links .sk-social:empty { display: none; }
+.sk-nva-links .sk-soc {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  color: var(--sk-ink-soft);
+  box-shadow: var(--sk-shadow);
+  transition: color .2s ease, border-color .2s ease, transform .12s ease;
+}
+.sk-nva-links .sk-soc svg { width: 20px; height: 20px; display: block; }
+.sk-nva-links .sk-soc:hover { color: var(--sk-brand-deep); border-color: var(--sk-brand); }
+.sk-nva-links .sk-soc:active { transform: translateY(1px); }
+.sk-nva-links .sk-soc:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+
+.sk-nva-links .sk-legal {
+  font-size: 11.5px; line-height: 1.5; color: var(--sk-ink-faint);
+  text-align: center; max-width: 44ch; margin: 0 auto;
+}
+.sk-nva-links .sk-legal:empty { display: none; }
+
+/* ---------- setup card, snapshot and half filled accounts ---------- */
+.sk-nva-links .sk-setup {
+  position: relative; z-index: 1;
+  background: #FFF8E8; border: 1px solid #F0DFB4; border-radius: var(--sk-r);
+  padding: var(--sk-pad); margin: 0 0 26px;
+  color: #6B4E16; font-size: 14.6px; line-height: 1.5;
+}
+.sk-nva-links .sk-setup b {
+  display: block;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+/* ---------- motion ---------- */
+@keyframes sk-glp-links-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.sk-nva-links .sk-head,
+.sk-nva-links .sk-group,
+.sk-nva-links .sk-foot {
+  animation: sk-glp-links-rise .55s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-nva-links .sk-group:nth-of-type(1) { animation-delay: .06s; }
+.sk-nva-links .sk-group:nth-of-type(2) { animation-delay: .12s; }
+.sk-nva-links .sk-group:nth-of-type(3) { animation-delay: .18s; }
+.sk-nva-links .sk-group:nth-of-type(4) { animation-delay: .24s; }
+.sk-nva-links .sk-foot { animation-delay: .3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-nva-links .sk-head,
+  .sk-nva-links .sk-group,
+  .sk-nva-links .sk-foot { animation: none; }
+}
