@@ -991,6 +991,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "2B8mHRpL0ZWC1bKNdBt1",
+      "pageId": "KehqOM39IuB160HdofdO",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "i3K4nmBuOROfrjBsc7l5",
+      "pageId": "VHd5Jir5i4GBWxhL72gl",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }

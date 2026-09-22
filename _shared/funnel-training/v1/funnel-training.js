@@ -108,7 +108,8 @@ if (!window.__sharkFunnelTraining) {
        & Follow Up With Leads" cannot fit in a third of a phone. */
     var bar = document.createElement("nav");
     bar.className = "sk-bottomnav";
-    bar.setAttribute("aria-label", "The three parts of this training");
+    bar.setAttribute("aria-label", panels.length === 1
+      ? "This training" : "The " + panels.length + " parts of this training");
 
     panels.forEach(function (panel, i) {
       var acc = panel.querySelector(".sk-acc");
@@ -211,9 +212,14 @@ if (!window.__sharkFunnelTraining) {
        thing this page cannot afford. On desktop the strip already says "three
        parts", so a panel stays open there. A deep link from the hub always
        wins over both, since the rep asked for that part by name. */
+    /* A ONE-PART page (What I Do, Linktree, the DROPS one pager) has no strip
+       and no bottom bar, so the phone test below would read its hidden strip as
+       "this is a phone" and open nothing at all, on every width. There is also
+       nothing to choose between: the single part IS the page, so it is open. */
+    var single = panels.length === 1;
     var deepLinked = /^#part-([1-9]\d*)$/.test(window.location.hash || "");
-    var phone = getComputedStyle(strip).display === "none";
-    open(deepLinked || !phone ? fromHash() : -1, false);
+    var phone = !single && getComputedStyle(strip).display === "none";
+    open(single || deepLinked || !phone ? fromHash() : -1, false);
     window.addEventListener("hashchange", function () { open(fromHash(), true); });
   }
 

@@ -2221,3 +2221,66 @@
 /* the ad-creative aside now lives inside the paid-ads card, so it loses the
    standalone margins it had when it sat on its own under the row */
 .sk-ftrain .sk-vid-clip .sk-note { margin: 18px 0 0; }
+
+
+/* ============================================================
+   ROUND 5 — the ONE-TAB variant (What I Do, Linktree, the DROPS
+   one pager). Joe, in the asset doc: "Funnel Training Page is ONLY
+   one tab (how this funnel works)".
+
+   Two things need saying in CSS. A single panel should not wear a
+   tab strip, because a strip of one is a label pretending to be a
+   control. And a video slot Joe has not shot yet needs to look
+   deliberately empty rather than broken.
+   ============================================================ */
+
+/* A lone part has nothing to switch between, so the strip goes and the
+   accordion header stops offering to collapse the only thing on the page. */
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-tabstrip { display: none; }
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc      { display: none; }
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-wrap,
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-clip { height: auto; overflow: visible; }
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-body { padding-top: 4px; }
+/* the strip used to occupy this space; without it the header floats 110px above
+   the content it introduces */
+.sk-ftrain .sk-tabs[data-parts="1"] { margin-top: 8px; }
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel { margin-top: 0; border-top: 0; }
+/* the phone bottom bar is a three-way switch; with one part there is nothing to
+   switch to, and a full-width bar covering the footer would be pure cost */
+.sk-ftrain .sk-tabs[data-parts="1"] ~ .sk-bottomnav { display: none; }
+
+/* A slot served as a file rather than a vimeo embed. Same box, real controls. */
+.sk-ftrain .sk-frame--file {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background: #000;
+  cursor: auto;
+}
+.sk-ftrain .sk-frame--file::-webkit-media-controls-enclosure { border-radius: 0 0 14px 14px; }
+
+/* PENDING VIDEO. Same box and aspect ratio as a real frame, so the layout Joe
+   reviews is the layout he gets. Flat, no play button, no pointer: it must not
+   read as a video that failed to load. */
+.sk-ftrain .sk-frame--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  background: repeating-linear-gradient(
+      135deg,
+      var(--sk-card) 0 14px,
+      color-mix(in srgb, var(--sk-card) 92%, var(--sk-ink)) 14px 28px);
+  border: 1px dashed color-mix(in srgb, var(--sk-ink) 28%, transparent);
+}
+.sk-ftrain .sk-pending-tag {
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sk-card) 88%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 14px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-variation-settings: "wght" 700;
+  color: color-mix(in srgb, var(--sk-ink) 62%, transparent);
+}

@@ -1,0 +1,71 @@
+{
+  "system": "glp",
+  "brand": "GLP Shark",
+  "host": "https://glpshark.com",
+  "locationId": "hKYM2WhsSBKHjvCPGkZo",
+  "logo": "logo-glp.svg",
+  "logoUrl": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+  "palette": {
+    "sk-brand": "#EC5E2A",
+    "sk-brand-deep": "#C94A1E",
+    "sk-brand-tint": "#FDF0EA",
+    "sk-ink": "#101410",
+    "sk-ink-soft": "#56605A",
+    "sk-ink-faint": "#8B948E",
+    "sk-paper": "#F7F4F1",
+    "sk-line": "#E6E0DA",
+    "sk-line-soft": "#EFE9E3",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1219006718",
+      "status": "STAND-IN"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1223695508",
+      "status": "STAND-IN"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "mp4": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a4fe4e8eada8c1f45a45b06.mp4",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ]
+  },
+  "links": {
+    "support": "https://glpshark.com/support",
+    "adsTraining": "https://glpshark.com/get-ads",
+    "readyToPostImages": "",
+    "buyLeads": "",
+    "confirmationPage": ""
+  },
+  "slug": "glp-what-i-do",
+  "funnelName": "What I Do Funnel",
+  "ghlFunnel": "\"What I Do\" Funnel",
+  "ghlStep": "HOW TO USE THIS FUNNEL",
+  "parts": [
+    "howItWorks"
+  ],
+  "sections": {
+    "flowViz": false,
+    "optInExplainer": false,
+    "primaryGoal": false,
+    "nextSteps": false
+  },
+  "flowDir": "flow/glp-what-i-do",
+  "headerSub": "Everything you need to understand how to use this funnel to build your business."
+}
