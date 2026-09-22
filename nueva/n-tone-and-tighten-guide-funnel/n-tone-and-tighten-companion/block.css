@@ -1,0 +1,535 @@
+/* nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read
+ * FORKED from beneve/beneve-natural-foods-guide/beneve-glp-food-guide-read. Palette is Nueva's, declared on the block's own scope class so
+ * no shared brand swatch is touched. The @import pins the shared component version: do not bump
+ * it here, that is a deliberate migration (see _shared/README.md).
+ */
+
+
+/* The donor hardcoded Playfair Display and Inter and imported NEITHER, so this page has been
+   falling back to the browser serif and sans the whole time. Nueva's face is Gotham
+   (licensed); Montserrat is the measured substitute recorded in systems/nueva.json, and every
+   face reference below now goes through --sk-serif / --sk-sans instead of a literal. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
+
+.sk-nva-comp{
+  /* Donor-vocabulary tokens this block's bespoke css still reads. Defined here, on the
+     block's own scope, so the page paints in Nueva rather than dropping the declaration.
+     Added by audit-block-tokens.mjs. */
+  --cream: #fcfeff;
+  --forest: #102a2a;
+  --gold: #0abab5;
+  --green: #0abab5;
+  --green-deep: #087f7b;
+  --green-tint: #e8f8f6;
+  --grey: #4a5560;
+  --hair: #d5dfe1;
+  --ink: #141313;
+  --panel: #ffffff;
+
+  --sk-brand:    #0abab5;
+  --sk-brand-d:  #087F7B;
+  --sk-accent:   #087f7b;
+  --sk-tint:     #e8f8f6;
+  --sk-ink:      #141313;
+  --sk-ink-d:    #102a2a;
+  --sk-body:     #4a5560;
+  --sk-faint:    #5C6D71;
+  --sk-paper:    #fcfeff;
+  --sk-card:     #ffffff;
+  --sk-warm:     #e8f8f6;
+  --sk-line:     #d5dfe1;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-sans:     Montserrat,system-ui,sans-serif;
+}
+
+/* --- bespoke rules carried over from the donor --- */
+.sk-nva-comp *{box-sizing:border-box;margin:0;padding:0;}
+
+
+
+.sk-nva-comp .page{
+  position:relative;
+  width:8.5in; height:11in;
+  background:var(--cream);
+  overflow:hidden;
+  page-break-after:always;
+  break-after:page;
+  padding:0.78in 0.8in;
+}
+.sk-nva-comp .page:last-child{ page-break-after:auto; }
+
+/* ---------- shared type ---------- */
+.sk-nva-comp .eyebrow,.sk-nva-comp .block-label,.sk-nva-comp .shop-title,.sk-nva-comp .aisle,.sk-nva-comp .cover-tag,.sk-nva-comp .cover-foot,.sk-nva-comp .divider-eyebrow,.sk-nva-comp .cta-eyebrow,.sk-nva-comp .cta-box-label,.sk-nva-comp .approx,.sk-nva-comp .badge-lab{
+  font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.18em; font-weight:600;
+}
+.sk-nva-comp .accent{ color:var(--green); }
+.sk-nva-comp em{ color:var(--grey); }
+.sk-nva-comp .star{ color:var(--green-deep); font-size:.78em; vertical-align:.08em; }
+
+/* ---------- COVER ---------- */
+
+/* ---------- DIVIDERS ---------- */
+.sk-nva-comp .divider{ padding:0; background-size:cover; background-position:center; }
+/* The scrim is sized for the donor's photography, which was dark and moody. Nueva's art
+   direction is bright daylight on white and pale blue, so the same gradient left white type
+   sitting on a near-white photograph and the divider titles were unreadable. Deeper, in the
+   brand's own deep teal, and carried further down the frame. */
+.sk-nva-comp .divider-scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,17,22,.80) 0%, rgba(7,17,22,.62) 46%, rgba(7,17,22,.42) 72%, rgba(7,17,22,.34) 100%); }
+.sk-nva-comp .divider-title,.sk-nva-comp .divider-eyebrow,.sk-nva-comp .divider-blurb{ text-shadow:0 1px 18px rgba(7,17,22,.55); }
+.sk-nva-comp .divider-top{ position:relative; padding:.95in .9in; color:var(--cream); }
+.sk-nva-comp .divider-eyebrow{ font-size:10px; color:var(--green); margin-bottom:.22in; }
+.sk-nva-comp .divider-title{ font-family:var(--sk-serif); font-weight:700; font-size:62px; line-height:1; }
+.sk-nva-comp .divider-blurb{ font-family:var(--sk-serif); font-style:italic; font-size:19px; margin-top:.16in;
+  max-width:4.6in; color:rgba(250,247,242,.92); }
+
+/* ---------- RECIPE CARD ---------- */
+.sk-nva-comp .recipe{ display:flex; flex-direction:column; }
+.sk-nva-comp .eyebrow{ font-size:10px; color:var(--forest); margin-bottom:.12in; }
+.sk-nva-comp .eyebrow .idx{ color:var(--green-deep); margin-left:.06in; }
+.sk-nva-comp .recipe-name{ font-family:var(--sk-serif); font-weight:700; color:var(--forest);
+  font-size:36px; line-height:1.02; letter-spacing:-.3px; }
+.sk-nva-comp .why{ font-family:var(--sk-serif); font-style:italic; color:var(--grey);
+  font-size:16px; margin-top:.08in; max-width:6in; }
+
+.sk-nva-comp .badges{ display:flex; gap:.13in; margin-top:.26in; }
+.sk-nva-comp .badge{ flex:1; background:#fff; border:1px solid var(--hair); border-radius:10px;
+  padding:.14in .1in; text-align:center; }
+.sk-nva-comp .badge-protein{ background:var(--green); border-color:var(--green); }
+.sk-nva-comp .badge-val{ display:block; font-family:var(--sk-serif); font-weight:700; font-size:26px; color:var(--forest); }
+.sk-nva-comp .badge-protein .badge-val{ color:#fff; }
+.sk-nva-comp .badge-lab{ display:block; font-size:8px; color:var(--grey); margin-top:3px; letter-spacing:.16em; }
+.sk-nva-comp .badge-protein .badge-lab{ color:rgba(255,255,255,.92); }
+.sk-nva-comp .approx{ font-size:8px; color:var(--grey); margin-top:.07in; opacity:.8; }
+
+.sk-nva-comp table.ingredients{ width:100%; border-collapse:collapse; margin-top:.26in; }
+.sk-nva-comp .ingredients th{ font-size:8.5px; color:var(--forest); padding:0 .08in .09in; border-bottom:2px solid var(--forest); }
+.sk-nva-comp .ingredients .th-ing{ text-align:left; }
+.sk-nva-comp .ingredients .th-serve{ text-align:center; width:1in; }
+.sk-nva-comp .ingredients td{ font-size:12.5px; padding:.085in .08in; border-bottom:1px solid var(--hair); }
+.sk-nva-comp .ingredients .td-ing{ text-align:left; color:var(--ink); }
+.sk-nva-comp .ingredients .td-serve{ text-align:center; color:var(--forest); font-variant-numeric:tabular-nums; font-weight:500; }
+.sk-nva-comp .ingredients tbody tr:nth-child(even) td{ background:rgba(26,54,38,.025); }
+
+.sk-nva-comp .method-wrap{ margin-top:.28in; }
+.sk-nva-comp .block-label{ font-size:9.5px; color:var(--green-deep); margin-bottom:.1in; }
+.sk-nva-comp ol.method{ list-style:none; counter-reset:m; }
+.sk-nva-comp ol.method li{ counter-increment:m; position:relative; padding-left:.42in; margin-bottom:.11in;
+  font-size:12.5px; line-height:1.5; color:var(--ink); }
+.sk-nva-comp ol.method li::before{ content:counter(m); position:absolute; left:0; top:-1px;
+  width:.28in; height:.28in; background:var(--forest); color:var(--cream);
+  border-radius:50%; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; font-family:var(--sk-sans); }
+
+.sk-nva-comp .shop{ margin-top:auto; padding-top:.24in; }
+.sk-nva-comp .shop-title{ font-size:9.5px; color:var(--green-deep); margin-bottom:.09in; }
+.sk-nva-comp .shop-row{ font-size:11px; color:var(--ink); margin-bottom:.05in; line-height:1.45; }
+.sk-nva-comp .aisle{ color:var(--forest); font-size:8.5px; margin-right:.05in; }
+
+/* top hero band: full-bleed to page edges, above the title */
+.sk-nva-comp .recipe-photo{ height:2.15in; background-size:cover; background-position:center;
+  margin:-0.78in -0.8in .32in; }
+.sk-nva-comp .recipe.has-photo .shop{ margin-top:auto; }
+
+.sk-nva-comp .grocery-key{ font-size:10px; color:var(--grey); margin:.02in 0 .18in; }
+.sk-nva-comp .grocery-key .star{ font-size:11px; margin-right:.04in; }
+
+.sk-nva-comp .callout{ background:var(--green-tint); border-left:3px solid var(--green); border-radius:0 8px 8px 0;
+  padding:.14in .18in; font-size:11.5px; line-height:1.5; color:var(--ink); margin-top:.2in; }
+.sk-nva-comp .callout strong{ color:var(--forest); }
+.sk-nva-comp .callout.swap{ margin-top:.18in; }
+
+/* ---------- PROSE PAGES ---------- */
+.sk-nva-comp .prose .page-title{ font-family:var(--sk-serif); font-weight:700; color:var(--forest);
+  font-size:34px; line-height:1.05; letter-spacing:-.3px; margin-bottom:.26in; max-width:6in; }
+.sk-nva-comp .prose p{ font-size:13px; line-height:1.62; color:var(--ink); margin-bottom:.14in; max-width:6.1in; }
+.sk-nva-comp .prose p.subhead{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.14em; font-weight:600;
+  font-size:11px; color:var(--green-deep); margin-top:.22in; margin-bottom:.1in; }
+.sk-nva-comp .prose ol,.sk-nva-comp .prose ul{ margin:.04in 0 .18in .04in; }
+.sk-nva-comp .prose ol{ list-style:none; counter-reset:p; }
+.sk-nva-comp .prose ol li{ counter-increment:p; position:relative; padding-left:.4in; margin-bottom:.1in; font-size:13px; line-height:1.55; max-width:6in; }
+.sk-nva-comp .prose ol li::before{ content:counter(p); position:absolute; left:0; top:-1px; width:.26in; height:.26in;
+  background:var(--green); color:#fff; border-radius:50%; font-size:11px; font-weight:600;
+  display:flex; align-items:center; justify-content:center; }
+.sk-nva-comp .prose ul{ list-style:none; }
+.sk-nva-comp .prose ul li{ position:relative; padding-left:.24in; margin-bottom:.08in; font-size:12.5px; line-height:1.55; max-width:6in; }
+.sk-nva-comp .prose ul li::before{ content:""; position:absolute; left:.06in; top:.1in; width:5px; height:5px; background:var(--green); border-radius:50%; }
+.sk-nva-comp .prose ul li .aisle{ color:var(--forest); }
+
+/* grocery columns */
+.sk-nva-comp .grocery-cols{ column-count:2; column-gap:.5in; margin-top:.12in; }
+.sk-nva-comp .grocery-cols .subhead{ break-after:avoid; }
+.sk-nva-comp .grocery-cols ul{ break-inside:avoid; margin-bottom:.16in; }
+
+/* closing / disclaimer */
+.sk-nva-comp .closing{ display:flex; flex-direction:column; justify-content:center; text-align:center; }
+.sk-nva-comp .closing .page-title{ font-size:46px; margin:0 auto .3in; }
+.sk-nva-comp .closing p{ font-size:16px; margin:0 auto .18in; max-width:5.2in; }
+.sk-nva-comp .closing em{ font-style:italic; }
+.sk-nva-comp .disclaimer{ display:flex; flex-direction:column; justify-content:flex-end; }
+.sk-nva-comp .disclaimer .page-title{ font-size:13px; font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.2em; color:var(--grey); font-weight:600; margin-bottom:.16in; }
+.sk-nva-comp .disclaimer p{ font-size:11.5px; color:var(--grey); line-height:1.6; max-width:5.4in; }
+
+/* ---------- CTA ---------- */
+.sk-nva-comp .cta{ background:var(--forest); color:var(--cream); display:flex; align-items:center; justify-content:center; }
+.sk-nva-comp .cta-inner{ text-align:center; max-width:5.4in; }
+.sk-nva-comp .cta-product-img{ display:block; width:1.5in; height:1.5in; object-fit:contain; margin:.14in auto .18in; border-radius:12px; background:rgba(250,247,242,.08); padding:8px; }
+.sk-nva-comp .cta-eyebrow{ font-size:10px; color:var(--green); margin-bottom:.24in; }
+.sk-nva-comp .cta-title{ font-family:var(--sk-serif); font-weight:700; font-size:44px; line-height:1.05; margin-bottom:.26in; }
+.sk-nva-comp .cta-lead{ font-family:var(--sk-serif); font-style:italic; font-size:19px; color:#fff; margin-bottom:.18in; }
+.sk-nva-comp .cta-body{ font-size:13px; line-height:1.6; color:rgba(250,247,242,.85); margin-bottom:.34in; }
+.sk-nva-comp .cta-box{ border:1px solid rgba(250,247,242,.28); border-radius:12px; padding:.32in .34in; text-align:center; }
+.sk-nva-comp .cta-box-label{ font-size:10px; color:var(--green); margin-bottom:.16in; }
+.sk-nva-comp .cta-box-body{ font-size:12.5px; line-height:1.6; color:rgba(250,247,242,.92); }
+.sk-nva-comp .cheat .cheatsheet{ width:100%; border-collapse:collapse; margin-top:.1in; }
+.sk-nva-comp .cheatsheet th{ font-size:9px; text-transform:uppercase; letter-spacing:.12em; color:#fff; background:var(--green-deep); padding:.1in .12in; text-align:left; }
+.sk-nva-comp .cheatsheet td{ font-size:12px; padding:.075in .12in; border-bottom:1px solid var(--hair); }
+.sk-nva-comp .cheatsheet td.cs-num{ text-align:right; color:var(--forest); font-weight:600; font-variant-numeric:tabular-nums; }
+.sk-nva-comp .cheatsheet tbody tr:nth-child(even) td{ background:rgba(26,54,38,.025); }
+
+/* ============================================================
+   GLP NATURAL-FOODS GUIDE  ·  editorial / medical-brochure skin
+   Loaded AFTER guide.css, so these declarations win.
+   ============================================================ */
+
+/* ---- 1. restrained clinical palette (overrides guide.css) ---- */
+
+
+/* ---- 2. editorial serif for all display type ---- */
+.sk-nva-comp .cover-title,.sk-nva-comp .cover-sub,.sk-nva-comp .divider-title,.sk-nva-comp .divider-blurb,.sk-nva-comp .recipe-name,.sk-nva-comp .why,.sk-nva-comp .page-title,.sk-nva-comp .food-name,.sk-nva-comp .formula,.sk-nva-comp .foods-head,.sk-nva-comp .cta-title,.sk-nva-comp .cta-lead,.sk-nva-comp .closing .page-title,.sk-nva-comp .callout-title{
+  font-family:'Newsreader',var(--sk-serif);
+}
+.sk-nva-comp .cover-title,.sk-nva-comp .divider-title,.sk-nva-comp .recipe-name,.sk-nva-comp .page-title,.sk-nva-comp .food-name,.sk-nva-comp .foods-head{
+  font-weight:500; letter-spacing:-.2px;   /* editorial serifs read heavier; lighten */
+}
+
+/* ---- 3. running footer band (brochure signature) ---- */
+
+.sk-nva-comp .page{ counter-increment:pg; }
+.sk-nva-comp .page.prose::before,.sk-nva-comp .page.foods::before,.sk-nva-comp .page.recipe::before{
+  content:"GLP · Natural Foods Guide";
+  position:absolute; left:.8in; bottom:.42in;
+  font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--grey); opacity:.8;
+}
+.sk-nva-comp .page.prose::after,.sk-nva-comp .page.foods::after,.sk-nva-comp .page.recipe::after{
+  content:counter(pg);
+  position:absolute; right:.8in; bottom:.4in;
+  font-family:var(--sk-sans); font-size:9px; letter-spacing:.1em;
+  color:var(--forest); font-variant-numeric:tabular-nums;
+}
+/* recipe pages with a full-bleed photo: keep the footer clear of content */
+.sk-nva-comp .recipe{ padding-bottom:.7in; }
+.sk-nva-comp .prose,.sk-nva-comp .foods{ padding-bottom:.75in; }
+
+/* ---- 4. COVER: quieter, more considered ---- */
+/* hairline rule under the wordmark block */
+
+/* ---- 5. DIVIDERS: numbered, journal-like ---- */
+.sk-nva-comp .divider-eyebrow{ font-family:var(--sk-sans); letter-spacing:.24em; font-size:9.5px; color:#fff; opacity:.9; }
+.sk-nva-comp .divider-title{ font-weight:500; font-size:58px; }
+.sk-nva-comp .divider-blurb{ font-style:italic; font-size:18px; }
+
+/* ---- 6. PROSE pages: editorial hierarchy ---- */
+.sk-nva-comp .prose .page-title{ font-weight:500; font-size:33px; color:var(--forest);
+  padding-bottom:.16in; border-bottom:1px solid var(--hair); margin-bottom:.24in; max-width:6.2in; }
+.sk-nva-comp .prose p{ font-size:12.5px; line-height:1.66; color:var(--ink); max-width:6.05in; }
+.sk-nva-comp .prose p.subhead{ color:var(--green-deep); letter-spacing:.16em; }
+/* lead paragraph (first p on the intro) gets an editorial lead-in */
+.sk-nva-comp .intro p:first-of-type{ font-family:'Newsreader',serif; font-size:16px; line-height:1.55;
+  color:var(--forest); max-width:6in; }
+/* numbered lists as clean editorial rows */
+.sk-nva-comp .prose ol li::before{ background:var(--forest); }
+.sk-nva-comp .prose ul li::before{ background:var(--green); }
+
+/* callouts: clinical panel, not a green blob */
+.sk-nva-comp .callout,.sk-nva-comp .callout.big{ background:var(--panel); border-left:3px solid var(--gold);
+  border-radius:0 6px 6px 0; padding:.2in .24in; margin-top:.24in; }
+.sk-nva-comp .callout-title{ font-weight:600; text-transform:uppercase; letter-spacing:.12em;
+  font-family:var(--sk-sans); font-size:11px; color:var(--forest); margin-bottom:.1in; }
+.sk-nva-comp .callout-p{ font-size:11.5px; line-height:1.58; color:var(--ink); margin-bottom:.09in; }
+.sk-nva-comp .callout-p:last-child{ margin-bottom:0; }
+
+/* the protein+fat+fiber formula */
+.sk-nva-comp .prose .formula{ font-weight:500; color:var(--forest); font-size:30px; text-align:center;
+  margin:.26in auto; padding:.18in 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
+  max-width:5in; }
+
+.sk-nva-comp .how p,.sk-nva-comp .gut p,.sk-nva-comp .plate p,.sk-nva-comp .ferments p{ font-size:12.5px; }
+
+/* ---- 7. PART ONE food cards: editorial index with evidence tags ---- */
+.sk-nva-comp .foods{ display:flex; flex-direction:column; }
+.sk-nva-comp .foods-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.22em;
+  font-weight:600; font-size:9px; color:var(--forest); padding-bottom:.14in;
+  border-bottom:1px solid var(--hair); margin-bottom:.22in; }
+.sk-nva-comp .foods-pg{ color:var(--green-deep); margin-left:.06in; }
+.sk-nva-comp .food-list{ display:flex; flex-direction:column; gap:.14in; }
+.sk-nva-comp .food-card{ display:flex; gap:.24in; padding-bottom:.14in; border-bottom:1px solid var(--hair); }
+.sk-nva-comp .food-card:last-child{ border-bottom:none; }
+.sk-nva-comp .food-num{ font-family:'Newsreader',serif; font-weight:400; font-size:26px;
+  color:var(--green-deep); line-height:1; min-width:.5in; font-variant-numeric:tabular-nums; }
+.sk-nva-comp .food-body{ flex:1; }
+.sk-nva-comp .food-head-row{ display:flex; align-items:baseline; justify-content:space-between; gap:.2in; }
+.sk-nva-comp .food-name{ font-family:'Newsreader',serif; font-weight:500; font-size:19px;
+  color:var(--forest); line-height:1.1; }
+.sk-nva-comp .food-foods{ font-size:11.5px; color:var(--ink); font-weight:600; margin-top:.03in; }
+.sk-nva-comp .food-why{ font-size:11px; color:var(--grey); line-height:1.5; margin-top:.05in; }
+.sk-nva-comp .food-uses{ font-size:11px; color:var(--ink); line-height:1.5; margin-top:.05in; }
+.sk-nva-comp .food-lab{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.12em;
+  font-weight:600; font-size:8px; color:var(--green-deep); margin-right:.04in; }
+.sk-nva-comp .food-rec{ font-size:10px; color:var(--grey); font-style:italic; margin-top:.03in; }
+/* ---- 7b. THE MOVEMENT LIBRARY ----
+   Reference, not narrative: a reader arrives here mid workout with a phone in one hand, so
+   every entry is a labelled row they can find at a glance rather than a paragraph they have to
+   read through. Same card frame as the workout index so the two read as one part, with the
+   label column doing the work the eye needs. */
+.sk-nva-comp .moves{ display:flex; flex-direction:column; }
+.sk-nva-comp .move-list{ display:flex; flex-direction:column; gap:.16in; }
+.sk-nva-comp .move-card{ display:flex; gap:.24in; padding-bottom:.16in; border-bottom:1px solid var(--hair);
+  scroll-margin-top:64px; }
+.sk-nva-comp .move-card:last-child{ border-bottom:none; }
+.sk-nva-comp .move-num{ font-family:'Newsreader',serif; font-weight:400; font-size:26px;
+  color:var(--green-deep); line-height:1; min-width:.5in; font-variant-numeric:tabular-nums; }
+.sk-nva-comp .move-body{ flex:1; }
+.sk-nva-comp .move-head{ display:flex; align-items:baseline; justify-content:space-between; gap:.2in; }
+.sk-nva-comp .move-name{ font-family:'Newsreader',serif; font-weight:500; font-size:19px;
+  color:var(--forest); line-height:1.1; }
+.sk-nva-comp .move-kit{ font-family:var(--sk-sans); font-size:8px; letter-spacing:.08em;
+  text-transform:uppercase; font-weight:600; color:var(--green-deep); text-align:right;
+  white-space:normal; max-width:2.1in; }
+.sk-nva-comp .move-also{ font-size:10px; color:var(--grey); font-style:italic; margin-top:.02in; }
+.sk-nva-comp .move-row{ font-size:11px; color:var(--ink); line-height:1.5; margin-top:.06in; }
+.sk-nva-comp .move-lab{ display:block; font-family:var(--sk-sans); text-transform:uppercase;
+  letter-spacing:.12em; font-weight:600; font-size:8px; color:var(--green-deep); margin-bottom:.01in; }
+/* The cue is the one line worth stopping for, so it is the only thing on the card with a
+   ground. Everything else stays quiet or the emphasis means nothing. */
+.sk-nva-comp .move-cue{ background:var(--green-tint); border-left:2px solid var(--green);
+  padding:.07in .1in; margin-top:.08in; }
+.sk-nva-comp .move-easier{ color:var(--grey); }
+/* The cross link from a workout card into the library. */
+.sk-nva-comp .food-moves{ font-size:10px; color:var(--grey); margin-top:.05in; }
+.sk-nva-comp .move-link{ color:var(--green-deep); text-decoration:underline;
+  text-underline-offset:2px; text-decoration-thickness:1px; }
+.sk-nva-comp .move-link:hover{ color:var(--green); }
+
+/* evidence chip */
+.sk-nva-comp .evidence{ font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.1em; text-transform:uppercase;
+  font-weight:600; white-space:nowrap; padding:.03in .08in; border-radius:3px; }
+.sk-nva-comp .evidence.strong{ background:var(--forest); color:#fff; }
+.sk-nva-comp .evidence.support{ background:var(--green-tint); color:var(--green-deep); border:1px solid var(--green); }
+.sk-nva-comp .evidence.emerging{ background:transparent; color:var(--grey); border:1px solid var(--hair); }
+
+/* ---- 8. RECIPE cards ---- */
+.sk-nva-comp .recipe-name{ font-weight:500; font-size:34px; }
+.sk-nva-comp .why{ font-style:italic; font-size:15px; color:var(--grey); }
+.sk-nva-comp .eyebrow .serves{ float:right; color:var(--forest); letter-spacing:.14em; font-weight:600; }
+.sk-nva-comp .recipe-note{ font-size:9.5px; color:var(--grey); font-style:italic; margin-top:.12in; max-width:6in; }
+.sk-nva-comp .ingredients .th-serve,.sk-nva-comp .ingredients .td-serve{ width:1.7in; text-align:right; }
+.sk-nva-comp .badge{ border-radius:7px; }
+.sk-nva-comp .badge-protein{ background:var(--forest); border-color:var(--forest); }
+.sk-nva-comp .badge-val{ color:var(--forest); }
+.sk-nva-comp .badge-protein .badge-val{ color:#fff; }
+.sk-nva-comp ol.method li::before{ background:var(--forest); }
+.sk-nva-comp .block-label{ color:var(--green-deep); }
+
+/* ---- 9. closing / disclaimer ---- */
+.sk-nva-comp .closing .page-title{ border:none; font-size:44px; }
+.sk-nva-comp .closing ol{ display:inline-block; text-align:left; margin:.14in auto .1in; }
+.sk-nva-comp .closing ol li{ margin:0 auto .12in; }
+.sk-nva-comp .disclaimer .page-title{ font-family:var(--sk-sans); }
+
+/* ---- 10. cheat-sheet as prose ---- */
+.sk-nva-comp .cheat ul li{ font-size:12px; }
+.sk-nva-comp .cheat .subhead{ margin-top:.2in; }
+
+/* ---- 12. product promo page (cream catalog) ---- */
+.sk-nva-comp .extra-support{ display:flex; flex-direction:column; padding-bottom:.75in; }
+.sk-nva-comp .support-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.22em;
+  font-weight:600; font-size:9px; color:var(--green-deep); margin-bottom:.12in; }
+.sk-nva-comp .support-title{ font-family:'Newsreader',serif; font-weight:500; font-size:36px; color:var(--forest);
+  padding-bottom:.16in; border-bottom:1px solid var(--hair); margin-bottom:.2in; text-wrap:balance; }
+.sk-nva-comp .support-intro p{ font-size:12.5px; line-height:1.62; color:var(--ink); max-width:6.1in; margin-bottom:.1in; text-wrap:pretty; }
+.sk-nva-comp .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:.34in; margin-top:.3in; }
+/* a system with a single product gets one centred card, not a card stranded in the left column */
+.sk-nva-comp .product-grid.one{ grid-template-columns:minmax(0,3.5in); justify-content:center; }
+.sk-nva-comp .product-card{ background:#fff; border:1px solid var(--hair); border-radius:12px;
+  padding:.28in .28in .32in; text-align:center; display:flex; flex-direction:column; }
+.sk-nva-comp .product-shot{ height:2.6in; display:flex; align-items:center; justify-content:center; margin-bottom:.16in; }
+.sk-nva-comp .product-img{ max-height:2.6in; max-width:100%; object-fit:contain; }
+.sk-nva-comp .product-name{ font-family:'Newsreader',serif; font-weight:600; font-size:24px; color:var(--forest); }
+.sk-nva-comp .product-meta{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.14em; font-weight:600;
+  font-size:8.5px; color:var(--green-deep); margin:.06in 0 .12in; }
+.sk-nva-comp .product-desc{ font-size:11.5px; line-height:1.55; color:var(--grey); text-wrap:pretty; }
+
+/* ---- 13. reach-back-out page (forest, human close) ---- */
+.sk-nva-comp .nextstep{ background:var(--forest); color:var(--cream); display:flex; align-items:center; justify-content:center; }
+.sk-nva-comp .nextstep::before,.sk-nva-comp .nextstep::after{ content:none !important; }  /* no footer band on the dark page */
+.sk-nva-comp .nextstep-inner{ text-align:center; max-width:5.3in; }
+.sk-nva-comp .nextstep-eyebrow{ font-family:var(--sk-sans); text-transform:uppercase; letter-spacing:.24em;
+  font-weight:600; font-size:10px; color:var(--green); margin-bottom:.26in; }
+.sk-nva-comp .nextstep-title{ font-family:'Newsreader',serif; font-weight:500; font-size:50px; line-height:1.02;
+  margin-bottom:.28in; text-wrap:balance; }
+.sk-nva-comp .nextstep-lead{ font-family:'Newsreader',serif; font-style:italic; font-size:21px; color:#fff;
+  line-height:1.4; margin-bottom:.24in; text-wrap:balance; }
+.sk-nva-comp .nextstep-body{ font-size:13px; line-height:1.65; color:rgba(246,243,236,.86); margin-bottom:.16in;
+  max-width:4.9in; margin-left:auto; margin-right:auto; text-wrap:pretty; }
+
+/* ---- 11. typographic polish: kill widows & orphans everywhere ---- */
+/* balance = even line lengths for short blocks (headings, decks) so no lone trailing word */
+.sk-nva-comp .cover-title,.sk-nva-comp .cover-sub,.sk-nva-comp .divider-title,.sk-nva-comp .divider-blurb,.sk-nva-comp .page-title,.sk-nva-comp .recipe-name,.sk-nva-comp .foods-head,.sk-nva-comp .food-name,.sk-nva-comp .formula,.sk-nva-comp .why,.sk-nva-comp .recipe-note,.sk-nva-comp .cta-title,.sk-nva-comp .cta-lead,.sk-nva-comp .callout-title,.sk-nva-comp .food-foods,.sk-nva-comp .food-rec,.sk-nva-comp .move-name{
+  text-wrap:balance;
+}
+/* pretty = pulls up single-word last lines on flowing paragraphs */
+.sk-nva-comp .prose p,.sk-nva-comp .prose li,.sk-nva-comp .food-why,.sk-nva-comp .food-uses,.sk-nva-comp .move-row,.sk-nva-comp .food-moves,.sk-nva-comp .callout-p,.sk-nva-comp .cta-body,.sk-nva-comp ol.method li,.sk-nva-comp .grocery-cols li{
+  text-wrap:pretty;
+}
+/* never auto-hyphenate; let words break at spaces, not mid-word */
+.sk-nva-comp *{ hyphens:none; -webkit-hyphens:none; }
+.sk-nva-comp .divider-blurb{ max-width:5.1in; }
+
+
+/* ================= LIVE-WEB OVERRIDES ================= */
+
+
+.sk-nva-comp section[id]{ scroll-margin-top:64px; }
+.sk-nva-comp .guide-wrap{ max-width:820px; margin:0 auto; box-shadow:0 0 70px rgba(0,0,0,.22); }
+.sk-nva-comp .page{ width:100% !important; height:auto !important; min-height:0 !important; overflow:visible !important;
+  page-break-after:auto; break-after:auto; margin:0; padding:52px 56px; }
+.sk-nva-comp .page.prose::before,.sk-nva-comp .page.prose::after,.sk-nva-comp .page.foods::before,.sk-nva-comp .page.foods::after,.sk-nva-comp .page.recipe::before,.sk-nva-comp .page.recipe::after{ content:none !important; }
+.sk-nva-comp .extra-support .product-desc{ margin-bottom:16px; }
+.sk-nva-comp .extra-support .product-btn{ margin-top:auto; }
+.sk-nva-comp .page.divider{ min-height:44vh; }
+.sk-nva-comp .page.recipe.has-photo{ padding-top:0 !important; }
+.sk-nva-comp .recipe-photo{ height:250px !important; margin:0 -56px 28px !important; }
+.sk-nva-comp .gnav{ position:sticky; top:0; z-index:60; display:flex; align-items:center; gap:15px; flex-wrap:wrap;
+  background:rgba(29,58,43,.97); backdrop-filter:blur(6px); padding:12px 22px; }
+.sk-nva-comp .gnav a{ color:#e9efe6; text-decoration:none; font:600 11px/1 var(--sk-sans); letter-spacing:.06em; text-transform:uppercase; opacity:.82; }
+.sk-nva-comp .gnav a:hover{ opacity:1; }
+.sk-nva-comp .gnav .brand{ font-family:'Newsreader',serif; font-weight:600; font-size:15px; color:#fff; letter-spacing:0; text-transform:none; margin-right:6px; }
+.sk-nva-comp .gnav .spacer{ flex:1; }
+.sk-nva-comp .gnav .nav-cta{ background:var(--green-deep); color:#fff; padding:8px 16px; border-radius:8px; text-transform:none; letter-spacing:.01em; font-size:12px; opacity:1; }
+.sk-nva-comp .gnav .nav-cta:hover{ background:var(--green-deep); }
+.sk-nva-comp .product-btn{ display:inline-block; margin-top:16px; background:var(--forest); color:var(--cream);
+  font:600 13px/1 var(--sk-sans); letter-spacing:.02em; padding:13px 26px; border-radius:9px; text-decoration:none; }
+.sk-nva-comp .product-btn:hover{ background:var(--green-deep); }
+.sk-nva-comp .pf-print-row{ text-align:right; margin-top:12px; }
+.sk-nva-comp .pf-print-btn{ display:inline-flex; align-items:center; gap:7px; background:transparent; border:1px solid var(--hair);
+  color:var(--forest); font:600 12px/1 var(--sk-sans); padding:9px 14px; border-radius:9px; cursor:pointer; }
+.sk-nva-comp .pf-print-btn:hover{ background:var(--green-tint); border-color:var(--green); }
+@media print{ .sk-nva-comp .pf-print-btn,.sk-nva-comp .pf-print-row,.sk-nva-comp .gnav{ display:none !important; } }
+@media (max-width:720px){ .sk-nva-comp .product-grid{ grid-template-columns:1fr !important; } }
+@media (max-width:640px){
+  .sk-nva-comp .page{ padding:34px 22px; }
+  .sk-nva-comp .recipe-photo{ margin:0 -22px 22px !important; height:200px !important; }
+  .sk-nva-comp .divider-title{ font-size:40px !important; }
+  .sk-nva-comp .nextstep-title{ font-size:38px !important; }
+  .sk-nva-comp .grocery-cols{ column-count:1 !important; }
+  .sk-nva-comp .gnav{ gap:9px 12px; padding:10px 14px; } .sk-nva-comp .gnav .brand{ width:100%; margin-bottom:2px; }
+}
+
+/* The legal footer. Small, quiet, and NOT hidden: this is the page's only statement that the
+   guide is general information rather than medical or nutritional advice, and it carries the
+   FDA line that has to appear anywhere a Nueva product is mentioned. */
+.sk-nva-comp .guide-fine{ background:var(--cream); }
+.sk-nva-comp .guide-fine p{ font-size:11px; line-height:1.6; color:var(--grey); margin:0 0 .6em; }
+
+
+/* Per-recipe print button, added by block.js. Printing ONE recipe is a different job from the
+   nav's whole-guide PDF, so it lives on the card and is styled as a quiet secondary. */
+.sk-nva-comp .recipe-print{ display:inline-block; margin-top:1.1em; padding:.55em 1.1em; font-family:var(--sk-sans);
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; cursor:pointer;
+  color:var(--green-deep); background:transparent; border:1px solid var(--hair); border-radius:999px; }
+.sk-nva-comp .recipe-print:hover{ border-color:var(--green); color:var(--green); }
+
+/* While one recipe is printing, everything else in the guide is hidden. Without this the reader
+   who asked for one recipe gets all 28 sections. */
+@media print{
+  .sk-nva-comp[data-printing] .page{ display:none !important; }
+  .sk-nva-comp[data-printing] .page[data-print]{ display:block !important; }
+  .sk-nva-comp[data-printing] .gnav,.sk-nva-comp .recipe-print{ display:none !important; }
+}
+
+/* ⚠️ The legacy responsive pass used to re-style the cover down here with `.page.cover` and an
+   !important min-height, which OUT-SPECIFIES the block below and put the title back at the top of
+   the photograph, over the bright half, unreadable. Those rules are removed rather than fought
+   with: a redesign that needs !important to win against the thing it replaced has not replaced it.
+
+   ---- cover -------------------------------------------------------------------
+   Full bleed photograph with the type set over it. TWO scrims, not one: a light wash at the top
+   so the small header reads over a bright window, and a deep one from halfway down reaching solid
+   at the foot, so an oversized title and the stat row stay legible over whatever the photograph
+   is doing there. A single top-to-bottom gradient cannot do both without greying the subject.
+   Identical treatment to the PDF cover, deliberately: the same guide must not look like two
+   different products depending on which link the lead opened. */
+/* ⚠️ .page.cover AND !important, both deliberate. The web responsive reset at the top of this
+   section sets `.page{ min-height:0 !important; padding:...; overflow:visible !important }` to
+   turn fixed print sheets into flowing web ones, and every child of the cover is absolutely
+   positioned, so without matching that weight the cover computes to zero height and the page
+   opens on the second section. That is what happened when the old override was removed.
+   aspect-ratio rather than a fixed height, so the cover keeps its proportions at any width. */
+.sk-nva-comp .page.cover{ padding:0 !important; position:relative; overflow:hidden !important;
+  background-size:cover; background-position:center top;
+  aspect-ratio:85/110; min-height:460px !important; }
+.sk-nva-comp .cover-scrim{ position:absolute; inset:0; background:linear-gradient(180deg,
+  rgba(7,17,22,.34) 0%, rgba(7,17,22,0) 20%, rgba(7,17,22,0) 40%,
+  rgba(7,17,22,.72) 66%, rgba(7,17,22,.97) 88%, #071116 100%); }
+.sk-nva-comp .cover-top-bar{ position:absolute; top:5.6%; left:7.5%; right:7.5%; display:flex;
+  justify-content:space-between; align-items:center; color:#fff; z-index:2; }
+.sk-nva-comp .cover-mark{ font-family:var(--sk-sans); font-size:9px; letter-spacing:.36em; font-weight:800; text-transform:uppercase; }
+.sk-nva-comp .cover-free{ font-family:var(--sk-sans); font-size:8px; letter-spacing:.26em; font-weight:800; text-transform:uppercase;
+  color:#04211f; background:var(--green); padding:.5em 1.1em; border-radius:999px; }
+.sk-nva-comp .cover-top{ position:absolute; left:7.5%; right:7.5%; bottom:15.5%; z-index:2; }
+.sk-nva-comp .cover-eye{ font-family:var(--sk-sans); font-size:9px; letter-spacing:.36em; text-transform:uppercase;
+  font-weight:700; color:#7fe6e2; margin-bottom:1.4em; }
+.sk-nva-comp .cover-title{ font-family:var(--sk-serif); font-weight:900; text-transform:uppercase;
+  font-size:clamp(38px,9.4vw,86px); line-height:.86; letter-spacing:-.035em; color:#fff; margin:0; }
+.sk-nva-comp .cover-title .accent{ display:block; color:#25d6d1; }
+.sk-nva-comp .cover-sub{ font-family:var(--sk-sans); font-size:clamp(12px,1.7vw,15px); line-height:1.48;
+  max-width:26em; color:#dceeed; margin:1.1em 0 0; font-style:normal; }
+.sk-nva-comp .cover-stats{ position:absolute; left:7.5%; right:7.5%; bottom:6%; display:flex; z-index:2;
+  border-top:1px solid rgba(255,255,255,.22); padding-top:1.1em; }
+.sk-nva-comp .cover-stats > div{ flex:1; color:#fff; }
+.sk-nva-comp .cover-stats b{ display:block; font-family:var(--sk-serif); font-size:clamp(17px,2.7vw,26px);
+  font-weight:900; line-height:1; letter-spacing:-.02em; }
+.sk-nva-comp .cover-stats span{ display:block; font-family:var(--sk-sans); font-size:7.5px; letter-spacing:.17em;
+  text-transform:uppercase; white-space:nowrap; color:rgba(255,255,255,.62); margin-top:.7em; }
+
+/* On a phone the four stat columns are about 82px each and "WEEK SCHEDULE" sets wider than that,
+   so nowrap ran it straight into "RECIPES". Below 560px the labels wrap and the tracking comes in. */
+@media (max-width:560px){
+  .sk-nva-comp .cover-stats{ gap:10px; }
+  .sk-nva-comp .cover-stats span{ white-space:normal; font-size:6.6px; letter-spacing:.1em; line-height:1.3; }
+}
+
+
+/* ============================================================
+   COMPANION ONLY. Everything above is the read page's sheet, rescoped.
+   ============================================================ */
+/* Verdict chips. Four grades, and the colour has to carry the meaning at a glance because the
+   whole document is a list of them. Thin and Skip are deliberately not red alarms: they are
+   ordinary verdicts in an ordinary list, which is what makes the list read as grading rather
+   than as a competitor takedown. */
+.sk-nva-comp .entry{ margin-top:.9em; }
+.sk-nva-comp .chip{ display:inline-block; font-family:var(--sk-sans); font-size:8.5px;
+  letter-spacing:.11em; text-transform:uppercase; font-weight:700; padding:.02in .07in;
+  border-radius:3px; vertical-align:.12em; margin-left:.04in; }
+.sk-nva-comp .chip.v-yes{ background:var(--forest); color:#fff; }
+.sk-nva-comp .chip.v-maybe{ background:var(--green-tint); color:var(--green-deep); }
+.sk-nva-comp .chip.v-thin{ background:#eef1f2; color:var(--grey); }
+.sk-nva-comp .chip.v-skip{ background:#f4f5f6; color:#8a949c; }
+
+/* The Snow Slim banner. One ground, one product, after the disclosure. */
+.sk-nva-comp .offer{ background:var(--forest); color:#fff; border-radius:12px;
+  padding:.34in .32in; margin:.2in 0 .3in; }
+.sk-nva-comp .offer-lab{ font-family:var(--sk-sans); font-size:9px; letter-spacing:.2em;
+  text-transform:uppercase; font-weight:700; color:var(--lime, #5fd9d5); margin-bottom:.09in; }
+.sk-nva-comp .offer-h{ font-family:'Newsreader',serif; font-weight:500; font-size:23px;
+  line-height:1.15; color:#fff; margin:0 0 .11in; }
+.sk-nva-comp .offer-p{ font-size:12px; line-height:1.55; color:rgba(255,255,255,.88); margin:0 0 .1in; }
+.sk-nva-comp .offer-p strong{ color:#fff; }
+.sk-nva-comp .offer-small{ font-size:11px; color:rgba(255,255,255,.62); }
+.sk-nva-comp .offer-btns{ display:flex; flex-wrap:wrap; gap:.1in; margin-top:.16in; }
+.sk-nva-comp .offer-btn{ display:inline-block; background:var(--green); color:#071116;
+  font-family:var(--sk-sans); font-weight:700; font-size:12px; letter-spacing:.01em;
+  padding:.13in .26in; border-radius:999px; text-decoration:none; }
+.sk-nva-comp .offer-btn:hover{ background:#fff; }
+.sk-nva-comp .offer-ghost{ background:transparent; color:#fff; box-shadow:inset 0 0 0 1px rgba(255,255,255,.45); }
+.sk-nva-comp .offer-ghost:hover{ background:rgba(255,255,255,.1); color:#fff; }
