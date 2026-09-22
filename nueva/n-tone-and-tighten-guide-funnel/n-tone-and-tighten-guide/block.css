@@ -55,8 +55,8 @@
 }
 
 .sk-cap-nva-tone .sk-cap-hero h1{
-  font-size:clamp(2.05rem,3.4vw,3.05rem);
-  line-height:.99;
+  font-size:clamp(2.3rem,4.05vw,3.65rem);
+  line-height:.97;
   letter-spacing:-.032em;
   font-weight:900;
   text-wrap:balance;                 /* evens the rag; ignored where unsupported */
@@ -71,6 +71,38 @@
 .sk-cap-nva-tone .sk-h1-turn{ display:block; }
 .sk-cap-nva-tone .sk-fig{
   color:var(--sk-teal); font-weight:900; font-variant-numeric:lining-nums tabular-nums;
+}
+
+/* ---------- the faded ground ----------
+   The hero was a flat navy gradient, which is the ground every capture lander in
+   every system ships with. This is the one thing that says whose guide it is
+   before a word is read: her room, her dumbbells, her light.
+
+   ⚠️ It is BACKGROUND, so it has to behave like one. The mask holds it at zero
+   across the left third, where the headline and lede live, so no type ever sits
+   on a busy pixel; saturation is pulled down so the teal in frame cannot compete
+   with the teal numerals, which ARE the signature; and it is pinned right so she
+   reads as depth behind the cover, not a second subject beside it.
+
+   `::before` is free here: the shared sheet uses `::after` on this element for the
+   bottom glow, and `.sk-cap-hero-grid` already carries z-index:1, so the content
+   sits above this with no extra stacking. */
+.sk-cap-nva-tone .sk-cap-hero::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:url("assets/hero-bg.webp") no-repeat 72% center/cover;
+  opacity:.2;
+  filter:saturate(.45) contrast(1.05);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.5) 54%,#000 78%);
+          mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.5) 54%,#000 78%);
+}
+/* Stacked, the copy sits ON the photo instead of beside it, so it drops back
+   further and fades from the BOTTOM instead of the left. */
+@media (max-width:900px){
+  .sk-cap-nva-tone .sk-cap-hero::before{
+    opacity:.11; background-position:74% center;
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 45%,#000 100%);
+            mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 45%,#000 100%);
+  }
 }
 
 /* ---------- the rhythm ----------
