@@ -12,6 +12,12 @@
   COMPANY'S product and must not ship (tracked as CLAIM by audit-donor-assets.mjs; the
   replacements are client-supplied, they cannot be generated).
 
+  ⚠️ FIXED 2026-09-22: all three buy buttons carried href="b-glp-food-guide-redirect", the DONOR
+  funnel's step, and nothing looked broken because _shared/product/v1/product.js rewrites every
+  [data-buy] href at runtime from data-buy-step. So the donor slug was only ever the no-JS
+  fallback, which is exactly the path that gets taken when something else on the page throws.
+  The shared component's own comment says these are authored sibling-relative to THIS funnel.
+
   What HAS been fixed is the two custom values, which were beneve_* and therefore resolved to
   nothing at all in this account: the rep's name, and the buy URL the product component falls
   back to when the page is not served inside the funnel. That fallback now goes to the rep's own
@@ -32,7 +38,7 @@
        never shows two copies of the same button. -->
   <div class="sk-prod-bar" hidden>
     <span class="sk-prod-bar-name">Gut Advantage</span>
-    <a class="sk-prod-btn sk-prod-bar-btn" href="b-glp-food-guide-redirect" data-buy>Buy now</a>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="n-tone-and-tighten-guide-redirect" data-buy>Buy now</a>
   </div>
 
   <!-- ============================== HERO ============================== -->
@@ -59,7 +65,7 @@
         </ul>
 
         <div class="sk-prod-cta-row" data-rise data-delay="4">
-          <a class="sk-prod-btn" data-hero-cta href="b-glp-food-guide-redirect" data-buy>
+          <a class="sk-prod-btn" data-hero-cta href="n-tone-and-tighten-guide-redirect" data-buy>
             Get Gut Advantage
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -238,7 +244,7 @@
       <p class="sk-prod-sub" data-rise data-delay="1">
         The guide gave you the foods. Gut Advantage is the daily piece that works alongside them.
       </p>
-      <a class="sk-prod-btn sk-prod-btn-lg" href="b-glp-food-guide-redirect" data-buy data-rise data-delay="2">
+      <a class="sk-prod-btn sk-prod-btn-lg" href="n-tone-and-tighten-guide-redirect" data-buy data-rise data-delay="2">
         Get Gut Advantage
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>

@@ -1,4 +1,5 @@
-/* beneve / beneve-natural-foods-guide / beneve-glp-food-guide-product
+/* nueva / n-tone-and-tighten-guide-funnel / n-tone-and-tighten-guide-product
+   (forked from beneve/beneve-natural-foods-guide/beneve-glp-food-guide-product)
  *
  * Loads the shared product-page engine and nothing else. Every product page ships this exact
  * file: behaviour is shared, so a fix there reaches every page on one push.
