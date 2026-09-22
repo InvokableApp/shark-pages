@@ -89,7 +89,11 @@
    sits above this with no extra stacking. */
 .sk-cap-nva-tone .sk-cap-hero::before{
   content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:url("assets/hero-bg.webp") no-repeat 72% center/cover;
+  /* ⚠️ ANCHORED TO THE TOP, not centred. The hero is far wider than the photo, so
+     cover crops vertically, and a centred crop takes the slice off the TOP: her
+     head came off at the hero's top edge, which reads as a mistake rather than a
+     backdrop. Cropping the floor instead costs nothing. */
+  background:url("assets/hero-bg.webp") no-repeat 72% top/cover;
   opacity:.2;
   filter:saturate(.45) contrast(1.05);
   -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.5) 54%,#000 78%);
