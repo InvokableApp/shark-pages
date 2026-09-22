@@ -152,7 +152,7 @@
    starting, the measure is short enough to read as a statement rather than a line
    of running text. */
 .sk-cap-nva-tone .sk-cap-close h2{
-  max-width:18ch; font-size:clamp(2.1rem,3.8vw,3.2rem); line-height:1.02;
+  max-width:24ch; font-size:clamp(2.1rem,3.8vw,3.2rem); line-height:1.02;
   letter-spacing:-.03em; font-weight:900;
 }
 .sk-cap-nva-tone .sk-cap-close h2 .sk-fig{ color:var(--sk-teal); }
