@@ -168,13 +168,25 @@ if (!window.__sharkFunnelTraining) {
         }
       });
       if (fromAcc && active >= 0) {
+        /* ---- land at the TOP of the part that just opened, every time ----
+           The old rule scrolled only when the header was off screen or below 40%
+           of the viewport. Tap a bottom-bar segment while its header already sat
+           near the top and nothing moved, so the reader arrived in the MIDDLE of
+           the part they had just asked for. (Jeff, 2026-09-22, on a phone.)
+
+           Measured twice on purpose. The panels animate their height over .32s,
+           so a position read on the next frame is the layout BEFORE the part
+           above finished collapsing; the correction after the animation is what
+           actually lands it. The second scroll is skipped when it would move
+           less than a few pixels, so the common case is one smooth glide. */
         var acc = panels[active].querySelector(".sk-acc");
-        requestAnimationFrame(function () {
-          var top = acc.getBoundingClientRect().top;
-          if (top < 0 || top > window.innerHeight * 0.4) {
-            window.scrollBy({ top: top - 14, behavior: "smooth" });
-          }
-        });
+        var land = function () {
+          var y = Math.max(0, acc.getBoundingClientRect().top + window.scrollY - 12);
+          if (Math.abs(y - window.scrollY) < 4) return;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        };
+        requestAnimationFrame(land);
+        setTimeout(land, 380);
       }
     }
 
