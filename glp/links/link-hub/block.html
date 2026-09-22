@@ -1,0 +1,43 @@
+<!--
+  glp/links/link-hub
+  The PUBLIC link hub: the page a rep posts in their social bio. A visitor
+  taps one row and lands in that funnel. This is not the rep console at
+  glp/your-marketing-links/marketing-links.
+
+  GHL substitutes merge fields only in its own HTML, so every value the block
+  reads is declared here and carried in on the socket as data-cv-*.
+-->
+<div class="sk-glp-links-link-hub"
+     data-cv-distributor_buy_link="{{custom_values.distributor_buy_link}}"
+     data-cv-facebook="{{custom_values.facebook}}"
+     data-cv-glp__income_disclaimer="{{custom_values.glp__income_disclaimer}}"
+     data-cv-glp_foods_guide_funnel_link="{{custom_values.glp_foods_guide_funnel_link}}"
+     data-cv-glp_workout_guide_funnel_link="{{custom_values.glp_workout_guide_funnel_link}}"
+     data-cv-ignyt_sample_funnel_link="{{custom_values.ignyt_sample_funnel_link}}"
+     data-cv-instagram="{{custom_values.instagram}}"
+     data-cv-linkedin="{{custom_values.linkedin}}"
+     data-cv-orygn_tour_funnel_link="{{custom_values.orygn_tour_funnel_link}}"
+     data-cv-protein_recipe_guide_funnel_link="{{custom_values.protein_recipe_guide_funnel_link}}"
+     data-cv-rep_buy_link="{{custom_values.rep_buy_link}}"
+     data-cv-rep_full_name="{{custom_values.rep_full_name}}"
+     data-cv-side_hustle_quiz_funnel_link="{{custom_values.side_hustle_quiz_funnel_link}}"
+     data-cv-tiktok="{{custom_values.tiktok}}"
+     data-cv-weight_loss_quiz_funnel_link="{{custom_values.weight_loss_quiz_funnel_link}}"
+     data-cv-x_twitter="{{custom_values.x_twitter}}"
+     data-cv-your_email_designated_domain="{{custom_values.your_email_designated_domain}}"
+     data-cv-youtube="{{custom_values.youtube}}">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <span class="sk-mono" data-kicker hidden>Free resources</span>
+    <h1 class="sk-name" data-name></h1>
+    <p class="sk-sub" data-sub></p>
+  </header>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <nav class="sk-social" data-social aria-label="Social profiles"></nav>
+    <p class="sk-legal" data-legal></p>
+  </footer>
+</div>
