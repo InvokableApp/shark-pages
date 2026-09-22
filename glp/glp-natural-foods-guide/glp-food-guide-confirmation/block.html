@@ -40,6 +40,26 @@
 
   No custom values on this page, so there is no merge-field guard to write.
   No em-dashes anywhere in shipped copy.
+
+  ── EDITS 2026-09-22 (Jess, #jeffsclaude) ────────────────────────────────────────────
+  Eleven asks, all of them hers. Seven were straight copy swaps (steps 1-3, the bridge
+  paragraph's button name, and "/" to "&" on both CTAs). Four were sizing, and those are
+  the ones worth reading before touching this page again:
+
+    · THE SIZING RULES LIVE IN block.css UNDER .sk-conf-glpf, NOT IN THE COMPONENT.
+      Every size Jess named is set in _shared/confirm/v1/confirm.css, which Beneve,
+      Conectiv, Nueva and Vital all run. Fixing one GLP headline there would have
+      resized four other systems' confirmation pages to do it.
+
+    · THE H1's <br> MOVED, from after "Inbox" to after "On Its Way". The old break made
+      line one 47 characters on its own, which cannot reach 2 lines at any headline size
+      in a half-width hero column. The hero grid also gives the copy cell more room
+      (1.38fr / 1fr), so the size did not have to fall through the floor to get there.
+
+    · LINE COUNTS WERE MEASURED, not eyeballed, at 1920/1600/1440/1366/1280/1100/1024
+      and 862. Desktop reads 2 lines for the h1 and 3 for the band-4 h2 at every one of
+      them. Mobile was left alone on purpose: the ask was about desktop.
+  ──────────────────────────────────────────────────────────────────────────────────────
 -->
 <div class="sk-conf sk-conf-glpf"
      data-cv-rep_phone="{{custom_values.rep_phone}}"
@@ -58,8 +78,8 @@
         <span class="sk-conf-pill">✅ You are in</span>
 
         <h1>
-          Your GLP Foods Guide Is On Its Way To Your Inbox<br>
-          <span class="sk-conf-hl">In About 2 Minutes.</span>
+          Your GLP Foods Guide Is On Its Way<br>
+          To Your Inbox <span class="sk-conf-hl">In About 2 Minutes.</span>
         </h1>
 
         <p class="sk-conf-note">
@@ -75,7 +95,7 @@
         <div class="sk-conf-btns">
           <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
              data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
-            Yeah! Send me product / sample info! 🔥
+            Yeah! Send me product &amp; sample info! 🔥
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -111,18 +131,18 @@
       <div class="sk-conf-steps">
         <div class="sk-conf-step">
           <b>1</b>
-          <h3>Your guide lands in about 2 minutes</h3>
-          <p>It comes by email. If it is not in your inbox, it is in spam, so check there before you give up on it.</p>
+          <h3>Your guide should be landing any minute now!</h3>
+          <p>It comes by email, but if you don't see it in your inbox, check your spam/promotional folders.</p>
         </div>
         <div class="sk-conf-step">
           <b>2</b>
-          <h3>Watch the short video while you wait</h3>
+          <h3>Watch the short video while you wait...</h3>
           <p>It covers the part of this that most people have never heard, and it is the reason the guide works.</p>
         </div>
         <div class="sk-conf-step">
           <b>3</b>
-          <h3>Ask a team member about products and samples</h3>
-          <p>Only if you want to go further than food. The guide stands on its own either way.</p>
+          <h3>Want to go further than food?</h3>
+          <p>Message us for more on products that make what the guide teaches easier and more consistent.</p>
         </div>
       </div>
     </div>
@@ -138,7 +158,7 @@
       <h2>Are You Looking For An Easy Way To Quiet Food Cravings And Support Your Weight Naturally?</h2>
 
       <p class="sk-conf-body">
-        Tap the <span class="sk-conf-em">Product / Sample Information</span> button below and message a
+        Tap the <span class="sk-conf-em">Product &amp; Sample Info</span> button below and message a
         team member to request info about the products explained in the video, and even potential
         sampling options.
       </p>
@@ -154,7 +174,7 @@
       <div class="sk-conf-btns">
         <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
            data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
-          Yeah! Send me product / sample info! 🔥
+          Yeah! Send me product &amp; sample info! 🔥
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>

@@ -112,3 +112,46 @@
    as ONE control rather than two different offers. */
 .sk-conf-glpf .sk-conf-top .sk-conf-btn{background:var(--sk-accent);color:#fff}
 .sk-conf-glpf .sk-conf-top .sk-conf-btn:hover{background:var(--sk-accent-d)}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   TYPE SIZING · Jess's edits, 2026-09-22
+
+   ALL PAGE-SCOPED UNDER .sk-conf-glpf ON PURPOSE. Every one of these sizes lives in
+   _shared/confirm/v1/confirm.css, which Beneve, Conectiv, Nueva and Vital all run.
+   Editing the component there would have resized four other systems' confirmation
+   pages in order to fix one GLP headline.
+
+   MEASURED, NOT EYEBALLED. Line counts read off a local render of this block at
+   1920/1600/1440/1366/1280/1100/1024/862/390 (same harness as check-fold.mjs). The two
+   headline rules are desktop-only, because the ask was about desktop line counts and the
+   component's mobile clamps were already right. */
+
+/* 1 · "Your GLP Foods Guide Is On Its Way To Your Inbox In About 2 Minutes."
+   Was 4 lines at 51.2px in a 529px column. 68 characters cannot reach 2 lines at that
+   measure at any headline size, so the hero grid gives the copy cell the extra width
+   (the media cell still clears 440px, wider than the 16:9 facade needs) and the size
+   comes down to meet it. Widest line now 463px in a 613px box, so there is real slack
+   rather than a value that only just fits. */
+@media (min-width:861px){
+  .sk-conf-glpf .sk-conf-top-split .sk-conf-split{grid-template-columns:1.38fr 1fr}
+  .sk-conf-glpf .sk-conf-split-copy h1{font-size:clamp(1.5rem,2.3vw,1.8rem);line-height:1.18}
+}
+
+/* 11 · "Supporting These Hormones With Food Is Step One, And It Is Not Always Easy On
+   Your Own." Was 4 lines at 34.4px, and 3 at 1280px, so it was not even consistent
+   across desktop widths. 86 characters over 3 lines is ~29 per line in a 476px cell.
+   Capped just under the h1 so the hero headline stays the larger of the two. */
+@media (min-width:861px){
+  .sk-conf-glpf .sk-conf-card-copy h2{font-size:clamp(1.3rem,1.72vw,1.48rem);line-height:1.24}
+}
+
+/* 2 · "While you wait, watch this" — uppercase at .72rem with .16em tracking was doing
+   the job of a label rather than reading as a line. Up a step, tracking eased slightly
+   so the extra size does not push it wider than the video frame under it. */
+.sk-conf-glpf .sk-conf-top-split .sk-conf-split-media .sk-conf-eyebrow{
+  font-size:.84rem;letter-spacing:.13em;
+}
+
+/* 4 · "You are going to love this. 🤯" — up two points, .85rem to 1rem. */
+.sk-conf-glpf .sk-conf-split-cap{font-size:1rem}
