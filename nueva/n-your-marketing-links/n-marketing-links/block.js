@@ -70,46 +70,73 @@ window.SHARK_HUB = {
      ⚠️ nueva_user_name MUST BE ON THE SOCKET (block.html data-cv-*). Adding a custom value to a
      hosted block needs a push-block re-push per account; changing these rows does not.
 
-     Every productcode below was fetched under a real rep subdomain on 2026-09-22 and returned
-     200 with the right product title. */
+     ⚠️ THE CODES COME FROM NUEVA'S OWN CATALOG PAGE, shop.html?catekey=allproducts, NOT from a
+     hand-written list. A first pass carried 27 hand-listed codes and silently missed all six
+     BEYOND skus, which are the line the field is currently being sold on. Re-read that page
+     before adding anything here; _build/37-capture-lineup-packshots.mjs reads the same source
+     and prints any code it does not recognise.
+
+     Path form is /product/{code}, the site's own shortcut, verified under a real rep subdomain
+     on 2026-09-22 alongside the older product.html?productcode= form. Both work; this one is
+     shorter, which matters on a link a rep pastes into a bio. */
   compose: { cv: 'nueva_user_name', base: 'https://{id}.nuevalife.com' },
   lists: [
     { label: 'Direct product links', icon: 'cart', name: 'Product links',
       tease: 'Every product, ready to copy', perRep: true, items: [
-        { path: "shop.html",                          name: "Nueva Shop (everything)" },
+        { path: "shop.html",        name: "Nueva Shop (everything)" },
         /* ⚠️ THE OPPORTUNITY LINK IS THE CORPORATE PAGE, NOT A COMPOSED REP ONE, and that is
            Jeff's call (2026-09-22): "the opportunity url, is https://nuevalife.com/opportunity.html".
            It is the one row here that stays a stored custom value while every product row is
            derived. Do not "fix" it to opportunity.html under the rep subdomain. */
-        { cv: "nueva_opportunity_url",                name: "Become a Social Marketer" },
-        { path: "product.html?productcode=mp8916-vm", name: "Nitro" },
-        { path: "product.html?productcode=mp8924",    name: "Nitro+ 12-Pack Case" },
-        { path: "product.html?productcode=nv-rev",    name: "Revive" },
-        { path: "product.html?productcode=mp8907-vm", name: "Snow Slim" },
-        { path: "product.html?productcode=mp8900",    name: "Snow Collagen" },
-        { path: "product.html?productcode=mp8908",    name: "Morning Coffee" },
-        { path: "product.html?productcode=nv1210",    name: "Boost" },
-        { path: "product.html?productcode=nv1208",    name: "Alive" },
-        { path: "product.html?productcode=nv-bio",    name: "Biotic" },
-        { path: "product.html?productcode=mp8903",    name: "Body" },
-        { path: "product.html?productcode=bb7035",    name: "Elevate" },
-        { path: "product.html?productcode=bb7037",    name: "Beauty" },
-        { path: "product.html?productcode=nvtravel",  name: "Travel" }
+        { cv: "nueva_opportunity_url", name: "Become a Social Marketer" },
+        { path: "product/mp8916-vm", name: "Nitro" },
+        { path: "product/nv-rev",    name: "Revive" },
+        { path: "product/mp8907-vm", name: "Snow Slim" },
+        { path: "product/mp8900",    name: "Snow Collagen" },
+        { path: "product/mp8908",    name: "Morning Coffee" },
+        { path: "product/nv1210",    name: "Boost" },
+        { path: "product/nv1208",    name: "Alive" },
+        { path: "product/nv-bio",    name: "Biotic" },
+        { path: "product/mp8903",    name: "Body" },
+        { path: "product/bb7035",    name: "Elevate" },
+        { path: "product/bb7037",    name: "Beauty" },
+        { path: "product/mp8924",    name: "Nitro+ 12-Pack Case" },
+        { path: "product/nvtravel",  name: "Travel" }
+      ] },
+    /* Beyond gets its own group rather than six more rows in the product list. It is a LINE, not
+       a product (one BeyondMI story, two formulas, four ways to buy them), it launched 2026-09-09
+       and is what the field is currently being pushed on, so a rep looking for it should not have
+       to read past Alive to find it. */
+    { label: 'Beyond', icon: 'cart', name: 'Beyond links',
+      tease: 'Daily, Advanced and the combos', perRep: true, items: [
+        { path: "product/nv1256", name: "Beyond Daily" },
+        { path: "product/nv1257", name: "Beyond Advanced" },
+        { path: "product/nv1258", name: "Beyond Daily Duo" },
+        { path: "product/nv1259", name: "Beyond Daily + Advanced Duo" },
+        { path: "product/nv9005", name: "Beyond Choice" },
+        { path: "product/nv9006", name: "Beyond Body+ Combo" }
       ] },
     { label: 'Bundles and systems', icon: 'cart', name: 'Bundle links',
       tease: 'The packs, ready to copy', perRep: true, items: [
-        { path: "product.html?productcode=nv9988", name: "Signature Power Pack" },
-        { path: "product.html?productcode=bb7032", name: "Ultimate Pack" },
-        { path: "product.html?productcode=nv9999", name: "Body Kickstart Bundle" },
-        { path: "product.html?productcode=mp8943", name: "Slim Body System" },
-        { path: "product.html?productcode=bb7036", name: "Body+ Elevate Pack" },
-        { path: "product.html?productcode=mp8941", name: "Body System" },
-        { path: "product.html?productcode=bb7033", name: "Slim Body+ System" },
-        { path: "product.html?productcode=mp8909", name: "Nitro Set" },
-        { path: "product.html?productcode=nv3101", name: "Slim Body Kickstart" },
-        { path: "product.html?productcode=bb7031", name: "Choice Pack" },
-        { path: "product.html?productcode=bb7034", name: "Body+" },
-        { path: "product.html?productcode=nv3100", name: "Body Kickstart" }
+        { path: "product/nv9988", name: "Signature Power Pack" },
+        { path: "product/bb7032", name: "Ultimate Pack" },
+        { path: "product/nv9999", name: "Body Kickstart Bundle" },
+        { path: "product/mp8943", name: "Slim Body System" },
+        { path: "product/bb7036", name: "Body+ Elevate Pack" },
+        { path: "product/mp8941", name: "Body System" },
+        { path: "product/bb7033", name: "Slim Body+ System" },
+        { path: "product/mp8909", name: "Nitro Set" },
+        { path: "product/nv3101", name: "Slim Body Kickstart" },
+        { path: "product/bb7031", name: "Choice Pack" },
+        { path: "product/bb7034", name: "Body+" },
+        { path: "product/nv3100", name: "Body Kickstart" }
+      ] },
+    { label: 'Merch and events', icon: 'cart', name: 'Other links',
+      tease: 'Bottles, brochures, tickets', perRep: true, items: [
+        { path: "product/nv3016",         name: "Teal 40oz Tumbler" },
+        { path: "product/mp8923",         name: "Creator Bottle (Black)" },
+        { path: "product/nv3008",         name: "Nitro Brochure (25-pack)" },
+        { path: "product/nv-pmm-fall-t1", name: "Growth Summit ticket" }
       ] }
   ],
   affiliate: { cv: 'nueva_shark_affiliate_link', name: 'Your Nueva Shark affiliate link',
