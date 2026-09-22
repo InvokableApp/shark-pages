@@ -1009,6 +1009,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "funnel-training/glp-linktree",
+      "funnelId": "gnD0aeKJMbQFwnuEVofp",
+      "pageId": "TrE0GNtJcqtLCOI4IYfH",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }
