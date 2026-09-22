@@ -77,7 +77,11 @@ window.SHARK_HUB = {
     { label: 'Direct product links', icon: 'cart', name: 'Product links',
       tease: 'Every product, ready to copy', perRep: true, items: [
         { path: "shop.html",                          name: "Nueva Shop (everything)" },
-        { path: "opportunity.html",                   name: "Become a Social Marketer" },
+        /* ⚠️ THE OPPORTUNITY LINK IS THE CORPORATE PAGE, NOT A COMPOSED REP ONE, and that is
+           Jeff's call (2026-09-22): "the opportunity url, is https://nuevalife.com/opportunity.html".
+           It is the one row here that stays a stored custom value while every product row is
+           derived. Do not "fix" it to opportunity.html under the rep subdomain. */
+        { cv: "nueva_opportunity_url",                name: "Become a Social Marketer" },
         { path: "product.html?productcode=mp8916-vm", name: "Nitro" },
         { path: "product.html?productcode=mp8924",    name: "Nitro+ 12-Pack Case" },
         { path: "product.html?productcode=nv-rev",    name: "Revive" },
