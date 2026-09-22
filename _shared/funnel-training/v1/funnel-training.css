@@ -2620,3 +2620,23 @@
 .sk-ftrain { padding-bottom: calc(114px + env(safe-area-inset-bottom)); }
 
 @media (min-width: 900px) { .sk-ftrain { padding-bottom: 64px; } }
+
+/* ---- one scroll, not two (Joe: "the scrolling anchor little janky here") ----
+   Held for a single layout pass while the shell measures where the opened part
+   will actually sit. See _shell.js: a smooth scroll cannot be aimed accurately
+   at a document that is still animating its own height, so the height change is
+   made instant and the scroll is the only thing moving. Also covers the panel
+   body's entrance, which would otherwise slide in from under a page that has
+   already finished scrolling. */
+.sk-ftrain .sk-nosnap .sk-panel-wrap { transition: none; }
+.sk-ftrain .sk-nosnap .sk-panel-body { animation: none; }
+
+/* ---- WATCH THIS VIDEO! above every video, not just part 1's ----
+   Joe, 2026-09-22: "Need WATCH THIS VIDEO above videos in these sections too".
+   Inside a traffic-strategy card it sits between the card's own teaser and the
+   frame, so it needs less room above it than a section head opening a part. */
+.sk-ftrain .sk-sec-head--vid { margin: 0 0 10px; font-size: 19px; }
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-sec-head--vid { margin: 4px 0 10px; font-size: 21px; }
+}

@@ -188,22 +188,26 @@ if (!window.__sharkFunnelTraining) {
         }
       });
       if (fromAcc && active >= 0) {
-        /* ---- land at the TOP of the part that just opened, every time ----
-           The old rule scrolled only when the header was off screen or below 40%
-           of the viewport. Tap a bottom-bar segment while its header already sat
-           near the top and nothing moved, so the reader arrived in the MIDDLE of
-           the part they had just asked for. (Jeff, 2026-09-22, on a phone.)
+        /* ---- land at the TOP of the part that just opened, ONCE ----
+           Joe, 2026-09-22: "the scrolling anchor little janky here". It was,
+           and the cause was that this ran TWICE on purpose. The panels animate
+           their height over .32s, so the first scroll aimed at the layout
+           BEFORE the part above had finished collapsing and a correction fired
+           at 380ms to clean up after it. That correction IS the realignment he
+           is watching: the page glides, settles, then jumps again.
 
-           Measured twice on purpose. The panels animate their height over .32s,
-           so a position read on the next frame is the layout BEFORE the part
-           above finished collapsing; the correction after the animation is what
-           actually lands it. The second scroll is skipped when it would move
-           less than a few pixels, so the common case is one smooth glide. */
-        /* ⚠️ THE TARGET DIFFERS BY BREAKPOINT, and picking the wrong one fails
+           A smooth scroll against a document whose height is still changing
+           cannot be made accurate, so the animation is taken out of the way
+           instead. The height transition is suppressed for this one layout
+           pass, the parts snap to their final sizes, and a single smooth scroll
+           then runs against a document that is done moving. The reader sees one
+           glide, the expand itself being instant under it.
+
+           ⚠️ THE TARGET DIFFERS BY BREAKPOINT, and picking the wrong one fails
            SILENTLY. The obvious anchor is the part's accordion header, and on a
            phone that is right. On desktop .sk-acc is display:none, so its
            getBoundingClientRect() is all zeros, y computes to roughly the
-           current scroll position, and the page does not move at all — which is
+           current scroll position, and the page does not move at all - which is
            exactly what the in-page "learn how to generate leads" buttons did
            (Jess, 2026-09-22: "they don't go back to the top of the page").
            On desktop the tab strip is the right anchor anyway: land there and
@@ -211,15 +215,20 @@ if (!window.__sharkFunnelTraining) {
         var visible = function (el) {
           return el && el.getClientRects().length > 0;
         };
-        var land = function () {
-          var acc = panels[active].querySelector(".sk-acc");
-          var target = visible(acc) ? acc : (visible(strip) ? strip : panels[active]);
-          var y = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 12);
-          if (Math.abs(y - window.scrollY) < 4) return;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        };
-        requestAnimationFrame(land);
-        setTimeout(land, 380);
+        tabsRoot.classList.add("sk-nosnap");
+        /* forced reflow, deliberately: the parts must reach their final heights
+           in THIS frame or the measurement below is the mid-animation layout
+           all over again. */
+        void tabsRoot.offsetHeight;
+        var acc = panels[active].querySelector(".sk-acc");
+        var target = visible(acc) ? acc : (visible(strip) ? strip : panels[active]);
+        var y = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 12);
+        requestAnimationFrame(function () {
+          tabsRoot.classList.remove("sk-nosnap");
+          if (Math.abs(y - window.scrollY) >= 4) {
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        });
       }
     }
 
