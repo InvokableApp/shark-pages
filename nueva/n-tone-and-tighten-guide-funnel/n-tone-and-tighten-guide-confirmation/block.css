@@ -56,3 +56,50 @@
   border-radius:4px;
   box-shadow:0 18px 38px -18px rgba(16,42,42,.42), 0 2px 6px rgba(16,42,42,.06);
 }
+
+
+/* ---------- the media half carries the room ----------
+   Jeff, 2026-09-22. The cover sat on flat white, which is the right ground for a
+   document and a dead one for an ad. The photograph is the same faded-ground move as
+   the lander hero, and it belongs to THIS HALF ONLY: the copy half keeps its mist
+   panel, so the card still reads as two columns rather than one busy picture.
+
+   ⚠️ `isolation:isolate` on the parent is what makes `z-index:-1` safe. Without it the
+   pseudo element slides behind the CARD's own white background and vanishes, which
+   looks exactly like a broken image path.
+   ⚠️ The radial mask keeps the photo off all four edges of the cell. A cover-sized
+   photo meeting a card border at full strength draws a hard line along it, the same
+   defect that showed up in the lander hero. */
+.sk-conf-nva .sk-conf-card-media{ position:relative; isolation:isolate; overflow:hidden; }
+.sk-conf-nva .sk-conf-card-media::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url("assets/card-bg.webp") no-repeat 50% 12%/cover;
+  opacity:.26; filter:saturate(.62);
+  -webkit-mask-image:radial-gradient(86% 78% at 52% 52%,#000 0%,rgba(0,0,0,.55) 54%,rgba(0,0,0,0) 88%);
+          mask-image:radial-gradient(86% 78% at 52% 52%,#000 0%,rgba(0,0,0,.55) 54%,rgba(0,0,0,0) 88%);
+}
+
+/* The caption under the cover repeated the guide's title, which the headline two
+   inches to the right already carries. The one fact worth that space is the price:
+   the ask is a message, and the first question a message provokes is what it costs. */
+.sk-conf-nva .sk-conf-card-free{
+  align-self:center; margin:0;
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.4rem .9rem; border-radius:999px;
+  background:#fff; border:1px solid var(--sk-line);
+  box-shadow:0 6px 16px -10px rgba(16,42,42,.5);
+  font-size:.82rem; font-weight:600; letter-spacing:.02em; color:var(--sk-body);
+}
+.sk-conf-nva .sk-conf-card-free b{
+  color:var(--sk-teal-d); font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+}
+
+/* The SMS line is the SECOND option and is written to look like one: a sentence with a
+   link in it, not a second button. Two buttons of equal weight make her choose a
+   channel before she has decided to ask at all. */
+.sk-conf-nva .sk-conf-alt{ margin:.85rem 0 0; font-size:.92rem; color:var(--sk-body); text-align:center; }
+.sk-conf-nva .sk-conf-alt a{
+  color:var(--sk-teal-d); font-weight:700; text-decoration:none;
+  border-bottom:2px solid rgba(10,186,181,.4); padding-bottom:1px;
+}
+.sk-conf-nva .sk-conf-alt a:hover{ border-bottom-color:var(--sk-teal); }

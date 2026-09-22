@@ -83,7 +83,7 @@
           <img src="https://invokableapp.github.io/shark-pages/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
                alt="The cover of the companion guide, Which One Is Right For Me?"
                loading="lazy" width="1000" height="1294">
-          <p class="sk-conf-card-cap">“Which One Is Right For Me?” · Ten pages</p>
+          <p class="sk-conf-card-free"><b>Free</b> · Ten pages</p>
         </div>
 
         <div class="sk-conf-card-copy">
@@ -115,8 +115,34 @@
           </p>
 
           <p class="sk-conf-ask">
-            It is not emailed and it is not on this site. Message the person who sent you this and
-            say <b>COMPARE</b>, and they will send it over.
+            It is not emailed and it is not on this site. Ask for it and it comes straight back.
+          </p>
+
+          <!-- ⚠️ THE HREFS ARE FUNNEL STEPS, not a messenger link and not an sms: URI, and they
+               cannot be: this markup is fetched from GitHub Pages, so GHL never sees it and a
+               merge field written into an href would ship literal braces. Each step forwards to
+               the rep's own channel, and routing the click through a step is also what turns it
+               into a pageview the rep-notification workflow can fire on.
+               ⚠️ DOCUMENT-RELATIVE, no leading slash. A root-relative href resolves only while a
+               domain is connected and 404s on a preview or an un-domained account.
+               (NOTES §Linking to another funnel STEP · same pattern as n-caffeine-curve-result.)
+
+               ⚠️ THE MERGE FIELD, NOT THE KEY NAME, in data-sk-requires. The loader substitutes
+               {{custom_values.x}} anywhere in this markup including inside an attribute, and
+               confirm.js then tests the SUBSTITUTED value. Writing the bare key leaves the
+               literal string "nueva_rep_messenger" in the attribute, which fails valueIsSet and
+               hides the button on every account forever. n-caffeine-curve-result ships that
+               bug today. -->
+          <div class="sk-conf-btns" data-sk-requires="{{custom_values.nueva_rep_messenger}}" hidden>
+            <a class="sk-conf-btn" href="n-tone-and-tighten-redirect-dm">Message me COMPARE on Facebook</a>
+          </div>
+
+          <!-- ⚠️ NO data-sk-requires ON THE TEXT LINE, deliberately. valueIsSet() tests for a URL
+               shape, so a phone number can never pass it and the line would be hidden on every
+               account. The redirect step it points at is written to read correctly with no
+               number set, the same way n-revive-sample-redirect-sms is. -->
+          <p class="sk-conf-alt">
+            Prefer to text? <a href="n-tone-and-tighten-redirect-sms">Send COMPARE by message instead</a>
           </p>
         </div>
 
