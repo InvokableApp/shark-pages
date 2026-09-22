@@ -1018,6 +1018,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "glp-natural-foods-guide/glp-food-guide-confirmation",
+      "funnelId": "BHECev3EqcSkpKe0BHa4",
+      "pageId": "Q4gATJPMnu3VTeYsyraM",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "GLP Foods Guide Confirmation",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }

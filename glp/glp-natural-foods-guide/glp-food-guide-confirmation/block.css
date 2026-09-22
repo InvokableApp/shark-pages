@@ -146,14 +146,14 @@
   .sk-conf-glpf .sk-conf-card-copy h2{font-size:clamp(1.3rem,1.72vw,1.48rem);line-height:1.24}
 }
 
-/* 2 · "While you wait, watch this" — uppercase at .72rem with .16em tracking was doing
+/* 2 · "While you wait, watch this", uppercase at .72rem with .16em tracking was doing
    the job of a label rather than reading as a line. Up a step, tracking eased slightly
    so the extra size does not push it wider than the video frame under it. */
 .sk-conf-glpf .sk-conf-top-split .sk-conf-split-media .sk-conf-eyebrow{
   font-size:.84rem;letter-spacing:.13em;
 }
 
-/* 4 · "You are going to love this. 🤯" — up two points, .85rem to 1rem. */
+/* 4 · "You are going to love this. 🤯", up two points, .85rem to 1rem. */
 .sk-conf-glpf .sk-conf-split-cap{font-size:1rem}
 
 /* ── LAYOUT · Jess's follow-ups, 2026-09-22 ──────────────────────────────────────────

@@ -34,7 +34,9 @@
  * one, root-relative 404s and document-relative still resolves. So document-relative is the
  * safe fallback, and the absolute form is the deliberate upgrade when the CV is filled.
  *
- * ⚠️ NOTES §"Linking to another funnel STEP" says to use {{custom_values.domain}}/slug. That
+ * ⚠️ NOTES §"Linking to another funnel STEP" says to use the domain custom value joined to
+ *    the slug (the tag is not written out here: push-block.mjs gates the SOURCE, comments
+ *    included, so a merge field named in prose reads as one the account must define). That
  *    entry was written for VITAL in July 2026, before the document-relative form was in use,
  *    and it does not mention that a bare-domain CV needs its scheme added. Both corrections
  *    are recorded there now.
