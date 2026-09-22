@@ -2284,3 +2284,70 @@
   font-variation-settings: "wght" 700;
   color: color-mix(in srgb, var(--sk-ink) 62%, transparent);
 }
+
+
+/* ============================================================
+   ROUND 6 — the flow-tile captions must read as LABELS, not as
+   part of the screenshot.
+
+   Jess, 2026-09-22: "the headers describing the steps ... right now
+   they look like part of the image."
+
+   She is right, and the cause is specific. Joe asked in the Figma
+   pass for the caption to sit ON the image, so it became a 92%
+   translucent card-coloured band with a blur behind it. Every one
+   of these screenshots is a page whose own top is white or cream,
+   so a near-transparent cream band over a cream page has almost no
+   edge: the label and the page it labels are the same colour.
+
+   Three changes, each doing one job, and none of them undoing Joe's
+   instruction - the label stays over the image, bold and centred.
+   ============================================================ */
+
+/* 1. OPAQUE. A translucent band over a pale screenshot is the whole
+      problem; the blur was only ever compensating for it. */
+.sk-ftrain .sk-viz figcaption {
+  background: var(--sk-card);
+  backdrop-filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 12px;
+  text-align: center;
+}
+
+/* 2. A HARD EDGE in the brand colour. The old 1px hairline in
+      --sk-line is the same weight as borders inside the screenshots
+      themselves, so it read as more screenshot. */
+.sk-ftrain .sk-viz figcaption {
+  border-bottom: 2px solid var(--sk-brand);
+}
+
+/* 3. A STEP NUMBER. These tiles are a real sequence - the arrows
+      between them already say so - so numbering carries information
+      rather than decorating. It is also the single clearest signal
+      that a strip of text is a label and not page content. */
+.sk-ftrain .sk-flowviz { counter-reset: skviz; }
+.sk-ftrain .sk-viz { counter-increment: skviz; }
+.sk-ftrain .sk-viz figcaption::before {
+  content: counter(skviz);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sk-brand);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-variation-settings: "wght" 800;
+  font-feature-settings: "tnum" 1;
+  line-height: 1;
+}
+
+/* the desktop rule sets flex:1 on the caption to equalise tile heights,
+   which fights the flex layout above once the caption is a row */
+@media (min-width: 900px) {
+  .sk-ftrain .sk-viz figcaption { flex: none; font-size: 12.4px; }
+}
