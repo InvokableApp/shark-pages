@@ -2396,3 +2396,87 @@
   border-radius: 0;
 }
 .sk-ftrain .sk-viz img { border-radius: 0; }
+
+
+/* ============================================================
+   ROUND 8 — phone fixes (Jeff + Joe, 2026-09-22)
+   ============================================================ */
+
+/* ---- the swoop arrow points the wrong way on a phone ----
+   The arrow is drawn swooping right, because on a wide screen the script card
+   it introduces sits down and to the right. On a phone the card is directly
+   BELOW, full width, so the same arrow reads as pointing sideways into empty
+   margin. Same gesture, redrawn to dive downward, and given the height it needs
+   so it does not collide with the card. */
+@media (max-width: 899px) {
+  .sk-ftrain .sk-swoop { padding-bottom: 52px; }
+  .sk-ftrain .sk-swoop-arrow {
+    left: 14px;
+    width: 42px;
+    height: 46px;
+    background-image:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 46"><path d="M9 3c1 19 9 28 20 35" fill="none" stroke="%23EC5E2A" stroke-width="2.4" stroke-linecap="round"/><path d="M22 30l8 9-12 3" fill="none" stroke="%23EC5E2A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  }
+}
+
+/* ---- the home screen names the question it is asking ----
+   On a phone the first screen is the three closed parts and nothing else, so
+   the gap between the funnel name and the first card said nothing. Joe's read
+   was that the bottom quick-links were carrying the whole job of explaining
+   that these open. Phone only: on desktop the tab strip already occupies this
+   space and already says "three parts". */
+.sk-ftrain .sk-pick { display: none; }
+@media (max-width: 899px) {
+  .sk-ftrain .sk-pick {
+    display: block;
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.35;
+    font-variation-settings: "wght" 700;
+    color: var(--sk-ink);
+    text-align: center;
+  }
+  /* a one-part page asks no question: there is nothing to choose between */
+  .sk-ftrain .sk-tabs[data-parts="1"] .sk-pick { display: none; }
+}
+
+/* ---- say that a closed part opens ----
+   Under the part name rather than beside it, so the flex row of
+   number / name / chevron keeps its shape. Only while the part is CLOSED. */
+@media (max-width: 899px) {
+  .sk-ftrain .sk-acc[aria-expanded="false"] .sk-part-name::after {
+    content: "Click to expand";
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    font-variation-settings: "wght" 500;
+    letter-spacing: .01em;
+    color: var(--sk-ink-soft);
+  }
+}
+
+
+/* ---- the slack goes in the MIDDLE, not into the header ----
+   .sk-ftrain is a grid and carries min-height:100vh so its paper covers the
+   screen. When the content is SHORTER than that - which is the normal state on
+   a phone, every part closed - the grid stretched all three rows to fill, and
+   most of the slack landed in the header. That is the ~95px of blank paper
+   between the funnel name and the first card (Jeff, 2026-09-22), and the same
+   gap on the one-tab pages.
+
+   Header and footer size to their content; the parts area absorbs whatever is
+   left, so the footer still sits at the bottom of the screen and the cards sit
+   directly under the header. */
+.sk-ftrain { grid-template-rows: auto 1fr auto; }
+
+
+/* ---- clear the fixed bottom bar ----
+   The bar is position:fixed, so it never reserved space. Until the grid rows
+   were pinned the stretched footer row happened to leave enough room and the
+   collision never showed; with the slack moved out of the header, the support
+   line ends up underneath the bar. Reserve its height (52px segment + 5px
+   padding each side + 10px inset) plus the home-indicator inset. */
+@media (max-width: 899px) {
+  .sk-ftrain .sk-foot { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+  .sk-ftrain .sk-tabs[data-parts="1"] ~ .sk-foot { padding-bottom: 0; }
+}
