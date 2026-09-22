@@ -97,10 +97,10 @@
         name: 'Which side hustle fits you?',
         tease: 'Find the work from home model that matches how you live.' }
     ]},
-    { label: 'Try it free', items: [
+    { label: 'Test drive the product', items: [
       { icon: 'gift', cvKey: 'ignyt_sample_funnel_link', slug: 'sample',
-        name: 'Try a free IGNYT sample',
-        tease: 'Try it before you decide anything.' }
+        name: 'Test drive IGNYT',
+        tease: 'Try it yourself before you buy anything.' }
     ]}
   ];
 
