@@ -257,6 +257,24 @@
       "elementTitle": "n-no-crash-plan-companion",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-your-links/n-links",
+      "funnelId": "GiV6yKe2p0zA6245vOlt",
+      "pageId": "Fh6iSpEHWfZDwURM0yiH",
+      "elementId": "custom-code-nu45sumisc",
+      "elementTitle": "n-links",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-your-marketing-links/n-marketing-links",
+      "funnelId": "6cyNYQwP4Zi05C8Qrwky",
+      "pageId": "r33O9IDzdKG8bdUBXNS2",
+      "elementId": "custom-code-4rg78i6gq2",
+      "elementTitle": "n-marketing-links",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
