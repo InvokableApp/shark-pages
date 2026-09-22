@@ -162,6 +162,24 @@
   .sk-cap-nva-tone .sk-cap-bar .sk-cap-btn{ padding:.68rem 1.4rem; font-size:.88rem; }
 }
 
+/* ---------- the teal, beyond the hero ----------
+   `sk-fig` is for a COUNT (the hero's 8 and 12, and the two list headings that carry
+   the same counts). `sk-hl` is for the two or three words a headline actually turns
+   on, and it borrows the headline's own weight instead of forcing 900, because a
+   heavier word inside an h2 reads as a different typeface rather than an accent.
+   ⚠️ ONE HIGHLIGHT PER HEADLINE. Two makes it a pattern and the emphasis stops
+   meaning anything, which is the same reason the hero holds to two figures. */
+.sk-cap-nva-tone .sk-hl{ color:var(--sk-teal); font-weight:inherit; }
+.sk-cap-nva-tone .sk-cap-close .sk-hl{ color:var(--sk-lime); }
+
+/* Bolded body copy is the line she would underline, one per paragraph. It has to
+   carry colour as well as weight: at 400 to 700 in Montserrat on a mid grey body
+   colour the step is too soft to catch a scanning eye, and going to ink makes the
+   phrase land without shouting. The dark sections take white for the same reason. */
+.sk-cap-nva-tone p strong{ font-weight:700; color:var(--sk-ink); }
+.sk-cap-nva-tone .sk-cap-hero p strong,
+.sk-cap-nva-tone .sk-cap-close p strong{ color:#fff; }
+
 /* ---------- What is inside: the spread tracks the list ----------
    The shared grid centres the two columns, so a short image beside a six item list
    sits marooned in the middle with air above and below it and no relationship to
