@@ -89,6 +89,9 @@
   text-wrap:balance;
 }
 .sk-prod-ig .sk-prod-h1{font-size:clamp(2.9rem,7.4vw,5.4rem);margin:0 0 1.1rem}
+/* A headline that carries the problem as well as the product runs long, and the
+   display size above is set for three words. Additive, so nothing else moves. */
+.sk-prod-ig .sk-prod-h1--long{font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.02}
 .sk-prod-ig .sk-prod-h2{font-size:clamp(2rem,4.4vw,3.3rem);margin:0 0 .9rem}
 .sk-prod-ig .sk-prod-close-h{font-size:clamp(2.3rem,5.4vw,4rem);margin:0 0 1.1rem}
 
@@ -414,6 +417,7 @@
   .sk-prod-ig .sk-prod-ig-cta-in{flex-direction:column;align-items:flex-start}
   /* The headline is the one thing that must not run to five words a line on a phone. */
   .sk-prod-ig .sk-prod-h1{font-size:clamp(2.5rem,10vw,3.4rem)}
+  .sk-prod-ig .sk-prod-h1--long{font-size:clamp(1.75rem,6.4vw,2.3rem)}
 
   /* MOBILE HERO ORDER. The shared component is built for PRODUCT pages, so on mobile it
      puts the product shot ABOVE the copy (order:1 / order:2), which buries the headline
