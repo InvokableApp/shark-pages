@@ -150,9 +150,12 @@
 
 /* ---------- socials ---------- */
 .sk-glp-links-link-hub .sk-foot { position: relative; z-index: 1; padding-top: 10px; }
+/* the social row now sits inside its own section in the body flow, so it
+   carries the same left alignment as the cards above it rather than the
+   centred footer treatment it had when it was furniture */
 .sk-glp-links-link-hub .sk-social {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-  margin: 0 0 22px;
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin: 0;
 }
 .sk-glp-links-link-hub .sk-social:empty { display: none; }
 .sk-glp-links-link-hub .sk-soc {

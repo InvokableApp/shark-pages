@@ -75,12 +75,12 @@
      hKYM2WhsSBKHjvCPGkZo, read 2026-09-22. Never the funnel path: the funnel
      path does not route. */
   var GROUPS = [
-    { label: 'Start here', items: [
+    { label: 'Learn more', items: [
       { icon: 'compass', cvKey: 'orygn_tour_funnel_link', slug: 'what-is-orygn',
         name: 'See what I do',
         tease: 'A short tour of the products and the business.' }
     ]},
-    { label: 'Free guides', items: [
+    { label: 'Free resources', items: [
       { icon: 'leaf', cvKey: 'glp_foods_guide_funnel_link', slug: 'glp-food-guide',
         name: 'Natural GLP foods guide',
         tease: 'The everyday foods to build your meals around.' },
@@ -90,17 +90,17 @@
       { icon: 'pulse', cvKey: 'glp_workout_guide_funnel_link', slug: 'free-workout-guide',
         name: 'Free workout plan',
         tease: 'Training you can do without a gym membership.' },
-      { icon: 'gift', cvKey: 'ignyt_sample_funnel_link', slug: 'sample',
-        name: 'Try a free IGNYT sample',
-        tease: 'Try it before you decide anything.' }
-    ]},
-    { label: 'Not sure where to start', items: [
       { icon: 'scale', cvKey: 'weight_loss_quiz_funnel_link', slug: 'weight-support-tool',
         name: 'Which weight loss support fits you?',
         tease: 'A few questions, then a recommendation.' },
       { icon: 'sign', cvKey: 'side_hustle_quiz_funnel_link', slug: 'match-quiz',
         name: 'Which side hustle fits you?',
         tease: 'Find the work from home model that matches how you live.' }
+    ]},
+    { label: 'Try it free', items: [
+      { icon: 'gift', cvKey: 'ignyt_sample_funnel_link', slug: 'sample',
+        name: 'Try a free IGNYT sample',
+        tease: 'Try it before you decide anything.' }
     ]}
   ];
 
@@ -174,6 +174,21 @@
       '</section>';
   });
 
+  /* Connect on social is a SECTION, not footer furniture (Jessica, 2026-09-22).
+     It renders only when at least one profile is actually filled. */
+  var socLinks = SOCIALS.map(function (s) {
+    var u = socialUrl(s);
+    return u ? '<a class="sk-soc" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer"' +
+      ' aria-label="' + esc(s.label) + '">' + icon(s.icon, 1.6) + '</a>' : '';
+  }).join('');
+  if (socLinks) {
+    html += '<section class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">Connect with me</span>' +
+      '<span class="sk-rule"></span></div>' +
+      '<nav class="sk-social" aria-label="Social profiles">' + socLinks + '</nav>' +
+      '</section>';
+  }
+
   var shop = SHOP.filter(function (it) { return !!cv(it.cvKey); });
   if (shop.length) {
     live += shop.length;
@@ -197,13 +212,11 @@
   var name = cv('rep_full_name');
   var nameEl = root.querySelector('[data-name]');
   var subEl = root.querySelector('[data-sub]');
-  var kick = root.querySelector('[data-kicker]');
   if (name) {
     var parts = name.trim().split(/\s+/);
     var first = esc(parts.shift());
     nameEl.innerHTML = '<span class="sk-hl">' + first + '</span>' +
       (parts.length ? ' ' + esc(parts.join(' ')) : '');
-    kick.hidden = false;
   } else {
     nameEl.remove();
   }
@@ -212,15 +225,6 @@
   } else {
     subEl.remove();
   }
-
-  /* ---------- socials ---------- */
-  var nav = root.querySelector('[data-social]');
-  nav.innerHTML = SOCIALS.map(function (s) {
-    var u = socialUrl(s);
-    if (!u) return '';
-    return '<a class="sk-soc" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer"' +
-      ' aria-label="' + esc(s.label) + '">' + icon(s.icon, 1.6) + '</a>';
-  }).join('');
 
   /* ---------- legal ---------- */
   var legal = cv('glp__income_disclaimer');
