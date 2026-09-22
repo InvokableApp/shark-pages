@@ -60,6 +60,28 @@
       and 862. Desktop reads 2 lines for the h1 and 3 for the band-4 h2 at every one of
       them. Mobile was left alone on purpose: the ask was about desktop.
   ──────────────────────────────────────────────────────────────────────────────────────
+
+  ── THE CTAs OPEN THE PAGE'S NATIVE POPUP, 2026-09-22 (Jess) ─────────────────────────
+  All three now carry `data-sk-open` instead of `data-sk-route-open`, so a click emits
+  `customWidgetOpenPopup` and GHL opens the page's own popup. Jess is building that popup
+  natively; this block only has to raise it.
+
+  ⚠️ IT OPENS popupsList[0] AND NOTHING ELSE. The no-argument event always resolves to the
+     FIRST popup on the page, so whatever sits at index 0 is what a reader gets.
+
+  ⚠️ AT THE TIME OF WRITING INDEX 0 IS A STUB, and not even this system's. It holds an
+     `<h1>Click </h1>` and a form element pointing at `dRUMSUNuDiRD49e7ntgz`, the VITAL
+     "Protein First - Opt-In" form, left behind by whatever clone produced this page. Until
+     that popup is rebuilt, these buttons raise a Vital opt-in form on a GLP page.
+
+  THE HREFs STAY, still pointed at the DM Redirect step. The shared component emits, then
+  checks whether a popup actually opened and follows the href if none did, so a page with
+  no popup degrades to a working link instead of a dead button (confirm.js, the no-id-emit
+  note). That is also why the route sheet below is LEFT IN PLACE rather than deleted: with
+  zero [data-sk-route-open] nodes left, wireRoutes() returns early and the sheet is inert,
+  but it is one attribute away from being the fallback again. Strip it once the native
+  popup is live.
+  ──────────────────────────────────────────────────────────────────────────────────────
 -->
 <div class="sk-conf sk-conf-glpf"
      data-cv-rep_phone="{{custom_values.rep_phone}}"
@@ -93,7 +115,7 @@
              two routes. Band 3 keeps its own copy of it because that band's body copy argues for
              it and says "the button below" in as many words. -->
         <div class="sk-conf-btns">
-          <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
+          <a class="sk-conf-btn sk-conf-btn-lg" data-sk-open
              data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
             Yeah! Send me product &amp; sample info! 🔥
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -172,7 +194,7 @@
            href is the Messenger route, so the control still works with JS off and still
            does the right thing if the sheet is ever removed. -->
       <div class="sk-conf-btns">
-        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-route-open
+        <a class="sk-conf-btn sk-conf-btn-lg" data-sk-open
            data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
           Yeah! Send me product &amp; sample info! 🔥
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -242,7 +264,7 @@
                Conectiv's equivalent funnel, built later, has no Product Tour step at all and sends
                both its DM controls here. Now all three CTAs on this page are one control. -->
           <div class="sk-conf-btns">
-            <a class="sk-conf-btn" data-sk-route-open
+            <a class="sk-conf-btn" data-sk-open
                data-sk-step="glp-food-guide-dm-redirect" href="glp-food-guide-dm-redirect">
               Yeah... Show me the GLP alternatives! 👀
             </a>
