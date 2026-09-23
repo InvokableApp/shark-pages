@@ -1724,3 +1724,130 @@
   border: 0;
   display: block;
 }
+
+/* ======================================================================
+   Joe's Your Leads + gen-leads revisions, 2026-09-23 (2:25-2:38 batch)
+   ====================================================================== */
+
+/* "make it bigger / more prounced". It was grey 14px body copy doing the job
+   of an instruction, so nobody read it as one. */
+.sk-glp-your-marketing-links-marketing-links .sk-glance-note {
+  margin-top: 20px;
+  color: var(--sk-ink);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 94, "wght" 700;
+  font-size: 16.5px;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+@media (max-width: 520px) { .sk-glp-your-marketing-links-marketing-links .sk-glance-note { font-size: 15.5px; } }
+
+/* The caption Joe wanted kept above the video. It sits between the card title
+   and the player, so it needs to read as a question, not as a section label. */
+.sk-glp-your-marketing-links-marketing-links .sk-lead--overvid {
+  margin: 0 0 9px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--sk-ink);
+}
+
+/* App store buttons. Joe: "Make those buttons be buttons, not big rectangles -
+   thinking like blue fill for iPhone and green fill for android ... and show
+   apple icon and android icon at beginning". Real brand glyphs replace the
+   generic outline phone/robot shapes, and these are the ONLY two places on the
+   page allowed a non brand colour: they are platform marks, and a rep scans
+   for the blue one or the green one rather than reading either label. */
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn {
+  flex: 1 1 210px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 96, "wght" 700;
+  font-size: 15px;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn:hover { filter: brightness(1.07); }
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn:active { transform: scale(.985); }
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn svg { flex: none; width: 21px; height: 21px; }
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--ios     { background: linear-gradient(140deg, #1D74F5 0%, #0A56C8 100%); }
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--android { background: linear-gradient(140deg, #23A94D 0%, #14813A 100%); }
+
+/* "Make OPTION 1 and OPTION 2 bigger, font is pretty small." Scoped to the
+   leads screen so the group labels everywhere else keep their size. */
+.sk-glp-your-marketing-links-marketing-links [data-screen="leads"] .sk-group-label {
+  font-size: 15px;
+  letter-spacing: .11em;
+  color: var(--sk-brand-deep);
+}
+
+/* A url the rep is meant to TYPE, with nothing to tap. */
+.sk-glp-your-marketing-links-marketing-links .sk-url--static { padding-right: 16px; }
+.sk-glp-your-marketing-links-marketing-links .sk-url--static .sk-url-text { font-size: 16px; }
+
+/* ---- device frames ----
+   Chrome drawn in CSS around the existing screenshots rather than baked into
+   new images, so a re-shot screenshot drops straight in. */
+.sk-glp-your-marketing-links-marketing-links .sk-dev { position: relative; }
+.sk-glp-your-marketing-links-marketing-links .sk-dev img { display: block; width: 100%; height: auto; }
+
+.sk-glp-your-marketing-links-marketing-links .sk-dev--phone {
+  max-width: 290px;
+  margin: 0 auto;
+  padding: 11px 9px;
+  border-radius: 34px;
+  background: linear-gradient(160deg, #2C3230 0%, #141817 100%);
+  box-shadow: 0 14px 34px -18px rgba(0,0,0,.6), inset 0 0 0 1.5px rgba(255,255,255,.14);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-dev--phone img { border-radius: 25px; }
+.sk-glp-your-marketing-links-marketing-links .sk-dev-notch {
+  position: absolute;
+  top: 17px; left: 50%;
+  width: 78px; height: 19px;
+  transform: translateX(-50%);
+  border-radius: 11px;
+  background: #141817;
+  z-index: 1;
+}
+
+.sk-glp-your-marketing-links-marketing-links .sk-dev--desk {
+  max-width: 100%;
+  padding: 26px 8px 8px;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(160deg, #2C3230 0%, #141817 100%);
+  box-shadow: 0 14px 34px -20px rgba(0,0,0,.55), inset 0 0 0 1.5px rgba(255,255,255,.12);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-dev--desk img { border-radius: 3px; }
+.sk-glp-your-marketing-links-marketing-links .sk-dev-bar {
+  position: absolute;
+  top: 9px; left: 14px;
+  display: flex;
+  gap: 6px;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-dev-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.26); }
+/* the stand is what makes it read as a computer rather than a dark card */
+.sk-glp-your-marketing-links-marketing-links .sk-dev-stand {
+  position: absolute;
+  bottom: -11px; left: 50%;
+  width: 34%; height: 11px;
+  transform: translateX(-50%);
+  border-radius: 0 0 7px 7px;
+  background: linear-gradient(180deg, #232826 0%, #171B1A 100%);
+}
+/* the stand overhangs the frame, so the figure needs room under it. Set on the
+   frame itself, not via :has() - an older phone browser would drop the rule
+   silently and the stand would collide with whatever follows. */
+.sk-glp-your-marketing-links-marketing-links .sk-dev--desk { margin-bottom: 15px; }
+
+/* The same video button repeated at the foot of the screen. */
+.sk-glp-your-marketing-links-marketing-links .sk-vidbtn--foot { margin: 22px auto 4px; }
