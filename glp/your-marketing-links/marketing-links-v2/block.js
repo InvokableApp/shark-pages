@@ -490,7 +490,44 @@ var SYS = {
     if (willOpen) {
       card.setAttribute('data-open', 'true');
       trigger.setAttribute('aria-expanded', 'true');
+      fillEmbedsIn(card);
     }
+  });
+
+  /* ---------- INLINE video embeds ----------
+     Joe, 2026-09-23: "just put the video in with nothing covering it". Every
+     video in the six action-item cards was behind a button or a thumbnail
+     facade, and his read of that was simply that the videos were not in.
+
+     So the player is visible, not summoned. It is still not in the MARKUP: six
+     Vimeo iframes on one page is six third-party players loading before anyone
+     has opened a card. Each embed fills the moment its card opens, which for a
+     rep is indistinguishable from it always having been there, and an embed
+     that sits outside a card fills on load.
+
+     ⚠️ Fills ONCE. A card the rep closes and reopens keeps the iframe it
+     already has, so playback position survives and the player does not reload
+     under them. */
+  function fillEmbed(box) {
+    if (box.getAttribute('data-filled') === 'true') return;
+    var id = box.getAttribute('data-vimeo');
+    if (!id) return;
+    box.setAttribute('data-filled', 'true');
+    var f = document.createElement('iframe');
+    f.src = 'https://player.vimeo.com/video/' + id + '?title=0&byline=0&portrait=0&dnt=1';
+    f.title = box.getAttribute('data-vimeo-title') || 'Video';
+    f.loading = 'lazy';
+    f.allow = 'fullscreen; picture-in-picture';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('frameborder', '0');
+    box.appendChild(f);
+  }
+  function fillEmbedsIn(scope) {
+    (scope || root).querySelectorAll('.sk-embed[data-vimeo]').forEach(fillEmbed);
+  }
+  /* anything not inside a collapsed card is visible right now */
+  root.querySelectorAll('.sk-embed[data-vimeo]').forEach(function (box) {
+    if (!box.closest('.sk-card')) fillEmbed(box);
   });
 
   /* ---------- video facade ----------

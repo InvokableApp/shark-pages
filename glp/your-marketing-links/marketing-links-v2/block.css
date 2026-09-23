@@ -431,11 +431,15 @@
   text-wrap: balance;
 }
 
-/* VIDEO SLOTS, HIDDEN UNTIL THE VIDEOS EXIST.
-   Joe asked for these off the page rather than pointing at nothing. The copy
-   and the buttons are still in the markup, so restoring them is deleting this
-   one rule and filling in the hrefs. Do not delete the markup. */
-.sk-glp-your-marketing-links-marketing-links .sk-videoslot { display: none; }
+/* VIDEO SLOTS. These were display:none from the day the markup went in, because
+   Joe wanted them off the page rather than pointing at nothing until he had
+   shot the videos. He shot them 2026-09-23 and the ids are in, so the rule is
+   gone and the slots show.
+
+   ⚠️ This one rule, not the popup, is why Joe reported "the videos aren't in"
+   after the ids were wired. The ids were correct and the page was serving them;
+   they were invisible. Anything hidden pending content needs the SAME commit
+   that adds the content to take the hiding away. */
 
 /* secondary link, the .sk-chip component */
 .sk-glp-your-marketing-links-marketing-links .sk-chip {
@@ -1681,3 +1685,26 @@
    rule - so the #27 placeholder rendered live and did nothing when tapped. Any
    .sk-copy carrying `hidden` must be forced down. */
 .sk-glp-your-marketing-links-marketing-links .sk-copy[hidden] { display: none !important; }
+
+/* Inline video, Joe 2026-09-23: "just put the video in with nothing covering
+   it". The box holds its 16:9 shape BEFORE the iframe arrives, so opening a
+   card does not shove the copy underneath it down the page once the player
+   fills in. All six of Joe's recordings are landscape; a portrait one would
+   need its own ratio set on the element. */
+.sk-glp-your-marketing-links-marketing-links .sk-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-ink);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
