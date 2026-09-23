@@ -2,6 +2,17 @@
 var SYS = {
   nameCv: 'conectiv__your_first_name',
   domainCv: 'conectiv__main_url',
+  /* The rep's OWN v2 training pages travel with the snapshot as a step inside
+     each funnel, so they sit on the rep's own domain. conectiv__main_url is that
+     domain and is ALREADY declared on the block root, so this needs no new custom
+     value and no socket re-push.
+     NOT conectiv__email_designated_domain: on Conectiv that one is the GHL email
+     sending domain (its own instruction text says mail.yourbrand.com), which does
+     not serve funnel pages. It would pass the hostname guard below and produce a
+     link that 404s silently. GLP's block uses its email-domain CV for this and
+     gets away with it only because GLP reps happen to fill theirs with a root
+     domain; the name does not port. */
+  howtoDomainCv: 'conectiv__main_url',
   /* Joe's v2 categories, Sep 2026. The old five (start a conversation / quizzes
      / explain Conectiv / recruit / your own pages) sorted by what the rep DOES
      with a link. These sort by what the funnel SELLS on the back end, which is
@@ -13,21 +24,21 @@ var SYS = {
      does, and they are not products and not the opportunity. */
   groups: [
     { label:"Product funnels", items:[
-      { slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"https://conectivshark.com/c-natural-glp-foods-guide-training", icon:"leaf", name:"Natural GLP Foods Guide",
+      { howtoSlug:"c-natural-glp-foods-guide-how-to", slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"https://conectivshark.com/c-natural-glp-foods-guide-training", icon:"leaf", name:"Natural GLP Foods Guide",
         tease:"Free foods guide",
         guides:[{ label:"Access / Print / Share The Guide", cv:"conectiv__glp_foods_guide_download_url" }],
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
-      { slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
+      { howtoSlug:"c-clean-brew-how-to", slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
         tease:"Free recipe guide",
         guides:[{ label:"Access / Print / Share The Guide", cv:"conectiv__coffee_guide_download_url" }],
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." },
-      { slug:"c-free-coffee-sample-optin", gateCv:"conectiv__free_sample_live",
+      { howtoSlug:"c-free-coffee-sample-how-to", slug:"c-free-coffee-sample-optin", gateCv:"conectiv__free_sample_live",
         howto:"https://conectivshark.com/c-free-coffee-sample-training", icon:"coffee", name:"Free ALIVE Sample",
         tease:"You post them a real sample",
         desc:"They ask for a free ALIVE sample and you put it in the post yourself. Nothing is delivered automatically, so this one lives or dies on you calling and texting. The scripts are on the how to page." } ]},
 
     { label:"Opportunity funnels", items:[
-      { slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
+      { howtoSlug:"c-side-hustle-how-to", slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
         tease:"Finds their work-from-home fit",
         desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
       { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"https://conectivshark.com/c-opportunity-training", icon:"users", name:"Opportunity Explainer",
@@ -38,17 +49,17 @@ var SYS = {
       { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"https://conectivshark.com/c-travel-destination-training", icon:"compass", name:"Travel Destination Quiz",
         tease:"Matches them to a destination",
         desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
-      { slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"https://conectivshark.com/c-investment-training", icon:"quiz", name:"Investment Options Quiz",
+      { howtoSlug:"c-investment-how-to", slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"https://conectivshark.com/c-investment-training", icon:"quiz", name:"Investment Options Quiz",
         tease:"Matches them to an option",
         desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
 
     { label:"\"What I do\" funnel", items:[
-      { slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"https://conectivshark.com/c-what-is-conectiv-training", icon:"info", name:"What Is Conectiv",
+      { howtoSlug:"c-what-is-conectiv-how-to", slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"https://conectivshark.com/c-what-is-conectiv-training", icon:"info", name:"What Is Conectiv",
         tease:"The full overview",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     { label:"Your linktree", items:[
-      { slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
+      { howtoSlug:"c-social-links-how-to", slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ],
@@ -158,15 +169,31 @@ var SYS = {
       '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
   }
 
+  /* The rep's own copy when their domain is set, the central conectivshark.com
+     page otherwise. On a SNAPSHOT the domain custom value holds instruction text
+     ("Enter your main domain WITHOUT https://"), which would otherwise render as
+     https://Enter your main domain.../c-side-hustle-how-to on every card, so the
+     value has to look like a hostname before it is trusted. The fallback is why
+     these rows still work in the snapshot itself. */
+  function howtoUrl(it) {
+    var d = SYS.howtoDomainCv ? String(cv(SYS.howtoDomainCv) || '') : '';
+    d = d.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+    if (it.howtoSlug && /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d)) {
+      return 'https://' + d + '/' + it.howtoSlug;
+    }
+    return it.howto || '';
+  }
+
   function trainingBlock(it) {
-    if (!it.howto) return '';
+    var base = howtoUrl(it);
+    if (!base) return '';
     var rows = PARTS
       ? TRAINING.map(function (t) {
-          return actionRow(it.howto + '#part-' + t.part,
+          return actionRow(base + '#part-' + t.part,
             '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>',
             t.label);
         }).join('')
-      : actionRow(it.howto,
+      : actionRow(base,
           '<span class="sk-action-mark" aria-hidden="true">' + icon('play', 1.7) + '</span>',
           'How to use this funnel');
     return subhead('Training / Guidance') + '<div class="sk-actions">' + rows + '</div>';
