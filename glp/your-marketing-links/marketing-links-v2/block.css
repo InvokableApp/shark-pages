@@ -1811,8 +1811,32 @@
 .sk-glp-your-marketing-links-marketing-links .sk-appbtn:hover { filter: brightness(1.07); }
 .sk-glp-your-marketing-links-marketing-links .sk-appbtn:active { transform: scale(.985); }
 .sk-glp-your-marketing-links-marketing-links .sk-appbtn svg { flex: none; width: 21px; height: 21px; }
-.sk-glp-your-marketing-links-marketing-links .sk-appbtn--ios     { background: linear-gradient(140deg, #1D74F5 0%, #0A56C8 100%); }
-.sk-glp-your-marketing-links-marketing-links .sk-appbtn--android { background: linear-gradient(140deg, #23A94D 0%, #14813A 100%); }
+/* Joe, 2026-09-23: "make the blue and green buttons be metallic". Metal is two
+   gradients, not one: a hue ramp underneath for the colour, and a neutral
+   light ramp on top for the sheen, with the light break sitting just above
+   centre so it reads as a curved surface catching a highlight. The inset
+   shadows do the bevel. Same sheen layer on both so they look like one set. */
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--ios,
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--android {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -2px 4px rgba(0,0,0,.30),
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 3px 8px -3px rgba(0,0,0,.45);
+  text-shadow: 0 1px 1px rgba(0,0,0,.28);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--ios {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.12) 44%,
+                            rgba(0,0,0,.05) 47%, rgba(0,0,0,.22) 100%),
+    linear-gradient(140deg, #4C97FF 0%, #1D74F5 40%, #0A56C8 74%, #2B7AE8 100%);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-appbtn--android {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.12) 44%,
+                            rgba(0,0,0,.05) 47%, rgba(0,0,0,.22) 100%),
+    linear-gradient(140deg, #45C46C 0%, #23A94D 40%, #14813A 74%, #2FA757 100%);
+}
 
 /* "Make OPTION 1 and OPTION 2 bigger, font is pretty small." Scoped to the
    leads screen so the group labels everywhere else keep their size. */
@@ -1841,6 +1865,41 @@
   box-shadow: 0 14px 34px -18px rgba(0,0,0,.6), inset 0 0 0 1.5px rgba(255,255,255,.14);
 }
 .sk-glp-your-marketing-links-marketing-links .sk-dev--phone img { border-radius: 25px; }
+
+/* Joe, 2026-09-23: "Click here first with an arrow pointing to the bottom
+   right, and then Click here second with arrow pointing to contacts tab".
+   Drawn as an SVG overlay rather than baked into leads-app.jpg, so the copy
+   stays editable and re-renders crisp at any width. The viewBox is the art's
+   own pixel grid (644x1400) and the overlay box is pinned to the IMG box, not
+   the device frame, so every coordinate below is just a pixel position read
+   off the screenshot. Keep the default preserveAspectRatio: the box and the
+   art share an aspect ratio, so uniform scaling lands exactly and the arrow
+   heads never skew. */
+.sk-glp-your-marketing-links-marketing-links .sk-callouts {
+  position: absolute;
+  top: 11px; right: 9px; bottom: 11px; left: 9px;
+  width: auto; height: auto;
+  pointer-events: none;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-callout rect {
+  fill: #fff;
+  stroke: var(--sk-brand);
+  stroke-width: 3;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-callout text {
+  fill: var(--sk-brand-deep);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 96, "wght" 800;
+  font-size: 23px;
+  text-anchor: middle;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-callout-arrow {
+  fill: none;
+  stroke: var(--sk-brand);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-callout-head { fill: var(--sk-brand); }
 .sk-glp-your-marketing-links-marketing-links .sk-dev-notch {
   position: absolute;
   top: 17px; left: 50%;
