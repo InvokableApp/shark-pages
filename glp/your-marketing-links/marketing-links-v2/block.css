@@ -1551,3 +1551,12 @@
   gap: 8px;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-store--wide .sk-chip { flex: 1 1 200px; justify-content: center; }
+
+/* ---- Joe's Vimeo buttons, Sep 23 2026 ----
+   The five placeholders were <a href="#"> with an inline play SVG. They are now
+   real <button data-video> elements opening the sheet, and they carry the 🎥
+   emoji Joe wrote rather than the SVG, matching the pill above. .sk-copy sets
+   flex + gap already, so the mark only needs sizing and a guard against the
+   emoji riding high against uppercase Archivo. */
+.sk-glp-your-marketing-links-marketing-links .sk-copy .sk-vidbtn-mark { font-size: 18px; line-height: 1; transform: translateY(-.5px); }
+.sk-glp-your-marketing-links-marketing-links .sk-copy--long .sk-vidbtn-mark { font-size: 19px; align-self: flex-start; margin-top: 1px; }
