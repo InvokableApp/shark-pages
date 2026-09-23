@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ============================================================
+   GLP SHARK, PUBLIC LINK HUB  (glp/your-links/links)
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   This is the AUDIENCE facing page a rep posts in their social bio.
+   It is not the rep console at glp/your-marketing-links/marketing-links.
+   A stranger lands here from a phone and wants to tap one thing, so the
+   accordion, the copy buttons and the group counts are all deliberately
+   absent: rows tap straight through to the funnel.
+
+   Palette is the nine GLP tokens, design system section 2, unchanged.
+   ============================================================ */
+
+.sk-conectiv-links *,
+.sk-conectiv-links *::before,
+.sk-conectiv-links *::after { box-sizing: border-box; }
+
+.sk-conectiv-links {
+  --sk-brand:      #2563EB;
+  --sk-brand-deep: #155EEF;
+  --sk-brand-tint: #EAF0FD;
+  --sk-ink:        #0B1220;
+  --sk-ink-soft:   #5B6577;
+  --sk-ink-faint:  #8B93A5;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DFE4EF;
+  --sk-line-soft:  #E9EDF5;
+  --sk-card:       #ffffff;
+
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow:      0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 0 calc(48px + env(safe-area-inset-bottom));
+  position: relative;
+  isolation: isolate;
+}
+.sk-conectiv-links > * { grid-column: 2; padding-inline: 16px; }
+
+.sk-conectiv-links .sk-grain {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  grid-column: 1 / -1; padding: 0;
+  mix-blend-mode: multiply; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+/* ---------- header ---------- */
+.sk-conectiv-links .sk-head {
+  position: relative; z-index: 1;
+  padding-top: 40px; padding-bottom: 26px;
+  text-align: center;
+}
+.sk-conectiv-links .sk-mono {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  margin: 0 0 12px;
+}
+.sk-conectiv-links .sk-name {
+  font-family: Archivo, system-ui, sans-serif;
+  font-variation-settings: "wdth" 112, "wght" 700;
+  font-size: clamp(27px, 8.2vw, 36px);
+  line-height: 1.04; letter-spacing: -.012em; text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0;
+}
+.sk-conectiv-links .sk-name .sk-hl {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sk-conectiv-links .sk-sub {
+  font-size: 15px; line-height: 1.5; color: var(--sk-ink-soft);
+  max-width: 32ch; margin: 12px auto 0; text-wrap: balance;
+}
+
+/* ---------- groups ---------- */
+.sk-conectiv-links .sk-body { position: relative; z-index: 1; }
+.sk-conectiv-links .sk-group { margin: 0 0 26px; }
+.sk-conectiv-links .sk-group-head {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 12px;
+}
+.sk-conectiv-links .sk-group-label {
+  font-family: Archivo, system-ui, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px; letter-spacing: .17em; text-transform: uppercase;
+  color: var(--sk-ink-faint);
+  white-space: nowrap;
+}
+.sk-conectiv-links .sk-rule { flex: 1; height: 1px; background: var(--sk-line); }
+
+/* ---------- a row ---------- */
+.sk-conectiv-links .sk-row {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; min-height: 72px;
+  padding: 14px var(--sk-pad);
+  margin: 0 0 10px;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  box-shadow: var(--sk-shadow);
+  color: inherit; text-decoration: none;
+  transition: box-shadow .2s ease, transform .12s ease, border-color .2s ease;
+}
+.sk-conectiv-links .sk-row:hover { box-shadow: var(--sk-shadow-lift); border-color: var(--sk-line-soft); }
+.sk-conectiv-links .sk-row:active { transform: translateY(1px); }
+.sk-conectiv-links .sk-row:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+
+.sk-conectiv-links .sk-mark {
+  flex: 0 0 auto;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--sk-brand-tint); color: var(--sk-brand-deep);
+  border-radius: var(--sk-r-sm);
+}
+.sk-conectiv-links .sk-mark svg { width: 22px; height: 22px; }
+
+.sk-conectiv-links .sk-text { flex: 1 1 auto; min-width: 0; }
+.sk-conectiv-links .sk-row-name {
+  display: block;
+  font-family: Archivo, system-ui, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 15.5px; line-height: 1.25; letter-spacing: -.004em;
+}
+.sk-conectiv-links .sk-row-tease {
+  display: block;
+  font-size: 13.5px; line-height: 1.4; color: var(--sk-ink-soft);
+  margin-top: 3px;
+}
+.sk-conectiv-links .sk-chev { flex: 0 0 auto; color: var(--sk-ink-faint); }
+.sk-conectiv-links .sk-chev svg { width: 18px; height: 18px; display: block; }
+
+/* the shop rows carry the accent so a buying visitor can find them at a glance */
+.sk-conectiv-links .sk-row--buy .sk-mark {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+}
+
+/* ---------- socials ---------- */
+.sk-conectiv-links .sk-foot { position: relative; z-index: 1; padding-top: 10px; }
+/* the social row now sits inside its own section in the body flow, so it
+   carries the same left alignment as the cards above it rather than the
+   centred footer treatment it had when it was furniture */
+.sk-conectiv-links .sk-social {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin: 0;
+}
+.sk-conectiv-links .sk-social:empty { display: none; }
+.sk-conectiv-links .sk-soc {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  color: var(--sk-ink-soft);
+  box-shadow: var(--sk-shadow);
+  transition: color .2s ease, border-color .2s ease, transform .12s ease;
+}
+.sk-conectiv-links .sk-soc svg { width: 20px; height: 20px; display: block; }
+.sk-conectiv-links .sk-soc:hover { color: var(--sk-brand-deep); border-color: var(--sk-brand); }
+.sk-conectiv-links .sk-soc:active { transform: translateY(1px); }
+.sk-conectiv-links .sk-soc:focus-visible { outline: 2px solid var(--sk-brand); outline-offset: 3px; }
+
+.sk-conectiv-links .sk-legal {
+  font-size: 11.5px; line-height: 1.5; color: var(--sk-ink-faint);
+  text-align: center; max-width: 44ch; margin: 0 auto;
+}
+.sk-conectiv-links .sk-legal:empty { display: none; }
+
+/* ---------- setup card, snapshot and half filled accounts ---------- */
+.sk-conectiv-links .sk-setup {
+  position: relative; z-index: 1;
+  background: #EAF0FD; border: 1px solid #BBD0FA; border-radius: var(--sk-r);
+  padding: var(--sk-pad); margin: 0 0 26px;
+  color: #6B4E16; font-size: 14.6px; line-height: 1.5;
+}
+.sk-conectiv-links .sk-setup b {
+  display: block;
+  font-family: Archivo, system-ui, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+/* ---------- motion ---------- */
+@keyframes sk-conectiv-links-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.sk-conectiv-links .sk-head,
+.sk-conectiv-links .sk-group,
+.sk-conectiv-links .sk-foot {
+  animation: sk-conectiv-links-rise .55s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-conectiv-links .sk-group:nth-of-type(1) { animation-delay: .06s; }
+.sk-conectiv-links .sk-group:nth-of-type(2) { animation-delay: .12s; }
+.sk-conectiv-links .sk-group:nth-of-type(3) { animation-delay: .18s; }
+.sk-conectiv-links .sk-group:nth-of-type(4) { animation-delay: .24s; }
+.sk-conectiv-links .sk-foot { animation-delay: .3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-links .sk-head,
+  .sk-conectiv-links .sk-group,
+  .sk-conectiv-links .sk-foot { animation: none; }
+}
