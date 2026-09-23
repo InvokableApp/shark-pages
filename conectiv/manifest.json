@@ -152,15 +152,6 @@
     },
     {
       "path": "your-funnel-links/c-user-links-page",
-      "funnelId": "pXWZl9QFtkhNjA6nPAOw",
-      "pageId": "CRF9Lrm4EOSCV5f8j23t",
-      "elementId": "custom-code-zyetceUudQ",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "uNxituXahyZtAIqwdVJI"
-    },
-    {
-      "path": "your-funnel-links/c-user-links-page",
       "funnelId": "0dFLOqMel21tctomq7Al",
       "pageId": "TwP2AsM2qvfzcawIJDOH",
       "elementId": "custom-code-zyetceUudQ",
@@ -284,6 +275,15 @@
       "elementTitle": "free-sample-confirmation",
       "pattern": "A",
       "locationId": "ehcaigB66Wg6yqURjP1Q"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page-v2",
+      "funnelId": "pXWZl9QFtkhNjA6nPAOw",
+      "pageId": "CRF9Lrm4EOSCV5f8j23t",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
     }
   ]
 }
