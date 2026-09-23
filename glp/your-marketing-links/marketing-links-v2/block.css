@@ -1560,3 +1560,124 @@
    emoji riding high against uppercase Archivo. */
 .sk-glp-your-marketing-links-marketing-links .sk-copy .sk-vidbtn-mark { font-size: 18px; line-height: 1; transform: translateY(-.5px); }
 .sk-glp-your-marketing-links-marketing-links .sk-copy--long .sk-vidbtn-mark { font-size: 19px; align-self: flex-start; margin-top: 1px; }
+
+/* Grey subtext under a training / guide row. Joe, 2026-09-23 (Figma #12-#15):
+   a rep could not tell what was behind each of the three training links, so
+   each row now says what it contains. It nests INSIDE .sk-action-label rather
+   than sitting beside it, so the flex row still has three children and the
+   emoji mark and chevron stay exactly where they were. */
+.sk-glp-your-marketing-links-marketing-links .sk-action-sub {
+  display: block;
+  margin-top: 2px;
+  color: var(--sk-ink-faint);
+  font-size: 12.2px;
+  font-weight: 500;
+  line-height: 1.32;
+}
+/* The rows were sized for one line of 13.6px text; two lines need the padding
+   back or the label crowds the border. */
+.sk-glp-your-marketing-links-marketing-links .sk-action--sub { align-items: flex-start; padding-top: 11px; padding-bottom: 11px; }
+.sk-glp-your-marketing-links-marketing-links .sk-action--sub .sk-action-mark,
+.sk-glp-your-marketing-links-marketing-links .sk-action--sub .sk-action-go { margin-top: 1px; }
+
+/* ======================================================================
+   Joe's Generate Leads pass, Figma #27-#48, 2026-09-23
+   ====================================================================== */
+
+/* #27 The big "I am lost" button. Two lines: the question in sentence case,
+   the instruction shouted underneath, because a rep scanning for a way out
+   reads the second line and nothing else. Stays hidden until a Vimeo id is
+   filled in - an empty sheet is worse than no button. */
+.sk-glp-your-marketing-links-marketing-links .sk-copy--xl {
+  min-height: 72px;
+  margin-top: 18px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  font-size: 15px;
+  letter-spacing: .02em;
+  text-transform: none;
+  line-height: 1.25;
+  box-shadow: 0 10px 26px -14px var(--sk-brand-deep);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-copy-sub {
+  display: block;
+  margin-top: 3px;
+  font-variation-settings: "wdth" 92, "wght" 800;
+  font-size: 16.5px;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+/* #28 The tiles look like a summary, so nobody guessed the cards beneath them
+   opened. One line, centred under the grid, says so. */
+.sk-glp-your-marketing-links-marketing-links .sk-glance-note {
+  margin: 16px 0 0;
+  color: var(--sk-ink-soft, var(--sk-ink-faint));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* #32 / #44 A headline INSIDE a card. .sk-desc is body copy and .sk-subhead is
+   a tiny uppercase eyebrow; Joe's block needed something between the two that
+   carries weight without competing with the card title above it. */
+.sk-glp-your-marketing-links-marketing-links .sk-punch {
+  margin: 4px 0 14px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 92, "wght" 800;
+  font-size: 19px;
+  line-height: 1.22;
+  letter-spacing: -.005em;
+  color: var(--sk-brand-deep);
+  text-wrap: balance;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-punch--sm { margin: 20px 0 10px; font-size: 16px; letter-spacing: .04em; }
+
+/* #29 / #39 / #44 The louder eyebrow. Same component, one size up and in ink
+   rather than faint grey, for the three places Joe wanted a section to stop
+   the eye instead of label it. */
+.sk-glp-your-marketing-links-marketing-links .sk-subhead--lg {
+  margin: 26px 0 10px;
+  font-size: 14.5px;
+  letter-spacing: .075em;
+  line-height: 1.3;
+  color: var(--sk-brand-deep);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-foot-eyebrow--shout {
+  font-size: 15px;
+  letter-spacing: .085em;
+  line-height: 1.32;
+  color: #fff;
+}
+
+/* #32 the "2 a day = 14 a week" maths. A list, not paragraphs: the whole point
+   is that the two lines line up and the second builds on the first. */
+.sk-glp-your-marketing-links-marketing-links .sk-maths {
+  display: grid;
+  gap: 7px;
+  margin: 0 0 14px;
+  padding: 13px 15px;
+  list-style: none;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  font-size: 14.6px;
+  line-height: 1.35;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-maths b { font-variation-settings: "wght" 700; color: var(--sk-brand-deep); }
+
+/* #45 "things are a little tight in areas". The card body was tuned when it was
+   three paragraphs and a script; it is now a long read, and at that length the
+   old rhythm ran everything together. Paragraph gap up, and a real gap before
+   each script block and each eyebrow so the sections separate on a phone. */
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-desc { margin-bottom: 13px; line-height: 1.55; }
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-script { margin: 6px 0 20px; }
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-steps { margin-bottom: 18px; }
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-videoslot { margin: 20px 0; }
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-note-line { margin-top: 8px; }
+
+/* ⚠️ .sk-copy sets display:flex, which BEATS the user-agent [hidden]{display:none}
+   rule - so the #27 placeholder rendered live and did nothing when tapped. Any
+   .sk-copy carrying `hidden` must be forced down. */
+.sk-glp-your-marketing-links-marketing-links .sk-copy[hidden] { display: none !important; }

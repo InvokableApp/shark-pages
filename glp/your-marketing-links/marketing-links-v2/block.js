@@ -7,7 +7,14 @@ var SYS = {
      DOES with a link. These sort by what the funnel SELLS on the back end,
      which is Jeff's rule: "if a funnel promotes a product on the backend it
      goes there". So a quiz is not its own group any more, it sits with whatever
-     it ends up selling. */
+     it ends up selling.
+
+     ⚠️ `desc` is no longer rendered. Joe, 2026-09-23 (Figma #11): "remove this
+     (for all sections) - this information is in the 'how do I generate leads
+     with this funnel?'" - the paragraph said the same thing the part 2 training
+     row links to, twice on the same card. It is kept in the data because it is
+     the only place each funnel's job is written down in plain language for
+     whoever edits this file next. Do not re-render it without asking. */
   groups: [
     { label: 'Product funnels', items: [
       { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
@@ -26,8 +33,8 @@ var SYS = {
         tease: 'Free workout download',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
-      { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Free IGNYT Sample',
-        tease: 'A free 3 day trial, in the mail',
+      { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Test-Drive IGNYT Funnel',
+        tease: 'For folks who want to try out IGNYT.',
         howto: 'https://glpshark.com/ignyt-sample-training',
         canva: 'https://canva.link/qtfm73vucfijq5z',
         desc: 'Sends a free 3 day IGNYT trial to their door. They hand you an address and expect you to make contact to confirm it, so every request is a conversation you are invited into.' },
@@ -42,7 +49,7 @@ var SYS = {
         tease: 'For cold traffic',
         desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
 
-    { label: 'Opportunity funnels', items: [
+    { label: 'Recruiting funnels', items: [
       { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
         tease: 'Finds their work-from-home fit',
         howto: 'https://glpshark.com/side-hustle-quiz-training',
@@ -60,16 +67,17 @@ var SYS = {
        (The Personal Branded One Pager would have been the other candidate and is
        retired, per Jess the same day.) */
     { label: '"What I do" funnel', items: [
-      { cv: 'orygn_tour_funnel_link', icon: 'info', name: 'What is ORYGN?',
-        tease: 'Products, opportunity, comp plan',
+      { cv: 'orygn_tour_funnel_link', icon: 'info', name: '&#8220;What I Do&#8221; Funnel',
+        tease: 'A page that explains what you do',
         desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is, and what you are doing with it.' } ]},
 
-    /* ⚠️ INFERRED, not confirmed. Joe lists "your linktree" as its own category
-       and GLP has no page called one. The Navigation Page is functionally it:
-       one link that lets someone pick their own direction, which is what a rep
-       puts in a social bio. Confirm with Joe. */
+    /* CONFIRMED 2026-09-23. This group was an inference: Joe listed "your
+       linktree" as a category and GLP had no page by that name, so the
+       Navigation Page was mapped to it on a guess. Joe's Figma pin #10 lands on
+       that row and reads "Linktree page", so the mapping was right and the row
+       now carries his word for it. */
     { label: 'Your linktree', items: [
-      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Navigation Page',
+      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Linktree page',
         tease: 'Let them choose their path',
         desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
 
@@ -249,9 +257,12 @@ var SYS = {
      they meet it. Kept beside `icon` rather than replacing it, because the
      outline set still dresses every other row on this page. */
   var TRAINING = [
-    { part: 1, emoji: '\uD83D\uDEE0\uFE0F', icon: 'play',   label: 'How does this funnel work?' },
-    { part: 2, emoji: '\uD83D\uDE80',        icon: 'target', label: 'How do I generate leads with this funnel?' },
-    { part: 3, emoji: '\uD83D\uDCAC',        icon: 'speech', label: 'What to say to leads who come through this funnel?' }
+    { part: 1, emoji: '\uD83D\uDEE0\uFE0F', icon: 'play',   label: 'How does this funnel work?',
+      sub: 'Video and write up that explains this funnel!' },
+    { part: 2, emoji: '\uD83D\uDE80',        icon: 'target', label: 'How do I generate leads with this funnel?',
+      sub: 'Video, write up, post ideas &amp; content to guide you on generating leads!' },
+    { part: 3, emoji: '\uD83D\uDCAC',        icon: 'speech', label: 'What to say to leads who come through this funnel?',
+      sub: 'Video and write up that trains you on how to turn your leads into sales / recruits!' }
   ];
 
   function subhead(text) {
@@ -262,9 +273,10 @@ var SYS = {
     if (!it.howto) return '';
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
       TRAINING.map(function (t) {
-        return '<a class="sk-action" href="' + it.howto + '#part-' + t.part + '" target="_blank" rel="noopener">' +
+        return '<a class="sk-action sk-action--sub" href="' + it.howto + '#part-' + t.part + '" target="_blank" rel="noopener">' +
           '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
-          '<span class="sk-action-label">' + t.label + '</span>' +
+          '<span class="sk-action-label">' + t.label +
+            '<span class="sk-action-sub">' + t.sub + '</span></span>' +
           '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
       }).join('') + '</div>';
   }
@@ -277,9 +289,10 @@ var SYS = {
       var u = g.cv ? cv(g.cv) : g.url;
       if (!u) return '';
       u = href(u);
-      return '<a class="sk-action" href="' + u + '" target="_blank" rel="noopener">' +
+      return '<a class="sk-action sk-action--sub" href="' + u + '" target="_blank" rel="noopener">' +
         '<span class="sk-action-mark" aria-hidden="true">' + icon('guide', 1.7) + '</span>' +
-        '<span class="sk-action-label">' + g.label + '</span>' +
+        '<span class="sk-action-label">' + g.label +
+          '<span class="sk-action-sub">Print the guide or quickly access the link</span></span>' +
         '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
     }).filter(Boolean);
     if (it.canva) {
@@ -299,10 +312,13 @@ var SYS = {
   if (twoMin) {
     var tmv = cv('drops_funnel_link');
     twoMin.innerHTML = tmv
-      ? '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
-          icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>' +
-        '<div class="sk-url"><span class="sk-url-text">' + tmv.replace(/^https?:\/\//, '') + '</span>' +
-          '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="Open your customer video page">' + icon('out', 1.8) + '</a></div>'
+      /* link above the button, Joe Figma #41 "Swap these, put the link above
+         the button". A rep reads the address to check it is theirs before they
+         reach for copy; underneath, the button was the first thing they hit. */
+      ? '<div class="sk-url"><span class="sk-url-text">' + tmv.replace(/^https?:\/\//, '') + '</span>' +
+          '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="Open your customer video page">' + icon('out', 1.8) + '</a></div>' +
+        '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
+          icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
       : '<p class="sk-note-line">Your customer video page link has not been filled in yet. Contact support and we will set it up.</p>';
   }
 
@@ -323,7 +339,6 @@ var SYS = {
           '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
         '</button>' +
         '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
-          '<p class="sk-desc">' + it.desc + '</p>' +
           '<button class="sk-copy" type="button" data-copy="' + full + '">' +
             icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
           '<div class="sk-url"><span class="sk-url-text">' + url + '</span>' +
