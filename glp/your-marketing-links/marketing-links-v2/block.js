@@ -9,6 +9,30 @@ var SYS = {
      goes there". So a quiz is not its own group any more, it sits with whatever
      it ends up selling.
 
+     ⚠️ `howto` is the PUBLISHED page on glpshark.com, not the how-to step that
+     travels inside each buyer's own funnel. One shared training page serves
+     every account, which is why it is a literal URL and not derived from the
+     rep's link custom value.
+
+     🪤 Do NOT probe for these slugs by fetching and checking the status code.
+     A GLP domain has no 404: every unknown slug serves the sales page with a
+     200, so half of them "exist". What separates them is SIZE - the catch-all
+     is 1,614,651 bytes, a real how-to page is 77-80KB - and the definitive
+     answer is the manifest install plus the page's own data-shark-block. Four
+     of these were found that way on 2026-09-23; the obvious guesses were wrong
+     twice (it is glp-workoutS-training, not glp-workout-guide-training, and
+     opportunity-COLD-training, not opportunity-ads-training).
+
+     ⚠️ Two cards still have no `howto`, deliberately:
+       - "What I Do" Funnel. No page exists. The near-miss candidate,
+         /personal-branded-training, is the how-to for the Personal Branded One
+         Pager, which Jess RETIRED - wiring it would train reps on a dead
+         funnel. Joe's own asset doc leaves this link blank too.
+       - Drops, ads and social. The only unclaimed page is
+         /orygn-products-training ("ORYGN Products Funnel"), which is a
+         plausible match and not a proven one. That funnel is also one of the
+         four Joe is dropping from the new snapshot.
+
      ⚠️ `desc` is no longer rendered. Joe, 2026-09-23 (Figma #11): "remove this
      (for all sections) - this information is in the 'how do I generate leads
      with this funnel?'" - the paragraph said the same thing the part 2 training
@@ -31,6 +55,7 @@ var SYS = {
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
+        howto: 'https://glpshark.com/glp-workouts-training',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
       { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Test-Drive IGNYT Funnel',
@@ -40,6 +65,7 @@ var SYS = {
         desc: 'Sends a free 3 day IGNYT trial to their door. They hand you an address and expect you to make contact to confirm it, so every request is a conversation you are invited into.' },
       { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
         tease: 'Recommends the right support',
+        howto: 'https://glpshark.com/weight-loss-quiz-training',
         desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
       { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
         tease: 'For people who already know you',
@@ -60,6 +86,7 @@ var SYS = {
         desc: 'The business explained, for people who have already told you they want to hear more.' },
       { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
         tease: 'For cold traffic',
+        howto: 'https://glpshark.com/opportunity-cold-training',
         desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
 
     /* Joe's '"what I do" funnel' is the what-is page: for GLP that is the ORYGN
@@ -83,6 +110,7 @@ var SYS = {
     { label: 'Your linktree', items: [
       { cv: 'your_links_funnel_link', icon: 'compass', name: 'Linktree page',
         tease: 'Let them choose their path',
+        howto: 'https://glpshark.com/navigation-page-training',
         desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
 
     /* Joe: "put replicated site links here (whatever is relevant to the system)".
