@@ -14,7 +14,11 @@
   "",
   "THE SUPPLEMENT GUIDE LINK RESOLVES TO NOTHING YET. nueva_no_crash_plan_supplement_pdf_url",
   "still holds its onboarding instruction because the companion guide is not written. That is",
-  "correct on a snapshot and it is on MUST-BLANK-BEFORE-SNAPSHOT.md as a live-account check."
+  "correct on a snapshot and it is on MUST-BLANK-BEFORE-SNAPSHOT.md as a live-account check.",
+  "",
+  "CANVA LINK ADDED 2026-09-23, pasted verbatim from Jeff. ⚠️ NEVER resolve a canva.link",
+  "short URL to 'check' it: opening one yields the opened-copy URL, not the template URL,",
+  "so a resolved link would send every rep to a single shared copy instead of their own."
  ],
  "system": "nueva",
  "funnel": "how-to",
@@ -47,6 +51,14 @@
    "tease": "The downloadable version the delivery email sends, for anyone who would rather print the calendar.",
    "label": "Open the PDF",
    "url": "https://{{custom_values.nueva_no_crash_plan_guide_pdf_url}}"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/azr1yqqdtzrl5hc"
   },
   {
    "icon": "copy",
