@@ -1,0 +1,84 @@
+{
+ "_why": [
+  "Nueva Side Hustle Quiz, rep-facing. REBUILT as a hosted block 2026-09-23.",
+  "",
+  "It replaces a 135 KB INLINE page that Jeff called outdated and irrelevant. That page carried",
+  "three donor artefacts: vitalshark.io/training-hub, vitalshark.io/get-ads, and a walkthrough",
+  "video whose mp4 was served out of TriGLP's account (hKYM2WhsSBKHjvCPGkZo). None of them are",
+  "carried over.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE, same as Nueva's other three how-to pages. Jeff, 2026-09-23:",
+  "'nueva how to funnel vids coming soon'. A page with no video is honest where a page with a",
+  "competitor's video is not. Add them here and re-run the generator.",
+  "",
+  "NO ADS SECTION. Every other system points it at its own domain (vitalshark.io/get-ads,",
+  "glpshark.com/get-ads). Nueva has no seller-side domain yet, so there is nothing truthful to",
+  "point at and the section is omitted rather than filled with another system's URL.",
+  "",
+  "⚠️ THE LAUNCH CODE CANNOT BE PRE-INSTALLED FOR THE BUYER. Funnel tracking code does NOT",
+  "survive a snapshot install (measured on GLP 2026-09-03, re-measured across four Beneve",
+  "accounts 2026-09-10), so asking the rep to paste it is the mechanism, not a workaround. It is",
+  "live machinery: the quiz survey still carries the #wfh-proc processing slide this drives.",
+  "It ships as a CODE-flavoured prompt card, which renders <pre> so the copy button's innerText",
+  "keeps the newlines. In a normal prompt card the browser collapses them and every // comment",
+  "eats the code behind it.",
+  "",
+  "CANVA LINK pasted verbatim from Jeff. ⚠️ NEVER resolve a canva.link short URL: opening one",
+  "yields the opened-copy URL, not the template URL.",
+  "",
+  "Four em-dashes in the script's COMMENTS became colons, for the house no-em-dash rule.",
+  "Proven comment-only before the edit and executable-line-identical after it; `node --check` passes."
+ ],
+ "system": "nueva",
+ "funnel": "how-to",
+ "page": "n-side-hustle-quiz-funnel",
+ "funnelName": "Side Hustle Quiz",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
+ "videos": [],
+ "sub": "A short quiz that tells someone whether this business fits their lifestyle, goals and the time they actually have. It is built to end in a message, so the people who reach you have already answered the questions before they say hello. Your job is the reply.",
+ "links": [
+  {
+   "icon": "eye",
+   "title": "The quiz your leads take",
+   "primary": true,
+   "tease": "Take it yourself before you post it. You will answer your first questions faster if you know what she just saw.",
+   "label": "Open the quiz",
+   "url": "https://{{custom_values.nueva_main_url}}/n-match-quiz"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/bngpbfh4y2eme3c"
+  },
+  {
+   "icon": "copy",
+   "title": "Your marketing links",
+   "primary": false,
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
+  }
+ ],
+ "promptLabel": "Before you launch, and what to post",
+ "prompt": [
+  {
+   "icon": "info",
+   "code": true,
+   "title": "Paste this into the funnel footer first",
+   "tease": "It advances the quiz past its processing slide on its own. Go to the quiz landing page, then Settings, Tracking Code, Footer, and paste. Do this once, before you send anyone to the funnel.",
+   "copyLabel": "Copy the code",
+   "text": "<!--\n  WFH quiz processing slide controller: PASTE INTO THE FUNNEL PAGE FOOTER (not the quiz).\n  GHL: Funnel/Page > Settings > Tracking Code > Footer (Body).\n\n  POSITION-INDEPENDENT: it keys on the processing slide's #wfh-proc element, so it works wherever that\n  slide sits in the quiz (currently slide 6 of 8, right before the \"we have an opportunity...\" pitch).\n  RE-ARMING: it resets every time you leave the processing slide, so it fires reliably on every pass\n  (back/forward navigation, branch paths) instead of one-shot.\n\n  NO-FLASH (2026-07-08): the button is NEVER revealed on the processing slide. Older versions un-hid +\n  relabeled the button at FILL_MS and then auto-clicked it ~1s later, so it flashed on screen for a second\n  before advancing. Now the footer stays hidden for the whole processing slide, we click the (still hidden)\n  next button to advance, and the hide is only lifted once we've LANDED on the next slide -> its real button\n  appears once, cleanly. Programmatic .click() works fine on a visibility:hidden button.\n\n  Sequence each time #wfh-proc becomes visible:\n    0.0s        inject CSS to hide the footer buttons (survives the quiz's Vue re-renders) -> pure \"processing\"\n    ADVANCE_MS  auto-click next while STILL hidden -> advance to the next slide\n    on exit     leaving the processing slide removes the hide -> next slide's button shows normally\n  Knob: ADVANCE_MS: keep it >= the processing bar's fill duration so it advances as the bar completes.\n  To make it a MANUAL tap instead, delete the AUTO-ADVANCE setTimeout block AND restore a reveal (unhide +\n  relabel) so the user has a button to press. Needs SAME-ORIGIN (page + quiz iframe on link.sharksuite.ai).\n-->\n<script>\n(function () {\n  var ADVANCE_MS = 3800; // when to auto-advance; keep >= the processing bar's fill duration\n  var HIDE_CSS = '.ghl-footer-buttons,.ghl-footer-preview,.ghl-footer,[class*=\"footer-next\"],[class*=\"footer-back\"],[class*=\"next-button\"],[class*=\"back-button\"],.ghl-btn.ghl-footer-next,.ghl-btn.ghl-footer-back{visibility:hidden!important}';\n  var handling = false, timers = [];\n  function quizDoc() {\n    var ifr = document.querySelector('iframe[src*=\"/widget/\"]') || document.querySelector('iframe[src*=\"leadconnector\"]') || document.querySelector('iframe');\n    if (!ifr) return null;\n    try { return ifr.contentDocument || (ifr.contentWindow && ifr.contentWindow.document); } catch (e) { return null; }\n  }\n  function vis(el) { return el && el.offsetParent !== null; }\n  function nextBtn(doc) {\n    var b = doc.querySelectorAll('button,.ghl-btn,[class*=\"footer-next\"],[class*=\"next-button\"]');\n    for (var i = 0; i < b.length; i++) { if (/next|see my|continue/i.test(b[i].textContent || '')) return b[i]; }\n    for (var j = 0; j < b.length; j++) { var t = b[j].textContent || ''; if (t && !/back/i.test(t)) return b[j]; }\n    return null;\n  }\n  function clearTimers() { timers.forEach(clearTimeout); timers = []; }\n  function unhide(doc) { var s = doc.getElementById('wfh-hide-footer'); if (s) s.remove(); }\n\n  setInterval(function () {\n    var doc = quizDoc();\n    if (!doc) return;\n    var onProc = vis(doc.getElementById('wfh-proc'));\n\n    if (onProc && !handling) {\n      handling = true;\n      // 0.0s: hide the footer for the whole processing slide (no reveal -> no flash)\n      if (!doc.getElementById('wfh-hide-footer')) {\n        var st = doc.createElement('style'); st.id = 'wfh-hide-footer'; st.textContent = HIDE_CSS;\n        (doc.head || doc.documentElement).appendChild(st);\n      }\n      // advance while STILL hidden: the button is never shown on this slide\n      timers.push(setTimeout(function () { var nb = nextBtn(doc); if (nb) nb.click(); }, ADVANCE_MS));\n    } else if (!onProc && handling) {\n      // landed on the next slide -> now reveal its real footer button\n      handling = false; clearTimers(); unhide(doc);\n    }\n  }, 250);\n})();\n</script>"
+  },
+  {
+   "icon": "spark",
+   "title": "Get post ideas from AI",
+   "tease": "Paste this into Ask AI, or any AI you use, for social posts that get people asking you for the quiz.",
+   "copyLabel": "Copy the prompt",
+   "text": "I am trying to get folks interested in joining my company's business opportunity. Folks get compensated for sharing our products and services on social media and other areas. I have a free quiz tool that I can share with folks to see if this opportunity would be a GOOD FIT for them. What type of posts can I put up on social media to entice folks to DM me to get the link to the free quiz tool, to see if my opportunity would be a good fit for them based on their lifestyle, goals and time availability?"
+  }
+ ]
+}
