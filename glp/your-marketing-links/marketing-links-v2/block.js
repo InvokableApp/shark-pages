@@ -2,6 +2,15 @@
 var SYS = {
   nameCv: 'rep_first_name',
   domainCv: null,
+  /* ⚠️ NOT `domainCv`. Setting that one flips funnelUrl() into domain+slug
+     mode, and every GLP card addresses its funnel by a full-link custom value
+     (`cv:`), not a `slug:` - so borrowing it would blank every funnel link on
+     the page. This key is read ONLY for how-to urls.
+
+     Which custom value holds "the rep's domain" is per system: GLP reuses the
+     email sending domain, Conectiv has conectiv__main_url, Vital differs again.
+     So it is config, never hardcoded. (Jeff, 2026-09-23.) */
+  howtoDomainCv: 'your_email_designated_domain',
   /* Joe's categories, Sep 2026. The old five (start a conversation / quizzes /
      share the product / explain ORYGN / recruit) were sorted by what the rep
      DOES with a link. These sort by what the funnel SELLS on the back end,
@@ -43,6 +52,7 @@ var SYS = {
     { label: 'Product funnels', items: [
       { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
         tease: 'Free foods guide',
+        howtoSlug: 'glp-food-guide-how-to',
         howto: 'https://glpshark.com/glp-food-guide-training',
         canva: 'https://canva.link/gszpkrgjxsn7fga',
         print: 'https://canva.link/q84wz59vwmx3oi1',
@@ -50,6 +60,7 @@ var SYS = {
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
       { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
         tease: 'Recipes and grocery list',
+        howtoSlug: 'orygn-recipe-guide-how-to',
         canva: 'https://canva.link/n6t92pxvso2744m',
         howto: 'https://glpshark.com/protein-recipe-guide-training',
         print: 'https://canva.link/luaureyrm9zlnx3',
@@ -57,38 +68,46 @@ var SYS = {
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
+        howtoSlug: 'how-to-use-12',
         howto: 'https://glpshark.com/glp-workouts-training',
         print: 'https://canva.link/zbk14hqzyp51rrj',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
       { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Test-Drive IGNYT Funnel',
         tease: 'For folks who want to try out IGNYT.',
+        howtoSlug: 'ignyt-sample-how-to',
         howto: 'https://glpshark.com/ignyt-sample-training',
         canva: 'https://canva.link/qtfm73vucfijq5z',
         desc: 'Sends a free 3 day IGNYT trial to their door. They hand you an address and expect you to make contact to confirm it, so every request is a conversation you are invited into.' },
       { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
         tease: 'Recommends the right support',
+        howtoSlug: 'weight-loss-supplement-recommendation-quiz-funnel-how-to-use',
         howto: 'https://glpshark.com/weight-loss-quiz-training',
         desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
       { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
         tease: 'For people who already know you',
+        howtoSlug: 'how-to-use-3',
         howto: 'https://glpshark.com/drops-funnel-training',
         desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
       { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
         tease: 'For cold traffic',
+        howtoSlug: 'how-to-use-13',
         desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
 
     { label: 'Recruiting funnels', items: [
       { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
         tease: 'Finds their work-from-home fit',
+        howtoSlug: 'tour-funnel-how-to-use-wfh-quiz',
         howto: 'https://glpshark.com/side-hustle-quiz-training',
         desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' },
       { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
         tease: 'For people who asked about the business',
+        howtoSlug: 'how-to-use-2',
         howto: 'https://glpshark.com/opportunity-warm-training',
         desc: 'The business explained, for people who have already told you they want to hear more.' },
       { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
         tease: 'For cold traffic',
+        howtoSlug: 'how-to-use-1',
         howto: 'https://glpshark.com/opportunity-cold-training',
         desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
 
@@ -99,6 +118,7 @@ var SYS = {
     { label: '"What I do" funnel', items: [
       { cv: 'orygn_tour_funnel_link', icon: 'info', name: '&#8220;What I Do&#8221; Funnel',
         tease: 'A page that explains what you do',
+        howtoSlug: 'tour-funnel-how-to-use1',
         desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is, and what you are doing with it.' } ]},
 
     /* CONFIRMED 2026-09-23. This group was an inference: Joe listed "your
@@ -113,6 +133,7 @@ var SYS = {
     { label: 'Your linktree', items: [
       { cv: 'your_links_funnel_link', icon: 'compass', name: 'Linktree page',
         tease: 'Let them choose their path',
+        howtoSlug: 'how-to-use-links',
         howto: 'https://glpshark.com/navigation-page-training',
         desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
 
@@ -243,6 +264,28 @@ var SYS = {
     ? cv(SYS.domainCv).replace(/^https?:\/\//i, '').replace(/\/+$/, '')
     : '';
 
+  /* The rep's OWN how-to page, on the rep's OWN domain.
+     Joe's v2 three-part training pages live as a step inside each funnel and
+     travel with the snapshot; the glpshark.com/*-training pages are the OLD v1
+     single-page versions, and those must keep serving because older accounts
+     still point at them. So the v2 hub addresses the copy in the rep's account.
+
+     ⚠️ On a SNAPSHOT the domain custom value holds INSTRUCTION TEXT ("Enter the
+     domain you set up as..."), not a domain. Rendering that would produce
+     https://Enter the domain you set up.../glp-food-guide-how-to on every card.
+     So the value has to look like a hostname before it is used; when it does
+     not, this returns '' and the caller falls back to the published v1 page. */
+  var howtoDomain = (function () {
+    var v = SYS.howtoDomainCv ? cv(SYS.howtoDomainCv) : '';
+    v = String(v || '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+    return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(v) ? v : '';
+  })();
+
+  function howtoUrl(it) {
+    if (it.howtoSlug && howtoDomain) return 'https://' + howtoDomain + '/' + it.howtoSlug;
+    return it.howto || '';   // published v1 page, or nothing
+  }
+
   function funnelUrl(it) {
     if (SYS.domainCv) {
       if (!domain) return '';
@@ -306,10 +349,11 @@ var SYS = {
   }
 
   function trainingBlock(it) {
-    if (!it.howto) return '';
+    var base = howtoUrl(it);
+    if (!base) return '';
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
       TRAINING.map(function (t) {
-        return '<a class="sk-action sk-action--sub" href="' + it.howto + '#part-' + t.part + '" target="_blank" rel="noopener">' +
+        return '<a class="sk-action sk-action--sub" href="' + base + '#part-' + t.part + '" target="_blank" rel="noopener">' +
           '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
           '<span class="sk-action-label">' + t.label +
             '<span class="sk-action-sub">' + t.sub + '</span></span>' +
