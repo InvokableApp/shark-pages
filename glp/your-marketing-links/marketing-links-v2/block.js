@@ -45,17 +45,20 @@ var SYS = {
         tease: 'Free foods guide',
         howto: 'https://glpshark.com/glp-food-guide-training',
         canva: 'https://canva.link/gszpkrgjxsn7fga',
+        print: 'https://canva.link/q84wz59vwmx3oi1',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_food_guide_pdf_url' }],
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
       { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
         tease: 'Recipes and grocery list',
         canva: 'https://canva.link/n6t92pxvso2744m',
         howto: 'https://glpshark.com/protein-recipe-guide-training',
+        print: 'https://canva.link/luaureyrm9zlnx3',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
         howto: 'https://glpshark.com/glp-workouts-training',
+        print: 'https://canva.link/zbk14hqzyp51rrj',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
       { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Test-Drive IGNYT Funnel',
@@ -191,6 +194,7 @@ var SYS = {
     cart:    '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>',
     share:   '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>',
     /* added for the training buttons and the lead magnet, 2026-09-17 */
+    printer: '<path d="M7 9V4.2h10V9"/><path d="M7 17H5.6A2.1 2.1 0 0 1 3.5 15v-3.9A2.1 2.1 0 0 1 5.6 9h12.8a2.1 2.1 0 0 1 2.1 2.1V15a2.1 2.1 0 0 1-2.1 2.1H17"/><path d="M7 14h10v5.8H7z"/>',
     guide:   '<path d="M4.5 5.2A1.7 1.7 0 0 1 6.2 3.5H19v13.2H6.2a1.7 1.7 0 0 0-1.7 1.7z"/><path d="M4.5 18.4a1.7 1.7 0 0 0 1.7 1.7H19v-3.4"/><path d="M8.2 7.6h6.6M8.2 11h4.4"/>',
     target:  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
     speech:  '<path d="M20.5 12.4c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.6-.34L4 21l1.2-3.4A6.9 6.9 0 0 1 3.5 12.4c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2z"/>'
@@ -327,6 +331,13 @@ var SYS = {
           '<span class="sk-action-sub">Print the guide or quickly access the link</span></span>' +
         '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
     }).filter(Boolean);
+    if (it.print) {
+      rows.push('<a class="sk-action sk-action--sub" href="' + it.print + '" target="_blank" rel="noopener">' +
+        '<span class="sk-action-mark" aria-hidden="true">' + icon('printer', 1.7) + '</span>' +
+        '<span class="sk-action-label">Print optimized version' +
+          '<span class="sk-action-sub">Opens in Canva, sized for printing and handing out.</span></span>' +
+        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>');
+    }
     if (it.canva) {
       rows.push('<a class="sk-action" href="' + it.canva + '" target="_blank" rel="noopener">' +
         '<span class="sk-action-mark" aria-hidden="true">' + icon('image', 1.7) + '</span>' +
