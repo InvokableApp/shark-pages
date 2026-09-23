@@ -1647,7 +1647,10 @@
   color: var(--sk-brand-deep);
   text-wrap: balance;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-punch--sm { margin: 20px 0 10px; font-size: 16px; letter-spacing: .04em; }
+/* Joe, 2026-09-23: "Lets make CONSISTENCY WINS. bigger". It was the SMALL
+   punch variant, which put the one line meant to land hardest below the
+   headline it is the payoff for. Now it matches the full size. */
+.sk-glp-your-marketing-links-marketing-links .sk-punch--sm { margin: 22px 0 12px; font-size: 21px; letter-spacing: .02em; }
 
 /* #29 / #39 / #44 The louder eyebrow. Same component, one size up and in ink
    rather than faint grey, for the three places Joe wanted a section to stop
