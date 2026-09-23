@@ -1705,6 +1705,11 @@
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-embed { margin: 0 0 20px; }
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad > .sk-embed:first-child { margin-top: 0; }
 
+/* Joe, 2026-09-23: the gap above these headings was 20px (trigger padding 16 +
+   panel-pad 2 + margin 2). Pulled up rather than trimming .sk-trigger padding,
+   which is shared with every CLOSED card and would reflow the whole list. */
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad > .sk-vidhead:first-child { margin-top: -7px; }
+
 /* Joe's centred black line above a video: "WATCH THIS VIDEO 👇", "HOW TO FOLLOW
    UP 👇", "HOW TO RUN ADS! 👇". Distinct from .sk-lead--overvid, which is the
    left aligned QUESTION above the two posting videos. */
@@ -1713,7 +1718,7 @@
   color: var(--sk-ink);
   font-family: "Archivo", sans-serif;
   font-variation-settings: "wdth" 94, "wght" 800;
-  font-size: 17px;
+  font-size: 20px;
   line-height: 1.3;
   letter-spacing: .01em;
   text-align: center;
