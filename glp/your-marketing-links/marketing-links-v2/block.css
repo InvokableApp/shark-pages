@@ -1900,6 +1900,25 @@
   stroke-linecap: round;
 }
 .sk-glp-your-marketing-links-marketing-links .sk-callout-head { fill: var(--sk-brand); }
+
+/* Joe, 2026-09-23: the sidebar shot that shows where the ads training tab
+   lives. Portrait crop, so it is capped rather than run full bleed: at the
+   panel's full width it would tower over the copy around it. Cropped from the
+   screenshot Joe sent, with the account holder's name and location outside
+   the crop. Never ship that band, it is a real buyer. */
+.sk-glp-your-marketing-links-marketing-links .sk-sidebar-shot {
+  margin: 0 0 16px;
+  text-align: center;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-sidebar-shot img {
+  display: block;
+  width: 100%;
+  max-width: 238px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px -10px rgba(0,0,0,.45), 0 0 0 1px rgba(16,20,16,.10);
+}
 .sk-glp-your-marketing-links-marketing-links .sk-dev-notch {
   position: absolute;
   top: 17px; left: 50%;
