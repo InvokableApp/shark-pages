@@ -1549,12 +1549,23 @@
 
 /* the two store chips sit side by side when there is room and stack when there
    is not, rather than being pinned to the narrow column the route card gave them */
+/* ⚠️ .sk-store is flex-direction:column. This modifier never overrode it, so
+   the container was a WRAPPING COLUMN - which makes `flex: 1 1 200px` a 200px
+   basis on the HEIGHT, not the width. The two app-store links rendered as tall
+   empty boxes with the label floating in the middle (Joe, 2026-09-23). Set the
+   direction explicitly here; a modifier that changes how children lay out must
+   own every axis property it depends on. */
 .sk-glp-your-marketing-links-marketing-links .sk-store--wide {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
 }
-.sk-glp-your-marketing-links-marketing-links .sk-store--wide .sk-chip { flex: 1 1 200px; justify-content: center; }
+.sk-glp-your-marketing-links-marketing-links .sk-store--wide .sk-chip {
+  flex: 1 1 200px;
+  min-width: 0;
+  justify-content: center;
+}
 
 /* ---- Joe's Vimeo buttons, Sep 23 2026 ----
    The five placeholders were <a href="#"> with an inline play SVG. They are now
