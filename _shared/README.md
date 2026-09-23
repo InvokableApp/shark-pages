@@ -43,7 +43,7 @@ rules rather than product imagery. Form lives in the page popup. |
 | `diagnostic-capture/` | `.sk-dcap` | lander of a diagnostic funnel: full-bleed material photography, one CTA, no lead magnet to picture |
 | `diagnostic-result/` | `.sk-dres` | result page of a diagnostic funnel: meters, a free plan, a what-to-skip list, then a ranked product stack |
 | `howto/` | `.sk-howto` | "how to use this funnel" pages |
-| `links-hub/` | `.sk-hub` | the rep marketing-links hub. **Beneve only so far**: Vital, GLP and Conectiv are still forked copies and move onto it one at a time, each verified against a live rep account. |
+| `links-hub/` | `.sk-hub` | the rep marketing-links hub. **Beneve and both Nueva hubs only** (measured 2026-09-23): Vital, GLP and Conectiv are still forked copies, v1 and v2 alike, and move onto it one at a time, each verified against a live rep account. See the consumer table below before assuming a change reaches a system. |
 | `product/` | `.sk-prod` | product / sales page |
 | `training/` | `.sk-train` | rep-facing training portal |
 | `shark-reveal/` | n/a | scroll-reveal behaviour only, no styling |
@@ -95,6 +95,46 @@ was in a different system:
 ```
 grep -rl "<component-name>" --include="*.css" --include="*.js" --include="*.html" shark-pages/
 ```
+
+### ⚠️ That grep finds COMMENTS too. A path match is not a consumer. (2026-09-23)
+
+A forked block often carries a comment like *"transplanted from
+`_shared/links-hub/v1/hub.css`"*, and the grep above matches it. Read as a consumer list,
+that says the fork is on the component. It is not, and the difference decides whether a
+change reaches it.
+
+Establish a consumer by the **mechanism**, not the string:
+
+```
+grep -rn "@import.*<component>" --include="*.css" shark-pages/   # CSS consumers
+grep -rn "<component>"          --include="*.js"  shark-pages/   # loader consumers
+```
+
+Measured for `links-hub/v1` on 2026-09-23 — nine files match the path, **three are
+actually on it**:
+
+| Block | On the component? |
+|---|---|
+| `beneve/beneve-marketing-links` | yes, `@import` |
+| `nueva/n-marketing-links` | yes, `@import` |
+| `nueva/nueva-marketing-links` | yes, `@import` |
+| `glp/marketing-links-v2` | no, comment only |
+| `glp/marketing-links` (v1) | no, comment only |
+| `conectiv/c-user-links-page-v2` | no, comment only |
+| `conectiv/c-user-links-page` (v1) | no, comment only |
+| `vital/vital-user-links` | no, comment only |
+
+**Consequence, and it is the whole reason this matters:** a styling change pushed to
+`hub.css` reaches Beneve and the two Nueva hubs and **nobody else**. The four forks each
+need the same edit by hand, so a round of client revisions on one hub is a round of
+hand-porting to all of them. There is nothing to de-duplicate here — the forks hold no
+shadowing copies of shared rules, they hold their own complete stylesheets. The only
+route to "change it once" is the migration this README already prescribes.
+
+**Proving it costs one minute, so prove it.** Reasoning about specificity gets this wrong.
+Inject an absurd value into the shared file (`font-size: 99px`), render each candidate,
+read the computed style, and revert. On 2026-09-23 that returned 14.8px on GLP while the
+shared file said 99px, which settles it in a way that reading two stylesheets does not.
 
 Then actually measure the siblings after the change, which is what the versioning rule already
 says: *"additive-only edits to a published version are allowed but must be verified against
