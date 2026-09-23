@@ -75,9 +75,13 @@ var SYS = {
        linktree" as a category and GLP had no page by that name, so the
        Navigation Page was mapped to it on a guess. Joe's Figma pin #10 lands on
        that row and reads "Linktree page", so the mapping was right and the row
-       now carries his word for it. */
+       now carries his word for it.
+       REPOINTED 2026-09-23 for the v2 snapshot: the Navigation Page funnel this
+       pointed at does not exist in v2, so the tile rendered dead. v2 ships a real
+       page for this - "Links Page for Sharing On Social Profiles" (/your-links) -
+       and its custom value is your_links_funnel_link. */
     { label: 'Your linktree', items: [
-      { cv: 'navigation_funnel_link', icon: 'compass', name: 'Linktree page',
+      { cv: 'your_links_funnel_link', icon: 'compass', name: 'Linktree page',
         tease: 'Let them choose their path',
         desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
 
