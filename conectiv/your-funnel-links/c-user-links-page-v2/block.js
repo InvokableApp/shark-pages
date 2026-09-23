@@ -59,7 +59,7 @@ var SYS = {
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     { label:"Your linktree", items:[
-      { howtoSlug:"c-social-links-how-to", slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
+      { howtoSlug:"c-social-links-how-to", slug:"c-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ],

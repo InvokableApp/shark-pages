@@ -37,7 +37,7 @@ var SYS = {
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
     { label:"Your own pages", items:[
-      { slug:"c-social-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
+      { slug:"c-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ],
