@@ -1505,3 +1505,49 @@
   font-size: 20px;
   line-height: 1;
 }
+
+/* ---- Joe's screenshots of where the leads actually are (pins #25/#26) ----
+   The three "Where to look" steps described the screen in words; a rep looking
+   for their leads needs to SEE it. Mobile first, desktop underneath, his order.
+   The banner is a figcaption rather than being baked into the JPG: crisp at any
+   density, editable without a re-render, and it keeps the image a screenshot
+   rather than a poster. */
+.sk-glp-your-marketing-links-marketing-links .sk-shot {
+  margin: 0 0 16px;
+  overflow: hidden;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-glp-your-marketing-links-marketing-links .sk-shot:last-child { margin-bottom: 0; }
+
+.sk-glp-your-marketing-links-marketing-links .sk-shot-band {
+  padding: 10px 14px;
+  background: var(--sk-brand);
+  color: #fff;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 800;
+  font-size: 12.5px;
+  letter-spacing: .09em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* the screenshots are different shapes (a 644x1400 phone, a 1400x881 desktop),
+   so height is left to the image and only the width is constrained */
+.sk-glp-your-marketing-links-marketing-links .sk-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* the two store chips sit side by side when there is room and stack when there
+   is not, rather than being pinned to the narrow column the route card gave them */
+.sk-glp-your-marketing-links-marketing-links .sk-store--wide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sk-glp-your-marketing-links-marketing-links .sk-store--wide .sk-chip { flex: 1 1 200px; justify-content: center; }
