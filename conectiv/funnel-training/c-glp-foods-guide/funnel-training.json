@@ -1,0 +1,79 @@
+{
+  "system": "conectiv",
+  "brand": "Conectiv Shark",
+  "host": "https://conectivshark.com",
+  "locationId": "uNxituXahyZtAIqwdVJI",
+  "logo": "logo-conectiv.svg",
+  "logoUrl": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+  "palette": {
+    "sk-brand": "#2563EB",
+    "sk-brand-deep": "#155EEF",
+    "sk-brand-tint": "#EAF0FD",
+    "sk-ink": "#0B1220",
+    "sk-ink-soft": "#5B6577",
+    "sk-ink-faint": "#8B93A5",
+    "sk-paper": "#F4F6FA",
+    "sk-line": "#DFE4EF",
+    "sk-line-soft": "#E9EDF5",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1228587183",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Opt-In",
+    "confirmStep": "Confirmation",
+    "ctaText": "Get The Free Guide",
+    "formMode": "popup"
+  },
+  "links": {
+    "support": "https://conectivshark.com/support",
+    "adsTraining": "https://conectivshark.com/get-ads",
+    "readyToPostImages": "https://canva.link/wq64jii9m8k6wf5",
+    "buyLeads": "",
+    "confirmationPage": "https://conectivshark.com/c-natural-glp-foods-guide-confirmation",
+    "postingDoc": "https://docs.google.com/document/d/1f9FnewylFSHBLZ3c5BIPOr9P0tMmck53gug68MmhvAk/edit?usp=sharing",
+    "guidePdf": "https://assets.cdn.filesafe.space/uNxituXahyZtAIqwdVJI/media/74d54020-663d-48f4-8050-96f267436633.pdf"
+  },
+  "slug": "c-glp-foods-guide",
+  "funnelName": "GLP Foods Lead Mag",
+  "ghlFunnel": "Conectiv - GLP Foods Lead Mag - Funnel",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL!",
+  "flowDir": "flow/c-glp-foods-guide",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+}

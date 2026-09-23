@@ -1,0 +1,24 @@
+/* CONECTIV / funnel-training / c-side-hustle-quiz
+ *
+ * The design lives in _shared/funnel-training/v1/funnel-training.css, scoped
+ * under .sk-ftrain. This file declares ONLY the nine palette tokens, on the
+ * block's own scope class, and they cascade into the shared component.
+ * Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/funnel-training/v1/funnel-training.css");
+
+.sk-conectiv-funnel-training-c-side-hustle-quiz {
+  --sk-brand:       #2563EB;
+  --sk-brand-deep:  #155EEF;
+  --sk-brand-tint:  #EAF0FD;
+  --sk-ink:         #0B1220;
+  --sk-ink-soft:    #5B6577;
+  --sk-ink-faint:   #8B93A5;
+  --sk-paper:       #F4F6FA;
+  --sk-line:        #DFE4EF;
+  --sk-line-soft:   #E9EDF5;
+  --sk-card:        #FFFFFF;
+}
