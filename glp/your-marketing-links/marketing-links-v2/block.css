@@ -1484,3 +1484,24 @@
   0%   { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: none; }
 }
+
+
+/* ---- Joe, 2026-09-23 ----
+   "make that button text a bit bigger too so folks cant miss it". Bigger type,
+   and the pill grows its padding with it so it keeps the same proportions
+   rather than turning into a tight band around larger words. */
+.sk-glp-your-marketing-links-marketing-links .sk-vidbtn { padding: 12px 19px 12px 15px; font-size: 16px; }
+.sk-glp-your-marketing-links-marketing-links .sk-vidbtn svg { width: 21px; height: 21px; }
+.sk-glp-your-marketing-links-marketing-links .sk-vidbtn-mark { font-size: 19px; line-height: 1; }
+
+/* "lets use the emojis we use on the inside page instead of the icons".
+   An emoji is a glyph, not a 24x24 stroke drawing, so the tinted tile that
+   frames the outline icons is dropped: the emoji carries its own colour and
+   reads as a sticker sitting on the row. */
+.sk-glp-your-marketing-links-marketing-links .sk-action-mark--emoji {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 20px;
+  line-height: 1;
+}

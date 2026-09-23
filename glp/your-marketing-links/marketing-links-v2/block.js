@@ -14,17 +14,17 @@ var SYS = {
         tease: 'Free foods guide',
         howto: 'https://glpshark.com/glp-food-guide-training',
         canva: 'https://canva.link/gszpkrgjxsn7fga',
-        guides: [{ label: 'Access / Print The Guide', cv: 'glp_food_guide_pdf_url' }],
+        guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_food_guide_pdf_url' }],
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
       { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
         tease: 'Recipes and grocery list',
         canva: 'https://canva.link/n6t92pxvso2744m',
         howto: 'https://glpshark.com/protein-recipe-guide-training',
-        guides: [{ label: 'Access / Print The Guide', cv: 'protein_recipe_guide_pdf_url' }],
+        guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
-        guides: [{ label: 'Access / Print The Guide', cv: 'glp_workout_guide_pdf_url' }],
+        guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
       { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Free IGNYT Sample',
         tease: 'A free 3 day trial, in the mail',
@@ -84,7 +84,12 @@ var SYS = {
         tease: 'Your replicated sign-up page',
         desc: 'Your ORYGN sign-up link, for anyone who has decided to join the business under you.' } ]}
   ],
-  lists: [
+  /* ⚠️ EMPTIED, NOT DELETED. Joe, 2026-09-23: "Remove social content section".
+     The renderer drops an empty lists[], so moving the entry into _listsOff is
+     the whole removal - and the five Canva urls survive in the file for the day
+     he wants the section back, rather than having to be dug out of git. */
+  lists: [],
+  _listsOff: [
     { label: 'Social content', icon: 'image', name: 'Ready to post images',
       tease: 'Product, opportunity and lead magnet', items: [
       { name: 'Product images, 1x1',       url: 'https://canva.link/qryqd6ykd8cj52m' },
@@ -237,10 +242,16 @@ var SYS = {
      and honours #part-N on load. So the hub needs no knowledge of the page
      beyond its url, and a funnel that has no training page yet simply renders
      no training block rather than three dead buttons. */
+  /* Joe, 2026-09-23: "those three items under training / guidance, lets use the
+     emojis we use on the inside page instead of the icons". The emoji is the
+     SAME one each part wears on the funnel training page it links to - its
+     header and its sticky footer - so a rep sees one mark per part wherever
+     they meet it. Kept beside `icon` rather than replacing it, because the
+     outline set still dresses every other row on this page. */
   var TRAINING = [
-    { part: 1, icon: 'play',   label: 'How does this funnel work?' },
-    { part: 2, icon: 'target', label: 'How do I generate leads with this funnel?' },
-    { part: 3, icon: 'speech', label: 'What to say to leads who come through this funnel?' }
+    { part: 1, emoji: '\uD83D\uDEE0\uFE0F', icon: 'play',   label: 'How does this funnel work?' },
+    { part: 2, emoji: '\uD83D\uDE80',        icon: 'target', label: 'How do I generate leads with this funnel?' },
+    { part: 3, emoji: '\uD83D\uDCAC',        icon: 'speech', label: 'What to say to leads who come through this funnel?' }
   ];
 
   function subhead(text) {
@@ -252,7 +263,7 @@ var SYS = {
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
       TRAINING.map(function (t) {
         return '<a class="sk-action" href="' + it.howto + '#part-' + t.part + '" target="_blank" rel="noopener">' +
-          '<span class="sk-action-mark" aria-hidden="true">' + icon(t.icon, 1.7) + '</span>' +
+          '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
           '<span class="sk-action-label">' + t.label + '</span>' +
           '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
       }).join('') + '</div>';
