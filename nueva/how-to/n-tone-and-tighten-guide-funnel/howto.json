@@ -19,7 +19,10 @@
   "",
   "CANVA LINK ADDED 2026-09-23, pasted verbatim from Jeff. ⚠️ NEVER resolve a canva.link",
   "short URL to 'check' it: opening one yields the opened-copy URL, not the template URL,",
-  "so a resolved link would send every rep to a single shared copy instead of their own."
+  "so a resolved link would send every rep to a single shared copy instead of their own.",
+  "",
+  "PRINT-READY CANVA FILES ADDED 2026-09-23, pasted verbatim. These are the REP's printable",
+  "copies; the hosted PDF card above is what the LEAD receives. Never resolve a canva.link URL."
  ],
  "system": "nueva",
  "funnel": "how-to",
@@ -44,6 +47,22 @@
    "tease": "The downloadable version the delivery email sends.",
    "label": "Open the PDF",
    "url": "https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}"
+  },
+  {
+   "icon": "pdf",
+   "title": "The guide, print ready",
+   "primary": false,
+   "tease": "The Canva version of the guide, set up to print. Open it when you want a copy in your hand rather than a link.",
+   "label": "Open in Canva",
+   "url": "https://canva.link/c7miytdp4ku0py8"
+  },
+  {
+   "icon": "pdf",
+   "title": "Which One Is Right, print ready",
+   "primary": false,
+   "tease": "The companion guide to this one, in Canva, set up to print.",
+   "label": "Open in Canva",
+   "url": "https://canva.link/97sdbxn2w14y0w9"
   },
   {
    "icon": "image",

@@ -18,7 +18,10 @@
   "",
   "CANVA LINK ADDED 2026-09-23, pasted verbatim from Jeff. ⚠️ NEVER resolve a canva.link",
   "short URL to 'check' it: opening one yields the opened-copy URL, not the template URL,",
-  "so a resolved link would send every rep to a single shared copy instead of their own."
+  "so a resolved link would send every rep to a single shared copy instead of their own.",
+  "",
+  "PRINT-READY CANVA FILES ADDED 2026-09-23, pasted verbatim. These are the REP's printable",
+  "copies; the hosted PDF card above is what the LEAD receives. Never resolve a canva.link URL."
  ],
  "system": "nueva",
  "funnel": "how-to",
@@ -51,6 +54,22 @@
    "tease": "The downloadable version the delivery email sends, for anyone who would rather print the calendar.",
    "label": "Open the PDF",
    "url": "https://{{custom_values.nueva_no_crash_plan_guide_pdf_url}}"
+  },
+  {
+   "icon": "pdf",
+   "title": "The plan, print ready",
+   "primary": false,
+   "tease": "The Canva version of the fourteen day plan, set up to print. Open it when you want a copy in your hand rather than a link.",
+   "label": "Open in Canva",
+   "url": "https://canva.link/190d9m8801yjmpf"
+  },
+  {
+   "icon": "pdf",
+   "title": "What To Take, print ready",
+   "primary": false,
+   "tease": "The supplement companion guide, in Canva, set up to print.",
+   "label": "Open in Canva",
+   "url": "https://canva.link/1mxvpi5mnuzmtwp"
   },
   {
    "icon": "image",
