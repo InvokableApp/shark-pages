@@ -777,15 +777,6 @@
       "locationId": "LHekRnZOVEn8c85xBhjV"
     },
     {
-      "path": "your-marketing-links/marketing-links",
-      "funnelId": "eLrpgBqJAijpXRWVwL9b",
-      "pageId": "LxD2DMGflo3Hyrw1LD8L",
-      "elementId": "custom-code-PZqon_ZaNz",
-      "elementTitle": "Custom Code",
-      "pattern": "A",
-      "locationId": "hKYM2WhsSBKHjvCPGkZo"
-    },
-    {
       "path": "glp-free-ignyt-sample/ignyt-sample-optin",
       "funnelId": "THsns1ySiqDPQzNIYaiU",
       "pageId": "Rb3n5Jz0rarEX4SyLAzf",
@@ -1025,6 +1016,15 @@
       "pageId": "Q4gATJPMnu3VTeYsyraM",
       "elementId": "custom-code-cN11uc782t",
       "elementTitle": "GLP Foods Guide Confirmation",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "eLrpgBqJAijpXRWVwL9b",
+      "pageId": "LxD2DMGflo3Hyrw1LD8L",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
