@@ -1,0 +1,139 @@
+/* nueva/n-what-is-nueva-overview/n-what-is-nueva
+ * The company overview page. Design lives in _shared/product/v1/product.css, scoped .sk-prod, so
+ * this page reads as one family with the product pages. This file declares Nueva's palette on the
+ * block's own scope class (no shared brand swatch is touched) plus two things no other page has:
+ * the PRESENTED BY strip and the product grid.
+ *
+ * The @import pins the shared component version. Do not bump it here, that is a deliberate
+ * migration (see _shared/README.md).
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+
+.sk-prod-nva-what{
+  --sk-body:     #4a5560;
+  --sk-cream:    #fcfeff;
+  --sk-ink:      #141313;
+  --sk-lime:     #5fd9d5;
+  --sk-line:     #d5dfe1;
+  --sk-mist:     #e8f8f6;
+  --sk-navy:     #102a2a;
+  --sk-navy-d:   #071116;
+  --sk-sage:     #087f7b;
+  --sk-sans:     Montserrat,system-ui,sans-serif;
+  --sk-serif:    Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --sk-teal:     #0abab5;
+  --sk-teal-d:   #087F7B;
+  --sk-tint:     #e8f8f6;
+}
+
+/* --- bespoke rules carried over from the donor --- */
+/* Gold and tan, on white. The palette is not invented: it is lifted off the products
+ * themselves. Renew is a cream bottle with an antique-gold wordmark, Luxe is a cream
+ * bottle with a solid gold cap, and both supplement panels are printed in the same two
+ * golds on sand. The Beneve navy and teal carry the other campaigns; this lane is the
+ * premium skincare lane and reads warm.
+ *
+ * These are LOCAL tokens on this block only. No brand swatch is touched.
+ *
+ *   gold-d  #a97f3f   antique gold, the primary. Buttons, kickers, rules.
+ *   gold    #c9a96a   light gold, the accent. Gradients, dark-section buttons.
+ *   bronze  #8a6f45   the deeper metal, for numerals and small caps.
+ *   tan     #ddc79b   the tint, for hairlines and quiet fills.
+ *   ink     #2b2721   a warm near-black, never a blue-black.
+ */
+
+
+/* ---------- cross-links to the funnel's other two products ---------- */
+/* Every product page in this funnel carries buttons to the other two, because the diagnostic
+ * routes to a ROUTINE and a routine can legitimately end up including more than one of them.
+ * They sit in the CLOSE section, which is dark, and the shared ghost style is dark-on-white and
+ * unreadable there. This is a light outline variant, declared block-locally so
+ * _shared/product/v1/ stays untouched. */
+.sk-prod-nva-snowslim .sk-prod-close .sk-prod-cta-row{justify-content:center;flex-wrap:wrap}
+.sk-prod-nva-snowslim .sk-prod-btn-alt{
+  display:inline-flex;align-items:center;gap:.55rem;
+  color:#fff;text-decoration:none;font-weight:600;font-size:1.02rem;
+  padding:1.05rem 1.9rem;border-radius:999px;
+  border:1.5px solid rgba(255,255,255,.42);
+  transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.sk-prod-nva-snowslim .sk-prod-btn-alt:hover{
+  border-color:var(--sk-teal,#c9a96a);background:rgba(255,255,255,.08);transform:translateY(-2px);
+}
+
+/* ── PRESENTED BY strip ────────────────────────────────────────────────────────
+ * Joe's concept, lifted from the GLP "What I Do" one pager, which opens with
+ * "Presented By: {rep_full_name}" above an in page nav. The point is that a page a rep
+ * SENDS should say who sent it before it says anything else.
+ *
+ * Page scoped on purpose: it is additive to _shared/product/v1 and defined here, so no other
+ * system's pages change. If a second system adopts it, promote it to the shared component then.
+ * It is static rather than sticky: the shared mobile buy bar already owns top:0, and two fixed
+ * strips would stack on a phone. */
+.sk-prod-nva-what .sk-nva-present{
+  background:var(--sk-navy); color:#fff; padding:11px 16px;
+}
+.sk-prod-nva-what .sk-nva-present-in{
+  max-width:1120px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+}
+.sk-prod-nva-what .sk-nva-present-by{
+  margin:0; font-size:.92rem; letter-spacing:.01em; color:#fff;
+}
+.sk-prod-nva-what .sk-nva-present-by b{ font-weight:700; }
+.sk-prod-nva-what .sk-nva-present-nav{
+  display:flex; gap:8px; flex-wrap:wrap; margin:0; padding:0; list-style:none;
+}
+.sk-prod-nva-what .sk-nva-present-nav a{
+  display:inline-block; padding:.34rem .72rem; border-radius:999px;
+  font-size:.82rem; font-weight:600; text-decoration:none;
+  color:#fff; background:rgba(255,255,255,.12);
+}
+.sk-prod-nva-what .sk-nva-present-nav a:hover{ background:var(--sk-teal); color:var(--sk-navy); }
+.sk-prod-nva-what .sk-nva-present-nav a:focus-visible{ outline:2px solid var(--sk-teal); outline-offset:2px; }
+@media (max-width:620px){
+  .sk-prod-nva-what .sk-nva-present-in{ justify-content:center; text-align:center; }
+}
+
+/* ── product grid ────────────────────────────────────────────────────────────── */
+.sk-prod-nva-what .sk-nva-grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px;
+}
+.sk-prod-nva-what .sk-nva-card{
+  background:#fff; border:1px solid var(--sk-line); border-radius:16px; padding:20px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.sk-prod-nva-what .sk-nva-card img{
+  width:100%; height:168px; object-fit:contain; display:block;
+}
+.sk-prod-nva-what .sk-nva-card h3{
+  margin:0; font-size:1.02rem; color:var(--sk-ink); font-family:var(--sk-sans);
+}
+.sk-prod-nva-what .sk-nva-card p{ margin:0; font-size:.9rem; color:var(--sk-body); line-height:1.5; }
+.sk-prod-nva-what .sk-nva-card span{
+  align-self:flex-start; font-size:.72rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--sk-sage); background:var(--sk-mist);
+  padding:.26rem .6rem; border-radius:999px;
+}
+@media (max-width:900px){ .sk-prod-nva-what .sk-nva-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){
+  .sk-prod-nva-what .sk-nva-grid{ grid-template-columns:1fr; }
+  .sk-prod-nva-what .sk-nva-card img{ height:150px; }
+}
+
+/* ── fixes found by rendering the page, 2026-09-23 ──────────────────────────────
+ * The hero H1 let the question mark wrap onto a line of its own, because the accent span
+ * ends an inline box and "?" is then a fresh break opportunity. */
+.sk-prod-nva-what .sk-nva-nowrap{ white-space:nowrap; }
+
+/* The closing band paints only .sk-prod-close-h and .sk-prod-sub white, so a ghost button there
+ * keeps its navy label on a navy gradient and disappears entirely. Invert it inside the band
+ * only, so every other use of the ghost button is untouched. */
+.sk-prod-nva-what .sk-prod-close .sk-prod-btn-ghost{
+  color:#fff; border-bottom-color:rgba(255,255,255,.4);
+}
+.sk-prod-nva-what .sk-prod-close .sk-prod-btn-ghost:hover{ border-bottom-color:var(--sk-teal); }
+
+/* The closing heading and subline are centred, so the button row is too. Scoped to the band, so
+ * the hero's left aligned row is unaffected. */
+.sk-prod-nva-what .sk-prod-close .sk-prod-cta-row{ justify-content:center; }
