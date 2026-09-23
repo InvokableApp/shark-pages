@@ -137,3 +137,66 @@
 /* The closing heading and subline are centred, so the button row is too. Scoped to the band, so
  * the hero's left aligned row is unaffected. */
 .sk-prod-nva-what .sk-prod-close .sk-prod-cta-row{ justify-content:center; }
+
+/* ── lifestyle photography, 2026-09-23 ─────────────────────────────────────────
+ * Jeff: "we could pull some images rather than just have product images in the hero".
+ * Every photograph on this page is Nueva's own, from nuevalife.com/opportunity.html and the
+ * homepage. The hero previously held a composited grid of six packets, which read as a contact
+ * sheet rather than a hero: it showed the catalogue before it showed a person. */
+.sk-prod-nva-what .sk-nva-shot{
+  margin:0; border-radius:20px; overflow:hidden; position:relative;
+  box-shadow:0 26px 60px rgba(16,42,42,.20);
+  aspect-ratio:5/6;
+}
+.sk-prod-nva-what .sk-nva-shot img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* A single full-width photograph between the claim heading and the pillars, so the section
+ * breathes instead of running heading straight into cards. */
+.sk-prod-nva-what .sk-nva-band{
+  margin:34px 0 0; border-radius:18px; overflow:hidden; aspect-ratio:16/7;
+}
+.sk-prod-nva-what .sk-nva-band img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* The opportunity section was a wall of text. Two columns, photograph first on desktop. */
+.sk-prod-nva-what .sk-nva-split{
+  display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);
+  gap:clamp(24px,4vw,56px); align-items:center;
+}
+.sk-prod-nva-what .sk-nva-split-img{
+  margin:0; border-radius:18px; overflow:hidden; aspect-ratio:4/5;
+  box-shadow:0 20px 44px rgba(16,42,42,.18);
+}
+.sk-prod-nva-what .sk-nva-split-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.sk-prod-nva-what .sk-nva-split-copy{ min-width:0; }
+@media (max-width:860px){
+  .sk-prod-nva-what .sk-nva-split{ grid-template-columns:1fr; }
+  /* copy first on a phone: the photograph is support, not the message */
+  .sk-prod-nva-what .sk-nva-split-img{ order:2; aspect-ratio:16/10; }
+  .sk-prod-nva-what .sk-nva-split-copy{ order:1; }
+}
+
+/* The closing band carries Nueva's own next-chapter photograph. The gradient from the shared
+ * component stays on top of it, so the white heading keeps its contrast no matter how the
+ * photograph crops at a given width. */
+.sk-prod-nva-what .sk-nva-close{ position:relative; isolation:isolate; }
+.sk-prod-nva-what .sk-nva-close-bg{
+  position:absolute; inset:0; z-index:-1;
+  background-image:linear-gradient(160deg,rgba(16,42,42,.88),rgba(7,17,22,.93)),url("assets/close-back.webp");
+  background-size:cover; background-position:center;
+}
+
+/* Product cards: the image box was taller than it needed to be, which left a band of empty
+ * white under every shot. */
+/* The shots are now trimmed to the product, so they can be shown larger AND sit on a tinted
+ * panel: on plain white a white-ground cutout has no edge and floats. Aspect ratios vary wildly
+ * after trimming (a tall bottle against a wide sachet), so the panel is a fixed box and each
+ * image is contained inside it, which keeps every card's text on the same baseline. */
+.sk-prod-nva-what .sk-nva-card{ padding:14px; gap:10px; }
+.sk-prod-nva-what .sk-nva-card .sk-nva-shotbox{
+  background:var(--sk-mist); border-radius:12px; height:190px;
+  display:flex; align-items:center; justify-content:center; padding:14px;
+}
+.sk-prod-nva-what .sk-nva-card .sk-nva-shotbox img{
+  max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;
+}
+@media (max-width:560px){ .sk-prod-nva-what .sk-nva-card .sk-nva-shotbox{ height:200px; } }
