@@ -1849,5 +1849,15 @@
    silently and the stand would collide with whatever follows. */
 .sk-glp-your-marketing-links-marketing-links .sk-dev--desk { margin-bottom: 15px; }
 
-/* The same video button repeated at the foot of the screen. */
-.sk-glp-your-marketing-links-marketing-links .sk-vidbtn--foot { margin: 22px auto 4px; }
+/* The same video button repeated at the foot of the screen.
+   ⚠️ .sk-vidbtn is display:inline-flex, so `margin: auto` centres NOTHING -
+   an inline box has no free horizontal space to distribute. The header copy
+   only looks centred because .sk-page-head is text-align:center, which this
+   one does not inherit. It needs to become a block-level box of its own width
+   before auto margins mean anything. */
+.sk-glp-your-marketing-links-marketing-links .sk-vidbtn--foot {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 26px auto 6px;
+}
