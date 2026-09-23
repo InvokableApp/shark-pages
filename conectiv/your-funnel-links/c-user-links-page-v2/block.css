@@ -1,0 +1,1506 @@
+
+/* ============================================================
+   DAILY METHOD OF OPERATION
+   Shark Page Design System, references/SHARK-DESIGN-SYSTEM.md
+
+   ONE page per system. Two things change between systems and nothing else:
+     1. the nine palette tokens below
+     2. the wordmark in .sk-logo
+
+   Scope class is .sk-conectiv-your-funnel-links-c-user-links-page for this dial-in file. In the hosted block it becomes
+   .sk-{system}-{funnel}-{page} per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+
+.sk-conectiv-your-funnel-links-c-user-links-page *,
+.sk-conectiv-your-funnel-links-c-user-links-page *::before,
+.sk-conectiv-your-funnel-links-c-user-links-page *::after { box-sizing: border-box; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page {
+  /* the nine palette tokens, GLP. Vital and Conectiv values are in the design
+     system section 2 table; swapping these nine is the whole reskin. */
+  --sk-brand:      #2563EB;
+  --sk-brand-deep: #155EEF;
+  --sk-brand-tint: #EAF0FD;
+  --sk-ink:        #0B1220;
+  --sk-ink-soft:   #5B6577;
+  --sk-ink-faint:  #8B93A5;
+  --sk-paper:      #F4F6FA;
+  --sk-line:       #DFE4EF;
+  --sk-line-soft:  #E9EDF5;
+  --sk-card:       #ffffff;
+
+  /* structural tokens, identical in every system */
+  --sk-r:      18px;
+  --sk-r-sm:   12px;
+  --sk-pad:    20px;
+  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
+  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+
+  /* full bleed ground, capped content. The measure is a grid column, never an
+     auto margin: components that set the margin shorthand would reset it. */
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  position: relative;
+  margin: 0;
+  max-width: none;
+  padding: 0 16px calc(56px + env(safe-area-inset-bottom));
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page > * { grid-column: 2; }
+
+/* paper grain, keeps the flat off white from reading as an unstyled default */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-grain {
+  position: fixed;
+  inset: 0;
+  grid-column: 1 / -1;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+}
+.sk-conectiv-your-funnel-links-c-user-links-page > *:not(.sk-grain) { position: relative; z-index: 1; }
+
+/* ---------------- header ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-head { padding: 40px 4px 8px; text-align: center; }
+
+/* THE PER SYSTEM WORDMARK. Swap this one image and the palette above and the
+   page belongs to the next system. Inlined as a data URI here so the preview is
+   self contained; in the hosted block it points at _brand/{system}/logo.svg. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-logo {
+  display: block;
+  width: 188px;
+  max-width: 64%;
+  height: auto;
+  margin: 0 auto 26px;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  /* Sized to land on three lines at the full measure and four on a phone. The
+     width axis does part of that work: dropping from 112 to 100 fits more per
+     line than shrinking alone would, so the headline stays a headline. */
+  font-weight: 800;
+  font-variation-settings: "wdth" 100, "wght" 800;
+  font-size: clamp(21px, 5.4vw, 26px);
+  line-height: 1.12;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+
+/* the brand gradient sits on the two shouted words, same trick as the
+   marketing links title */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-title em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* The gradient box is the inline advance width, and glyphs whose ink spills
+     past it lose the overhang: the upper right arm of a trailing Y is the one
+     that shows. Padding grows the paint box, the matching negative margin takes
+     the space back, so nothing on the line moves. */
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+/* ---------------- video facade ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vid {
+  margin-top: 26px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .12s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  background: var(--sk-brand-tint);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame svg.sk-poster { display: block; width: 100%; height: 100%; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  box-shadow: 0 10px 26px -10px rgba(21,94,239,.8);
+  transition: transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame:hover .sk-play { transform: scale(1.06); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-frame:active .sk-play { transform: scale(.97); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-play svg { width: 22px; height: 22px; margin-left: 3px; fill: #fff; }
+
+/* ---------------- at a glance ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-glance { margin-top: 44px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-h2 {
+  margin: 0 0 16px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 20px;
+  line-height: 1.16;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 10px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  text-align: center;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tile span {
+  font-size: 13.5px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sk-ink);
+  text-wrap: balance;
+}
+
+/* icon chip, the .sk-mark component */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: var(--sk-r-sm);
+  background: linear-gradient(140deg, rgba(37,99,235,.16), rgba(21,94,239,.10));
+  color: var(--sk-brand-deep);
+  transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-mark svg { width: 20px; height: 20px; stroke-width: 1.7; }
+
+/* ---------------- group header ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group { margin-top: 40px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px 4px 12px;
+  background: linear-gradient(var(--sk-paper) 62%, rgba(244,246,250,0));
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-label {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sk-line), rgba(230,224,218,0));
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-group-count {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--sk-ink-faint);
+}
+
+/* ---------------- accordion card ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card {
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card + .sk-card { margin-top: 10px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] {
+  border-color: rgba(37,99,235,.45);
+  box-shadow: var(--sk-shadow-lift);
+}
+
+/* the trigger row */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-trigger {
+  display: grid;
+  grid-template-columns: 42px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px var(--sk-pad);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-name {
+  display: block;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16.5px;
+  line-height: 1.22;
+  letter-spacing: -.006em;
+  text-wrap: balance;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tease {
+  display: block;
+  margin-top: 5px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+  transition: opacity .25s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-tease { opacity: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev {
+  justify-self: end;
+  color: var(--sk-ink-faint);
+  transition: transform .35s cubic-bezier(.2,.8,.3,1), color .3s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chev svg { width: 18px; height: 18px; display: block; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-chev {
+  transform: rotate(180deg);
+  color: var(--sk-brand-deep);
+}
+
+/* expanding panel: grid-rows 0fr to 1fr animates to intrinsic content height
+   without a magic number. Never animate height or max-height here. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.25,.8,.3,1);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-card[data-open="true"] .sk-panel { grid-template-rows: 1fr; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-inner { overflow: hidden; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-panel-pad { padding: 2px var(--sk-pad) var(--sk-pad); }
+
+/* ---------------- panel contents ---------------- */
+
+/* the illustration. House style art, drawn in the palette, never a photo and
+   never a stock render. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-brand-tint);
+  overflow: hidden;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art svg { display: block; width: 100%; height: 100%; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc {
+  margin: 0 0 12px;
+  font-size: 14.8px;
+  line-height: 1.52;
+  color: var(--sk-ink-soft);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc:last-child { margin-bottom: 0; }
+
+/* Joe's emphasis inside body copy. Darker than the surrounding grey, so the
+   bolded phrase carries on its own the way it does in his source doc. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc b { font-weight: 700; color: var(--sk-ink); }
+
+/* inline links inside body copy */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(37,99,235,.45);
+  text-underline-offset: 2px;
+  transition: text-decoration-color .2s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-desc a:hover { text-decoration-color: var(--sk-brand); }
+
+/* the lead in line that sits directly above a button */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lead {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+
+/* primary action, the .sk-copy component */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 14px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .16s ease, filter .25s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy:hover { filter: brightness(1.04); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy:active { transform: scale(.985); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy svg { flex: none; width: 17px; height: 17px; stroke-width: 1.8; }
+
+/* Long label variant. Two CTAs are full sentences rather than the short shouted
+   label the component was tuned for, and uppercase plus .085em tracking turns
+   those into a three line block. Sentence case and tighter tracking keep them
+   readable without touching a word of the copy. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--long {
+  min-height: 56px;
+  padding: 14px 20px;
+  font-variation-settings: "wdth" 100, "wght" 650;
+  font-size: 14.5px;
+  letter-spacing: .005em;
+  line-height: 1.28;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+/* VIDEO SLOTS, HIDDEN UNTIL THE VIDEOS EXIST.
+   Joe asked for these off the page rather than pointing at nothing. The copy
+   and the buttons are still in the markup, so restoring them is deleting this
+   one rule and filling in the hrefs. Do not delete the markup. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-videoslot { display: none; }
+
+/* secondary link, the .sk-chip component */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFBF9;
+  color: var(--sk-brand-deep);
+  font-size: 13.4px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip:hover,
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+/* ---------------- footer ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot { margin-top: 44px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-card {
+  padding: 30px var(--sk-pad) 28px;
+  border-radius: var(--sk-r);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #155EEF 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--sk-shadow-lift);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-eyebrow {
+  margin: 0 0 12px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(20px, 5.6vw, 25px);
+  line-height: 1.14;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-foot-copy {
+  margin: 16px auto 0;
+  max-width: 32ch;
+  font-size: 14.6px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+/* ---------------- focus ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page a:focus-visible,
+.sk-conectiv-your-funnel-links-c-user-links-page button:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 3px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-trigger:focus-visible { outline-offset: -3px; }
+
+/* ---------------- motion ---------------- */
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-your-funnel-links-c-user-links-page *, .sk-conectiv-your-funnel-links-c-user-links-page *::before, .sk-conectiv-your-funnel-links-c-user-links-page *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   THE HUB SHELL
+   Home screen plus four destinations, per Joe's outline. One block, one URL,
+   hash routed, so the whole thing still travels inside a snapshot as a single
+   custom code socket.
+   ============================================================ */
+
+/* ---------------- top bar ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min(560px, 100%) 1fr;
+  margin: 0 -16px;
+  padding: 0 16px;
+  background: rgba(247, 244, 241, .88);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page[data-scrolled="true"] .sk-bar { border-bottom-color: var(--sk-line); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-in {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--sk-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s ease, opacity .2s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn:hover { background: rgba(16,20,16,.05); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn svg { width: 22px; height: 22px; stroke-width: 1.9; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-btn[hidden] { display: none; }
+
+/* the bar wordmark, shown on the destinations only. On home the big logo in
+   the page body is doing that job and a second one would just repeat it. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-bar-mark {
+  justify-self: center;
+  height: 22px;
+  width: auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page:not([data-route="home"]) .sk-bar-mark { opacity: 1; }
+
+/* ---------------- screens ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-screen { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-screen[data-active="true"] { display: block; }
+
+/* ---------------- home ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-home { padding: 26px 0 0; text-align: center; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-home-logo {
+  display: block;
+  width: 224px;
+  max-width: 74%;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s cubic-bezier(.2,.7,.3,1) both;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-ask {
+  margin: 0 auto 22px;
+  max-width: 18ch;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: clamp(23px, 6.6vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .6s .06s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-ask em {
+  font-style: normal;
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: .06em .1em;
+  margin: -.06em -.1em;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-menu { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* the four destination cards. Same grammar as the accordion trigger row, so
+   home reads as part of the same page rather than a different product. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover {
+  border-color: rgba(37,99,235,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:active { transform: translateY(0); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest .sk-mark { width: 46px; height: 46px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.006em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-tease {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--sk-ink-faint);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-go { justify-self: end; color: var(--sk-ink-faint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest-go svg { display: block; width: 18px; height: 18px; stroke-width: 2; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-dest:hover .sk-dest-go { color: var(--sk-brand-deep); }
+
+/* utility pill, deliberately not gradient: it sits ABOVE the destination cards now,
+   directly under the welcome headline, so it must stay quiet or it reads as one more
+   destination. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 20px;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: color .18s, border-color .18s, transform .18s;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs svg { width: 17px; height: 17px; flex: none; stroke-width: 1.7; color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:hover { color: var(--sk-ink); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-a2hs:active { transform: translateY(1px); }
+
+/* ---------------- destination page head ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-head { padding: 30px 4px 6px; text-align: center; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 106, "wght" 800;
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-page-sub {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--sk-ink-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+/* ---------------- nav sheet ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet[hidden] { display: none; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16,20,16,.5);
+  backdrop-filter: blur(2px);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-fade .22s ease both;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--sk-pad) calc(24px + env(safe-area-inset-bottom));
+  border-radius: 22px 22px 0 0;
+  background: var(--sk-paper);
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-up .28s cubic-bezier(.2,.7,.3,1) both;
+}
+@media (min-width: 560px) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet { align-items: center; }
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-panel { border-radius: 20px; max-height: 84vh; }
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip {
+  width: 38px; height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: var(--sk-line);
+}
+@media (min-width: 560px) { .sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-grip { display: none; } }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--sk-brand-deep);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x {
+  flex: none;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--sk-line);
+  border-radius: 50%;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-sheet-x svg { width: 15px; height: 15px; stroke-width: 2; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-navlist { display: flex; flex-direction: column; gap: 8px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: inherit;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 15.5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav:hover { border-color: var(--sk-brand); background: var(--sk-brand-tint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav .sk-mark { width: 40px; height: 40px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav[aria-current="page"] { border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-nav[aria-current="page"] .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- route: leads ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route + .sk-route { margin-top: 10px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-name {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-variation-settings: "wdth" 104, "wght" 800;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.6px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-route-act { grid-column: 1 / -1; }
+
+/* numbered steps, CSS counter so the markup carries no numerals */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps {
+  counter-reset: sk-step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li {
+  counter-increment: sk-step;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px;
+  border: 1px solid var(--sk-line-soft);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  font-size: 14.6px;
+  line-height: 1.45;
+  color: var(--sk-ink);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps li::before {
+  content: counter(sk-step);
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps b { font-weight: 700; }
+
+/* app store row */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-store { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+@media (min-width: 460px) { .sk-conectiv-your-funnel-links-c-user-links-page .sk-store { flex-direction: row; } .sk-conectiv-your-funnel-links-c-user-links-page .sk-store a { flex: 1; } }
+
+/* the lede paragraphs. Left aligned on a ch measure, because centred body copy
+   stops being readable past about two lines. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede { margin-top: 26px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p {
+  margin: 0 0 14px;
+  font-size: 15.2px;
+  line-height: 1.55;
+  color: var(--sk-ink-soft);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p:first-child {
+  font-size: 16.4px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede p:last-child { margin-bottom: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede a {
+  color: var(--sk-brand-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(37,99,235,.45);
+  text-underline-offset: 2px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
+
+/* ---------------- route: links ---------------- */
+
+/* one dropdown per funnel, name left, copy right, exactly as the live page */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border: 1px dashed var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: #FDFAF7;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-url-text {
+  flex: 1;
+  min-width: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--sk-ink-soft);
+  word-break: break-all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--sk-line);
+  background: #fff;
+  color: var(--sk-brand-deep);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-open svg { width: 15px; height: 15px; stroke-width: 1.8; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-links .sk-chip { margin-top: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] { background: var(--sk-brand-deep); }
+
+/* preview banner. Says plainly that the data is stand in, so nobody reviews
+   demo urls as if they were a rep's real ones. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #E8DDB8;
+  border-radius: var(--sk-r-sm);
+  background: #FDF8E8;
+  color: #6B5F34;
+  font-size: 13.6px;
+  line-height: 1.45;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-note svg { flex: none; width: 17px; height: 17px; margin-top: 1px; stroke-width: 1.8; }
+
+/* ---------------- route: support ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-support { display: flex; flex-direction: column; gap: 10px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact {
+  display: grid;
+  grid-template-columns: 46px 1fr 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px var(--sk-pad);
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r);
+  background: var(--sk-card);
+  box-shadow: var(--sk-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact:hover {
+  border-color: rgba(37,99,235,.45);
+  box-shadow: var(--sk-shadow-lift);
+  transform: translateY(-1px);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-contact:hover .sk-mark {
+  background: linear-gradient(140deg, var(--sk-brand), var(--sk-brand-deep));
+  color: #fff;
+}
+
+/* ---------------- storefront tail ---------------- */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-tail { margin-top: 14px; }
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-up { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+/* ============================================================
+   PRODUCT LIST  (.sk-plist / .sk-prow)
+   Added 2026-08-28. The engine has always emitted these four classes and this
+   stylesheet has never carried a rule for any of them, so the product list has
+   been rendering as a default browser <ul>: disc bullets, #0000EE underlined
+   links, and a full-width 52px gradient button under every row because
+   .sk-copy--mini had no rule to shrink it.
+
+   Cosmetic fix only, transplanted from _shared/links-hub/v1/hub.css where
+   Beneve already runs it. This fork is NOT being migrated onto the shared
+   component; that is a separate, deliberate move. Purely additive: no existing
+   rule changes meaning.
+   ============================================================ */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-plist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--sk-line-soft);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow:last-child { border-bottom: 0; padding-bottom: 0; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow:first-child { padding-top: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--sk-ink);
+  text-decoration: none;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 14.5px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-prow-name:hover { color: var(--sk-brand-deep); }
+
+/* The row's action sits beside the name, not under it: a full-width CTA per row
+   turns a long product list into a column of stacked buttons. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--mini {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 34px;
+  margin-top: 0;
+  padding: 0 13px;
+  gap: 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--mini svg { width: 14px; height: 14px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-chip--go {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 13px;
+  font-size: 11px;
+}
+
+/* ---------------- training video: button, play overlay, sheet ----------------
+   The button is the .sk-chip vocabulary (outline, brand-deep label, brand icon)
+   turned into a centred pill, so it reads as clearly secondary and never competes
+   with a Copy Funnel Link. On the social cards the ILLUSTRATION becomes the
+   button: it is already the biggest thing in an open card, so it is what a thumb
+   goes for, and a second control beside it would just be clutter.
+
+   The stage is sized from the video's OWN pixels, passed in on the button. That
+   matters: these are portrait phone recordings, and a portrait video forced into
+   the page's 16:9 facade letterboxes into a sliver. Width is capped by height so
+   a tall clip stays inside the sheet instead of pushing it into a scroll. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 17px auto 0;
+  padding: 9px 15px 9px 12px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: inherit;
+  font-size: 13.2px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: var(--sk-shadow);
+  transition: background .2s ease, border-color .2s ease, transform .18s cubic-bezier(.2,.8,.3,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn:hover { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn:active { transform: scale(.98); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn svg { flex: none; width: 17px; height: 17px; stroke-width: 1.7; color: var(--sk-brand); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(16,20,16,.17) 0%, rgba(16,20,16,0) 60%);
+  pointer-events: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play .sk-play { z-index: 1; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play:hover .sk-play { transform: scale(1.06); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play:active .sk-play { transform: scale(.97); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidpanel { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidstage {
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: var(--sk-vid-ar, 16 / 9);
+  border-radius: var(--sk-r-sm);
+  overflow: hidden;
+  background: #0B0D0B;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidstage iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* ---------------- scroll cue ----------------
+   Some screens end on a tidy full width block (the glance grid, the leads copy)
+   that reads as the bottom of the page, so everything under it went unread. The
+   cue is shown ONLY while there is genuinely more below and the rep has not
+   scrolled yet, and it retires for good on the first scroll: a permanent arrow
+   is furniture, and furniture stops being read. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more[hidden] { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more[data-show="true"] { opacity: 1; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--sk-line);
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 12.6px;
+  font-weight: 600;
+  box-shadow: var(--sk-shadow-lift);
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-bob 1.9s ease-in-out infinite;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill svg { width: 15px; height: 15px; stroke-width: 2.2; color: var(--sk-brand); }
+
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-conectiv-your-funnel-links-c-user-links-page .sk-more-pill { animation: none; }
+}
+
+/* ---------------- "Click to play" ----------------
+   The bare circle was not read as a control: Joe looked straight at a shipped card
+   and did not see it (2026-08-30). The icon assumes the viewer already knows the
+   convention; the words do not assume anything. The badge and the label are one
+   centred stack, so .sk-play drops out of its own absolute centring HERE ONLY and
+   the shared video-facade rule is left alone. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play .sk-play-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play .sk-play { position: static; margin: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-art--play .sk-play-label {
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--sk-card);
+  color: var(--sk-brand-deep);
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 10.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  box-shadow: var(--sk-shadow);
+}
+
+
+/* ---------------- add-to-home-screen sheet: platform toggle, step glyphs, video ----
+   RESTORED 2026-08-31. These rules were dropped by 6866987 while the markup they
+   style came across with it, so the sheet has been rendering unstyled on every
+   system since 2026-08-25. Verbatim from 6866987^, not a rewrite.
+
+   The .sk-gl svg size is the one that looks cosmetic and is not: an inline svg
+   with no width/height has no intrinsic size, so without it the Share glyph fills
+   its container and the step becomes a full-width arrow. */
+
+/* ---- platform toggle ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 18px;
+  border: 1px solid var(--sk-line);
+  border-radius: 12px;
+  background: var(--sk-card);
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg-btn {
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--sk-ink-soft);
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 600;
+  font-size: 13.5px;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-seg-btn[aria-pressed="true"] {
+  background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
+  color: #fff;
+}
+
+/* ---- the inline glyph inside a written step ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps .sk-gl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px 1px 4px;
+  border: 1px solid var(--sk-line);
+  border-radius: 6px;
+  background: var(--sk-paper);
+  white-space: nowrap;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-steps .sk-gl svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+/* ---- optional video ---- */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch { margin-top: 16px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary::-webkit-details-marker { display: none; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary svg { width: 18px; height: 18px; flex: none; color: var(--sk-brand); stroke-width: 1.7; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch summary em { font-style: normal; font-weight: 500; color: var(--sk-ink-faint); }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch-body { padding-top: 12px; }
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-watch video {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  border-radius: var(--sk-r-sm);
+  border: 1px solid var(--sk-line);
+  background: #000;
+}
+
+
+/* ---------------- setup state, and the copied pop ----------------
+   RESTORED 2026-08-31, same cause as the block above: dropped by 6866987 while the
+   markup and JS that use them came across. Found by class-audit.mjs.
+
+   .sk-setup is the card a rep sees when their custom values are not filled in, so
+   it is the FIRST thing a brand new account renders. It has been showing as bare
+   unstyled text since 2026-08-25. Verbatim from 6866987^. */
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup {
+  margin: 8px 0 24px;
+  padding: 22px var(--sk-pad);
+  border: 1px solid #e8ddb8;
+  border-radius: var(--sk-r);
+  background: #fdf8e8;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup h2 {
+  margin: 0 0 6px;
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 105, "wght" 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-setup p { margin: 0; font-size: 14.5px; color: #6b5f34; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy[data-state="done"] .sk-copy-label {
+  animation: sk-conectiv-your-funnel-links-c-user-links-page-pop .35s cubic-bezier(.2,.9,.3,1) both;
+}
+@keyframes sk-conectiv-your-funnel-links-c-user-links-page-pop {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: none; }
+}
+
+
+/* ================================================================
+   V2 COMPONENTS — ported from the GLP v2 links hub, 2026-09-23.
+   Structure only: every colour here resolves through this block's own
+   nine palette tokens, so the rules wear Conectiv blue without a single
+   Conectiv literal. GLP's one hardcoded surface (#FDFBF9, a warm
+   off-white) is derived from --sk-paper/--sk-card instead, because a
+   literal copied across would have been a GLP colour in a Conectiv file.
+   ================================================================ */
+/* ---------------- per funnel: training and quick actions ----------------
+   Joe's spec, Sep 2026. The single "How to use this funnel" chip became two
+   labelled groups: three training buttons that deep link into the funnel
+   training page, and the assets a rep actually fetches (the lead magnet, the
+   Canva library).
+
+   These are ROWS, not chips. A chip is a short label that sits beside its
+   siblings; "How do I generate leads with this funnel?" is a sentence and wraps
+   to two lines at 390px, which turns a chip row into a ragged grid. A full
+   width row with a fixed mark, a flexible label and a trailing glyph holds any
+   label length and reads as a list of destinations, which is what it is.
+*/
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-subhead {
+  margin: 20px 0 9px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 88, "wght" 700;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-actions { display: grid; gap: 8px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 48px;
+  padding: 9px 11px 9px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: var(--sk-r-sm);
+  background: color-mix(in srgb, var(--sk-paper) 45%, var(--sk-card));
+  color: var(--sk-ink);
+  font-size: 13.6px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action:hover,
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action:active { background: var(--sk-brand-tint); border-color: var(--sk-brand); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action:hover .sk-action-go { color: var(--sk-brand); }
+
+/* ---------------- daily method: numbered steps and copyable scripts ----------------
+   Joe put the actual scripts on the promote screen, Sep 2026, where before it
+   was prose plus a dead "watch a video" link. A script is content to be TAKEN,
+   so it gets a bubble and a copy button rather than being another paragraph.
+*/
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-script {
+  margin: 0 0 16px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: var(--sk-r-sm);
+  background: color-mix(in srgb, var(--sk-paper) 45%, var(--sk-card));
+  overflow: hidden;
+}
+
+/* the bits the rep swaps for real names before sending */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-var {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--sm {
+  min-height: 44px;
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--sk-line);
+  background: var(--sk-paper);
+  color: var(--sk-brand-deep);
+  font-size: 12.5px;
+  box-shadow: none;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--sm svg { color: var(--sk-brand); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--sm[data-state="done"] { background: var(--sk-brand); color: var(--sk-card); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-copy--sm[data-state="done"] svg { color: var(--sk-card); }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-note-line {
+  margin: 0 0 18px;
+  color: var(--sk-ink-faint);
+  font-size: 13.4px;
+  line-height: 1.5;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-vidbtn-mark { font-size: 19px; line-height: 1; }
+
+
+
+/* Second pass. The first extraction used a negative lookahead that excluded
+   HYPHENATED variants, so .sk-action-mark and .sk-action-label never came over
+   and the quick-action icons rendered at zero width: present in the DOM,
+   invisible on the page. Matched by explicit class name this time, and NOT by
+   the block scope class, which matches every rule in the file. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand);
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action-mark svg { width: 16px; height: 16px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action-label { flex: 1 1 auto; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-script-body {
+  padding: 14px 15px;
+  color: var(--sk-ink);
+  font-size: 14.4px;
+  line-height: 1.55;
+}
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-script-body p { margin: 0 0 10px; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-script-body p:last-child { margin-bottom: 0; }
+
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-script-body b { font-weight: 700; }
+
+/* "lets use the emojis we use on the inside page instead of the icons".
+   An emoji is a glyph, not a 24x24 stroke drawing, so the tinted tile that
+   frames the outline icons is dropped: the emoji carries its own colour and
+   reads as a sticker sitting on the row. */
+.sk-conectiv-your-funnel-links-c-user-links-page .sk-action-mark--emoji {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 20px;
+  line-height: 1;
+}
