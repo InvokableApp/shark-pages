@@ -1027,6 +1027,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "Ze7hUrP7sAHKnmDu354U",
+      "pageId": "SA9WHBFzVVvYcQoWkupx",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "your-marketing-links/marketing-links",
+      "funnelId": "Ze7hUrP7sAHKnmDu354U",
+      "pageId": "SA9WHBFzVVvYcQoWkupx",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
     }
   ]
 }

@@ -1678,7 +1678,12 @@
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-desc { margin-bottom: 13px; line-height: 1.55; }
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-script { margin: 6px 0 20px; }
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-steps { margin-bottom: 18px; }
-.sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-videoslot { margin: 20px 0; }
+/* The embed replaced the decorative .sk-art illustration at the top of each
+   action card. Joe, 2026-09-23: "the vids should be up where the images were
+   ... follow where I dropped the pins" - and his five Vimeo pins had landed on
+   those illustrations, not on the buttons underneath them. Same slot, same
+   margin the art carried, so the card opens onto the video. */
+.sk-glp-your-marketing-links-marketing-links .sk-panel-pad > .sk-embed:first-child { margin: 0 0 16px; }
 .sk-glp-your-marketing-links-marketing-links .sk-panel-pad .sk-note-line { margin-top: 8px; }
 
 /* ⚠️ .sk-copy sets display:flex, which BEATS the user-agent [hidden]{display:none}
