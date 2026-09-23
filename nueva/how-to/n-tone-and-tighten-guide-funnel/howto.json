@@ -15,7 +15,11 @@
   "a custom value that exists in NO account, so all four buttons per page resolved to",
   "'https:///skin-diagnostic-scripts'. Nueva has no scripts hub yet (nueva_sample_scripts_url is",
   "empty and there is no scripts funnel). Building one is the fix; pointing four cards at an empty",
-  "custom value would just be four dead links with a Nueva name on them."
+  "custom value would just be four dead links with a Nueva name on them.",
+  "",
+  "CANVA LINK ADDED 2026-09-23, pasted verbatim from Jeff. ⚠️ NEVER resolve a canva.link",
+  "short URL to 'check' it: opening one yields the opened-copy URL, not the template URL,",
+  "so a resolved link would send every rep to a single shared copy instead of their own."
  ],
  "system": "nueva",
  "funnel": "how-to",
@@ -40,6 +44,14 @@
    "tease": "The downloadable version the delivery email sends.",
    "label": "Open the PDF",
    "url": "https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}"
+  },
+  {
+   "icon": "image",
+   "title": "Ads and social content",
+   "primary": false,
+   "tease": "Ready to post graphics and ad creative built for this funnel. Edit in Canva, then post.",
+   "label": "Open the Canva file",
+   "url": "https://canva.link/gmt6ngmhri0ce3d"
   },
   {
    "icon": "copy",
