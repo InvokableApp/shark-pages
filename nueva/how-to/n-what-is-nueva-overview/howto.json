@@ -1,0 +1,69 @@
+{
+ "_why": [
+  "What Is Nueva, rep-facing. Built 2026-09-24 alongside the funnel itself.",
+  "",
+  "THIS FUNNEL HAS NO OPT-IN AND NO LEAD MAGNET. It is one page a rep sends to someone who has",
+  "already asked what they do, plus this page explaining when to send it. So there is no guide",
+  "link, no confirmation page and no drip: the whole campaign is a link and a conversation.",
+  "",
+  "VIDEOS ARE EMPTY ON PURPOSE, same as Nueva's other four how-to pages. Jeff, 2026-09-23:",
+  "'nueva how to funnel vids coming soon'. A page with no video is honest where a page with a",
+  "competitor's video is not. Add them here and re-run the generator.",
+  "",
+  "NO CANVA CARD. Every other Nueva funnel has a social file; this one has none yet, and a card",
+  "pointing at another funnel's file would send reps to the wrong creative.",
+  "",
+  "NO ADS SECTION, for the same reason as the other four: Nueva has no seller-side domain yet,",
+  "so there is nothing truthful to point at."
+ ],
+ "system": "nueva",
+ "funnel": "how-to",
+ "page": "n-what-is-nueva-overview",
+ "funnelName": "What Is Nueva",
+ "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+ "logoAlt": "NUEVASHARK, AI Marketing System",
+ "videos": [],
+ "sub": "One page that answers the question you get asked most: what is it you actually do? Send it when someone has already shown interest, not before. It carries your name and your buy link, so a reader who is ready can act without coming back to you first, and a reader who is not has still had the whole thing explained properly.",
+ "links": [
+  {
+   "icon": "eye",
+   "title": "The page you send",
+   "primary": true,
+   "tease": "Read it yourself once. You will answer questions faster if you know exactly what they just saw.",
+   "label": "Open the page",
+   "url": "https://{{custom_values.nueva_main_url}}/n-what-is-nueva"
+  },
+  {
+   "icon": "copy",
+   "title": "Your marketing links",
+   "primary": false,
+   "tease": "Every funnel link and product link in this system, in one page, with a copy button on each.",
+   "label": "Open your marketing links",
+   "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
+  }
+ ],
+ "promptLabel": "What to say when you send it",
+ "prompt": [
+  {
+   "icon": "chat",
+   "title": "Send it like this",
+   "tease": "Short, no pitch, and it gives them an easy way out. The page does the explaining, so your message does not have to.",
+   "copyLabel": "Copy the message",
+   "text": "Hey! You asked what I have been doing. Easier to show you than explain it over text, so here is the two minute version. Have a look when you get a minute and tell me what you think."
+  },
+  {
+   "icon": "chat",
+   "title": "After they have read it",
+   "tease": "Ask a question rather than making an offer. You are finding out whether there is real interest, not closing anything.",
+   "copyLabel": "Copy the message",
+   "text": "What did you think? Is it something you would want to try yourself, or does anyone come to mind who might?"
+  },
+  {
+   "icon": "spark",
+   "title": "Get post ideas from AI",
+   "tease": "Paste this into Ask AI, or any AI you use, for posts that get people asking you what you do instead of you telling them.",
+   "copyLabel": "Copy the prompt",
+   "text": "I share health and wellness products on social media and earn from it. I have a single page that explains what the company is, what the products do and how the business works, and I send it to anyone who asks what I do. What could I post on social media that makes people curious enough to ask me what I do, without me pitching anything or mentioning the company by name? Give me ten ideas I could post this week."
+  }
+ ]
+}
