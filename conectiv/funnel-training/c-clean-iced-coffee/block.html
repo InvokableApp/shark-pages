@@ -41,9 +41,12 @@
 
           <div class="sk-vids sk-solo" data-acc>
             <article class="sk-vid-item" data-open="true">
-              <div class="sk-frame sk-frame--pending" aria-label="Video coming soon">
-                  <span class="sk-pending-tag">Video coming soon</span>
-                </div>
+              <div class="sk-frame"
+                  data-vimeo="1229985081"
+                  data-poster="https://i.vimeocdn.com/video/2204779141-19cf9f697dbf6352a7f3068f61fa2e185bf061c3e141daea0076911c008a03d8-d_1280?region=us"
+                  role="button" tabindex="0" aria-label="Play: How this funnel works">
+                    <span class="sk-play" data-sk-icon="play"></span>
+                  </div>
             </article>
           </div>
 
@@ -100,7 +103,14 @@
           <div class="sk-aside" data-sk-reveal>
             <p>View the confirmation page of this funnel so you can see what your lead sees!</p>
             <div class="sk-btn-row">
-              <a class="sk-btn" href="https://conectivshark.com/c-coffee-guide-confirmation" target="_blank" rel="noopener">View the confirmation page for this funnel <i data-sk-icon="ext"></i></a>
+              <!-- Opens a SCREENSHOT, it does not navigate. Jeff, 2026-09-24: these
+                   pages have no "return to your hub" button and most reps are older,
+                   so sending them to a live page loses them. The shot is of the page
+                   in THIS system's snapshot account, so it cannot drift to another
+                   account's copy the way the old link did. -->
+              <button type="button" class="sk-btn sk-shot-open"
+                      data-shot="https://invokableapp.github.io/shark-pages/conectiv/funnel-training/c-clean-iced-coffee/assets/c-clean-iced-coffee--desktop.webp" data-shot-mobile="https://invokableapp.github.io/shark-pages/conectiv/funnel-training/c-clean-iced-coffee/assets/c-clean-iced-coffee--mobile.webp"
+                      data-shot-label="The confirmation page your lead sees">View the confirmation page for this funnel <i data-sk-icon="eye"></i></button>
             </div>
           </div>
           <div class="sk-aside" data-sk-reveal>
