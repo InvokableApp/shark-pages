@@ -2668,3 +2668,94 @@
 @media (max-width: 899px) {
   .sk-ftrain .sk-sec-head--vid { margin: 4px 0 10px; font-size: 21px; }
 }
+
+/* ============================================================
+   THE INLINE POSTING GUIDE — Joe's posting doc, hardwired
+
+   Jeff, 2026-09-24, for the two Nueva guides: "unless you can hardwire right
+   into the training page, we can do that for these two guides". So the campaign
+   specific "what to post" lives inside the ORGANIC POSTING card rather than
+   behind a link to a Google Doc.
+
+   It sits under Joe's generic write-up, which is about WHY you post. This is
+   about WHAT to post for this one funnel, so it gets a tinted panel and its own
+   title: the two are different jobs and reading straight from one into the
+   other made the card feel like one long paragraph.
+
+   Gutters match .sk-btn-row's 15px, per the round-2 rule that everything which
+   is text lines up down the card.
+   ============================================================ */
+
+.sk-ftrain .sk-post {
+  margin: 16px 15px 4px;
+  padding: 18px 18px 6px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand-deep);
+  border-radius: 12px;
+  background: var(--sk-brand-tint);
+}
+
+.sk-ftrain .sk-post-title {
+  margin: 0 0 12px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 13px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  /* brand-deep, never --sk-brand: the bright stop is a fill, and on the tint
+     panel it drops under 3:1 */
+  color: var(--sk-brand-deep);
+}
+
+.sk-ftrain .sk-post-h {
+  margin: 20px 0 8px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.32;
+  color: var(--sk-ink);
+}
+.sk-ftrain .sk-post-h:first-of-type { margin-top: 14px; }
+
+.sk-ftrain .sk-post p { margin: 0 0 10px; font-size: 15px; line-height: 1.62; color: var(--sk-ink-soft); }
+.sk-ftrain .sk-post p strong { color: var(--sk-ink); }
+
+.sk-ftrain .sk-post-cadence { font-size: 15px; }
+
+.sk-ftrain .sk-post-list { margin: 0 0 10px; padding-left: 20px; }
+.sk-ftrain .sk-post-list li {
+  margin: 0 0 9px;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--sk-ink-soft);
+}
+.sk-ftrain .sk-post-list li::marker { color: var(--sk-brand-deep); }
+
+/* the call to action closing each angle is the line a rep skims for, so it gets
+   a rule rather than another bold sentence in a stack of bold sentences */
+.sk-ftrain .sk-post-cta {
+  margin: 12px 0 4px;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--sk-line-soft);
+}
+
+/* the AI prompt is text to be TAKEN, not read, so it reads as a quotation.
+   Same intent as the .sk-ask block in v1, deliberately not the same class:
+   there is no copy button here and it must not inherit one. */
+.sk-ftrain .sk-post-prompt {
+  margin: 0 0 12px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--sk-ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-post { margin-inline: 15px; padding: 15px 14px 4px; }
+  .sk-ftrain .sk-post-h { font-size: 15.5px; }
+}
+

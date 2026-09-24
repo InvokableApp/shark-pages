@@ -1,0 +1,81 @@
+{
+  "system": "nueva",
+  "brand": "Nueva Shark",
+  "host": "",
+  "locationId": "sKmJ8BrXPCYR2g7aYRX0",
+  "logo": "logo-nueva.svg",
+  "logoUrl": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+  "logoAlt": "NUEVASHARK, AI Marketing System",
+  "palette": {
+    "sk-brand": "#0ABAB5",
+    "sk-brand-btn": "#087F7B",
+    "sk-brand-deep": "#087F7B",
+    "sk-brand-tint": "#E8F8F6",
+    "sk-ink": "#141313",
+    "sk-ink-soft": "#4A5560",
+    "sk-ink-faint": "#8AA0A4",
+    "sk-paper": "#FCFEFF",
+    "sk-line": "#D5DFE1",
+    "sk-line-soft": "#E9F1F2",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1229995731",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Opt-In",
+    "confirmStep": "Confirmation",
+    "ctaText": "Download The Free Plan",
+    "formMode": "popup"
+  },
+  "links": {
+    "support": "",
+    "adsTraining": "",
+    "readyToPostImages": "https://canva.link/azr1yqqdtzrl5hc",
+    "buyLeads": "",
+    "confirmationPage": "",
+    "postingDoc": "",
+    "guidePdf": ""
+  },
+  "slug": "n-no-crash-plan",
+  "funnelName": "The No Crash Plan",
+  "ghlFunnel": "Nueva - The No Crash Plan - Funnel",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "flowDir": "flow/n-no-crash-plan",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+}
