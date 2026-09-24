@@ -398,6 +398,39 @@ var SYS = {
     if (willOpen) {
       card.setAttribute('data-open', 'true');
       trigger.setAttribute('aria-expanded', 'true');
+
+      /* ---- land at the TOP of the card that just opened ----
+         Joe, 2026-09-24, on a walkthrough video of the mobile hub: "there's
+         still some sections where you click, depending on how you click, and it
+         scrolls to the bottom of the section."
+
+         Nothing here was scrolling, which is the bug. One card is open at a
+         time, so opening a card COLLAPSES the one above it and the document
+         loses that card's whole height from above the reader. The scroll offset
+         does not move, so the viewport ends up parked inside the card that just
+         opened. "Depending on how you click" is the tell: it only bites when the
+         card you open sits BELOW the one already open, which is why it reads as
+         intermittent.
+
+         Same shape as the fix already proven on the funnel training pages: the
+         panel animation is suppressed for the single layout pass where the
+         target is measured, so the collapse above is already applied. Measuring
+         without that pass reads the mid animation layout and lands just as
+         wrong.
+
+         The bar is sticky at top:0, so its height comes off the target or the
+         card header lands underneath it. Measured, never hardcoded. */
+      var skBar = root.querySelector('.sk-bar');
+      var skBarH = skBar ? Math.round(skBar.getBoundingClientRect().height) : 0;
+      screen.classList.add('sk-nosnap');
+      void screen.offsetHeight;
+      var skY = Math.max(0, card.getBoundingClientRect().top + window.scrollY - skBarH - 10);
+      requestAnimationFrame(function () {
+        screen.classList.remove('sk-nosnap');
+        if (Math.abs(skY - window.scrollY) >= 4) {
+          window.scrollTo({ top: skY, behavior: 'smooth' });
+        }
+      });
     }
   });
 

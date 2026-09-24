@@ -1354,3 +1354,12 @@
   0%   { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: none; }
 }
+
+/* Joe, 2026-09-24: opening a card collapses the one above it, and without a
+   correction the reader is left parked inside the card they just opened. The JS
+   scrolls to the card's top; these two make that measurement trustworthy.
+   .sk-nosnap freezes the panel animation for the single layout pass where the
+   target is measured, and overflow-anchor stops the browser making its own
+   scroll correction in the same moment, which would invalidate it. */
+.sk-glp-your-marketing-links-marketing-links .sk-screen { overflow-anchor: none; }
+.sk-glp-your-marketing-links-marketing-links .sk-nosnap .sk-panel { transition: none; }
