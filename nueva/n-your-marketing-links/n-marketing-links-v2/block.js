@@ -58,7 +58,7 @@ var SYS = {
           { label:"The guide, print ready in Canva", url:"https://canva.link/c7miytdp4ku0py8" },
           { label:"Which One Is Right, print ready in Canva", url:"https://canva.link/97sdbxn2w14y0w9" }
         ],
-        desc:"A free guide to the everyday foods that support the body's own appetite hormones. Your softest opener on the weight conversation: it asks for nothing but an email and it never mentions a product." } ]},
+        desc:"A free workout and food guide for women who already train and want the work to show: eight twenty minute sessions and twelve high protein recipes. The ones who ask for the companion guide, the one that says which supplements are worth the money, are the ones ready to talk." } ]},
 
     { label:"Opportunity funnels", items:[
       { slug:"n-match-quiz", howtoSlug:"n-side-hustle-how-to", icon:"quiz",
