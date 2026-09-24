@@ -2759,3 +2759,157 @@
   .sk-ftrain .sk-post-h { font-size: 15.5px; }
 }
 
+/* ============================================================
+   "WHAT DO I SAY?" — the situation index in part 3
+
+   Jeff, 2026-09-24: "what we want to do here is give the rep answers to 'what do
+   i do in this situation?'" So this is NOT the numbered sequence the scripts-page
+   family uses. A sequence answers "what is the process". A rep holding a phone
+   with a message on it is asking a different question, and scanning a sequence
+   for the step that matches their situation is the wrong job to give them.
+
+   Hence: bands, then cards titled with the situation in HER words. The card title
+   is the lookup key, so it takes the weight, and the script itself is a quoted
+   block that reads as a message rather than as page copy.
+
+   Band 3 has no automation behind it. Nothing in GHL fires when a lead asks what
+   it costs, which is exactly why those scripts are the ones reps do not have.
+   ============================================================ */
+
+.sk-ftrain .sk-say { margin-top: 34px; }
+
+.sk-ftrain .sk-say-intro {
+  max-width: var(--sk-col, 880px);
+  margin: 0 auto 26px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--sk-ink-soft);
+  text-align: center;
+}
+
+.sk-ftrain .sk-band { margin: 0 auto 30px; max-width: var(--sk-col, 880px); }
+
+.sk-ftrain .sk-band-name {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 4px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 19px;
+  color: var(--sk-ink);
+}
+.sk-ftrain .sk-band-mark {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; flex: none;
+  border-radius: 9px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+}
+.sk-ftrain .sk-band-mark svg { width: 17px; height: 17px; }
+
+.sk-ftrain .sk-band-note {
+  margin: 0 0 14px 40px;
+  font-size: 14.5px; line-height: 1.55;
+  color: var(--sk-ink-faint);
+}
+
+.sk-ftrain .sk-say-card {
+  margin: 0 0 12px;
+  padding: 17px 18px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: 14px;
+  background: var(--sk-card);
+}
+
+/* the situation, in her words. This is the lookup key, so it outweighs
+   everything else in the card */
+.sk-ftrain .sk-say-q {
+  margin: 0 0 6px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16.5px; line-height: 1.34;
+  color: var(--sk-ink);
+}
+
+.sk-ftrain .sk-say-ctx {
+  margin: 0 0 13px;
+  font-size: 14.5px; line-height: 1.58;
+  color: var(--sk-ink-faint);
+}
+/* an unanswered brief question, visible on the page ON PURPOSE while it is still
+   unanswered, so a placeholder cannot quietly ship as a real script */
+.sk-ftrain .sk-say-open { color: #8a5a00; }
+
+/* the script reads as a MESSAGE, not as page copy: tinted, rule down the left,
+   the same shape a chat bubble thread has */
+.sk-ftrain .sk-say-script {
+  padding: 13px 15px 1px;
+  border-left: 3px solid var(--sk-brand-deep);
+  border-radius: 0 10px 10px 0;
+  background: var(--sk-brand-tint);
+}
+.sk-ftrain .sk-say-script p {
+  margin: 0 0 11px;
+  font-size: 15px; line-height: 1.6;
+  color: var(--sk-ink);
+}
+
+/* a slot the rep has to change. Negative inline margin cancels its own padding,
+   or "Hey [Name], it's" renders as "Hey [Name] , it's", which reads as a typo in
+   something they are about to send. Same fix as the scripts page. */
+.sk-ftrain .sk-say-script .sk-cv {
+  margin: 0 -2px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgba(var(--sk-brand-deep-rgb, 8,127,123), .13);
+  font-variation-settings: "wght" 600;
+  color: var(--sk-brand-deep);
+}
+
+.sk-ftrain .sk-copy {
+  margin-top: 12px;
+  padding: 8px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: 9px;
+  background: var(--sk-card);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 11.5px; letter-spacing: .085em; text-transform: uppercase;
+  color: var(--sk-ink);
+  cursor: pointer;
+}
+.sk-ftrain .sk-copy:hover { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
+.sk-ftrain .sk-copy[data-done="1"] { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-say-intro { margin-bottom: 20px; font-size: 15px; }
+  .sk-ftrain .sk-band-note { margin-left: 0; }
+  .sk-ftrain .sk-say-card { padding: 15px 14px 13px; }
+  .sk-ftrain .sk-say-q { font-size: 15.5px; }
+}
+
+/* a merged URL is long. It must wrap inside the bubble rather than overflow it,
+   and it must not be an <a>: what the rep pastes into a message is a bare URL,
+   per FUNNEL-TRAINING-SCRIPTS-SOP §7. */
+.sk-ftrain .sk-say-script .sk-cv--url {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* a card whose script needs a custom value the rep has not filled in yet. It
+   stays readable, because reading it is harmless; what is disabled is SENDING
+   it. See _say.js for why the instruction text is the thing being guarded. */
+.sk-ftrain .sk-say-script .sk-cv[data-unset] {
+  background: rgba(180, 120, 0, .14);
+  color: #8a5a00;
+  font-variation-settings: "wght" 700;
+}
+.sk-ftrain .sk-say-unset {
+  margin: 12px 0 0;
+  font-size: 13.5px; line-height: 1.5;
+  color: #8a5a00;
+}
+.sk-ftrain .sk-copy[disabled] {
+  opacity: .55;
+  cursor: not-allowed;
+  border-style: dashed;
+}

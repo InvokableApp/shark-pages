@@ -462,3 +462,109 @@ if (!window.__sharkFunnelTraining) {
 })();
 
 }
+
+/* ============================================================================
+   "WHAT DO I SAY?" — the copy handler and the custom-value guard.
+
+   Two jobs, and the second is the one that matters.
+
+   1. COPY. What lands on the clipboard is the deliverable: plain text, a blank
+      line between paragraphs, bracketed slots intact, no markup, links as bare
+      URLs. Per FUNNEL-TRAINING-SCRIPTS-SOP §7.
+
+   2. GUARD. A rep-owned custom value on a SNAPSHOT does not hold an empty
+      string, it holds an instruction: "Paste the link to your team's private
+      Facebook group here, WITHOUT https:// ." Merge that bare into a script and
+      an un-onboarded rep taps Copy and sends that sentence to a lead. So a pill
+      whose value is still an instruction, or whose merge field never resolved at
+      all, is replaced with a visible NOT SET UP YET and the card's copy button
+      is disabled. Reading it on a page is harmless. Sending it is not.
+
+      Detection is deliberately dumb and readable: still carrying "{{" means the
+      socket never declared that data-cv-*; starting with "Paste" or "Enter" is
+      the house style for every instruction-text custom value in the system. A
+      real link or a real first name matches neither.
+   ============================================================================ */
+(function () {
+  var UNSET = /^\s*(paste|enter)\b/i;
+
+  function isUnset(t) {
+    return !t || !t.trim() || t.indexOf("{{") > -1 || UNSET.test(t);
+  }
+
+  /* plain text for the clipboard: one paragraph per line, blank line between */
+  function scriptText(box) {
+    var out = [];
+    box.querySelectorAll("p").forEach(function (p) {
+      /* textContent, NOT innerText. innerText is layout dependent and returns ""
+         for anything not currently rendered, and these cards live inside a
+         collapsed accordion panel. A rep copying from a part they just opened
+         would be fine; a rep copying from a card revealed any other way, or any
+         headless check of this behaviour, silently copies nothing. */
+      var t = (p.textContent || "").replace(/\s+/g, " ").trim();
+      if (t) out.push(t);
+    });
+    return out.join("\n\n");
+  }
+
+  function init(root) {
+    root.querySelectorAll(".sk-say-card").forEach(function (card) {
+      var bad = false;
+
+      card.querySelectorAll(".sk-cv").forEach(function (pill) {
+        if (!isUnset(pill.textContent)) return;
+        bad = true;
+        pill.textContent = "not set up yet";
+        pill.setAttribute("data-unset", "1");
+      });
+
+      var btn = card.querySelector(".sk-copy");
+      if (!btn) return;
+
+      if (bad) {
+        btn.disabled = true;
+        btn.textContent = "Fill your settings first";
+        var note = document.createElement("p");
+        note.className = "sk-say-unset";
+        note.textContent =
+          "This one needs a setting you have not filled in yet, so it is not ready to send.";
+        card.insertBefore(note, btn);
+        return;
+      }
+
+      btn.addEventListener("click", function () {
+        var box = card.querySelector(".sk-say-script");
+        if (!box) return;
+        var text = scriptText(box);
+        var done = function () {
+          var was = btn.textContent;
+          btn.textContent = "Copied";
+          btn.setAttribute("data-done", "1");
+          setTimeout(function () {
+            btn.textContent = was;
+            btn.removeAttribute("data-done");
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+        } else {
+          fallback(text, done);
+        }
+      });
+    });
+  }
+
+  /* older in-app browsers, which is a real share of how reps open this */
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:-1000px;opacity:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* nothing useful to do */ }
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll(".sk-howto").forEach(init);
+})();
