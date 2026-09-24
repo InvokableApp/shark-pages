@@ -1906,6 +1906,16 @@
    panel's full width it would tower over the copy around it. Cropped from the
    screenshot Joe sent, with the account holder's name and location outside
    the crop. Never ship that band, it is a real buyer. */
+/* Joe, 2026-09-23: "bold keep it simple and put it in red". Inline emphasis
+   inside body copy, kept as a reusable class rather than a one-off style
+   attribute because he has asked for this treatment before and will again.
+   The red is the palette's own deep brand, not a literal, so a reskin carries
+   it. */
+.sk-glp-your-marketing-links-marketing-links .sk-hot {
+  color: var(--sk-brand-deep);
+  font-variation-settings: "wght" 800;
+}
+
 .sk-glp-your-marketing-links-marketing-links .sk-sidebar-shot {
   margin: 0 0 16px;
   text-align: center;
