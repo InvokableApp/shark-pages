@@ -2649,7 +2649,14 @@
    made instant and the scroll is the only thing moving. Also covers the panel
    body's entrance, which would otherwise slide in from under a page that has
    already finished scrolling. */
-.sk-ftrain .sk-nosnap .sk-panel-wrap { transition: none; }
+.sk-ftrain .sk-nosnap .sk-panel-wrap,
+.sk-ftrain .sk-nosnap .sk-vid-wrap { transition: none; }
+/* the parts and the strategies both resize under the reader; the browser
+   answers that by shifting scrollY to hold the view still, which lands between
+   measuring a scroll target and scrolling to it. Both accordions do their own
+   scrolling, so they do not want the help. */
+.sk-ftrain .sk-tabs,
+.sk-ftrain .sk-vids { overflow-anchor: none; }
 .sk-ftrain .sk-nosnap .sk-panel-body { animation: none; }
 
 /* ---- WATCH THIS VIDEO! above every video, not just part 1's ----

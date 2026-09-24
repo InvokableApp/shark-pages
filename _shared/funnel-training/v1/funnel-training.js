@@ -292,6 +292,26 @@ if (!window.__sharkFunnelTraining) {
      Same component, one level down. On desktop the headers are inert and every
      item is open, so the row reads as three columns; the CSS decides which mode
      is live and the JS just asks it, so the breakpoint stays in one place. */
+  /* A header landed at y=0 sits UNDERNEATH anything sticky at top:0, so take
+     the height of the nearest sticky group head above the element off the
+     target. Measured, never hardcoded: it moves with the copy and breakpoint.
+
+     On the GLP training pages this currently returns 0, because they carry no
+     .sk-group-head and nothing else sticks to the top (verified 2026-09-23).
+     It is here so the landing stays right the day one of them does, rather
+     than silently sliding under a new header. */
+  function stickyOffsetAbove(el) {
+    var mine = el.getBoundingClientRect().top + window.scrollY;
+    var off = 0;
+    document.querySelectorAll(".sk-ftrain .sk-group-head").forEach(function (h) {
+      var r = h.getBoundingClientRect();
+      if (r.top + window.scrollY <= mine && getComputedStyle(h).position === "sticky") {
+        off = Math.round(r.height);
+      }
+    });
+    return off;
+  }
+
   document.querySelectorAll("[data-acc]").forEach(function (group) {
     var items = [].slice.call(group.querySelectorAll(".sk-vid-item"));
     items.forEach(function (item, i) {
@@ -310,6 +330,36 @@ if (!window.__sharkFunnelTraining) {
           other.setAttribute("data-open", on ? "true" : "false");
           var h = other.querySelector(".sk-vid-head");
           if (h) h.setAttribute("aria-expanded", on ? "true" : "false");
+        });
+        if (wasOpen) return;   /* closing: the reader stays where they are */
+
+        /* ---- land at the TOP of the strategy that just opened ----
+           Joe, 2026-09-23: "when you open the accordion elements there's a
+           weird scroll that lands you in the middle of the content", pointing
+           at the traffic strategy cards inside part 2.
+
+           Nothing here scrolled at all, and that IS the bug. One strategy is
+           open at a time, so opening strategy 3 collapses strategy 1 or 2
+           ABOVE it and the document loses that whole height from above the
+           reader. The scroll offset does not change, so the viewport is left
+           parked somewhere inside the strategy that just opened. It reads as a
+           weird scroll because the content slides past, but no scroll was ever
+           requested.
+
+           Level 1 (the parts) already solved this; this is the same shape one
+           level down. The animation is suppressed for a single layout pass so
+           the collapse above is already applied when the target is measured.
+           Measuring without that pass reads the mid animation layout and lands
+           just as wrong as measuring nothing. */
+        group.classList.add("sk-nosnap");
+        void group.offsetHeight;
+        var y = Math.max(0, item.getBoundingClientRect().top + window.scrollY
+                            - stickyOffsetAbove(item) - 10);
+        requestAnimationFrame(function () {
+          group.classList.remove("sk-nosnap");
+          if (Math.abs(y - window.scrollY) >= 4) {
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
         });
       });
     });
