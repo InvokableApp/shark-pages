@@ -1,6 +1,9 @@
 (function () {
 var SYS = {
   nameCv: 'conectiv__your_first_name',
+  /* The system's training hub. Verified serving 2026-09-24, by byte size against
+     the domain's catch-all because these domains have no 404. */
+  training: 'https://conectivshark.com/training',
   domainCv: 'conectiv__main_url',
   /* The rep's OWN v2 training pages travel with the snapshot as a step inside
      each funnel, so they sit on the rep's own domain. conectiv__main_url is that
@@ -126,6 +129,7 @@ var SYS = {
     copy:    '<rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/>',
     check:   '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
     out:     '<path d="M14 4h6v6"/><path d="M20 4 10.5 13.5"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>',
+    video:   '<rect x="2.5" y="6" width="12" height="12" rx="2.5"/><path d="m14.5 11 6-3.4v8.8l-6-3.4z"/>',
     play:    '<path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/>',
     chev:    '<path d="m9 5 7 7-7 7"/>',
     down:    '<path d="m6 9 6 6 6-6"/>',
@@ -246,6 +250,17 @@ var SYS = {
      rather than declared inline so a system whose config carries no affiliate program
      never grows a tile that leads nowhere. Last on purpose: the others are the rep's
      job, this one is their upside. */
+  /* Joe, 2026-09-24: "Fast Start Training / Learn how to use this system, this is
+     where you start", a video icon, above the others. UNSHIFTED rather than
+     declared inline, same reason the referral tile is pushed: a system whose
+     config names no training hub never grows a tile that leads nowhere.
+
+     It is the one destination that leaves the app, so it carries an href of its
+     own instead of a #/screen route. */
+  if (SYS.training) DEST.unshift({ id: 'training', icon: 'video',
+    name: 'Fast Start Training', tease: 'Learn how to use this system. This is where you start.',
+    href: SYS.training });
+
   if (SYS.affiliate) DEST.push({ id: 'referral', icon: 'share',
     name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' });
 
@@ -305,10 +320,19 @@ var SYS = {
   var commaEl = root.querySelector('[data-comma]');
   if (commaEl) commaEl.textContent = firstName ? ', ' : '';
 
+  /* A destination is normally a screen in this app (#/id). One of them leaves for
+     the training hub, so it needs a real href and a new tab. Shared by the home
+     grid and the nav sheet so the two can never disagree about where a tile goes. */
+  function destAttrs(d) {
+    return d.href
+      ? 'href="' + d.href + '" target="_blank" rel="noopener"'
+      : 'href="#/' + d.id + '"';
+  }
+
   /* ---------- home destinations ---------- */
   var grid = root.querySelector('[data-menugrid]');
   grid.innerHTML = DEST.map(function (d, i) {
-    return '<a class="sk-dest" href="#/' + d.id + '" style="animation-delay:' + (0.1 + i * 0.05) + 's">' +
+    return '<a class="sk-dest" ' + destAttrs(d) + '" style="animation-delay:' + (0.1 + i * 0.05) + 's">' +
       '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
       '<span><span class="sk-dest-name">' + d.name + '</span>' +
       '<span class="sk-dest-tease">' + d.tease + '</span></span>' +
@@ -318,7 +342,7 @@ var SYS = {
   /* ---------- nav sheet ---------- */
   var navlist = root.querySelector('[data-navlist]');
   navlist.innerHTML = [{ id: 'home', icon: 'compass', name: 'Home' }].concat(DEST).map(function (d) {
-    return '<a class="sk-nav" href="#/' + d.id + '">' +
+    return '<a class="sk-nav" ' + destAttrs(d) + '>' +
       '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
       '<span>' + d.name + '</span></a>';
   }).join('');

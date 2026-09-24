@@ -16,6 +16,10 @@ window.SHARK_HUB = {
   brandDir:   'beneve',
   cvFolder:   'Beneve Funnel Links',
   nameCv: 'beneve_rep_first_name',
+  /* The system's training hub. NOT KNOWN YET: no live host was found for this
+     system on 2026-09-24, so the Fast Start Training tile does not render. Set
+     it to the URL and the tile appears; that is the only change needed. */
+  training: null,
   domainCv: 'beneve_main_url',
   groups: [
     {
