@@ -210,3 +210,70 @@
 /* Belt and braces on the pillars: the markup is a <div> of <article>s now, matching the rest of
  * the family, but if one is ever re-marked as a list this keeps the bullets and indent off. */
 .sk-prod-nva-what .sk-prod-pillars{ list-style:none; padding-left:0; }
+
+/* ── the ask modal, 2026-09-24 ────────────────────────────────────────────────
+ * Both close CTAs open this instead of linking out. See block.html for why it is drawn here
+ * rather than as a native GHL popup, and why both doors route through the rep at all.
+ * Scoped under the page class like everything else, so it cannot reach another product page. */
+.sk-prod-nva-what .sk-nva-ask{
+  position:fixed; inset:0; z-index:9999;
+  display:grid; place-items:center;
+  padding:20px;
+}
+.sk-prod-nva-what .sk-nva-ask[hidden]{ display:none; }
+.sk-prod-nva-what .sk-nva-ask-scrim{
+  position:absolute; inset:0;
+  background:rgba(7,17,22,.62);
+  animation:sk-nva-ask-fade .18s ease-out;
+}
+.sk-prod-nva-what .sk-nva-ask-card{
+  position:relative;
+  width:min(440px,100%);
+  padding:30px 26px 26px;
+  border-radius:18px;
+  background:var(--sk-cream,#fcfeff);
+  box-shadow:0 24px 60px -20px rgba(7,17,22,.45);
+  text-align:center;
+  animation:sk-nva-ask-pop .2s cubic-bezier(.2,.8,.3,1);
+}
+.sk-prod-nva-what .sk-nva-ask-x{
+  position:absolute; top:10px; right:10px;
+  display:grid; place-items:center;
+  width:34px; height:34px;
+  border:0; border-radius:50%;
+  background:transparent; color:var(--sk-body,#4a5560);
+  cursor:pointer;
+}
+.sk-prod-nva-what .sk-nva-ask-x svg{ width:18px; height:18px; }
+.sk-prod-nva-what .sk-nva-ask-x:hover{ background:var(--sk-mist,#e8f8f6); }
+.sk-prod-nva-what .sk-nva-ask-x:focus-visible{ outline:2px solid var(--sk-teal); outline-offset:2px; }
+.sk-prod-nva-what .sk-nva-ask-h{
+  margin:0 0 10px;
+  font-size:1.3rem; line-height:1.25;
+  color:var(--sk-ink,#141313);
+  text-wrap:balance;
+}
+.sk-prod-nva-what .sk-nva-ask-p{
+  margin:0 0 20px;
+  font-size:.95rem; line-height:1.55;
+  color:var(--sk-body,#4a5560);
+}
+.sk-prod-nva-what .sk-nva-ask-go{ width:100%; justify-content:center; }
+/* ⚠️ THE `hidden` ATTRIBUTE DOES NOT HIDE THIS ON ITS OWN. `hidden` is only a UA rule of
+   display:none, and .sk-prod-btn sets display:inline-flex, which is more specific and wins.
+   The element then reads hidden===true in JS while rendering perfectly on screen, which is
+   exactly how the no-domain state shipped showing the button AND the "not set up yet" note
+   at the same time. Caught by screenshotting it, not by asserting on the property. */
+.sk-prod-nva-what .sk-nva-ask-go[hidden]{ display:none; }
+/* Shown INSTEAD of the button when the rep's domain is not filled in, rather than rendering
+   https:///n-what-is-nueva-product-dm-redirect and looking like a broken page. */
+.sk-prod-nva-what .sk-nva-ask-note{
+  margin:0; font-size:.85rem; line-height:1.5; color:var(--sk-body,#4a5560);
+}
+.sk-prod-nva-what .sk-nva-ask-note[hidden]{ display:none; }
+@keyframes sk-nva-ask-fade{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes sk-nva-ask-pop{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce){
+  .sk-prod-nva-what .sk-nva-ask-scrim,
+  .sk-prod-nva-what .sk-nva-ask-card{ animation:none; }
+}

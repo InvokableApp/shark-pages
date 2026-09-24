@@ -21,7 +21,8 @@
      data-cv-nueva_rep_full_name="{{custom_values.nueva_rep_full_name}}"
      data-cv-nueva_buy_link="{{custom_values.nueva_buy_link}}"
      data-cv-nueva_opportunity_url="{{custom_values.nueva_opportunity_url}}"
-     data-cv-nueva_income_disclaimer="{{custom_values.nueva_income_disclaimer}}">
+     data-cv-nueva_income_disclaimer="{{custom_values.nueva_income_disclaimer}}"
+     data-cv-nueva_main_url="{{custom_values.nueva_main_url}}">
 
   <!-- PRESENTED BY: a page a rep sends should say who sent it before it says anything else -->
   <div class="sk-nva-present">
@@ -193,12 +194,20 @@
       <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
         Two doors, and you're welcome through either.
       </p>
+      <!-- ⚠️ BOTH DOORS GO THROUGH THE REP, NOT STRAIGHT OUT. Two reasons, either decisive:
+             1. The opportunity page on nuevalife.com carries NO sponsor. Sending a reader there
+                cold credits nobody, and the site does not error, it just drops the rep.
+             2. A direct link is invisible. Routing the click through a funnel STEP makes it a
+                pageview, which is a trigger, which is the only reason the tag, the opportunity
+                card and the rep alert happen at all.
+           The rep then sends the link themselves, which the internal notification hands them
+           ready to paste. Same pattern as the Side Hustle Quiz and the No Crash Plan. -->
       <div class="sk-prod-cta-row" data-rise data-delay="2">
-        <a class="sk-prod-btn sk-prod-btn-lg" href="https://{{custom_values.nueva_buy_link}}" data-buy>
+        <button class="sk-prod-btn sk-prod-btn-lg" type="button" data-nva-ask="product">
           Shop as a customer
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="sk-prod-btn-ghost" href="https://{{custom_values.nueva_opportunity_url}}">See how sharing works</a>
+        </button>
+        <button class="sk-prod-btn-ghost" type="button" data-nva-ask="opportunity">See how sharing works</button>
       </div>
       <p class="sk-prod-fine">
         These statements have not been evaluated by the Food and Drug Administration. These products
@@ -206,4 +215,30 @@
       </p>
     </div>
   </section>
+  <!-- ── the ask modal ─────────────────────────────────────────────────────────────────
+       Drawn by the block, deliberately. A native GHL popup would mean cloning a popup
+       container: ids are minted per page, a re-minted one silently shrink-wraps to its own
+       headline width because the compiled rule keyed to the old id matches nothing, and
+       there is a one-popup-per-page limit that the two doors would fight over.
+
+       ⚠️ THE BUTTON HREF IS BUILT IN JS, NOT WRITTEN HERE. The destination needs
+       nueva_main_url, and a block fetched from GitHub Pages never passes through GHL, so a
+       {{custom_values.x}} inside an href we build at runtime would ship literal braces. The
+       loader substitutes the data-cv-* on the root; block.js reads it from there.
+  -->
+  <div class="sk-nva-ask" data-nva-modal hidden>
+    <div class="sk-nva-ask-scrim" data-nva-close></div>
+    <div class="sk-nva-ask-card" role="dialog" aria-modal="true" aria-labelledby="sk-nva-ask-h">
+      <button class="sk-nva-ask-x" type="button" data-nva-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h3 class="sk-nva-ask-h" id="sk-nva-ask-h" data-nva-h></h3>
+      <p class="sk-nva-ask-p" data-nva-p></p>
+      <a class="sk-prod-btn sk-prod-btn-lg sk-nva-ask-go" data-nva-go href="#">
+        Message me on Facebook
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="sk-nva-ask-note" data-nva-note hidden></p>
+    </div>
+  </div>
 </div>
