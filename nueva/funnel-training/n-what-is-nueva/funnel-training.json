@@ -60,7 +60,8 @@
   "ghlFunnel": "Nueva - What Is Nueva - Funnel",
   "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
   "parts": [
-    "howItWorks"
+    "howItWorks",
+    "followUp"
   ],
   "sections": {
     "flowViz": false,
