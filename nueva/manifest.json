@@ -338,6 +338,24 @@
       "elementTitle": "n-tone-and-tighten-guide-funnel",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "funnel-training/n-side-hustle",
+      "funnelId": "9qpDVqBotK8J0fVehsxK",
+      "pageId": "lZzW8ABfdAVUeO9L7YOq",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "How To Use This Funnel",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "funnel-training/n-what-is-nueva",
+      "funnelId": "c486p8BkWyFMJqSGx8f5",
+      "pageId": "i6gI5BGdeAg6rNQAXpZw",
+      "elementId": "custom-code-h1o93c53qu",
+      "elementTitle": "n-what-is-nueva-how-to",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }
