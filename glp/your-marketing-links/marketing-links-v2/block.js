@@ -145,8 +145,13 @@ var SYS = {
        pointed at does not exist in v2, so the tile rendered dead. v2 ships a real
        page for this - "Links Page for Sharing On Social Profiles" (/your-links) -
        and its custom value is your_links_funnel_link. */
-    { label: 'Your linktree', items: [
-      { cv: 'your_links_funnel_link', icon: 'compass', name: 'Linktree page',
+    /* RENAMED 2026-09-24. Joe: "we were getting rid of linktree yeah? swap out
+       the words." Jess: "should say Social Share Links." Display copy only: the
+       block folder, the funnel, the step slug and the custom value all still say
+       linktree, and renaming any of those breaks a live URL or a shipped socket
+       for no gain the rep can see. */
+    { label: 'Social share links', items: [
+      { cv: 'your_links_funnel_link', icon: 'compass', name: 'Social share links page',
         tease: 'Let them choose their path',
         howtoSlug: 'how-to-use-links',
         /* Joe, 2026-09-23: same call as "What I Do". The Linktree training
