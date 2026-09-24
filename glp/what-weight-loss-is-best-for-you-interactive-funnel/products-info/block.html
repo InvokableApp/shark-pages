@@ -1,0 +1,680 @@
+<!--
+  glp / what-weight-loss-is-best-for-you-interactive-funnel / products-info
+
+  Step 3 of the Weight Loss Supplement Recommendation (Quiz) funnel: the long-form product
+  education page the quiz confirmation sends people to. Converted from the native GHL page
+  sTr160Pm6w01sWHbzi0S (14 builder sections, ~1.1 MB page document) on 2026-09-24.
+
+  WHY IT WAS CONVERTED. The native page could only be changed in the builder, one account at
+  a time. Everything below now updates on a git push, for every account whose socket points
+  at this path. (HOSTED-BLOCKS-SOP §1.)
+
+  WHAT CHANGED IN THE CONVERSION, and it is deliberate:
+
+    1. THE EIGHT CLINICAL-STUDY CARDS WERE FLAT PNGs. Six unique images of typeset text, two
+       of them placed twice, baked at a fixed width. They are real HTML now: selectable,
+       searchable, translatable, readable by a screen reader, and re-flowing instead of
+       shrinking on a phone. Text transcribed verbatim from the source images, which are kept
+       at .audit/ for comparison. NOTHING WAS REWORDED: these are study citations.
+    2. THE DESKTOP/MOBILE DUPLICATE ELEMENTS ARE GONE. The builder page carried the same
+       headline, product shot and CTA twice, one copy hidden per breakpoint. One copy here,
+       laid out with CSS.
+    3. THE 01/02/03 NUMERALS were three separate custom-code blocks holding one absolutely
+       positioned div each. They are a ::before on the card now.
+    4. THE COMPARISON TABLE keeps its structure and every cell verbatim, but scrolls inside
+       its own container instead of forcing a 800px min-width on the page.
+
+  ⚠️ THE POPUP IS THE CONVERSION. Every CTA on the source page opened the page's NATIVE GHL
+  popup (the opt-in form), not a link. Each [data-optin] control here re-emits GHL's own
+  no-argument window event, so no popup id is ever named and one block serves every account
+  through a snapshot install. (HOSTED-BLOCKS-SOP §7.) The href="#claim" fallbacks stay on the
+  markup on purpose: if Pages is slow or the operator has not wired the popup yet, the button
+  moves the reader down the page instead of being dead.
+
+  ⚠️ COPY IS THE CLIENT'S, VERBATIM. Every claim, number, study citation, testimonial and the
+  FDA disclaimer are carried across unchanged from the live page. Do not "tighten" any of it
+  without Joe. The compliance line and the study details are not ours to edit.
+-->
+<div class="sk-glp-info">
+
+  <div class="sk-glp-prog" aria-hidden="true"><i></i></div>
+
+  <!-- ============ jump nav (mobile) ============ -->
+  <nav class="sk-glp-jump" aria-label="Jump to section">
+    <a href="#formula">The Formula</a>
+    <a href="#science">Science</a>
+    <a href="#drops">GLP Drops</a>
+    <a href="#drink">GLP Drink</a>
+  </nav>
+
+  <!-- ============ 1. hero ============ -->
+  <header class="sk-glp-hero">
+    <div class="sk-glp-wrap sk-glp-center">
+      <img class="sk-glp-mark" src="assets/orygn-wordmark.svg" alt="ORYGN" width="150" height="24">
+      <h1 class="sk-glp-h1" data-sk-reveal>
+        The &ldquo;GLP&rdquo; Needle Was Never The Breakthrough.
+        <em>The SIGNAL Was. Watch this video now!</em>
+      </h1>
+
+      <div class="sk-glp-video" data-sk-reveal>
+        <button class="sk-glp-video-facade" type="button"
+                data-video="https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a173eacab0c04a0ea371a41.mov"
+                aria-label="Play the video">
+          <img src="assets/video-poster.webp" alt="" width="1280" height="720" loading="eager">
+          <span class="sk-glp-play" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <button class="sk-glp-btn" type="button" data-optin>Try These Products!</button>
+      <p class="sk-glp-fine">&#128172; <em>Message us on Facebook (or text us) for more product &amp; sampling info!</em></p>
+    </div>
+  </header>
+
+  <!-- ============ 2. mode of action ============ -->
+  <section class="sk-glp-band sk-glp-band-mist" id="formula">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>The Mode of Action</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        Most supplements push one lever.
+        <em>Ours activate three.</em>
+      </h2>
+      <p class="sk-glp-sub" data-sk-reveal>
+        A proprietary peptide profile, fingerprinted as molecularly distinct from 1,324 other
+        commercial hydrolysates, that simultaneously engages three of the body&rsquo;s most
+        powerful regulatory systems.
+      </p>
+
+      <div class="sk-glp-grid sk-glp-grid-3" data-sk-stagger>
+        <article class="sk-glp-card sk-glp-path" data-num="01" data-sk-reveal>
+          <span class="sk-glp-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg>
+          </span>
+          <p class="sk-glp-kicker">Pathway One</p>
+          <h3 class="sk-glp-h3">GLP-1</h3>
+          <p class="sk-glp-lead">The Appetite Whisperer.</p>
+          <ul class="sk-glp-ticks">
+            <li>Regulates hunger at the neural level by activating brain receptors</li>
+            <li>Slows gastric emptying for natural satiety</li>
+            <li>Reduces food cravings and portion sizes</li>
+            <li>Promotes sustainable weight loss without effort</li>
+          </ul>
+        </article>
+
+        <article class="sk-glp-card sk-glp-path" data-num="02" data-sk-reveal>
+          <span class="sk-glp-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+          </span>
+          <p class="sk-glp-kicker">Pathway Two</p>
+          <h3 class="sk-glp-h3">GLP-2</h3>
+          <p class="sk-glp-lead">The Core Shield</p>
+          <ul class="sk-glp-ticks">
+            <li>Helps repair and strengthens intestinal barrier function</li>
+            <li>Reduces systemic inflammation throughout the body</li>
+            <li>Enhances nutrient absorption and gut microbiome</li>
+            <li>Promotes digestive wellness and immune function</li>
+          </ul>
+        </article>
+
+        <article class="sk-glp-card sk-glp-path" data-num="03" data-sk-reveal>
+          <span class="sk-glp-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
+          </span>
+          <p class="sk-glp-kicker">Pathway Three</p>
+          <h3 class="sk-glp-h3">GIP</h3>
+          <p class="sk-glp-lead">The Metabolic Optimizer</p>
+          <ul class="sk-glp-ticks">
+            <li>Optimizes insulin sensitivity and glucose regulation</li>
+            <li>Prevents blood sugar spikes and energy crashes</li>
+            <li>Enhances fat burning and metabolic efficiency</li>
+            <li>Supports sustained energy and mental clarity</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="sk-glp-scroll-cue" data-sk-reveal>Scroll below for more details&hellip;</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. clinical evidence ============ -->
+  <section class="sk-glp-band sk-glp-band-cream">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>The Clinical Evidence</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        Pharma Results.
+        <em>Natural Delivery.</em>
+      </h2>
+      <p class="sk-glp-sub" data-sk-reveal>
+        triGLP is a double patent-protected bioactive peptide derived from Norwegian Atlantic
+        salmon, classified as a New Dietary Ingredient (NDI) by the US FDA with self-GRAS
+        status. The science is real. The results are documented.
+      </p>
+
+      <div class="sk-glp-grid sk-glp-grid-3" data-sk-stagger>
+        <article class="sk-glp-card sk-glp-badge" data-sk-reveal>
+          <span class="sk-glp-ico sk-glp-ico-round" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3v5.2L4.8 17a3 3 0 0 0 2.6 4.5h9.2A3 3 0 0 0 19.2 17l-4.7-8.8V3"/><path d="M8.5 3h7"/></svg>
+          </span>
+          <h3 class="sk-glp-h4">Double Patent-Protected</h3>
+          <p>Unique peptide composition fingerprinted as molecularly distinct from 1,324 other commercial hydrolysates.</p>
+        </article>
+        <article class="sk-glp-card sk-glp-badge" data-sk-reveal>
+          <span class="sk-glp-ico sk-glp-ico-round" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+          </span>
+          <h3 class="sk-glp-h4">FDA NDI Status</h3>
+          <p>Classified as a New Dietary Ingredient by the US FDA with self-GRAS (Generally Recognized As Safe) status.</p>
+        </article>
+        <article class="sk-glp-card sk-glp-badge" data-sk-reveal>
+          <span class="sk-glp-ico sk-glp-ico-round" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 10h7M8.5 14h7M8.5 17.5h4"/></svg>
+          </span>
+          <h3 class="sk-glp-h4">Multiple Clinical Studies</h3>
+          <p>Validated across independent clinical trials measuring BMI, body composition, inflammation, and metabolic markers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. dual product CTA ============ -->
+  <section class="sk-glp-band sk-glp-band-white sk-glp-band-tight">
+    <div class="sk-glp-wrap">
+      <div class="sk-glp-duo" data-sk-stagger>
+        <div class="sk-glp-duo-item" data-sk-reveal>
+          <img src="assets/triglp-trio.webp" alt="Three bottles of ORYGN triGLP drops" width="1000" height="1000" loading="lazy">
+          <button class="sk-glp-btn" type="button" data-optin>Try The GLP Drops!</button>
+        </div>
+        <div class="sk-glp-duo-item" data-sk-reveal>
+          <img src="assets/ignyt-pack.webp" alt="ORYGN IGNYT metabolic booster pouch and stick packs" width="1000" height="1000" loading="lazy">
+          <button class="sk-glp-btn" type="button" data-optin>Try The GLP Drink!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. timeline (dark) ============ -->
+  <section class="sk-glp-band sk-glp-band-dark">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>When Will I See Results?</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        When you start taking the product&hellip;
+        <em class="sk-glp-em-light">here&rsquo;s what happens.</em>
+      </h2>
+      <p class="sk-glp-sub" data-sk-reveal>
+        Real results from real clinical data. No gimmicks, no guesswork, just a documented
+        protocol that works.
+      </p>
+
+      <ol class="sk-glp-timeline" data-sk-stagger>
+        <li class="sk-glp-card sk-glp-phase" data-sk-reveal>
+          <p class="sk-glp-kicker">Weeks 1&ndash;4</p>
+          <h3 class="sk-glp-h3">The Awakening</h3>
+          <p class="sk-glp-vsr">You may experience</p>
+          <ul class="sk-glp-ticks sk-glp-ticks-round">
+            <li>Reduced appetite and food cravings</li>
+            <li>More stable energy throughout the day</li>
+            <li>Improved sleep quality &amp; recovery</li>
+            <li>Food noise begins to quiet</li>
+          </ul>
+        </li>
+        <li class="sk-glp-card sk-glp-phase" data-sk-reveal>
+          <p class="sk-glp-kicker">Weeks 5&ndash;8</p>
+          <h3 class="sk-glp-h3">The Transformation</h3>
+          <p class="sk-glp-vsr">You may experience</p>
+          <ul class="sk-glp-ticks sk-glp-ticks-round">
+            <li>Fat starts to burn</li>
+            <li>Enhanced mental clarity &amp; focus</li>
+            <li>Better digestive health and comfort</li>
+            <li>Measurable BMI reduction begins</li>
+          </ul>
+        </li>
+        <li class="sk-glp-card sk-glp-phase" data-sk-reveal>
+          <p class="sk-glp-kicker">Week 9+</p>
+          <h3 class="sk-glp-h3">The New You</h3>
+          <p class="sk-glp-vsr">You may experience</p>
+          <ul class="sk-glp-ticks sk-glp-ticks-round">
+            <li>Sustained weight management</li>
+            <li>Optimized metabolic health</li>
+            <li>Complete lifestyle transformation</li>
+            <li>Compounds with continued use</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p class="sk-glp-sub sk-glp-sub-tight" data-sk-reveal>
+        Unlike pharma GLP-1s, when you stop, you don&rsquo;t rebound. triGLP&rsquo;s effects
+        compound with use, supporting lasting metabolic change rather than dependency.
+      </p>
+      <p class="sk-glp-disclaimer">
+        DISCLAIMER: These statements have not been evaluated by the Food and Drug
+        Administration. This product is not intended to diagnose, treat, cure, or prevent
+        any disease.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 6. the science ============ -->
+  <section class="sk-glp-band sk-glp-band-white" id="science">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>Pharma Results. Natural Delivery. Exclusively Distributed by ORYGN<sup>*</sup></p>
+      <h2 class="sk-glp-h2" data-sk-reveal>The <span class="sk-glp-hot">Science</span> Is Real.</h2>
+      <p class="sk-glp-sub sk-glp-sub-italic" data-sk-reveal>
+        Peer-reviewed clinical research, independent trials, and global recognition, every
+        product backed by uncompromising evidence.
+      </p>
+
+      <dl class="sk-glp-stats" data-sk-stagger>
+        <div data-sk-reveal><dt>$50M&#8202;+</dt><dd>Invested in research</dd></div>
+        <div data-sk-reveal><dt><span data-sk-count="10" data-sk-count-suffix="+">10+</span></dt><dd>Years of studies</dd></div>
+        <div data-sk-reveal><dt><span data-sk-count="8" data-sk-count-suffix="+">8+</span></dt><dd>Published studies</dd></div>
+        <div data-sk-reveal><dt><span data-sk-count="13">13</span></dt><dd>FDA claims</dd></div>
+        <div data-sk-reveal><dt><span data-sk-count="80" data-sk-count-suffix="+">80+</span></dt><dd>Countries</dd></div>
+        <div data-sk-reveal><dt><span data-sk-count="98" data-sk-count-suffix="%">98%</span></dt><dd>Bioavailability</dd></div>
+      </dl>
+
+      <!--
+        These eight cards were eight flat PNGs on the source page (six unique, two placed
+        twice). Transcribed verbatim. Do not reword a citation.
+      -->
+      <div class="sk-glp-studies" data-sk-stagger>
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag">Clinical Trial</p>
+          <h3>Iron Deficiency Anemia: Ferritin &amp; Hemoglobin Levels Following ProGo<sup>&reg;</sup> Supplementation vs. Whey Protein</h3>
+          <p class="sk-glp-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+          <p class="sk-glp-method">n = 48 &middot; Placebo-controlled vs. whey protein isolate &middot; 6 weeks &middot; 16g/day</p>
+          <p class="sk-glp-finding">+140% ferritin (restored to normal); +14% hemoglobin vs. +2% in whey group (p&lt;0.05). Basis for 6 FDA structure/function claims &amp; Health Canada qualified claims.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag">Clinical Trial</p>
+          <h3>Weight Management &amp; Metabolic Biomarkers: Randomised Placebo-Controlled Study on BMI in Overweight Adults</h3>
+          <p class="sk-glp-cite">Journal of Nutrition &amp; Food Sciences</p>
+          <p class="sk-glp-method">Overweight subjects &middot; Placebo-controlled vs. WPI &middot; 42 days &middot; 16g/day</p>
+          <p class="sk-glp-finding">&minus;5.9% BMI (p&lt;0.05); significant changes in 4 metabolism-relevant serum biomarkers; consistent 3&ndash;6% reduction in fasting blood glucose.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag">Clinical Trial</p>
+          <h3>Investigating the Efficacy of 18-Week Salmon Protein Hydrolysate Supplementation on Metabolic Inflammation, Well-Being &amp; Cosmetic Outcomes</h3>
+          <p class="sk-glp-cite">Functional Foods in Health and Disease &middot; 2024 &middot; Vol.14(11): 814&ndash;842</p>
+          <p class="sk-glp-method">n = 20 &middot; Open-label, single-arm &middot; 128 days &middot; 4g/day &middot; KGK Science Inc.</p>
+          <p class="sk-glp-finding">+10.24% perceived energy (women +14.55%); &minus;9% oxidative stress; HMOX1 &uarr;4.09&times;; FTH1 &uarr;3.77&times;; skin/hair/nail +24% (women +34.5%); IL-5, IL-8 &amp; CRP reduced.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag">Clinical Trial</p>
+          <h3>Iron Deficiency Anemia: Ferritin &amp; Hemoglobin Levels Following ProGo<sup>&reg;</sup> Supplementation vs. Whey Protein</h3>
+          <p class="sk-glp-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+          <p class="sk-glp-method">n = 48 &middot; Placebo-controlled vs. whey protein isolate &middot; 6 weeks &middot; 16g/day</p>
+          <p class="sk-glp-finding">+140% ferritin (restored to normal); +14% hemoglobin vs. +2% in whey group (p&lt;0.05). Basis for 6 FDA structure/function claims &amp; Health Canada qualified claims.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag sk-glp-tag-alt">In Vitro</p>
+          <h3>Initial Exploration of the In Vitro Activation of GLP-1 and GIP Receptors and Pancreatic Islet Cell Protection by Salmon-Derived Bioactive Peptides</h3>
+          <p class="sk-glp-cite">Marine Drugs &middot; MDPI &middot; 2024 &middot; 22(11): 490</p>
+          <p class="sk-glp-method">In vitro &middot; Currie C. et al. &middot; Hofseth BioCare</p>
+          <p class="sk-glp-finding">Smallest ProGo<sup>&reg;</sup> peptide fraction activates GLP-1 &amp; GIP receptors; pancreatic islet cell protection; DPP-IV inhibition; improved glucose uptake into muscle.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag sk-glp-tag-alt">In Vitro / Animal</p>
+          <h3>Soluble Protein Hydrolysate Ameliorates Gastrointestinal Inflammation and Injury in TNBS-Induced Colitis in Mice</h3>
+          <p class="sk-glp-cite">Biomolecules &middot; 2022 &middot; 12(9): 1287</p>
+          <p class="sk-glp-method">Mouse model of colitis &middot; Wei J. et al. &middot; Stanford University &amp; Hofseth BioCare</p>
+          <p class="sk-glp-finding">ProGo<sup>&reg;</sup> significantly reduced colon tissue injury, inflammatory cell infiltrates &amp; oxidative stress. HMOX1 upregulation confirmed. Led by Dr. Karl Sylvester MD, Stanford.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag sk-glp-tag-alt">In Vitro</p>
+          <h3>Antioxidant Gene Expression: ProGo<sup>&reg;</sup> Upregulates 16 Oxidative Protective Genes Including FTH1, HMOX1 &amp; ALOX12</h3>
+          <p class="sk-glp-cite">Hofseth BioCare / Stanford University &middot; Pre-clinical</p>
+          <p class="sk-glp-method">Human cell lines &middot; HBC &amp; Stanford University</p>
+          <p class="sk-glp-finding">ProGo<sup>&reg;</sup> upregulated 16 oxidative protective genes and downregulated 9 oxidative stress genes. FTH1, HMOX1 &amp; ALOX12 showed notable fold-change supporting observed clinical benefits.</p>
+        </article>
+
+        <article class="sk-glp-study" data-sk-reveal>
+          <p class="sk-glp-tag sk-glp-tag-alt">In Vitro</p>
+          <h3>Antioxidant Gene Expression: ProGo<sup>&reg;</sup> Upregulates 16 Oxidative Protective Genes Including FTH1, HMOX1 &amp; ALOX12</h3>
+          <p class="sk-glp-cite">Hofseth BioCare / Stanford University &middot; Pre-clinical</p>
+          <p class="sk-glp-method">Human cell lines &middot; HBC &amp; Stanford University</p>
+          <p class="sk-glp-finding">ProGo<sup>&reg;</sup> upregulated 16 oxidative protective genes and downregulated 9 oxidative stress genes. FTH1, HMOX1 &amp; ALOX12 showed notable fold-change supporting observed clinical benefits.</p>
+        </article>
+      </div>
+
+      <p class="sk-glp-center"><button class="sk-glp-btn" type="button" data-optin>Check Out More Of The Science&hellip;</button></p>
+    </div>
+  </section>
+
+  <!-- ============ 7. the honest comparison ============ -->
+  <section class="sk-glp-band sk-glp-band-mist">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>The Honest Comparison</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        The breakdown is below&hellip;
+        <em>Which are you choosing?</em>
+      </h2>
+      <p class="sk-glp-sub" data-sk-reveal>
+        We&rsquo;re not asking you to choose between results and your health. triGLP delivers both.
+      </p>
+
+      <div class="sk-glp-table-wrap" data-sk-reveal>
+        <div class="sk-glp-table" role="table" aria-label="triGLP compared with pharma GLP-1 and standard collagen">
+          <div class="sk-glp-th sk-glp-rowhead"></div>
+          <div class="sk-glp-th">Pharma GLP-1</div>
+          <div class="sk-glp-th">Standard Collagen</div>
+          <div class="sk-glp-th sk-glp-own sk-glp-own-top">triGLP <span class="sk-glp-dot" aria-hidden="true"></span></div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Format</div>
+          <div class="sk-glp-td">Weekly injection</div>
+          <div class="sk-glp-td">Daily scoop</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> A few drops, daily</div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Mechanism</div>
+          <div class="sk-glp-td">GLP-1 agonist (1 pathway)</div>
+          <div class="sk-glp-td">Protein supplementation</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> 3-pathway peptide activation</div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Muscle Preservation</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> Documented loss</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> No measured effect</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> Inhibits myostatin &amp; Activin A</div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Gut Health</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> Gastric side effects</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> Stanford study: no benefit</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> GLP-2 + HMOX1 activation</div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Side Effect Profile</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> Common &amp; significant</div>
+          <div class="sk-glp-td">Minimal</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> No serious side effects reported</div>
+
+          <div class="sk-glp-td sk-glp-rowhead">Cost (typical)</div>
+          <div class="sk-glp-td"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> $900&ndash;1,300 / month</div>
+          <div class="sk-glp-td">$30&ndash;60 / month</div>
+          <div class="sk-glp-td sk-glp-own"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> As low as $65 / month</div>
+
+          <div class="sk-glp-td sk-glp-rowhead sk-glp-last">Sustainability</div>
+          <div class="sk-glp-td sk-glp-last"><i class="sk-glp-no" aria-hidden="true">&#10005;</i> Stop = rebound</div>
+          <div class="sk-glp-td sk-glp-last">Indefinite</div>
+          <div class="sk-glp-td sk-glp-own sk-glp-own-btm sk-glp-last"><i class="sk-glp-yes" aria-hidden="true">&#10003;</i> Compounds with use</div>
+        </div>
+      </div>
+
+      <p class="sk-glp-center">
+        <button class="sk-glp-btn" type="button" data-optin>Get triGLP</button>
+        <span class="sk-glp-fine">No subscription required. No commitment.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 8. testimonials ============ -->
+  <section class="sk-glp-band sk-glp-band-white">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>Proof in Every Drop</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        Real people.
+        <em>Real results.</em>
+      </h2>
+      <p class="sk-glp-sub" data-sk-reveal>This is what happens when the science actually works.</p>
+
+      <div class="sk-glp-grid sk-glp-grid-3" data-sk-stagger>
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">11 lbs in 11 days!</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;I can&rsquo;t believe it! I lost 11 pounds in 11 days! I have to force myself to eat when I am taking this. No needles and I feel like a million bucks!&rdquo;</blockquote>
+          <figcaption><img src="assets/t6.webp" alt="" width="80" height="80" loading="lazy"><span><b>DeMarr Z.</b><i>United States</i></span></figcaption>
+        </figure>
+
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">6 lbs in 19 days</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;19 days, 10 drops a day. I&rsquo;m down 6 pounds, my body fat has dropped, my energy is up, and my confidence is HIGH&hellip; even my husband keeps telling me how good I look!&rdquo;</blockquote>
+          <figcaption><img src="assets/t5.webp" alt="" width="80" height="80" loading="lazy"><span><b>Rosie A.</b><i>United States</i></span></figcaption>
+        </figure>
+
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">Results in 3 days</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;Just three days and I&rsquo;m already down a pound. Cravings diminished significantly. Giddy, steady energy all day long, no crash, no fog, just steady, happy me!&rdquo;</blockquote>
+          <figcaption><img src="assets/t4.webp" alt="" width="80" height="80" loading="lazy"><span><b>Brittany P.</b><i>United States</i></span></figcaption>
+        </figure>
+
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">6.2 lbs lost</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;From Day 1 and even better every day thereafter, energy that sustained ALL DAY with so much more focus. Have lost 6.2 pounds and feel like I have lost inches!&rdquo;</blockquote>
+          <figcaption><img src="assets/t3.webp" alt="" width="80" height="80" loading="lazy"><span><b>Lisa P.</b><i>United States</i></span></figcaption>
+        </figure>
+
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">Manages Hashimoto&rsquo;s</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;Didn&rsquo;t realize how much triGLP helped until I ran out. Despite managing Hashimoto&rsquo;s and perimenopause, it kept me balanced, calming cravings and food noise. Could clearly feel the difference!&rdquo;</blockquote>
+          <figcaption><img src="assets/t2.webp" alt="" width="80" height="80" loading="lazy"><span><b>Erica S.</b><i>United States</i></span></figcaption>
+        </figure>
+
+        <figure class="sk-glp-card sk-glp-quote" data-sk-reveal>
+          <p class="sk-glp-result">3 lbs in 6 days</p>
+          <p class="sk-glp-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote>&ldquo;6 days testing, whole new way of living! Energy, clarity, focus. No food noise or emotional eating. Down 3lbs, bye stubborn fat. Transforming me in every way!&rdquo;</blockquote>
+          <figcaption><img src="assets/t1.webp" alt="" width="80" height="80" loading="lazy"><span><b>Misty M.</b><i>United States</i></span></figcaption>
+        </figure>
+      </div>
+
+      <dl class="sk-glp-scorecard" data-sk-reveal>
+        <div>
+          <p class="sk-glp-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <dt>4.9</dt><dd>Average rating</dd>
+        </div>
+        <div><dt><span data-sk-count="4200" data-sk-count-suffix="+">4,200+</span></dt><dd>Active users</dd></div>
+        <div><dt>0</dt><dd>Serious side effects</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ 9. divider ============ -->
+  <section class="sk-glp-band sk-glp-band-white sk-glp-band-tight">
+    <div class="sk-glp-wrap">
+      <h2 class="sk-glp-h2 sk-glp-h2-inline" data-sk-reveal>
+        Two delivery systems. <em>Same Powerful Formula.</em> Which are you choosing?
+      </h2>
+    </div>
+  </section>
+
+  <!-- ============ 10. triGLP drops ingredients ============ -->
+  <section class="sk-glp-band sk-glp-band-mist" id="drops">
+    <div class="sk-glp-wrap">
+      <div class="sk-glp-split">
+        <div class="sk-glp-split-copy" data-sk-reveal>
+          <p class="sk-glp-pill sk-glp-pill-left">TriGLP Drops&hellip;</p>
+          <h2 class="sk-glp-h2 sk-glp-h2-left sk-glp-h2-serif">
+            Four ingredients.
+            <em>Nothing to hide.</em>
+          </h2>
+          <p class="sk-glp-lede">
+            triGLP contains only four all-natural ingredients. Most supplements bury their
+            formula in a proprietary blend. We list every ingredient because we have nothing
+            to hide, and everything to prove.
+          </p>
+
+          <ul class="sk-glp-ingredients" data-sk-stagger>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>Norwegian Salmon Protein Hydrolysate</h3>
+                <p class="sk-glp-ing-role">The active peptide complex</p>
+                <p>Sashimi-grade Atlantic salmon from Norway, processed via patented gentle enzymatic hydrolysis. The source of all three bioactive pathways: GLP-1, GLP-2, and antioxidant activation.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg>
+              </span>
+              <div>
+                <h3>Organic Lemon Peel Extract</h3>
+                <p class="sk-glp-ing-role">Bioavailability enhancer</p>
+                <p>Supports absorption and adds natural flavor. Rich in flavonoids that complement the anti-inflammatory effects of the peptide complex.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg>
+              </span>
+              <div>
+                <h3>Organic Ginger Root Extract</h3>
+                <p class="sk-glp-ing-role">Digestive support &amp; anti-inflammatory</p>
+                <p>Synergizes with the GLP-2 gut health pathway. Ginger&rsquo;s natural gingerols support the digestive benefits and further reduce systemic inflammation.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3z"/></svg>
+              </span>
+              <div>
+                <h3>Deionized Water</h3>
+                <p class="sk-glp-ing-role">Ultra-pure carrier</p>
+                <p>That&rsquo;s it. No fillers, no binders, no artificial preservatives, no synthetic compounds. The formula is exactly as clean as it sounds.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="sk-glp-note" data-sk-reveal>
+            <span class="sk-glp-ing-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+            </span>
+            <span><b>FDA NDI Status + Self-GRAS Certified.</b> triGLP has been classified as a New Dietary Ingredient by the US FDA, the highest safety standard for dietary supplements.</span>
+          </p>
+
+          <p><button class="sk-glp-btn" type="button" data-optin>Try The GLP Drops!</button></p>
+        </div>
+
+        <div class="sk-glp-split-art" data-sk-reveal>
+          <img src="assets/triglp-bottle.webp" alt="A bottle of ORYGN triGLP drops" width="900" height="1200" loading="lazy" data-sk-parallax="0.08">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. IGNYT powder ingredients ============ -->
+  <section class="sk-glp-band sk-glp-band-mist" id="drink">
+    <div class="sk-glp-wrap">
+      <div class="sk-glp-split sk-glp-split-flip">
+        <div class="sk-glp-split-copy" data-sk-reveal>
+          <p class="sk-glp-pill sk-glp-pill-left">IGNYT Powder&hellip;</p>
+          <h2 class="sk-glp-h2 sk-glp-h2-left sk-glp-h2-serif">
+            Four ingredients.
+            <em>Simple. Pure. Powerful.</em>
+          </h2>
+          <p class="sk-glp-lede">
+            IGNYT contains only four all-natural ingredients. We created IGNYT with advanced
+            technology that delivers maximum bioavailability and unlocks the full potential of
+            every ingredient.
+          </p>
+
+          <ul class="sk-glp-ingredients" data-sk-stagger>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>Norwegian Salmon Protein Hydrolysate</h3>
+                <p class="sk-glp-ing-role">The active peptide complex</p>
+                <p>Sashimi-grade Atlantic salmon from Norway, processed via patented gentle enzymatic hydrolysis. The source of all three bioactive pathways: GLP-1, GLP-2, and antioxidant activation.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-3.5 0-6-2.5-6-6 0-3 2-5.5 6-5.5s6 2.5 6 5.5c0 3.5-2.5 6-6 6z"/><path d="M12 9.5V5.5M12 5.5C12 4 13 3 14.5 3"/></svg>
+              </span>
+              <div>
+                <h3>Beet Powder</h3>
+                <p>Provides natural color and additional antioxidants.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg>
+              </span>
+              <div>
+                <h3>Stevia Reb A</h3>
+                <p>A natural, plant-based sweetener with zero calories.</p>
+              </div>
+            </li>
+            <li data-sk-reveal>
+              <span class="sk-glp-ing-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="4.5"/><circle cx="16" cy="11" r="4"/><path d="M13 5.5c0-1.5 1-2.5 2.5-2.5"/></svg>
+              </span>
+              <div>
+                <h3>Natural Cranberry and Apple Flavor</h3>
+                <p>Delicious and refreshing taste you&rsquo;ll love.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="sk-glp-note" data-sk-reveal>
+            <span class="sk-glp-ing-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+            </span>
+            <span><b>PATENTED, PROPRIETARY EXTRACTION PROCESS.</b> Advanced technology that delivers maximum bioavailability and unlocks the full potential of every ingredient.</span>
+          </p>
+
+          <p><button class="sk-glp-btn" type="button" data-optin>Try The GLP Drink!</button></p>
+        </div>
+
+        <div class="sk-glp-split-art" data-sk-reveal>
+          <img src="assets/ignyt-pack.webp" alt="ORYGN IGNYT metabolic booster pouch and stick packs" width="1000" height="1000" loading="lazy" data-sk-parallax="0.08">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12. FAQ ============ -->
+  <section class="sk-glp-band sk-glp-band-mist" id="claim">
+    <div class="sk-glp-wrap">
+      <p class="sk-glp-pill" data-sk-reveal>Frequently Asked Questions</p>
+      <h2 class="sk-glp-h2" data-sk-reveal>
+        Every question.
+        <em>Answered honestly.</em>
+      </h2>
+
+      <div class="sk-glp-faq" data-sk-stagger>
+        <details data-sk-reveal>
+          <summary>How do I take triGLP?</summary>
+          <p>Place 5&ndash;10 drops under your tongue (sublingual) once or twice daily. Hold for 30&ndash;60 seconds before swallowing for maximum absorption. The sublingual delivery bypasses the digestive system for faster, more efficient uptake.</p>
+        </details>
+        <details data-sk-reveal>
+          <summary>Is triGLP all natural?</summary>
+          <p>Yes, 100%. triGLP contains only four ingredients: Norwegian Salmon Protein Hydrolysate (the active peptide), Deionized Water, Organic Lemon Peel Extract, and Organic Ginger Root Extract. No synthetic compounds, no fillers, no artificial preservatives.</p>
+        </details>
+        <details data-sk-reveal open>
+          <summary>How is this different from other GLP products on the market?</summary>
+          <p>Many of the other GLP products (not all) are synthetic drugs delivered by weekly injection that activate only one pathway (GLP-1). They typically cost $900&ndash;1,300/month without insurance, have documented side effects including nausea and muscle loss, and cause rebound weight gain when stopped. triGLP is an all-natural bioactive peptide that activates three pathways (GLP-1, GLP-2, and antioxidant), costs as little as $65/month, has no serious side effects, and compounds with continued use.</p>
+        </details>
+        <details data-sk-reveal>
+          <summary>What clinical research supports triGLP&rsquo;s claims?</summary>
+          <p>triGLP has been validated across multiple independent clinical studies showing: 6&ndash;7% BMI reduction in 6&ndash;8 weeks, 10% body fat decrease with zero muscle loss, 15% reduction in IL-6 inflammation markers, 100% improvement in muscle glucose uptake, and 3&ndash;6% reduction in fasting blood glucose. It is double patent-protected and holds FDA New Dietary Ingredient (NDI) status with self-GRAS certification.</p>
+        </details>
+        <details data-sk-reveal>
+          <summary>When will I see results?</summary>
+          <p>Most users report reduced cravings and more stable energy within the first 4 weeks. Significant fat loss and body composition changes typically become visible between weeks 5&ndash;8. The full clinical protocol runs 8+ weeks for maximum results, with effects that compound with continued use.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13. footer ============ -->
+  <footer class="sk-glp-foot">
+    <div class="sk-glp-wrap">
+      <p>DISCLAIMER: These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
+  </footer>
+
+  <!-- sticky mobile CTA -->
+  <div class="sk-glp-bar" aria-hidden="false">
+    <button class="sk-glp-btn sk-glp-btn-bar" type="button" data-optin>Try These Products!</button>
+  </div>
+
+</div>
