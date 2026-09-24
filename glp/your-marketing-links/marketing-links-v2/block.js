@@ -141,6 +141,10 @@ var SYS = {
       { cv: 'your_links_funnel_link', icon: 'compass', name: 'Linktree page',
         tease: 'Let them choose their path',
         howtoSlug: 'how-to-use-links',
+        /* Joe, 2026-09-23: same call as "What I Do". The Linktree training
+           page is data-parts="1", so rows 2 and 3 pointed at #part-2 and
+           #part-3 anchors that are not on it. */
+        parts: 1,
         howto: 'https://glpshark.com/navigation-page-training',
         desc: 'One page that lets people pick their own direction, product or opportunity. Strong link for social bios and broad ads.' } ]},
 
