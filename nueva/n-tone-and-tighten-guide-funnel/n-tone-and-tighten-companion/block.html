@@ -16,12 +16,17 @@
 <nav class="gnav">
   <span class="brand">Which One Is Right For Me?</span>
   <a href="#start-here">Start here</a>
-  <a href="#how-to-read-a-label-in-60">Labels</a>
-  <a href="#the-ones-with-something-b">Worth it</a>
+  <a href="#how-to-read-a-label-in-6">Labels</a>
+  <a href="#the-ones-with-something-">Worth it</a>
   <a href="#the-ones-that-don-t-hold">Doesn't hold up</a>
   <span class="spacer"></span>
   <a href="https://{{custom_values.nueva_tone_and_tighten_companion_pdf_url}}" target="_blank" rel="noopener">Print</a>
-  <a class="nav-cta" href="#so-which-one-is-right-for">Which one</a>
+  <!-- ⚠️ THE SECTION IDS ARE TRUNCATED AT 24 CHARACTERS AND THESE HREFS WERE WRITTEN AT 25.
+       Three of the five nav links pointed at ids that do not exist, so a click did nothing at
+       all: no jump, no error, no console line. Found 2026-09-24 while relabelling this button,
+       which was itself one of the dead ones. If a section id ever changes, re-run the anchor
+       check rather than eyeballing it, because the failure is completely silent. -->
+  <a class="nav-cta" href="#so-which-one-is-right-fo">See the recommended product</a>
 </nav>
 <div class="guide-wrap">
 
