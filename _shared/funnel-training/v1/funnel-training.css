@@ -2250,9 +2250,29 @@
    ============================================================ */
 
 /* A lone part has nothing to switch between, so the strip goes and the
-   accordion header stops offering to collapse the only thing on the page. */
+   accordion header stops offering to collapse the only thing on the page.
+
+   ⚠️ Joe, 2026-09-23, looking at a live one-part page: "it's a little rough,
+   we'd want the same header as the how does this funnel work section." Hiding
+   .sk-acc outright took the section's TITLE with it, so the page opened on a
+   paragraph with nothing naming what it was. The header comes back; what stays
+   gone is the INTERACTION, which is the part that made no sense with one part:
+   no number badge, no chevron, nothing to click.
+
+   Scope note for the versioning rule: every selector here is
+   [data-parts="1"], and the only pages carrying that are the four one-part
+   training pages (glp + conectiv × linktree, what-i-do). A three-part page
+   cannot match, so this cannot reach one. Verified by rendering both. */
 .sk-ftrain .sk-tabs[data-parts="1"] .sk-tabstrip { display: none; }
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc      { display: none; }
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc {
+  pointer-events: none;
+  cursor: default;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc .sk-part-num,
+.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc .sk-chev { display: none; }
 .sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-wrap,
 .sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-clip { height: auto; overflow: visible; }
 .sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-body { padding-top: 4px; }

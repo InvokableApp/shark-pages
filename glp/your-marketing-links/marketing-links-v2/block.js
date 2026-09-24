@@ -119,6 +119,13 @@ var SYS = {
       { cv: 'orygn_tour_funnel_link', icon: 'info', name: '&#8220;What I Do&#8221; Funnel',
         tease: 'A page that explains what you do',
         howtoSlug: 'tour-funnel-how-to-use1',
+        /* Joe, 2026-09-23, voice note: "we don't want the 2nd and 3rd tabs, so
+           the how I generate leads and the what to say to leads when they come
+           in tabs for that one. We just want the how does this funnel work."
+           This mirrors the training page, which is built data-parts="1" - so
+           the rows we were showing linked to #part-2 and #part-3 anchors that
+           do not exist on it. */
+        parts: 1,
         desc: 'The full tour. Products, the opportunity and the comp plan in one place, for anyone who asks what ORYGN actually is, and what you are doing with it.' } ]},
 
     /* CONFIRMED 2026-09-23. This group was an inference: Joe listed "your
@@ -352,7 +359,7 @@ var SYS = {
     var base = howtoUrl(it);
     if (!base) return '';
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
-      TRAINING.map(function (t) {
+      TRAINING.filter(function (t) { return t.part <= (it.parts || 3); }).map(function (t) {
         return '<a class="sk-action sk-action--sub" href="' + base + '#part-' + t.part + '" target="_blank" rel="noopener">' +
           '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
           '<span class="sk-action-label">' + t.label +
