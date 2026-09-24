@@ -14,7 +14,14 @@
   "pointing at another funnel's file would send reps to the wrong creative.",
   "",
   "NO ADS SECTION, for the same reason as the other four: Nueva has no seller-side domain yet,",
-  "so there is nothing truthful to point at."
+  "so there is nothing truthful to point at.",
+  "",
+  "UPDATED 2026-09-24: both page CTAs now open an ask modal instead of linking out. The reader",
+  "is sent to a DM redirect step, which fires a Fire Lead: tag, opportunity card, and an SMS to",
+  "the rep carrying the link to send back. Two doors, two steps, two pipelines, because the",
+  "account has a Recruitment ladder and a Customer Sales ladder and one step cannot file into",
+  "both. The rep has to KNOW this or the alert lands and they do not act on it, which is why",
+  "the sub and the first prompt card both say it."
  ],
  "system": "nueva",
  "funnel": "how-to",
@@ -23,7 +30,7 @@
  "logo": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
  "logoAlt": "NUEVASHARK, AI Marketing System",
  "videos": [],
- "sub": "One page that answers the question you get asked most: what is it you actually do? Send it when someone has already shown interest, not before. It carries your name and your buy link, so a reader who is ready can act without coming back to you first, and a reader who is not has still had the whole thing explained properly.",
+ "sub": "One page that answers the question you get asked most: what is it you actually do? Send it when someone has already shown interest, not before. Its two buttons do not send the reader off to buy or sign up on their own: they ask her to message you, so every serious reader ends up in your inbox and you get a text the moment it happens, with the link to send her already in it.",
  "links": [
   {
    "icon": "eye",
@@ -42,8 +49,15 @@
    "url": "https://{{custom_values.nueva_main_url}}/n-marketing-links"
   }
  ],
- "promptLabel": "What to say when you send it",
+ "promptLabel": "What happens when she clicks, and what to say",
  "prompt": [
+  {
+   "icon": "info",
+   "title": "Both buttons send her to you",
+   "tease": "\"Shop as a customer\" and \"See how sharing works\" both open a box asking her to message you. You get a text naming which one she picked, with the link to send back already written out. Open Messenger, tap Message Requests, then the Spam tab inside it: that is where a message from someone who is not your friend lands, and it stays hidden until you look.",
+   "copyLabel": "Copy the reminder",
+   "text": "Check Messenger > Message Requests > Spam. Messages from people who are not already my friend land there and stay hidden."
+  },
   {
    "icon": "chat",
    "title": "Send it like this",
