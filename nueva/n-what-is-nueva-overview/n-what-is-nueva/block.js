@@ -19,7 +19,7 @@
  * which is the point.
  *
  * ⚠️ THE DESTINATION IS BUILT HERE BECAUSE IT CANNOT BE WRITTEN IN THE MARKUP. The markup is
- * fetched from GitHub Pages, so GHL never sees it and never substitutes {{custom_values.x}}.
+ * fetched from GitHub Pages, so GHL never sees it and never substitutes a merge field.
  * The loader fills the data-cv-* attributes on the root; this reads nueva_main_url off there
  * and assembles the redirect URL.
  *

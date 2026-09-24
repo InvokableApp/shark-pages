@@ -224,7 +224,7 @@
 .sk-prod-nva-what .sk-nva-ask-scrim{
   position:absolute; inset:0;
   background:rgba(7,17,22,.62);
-  animation:sk-nva-ask-fade .18s ease-out;
+  animation:sk-prod-nva-ask-fade .18s ease-out;
 }
 .sk-prod-nva-what .sk-nva-ask-card{
   position:relative;
@@ -234,7 +234,7 @@
   background:var(--sk-cream,#fcfeff);
   box-shadow:0 24px 60px -20px rgba(7,17,22,.45);
   text-align:center;
-  animation:sk-nva-ask-pop .2s cubic-bezier(.2,.8,.3,1);
+  animation:sk-prod-nva-ask-pop .2s cubic-bezier(.2,.8,.3,1);
 }
 .sk-prod-nva-what .sk-nva-ask-x{
   position:absolute; top:10px; right:10px;
@@ -271,8 +271,8 @@
   margin:0; font-size:.85rem; line-height:1.5; color:var(--sk-body,#4a5560);
 }
 .sk-prod-nva-what .sk-nva-ask-note[hidden]{ display:none; }
-@keyframes sk-nva-ask-fade{ from{ opacity:0; } to{ opacity:1; } }
-@keyframes sk-nva-ask-pop{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+@keyframes sk-prod-nva-ask-fade{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes sk-prod-nva-ask-pop{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
 @media (prefers-reduced-motion:reduce){
   .sk-prod-nva-what .sk-nva-ask-scrim,
   .sk-prod-nva-what .sk-nva-ask-card{ animation:none; }
