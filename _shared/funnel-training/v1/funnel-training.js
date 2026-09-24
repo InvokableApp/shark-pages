@@ -507,8 +507,16 @@ if (!window.__sharkFunnelTraining) {
     return out.join("\n\n");
   }
 
-  function init(root) {
-    root.querySelectorAll(".sk-say-card").forEach(function (card) {
+  /* Queried document-wide, deliberately NOT through the scope class. The draft is
+     authored against .sk-ftrain and the publisher rewrites it to .sk-ftrain, but
+     that rewrite is a string swap on ".sk-ftrain " with a trailing space; a bare
+     querySelectorAll(".sk-ftrain") slips straight through it and then matches
+     nothing on the published page. The class is decoration here anyway: a card
+     only exists inside this component. Fixed after shipping exactly that bug.  */
+  function init() {
+    document.querySelectorAll(".sk-say-card").forEach(function (card) {
+      if (card.getAttribute("data-say-done")) return;
+      card.setAttribute("data-say-done", "1");
       var bad = false;
 
       card.querySelectorAll(".sk-cv").forEach(function (pill) {
@@ -566,5 +574,9 @@ if (!window.__sharkFunnelTraining) {
     document.body.removeChild(ta);
   }
 
-  document.querySelectorAll(".sk-howto").forEach(init);
+  /* The loader injects the markup and only THEN loads this file, so the cards are
+     normally present on first run. A retry covers the case where they are not,
+     and the data-say-done flag makes a second pass a no-op. */
+  init();
+  if (!document.querySelector(".sk-say-card")) setTimeout(init, 400);
 })();
