@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Manrope:wght@500;700;800&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:"Manrope",system-ui,sans-serif;
+    background:#FBFBF9;
+    position:relative;
+    display:grid;grid-template-columns:1fr 400px;align-items:center;
+    padding:56px 56px 56px 72px;
+  }
+  /* one ember wash, bottom-right, so the product side carries the warmth */
+  body::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 90% at 88% 78%, rgba(254,80,0,.16), rgba(254,80,0,0) 62%);
+  }
+  .l{position:relative;z-index:1;max-width:640px}
+  .mark{height:26px;margin-bottom:34px;opacity:.92}
+  h1{
+    font-weight:800;font-size:61px;line-height:1.03;letter-spacing:-.028em;
+    color:#1F2E29;text-wrap:balance;
+  }
+  h1 em{
+    display:block;margin-top:6px;
+    font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:700;
+    font-size:66px;line-height:1.06;letter-spacing:0;color:#FE5000;
+  }
+  .rule{width:64px;height:4px;background:#FE5000;border-radius:2px;margin:34px 0 26px}
+  ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap}
+  li{font-size:19px;font-weight:700;color:#41564F;display:flex;align-items:center;gap:9px}
+  li b{color:#FE5000;font-weight:800}
+  .r{position:relative;z-index:1;height:100%;display:grid;place-items:center}
+  .r img{max-height:500px;max-width:100%;width:auto;filter:drop-shadow(0 34px 44px rgba(31,46,41,.26))}
+</style></head><body>
+  <div class="l">
+    <img class="mark" src="orygn-wordmark.svg" alt="">
+    <h1>The &ldquo;GLP&rdquo; Needle Was Never The Breakthrough.<em>The SIGNAL Was.</em></h1>
+    <div class="rule"></div>
+    <ul>
+      <li><b>3</b> peptide pathways</li>
+      <li><b>8+</b> published studies</li>
+      <li><b>FDA</b> NDI status</li>
+    </ul>
+  </div>
+  <div class="r"><img src="triglp-bottle.webp" alt=""></div>
+</body></html>
