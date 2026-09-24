@@ -1,0 +1,25 @@
+/* NUEVA / funnel-training / n-links
+ *
+ * The design lives in _shared/funnel-training/v1/funnel-training.css, scoped
+ * under .sk-ftrain. This file declares ONLY the nine palette tokens, on the
+ * block's own scope class, and they cascade into the shared component.
+ * Per SHARK-DESIGN-SYSTEM 2 and 7.
+ *
+ * Nothing else belongs here. A per-page override means the shared component
+ * needs a variant, not that this file needs a rule.
+ */
+@import url("https://invokableapp.github.io/shark-pages/_shared/funnel-training/v1/funnel-training.css");
+
+.sk-nueva-funnel-training-n-links {
+  --sk-brand:       #0ABAB5;
+  --sk-brand-btn:   #087F7B;
+  --sk-brand-deep:  #087F7B;
+  --sk-brand-tint:  #E8F8F6;
+  --sk-ink:         #141313;
+  --sk-ink-soft:    #4A5560;
+  --sk-ink-faint:   #8AA0A4;
+  --sk-paper:       #FCFEFF;
+  --sk-line:        #D5DFE1;
+  --sk-line-soft:   #E9F1F2;
+  --sk-card:        #FFFFFF;
+}
