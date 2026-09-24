@@ -311,6 +311,33 @@
       "elementTitle": "n-marketing-links",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "funnel-training/n-links",
+      "funnelId": "GiV6yKe2p0zA6245vOlt",
+      "pageId": "8QkpThhsWPz5dIg54Q0S",
+      "elementId": "custom-code-p5aufa3nu5",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "funnel-training/n-no-crash-plan",
+      "funnelId": "bkEl1PJBVkbSJcpAy51M",
+      "pageId": "LyNKJ8o7LNG1cGFFINBB",
+      "elementId": "custom-code-xw1ak299z3",
+      "elementTitle": "n-no-crash-plan-how-to",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "funnel-training/n-tone-and-tighten-guide",
+      "funnelId": "xNJhPdwo3zLb7MAe4uUf",
+      "pageId": "6umunJ4ipP8Zks4VAv0v",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-tone-and-tighten-guide-funnel",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
     }
   ]
 }

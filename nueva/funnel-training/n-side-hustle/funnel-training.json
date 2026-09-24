@@ -1,0 +1,80 @@
+{
+  "system": "nueva",
+  "brand": "Nueva Shark",
+  "host": "",
+  "locationId": "sKmJ8BrXPCYR2g7aYRX0",
+  "logo": "logo-nueva.svg",
+  "logoUrl": "https://invokableapp.github.io/shark-pages/_brand/nueva/logo.svg",
+  "logoAlt": "NUEVASHARK, AI Marketing System",
+  "palette": {
+    "sk-brand": "#0ABAB5",
+    "sk-brand-btn": "#087F7B",
+    "sk-brand-deep": "#087F7B",
+    "sk-brand-tint": "#E8F8F6",
+    "sk-ink": "#141313",
+    "sk-ink-soft": "#4A5560",
+    "sk-ink-faint": "#8AA0A4",
+    "sk-paper": "#FCFEFF",
+    "sk-line": "#D5DFE1",
+    "sk-line-soft": "#E9F1F2",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1228591895",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Quiz landing page explaining what the quiz sorts for",
+      "She answers the questions…",
+      "Results page handing her into the Nueva opportunity"
+    ],
+    "optInStep": "Quiz Landing Page",
+    "confirmStep": "Quiz Results Page",
+    "ctaText": "",
+    "formMode": "inline"
+  },
+  "links": {
+    "support": "",
+    "adsTraining": "",
+    "readyToPostImages": "https://canva.link/bngpbfh4y2eme3c",
+    "buyLeads": "",
+    "confirmationPage": "",
+    "postingDoc": "https://docs.google.com/document/d/1qHhx0OsHL0Ki_pm53ByQrI5ATryk4C5eZAbgeH2REfs/edit?usp=sharing"
+  },
+  "slug": "n-side-hustle",
+  "funnelName": "Side Hustle Quiz",
+  "ghlFunnel": "Nueva - Side Hustle Quiz - Funnel",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "flowDir": "flow/n-side-hustle",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+}
