@@ -56,6 +56,30 @@ var SYS = {
      row links to, twice on the same card. It is kept in the data because it is
      the only place each funnel's job is written down in plain language for
      whoever edits this file next. Do not re-render it without asking. */
+  /* ⚠️ EMPTIED, NOT DELETED, same as _listsOff below. Joe is retiring the High
+     Protein Recipe Guide funnel and Jess is deleting it from buyer accounts
+     (2026-09-24). The tile has to go FIRST: deleting a funnel does not clear
+     protein_recipe_guide_funnel_link, so a hub that still lists it would point
+     every rep at a dead link. A row whose url does not resolve renders nothing
+     (see `if (!full) return ''` in the group renderer), so lifting the item out
+     here removes the card from every account on one push.
+
+     Removed from marketing-links-v2 ONLY. Jeff, 2026-09-24: "just take it off
+     the accounts that have the v2" - the v1 hub keeps its tile.
+
+     The two data-cv bridges for this funnel stay in block.html on purpose. They
+     are inert with no item reading them, and if the CVs are deleted along with
+     the funnel the renderer already treats an unsubstituted {{...}} as empty. */
+  _itemsOff: [
+      { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
+        tease: 'Recipes and grocery list',
+        howtoSlug: 'orygn-recipe-guide-how-to',
+        canva: 'https://canva.link/n6t92pxvso2744m',
+        howto: 'https://glpshark.com/protein-recipe-guide-training',
+        print: 'https://canva.link/luaureyrm9zlnx3',
+        guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
+        desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
+  ],
   groups: [
     { label: 'Product funnels', items: [
       { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
@@ -66,14 +90,6 @@ var SYS = {
         print: 'https://canva.link/q84wz59vwmx3oi1',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_food_guide_pdf_url' }],
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
-      { cv: 'protein_recipe_guide_funnel_link', icon: 'leaf', name: 'High Protein Recipe Guide',
-        tease: 'Recipes and grocery list',
-        howtoSlug: 'orygn-recipe-guide-how-to',
-        canva: 'https://canva.link/n6t92pxvso2744m',
-        howto: 'https://glpshark.com/protein-recipe-guide-training',
-        print: 'https://canva.link/luaureyrm9zlnx3',
-        guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
-        desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
         howtoSlug: 'how-to-use-12',
