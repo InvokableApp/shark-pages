@@ -98,17 +98,6 @@ if (!window.__sharkFunnelTraining) {
     var strip  = tabsRoot.querySelector(".sk-tabstrip");
     var panels = [].slice.call(tabsRoot.querySelectorAll(".sk-panel"));
 
-    /* One part: the CSS keeps the header VISIBLE as the section's title but
-       strips its interaction (Joe, 2026-09-23). CSS cannot take a button out
-       of the tab order, so do it here, and drop the aria that advertises a
-       collapse the page no longer offers. The text stays readable to a screen
-       reader, which is the point of keeping the header at all. */
-    if (tabsRoot.getAttribute("data-parts") === "1") {
-      [].forEach.call(tabsRoot.querySelectorAll(".sk-acc"), function (h) {
-        h.setAttribute("tabindex", "-1");
-        h.removeAttribute("aria-expanded");
-      });
-    }
 
     /* ---- the bottom bar (phone only) ----
        Joe's requirement: a rep must SEE that this page carries training, not

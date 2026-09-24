@@ -2249,33 +2249,19 @@
    deliberately empty rather than broken.
    ============================================================ */
 
-/* A lone part has nothing to switch between, so the strip goes and the
-   accordion header stops offering to collapse the only thing on the page.
+/* A lone part has no strip to switch with, but it keeps a NORMAL accordion
+   header.
 
-   ⚠️ Joe, 2026-09-23, looking at a live one-part page: "it's a little rough,
-   we'd want the same header as the how does this funnel work section." Hiding
-   .sk-acc outright took the section's TITLE with it, so the page opened on a
-   paragraph with nothing naming what it was. The header comes back; what stays
-   gone is the INTERACTION, which is the part that made no sense with one part:
-   no number badge, no chevron, nothing to click.
-
-   Scope note for the versioning rule: every selector here is
-   [data-parts="1"], and the only pages carrying that are the four one-part
-   training pages (glp + conectiv × linktree, what-i-do). A three-part page
-   cannot match, so this cannot reach one. Verified by rendering both. */
+   Joe, 2026-09-23, in three passes and this is the settled answer. First the
+   header was hidden outright, which also removed the section's title and left
+   the page opening on a bare paragraph ("it's a little rough"). Then it came
+   back stripped of its badge and chevron, which he rejected on sight: "just
+   make it look like this, add the 1." So the header is simply not special
+   cased any more. It is the same row as on a three part page, badge, chevron
+   and all, and it opens and closes like one. What stays suppressed below is
+   only the NAVIGATION between parts, because there is genuinely nowhere to
+   navigate to. */
 .sk-ftrain .sk-tabs[data-parts="1"] .sk-tabstrip { display: none; }
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc {
-  pointer-events: none;
-  cursor: default;
-  border-color: transparent;
-  padding-left: 0;
-  padding-right: 0;
-}
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc .sk-part-num,
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-acc .sk-chev { display: none; }
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-wrap,
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-clip { height: auto; overflow: visible; }
-.sk-ftrain .sk-tabs[data-parts="1"] .sk-panel-body { padding-top: 4px; }
 /* the strip used to occupy this space; without it the header floats 110px above
    the content it introduces */
 .sk-ftrain .sk-tabs[data-parts="1"] { margin-top: 8px; }
