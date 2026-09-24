@@ -513,8 +513,12 @@ if (!window.__sharkFunnelTraining) {
      querySelectorAll(".sk-ftrain") slips straight through it and then matches
      nothing on the published page. The class is decoration here anyway: a card
      only exists inside this component. Fixed after shipping exactly that bug.  */
+  /* Two markups carry scripts on this page and both must be guarded. Joe's flow
+     uses .sk-msg with a .sk-copy-sm button, handled by the component's own copy
+     code; the situation index uses .sk-say-card with .sk-copy, handled below.
+     A pill that did not resolve is equally dangerous in either. */
   function init() {
-    document.querySelectorAll(".sk-say-card").forEach(function (card) {
+    document.querySelectorAll(".sk-say-card, .sk-msg").forEach(function (card) {
       if (card.getAttribute("data-say-done")) return;
       card.setAttribute("data-say-done", "1");
       var bad = false;
@@ -526,19 +530,26 @@ if (!window.__sharkFunnelTraining) {
         pill.setAttribute("data-unset", "1");
       });
 
-      var btn = card.querySelector(".sk-copy");
+      var btn = card.querySelector(".sk-copy, .sk-copy-sm");
       if (!btn) return;
 
       if (bad) {
         btn.disabled = true;
-        btn.textContent = "Fill your settings first";
+        /* Joe's button wraps its label in a span beside an icon; the situation
+           index button is plain text. Write to whichever is actually there. */
+        var label = btn.querySelector("span") || btn;
+        label.textContent = "Fill your settings first";
         var note = document.createElement("p");
         note.className = "sk-say-unset";
         note.textContent =
           "This one needs a setting you have not filled in yet, so it is not ready to send.";
-        card.insertBefore(note, btn);
+        (card.querySelector(".sk-msg-body") || card).appendChild(note);
         return;
       }
+
+      /* the component already binds Joe's .sk-copy-sm buttons, so binding them
+         again here would copy twice and fight over the label */
+      if (!btn.classList.contains("sk-copy")) return;
 
       btn.addEventListener("click", function () {
         var box = card.querySelector(".sk-say-script");

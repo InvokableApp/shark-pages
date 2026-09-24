@@ -2856,6 +2856,9 @@
 /* a slot the rep has to change. Negative inline margin cancels its own padding,
    or "Hey [Name], it's" renders as "Hey [Name] , it's", which reads as a typo in
    something they are about to send. Same fix as the scripts page. */
+/* the same pill inside Joe's flow blocks, so a merged value reads identically
+   whichever of the two markups it is sitting in */
+.sk-ftrain .sk-msg-body .sk-cv,
 .sk-ftrain .sk-say-script .sk-cv {
   margin: 0 -2px;
   padding: 1px 5px;
@@ -2890,6 +2893,7 @@
 /* a merged URL is long. It must wrap inside the bubble rather than overflow it,
    and it must not be an <a>: what the rep pastes into a message is a bare URL,
    per FUNNEL-TRAINING-SCRIPTS-SOP §7. */
+.sk-ftrain .sk-msg-body .sk-cv--url,
 .sk-ftrain .sk-say-script .sk-cv--url {
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -2898,6 +2902,7 @@
 /* a card whose script needs a custom value the rep has not filled in yet. It
    stays readable, because reading it is harmless; what is disabled is SENDING
    it. See _say.js for why the instruction text is the thing being guarded. */
+.sk-ftrain .sk-msg-body .sk-cv[data-unset],
 .sk-ftrain .sk-say-script .sk-cv[data-unset] {
   background: rgba(180, 120, 0, .14);
   color: #8a5a00;
