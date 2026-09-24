@@ -419,10 +419,11 @@
 
             <p class="sk-subhead sk-subhead--lg">IF THEY TEXT YOU BACK WILLING TO CHECK OUT THE INFO&#8230;</p>
             <p class="sk-desc">Send them this video page.</p>
-            <!-- ⚠️ ASSUMED CV. Joe's doc says "your 2 minute customer video page"
-                 and GLP has no custom value by that name. drops_funnel_link is the
-                 warm DROPS page, which is the closest thing the rep already has.
-                 Confirm with Joe before this ships. -->
+            <!-- RESOLVED 2026-09-24. This is the rep's own /products-info step,
+                 built in block.js from the domain CV plus SYS.videoPageSlug, the
+                 same way the how-to links are built. The earlier guess was
+                 drops_funnel_link, which is empty in every account and has no
+                 funnel behind it, so this row only ever rendered the support note. -->
             <div data-two-min-video></div>
             <p class="sk-note-line">If you have an iDecide presentation, feel free to send them that instead.</p>
 

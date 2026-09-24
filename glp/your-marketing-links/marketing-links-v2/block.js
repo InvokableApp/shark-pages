@@ -11,6 +11,17 @@ var SYS = {
      email sending domain, Conectiv has conectiv__main_url, Vital differs again.
      So it is config, never hardcoded. (Jeff, 2026-09-23.) */
   howtoDomainCv: 'your_email_designated_domain',
+  /* The "2 minute customer video page" the promote script tells a rep to send.
+     It is a STEP in the rep's own weight-loss quiz funnel, so it is built from
+     the same domain CV above plus this slug, exactly like the how-to links.
+     Jeff, 2026-09-24: "cant we use their domain CV then the step slug?"
+
+     Built rather than stored because there is no custom value for this page and
+     adding one would mean filling it by hand in every account forever. The slug
+     is identical across every GLP account (checked on all 8 carrying this hub),
+     which is what makes deriving it safe. If a system ever renames that step,
+     change it HERE, not in the markup. */
+  videoPageSlug: 'products-info',
   /* Joe, 2026-09-24: a "Fast Start Training" tile above the others, pointing at
      this system's training hub. System level, not per rep: one page serves
      everyone, so it is a URL in config rather than a custom value. Each system
@@ -461,7 +472,14 @@ var SYS = {
      empty custom value has to drop the row instead of linking to nothing. */
   var twoMin = root.querySelector('[data-two-min-video]');
   if (twoMin) {
-    var tmv = cv('drops_funnel_link');
+    /* Was cv('drops_funnel_link'), which was a guess: GLP has no custom value for
+       this page, that CV is EMPTY in every account, and no "drops" funnel exists
+       for it to point at, so the row only ever rendered the support note. It is
+       the rep's own /products-info step, so it is derived the same way the how-to
+       links are. (Jeff, 2026-09-24, answering the ASSUMED CV note in block.html.) */
+    var tmv = howtoDomain && SYS.videoPageSlug
+      ? 'https://' + howtoDomain + '/' + SYS.videoPageSlug
+      : '';
     twoMin.innerHTML = tmv
       /* link above the button, Joe Figma #41 "Swap these, put the link above
          the button". A rep reads the address to check it is theirs before they
@@ -470,7 +488,7 @@ var SYS = {
           '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="Open your customer video page">' + icon('out', 1.8) + '</a></div>' +
         '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
           icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
-      : '<p class="sk-note-line">Your customer video page link has not been filled in yet. Contact support and we will set it up.</p>';
+      : '<p class="sk-note-line">Your domain has not been set up yet, so this link cannot be built. Contact support and we will finish it.</p>';
   }
 
   /* ---------- funnel links ---------- */
