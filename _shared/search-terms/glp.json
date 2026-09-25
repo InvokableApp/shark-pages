@@ -1,0 +1,394 @@
+{
+  "_": [
+    "GLP search terms for the hub's Find conversations screen.",
+    "",
+    "ROTATION. The cycle length IS the number of live terms, so this file's length is the",
+    "product decision, not a detail: at one term a day, 100 terms means a rep does not see a",
+    "repeat for over three months.",
+    "",
+    "HASHTAG IS AUTHORED, NEVER DERIVED. Present only where a tag people actually follow",
+    "exists. 'cant afford ozempic' strips to #cantaffordozempic, which is a real URL that",
+    "returns an empty feed and reads to a rep as a broken feature, so it carries no tag and",
+    "simply does not offer Instagram. A term with no tag is not a defect.",
+    "",
+    "PLATFORMS NARROWS, IT DOES NOT ENUMERATE. Omit the field and the term is offered",
+    "everywhere it can honestly go, which is the right default for almost every term.",
+    "",
+    "NOTE is for a caution the rep needs before they open the tab, not a description."
+  ],
+  "terms": [
+    {
+      "term": "ozempic nausea",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "semaglutide fatigue",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "glp-1 constipation"
+    },
+    {
+      "term": "ozempic burps",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "sulphur burps semaglutide"
+    },
+    {
+      "term": "mounjaro side effects week 1",
+      "hashtag": "mounjaro"
+    },
+    {
+      "term": "zepbound side effects",
+      "hashtag": "zepbound"
+    },
+    {
+      "term": "wegovy nausea remedies",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "glp-1 hair loss",
+      "note": "Sensitive. Answer the question, do not pivot to product."
+    },
+    {
+      "term": "ozempic face",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "semaglutide headaches",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "glp-1 acid reflux"
+    },
+    {
+      "term": "tirzepatide stomach pain",
+      "hashtag": "tirzepatide"
+    },
+    {
+      "term": "ozempic dizziness",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "glp-1 no appetite at all"
+    },
+    {
+      "term": "losing muscle on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "protein while on semaglutide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "how much protein on glp-1"
+    },
+    {
+      "term": "muscle loss glp-1"
+    },
+    {
+      "term": "weak on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "strength training on glp-1"
+    },
+    {
+      "term": "sarcopenia weight loss drugs"
+    },
+    {
+      "term": "body composition ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "cant afford ozempic",
+      "hashtag": "ozempic",
+      "note": "Price complaints. Be useful, do not pitch."
+    },
+    {
+      "term": "ozempic without insurance",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "semaglutide cost per month",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "compounded semaglutide legit",
+      "note": "Compounding is contested. Stay factual."
+    },
+    {
+      "term": "glp-1 insurance denied"
+    },
+    {
+      "term": "cheaper alternative to wegovy",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "mounjaro savings card",
+      "hashtag": "mounjaro"
+    },
+    {
+      "term": "ozempic shortage",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "is compounded tirzepatide safe"
+    },
+    {
+      "term": "stopped taking glp-1 gained weight back"
+    },
+    {
+      "term": "weight regain after ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "tapering off semaglutide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "maintenance dose ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "life after glp-1"
+    },
+    {
+      "term": "keeping weight off after wegovy",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "glp-1 rebound hunger"
+    },
+    {
+      "term": "how long do you stay on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "natural glp-1 support"
+    },
+    {
+      "term": "glp-1 alternative",
+      "hashtag": "glp1"
+    },
+    {
+      "term": "berberine weight loss",
+      "hashtag": "berberine"
+    },
+    {
+      "term": "natural semaglutide alternative"
+    },
+    {
+      "term": "foods that boost glp-1 naturally"
+    },
+    {
+      "term": "glp-1 supplement"
+    },
+    {
+      "term": "akkermansia gut weight"
+    },
+    {
+      "term": "fiber appetite suppression"
+    },
+    {
+      "term": "protein and satiety"
+    },
+    {
+      "term": "apple cider vinegar appetite"
+    },
+    {
+      "term": "what to eat on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "glp-1 meal ideas"
+    },
+    {
+      "term": "high protein low volume meals"
+    },
+    {
+      "term": "food aversion semaglutide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "cant finish a meal glp-1"
+    },
+    {
+      "term": "glp-1 grocery list"
+    },
+    {
+      "term": "protein shake on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "eating enough on glp-1"
+    },
+    {
+      "term": "meal prep for weight loss",
+      "hashtag": "mealprep"
+    },
+    {
+      "term": "high protein breakfast ideas",
+      "hashtag": "highprotein"
+    },
+    {
+      "term": "what to eat when nothing sounds good"
+    },
+    {
+      "term": "electrolytes on glp-1"
+    },
+    {
+      "term": "ozempic plateau",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "weight loss stalled semaglutide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "increasing dose mounjaro",
+      "hashtag": "mounjaro"
+    },
+    {
+      "term": "glp-1 not working anymore"
+    },
+    {
+      "term": "second month no weight loss ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "how fast should i lose on wegovy",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "semaglutide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "mounjaro",
+      "hashtag": "mounjaro"
+    },
+    {
+      "term": "wegovy",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "zepbound",
+      "hashtag": "zepbound"
+    },
+    {
+      "term": "tirzepatide",
+      "hashtag": "tirzepatide"
+    },
+    {
+      "term": "glp-1",
+      "hashtag": "glp1"
+    },
+    {
+      "term": "ozempic vs mounjaro",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "wegovy vs zepbound",
+      "hashtag": "wegovy"
+    },
+    {
+      "term": "semaglutide vs tirzepatide",
+      "hashtag": "semaglutide"
+    },
+    {
+      "term": "glp-1 vs diet and exercise"
+    },
+    {
+      "term": "is ozempic worth it",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "food noise gone",
+      "hashtag": "foodnoise"
+    },
+    {
+      "term": "food noise came back",
+      "hashtag": "foodnoise"
+    },
+    {
+      "term": "ozempic changed my relationship with food",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "guilt about taking ozempic",
+      "hashtag": "ozempic",
+      "note": "People get judged for this. Be kind first."
+    },
+    {
+      "term": "telling people youre on a glp-1"
+    },
+    {
+      "term": "weight loss motivation",
+      "hashtag": "weightlossmotivation"
+    },
+    {
+      "term": "scale not moving frustrated"
+    },
+    {
+      "term": "nonscale victories",
+      "hashtag": "nonscalevictory"
+    },
+    {
+      "term": "lose weight without ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "perimenopause weight gain",
+      "hashtag": "perimenopause"
+    },
+    {
+      "term": "belly fat after 40"
+    },
+    {
+      "term": "cortisol belly",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "insulin resistance weight loss",
+      "hashtag": "insulinresistance"
+    },
+    {
+      "term": "pcos weight loss",
+      "hashtag": "pcos"
+    },
+    {
+      "term": "prediabetes reverse",
+      "hashtag": "prediabetes"
+    },
+    {
+      "term": "slow metabolism",
+      "hashtag": "metabolism"
+    },
+    {
+      "term": "3pm energy crash"
+    },
+    {
+      "term": "always hungry at night"
+    },
+    {
+      "term": "emotional eating help"
+    },
+    {
+      "term": "sustainable weight loss",
+      "hashtag": "weightloss"
+    },
+    {
+      "term": "walking for weight loss",
+      "hashtag": "walking"
+    },
+    {
+      "term": "strength training over 40"
+    }
+  ]
+}

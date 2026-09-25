@@ -1,8 +1,13 @@
 /* BENEVE / beneve---your-marketing-links / beneve-marketing-links
  *
  * THIS FILE IS THE CONFIG. Routing, card rendering, copy buttons, the product
- * list and the affiliate card all live in _shared/links-hub/v1/hub.js and are
- * shared by every rep hub. Only Beneve's own data is here.
+ * list and the affiliate card all live in _shared/links-hub/v2/links-hub.js and
+ * are shared by every rep hub. Only Beneve's own data is here.
+ *
+ * MOVED v1 -> v2, 2026-09-25. v2 is the engine the three older hubs were merged
+ * onto, so a fix now reaches every system instead of one. Beneve's markup already
+ * carried every hook v2 asks for except the optional two minute video row, so this
+ * was a config port, not a rebuild.
  *
  * Link model: domain custom value plus a fixed slug per funnel (the Vital
  * model). It was MEASURED before being chosen, not assumed: all six Beneve
@@ -10,7 +15,8 @@
  * Re-measure before any Beneve rep install, because a single rep on two
  * domains breaks the assumption for that rep. MARKETING-LINKS-PAGE-SOP §2.
  */
-window.SHARK_HUB = {
+(function () {
+var SYS = {
   appTitle:   'Beneve Shark',
   themeColor: '#1E386A',
   brandDir:   'beneve',
@@ -21,6 +27,11 @@ window.SHARK_HUB = {
      it to the URL and the tile appears; that is the only change needed. */
   training: null,
   domainCv: 'beneve_main_url',
+  /* v2 reads how-to urls from their OWN key and does NOT fall back to domainCv,
+     so leaving this unset silently sends every training link to the published v1
+     page instead of the rep's own. Beneve funnels and how-tos share one domain,
+     so it is the same custom value, stated rather than assumed. */
+  howtoDomainCv: 'beneve_main_url',
   groups: [
     {
       label: "Start a conversation",
@@ -126,12 +137,21 @@ window.SHARK_HUB = {
     desc: 'This is your affiliate link for the Beneve Shark marketing system itself, not for product and not for the opportunity. Send it to anyone who wants the funnels, emails and automations you are running. If they buy the system through your link, the sale is credited to you.' }
 };
 
-/* Load the shared engine. It reads window.SHARK_HUB, which is set above, so the
-   config must come first. Version is PINNED: editing v1 reaches every page
-   already on it, so a redesign forks v2 and pages move deliberately. */
-(function () {
+  (window.__sharkHubPending = window.__sharkHubPending || []).push({
+    scope: '.sk-beneve-beneve---your-marketing-links-beneve-marketing-links',
+    brandBase: 'https://invokableapp.github.io/shark-pages/_brand/beneve/',
+    /* Beneve writes a real description on every funnel card and they are good, so
+       they stay. GLP dropped its own on Joe's Figma note 11; that was a GLP call
+       about GLP's copy, not a house rule. */
+    showCardDesc: true,
+    SYS: SYS
+  });
+
+  /* Load the shared engine. It reads the queued config above, so order does not
+     matter. Version is PINNED: editing v2 reaches every page already on it, so a
+     redesign forks v3 and pages move deliberately. */
   var BASE = "https://invokableapp.github.io/shark-pages/";
-  ["_shared/links-hub/v1/hub.js"].forEach(function (p) {
+  ["_shared/links-hub/v2/links-hub.js"].forEach(function (p) {
     if (document.querySelector('script[data-shark-shared="' + p + '"]')) return;
     var s = document.createElement("script");
     s.src = BASE + p;

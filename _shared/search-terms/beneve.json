@@ -1,0 +1,407 @@
+{
+  "_": [
+    "Beneve search terms for the hub's Find conversations screen.",
+    "",
+    "ROTATION. The cycle length IS the number of live terms, so this file's length is the",
+    "product decision, not a detail: at one term a day, ~100 terms means a rep does not see",
+    "a repeat for over three months.",
+    "",
+    "HASHTAG IS AUTHORED, NEVER DERIVED. Present only where a tag people actually follow",
+    "exists. A phrase like 'cant afford it' strips to a real URL that returns an empty feed",
+    "and reads to a rep as a broken feature, so it carries no tag and simply does not offer",
+    "Instagram. A term with no tag is not a defect.",
+    "",
+    "PLATFORMS NARROWS, IT DOES NOT ENUMERATE. Omit the field and the term is offered",
+    "everywhere it can honestly go, which is the right default for almost every term.",
+    "",
+    "NOTE is for a caution the rep needs before they open the tab, not a description.",
+    "",
+    "\u26a0\ufe0f THE REP IS NOT HERE TO SELL. These terms find conversations worth joining. A term",
+    "that is only useful if you pitch in it does not belong in this file."
+  ],
+  "terms": [
+    {
+      "term": "hormone imbalance symptoms"
+    },
+    {
+      "term": "balance hormones naturally"
+    },
+    {
+      "term": "perimenopause symptoms",
+      "hashtag": "perimenopause"
+    },
+    {
+      "term": "menopause weight gain",
+      "hashtag": "menopause"
+    },
+    {
+      "term": "estrogen dominance"
+    },
+    {
+      "term": "low progesterone symptoms"
+    },
+    {
+      "term": "pcos symptoms",
+      "hashtag": "pcos"
+    },
+    {
+      "term": "pcos diet",
+      "hashtag": "pcos"
+    },
+    {
+      "term": "irregular periods causes"
+    },
+    {
+      "term": "pms mood swings",
+      "hashtag": "pms"
+    },
+    {
+      "term": "cortisol belly",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "cortisol lowering foods",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "thyroid symptoms",
+      "hashtag": "thyroid"
+    },
+    {
+      "term": "hashimotos diet",
+      "hashtag": "hashimotos"
+    },
+    {
+      "term": "hormones and sleep"
+    },
+    {
+      "term": "night sweats perimenopause"
+    },
+    {
+      "term": "seed cycling",
+      "hashtag": "seedcycling"
+    },
+    {
+      "term": "hormone testing at home"
+    },
+    {
+      "term": "birth control side effects",
+      "note": "Medical and personal. Be careful and be kind."
+    },
+    {
+      "term": "hormone friendly lunch"
+    },
+    {
+      "term": "blood sugar and hormones",
+      "hashtag": "bloodsugar"
+    },
+    {
+      "term": "eating for your cycle",
+      "hashtag": "cyclesyncing"
+    },
+    {
+      "term": "adult acne",
+      "hashtag": "adultacne"
+    },
+    {
+      "term": "hormonal acne",
+      "hashtag": "hormonalacne"
+    },
+    {
+      "term": "acne on chin and jawline"
+    },
+    {
+      "term": "rosacea triggers",
+      "hashtag": "rosacea"
+    },
+    {
+      "term": "eczema flare up",
+      "hashtag": "eczema"
+    },
+    {
+      "term": "dry skin winter"
+    },
+    {
+      "term": "dull skin"
+    },
+    {
+      "term": "skin barrier repair",
+      "hashtag": "skinbarrier"
+    },
+    {
+      "term": "collagen for skin",
+      "hashtag": "collagen"
+    },
+    {
+      "term": "gut skin connection"
+    },
+    {
+      "term": "skin purging vs breakout"
+    },
+    {
+      "term": "simplify skincare routine",
+      "hashtag": "skincare"
+    },
+    {
+      "term": "skincare for 40s"
+    },
+    {
+      "term": "dark circles under eyes"
+    },
+    {
+      "term": "puffy face morning"
+    },
+    {
+      "term": "skin and sugar"
+    },
+    {
+      "term": "bloating every day",
+      "hashtag": "bloating"
+    },
+    {
+      "term": "bloating after meals"
+    },
+    {
+      "term": "gut health reset",
+      "hashtag": "guthealth"
+    },
+    {
+      "term": "leaky gut",
+      "hashtag": "leakygut",
+      "note": "Contested as a diagnosis. Stay on the symptoms, not the label."
+    },
+    {
+      "term": "probiotics worth it",
+      "hashtag": "probiotics"
+    },
+    {
+      "term": "prebiotic foods",
+      "hashtag": "prebiotics"
+    },
+    {
+      "term": "fermented foods benefits",
+      "hashtag": "fermentedfoods"
+    },
+    {
+      "term": "ibs triggers",
+      "hashtag": "ibs"
+    },
+    {
+      "term": "elimination diet"
+    },
+    {
+      "term": "food sensitivity testing"
+    },
+    {
+      "term": "constipation remedies"
+    },
+    {
+      "term": "gut reset 3 days"
+    },
+    {
+      "term": "fiber for gut health",
+      "hashtag": "fiber"
+    },
+    {
+      "term": "digestive enzymes"
+    },
+    {
+      "term": "stomach issues no diagnosis"
+    },
+    {
+      "term": "tap water safe to drink"
+    },
+    {
+      "term": "water filter which one",
+      "hashtag": "waterfilter"
+    },
+    {
+      "term": "pfas in drinking water",
+      "hashtag": "pfas"
+    },
+    {
+      "term": "microplastics in water",
+      "hashtag": "microplastics"
+    },
+    {
+      "term": "reverse osmosis worth it"
+    },
+    {
+      "term": "fluoride in water",
+      "note": "Attracts conspiracy framing. Stick to what is measurable."
+    },
+    {
+      "term": "water quality report my area"
+    },
+    {
+      "term": "bottled water vs filtered"
+    },
+    {
+      "term": "chlorine taste tap water"
+    },
+    {
+      "term": "remineralize filtered water"
+    },
+    {
+      "term": "hard water skin"
+    },
+    {
+      "term": "shower filter benefits"
+    },
+    {
+      "term": "natural glp-1 foods"
+    },
+    {
+      "term": "foods that curb appetite"
+    },
+    {
+      "term": "glp-1 alternative",
+      "hashtag": "glp1"
+    },
+    {
+      "term": "what to eat on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "high protein meals",
+      "hashtag": "highprotein"
+    },
+    {
+      "term": "appetite suppressant natural"
+    },
+    {
+      "term": "blood sugar spikes after eating",
+      "hashtag": "bloodsugar"
+    },
+    {
+      "term": "insulin resistance diet",
+      "hashtag": "insulinresistance"
+    },
+    {
+      "term": "stopped taking glp-1 gained weight back"
+    },
+    {
+      "term": "clean coffee brands"
+    },
+    {
+      "term": "coffee jitters",
+      "hashtag": "coffeejitters"
+    },
+    {
+      "term": "mold free coffee"
+    },
+    {
+      "term": "healthy iced coffee"
+    },
+    {
+      "term": "coffee and cortisol",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "coffee alternative"
+    },
+    {
+      "term": "coffee on empty stomach"
+    },
+    {
+      "term": "dairy free coffee creamer"
+    },
+    {
+      "term": "supplement quality third party tested"
+    },
+    {
+      "term": "do supplements actually work",
+      "note": "Expect scepticism. Answer with evidence, not claims."
+    },
+    {
+      "term": "magnesium benefits",
+      "hashtag": "magnesium"
+    },
+    {
+      "term": "vitamin d deficiency",
+      "hashtag": "vitamind"
+    },
+    {
+      "term": "omega 3 benefits",
+      "hashtag": "omega3"
+    },
+    {
+      "term": "adaptogens for stress",
+      "hashtag": "adaptogens"
+    },
+    {
+      "term": "ashwagandha experience",
+      "hashtag": "ashwagandha"
+    },
+    {
+      "term": "too many supplements"
+    },
+    {
+      "term": "clean ingredients label reading"
+    },
+    {
+      "term": "greenwashing supplements"
+    },
+    {
+      "term": "wellness influencer tips"
+    },
+    {
+      "term": "growing on instagram 2026"
+    },
+    {
+      "term": "ugc creator beginner",
+      "hashtag": "ugccreator"
+    },
+    {
+      "term": "first 1000 followers"
+    },
+    {
+      "term": "content ideas wellness"
+    },
+    {
+      "term": "side hustle ideas",
+      "hashtag": "sidehustle"
+    },
+    {
+      "term": "work from home mom",
+      "hashtag": "workfromhomemom"
+    },
+    {
+      "term": "passive income ideas",
+      "hashtag": "passiveincome"
+    },
+    {
+      "term": "direct sales honest review",
+      "note": "Expect scepticism. Answer questions, do not defend."
+    },
+    {
+      "term": "morning routine",
+      "hashtag": "morningroutine"
+    },
+    {
+      "term": "burnout recovery",
+      "hashtag": "burnout"
+    },
+    {
+      "term": "stress management tips"
+    },
+    {
+      "term": "wellness journey beginner",
+      "hashtag": "wellnessjourney"
+    },
+    {
+      "term": "brain fog",
+      "hashtag": "brainfog"
+    },
+    {
+      "term": "always tired no energy"
+    },
+    {
+      "term": "healthy habits that stuck"
+    },
+    {
+      "term": "meal prep ideas",
+      "hashtag": "mealprep"
+    }
+  ]
+}

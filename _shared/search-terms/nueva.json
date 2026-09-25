@@ -1,0 +1,361 @@
+{
+  "_": [
+    "Nueva search terms for the hub's Find conversations screen.",
+    "",
+    "ROTATION. The cycle length IS the number of live terms, so this file's length is the",
+    "product decision, not a detail: at one term a day, ~100 terms means a rep does not see",
+    "a repeat for over three months.",
+    "",
+    "HASHTAG IS AUTHORED, NEVER DERIVED. Present only where a tag people actually follow",
+    "exists. A phrase like 'cant afford it' strips to a real URL that returns an empty feed",
+    "and reads to a rep as a broken feature, so it carries no tag and simply does not offer",
+    "Instagram. A term with no tag is not a defect.",
+    "",
+    "PLATFORMS NARROWS, IT DOES NOT ENUMERATE. Omit the field and the term is offered",
+    "everywhere it can honestly go, which is the right default for almost every term.",
+    "",
+    "NOTE is for a caution the rep needs before they open the tab, not a description.",
+    "",
+    "\u26a0\ufe0f THE REP IS NOT HERE TO SELL. These terms find conversations worth joining. A term",
+    "that is only useful if you pitch in it does not belong in this file."
+  ],
+  "terms": [
+    {
+      "term": "afternoon crash"
+    },
+    {
+      "term": "3pm crash"
+    },
+    {
+      "term": "energy crash after lunch"
+    },
+    {
+      "term": "tired after eating"
+    },
+    {
+      "term": "caffeine crash",
+      "hashtag": "caffeinecrash"
+    },
+    {
+      "term": "caffeine tolerance",
+      "hashtag": "caffeine"
+    },
+    {
+      "term": "too much caffeine symptoms"
+    },
+    {
+      "term": "energy drink crash",
+      "hashtag": "energydrink"
+    },
+    {
+      "term": "quitting energy drinks"
+    },
+    {
+      "term": "natural energy boost"
+    },
+    {
+      "term": "energy without the jitters"
+    },
+    {
+      "term": "sustained energy all day"
+    },
+    {
+      "term": "always tired no energy"
+    },
+    {
+      "term": "fatigue no reason",
+      "hashtag": "fatigue"
+    },
+    {
+      "term": "low energy mom"
+    },
+    {
+      "term": "burnout recovery",
+      "hashtag": "burnout"
+    },
+    {
+      "term": "brain fog",
+      "hashtag": "brainfog"
+    },
+    {
+      "term": "mental clarity supplements"
+    },
+    {
+      "term": "focus supplements",
+      "hashtag": "nootropics"
+    },
+    {
+      "term": "adrenal fatigue",
+      "hashtag": "adrenalfatigue",
+      "note": "Contested as a diagnosis. Stay on the symptoms, not the label."
+    },
+    {
+      "term": "cortisol and energy",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "morning grogginess"
+    },
+    {
+      "term": "waking up tired"
+    },
+    {
+      "term": "sleep quality tips",
+      "hashtag": "sleephygiene"
+    },
+    {
+      "term": "cant fall asleep racing mind"
+    },
+    {
+      "term": "magnesium for sleep",
+      "hashtag": "magnesium"
+    },
+    {
+      "term": "dehydration symptoms",
+      "hashtag": "dehydration"
+    },
+    {
+      "term": "electrolytes benefits",
+      "hashtag": "electrolytes"
+    },
+    {
+      "term": "how much water should i drink",
+      "hashtag": "hydration"
+    },
+    {
+      "term": "water not hydrating me"
+    },
+    {
+      "term": "hydration for athletes",
+      "hashtag": "hydration"
+    },
+    {
+      "term": "electrolyte drink without sugar"
+    },
+    {
+      "term": "kids not drinking enough water"
+    },
+    {
+      "term": "hydration for kids"
+    },
+    {
+      "term": "teen athlete hydration"
+    },
+    {
+      "term": "sports drinks sugar content"
+    },
+    {
+      "term": "cramping at night"
+    },
+    {
+      "term": "headache from dehydration"
+    },
+    {
+      "term": "hydration and skin"
+    },
+    {
+      "term": "water intake tracker"
+    },
+    {
+      "term": "tone up without losing weight"
+    },
+    {
+      "term": "body recomposition",
+      "hashtag": "bodyrecomposition"
+    },
+    {
+      "term": "loose skin after weight loss"
+    },
+    {
+      "term": "skin elasticity"
+    },
+    {
+      "term": "collagen for skin",
+      "hashtag": "collagen"
+    },
+    {
+      "term": "strength training for women"
+    },
+    {
+      "term": "toning arms over 40"
+    },
+    {
+      "term": "belly fat after 40"
+    },
+    {
+      "term": "cellulite truth",
+      "hashtag": "cellulite"
+    },
+    {
+      "term": "muscle tone not size"
+    },
+    {
+      "term": "protein for women",
+      "hashtag": "protein"
+    },
+    {
+      "term": "how much protein do i need"
+    },
+    {
+      "term": "scale not moving but clothes fit"
+    },
+    {
+      "term": "nonscale victories",
+      "hashtag": "nonscalevictory"
+    },
+    {
+      "term": "getting back in shape after 40"
+    },
+    {
+      "term": "beginner workout at home",
+      "hashtag": "homeworkout"
+    },
+    {
+      "term": "walking for weight loss",
+      "hashtag": "walking"
+    },
+    {
+      "term": "consistency with exercise"
+    },
+    {
+      "term": "slow metabolism",
+      "hashtag": "metabolism"
+    },
+    {
+      "term": "metabolism after 40"
+    },
+    {
+      "term": "perimenopause weight gain",
+      "hashtag": "perimenopause"
+    },
+    {
+      "term": "menopause fatigue",
+      "hashtag": "menopause"
+    },
+    {
+      "term": "hormone imbalance symptoms"
+    },
+    {
+      "term": "insulin resistance",
+      "hashtag": "insulinresistance"
+    },
+    {
+      "term": "blood sugar crashes",
+      "hashtag": "bloodsugar"
+    },
+    {
+      "term": "sugar cravings afternoon"
+    },
+    {
+      "term": "stop snacking at night"
+    },
+    {
+      "term": "emotional eating"
+    },
+    {
+      "term": "glp-1 alternative",
+      "hashtag": "glp1"
+    },
+    {
+      "term": "natural appetite control"
+    },
+    {
+      "term": "stopped taking glp-1 gained weight back"
+    },
+    {
+      "term": "do supplements actually work",
+      "note": "Expect scepticism. Answer with evidence, not claims."
+    },
+    {
+      "term": "supplement quality third party tested"
+    },
+    {
+      "term": "greens powder worth it",
+      "hashtag": "greenspowder"
+    },
+    {
+      "term": "vitamin d deficiency",
+      "hashtag": "vitamind"
+    },
+    {
+      "term": "b12 low energy",
+      "hashtag": "b12"
+    },
+    {
+      "term": "iron deficiency fatigue"
+    },
+    {
+      "term": "creatine for women",
+      "hashtag": "creatine"
+    },
+    {
+      "term": "too many supplements"
+    },
+    {
+      "term": "what supplements should i take"
+    },
+    {
+      "term": "side hustle ideas",
+      "hashtag": "sidehustle"
+    },
+    {
+      "term": "work from home mom",
+      "hashtag": "workfromhomemom"
+    },
+    {
+      "term": "extra income ideas"
+    },
+    {
+      "term": "social selling tips"
+    },
+    {
+      "term": "building a following from scratch"
+    },
+    {
+      "term": "network marketing advice",
+      "note": "Expect scepticism. Answer questions, do not defend."
+    },
+    {
+      "term": "direct sales honest review",
+      "note": "Expect scepticism. Answer questions, do not defend."
+    },
+    {
+      "term": "quit my job side hustle"
+    },
+    {
+      "term": "passive income ideas",
+      "hashtag": "passiveincome"
+    },
+    {
+      "term": "stay at home mom income"
+    },
+    {
+      "term": "morning routine",
+      "hashtag": "morningroutine"
+    },
+    {
+      "term": "habit stacking",
+      "hashtag": "habitstacking"
+    },
+    {
+      "term": "motivation to start again"
+    },
+    {
+      "term": "wellness journey beginner",
+      "hashtag": "wellnessjourney"
+    },
+    {
+      "term": "self care that actually helps",
+      "hashtag": "selfcare"
+    },
+    {
+      "term": "stress management tips"
+    },
+    {
+      "term": "getting my spark back"
+    },
+    {
+      "term": "feeling like myself again"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 /* BENEVE / beneve---your-marketing-links / beneve-marketing-links
  *
- * The design lives in _shared/links-hub/v1/hub.css, scoped under .sk-hub, and is
+ * The design lives in _shared/links-hub/v2/links-hub.css, scoped under .sk-hub, and is
  * shared by every rep hub. This file declares ONLY the palette tokens, on the
  * block's own scope class, and they cascade into the shared component.
  *
@@ -18,7 +18,7 @@
  * Nothing else belongs here. A per-page override means the shared component
  * needs a variant, not that this file needs a rule.
  */
-@import url("https://invokableapp.github.io/shark-pages/_shared/links-hub/v1/hub.css");
+@import url("https://invokableapp.github.io/shark-pages/_shared/links-hub/v2/links-hub.css");
 
 .sk-beneve-beneve---your-marketing-links-beneve-marketing-links {
   --sk-brand:      #1E386A;   /* --bnv-navy   */

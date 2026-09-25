@@ -1,0 +1,362 @@
+{
+  "_": [
+    "Conectiv search terms for the hub's Find conversations screen.",
+    "",
+    "ROTATION. The cycle length IS the number of live terms, so this file's length is the",
+    "product decision, not a detail: at one term a day, ~100 terms means a rep does not see",
+    "a repeat for over three months.",
+    "",
+    "HASHTAG IS AUTHORED, NEVER DERIVED. Present only where a tag people actually follow",
+    "exists. A phrase like 'cant afford it' strips to a real URL that returns an empty feed",
+    "and reads to a rep as a broken feature, so it carries no tag and simply does not offer",
+    "Instagram. A term with no tag is not a defect.",
+    "",
+    "PLATFORMS NARROWS, IT DOES NOT ENUMERATE. Omit the field and the term is offered",
+    "everywhere it can honestly go, which is the right default for almost every term.",
+    "",
+    "NOTE is for a caution the rep needs before they open the tab, not a description.",
+    "",
+    "\u26a0\ufe0f THE REP IS NOT HERE TO SELL. These terms find conversations worth joining. A term",
+    "that is only useful if you pitch in it does not belong in this file."
+  ],
+  "terms": [
+    {
+      "term": "coffee jitters",
+      "hashtag": "coffeejitters"
+    },
+    {
+      "term": "caffeine anxiety",
+      "hashtag": "caffeine"
+    },
+    {
+      "term": "coffee makes me crash"
+    },
+    {
+      "term": "afternoon coffee crash"
+    },
+    {
+      "term": "coffee upsets my stomach"
+    },
+    {
+      "term": "coffee acid reflux"
+    },
+    {
+      "term": "mushroom coffee",
+      "hashtag": "mushroomcoffee"
+    },
+    {
+      "term": "lions mane coffee",
+      "hashtag": "lionsmane"
+    },
+    {
+      "term": "chaga coffee benefits",
+      "hashtag": "chaga"
+    },
+    {
+      "term": "reishi before bed",
+      "hashtag": "reishi"
+    },
+    {
+      "term": "adaptogenic coffee",
+      "hashtag": "adaptogens"
+    },
+    {
+      "term": "low acid coffee"
+    },
+    {
+      "term": "mold free coffee"
+    },
+    {
+      "term": "mycotoxins in coffee"
+    },
+    {
+      "term": "clean coffee brands"
+    },
+    {
+      "term": "organic coffee worth it"
+    },
+    {
+      "term": "coffee alternative"
+    },
+    {
+      "term": "quitting coffee"
+    },
+    {
+      "term": "caffeine withdrawal headache"
+    },
+    {
+      "term": "cutting back on caffeine"
+    },
+    {
+      "term": "how much caffeine is too much"
+    },
+    {
+      "term": "coffee and cortisol",
+      "hashtag": "cortisol"
+    },
+    {
+      "term": "coffee on empty stomach"
+    },
+    {
+      "term": "best time to drink coffee"
+    },
+    {
+      "term": "iced coffee recipe",
+      "hashtag": "icedcoffee"
+    },
+    {
+      "term": "cold brew at home",
+      "hashtag": "coldbrew"
+    },
+    {
+      "term": "healthy iced coffee"
+    },
+    {
+      "term": "coffee without sugar crash"
+    },
+    {
+      "term": "protein coffee",
+      "hashtag": "proteincoffee"
+    },
+    {
+      "term": "coffee creamer alternatives"
+    },
+    {
+      "term": "dairy free coffee creamer"
+    },
+    {
+      "term": "bulletproof coffee",
+      "hashtag": "bulletproofcoffee"
+    },
+    {
+      "term": "intermittent fasting coffee",
+      "hashtag": "intermittentfasting"
+    },
+    {
+      "term": "coffee and gut health",
+      "hashtag": "guthealth"
+    },
+    {
+      "term": "bloating after coffee"
+    },
+    {
+      "term": "energy without caffeine"
+    },
+    {
+      "term": "3pm energy crash"
+    },
+    {
+      "term": "tired all the time"
+    },
+    {
+      "term": "brain fog",
+      "hashtag": "brainfog"
+    },
+    {
+      "term": "afternoon slump"
+    },
+    {
+      "term": "need coffee to function"
+    },
+    {
+      "term": "sleep and caffeine"
+    },
+    {
+      "term": "cant sleep after coffee"
+    },
+    {
+      "term": "side hustle ideas",
+      "hashtag": "sidehustle"
+    },
+    {
+      "term": "legit work from home jobs",
+      "hashtag": "workfromhome"
+    },
+    {
+      "term": "side hustle while working full time",
+      "hashtag": "sidehustle"
+    },
+    {
+      "term": "passive income ideas",
+      "hashtag": "passiveincome"
+    },
+    {
+      "term": "extra income 2026"
+    },
+    {
+      "term": "quit my job side hustle"
+    },
+    {
+      "term": "work from home mom",
+      "hashtag": "workfromhomemom"
+    },
+    {
+      "term": "stay at home mom income"
+    },
+    {
+      "term": "side hustle no experience"
+    },
+    {
+      "term": "second job burnout"
+    },
+    {
+      "term": "need extra money every month"
+    },
+    {
+      "term": "how to make 500 a month extra"
+    },
+    {
+      "term": "online business beginner"
+    },
+    {
+      "term": "mlm honest opinion",
+      "note": "This one attracts strong opinions. Be useful or scroll past."
+    },
+    {
+      "term": "direct sales worth it",
+      "note": "Expect scepticism. Answer questions, do not defend."
+    },
+    {
+      "term": "network marketing advice",
+      "note": "Expect scepticism. Answer questions, do not defend."
+    },
+    {
+      "term": "social selling tips"
+    },
+    {
+      "term": "building a customer base"
+    },
+    {
+      "term": "investing for beginners",
+      "hashtag": "investingforbeginners"
+    },
+    {
+      "term": "how to start investing with little money"
+    },
+    {
+      "term": "financial literacy",
+      "hashtag": "financialliteracy"
+    },
+    {
+      "term": "budgeting tips",
+      "hashtag": "budgeting"
+    },
+    {
+      "term": "get out of debt",
+      "hashtag": "debtfree"
+    },
+    {
+      "term": "emergency fund",
+      "hashtag": "emergencyfund"
+    },
+    {
+      "term": "living paycheck to paycheck"
+    },
+    {
+      "term": "inflation groceries"
+    },
+    {
+      "term": "retirement no savings"
+    },
+    {
+      "term": "teach kids about money"
+    },
+    {
+      "term": "index funds explained",
+      "hashtag": "indexfunds"
+    },
+    {
+      "term": "side income taxes"
+    },
+    {
+      "term": "first investment account"
+    },
+    {
+      "term": "money anxiety"
+    },
+    {
+      "term": "cheap travel hacks",
+      "hashtag": "travelhacks"
+    },
+    {
+      "term": "travel on a budget",
+      "hashtag": "budgettravel"
+    },
+    {
+      "term": "family vacation cheap"
+    },
+    {
+      "term": "last minute travel deals"
+    },
+    {
+      "term": "travel discount club worth it"
+    },
+    {
+      "term": "points and miles beginner"
+    },
+    {
+      "term": "natural glp-1 foods"
+    },
+    {
+      "term": "foods that curb appetite"
+    },
+    {
+      "term": "high protein snacks",
+      "hashtag": "highprotein"
+    },
+    {
+      "term": "fiber for fullness"
+    },
+    {
+      "term": "appetite suppressant natural"
+    },
+    {
+      "term": "what to eat on ozempic",
+      "hashtag": "ozempic"
+    },
+    {
+      "term": "glp-1 alternative",
+      "hashtag": "glp1"
+    },
+    {
+      "term": "losing weight without medication"
+    },
+    {
+      "term": "blood sugar spikes after eating",
+      "hashtag": "bloodsugar"
+    },
+    {
+      "term": "insulin resistance diet",
+      "hashtag": "insulinresistance"
+    },
+    {
+      "term": "morning routine",
+      "hashtag": "morningroutine"
+    },
+    {
+      "term": "energy after 40"
+    },
+    {
+      "term": "perimenopause fatigue",
+      "hashtag": "perimenopause"
+    },
+    {
+      "term": "stress eating"
+    },
+    {
+      "term": "burnout recovery",
+      "hashtag": "burnout"
+    },
+    {
+      "term": "hydration reminder",
+      "hashtag": "hydration"
+    },
+    {
+      "term": "walking for health",
+      "hashtag": "walking"
+    },
+    {
+      "term": "healthy habits that stuck"
+    }
+  ]
+}

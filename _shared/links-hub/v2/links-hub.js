@@ -13,12 +13,14 @@
  * ── The config a block passes ──────────────────────────────────────────────
  *   scope         REQUIRED  selector for the block root, e.g. '.sk-glp-...'
  *   SYS           REQUIRED  the system's cards, links, copy — the real content
+ *                           incl. appTitle + themeColor, which dress the installed
+ *                           home screen app and MUST be this system's own
  *   brandBase     REQUIRED  '…/_brand/{system}/', for the PWA icons
  *   TRAINING      optional  defaults to the 3-part shape below
  *   supportTease  optional  the one word of DEST that differed per system
  *   guideSub      optional  second line under every guide row (GLP prints one)
  *   showCardDesc  optional  render `desc` on a funnel card (Conectiv, Nueva; GLP dropped it)
- *   videoPage     optional  {slug, ariaLabel, note, buttonFirst} for the 2-minute video row
+ *   videoPage     optional  {slug, ariaLabel, note} for the 2-minute video row
  *   singleTrainingRow optional  one plain training link instead of three deep links
  *
  * ⚠️ TRAINING HAD THREE DIFFERENT SHAPES across the three forks — GLP an array
@@ -45,6 +47,15 @@
 
   var root = document.querySelector(cfg.scope);
   if (!root) return;
+
+  /* The shared stylesheet is scoped `.sk-hub`, but the scope class lives in
+     block.html — which IS the socket pasted into the GHL page, not git-served
+     markup. Adding `sk-hub` there by hand would turn every version migration
+     into a per-account `push-block --live` write on every buyer. Stamping it
+     here instead keeps a version bump a pure git push, which is the whole
+     point of the shared component. Runs before any content is built, so there
+     is no unstyled flash. (2026-09-25.) */
+  root.classList.add('sk-hub');
 
   /* ---------- typeface ----------
      The block styles Archivo on the VARIABLE axes, wdth and wght, but it never
@@ -368,6 +379,15 @@
     if (it.canva) {
       rows.push(row(it.canva, icon('image', 1.7), 'Images for social posts', ''));
     }
+    /* Follow up scripts. v1 rendered these and NONE of the three forks merged into
+       this engine carried one, so the merge quietly dropped a capability nobody
+       noticed was missing. Beneve has five and was the first system to need it
+       back. Kept last: the guide is what they send, the images are what they post,
+       the scripts are what they say once somebody replies. (2026-09-25.) */
+    if (it.scripts) {
+      rows.push(row(it.scripts, icon('speech', 1.7), 'Follow up scripts',
+        'What to say when somebody replies.'));
+    }
     if (!rows.length) return '';
     return subhead('Useful Quick Actions') + '<div class="sk-actions">' + rows.join('') + '</div>';
   }
@@ -414,7 +434,11 @@
         icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
       : '';
     twoMin.innerHTML = tmv
-      ? ((VP && VP.buttonFirst) ? tmvBtn + tmvUrl : tmvUrl + tmvBtn)
+      /* URL above the copy button, every system. Joe's Figma note 41 landed on
+         GLP first and the other two kept button-first purely because nobody
+         diffed the forks. Jeff, 2026-09-25: "that's something that should be
+         universal." So it is not config: there is one right order. */
+      ? tmvUrl + tmvBtn
       : '<p class="sk-note-line">' + ((VP && VP.note) ||
           'Your domain has not been set up yet, so this link cannot be built. Contact support and we will finish it.') + '</p>';
   }
@@ -793,8 +817,15 @@
     }
     head('link', { rel: 'apple-touch-icon', sizes: '180x180', href: ICON + 'icon-180.png' });
     head('link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: ICON + 'icon-512.png' });
-    head('meta', { name: 'apple-mobile-web-app-title', content: 'GLP Shark' });
-    head('meta', { name: 'theme-color', content: '#EC5E2A' });
+    /* ⚠️ PER SYSTEM, NEVER LITERAL. The de-fork collapsed three forks into this
+       file and baked GLP's two values in, which would have installed a home
+       screen app called "GLP Shark" in GLP orange on every Nueva and Conectiv
+       rep's phone. v1 read them from config and the three forks each carried
+       the right pair; only the merge lost it. Caught 2026-09-25 while porting
+       Beneve, because the DOM diff that verified the merge compared the block
+       root and never looked at <head>. */
+    if (SYS.appTitle)   head('meta', { name: 'apple-mobile-web-app-title', content: SYS.appTitle });
+    if (SYS.themeColor) head('meta', { name: 'theme-color', content: SYS.themeColor });
   })();
 
   /* ---------- add to home screen ----------
