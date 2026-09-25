@@ -86,8 +86,10 @@
      read 2026-09-22. Never the funnel PATH: the funnel path does not route, the
      step slug does (BUYER-ONBOARDING-SOP, the router table).
 
-     THREE FUNNELS, NOT SEVEN, and that is the current correct answer rather than
-     an oversight. The snapshot holds three; Shark Beta holds four more (Free
+     FOUR FUNNELS, NOT SEVEN, and that is the current correct answer rather than
+     an oversight. What Is Nueva was added 2026-09-25: it was not in the snapshot
+     when this page was written on the 22nd, and it is now. The snapshot holds
+     four; Shark Beta holds four more (Free
      Revive Sample, Snow Slim, Teen Hydration, Caffeine Curve) that have not been
      installed into it yet. A card for a funnel the account does not have is a
      dead link that nothing errors on, which is exactly how the throwaway Nueva
@@ -107,6 +109,9 @@
         tease: 'A 19 page plan for steady energy through the afternoon.' }
     ]},
     { label: 'Work with me', items: [
+      { icon: 'compass', slug: 'n-what-is-nueva',
+        name: 'What is Nueva?',
+        tease: 'The two minute version: what the products do and how the business works.' },
       { icon: 'sign', slug: 'n-match-quiz',
         name: 'Which side hustle fits you?',
         tease: 'A few questions, then the model that suits how you live.' }
