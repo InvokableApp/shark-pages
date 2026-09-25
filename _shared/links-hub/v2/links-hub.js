@@ -16,6 +16,7 @@
  *   brandBase     REQUIRED  '…/_brand/{system}/', for the PWA icons
  *   TRAINING      optional  defaults to the 3-part shape below
  *   supportTease  optional  the one word of DEST that differed per system
+ *   guideSub      optional  second line under every guide row (GLP prints one)
  *
  * ⚠️ TRAINING HAD THREE DIFFERENT SHAPES across the three forks — GLP an array
  * with icon+sub, Conectiv the same array without them, Nueva an OBJECT keyed
@@ -36,6 +37,7 @@
     if (!cfg || !cfg.scope || !cfg.SYS) return;
     var SYS = cfg.SYS;
     var SUPPORT_TEASE = cfg.supportTease || SUPPORT_TEASE_DEFAULT;
+    var GUIDE_SUB = cfg.guideSub || '';
 
   var root = document.querySelector(cfg.scope);
   if (!root) return;
@@ -198,6 +200,9 @@
   }
 
   function funnelUrl(it) {
+    /* a card can be gated on its own custom value being filled (Nueva's fork
+       added this). No-op for a card that carries no gateCv. */
+    if (it.gateCv && !cv(it.gateCv)) return '';
     if (SYS.domainCv) {
       if (!domain) return '';
       if (/^https?:/i.test(it.slug || '')) return it.slug;
@@ -268,15 +273,47 @@
     return '<p class="sk-subhead">' + text + '</p>';
   }
 
+  /* ---------- the Training / Guidance rows on a funnel card ----------
+     UNIFIED from three forks, 2026-09-25. All three rendered these rows and all
+     three did it differently, including a real correctness split.
+
+     `it.parts` accepts either shape:
+       a NUMBER  — the first n parts (GLP's model: parts are contiguous)
+       an ARRAY  — specific part keys, e.g. ['work','close'] skipping the middle
+                   one (Nueva's model; its No Crash Plan funnel does exactly this)
+
+     🪤 ANCHORS ARE BY POSITION, NOT BY PART NUMBER, and that is not cosmetic.
+     The training page itself numbers its panels `panel.id = "sk-part-" + (i+1)`
+     (funnel-training/v1), so a page built WITHOUT part 2 has panels sk-part-1
+     and sk-part-2. GLP's fork linked to the part NUMBER, which happens to agree
+     only because its parts are always 1..n; point it at a funnel with parts 1
+     and 3 and it would link to #part-3, which does not exist on that page.
+     Nueva's fork had it right. Index-based is correct for both.
+
+     `sub` is optional: present, the row gets the --sub modifier and a second
+     line; absent, it renders exactly what Conectiv and Nueva's actionRow did. */
   function trainingBlock(it) {
     var base = howtoUrl(it);
     if (!base) return '';
+    var want = it.parts, list;
+    if (Object.prototype.toString.call(want) === '[object Array]') {
+      list = want.map(function (k) {
+        for (var i = 0; i < TRAINING.length; i++)
+          if (TRAINING[i].key === k || TRAINING[i].part === k) return TRAINING[i];
+        return null;
+      }).filter(Boolean);
+    } else {
+      var n = want || TRAINING.length;
+      list = TRAINING.filter(function (t, i) { return (i + 1) <= n; });
+    }
+    if (!list.length) return '';
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
-      TRAINING.filter(function (t) { return t.part <= (it.parts || 3); }).map(function (t) {
-        return '<a class="sk-action sk-action--sub" href="' + base + '#part-' + t.part + '" target="_blank" rel="noopener">' +
+      list.map(function (t, i) {
+        return '<a class="sk-action' + (t.sub ? ' sk-action--sub' : '') + '" href="' +
+          base + '#part-' + (i + 1) + '" target="_blank" rel="noopener">' +
           '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
           '<span class="sk-action-label">' + t.label +
-            '<span class="sk-action-sub">' + t.sub + '</span></span>' +
+            (t.sub ? '<span class="sk-action-sub">' + t.sub + '</span>' : '') + '</span>' +
           '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
       }).join('') + '</div>';
   }
@@ -284,29 +321,35 @@
   /* The lead magnet itself, so a rep can read or print what they are sending.
      `guides` is a list because some funnels ship two (a guide and a grocery
      list). Canva sits here too: it is an asset the rep fetches, not training. */
+  /* ---------- the Useful Quick Actions rows ----------
+     UNIFIED from three forks, 2026-09-25. The only real difference was the
+     second line on a guide row: GLP printed a fixed "Print the guide or quickly
+     access the link" under every one, Conectiv and Nueva printed none.
+
+     So it is config: `g.sub` per guide, else cfg.guideSub for the whole system,
+     else no second line and no --sub modifier. The print row is unchanged (it
+     renders only when a card carries one) and the canva row was already
+     byte-identical across all three. */
   function quickActions(it) {
+    function row(u, mark, label, sub) {
+      return '<a class="sk-action' + (sub ? ' sk-action--sub' : '') + '" href="' + u +
+        '" target="_blank" rel="noopener">' +
+        '<span class="sk-action-mark" aria-hidden="true">' + mark + '</span>' +
+        '<span class="sk-action-label">' + label +
+          (sub ? '<span class="sk-action-sub">' + sub + '</span>' : '') + '</span>' +
+        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
+    }
     var rows = (it.guides || []).map(function (g) {
       var u = g.cv ? cv(g.cv) : g.url;
       if (!u) return '';
-      u = href(u);
-      return '<a class="sk-action sk-action--sub" href="' + u + '" target="_blank" rel="noopener">' +
-        '<span class="sk-action-mark" aria-hidden="true">' + icon('guide', 1.7) + '</span>' +
-        '<span class="sk-action-label">' + g.label +
-          '<span class="sk-action-sub">Print the guide or quickly access the link</span></span>' +
-        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
+      return row(href(u), icon('guide', 1.7), g.label, g.sub || GUIDE_SUB);
     }).filter(Boolean);
     if (it.print) {
-      rows.push('<a class="sk-action sk-action--sub" href="' + it.print + '" target="_blank" rel="noopener">' +
-        '<span class="sk-action-mark" aria-hidden="true">' + icon('printer', 1.7) + '</span>' +
-        '<span class="sk-action-label">Print optimized version' +
-          '<span class="sk-action-sub">Opens in Canva, sized for printing and handing out.</span></span>' +
-        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>');
+      rows.push(row(it.print, icon('printer', 1.7), 'Print optimized version',
+        'Opens in Canva, sized for printing and handing out.'));
     }
     if (it.canva) {
-      rows.push('<a class="sk-action" href="' + it.canva + '" target="_blank" rel="noopener">' +
-        '<span class="sk-action-mark" aria-hidden="true">' + icon('image', 1.7) + '</span>' +
-        '<span class="sk-action-label">Images for social posts</span>' +
-        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>');
+      rows.push(row(it.canva, icon('image', 1.7), 'Images for social posts', ''));
     }
     if (!rows.length) return '';
     return subhead('Useful Quick Actions') + '<div class="sk-actions">' + rows.join('') + '</div>';
