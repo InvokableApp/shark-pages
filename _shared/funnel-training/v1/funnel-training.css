@@ -2990,3 +2990,71 @@
 
 /* a page behind an open sheet must not scroll under the reader's finger */
 body.sk-shotbox-lock { overflow: hidden; }
+
+/* ============================================================
+   "YOUR MARKETING HUB" PILL — the way back, top left
+
+   Injected by funnel-training.js, and only when the rep's domain custom value
+   is shaped like a hostname. See the comment block in _shell.js for why the
+   href is built at runtime instead of baked into each page.
+
+   IT IS A NORMAL GRID CHILD, NOT ABSOLUTELY POSITIONED. The root is a 3-column
+   grid and `.sk-ftrain > *:not(.sk-grain)` drops every child into the measure,
+   so `justify-self: start` puts the pill at the top left of the content column
+   and it can never ride over the logo at a breakpoint nobody tested.
+   ============================================================ */
+
+.sk-ftrain .sk-backpill {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 20px 0 -14px;
+  padding: 7px 14px 7px 10px;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  transition: border-color .16s ease, color .16s ease, background-color .16s ease;
+}
+
+.sk-ftrain .sk-backpill svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  transition: transform .16s ease;
+}
+
+.sk-ftrain .sk-backpill:hover {
+  border-color: var(--sk-brand);
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+}
+
+.sk-ftrain .sk-backpill:hover svg { transform: translateX(-2px); }
+
+.sk-ftrain .sk-backpill:focus-visible {
+  outline: 2px solid var(--sk-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-ftrain .sk-backpill,
+  .sk-ftrain .sk-backpill svg { transition: none; }
+  .sk-ftrain .sk-backpill:hover svg { transform: none; }
+}
+
+/* on a phone the header already starts lower, so the pill needs less air */
+@media (max-width: 640px) {
+  .sk-ftrain .sk-backpill {
+    margin: 14px 0 -18px;
+    font-size: 13px;
+  }
+}

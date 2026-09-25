@@ -23,6 +23,7 @@ if (!window.__sharkFunnelTraining) {
     mega:   "M4 10.2v3.6a1 1 0 001 1h2.2l7.3 3.9V5.3L7.2 9.2H5a1 1 0 00-1 1zM18.4 9.4a3.6 3.6 0 010 5.2M7.2 15.2V19a1 1 0 001 1h1.4a1 1 0 001-1v-2.2",
     target: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM12 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z",
     arrow:  "M5 12h14M13 6l6 6-6 6",
+    back:   "M19 12H5M11 18l-6-6 6-6",
     ext:    "M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5",
     chev:   "M6 9.2l6 6 6-6",
     bolt:   "M13.2 3 5.5 13.4h5.4l-.9 7.6 7.7-10.4h-5.4z",
@@ -55,6 +56,71 @@ if (!window.__sharkFunnelTraining) {
     var s = icon(els[i].getAttribute("data-sk-icon"));
     if (s) els[i].appendChild(s);
   }
+
+  /* ---- "your marketing hub" pill, top left ----
+     A rep reaches a training page from a link in the hub, from a Slack message,
+     or straight from Joe. Only the first of those leaves a browser Back button
+     worth pressing, so the way home is drawn on the page.
+
+     BUILT AT RUNTIME, ON PURPOSE. The destination is the rep's OWN domain, which
+     lives in a custom value, and a custom value only reaches the page through a
+     `data-cv-*` attribute on the socket element. Reading it here means adding
+     this pill is a git push. Baking the href into each block.html instead would
+     mean regenerating ~70 pages and re-pushing a socket to every account, for a
+     link whose value the socket already carries.
+
+     The domain KEY differs per system (GLP reuses the email sending domain,
+     Conectiv has conectiv__main_url), so it is matched by SHAPE rather than
+     listed: any data-cv key ending in _main_url or _designated_domain. The next
+     system works without touching this file.
+
+     ⚠️ THE HOSTNAME TEST IS THE WHOLE SAFETY NET. On a snapshot that custom
+     value holds "Enter the domain you set up as your GHL email designated
+     domain." and two live accounts have an email address in it. Anything that
+     is not shaped like a hostname renders no pill at all, which is the correct
+     answer: a rep seeing nothing is fine, a rep clicking through to
+     https://Enter the domain.../marketing-links is not. */
+  var CV_DOMAIN = /(^|_)main_url$|_designated_domain$/;
+  var HOSTNAME  = /^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/i;
+  /* the hub's step slug. Measured identical on all 7 GLP and all 3 Conectiv
+     accounts carrying this component, 2026-09-25. If a system ever renames that
+     step, change it HERE. */
+  var HUB_SLUG = "marketing-links";
+
+  function repDomain(root) {
+    var mount = root.closest("[data-shark-block]");
+    if (!mount) return "";
+    var attrs = mount.attributes, fallback = "";
+    for (var a = 0; a < attrs.length; a++) {
+      var name = attrs[a].name;
+      if (name.indexOf("data-cv-") !== 0) continue;
+      var key = name.slice(8);
+      if (!CV_DOMAIN.test(key)) continue;
+      var val = (attrs[a].value || "").trim()
+        .replace(/^https?:\/\//i, "").replace(/\/+$/, "");
+      if (!HOSTNAME.test(val)) continue;
+      if (/_main_url$/.test(key)) return val;  /* the explicit one wins */
+      if (!fallback) fallback = val;
+    }
+    return fallback;
+  }
+
+  document.querySelectorAll(".sk-ftrain").forEach(function (root) {
+    if (root.querySelector(".sk-backpill")) return;
+    var dom = repDomain(root);
+    if (!dom) return;
+    var a = document.createElement("a");
+    a.className = "sk-backpill";
+    a.href = "https://" + dom + "/" + HUB_SLUG;
+    a.setAttribute("aria-label", "Go to your marketing hub");
+    var g = icon("back");
+    if (g) a.appendChild(g);
+    a.appendChild(document.createTextNode("Your marketing hub"));
+    /* first in the measure, above the logo, so it cannot overlap the header at
+       any breakpoint the way an absolutely positioned pill would */
+    var head = root.querySelector(".sk-head");
+    if (head) root.insertBefore(a, head); else root.prepend(a);
+  });
 
   /* copy a script to the clipboard, with the placeholders left in as (name) etc
      so the rep can see what still needs swapping in their own thread */
