@@ -69,6 +69,9 @@ var SYS = {
 
     { label:"\"What I do\" funnel", items:[
       { slug:"n-what-is-nueva", howtoSlug:"n-what-is-nueva-how-to", icon:"info",
+        /* two parts, and the second is the scripts one: this funnel is sent in a
+           DM, so it has no lead-generation part to link to */
+        parts:["work","close"],
         name:"What Is Nueva",
         tease:"The two minute overview",
         desc:"The whole company in one page. What Nueva is, what the range does and who it is for, written to be sent to anyone who asks what you are doing. It is the page to send the moment someone says yes, tell me more." } ]}
@@ -214,21 +217,32 @@ var SYS = {
      #part-N on load. A funnel with no training page renders no training block
      rather than three dead buttons.
 
-     ⚠️ PARTS IS FALSE ON NUEVA, DELIBERATELY. Nueva's how-to pages are still
-     the single page v1 format, so there is nothing for #part-N to land on:
-     three deep links would be three copies of one row, all going to the top of
-     the same page. One honest row instead. Flip this to true in the same commit
-     that ships Nueva's three-part funnel training pages, not before.
+     ⚠️ A CARD DECLARES ITS PAGE'S PARTS, IN PAGE ORDER. GLP uses `parts: N` and
+     filters to `t.part <= N`, which works there because every short page is
+     truncated after part 1. Nueva cannot use a count: the What Is Nueva page has
+     TWO parts and they are "how it works" and "what to say" — it has no
+     lead-generation part, because that funnel is sent in a DM rather than
+     posted. `parts: 2` would label its part 2 "How do I generate leads" and link
+     the scripts panel under the wrong name.
+
+     So a card lists KEYS in page order. The hash is positional (the Nth key
+     links to #part-N, which is how the training component numbers its panels)
+     and the key chooses the label. Default is the full three.
+
+     Measured 2026-09-25 before switching this on: the four funnels with cards
+     carry 3, 3, 3 and 2 parts, and the training component honours #part-N on
+     load and on hashchange. A page with no training page still renders no
+     training block rather than dead buttons.
 
      The emoji is the SAME one each part wears on the funnel training page it
      links to, its header and its sticky footer, so a rep meets one mark per
      part wherever they see it. */
-  var PARTS = false;
-  var TRAINING = [
-    { part: 1, emoji: '\uD83D\uDEE0\uFE0F', label: 'How does this funnel work?' },
-    { part: 2, emoji: '\uD83D\uDE80',        label: 'How do I generate leads with this funnel?' },
-    { part: 3, emoji: '\uD83D\uDCAC',        label: 'What to say to leads who come through this funnel?' }
-  ];
+  var TRAINING = {
+    work:  { emoji: '\uD83D\uDEE0\uFE0F', label: 'How does this funnel work?' },
+    leads: { emoji: '\uD83D\uDE80',        label: 'How do I generate leads with this funnel?' },
+    close: { emoji: '\uD83D\uDCAC',        label: 'What to say to leads who come through this funnel?' }
+  };
+  var DEFAULT_PARTS = ['work', 'leads', 'close'];
 
   function subhead(text) { return '<p class="sk-subhead">' + text + '</p>'; }
 
@@ -258,15 +272,13 @@ var SYS = {
   function trainingBlock(it) {
     var base = howtoUrl(it);
     if (!base) return '';
-    var rows = PARTS
-      ? TRAINING.map(function (t) {
-          return actionRow(base + '#part-' + t.part,
-            '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>',
-            t.label);
-        }).join('')
-      : actionRow(base,
-          '<span class="sk-action-mark" aria-hidden="true">' + icon('play', 1.7) + '</span>',
-          'How to use this funnel');
+    var rows = (it.parts || DEFAULT_PARTS).map(function (key, i) {
+      var t = TRAINING[key];
+      if (!t) return '';
+      return actionRow(base + '#part-' + (i + 1),
+        '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>',
+        t.label);
+    }).filter(Boolean).join('');
     return subhead('Training / Guidance') + '<div class="sk-actions">' + rows + '</div>';
   }
 
