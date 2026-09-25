@@ -58,6 +58,10 @@ var SYS = {
       items: [
         { icon: "info", name: "What Is Beneve",
           slug: "b-what-is-beneve",
+          /* Its Canva was on the how-to page and not here, so the one funnel a rep
+             sends most had no ready made images. Verified live 2026-09-25: all
+             seven Beneve Canva links 200 and every one is a distinct design. */
+          canva: "https://canva.link/gwygkydyqdeetm6",
           tease: "Both sides, in about a minute",
           desc: "What Beneve actually is: the products, and the way you earn from sharing them. Send it to anyone who asks what you are doing, and it carries on to a page explaining the Influencer plan." }
       ]
