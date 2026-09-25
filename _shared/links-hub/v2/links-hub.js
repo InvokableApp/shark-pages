@@ -1,0 +1,939 @@
+/* links-hub/v2 — THE REP HUB ENGINE, shared by every system.
+ *
+ * ONE FILE BEHIND EVERY SYSTEM'S HUB. Before this, GLP, Conectiv and Nueva each
+ * carried their own ~55KB copy: 82% identical engine, 65-95% identical CSS, and
+ * 404 lines present verbatim in all three. Joe's September markup round was
+ * ported by copying GLP and editing, so every later fix had to be applied three
+ * times by hand and silently was not. Measured 2026-09-25.
+ *
+ * A BLOCK NOW SUPPLIES ONLY ITS DATA. Same contract as funnel-training/v1: the
+ * block owns its content and its nine palette tokens, the component owns
+ * everything else. A hub fix is one git push for every system again.
+ *
+ * ── The config a block passes ──────────────────────────────────────────────
+ *   scope         REQUIRED  selector for the block root, e.g. '.sk-glp-...'
+ *   SYS           REQUIRED  the system's cards, links, copy — the real content
+ *   brandBase     REQUIRED  '…/_brand/{system}/', for the PWA icons
+ *   TRAINING      optional  defaults to the 3-part shape below
+ *   supportTease  optional  the one word of DEST that differed per system
+ *
+ * ⚠️ TRAINING HAD THREE DIFFERENT SHAPES across the three forks — GLP an array
+ * with icon+sub, Conectiv the same array without them, Nueva an OBJECT keyed
+ * work/leads/close. Same concept, three data models, which is what unattended
+ * forking does. The engine takes the GLP array (icon and sub optional); a
+ * system holding another shape converts in its own config, not here.
+ *
+ * MOUNTING. A block pushes its config and loads this file; order does not
+ * matter. Before this script runs, window.__sharkHubPending is a plain array
+ * collecting configs; after, it is an object whose push() mounts immediately.
+ */
+(function () {
+  if (window.SharkLinksHub) return;
+
+  var SUPPORT_TEASE_DEFAULT = 'Email, text, or send us a message.';
+
+  function mount(cfg) {
+    if (!cfg || !cfg.scope || !cfg.SYS) return;
+    var SYS = cfg.SYS;
+    var SUPPORT_TEASE = cfg.supportTease || SUPPORT_TEASE_DEFAULT;
+
+  var root = document.querySelector(cfg.scope);
+  if (!root) return;
+
+  /* ---------- typeface ----------
+     The block styles Archivo on the VARIABLE axes, wdth and wght, but it never
+     loaded the font: it inherited whatever the host GHL page happened to
+     request. GHL asks for static weights, and against a static face
+     font-variation-settings is ignored outright, so every weight in the design
+     silently collapsed to one. Load the variable file ourselves so the block
+     owns its own typography instead of borrowing the page's.
+     No IIFE here: the build appends the extra script at the first '})();'. */
+  var FONT_HREF = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap';
+  if (!document.querySelector('link[href^="https://fonts.googleapis.com/css2?family=Archivo:wdth"]')) {
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = FONT_HREF;
+    document.head.appendChild(fontLink);
+  }
+
+  /* ---------- icons ----------
+     Inline path data in one map, 24x24, fill none, stroke currentColor. Never an
+     icon font, never a remote sprite. */
+  var I = {
+    link:    '<path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/>',
+    inbox:   '<path d="M2.5 13.5h5l1.6 2.6h5.8l1.6-2.6h5"/><path d="M4.6 5.4 2.5 13.5v3.6a2.4 2.4 0 0 0 2.4 2.4h14.2a2.4 2.4 0 0 0 2.4-2.4v-3.6L19.4 5.4A2.4 2.4 0 0 0 17.2 4H6.8a2.4 2.4 0 0 0-2.2 1.4z"/>',
+    rocket:  '<path d="M13.5 4.5c3.4-2.2 6-2 6-2s.2 2.6-2 6c-2.5 3.9-6.4 5.6-6.4 5.6l-3.2-3.2S9.6 7 13.5 4.5z"/><path d="M8 15.5 5 18M6.5 11.5 4 12.8l1.8 1.8M12.5 17.5l1.3-2.5 1.8 1.8"/>',
+    life:    '<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M18.7 5.3l-3.9 3.9M9.2 14.8l-3.9 3.9"/>',
+    leaf:    '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    dumbbell:'<path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><path d="M3.5 9v6"/><path d="M20.5 9v6"/><path d="M6.5 12h11"/>',
+    quiz:    '<path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9.5"/>',
+    drop:    '<path d="M12 2.7s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.1 12 2.7 12 2.7Z"/>',
+    gift:    '<rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 13.5h18"/><path d="M12 9v11"/><path d="M12 9S10.6 5 8.6 5a2.5 2.5 0 0 0 0 5"/><path d="M12 9s1.4-4 3.4-4a2.5 2.5 0 0 1 0 5"/>',
+    info:    '<circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5"/><path d="M12 8h.01"/>',
+    user:    '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+    users:   '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.1"/>',
+    compass: '<circle cx="12" cy="12" r="9.5"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2Z"/>',
+    copy:    '<rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/>',
+    check:   '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+    out:     '<path d="M14 4h6v6"/><path d="M20 4 10.5 13.5"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>',
+    video:   '<rect x="2.5" y="6" width="12" height="12" rx="2.5"/><path d="m14.5 11 6-3.4v8.8l-6-3.4z"/>',
+    play:    '<path d="M21 7.5v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M10.5 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/>',
+    chev:    '<path d="m9 5 7 7-7 7"/>',
+    down:    '<path d="m6 9 6 6 6-6"/>',
+    scan:    '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="11" r="3"/><path d="M7 17c1-2 2.9-3 5-3s4 1 5 3"/>',
+    coffee:  '<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2v3"/><path d="M11 2v3"/>',
+    kids:    '<circle cx="12" cy="8.5" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M8.5 3.5 12 1l3.5 2.5"/>',
+    chart:   '<path d="M3 20h18"/><rect x="5" y="11" width="3.5" height="6" rx="1"/><rect x="10.2" y="7" width="3.5" height="10" rx="1"/><rect x="15.5" y="13" width="3.5" height="4" rx="1"/>',
+    image:   '<rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 4.7-4.7a2 2 0 0 1 2.8 0l3.2 3.2"/><path d="m13 14.2 2.1-2.1a2 2 0 0 1 2.8 0l2.6 2.6"/>',
+    cart:    '<circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/><path d="M2.5 3h2.2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/>',
+    share:   '<circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.7 7.4-3.9"/><path d="m8.3 13.3 7.4 3.9"/>',
+    /* added for the training buttons and the lead magnet, 2026-09-17 */
+    printer: '<path d="M7 9V4.2h10V9"/><path d="M7 17H5.6A2.1 2.1 0 0 1 3.5 15v-3.9A2.1 2.1 0 0 1 5.6 9h12.8a2.1 2.1 0 0 1 2.1 2.1V15a2.1 2.1 0 0 1-2.1 2.1H17"/><path d="M7 14h10v5.8H7z"/>',
+    guide:   '<path d="M4.5 5.2A1.7 1.7 0 0 1 6.2 3.5H19v13.2H6.2a1.7 1.7 0 0 0-1.7 1.7z"/><path d="M4.5 18.4a1.7 1.7 0 0 0 1.7 1.7H19v-3.4"/><path d="M8.2 7.6h6.6M8.2 11h4.4"/>',
+    target:  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
+    speech:  '<path d="M20.5 12.4c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.6-.34L4 21l1.2-3.4A6.9 6.9 0 0 1 3.5 12.4c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2z"/>'
+  };
+  function icon(k, w) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' +
+      (w || 1.7) + '" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
+  }
+
+  /* ---------- custom values ----------
+     Empty, unsubstituted, and the "Paste the full link" placeholder all count as
+     not filled, exactly as the live marketing links block treats them. */
+  function cv(key) {
+    var v = (root.getAttribute('data-cv-' + key) || '').trim();
+    if (!v || v.indexOf('{') !== -1 || /^(paste|enter|add)\b/i.test(v)) return '';
+    return v;
+  }
+  function href(v) { return /^https?:\/\//i.test(v) ? v : 'https://' + v.replace(/^\/+/, ''); }
+
+  /* ---------- helpers the other systems' forks grew ----------
+     Merged in when the three hubs were de-forked, 2026-09-25. Both are no-ops
+     for a system whose config does not reach for them, which is why they live
+     here rather than in a block: the alternative is the next system inventing
+     a fourth slightly-different copy, which is exactly how the forks started.
+
+     actionRow — Conectiv and Nueva. A pure helper, no state.
+     composed  — Nueva. A sponsor-composed url, and it returns '' unless the
+                 config carries SYS.compose AND the rep's id is filled, because
+                 the un-composed base resolves to a real page with NO SPONSOR on
+                 it: rendering that is worse than rendering no link at all. */
+  function actionRow(href_, mark, label) {
+    return '<a class="sk-action" href="' + href_ + '" target="_blank" rel="noopener">' +
+      mark + '<span class="sk-action-label">' + label + '</span>' +
+      '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
+  }
+
+  var composeId = SYS.compose ? cv(SYS.compose.cv) : '';
+  function composed(path) {
+    if (!SYS.compose || !composeId) return '';
+    return SYS.compose.base.replace('{id}', encodeURIComponent(composeId)).replace(/\/+$/, '') +
+      '/' + String(path).replace(/^\/+/, '');
+  }
+
+  /* ---------- the four destinations ---------- */
+  var DEST = [
+    { id: 'links',   icon: 'link',   name: 'View my funnel links', tease: 'Every link you can share, ready to copy.' },
+    { id: 'leads',   icon: 'inbox',  name: 'View my leads',        tease: 'Where your leads and conversations live.' },
+    { id: 'promote', icon: 'rocket', name: 'Generate leads now',   tease: 'What your day should actually look like.' },
+    { id: 'support', icon: 'life',   name: 'Contact support',      tease: SUPPORT_TEASE }
+  ];
+
+  /* Referral is a destination, not a card at the bottom of the funnel list. PUSHED
+     rather than declared inline so a system whose config carries no affiliate program
+     never grows a tile that leads nowhere. Last on purpose: the others are the rep's
+     job, this one is their upside. */
+  /* Joe, 2026-09-24: "Fast Start Training / Learn how to use this system, this is
+     where you start" with a video icon, above the others. UNSHIFTED rather than
+     declared inline, same reason the referral tile is pushed: a system with no
+     training hub in its config never grows a tile that leads nowhere.
+
+     It is the one destination that leaves the app, so it carries an href of its
+     own instead of a #/screen route. */
+  if (SYS.training) DEST.unshift({ id: 'training', icon: 'video',
+    name: 'Fast Start Training', tease: 'Learn how to use this system. This is where you start.',
+    /* Joe wrote it with a dash: "Learn how to use this system - this is where
+       you start." Two sentences instead, because a dash clause is out in
+       shipped copy and a comma there is a splice. His words, unchanged. */
+    href: SYS.training });
+
+  if (SYS.affiliate) DEST.push({ id: 'referral', icon: 'share',
+    name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' });
+
+
+  /* ---------- link building ----------
+     Two models across the fleet, and the difference is deliberate.
+       cv   : one custom value per funnel holding a FULL url. GLP reps run
+              several domains per account and their slugs drift per install, so
+              an assembled url silently serves the 404 fallback with a 200.
+       slug : one domain custom value plus a fixed slug per funnel. Vital and
+              Conectiv installs are uniform, so the slugs hold.
+     A slug starting with http is absolute and used verbatim, which is how the
+     central how-to pages sit alongside a rep's own domain. */
+  var domain = SYS.domainCv
+    ? cv(SYS.domainCv).replace(/^https?:\/\//i, '').replace(/\/+$/, '')
+    : '';
+
+  /* The rep's OWN how-to page, on the rep's OWN domain.
+     Joe's v2 three-part training pages live as a step inside each funnel and
+     travel with the snapshot; the glpshark.com/*-training pages are the OLD v1
+     single-page versions, and those must keep serving because older accounts
+     still point at them. So the v2 hub addresses the copy in the rep's account.
+
+     ⚠️ On a SNAPSHOT the domain custom value holds INSTRUCTION TEXT ("Enter the
+     domain you set up as..."), not a domain. Rendering that would produce
+     https://Enter the domain you set up.../glp-food-guide-how-to on every card.
+     So the value has to look like a hostname before it is used; when it does
+     not, this returns '' and the caller falls back to the published v1 page. */
+  var howtoDomain = (function () {
+    var v = SYS.howtoDomainCv ? cv(SYS.howtoDomainCv) : '';
+    v = String(v || '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+    return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(v) ? v : '';
+  })();
+
+  function howtoUrl(it) {
+    if (it.howtoSlug && howtoDomain) return 'https://' + howtoDomain + '/' + it.howtoSlug;
+    return it.howto || '';   // published v1 page, or nothing
+  }
+
+  function funnelUrl(it) {
+    if (SYS.domainCv) {
+      if (!domain) return '';
+      if (/^https?:/i.test(it.slug || '')) return it.slug;
+      return 'https://' + domain + (it.slug ? '/' + it.slug : '');
+    }
+    var v = cv(it.cv);
+    return v ? href(v) : '';
+  }
+
+  /* ---------- greeting ---------- */
+  var firstName = cv(SYS.nameCv);
+  var nameEl = root.querySelector('[data-name]');
+  if (nameEl) nameEl.textContent = firstName;
+  var commaEl = root.querySelector('[data-comma]');
+  if (commaEl) commaEl.textContent = firstName ? ', ' : '';
+
+  /* A destination is normally a screen in this app (#/id). One of them leaves for
+     the training hub, so it needs a real href and a new tab. Shared by the home
+     grid and the nav sheet so the two can never disagree about where a tile goes. */
+  function destAttrs(d) {
+    return d.href
+      ? 'href="' + d.href + '" target="_blank" rel="noopener"'
+      : 'href="#/' + d.id + '"';
+  }
+
+  /* ---------- home destinations ---------- */
+  var grid = root.querySelector('[data-menugrid]');
+  grid.innerHTML = DEST.map(function (d, i) {
+    return '<a class="sk-dest" ' + destAttrs(d) + ' style="animation-delay:' + (0.1 + i * 0.05) + 's">' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span><span class="sk-dest-name">' + d.name + '</span>' +
+      '<span class="sk-dest-tease">' + d.tease + '</span></span>' +
+      '<span class="sk-dest-go" aria-hidden="true">' + icon('chev', 2) + '</span></a>';
+  }).join('');
+
+  /* ---------- nav sheet ---------- */
+  var navlist = root.querySelector('[data-navlist]');
+  navlist.innerHTML = [{ id: 'home', icon: 'compass', name: 'Home' }].concat(DEST).map(function (d) {
+    return '<a class="sk-nav" ' + destAttrs(d) + '>' +
+      '<span class="sk-mark" aria-hidden="true">' + icon(d.icon) + '</span>' +
+      '<span>' + d.name + '</span></a>';
+  }).join('');
+
+
+  /* ---------- per funnel: training, then quick actions ----------
+     Joe's spec, Sep 2026: three training buttons under every funnel link, then a
+     "useful quick actions" row. All three training buttons go to the SAME funnel
+     training page and differ only by the hash, because that page is three tabs
+     and honours #part-N on load. So the hub needs no knowledge of the page
+     beyond its url, and a funnel that has no training page yet simply renders
+     no training block rather than three dead buttons. */
+  /* Joe, 2026-09-23: "those three items under training / guidance, lets use the
+     emojis we use on the inside page instead of the icons". The emoji is the
+     SAME one each part wears on the funnel training page it links to - its
+     header and its sticky footer - so a rep sees one mark per part wherever
+     they meet it. Kept beside `icon` rather than replacing it, because the
+     outline set still dresses every other row on this page. */
+  var TRAINING = cfg.TRAINING || [
+    { part: 1, emoji: '\uD83D\uDEE0\uFE0F', icon: 'play',   label: 'How does this funnel work?',
+      sub: 'Video and write up that explains this funnel!' },
+    { part: 2, emoji: '\uD83D\uDE80',        icon: 'target', label: 'How do I generate leads with this funnel?',
+      sub: 'Video, write up, post ideas &amp; content to guide you on generating leads!' },
+    { part: 3, emoji: '\uD83D\uDCAC',        icon: 'speech', label: 'What to say to leads who come through this funnel?',
+      sub: 'Video and write up that trains you on how to turn your leads into sales / recruits!' }
+  ];
+
+  function subhead(text) {
+    return '<p class="sk-subhead">' + text + '</p>';
+  }
+
+  function trainingBlock(it) {
+    var base = howtoUrl(it);
+    if (!base) return '';
+    return subhead('Training / Guidance') + '<div class="sk-actions">' +
+      TRAINING.filter(function (t) { return t.part <= (it.parts || 3); }).map(function (t) {
+        return '<a class="sk-action sk-action--sub" href="' + base + '#part-' + t.part + '" target="_blank" rel="noopener">' +
+          '<span class="sk-action-mark sk-action-mark--emoji" aria-hidden="true">' + t.emoji + '</span>' +
+          '<span class="sk-action-label">' + t.label +
+            '<span class="sk-action-sub">' + t.sub + '</span></span>' +
+          '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
+      }).join('') + '</div>';
+  }
+
+  /* The lead magnet itself, so a rep can read or print what they are sending.
+     `guides` is a list because some funnels ship two (a guide and a grocery
+     list). Canva sits here too: it is an asset the rep fetches, not training. */
+  function quickActions(it) {
+    var rows = (it.guides || []).map(function (g) {
+      var u = g.cv ? cv(g.cv) : g.url;
+      if (!u) return '';
+      u = href(u);
+      return '<a class="sk-action sk-action--sub" href="' + u + '" target="_blank" rel="noopener">' +
+        '<span class="sk-action-mark" aria-hidden="true">' + icon('guide', 1.7) + '</span>' +
+        '<span class="sk-action-label">' + g.label +
+          '<span class="sk-action-sub">Print the guide or quickly access the link</span></span>' +
+        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>';
+    }).filter(Boolean);
+    if (it.print) {
+      rows.push('<a class="sk-action sk-action--sub" href="' + it.print + '" target="_blank" rel="noopener">' +
+        '<span class="sk-action-mark" aria-hidden="true">' + icon('printer', 1.7) + '</span>' +
+        '<span class="sk-action-label">Print optimized version' +
+          '<span class="sk-action-sub">Opens in Canva, sized for printing and handing out.</span></span>' +
+        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>');
+    }
+    if (it.canva) {
+      rows.push('<a class="sk-action" href="' + it.canva + '" target="_blank" rel="noopener">' +
+        '<span class="sk-action-mark" aria-hidden="true">' + icon('image', 1.7) + '</span>' +
+        '<span class="sk-action-label">Images for social posts</span>' +
+        '<span class="sk-action-go" aria-hidden="true">' + icon('out', 1.8) + '</span></a>');
+    }
+    if (!rows.length) return '';
+    return subhead('Useful Quick Actions') + '<div class="sk-actions">' + rows.join('') + '</div>';
+  }
+
+  /* ---------- the "2 minute customer video" row on the promote screen ----------
+     Rendered rather than hardcoded because it is the rep's own link, and an
+     empty custom value has to drop the row instead of linking to nothing. */
+  var twoMin = root.querySelector('[data-two-min-video]');
+  if (twoMin) {
+    /* Was cv('drops_funnel_link'), which was a guess: GLP has no custom value for
+       this page, that CV is EMPTY in every account, and no "drops" funnel exists
+       for it to point at, so the row only ever rendered the support note. It is
+       the rep's own /products-info step, so it is derived the same way the how-to
+       links are. (Jeff, 2026-09-24, answering the ASSUMED CV note in block.html.) */
+    var tmv = howtoDomain && SYS.videoPageSlug
+      ? 'https://' + howtoDomain + '/' + SYS.videoPageSlug
+      : '';
+    twoMin.innerHTML = tmv
+      /* link above the button, Joe Figma #41 "Swap these, put the link above
+         the button". A rep reads the address to check it is theirs before they
+         reach for copy; underneath, the button was the first thing they hit. */
+      ? '<div class="sk-url"><span class="sk-url-text">' + tmv.replace(/^https?:\/\//, '') + '</span>' +
+          '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="Open your customer video page">' + icon('out', 1.8) + '</a></div>' +
+        '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
+          icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
+      : '<p class="sk-note-line">Your domain has not been set up yet, so this link cannot be built. Contact support and we will finish it.</p>';
+  }
+
+  /* ---------- funnel links ---------- */
+  var linksHost = root.querySelector('[data-links]');
+  var html = '';
+  var liveCount = 0;
+  SYS.groups.forEach(function (g) {
+    var rows = g.items.map(function (it) {
+      var full = funnelUrl(it);
+      if (!full) return '';
+      var url = full.replace(/^https?:\/\//, '');
+      return '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(it.icon) + '</span>' +
+          '<span><span class="sk-name">' + it.name + '</span>' +
+          '<span class="sk-tease">' + it.tease + '</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<button class="sk-copy" type="button" data-copy="' + full + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+          '<div class="sk-url"><span class="sk-url-text">' + url + '</span>' +
+            '<a class="sk-open" href="' + full + '" target="_blank" rel="noopener" aria-label="Open ' + it.name + '">' + icon('out', 1.8) + '</a></div>' +
+          trainingBlock(it) + quickActions(it) +
+        '</div></div></div></article>';
+    }).join('');
+    if (!rows) return;
+    var shown = rows.split('<article').length - 1;
+    liveCount += shown;
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">' + g.label + '</span>' +
+      '<span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + shown + '</span></div>' + rows + '</div>';
+  });
+  /* Extra groups: a row list of name plus link, used for the social image
+     library, product and buy links, and anything else that is a directory
+     rather than a funnel. Static entries carry a url, per rep entries carry a
+     custom value and drop out when it is empty. */
+  (SYS.lists || []).forEach(function (L) {
+    /* A library that is ONE destination rather than a directory. A dropdown
+       holding a single row costs two taps to reach one link, so it renders as
+       a card with a primary button instead. */
+    if (L.single) {
+      html += '<div class="sk-group"><div class="sk-group-head">' +
+        '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+        '<span class="sk-group-count">1</span></div>' +
+        '<article class="sk-card" data-open="false">' +
+          '<button class="sk-trigger" type="button" aria-expanded="false">' +
+            '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+            '<span><span class="sk-name">' + L.name + '</span>' +
+            '<span class="sk-tease">' + L.tease + '</span></span>' +
+            '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<p class="sk-desc">' + L.single.desc + '</p>' +
+            '<a class="sk-copy" href="' + L.single.url + '" target="_blank" rel="noopener">' +
+              icon('image', 1.8) + L.single.cta + '</a>' +
+          '</div></div></div></article></div>';
+      return;
+    }
+    var rows = L.items.map(function (x) {
+      var u = x.url || (x.cv ? cv(x.cv) : '');
+      if (!u) return '';
+      u = href(u);
+      return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
+        x.name + '</a>' + (x.url
+          ? '<a class="sk-chip sk-chip--go" href="' + u + '" target="_blank" rel="noopener">Open</a>'
+          : '<button class="sk-copy sk-copy--mini" type="button" data-copy="' + u + '">' +
+            icon('copy', 1.8) + '<span class="sk-copy-label">Copy</span></button>') + '</li>';
+    }).filter(Boolean);
+    if (!rows.length) return;
+    if (L.perRep) liveCount += rows.length;
+    html += '<div class="sk-group"><div class="sk-group-head">' +
+      '<span class="sk-group-label">' + L.label + '</span><span class="sk-group-rule"></span>' +
+      '<span class="sk-group-count">' + rows.length + '</span></div>' +
+      '<article class="sk-card" data-open="false">' +
+        '<button class="sk-trigger" type="button" aria-expanded="false">' +
+          '<span class="sk-mark" aria-hidden="true">' + icon(L.icon) + '</span>' +
+          '<span><span class="sk-name">' + L.name + '</span>' +
+          '<span class="sk-tease">' + L.tease + '</span></span>' +
+          '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+        '</button>' +
+        '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          '<ul class="sk-plist">' + rows.join('') + '</ul>' +
+        '</div></div></div></article></div>';
+  });
+
+  linksHost.innerHTML = html;
+
+  /* ---------- refer the system ----------
+     Its own screen since it became a home destination, so it is one tap from home
+     instead of buried under the funnel list. The link is per rep, so an unfilled
+     custom value gets the setup message rather than a dead link or, worse, someone
+     else's. It deliberately does NOT count toward liveCount: that gate is about
+     whether the FUNNEL links are ready. */
+  var referralHost = root.querySelector('[data-referral]');
+  var affiliate = SYS.affiliate ? cv(SYS.affiliate.cv) : '';
+  if (referralHost) {
+    if (affiliate) {
+      var au = href(affiliate);
+      referralHost.innerHTML =
+        '<article class="sk-card" data-open="true">' +
+          '<button class="sk-trigger" type="button" aria-expanded="true">' +
+            '<span class="sk-mark" aria-hidden="true">' + icon('share') + '</span>' +
+            '<span><span class="sk-name">' + SYS.affiliate.name + '</span>' +
+            '<span class="sk-tease">Share the Shark marketing system</span></span>' +
+            '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
+          '</button>' +
+          '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+            '<p class="sk-desc">' + SYS.affiliate.desc + '</p>' +
+            '<button class="sk-copy" type="button" data-copy="' + au + '">' +
+              icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
+            '<div class="sk-url"><span class="sk-url-text">' + au.replace(/^https?:\/\//, '') + '</span>' +
+              '<a class="sk-open" href="' + au + '" target="_blank" rel="noopener" aria-label="Open your affiliate link">' + icon('out', 1.8) + '</a></div>' +
+          '</div></div></div></article>';
+    } else {
+      referralHost.innerHTML =
+        '<div class="sk-setup"><h2>Finish your setup first</h2>' +
+        '<p>Your referral link has not been added yet. Paste it into your affiliate ' +
+        'link custom value and this page fills in automatically.</p></div>';
+    }
+  }
+
+  /* ---------- copy to clipboard ----------
+     Idle to done state machine: the label swaps to a confirmation for 1.9s and
+     then restores, so the tap is acknowledged without a toast. */
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-copy]') : null;
+    if (!btn) return;
+    var url = btn.getAttribute('data-copy');
+    var label = btn.querySelector('.sk-copy-label');
+    /* the button is no longer only used for funnel links: the daily-method
+       scripts copy a message, so the restored label comes from the button */
+    var idle = btn.getAttribute('data-copy-label') || 'Copy my link';
+    function done() {
+      btn.setAttribute('data-state', 'done');
+      if (label) label.textContent = 'Copied';
+      setTimeout(function () {
+        btn.removeAttribute('data-state');
+        if (label) label.textContent = idle;
+      }, 1900);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, done);
+    } else {
+      var t = document.createElement('textarea');
+      t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(t);
+      done();
+    }
+  });
+
+  /* ---------- accordions ----------
+     State lives in data-open on the card, mirrored to aria-expanded on the
+     trigger. One open at a time, per group of cards on the active screen. */
+  root.addEventListener('click', function (e) {
+    var trigger = e.target.closest ? e.target.closest('.sk-trigger') : null;
+    if (!trigger) return;
+    var card = trigger.closest('.sk-card');
+    var screen = trigger.closest('.sk-screen');
+    var willOpen = card.getAttribute('data-open') !== 'true';
+    screen.querySelectorAll('.sk-card').forEach(function (c) {
+      c.setAttribute('data-open', 'false');
+      var t = c.querySelector('.sk-trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      card.setAttribute('data-open', 'true');
+      trigger.setAttribute('aria-expanded', 'true');
+      fillEmbedsIn(card);
+
+      /* ---- land at the TOP of the card that just opened ----
+         Joe, 2026-09-24, on a walkthrough video of the mobile hub: "there's
+         still some sections where you click, depending on how you click, and it
+         scrolls to the bottom of the section."
+
+         Nothing here was scrolling, which is the bug. One card is open at a
+         time, so opening a card COLLAPSES the one above it and the document
+         loses that card's whole height from above the reader. The scroll offset
+         does not move, so the viewport ends up parked inside the card that just
+         opened. "Depending on how you click" is the tell: it only bites when the
+         card you open sits BELOW the one already open, which is why it reads as
+         intermittent.
+
+         Same shape as the fix already proven on the funnel training pages: the
+         panel animation is suppressed for the single layout pass where the
+         target is measured, so the collapse above is already applied. Measuring
+         without that pass reads the mid animation layout and lands just as
+         wrong.
+
+         The bar is sticky at top:0, so its height comes off the target or the
+         card header lands underneath it. Measured, never hardcoded. */
+      var skBar = root.querySelector('.sk-bar');
+      var skBarH = skBar ? Math.round(skBar.getBoundingClientRect().height) : 0;
+      screen.classList.add('sk-nosnap');
+      void screen.offsetHeight;
+      var skY = Math.max(0, card.getBoundingClientRect().top + window.scrollY - skBarH - 10);
+      requestAnimationFrame(function () {
+        screen.classList.remove('sk-nosnap');
+        if (Math.abs(skY - window.scrollY) >= 4) {
+          window.scrollTo({ top: skY, behavior: 'smooth' });
+        }
+      });
+    }
+  });
+
+  /* ---------- INLINE video embeds ----------
+     Joe, 2026-09-23: "just put the video in with nothing covering it". Every
+     video in the six action-item cards was behind a button or a thumbnail
+     facade, and his read of that was simply that the videos were not in.
+
+     So the player is visible, not summoned. It is still not in the MARKUP: six
+     Vimeo iframes on one page is six third-party players loading before anyone
+     has opened a card. Each embed fills the moment its card opens, which for a
+     rep is indistinguishable from it always having been there, and an embed
+     that sits outside a card fills on load.
+
+     ⚠️ Fills ONCE. A card the rep closes and reopens keeps the iframe it
+     already has, so playback position survives and the player does not reload
+     under them. */
+  function fillEmbed(box) {
+    if (box.getAttribute('data-filled') === 'true') return;
+    var id = box.getAttribute('data-vimeo');
+    if (!id) return;
+    box.setAttribute('data-filled', 'true');
+    var f = document.createElement('iframe');
+    f.src = 'https://player.vimeo.com/video/' + id + '?title=0&byline=0&portrait=0&dnt=1';
+    f.title = box.getAttribute('data-vimeo-title') || 'Video';
+    f.loading = 'lazy';
+    f.allow = 'fullscreen; picture-in-picture';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('frameborder', '0');
+    box.appendChild(f);
+  }
+  function fillEmbedsIn(scope) {
+    (scope || root).querySelectorAll('.sk-embed[data-vimeo]').forEach(fillEmbed);
+  }
+  /* anything not inside a collapsed card is visible right now */
+  root.querySelectorAll('.sk-embed[data-vimeo]').forEach(function (box) {
+    if (!box.closest('.sk-card')) fillEmbed(box);
+  });
+
+  /* ---------- video facade ----------
+     The player is never in the markup: data-vimeo holds the numeric id and the
+     iframe is injected on click, so a page carrying videos costs nothing until
+     a viewer asks for one. */
+  root.addEventListener('click', function (e) {
+    var frame = e.target.closest ? e.target.closest('.sk-frame') : null;
+    if (!frame) return;
+    var id = frame.getAttribute('data-vimeo');
+    if (!id) return;
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'position:relative;width:100%;aspect-ratio:16/9';
+    var f = document.createElement('iframe');
+    f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0';
+    f.allow = 'autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen = true;
+    f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+    wrap.appendChild(f);
+    frame.replaceWith(wrap);
+  });
+
+  /* ---------- menu sheet ---------- */
+  var sheet = root.querySelector('[data-menu]');
+  var lastFocus = null;
+  function openMenu() {
+    lastFocus = document.activeElement;
+    sheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    sheet.querySelector('.sk-sheet-panel').focus();
+  }
+  function closeMenu() {
+    sheet.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  root.querySelector('[data-menu-open]').addEventListener('click', openMenu);
+  sheet.querySelectorAll('[data-menu-close]').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !sheet.hidden) closeMenu();
+  });
+
+  /* ---------- router ----------
+     Hash routed so the whole hub is one block at one URL, which is what lets it
+     travel inside a snapshot as a single custom code socket. */
+  var screens = root.querySelectorAll('.sk-screen');
+  var backBtn = root.querySelector('[data-back]');
+  var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1, referral: 1 };
+
+  function route() {
+    var id = (location.hash || '').replace(/^#\/?/, '') || 'home';
+    if (!VALID[id]) id = 'home';
+    screens.forEach(function (s) {
+      s.setAttribute('data-active', String(s.getAttribute('data-screen') === id));
+    });
+    root.setAttribute('data-route', id);
+    backBtn.hidden = (id === 'home');
+    navlist.querySelectorAll('.sk-nav').forEach(function (a) {
+      if (a.getAttribute('href') === '#/' + id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    if (!sheet.hidden) closeMenu();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  backBtn.addEventListener('click', function () { location.hash = '#/home'; });
+  route();
+
+  /* the bar grows a hairline once the page has moved, so it separates from the
+     content without drawing a permanent line across the top */
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      root.setAttribute('data-scrolled', String(window.scrollY > 4));
+      ticking = false;
+    });
+  }, { passive: true });
+
+
+  /* ---------- setup state ----------
+     An account with nothing filled in yet gets told what to do, not an empty
+     screen. Shown INSTEAD of the funnel list, per the design system. */
+  if (!liveCount) {
+    linksHost.innerHTML =
+      '<div class="sk-setup"><h2>Finish your setup first</h2>' +
+      '<p>Your funnel links have not been added yet. Paste each one into the GLP ' +
+      'Funnel Links custom values and this page fills in automatically.</p></div>';
+  }
+
+  /* ---------- home screen icon ----------
+     Reps are told to add this to their home screen. Without an apple-touch-icon
+     iOS screenshots the page and uses that as the icon, which looks broken.
+     GHL always emits its own <link rel="icon"> pointing at the HighLevel
+     default, so "skip if one exists" silently loses every time: drop the
+     platform default first, then add ours, and leave anything deliberate. */
+  (function () {
+    var ICON = cfg.brandBase;
+    function head(tag, attrs) {
+      if (attrs.rel) {
+        var existing = document.head.querySelectorAll(tag + '[rel="' + attrs.rel + '"]');
+        for (var i = 0; i < existing.length; i++) {
+          if (/leadconnectorhq|stcdn/.test(existing[i].getAttribute('href') || '')) existing[i].remove();
+          else return;
+        }
+      }
+      var el = document.createElement(tag);
+      for (var a in attrs) el.setAttribute(a, attrs[a]);
+      document.head.appendChild(el);
+    }
+    head('link', { rel: 'apple-touch-icon', sizes: '180x180', href: ICON + 'icon-180.png' });
+    head('link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: ICON + 'icon-512.png' });
+    head('meta', { name: 'apple-mobile-web-app-title', content: 'GLP Shark' });
+    head('meta', { name: 'theme-color', content: '#EC5E2A' });
+  })();
+
+  /* ---------- add to home screen ----------
+     CAN THIS BE AUTOMATIC? Only partly, and only on Android.
+       iOS: Safari exposes NO API. Add to Home Screen is Share then Add, a manual
+            gesture no script can trigger or fake, so instructions lead.
+       Android: Chrome MAY fire beforeinstallprompt, a real one tap install. It
+            is not guaranteed, so it is a bonus: when it fires the button
+            installs directly and the sheet never opens. */
+  (function () {
+    var openBtn = root.querySelector('[data-a2hs-open]');
+    var sheet   = root.querySelector('[data-a2hs-sheet]');
+    if (!openBtn || !sheet) return;
+
+    // already installed: the button would be pure noise, so it never appears
+    var installed = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+                    window.navigator.standalone === true;
+    if (installed) return;
+
+    var label   = openBtn.querySelector('[data-a2hs-label]');
+    var stepsEl = sheet.querySelector('[data-a2hs-steps]');
+    var videoEl = sheet.querySelector('[data-a2hs-video]');
+    var watch   = sheet.querySelector('.sk-watch');
+
+    /* One walkthrough per platform. The runtimes differ, so the hint is per
+       platform rather than one static claim. */
+    var VIDEO = {
+      ios:     { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85cfbf005891114d29ddef.mp4', hint: '(1 minute video)' },
+      android: { src: 'https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a85d91f9cca634f084ab692.mp4', hint: '(2 minute video)' }
+    };
+    var share = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8.5 6.5 3.5-3.5 3.5 3.5"/><path d="M6 11H4.8A1.8 1.8 0 0 0 3 12.8v6.4A1.8 1.8 0 0 0 4.8 21h14.4a1.8 1.8 0 0 0 1.8-1.8v-6.4A1.8 1.8 0 0 0 19.2 11H18"/></svg>Share</span>';
+    var kebab = '<span class="sk-gl"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>menu</span>';
+
+    var STEPS = {
+      ios: [
+        'Tap the ' + share + ' button at the bottom of Safari.',
+        'Scroll down the list and tap <b>Add to Home Screen</b>.',
+        'Tap <b>Add</b> in the top right. The icon appears with your other apps.'
+      ],
+      android: [
+        'Tap the ' + kebab + ' in the top right of Chrome.',
+        'Tap <b>Install app</b>, or <b>Add to Home screen</b> if you do not see it.',
+        'Confirm with <b>Install</b>. The icon appears with your other apps.'
+      ]
+    };
+    /* Opening from inside another app's browser makes the real steps impossible,
+       and it is common: reps reach this from a Facebook or Instagram message.
+       Naming it saves the "it isn't there" support message. */
+    var INAPP = /FBAN|FBAV|Instagram|Line\/|Twitter|LinkedInApp/i.test(navigator.userAgent || '');
+    var ua = navigator.userAgent || '';
+    var guess = (/iPad|iPhone|iPod/.test(ua) || (ua.indexOf('Mac') > -1 && navigator.maxTouchPoints > 1))
+      ? 'ios' : (/Android/i.test(ua) ? 'android' : 'ios');
+
+    function paint(os) {
+      sheet.querySelectorAll('.sk-seg-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-os') === os));
+      });
+      var list = STEPS[os].map(function (t) { return '<li><span>' + t + '</span></li>'; }).join('');
+      if (INAPP) {
+        list = '<li><span>You opened this inside another app. Tap that app’s menu and choose ' +
+               '<b>Open in ' + (os === 'ios' ? 'Safari' : 'Chrome') + '</b> first.</span></li>' + list;
+      }
+      stepsEl.innerHTML = list;
+      /* Rebuilt on every switch so only the platform being viewed is fetched,
+         and preload="none" keeps even that at zero bytes until play. These files
+         are ~23MB each; preloading both would cost a rep 46MB for nothing. */
+      videoEl.innerHTML = '<video controls playsinline preload="none" src="' + VIDEO[os].src + '"></video>';
+      var hint = sheet.querySelector('[data-a2hs-size]');
+      if (hint) hint.textContent = VIDEO[os].hint;
+      if (watch) watch.open = false;
+    }
+
+    var lastA2hsFocus = null;
+    function openSheet() {
+      lastA2hsFocus = document.activeElement;
+      paint(guess);
+      sheet.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = sheet.querySelector('.sk-sheet-x');
+      if (x) x.focus();
+    }
+    function closeSheet() {
+      // stop playback and drop the buffer, or audio keeps going behind the sheet
+      var v = sheet.querySelector('video');
+      if (v) { try { v.pause(); } catch (e) {} }
+      videoEl.innerHTML = '';
+      sheet.hidden = true;
+      document.body.style.overflow = '';
+      if (lastA2hsFocus && lastA2hsFocus.focus) lastA2hsFocus.focus();
+    }
+
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('[data-a2hs-close]')) { closeSheet(); return; }
+      var seg = e.target.closest('.sk-seg-btn');
+      if (seg) { guess = seg.getAttribute('data-os'); paint(guess); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !sheet.hidden) closeSheet();
+    });
+
+    // Android's real install prompt, when the browser offers one
+    var deferred = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferred = e;
+      label.textContent = 'Add this page to your home screen';
+    });
+    window.addEventListener('appinstalled', function () { openBtn.hidden = true; deferred = null; });
+
+    openBtn.addEventListener('click', function () {
+      if (deferred) {
+        deferred.prompt();
+        deferred.userChoice.then(function (r) {
+          if (r && r.outcome === 'accepted') openBtn.hidden = true;
+          /* dismissed: the browser will not re-offer, so fall back to the written
+             steps rather than leaving a button that silently does nothing */
+          else { deferred = null; label.textContent = 'How to add this to your home screen'; }
+        });
+        deferred = null;
+        return;
+      }
+      openSheet();
+    });
+
+    label.textContent = 'How to add this to your home screen';
+    openBtn.hidden = false;
+  })();
+
+  /* ---------- training video sheet ----------
+     One sheet, any number of buttons. Everything a video needs travels on the
+     button (id, title, natural pixel size), so the next one is markup only and
+     no JS changes. */
+  (function () {
+    var sheet = root.querySelector('[data-video-sheet]');
+    if (!sheet) return;
+    var stage = sheet.querySelector('[data-video-stage]');
+    var head  = sheet.querySelector('[data-video-heading]');
+    var lastVideoFocus = null;
+
+    function closeVideo() {
+      /* dropping the iframe is what stops playback: pausing a cross origin
+         player is not something this page is allowed to do, and a sheet that
+         closes while audio keeps running is the a2hs bug all over again. */
+      stage.innerHTML = '';
+      stage.style.removeProperty('--sk-vid-ar');
+      stage.style.removeProperty('max-width');
+      sheet.hidden = true;
+      document.body.style.overflow = '';
+      if (lastVideoFocus && lastVideoFocus.focus) lastVideoFocus.focus();
+    }
+
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('[data-video]') : null;
+      if (!btn) return;
+      var id = btn.getAttribute('data-video');
+      if (!id) return;
+      lastVideoFocus = btn;
+
+      var w = parseFloat(btn.getAttribute('data-video-w')) || 16;
+      var h = parseFloat(btn.getAttribute('data-video-h')) || 9;
+      stage.style.setProperty('--sk-vid-ar', w + ' / ' + h);
+      // capped by HEIGHT, so a portrait clip fits the sheet instead of scrolling it
+      stage.style.maxWidth = 'calc(' + (w / h).toFixed(4) + ' * 62vh)';
+
+      head.textContent = btn.getAttribute('data-video-title') || 'Watch';
+
+      var f = document.createElement('iframe');
+      f.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      f.title = head.textContent;
+      stage.appendChild(f);
+
+      sheet.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = sheet.querySelector('.sk-sheet-x');
+      if (x) x.focus();
+    });
+
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('[data-video-close]')) closeVideo();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !sheet.hidden) closeVideo();
+    });
+  })();
+
+  /* ---------- scroll cue ----------
+     Joe: the glance grid and the leads copy both end flush at the fold, so the
+     screen reads as finished and everything under it gets ignored.
+
+     The cue is MEASURED, never assumed. It appears only when the document
+     really does continue past the viewport by more than a token amount, and it
+     retires on the first scroll of that screen, because once a rep has scrolled
+     they know the page moves and a permanent arrow is just furniture. Each
+     route resets it, since every screen is a fresh question. */
+  (function () {
+    var cue = root.querySelector('[data-more]');
+    if (!cue) return;
+    var MIN = 140;          // less than this below the fold is not worth a prompt
+    var MOVED = 24;         // a scroll this small still counts as "they know"
+    var armed = false;
+
+    function below() {
+      var doc = document.documentElement;
+      return Math.max(doc.scrollHeight, document.body.scrollHeight) -
+             window.innerHeight - (window.scrollY || window.pageYOffset || 0);
+    }
+    function paint() {
+      var show = armed &&
+                 (window.scrollY || window.pageYOffset || 0) < MOVED &&
+                 below() > MIN;
+      cue.hidden = !show;
+      cue.setAttribute('data-show', String(show));
+    }
+    function arm() {
+      armed = true;
+      paint();
+      // the screen it just switched to may still be settling its images and fonts
+      setTimeout(paint, 260);
+    }
+
+    window.addEventListener('scroll', function () {
+      if ((window.scrollY || window.pageYOffset || 0) >= MOVED) armed = false;
+      paint();
+    }, { passive: true });
+    window.addEventListener('resize', paint);
+    window.addEventListener('hashchange', arm);
+    // an accordion opening or closing changes the height under the fold
+    if (window.ResizeObserver) new ResizeObserver(paint).observe(root);
+
+    arm();
+  })();
+
+
+  }
+
+  window.SharkLinksHub = { mount: mount };
+
+  /* drain anything a block queued before this file landed, then make the queue
+     mount on push so a later block needs no different code path */
+  var queued = window.__sharkHubPending;
+  window.__sharkHubPending = { push: mount };
+  if (queued && queued.length) queued.forEach(mount);
+})();
