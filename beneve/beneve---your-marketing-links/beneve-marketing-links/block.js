@@ -39,11 +39,16 @@ var SYS = {
         { icon: "leaf", name: "Hormone Lunchbox Guide",
           slug: "b-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
           canva: "https://canva.link/klve68vn95zpvp9",
+          /* The guide PDF. The custom value was on the socket from the start and
+             nothing read it, so the rep had no way to open, print or hand out the
+             thing the funnel gives away. Same row every other system carries. */
+          guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_hormone_lunchbox_guide_pdf_url' }],
           tease: "Free make ahead lunches",
           desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
           slug: "b-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
           canva: "https://canva.link/c2s35l1i69u68vp",
+          guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_glp_foods_guide_pdf_url' }],
           tease: "Foods that support GLP naturally",
           desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." }
       ]
