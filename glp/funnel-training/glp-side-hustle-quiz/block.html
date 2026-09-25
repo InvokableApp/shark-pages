@@ -103,7 +103,14 @@
           <div class="sk-aside" data-sk-reveal>
             <p>View the confirmation page of this funnel so you can see what your lead sees!</p>
             <div class="sk-btn-row">
-              <a class="sk-btn" href="https://glpshark.com/quiz-results" target="_blank" rel="noopener">View the confirmation page for this funnel <i data-sk-icon="ext"></i></a>
+              <!-- Opens a SCREENSHOT, it does not navigate. Jeff, 2026-09-24: these
+                   pages have no "return to your hub" button and most reps are older,
+                   so sending them to a live page loses them. The shot is of the page
+                   in THIS system's snapshot account, so it cannot drift to another
+                   account's copy the way the old link did. -->
+              <button type="button" class="sk-btn sk-shot-open"
+                      data-shot="https://invokableapp.github.io/shark-pages/glp/funnel-training/glp-side-hustle-quiz/assets/glp-side-hustle-quiz--desktop.webp" data-shot-mobile="https://invokableapp.github.io/shark-pages/glp/funnel-training/glp-side-hustle-quiz/assets/glp-side-hustle-quiz--mobile.webp"
+                      data-shot-label="The confirmation page your lead sees">View the confirmation page for this funnel <i data-sk-icon="eye"></i></button>
             </div>
           </div>
           <h3 class="sk-sec-head" data-sk-reveal>The primary goal of this funnel:</h3>
@@ -316,7 +323,16 @@
             <div class="sk-aside">
               <p>To view what is being pitched on this funnel&#8217;s confirmation page, view the confirmation page for this funnel. All clear? OK, keep reading below!</p>
               <div class="sk-btn-row">
-                <a class="sk-btn sk-btn--ghost" href="https://glpshark.com/quiz-results" target="_blank" rel="noopener">View the confirmation page for this funnel <i data-sk-icon="ext"></i></a>
+                <!-- Opens a SCREENSHOT, same as the part 1 control. This one was missed
+                     when part 1 was converted on 2026-09-24, so a rep reading part 2 was
+                     still sent to the HOUSE account's live copy of the page, which is the
+                     exact thing the conversion existed to stop.
+                     ⚠️ `confirmationPage` in the config is now a GATE, not a link: it says
+                     this funnel HAS a confirmation page worth showing, and both asides
+                     render from the shot. Leave it set, or both disappear. -->
+                <button type="button" class="sk-btn sk-btn--ghost sk-shot-open"
+                        data-shot="https://invokableapp.github.io/shark-pages/glp/funnel-training/glp-side-hustle-quiz/assets/glp-side-hustle-quiz--desktop.webp" data-shot-mobile="https://invokableapp.github.io/shark-pages/glp/funnel-training/glp-side-hustle-quiz/assets/glp-side-hustle-quiz--mobile.webp"
+                        data-shot-label="The confirmation page your lead sees">View the confirmation page for this funnel <i data-sk-icon="eye"></i></button>
                 <p class="sk-btn-sub">so you understand what your lead sees after they opt in!</p>
               </div>
             </div>
@@ -468,7 +484,6 @@
     </section>
 
   </div>
-
   <footer class="sk-foot">
     Questions on any of this? <a class="sk-foot-link" href="https://glpshark.com/support" target="_blank" rel="noopener">Contact GLP Shark support</a>.
   </footer>

@@ -330,7 +330,16 @@
             <div class="sk-aside">
               <p>To view what is being pitched on this funnel&#8217;s confirmation page, view the confirmation page for this funnel. All clear? OK, keep reading below!</p>
               <div class="sk-btn-row">
-                <a class="sk-btn sk-btn--ghost" href="https://conectivshark.com/c-coffee-guide-confirmation" target="_blank" rel="noopener">View the confirmation page for this funnel <i data-sk-icon="ext"></i></a>
+                <!-- Opens a SCREENSHOT, same as the part 1 control. This one was missed
+                     when part 1 was converted on 2026-09-24, so a rep reading part 2 was
+                     still sent to the HOUSE account's live copy of the page, which is the
+                     exact thing the conversion existed to stop.
+                     ⚠️ `confirmationPage` in the config is now a GATE, not a link: it says
+                     this funnel HAS a confirmation page worth showing, and both asides
+                     render from the shot. Leave it set, or both disappear. -->
+                <button type="button" class="sk-btn sk-btn--ghost sk-shot-open"
+                        data-shot="https://invokableapp.github.io/shark-pages/conectiv/funnel-training/c-clean-iced-coffee/assets/c-clean-iced-coffee--desktop.webp" data-shot-mobile="https://invokableapp.github.io/shark-pages/conectiv/funnel-training/c-clean-iced-coffee/assets/c-clean-iced-coffee--mobile.webp"
+                        data-shot-label="The confirmation page your lead sees">View the confirmation page for this funnel <i data-sk-icon="eye"></i></button>
                 <p class="sk-btn-sub">so you understand what your lead sees after they opt in!</p>
               </div>
             </div>
@@ -482,7 +491,6 @@
     </section>
 
   </div>
-
   <footer class="sk-foot">
     Questions on any of this? <a class="sk-foot-link" href="https://conectivshark.com/support" target="_blank" rel="noopener">Contact Conectiv Shark support</a>.
   </footer>

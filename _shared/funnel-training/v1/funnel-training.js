@@ -27,7 +27,8 @@ if (!window.__sharkFunnelTraining) {
     chev:   "M6 9.2l6 6 6-6",
     bolt:   "M13.2 3 5.5 13.4h5.4l-.9 7.6 7.7-10.4h-5.4z",
     down:   "M12 4.8v13.4M6.6 12.8l5.4 5.4 5.4-5.4",
-    copy:   "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z"
+    copy:   "M9 9V5.5A1.5 1.5 0 0110.5 4h8A1.5 1.5 0 0120 5.5v8a1.5 1.5 0 01-1.5 1.5H15M5.5 9h8A1.5 1.5 0 0115 10.5v8a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 014 18.5v-8A1.5 1.5 0 015.5 9z",
+    close:  "M6 6l12 12M18 6L6 18"
   };
 
   function icon(name) {
@@ -459,9 +460,96 @@ if (!window.__sharkFunnelTraining) {
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     document.querySelectorAll("[data-sk-reveal]").forEach(function (el) { io.observe(el); });
   }
-})();
 
-}
+  /* ---- the confirmation-page shot, in a sheet ----
+     The control used to be a link to a live page. It navigated the rep off a
+     training page that has no way back, and it opened the HOUSE account's copy,
+     sales bar and all. Now it opens an image of the page as it stands in this
+     system's own snapshot. Nothing loads until asked, and the phone shot is a
+     separate capture rather than a desktop one scaled down to 430px.
+
+     One sheet is built for the whole page and reused, so five buttons cost one
+     element and one keydown binding. */
+  (function () {
+    var triggers = document.querySelectorAll(".sk-ftrain .sk-shot-open");
+    if (!triggers.length) return;
+
+    var lb, img, title, lastFocus;
+
+    function build() {
+      lb = document.createElement("div");
+      lb.className = "sk-shotbox";
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.setAttribute("data-open", "false");
+
+      var bar = document.createElement("div");
+      bar.className = "sk-shotbox-bar";
+
+      title = document.createElement("p");
+      title.className = "sk-shotbox-title";
+
+      var x = document.createElement("button");
+      x.type = "button";
+      x.className = "sk-shotbox-x";
+      x.appendChild(document.createTextNode("Close"));
+      var ic = icon("close");
+      if (ic) x.appendChild(ic);
+      x.addEventListener("click", close);
+
+      bar.appendChild(title);
+      bar.appendChild(x);
+
+      var scroll = document.createElement("div");
+      scroll.className = "sk-shotbox-scroll";
+      img = document.createElement("img");
+      img.className = "sk-shotbox-img";
+      img.setAttribute("alt", "");
+      scroll.appendChild(img);
+
+      /* the backdrop closes, the screenshot does not: a rep scrolling a long
+         page with a finger would otherwise dismiss it by accident */
+      scroll.addEventListener("click", function (e) { if (e.target === scroll) close(); });
+
+      lb.appendChild(bar);
+      lb.appendChild(scroll);
+      document.body.appendChild(lb);
+      lb.__x = x;
+    }
+
+    function open(t) {
+      if (!lb) build();
+      var phone = window.matchMedia("(max-width: 640px)").matches;
+      var src = (phone && t.getAttribute("data-shot-mobile")) || t.getAttribute("data-shot");
+      if (!src) return;
+      var label = t.getAttribute("data-shot-label") || "Page preview";
+      title.textContent = label;
+      img.setAttribute("alt", label);
+      if (img.getAttribute("src") !== src) img.setAttribute("src", src);
+      lb.querySelector(".sk-shotbox-scroll").scrollTop = 0;
+      lastFocus = t;
+      lb.setAttribute("data-open", "true");
+      document.body.classList.add("sk-shotbox-lock");
+      lb.__x.focus();
+    }
+
+    function close() {
+      if (!lb) return;
+      lb.setAttribute("data-open", "false");
+      document.body.classList.remove("sk-shotbox-lock");
+      if (lastFocus) lastFocus.focus();
+    }
+
+    triggers.forEach(function (t) {
+      t.addEventListener("click", function () { open(t); });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb && lb.getAttribute("data-open") === "true") close();
+    });
+  })();
+
+})();
 
 /* ============================================================================
    "WHAT DO I SAY?" — the copy handler and the custom-value guard.
@@ -591,3 +679,5 @@ if (!window.__sharkFunnelTraining) {
   init();
   if (!document.querySelector(".sk-say-card")) setTimeout(init, 400);
 })();
+
+}

@@ -1184,6 +1184,256 @@
   color: #fff;
 }
 
+
+/* ============================================================
+   THE INLINE POSTING GUIDE — Joe's posting doc, hardwired
+
+   Jeff, 2026-09-24, for the two Nueva guides: "unless you can hardwire right
+   into the training page, we can do that for these two guides". So the campaign
+   specific "what to post" lives inside the ORGANIC POSTING card rather than
+   behind a link to a Google Doc.
+
+   It sits under Joe's generic write-up, which is about WHY you post. This is
+   about WHAT to post for this one funnel, so it gets a tinted panel and its own
+   title: the two are different jobs and reading straight from one into the
+   other made the card feel like one long paragraph.
+
+   Gutters match .sk-btn-row's 15px, per the round-2 rule that everything which
+   is text lines up down the card.
+   ============================================================ */
+
+.sk-ftrain .sk-post {
+  margin: 16px 15px 4px;
+  padding: 18px 18px 6px;
+  border: 1px solid var(--sk-line);
+  border-left: 3px solid var(--sk-brand-deep);
+  border-radius: 12px;
+  background: var(--sk-brand-tint);
+}
+
+.sk-ftrain .sk-post-title {
+  margin: 0 0 12px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 13px;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  /* brand-deep, never --sk-brand: the bright stop is a fill, and on the tint
+     panel it drops under 3:1 */
+  color: var(--sk-brand-deep);
+}
+
+.sk-ftrain .sk-post-h {
+  margin: 20px 0 8px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16px;
+  line-height: 1.32;
+  color: var(--sk-ink);
+}
+.sk-ftrain .sk-post-h:first-of-type { margin-top: 14px; }
+
+.sk-ftrain .sk-post p { margin: 0 0 10px; font-size: 15px; line-height: 1.62; color: var(--sk-ink-soft); }
+.sk-ftrain .sk-post p strong { color: var(--sk-ink); }
+
+.sk-ftrain .sk-post-cadence { font-size: 15px; }
+
+.sk-ftrain .sk-post-list { margin: 0 0 10px; padding-left: 20px; }
+.sk-ftrain .sk-post-list li {
+  margin: 0 0 9px;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--sk-ink-soft);
+}
+.sk-ftrain .sk-post-list li::marker { color: var(--sk-brand-deep); }
+
+/* the call to action closing each angle is the line a rep skims for, so it gets
+   a rule rather than another bold sentence in a stack of bold sentences */
+.sk-ftrain .sk-post-cta {
+  margin: 12px 0 4px;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--sk-line-soft);
+}
+
+/* the AI prompt is text to be TAKEN, not read, so it reads as a quotation.
+   Same intent as the .sk-ask block in v1, deliberately not the same class:
+   there is no copy button here and it must not inherit one. */
+.sk-ftrain .sk-post-prompt {
+  margin: 0 0 12px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--sk-ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-post { margin-inline: 15px; padding: 15px 14px 4px; }
+  .sk-ftrain .sk-post-h { font-size: 15.5px; }
+}
+
+/* ============================================================
+   "WHAT DO I SAY?" — the situation index in part 3
+
+   Jeff, 2026-09-24: "what we want to do here is give the rep answers to 'what do
+   i do in this situation?'" So this is NOT the numbered sequence the scripts-page
+   family uses. A sequence answers "what is the process". A rep holding a phone
+   with a message on it is asking a different question, and scanning a sequence
+   for the step that matches their situation is the wrong job to give them.
+
+   Hence: bands, then cards titled with the situation in HER words. The card title
+   is the lookup key, so it takes the weight, and the script itself is a quoted
+   block that reads as a message rather than as page copy.
+
+   Band 3 has no automation behind it. Nothing in GHL fires when a lead asks what
+   it costs, which is exactly why those scripts are the ones reps do not have.
+   ============================================================ */
+
+.sk-ftrain .sk-say { margin-top: 34px; }
+
+.sk-ftrain .sk-say-intro {
+  max-width: var(--sk-col, 880px);
+  margin: 0 auto 26px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--sk-ink-soft);
+  text-align: center;
+}
+
+.sk-ftrain .sk-band { margin: 0 auto 30px; max-width: var(--sk-col, 880px); }
+
+.sk-ftrain .sk-band-name {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 4px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 19px;
+  color: var(--sk-ink);
+}
+.sk-ftrain .sk-band-mark {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; flex: none;
+  border-radius: 9px;
+  background: var(--sk-brand-tint);
+  color: var(--sk-brand-deep);
+}
+.sk-ftrain .sk-band-mark svg { width: 17px; height: 17px; }
+
+.sk-ftrain .sk-band-note {
+  margin: 0 0 14px 40px;
+  font-size: 14.5px; line-height: 1.55;
+  color: var(--sk-ink-faint);
+}
+
+.sk-ftrain .sk-say-card {
+  margin: 0 0 12px;
+  padding: 17px 18px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: 14px;
+  background: var(--sk-card);
+}
+
+/* the situation, in her words. This is the lookup key, so it outweighs
+   everything else in the card */
+.sk-ftrain .sk-say-q {
+  margin: 0 0 6px;
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 16.5px; line-height: 1.34;
+  color: var(--sk-ink);
+}
+
+.sk-ftrain .sk-say-ctx {
+  margin: 0 0 13px;
+  font-size: 14.5px; line-height: 1.58;
+  color: var(--sk-ink-faint);
+}
+/* an unanswered brief question, visible on the page ON PURPOSE while it is still
+   unanswered, so a placeholder cannot quietly ship as a real script */
+.sk-ftrain .sk-say-open { color: #8a5a00; }
+
+/* the script reads as a MESSAGE, not as page copy: tinted, rule down the left,
+   the same shape a chat bubble thread has */
+.sk-ftrain .sk-say-script {
+  padding: 13px 15px 1px;
+  border-left: 3px solid var(--sk-brand-deep);
+  border-radius: 0 10px 10px 0;
+  background: var(--sk-brand-tint);
+}
+.sk-ftrain .sk-say-script p {
+  margin: 0 0 11px;
+  font-size: 15px; line-height: 1.6;
+  color: var(--sk-ink);
+}
+
+/* a slot the rep has to change. Negative inline margin cancels its own padding,
+   or "Hey [Name], it's" renders as "Hey [Name] , it's", which reads as a typo in
+   something they are about to send. Same fix as the scripts page. */
+/* the same pill inside Joe's flow blocks, so a merged value reads identically
+   whichever of the two markups it is sitting in */
+.sk-ftrain .sk-msg-body .sk-cv,
+.sk-ftrain .sk-say-script .sk-cv {
+  margin: 0 -2px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgba(var(--sk-brand-deep-rgb, 8,127,123), .13);
+  font-variation-settings: "wght" 600;
+  color: var(--sk-brand-deep);
+}
+
+.sk-ftrain .sk-copy {
+  margin-top: 12px;
+  padding: 8px 15px;
+  border: 1px solid var(--sk-line);
+  border-radius: 9px;
+  background: var(--sk-card);
+  font-family: Archivo, ui-sans-serif, sans-serif;
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: 11.5px; letter-spacing: .085em; text-transform: uppercase;
+  color: var(--sk-ink);
+  cursor: pointer;
+}
+.sk-ftrain .sk-copy:hover { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
+.sk-ftrain .sk-copy[data-done="1"] { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
+
+@media (max-width: 899px) {
+  .sk-ftrain .sk-say-intro { margin-bottom: 20px; font-size: 15px; }
+  .sk-ftrain .sk-band-note { margin-left: 0; }
+  .sk-ftrain .sk-say-card { padding: 15px 14px 13px; }
+  .sk-ftrain .sk-say-q { font-size: 15.5px; }
+}
+
+/* a merged URL is long. It must wrap inside the bubble rather than overflow it,
+   and it must not be an <a>: what the rep pastes into a message is a bare URL,
+   per FUNNEL-TRAINING-SCRIPTS-SOP §7. */
+.sk-ftrain .sk-msg-body .sk-cv--url,
+.sk-ftrain .sk-say-script .sk-cv--url {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* a card whose script needs a custom value the rep has not filled in yet. It
+   stays readable, because reading it is harmless; what is disabled is SENDING
+   it. See _say.js for why the instruction text is the thing being guarded. */
+.sk-ftrain .sk-msg-body .sk-cv[data-unset],
+.sk-ftrain .sk-say-script .sk-cv[data-unset] {
+  background: rgba(180, 120, 0, .14);
+  color: #8a5a00;
+  font-variation-settings: "wght" 700;
+}
+.sk-ftrain .sk-say-unset {
+  margin: 12px 0 0;
+  font-size: 13.5px; line-height: 1.5;
+  color: #8a5a00;
+}
+.sk-ftrain .sk-copy[disabled] {
+  opacity: .55;
+  cursor: not-allowed;
+  border-style: dashed;
+}
 /* ---------------- 6. ROUND 2: JOE'S COPY LANDS ----------------
    Joe's doc (Sep 2026) filled in what the v2 mockup left as lorem: a body-copy
    block for every part, three long-form strategy write-ups in part 2, and a
@@ -2669,252 +2919,74 @@
   .sk-ftrain .sk-sec-head--vid { margin: 4px 0 10px; font-size: 21px; }
 }
 
-/* ============================================================
-   THE INLINE POSTING GUIDE — Joe's posting doc, hardwired
-
-   Jeff, 2026-09-24, for the two Nueva guides: "unless you can hardwire right
-   into the training page, we can do that for these two guides". So the campaign
-   specific "what to post" lives inside the ORGANIC POSTING card rather than
-   behind a link to a Google Doc.
-
-   It sits under Joe's generic write-up, which is about WHY you post. This is
-   about WHAT to post for this one funnel, so it gets a tinted panel and its own
-   title: the two are different jobs and reading straight from one into the
-   other made the card feel like one long paragraph.
-
-   Gutters match .sk-btn-row's 15px, per the round-2 rule that everything which
-   is text lines up down the card.
-   ============================================================ */
-
-.sk-ftrain .sk-post {
-  margin: 16px 15px 4px;
-  padding: 18px 18px 6px;
-  border: 1px solid var(--sk-line);
-  border-left: 3px solid var(--sk-brand-deep);
-  border-radius: 12px;
-  background: var(--sk-brand-tint);
-}
-
-.sk-ftrain .sk-post-title {
-  margin: 0 0 12px;
-  font-family: Archivo, ui-sans-serif, sans-serif;
-  font-variation-settings: "wdth" 100, "wght" 700;
-  font-size: 13px;
-  letter-spacing: .085em;
-  text-transform: uppercase;
-  /* brand-deep, never --sk-brand: the bright stop is a fill, and on the tint
-     panel it drops under 3:1 */
-  color: var(--sk-brand-deep);
-}
-
-.sk-ftrain .sk-post-h {
-  margin: 20px 0 8px;
-  font-family: Archivo, ui-sans-serif, sans-serif;
-  font-variation-settings: "wdth" 100, "wght" 700;
-  font-size: 16px;
-  line-height: 1.32;
-  color: var(--sk-ink);
-}
-.sk-ftrain .sk-post-h:first-of-type { margin-top: 14px; }
-
-.sk-ftrain .sk-post p { margin: 0 0 10px; font-size: 15px; line-height: 1.62; color: var(--sk-ink-soft); }
-.sk-ftrain .sk-post p strong { color: var(--sk-ink); }
-
-.sk-ftrain .sk-post-cadence { font-size: 15px; }
-
-.sk-ftrain .sk-post-list { margin: 0 0 10px; padding-left: 20px; }
-.sk-ftrain .sk-post-list li {
-  margin: 0 0 9px;
-  font-size: 15px;
-  line-height: 1.62;
-  color: var(--sk-ink-soft);
-}
-.sk-ftrain .sk-post-list li::marker { color: var(--sk-brand-deep); }
-
-/* the call to action closing each angle is the line a rep skims for, so it gets
-   a rule rather than another bold sentence in a stack of bold sentences */
-.sk-ftrain .sk-post-cta {
-  margin: 12px 0 4px;
-  padding: 10px 0 0;
-  border-top: 1px solid var(--sk-line-soft);
-}
-
-/* the AI prompt is text to be TAKEN, not read, so it reads as a quotation.
-   Same intent as the .sk-ask block in v1, deliberately not the same class:
-   there is no copy button here and it must not inherit one. */
-.sk-ftrain .sk-post-prompt {
-  margin: 0 0 12px;
-  padding: 13px 15px;
-  border-radius: 10px;
-  background: var(--sk-card);
-  border: 1px solid var(--sk-line);
-  font-size: 14.5px;
-  line-height: 1.58;
-  color: var(--sk-ink-soft);
-  font-style: italic;
-}
-
-@media (max-width: 899px) {
-  .sk-ftrain .sk-post { margin-inline: 15px; padding: 15px 14px 4px; }
-  .sk-ftrain .sk-post-h { font-size: 15.5px; }
-}
 
 /* ============================================================
-   "WHAT DO I SAY?" — the situation index in part 3
+   THE SHOT LIGHTBOX — "see what your lead sees", without leaving
 
-   Jeff, 2026-09-24: "what we want to do here is give the rep answers to 'what do
-   i do in this situation?'" So this is NOT the numbered sequence the scripts-page
-   family uses. A sequence answers "what is the process". A rep holding a phone
-   with a message on it is asking a different question, and scanning a sequence
-   for the step that matches their situation is the wrong job to give them.
+   Jeff, 2026-09-24: "there is no return to your hub button on these pages ...
+   and most users are older, theyre gonna get lost." The old control was a link
+   to a live page on the house domain, which both navigated the rep away and
+   showed them a page carrying a "Test driver, get access to this funnel" sales
+   bar for a product they already own.
 
-   Hence: bands, then cards titled with the situation in HER words. The card title
-   is the lookup key, so it takes the weight, and the script itself is a quoted
-   block that reads as a message rather than as page copy.
-
-   Band 3 has no automation behind it. Nothing in GHL fires when a lead asks what
-   it costs, which is exactly why those scripts are the ones reps do not have.
+   So the control opens an IMAGE. The rep never leaves the training page, the
+   back button is not part of the flow, and what they see is the page as it
+   stands in their own system's snapshot rather than whatever the house account
+   happens to be running today.
    ============================================================ */
 
-.sk-ftrain .sk-say { margin-top: 34px; }
+/* the trigger reads as a button, not a link: no target, nothing to come back
+   from. It inherits .sk-btn, so only the things a <button> gets wrong are set */
+.sk-ftrain .sk-shot-open { border: 0; font: inherit; cursor: pointer; }
 
-.sk-ftrain .sk-say-intro {
-  max-width: var(--sk-col, 880px);
-  margin: 0 auto 26px;
-  font-size: 16px;
-  line-height: 1.62;
-  color: var(--sk-ink-soft);
-  text-align: center;
+.sk-shotbox {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: flex; flex-direction: column;
+  background: rgba(16, 14, 12, .88);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  opacity: 0; visibility: hidden; transition: opacity .18s ease, visibility .18s;
 }
+.sk-shotbox[data-open="true"] { opacity: 1; visibility: visible; }
 
-.sk-ftrain .sk-band { margin: 0 auto 30px; max-width: var(--sk-col, 880px); }
-
-.sk-ftrain .sk-band-name {
-  display: flex; align-items: center; gap: 10px;
-  margin: 0 0 4px;
-  font-family: Archivo, ui-sans-serif, sans-serif;
-  font-variation-settings: "wdth" 100, "wght" 700;
-  font-size: 19px;
-  color: var(--sk-ink);
+/* the bar is its own row rather than an overlay, so the close control can never
+   sit on top of the screenshot's own content */
+.sk-shotbox-bar {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; color: #fff;
+  background: rgba(0, 0, 0, .35);
 }
-.sk-ftrain .sk-band-mark {
-  display: grid; place-items: center;
-  width: 30px; height: 30px; flex: none;
-  border-radius: 9px;
-  background: var(--sk-brand-tint);
-  color: var(--sk-brand-deep);
+.sk-shotbox-title {
+  font-size: 14px; font-weight: 600; letter-spacing: .01em;
+  margin: 0; flex: 1 1 auto;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.sk-ftrain .sk-band-mark svg { width: 17px; height: 17px; }
-
-.sk-ftrain .sk-band-note {
-  margin: 0 0 14px 40px;
-  font-size: 14.5px; line-height: 1.55;
-  color: var(--sk-ink-faint);
-}
-
-.sk-ftrain .sk-say-card {
-  margin: 0 0 12px;
-  padding: 17px 18px 15px;
-  border: 1px solid var(--sk-line);
-  border-radius: 14px;
-  background: var(--sk-card);
-}
-
-/* the situation, in her words. This is the lookup key, so it outweighs
-   everything else in the card */
-.sk-ftrain .sk-say-q {
-  margin: 0 0 6px;
-  font-family: Archivo, ui-sans-serif, sans-serif;
-  font-variation-settings: "wdth" 100, "wght" 700;
-  font-size: 16.5px; line-height: 1.34;
-  color: var(--sk-ink);
-}
-
-.sk-ftrain .sk-say-ctx {
-  margin: 0 0 13px;
-  font-size: 14.5px; line-height: 1.58;
-  color: var(--sk-ink-faint);
-}
-/* an unanswered brief question, visible on the page ON PURPOSE while it is still
-   unanswered, so a placeholder cannot quietly ship as a real script */
-.sk-ftrain .sk-say-open { color: #8a5a00; }
-
-/* the script reads as a MESSAGE, not as page copy: tinted, rule down the left,
-   the same shape a chat bubble thread has */
-.sk-ftrain .sk-say-script {
-  padding: 13px 15px 1px;
-  border-left: 3px solid var(--sk-brand-deep);
-  border-radius: 0 10px 10px 0;
-  background: var(--sk-brand-tint);
-}
-.sk-ftrain .sk-say-script p {
-  margin: 0 0 11px;
-  font-size: 15px; line-height: 1.6;
-  color: var(--sk-ink);
-}
-
-/* a slot the rep has to change. Negative inline margin cancels its own padding,
-   or "Hey [Name], it's" renders as "Hey [Name] , it's", which reads as a typo in
-   something they are about to send. Same fix as the scripts page. */
-/* the same pill inside Joe's flow blocks, so a merged value reads identically
-   whichever of the two markups it is sitting in */
-.sk-ftrain .sk-msg-body .sk-cv,
-.sk-ftrain .sk-say-script .sk-cv {
-  margin: 0 -2px;
-  padding: 1px 5px;
-  border-radius: 5px;
-  background: rgba(var(--sk-brand-deep-rgb, 8,127,123), .13);
-  font-variation-settings: "wght" 600;
-  color: var(--sk-brand-deep);
-}
-
-.sk-ftrain .sk-copy {
-  margin-top: 12px;
-  padding: 8px 15px;
-  border: 1px solid var(--sk-line);
-  border-radius: 9px;
-  background: var(--sk-card);
-  font-family: Archivo, ui-sans-serif, sans-serif;
-  font-variation-settings: "wdth" 100, "wght" 700;
-  font-size: 11.5px; letter-spacing: .085em; text-transform: uppercase;
-  color: var(--sk-ink);
+.sk-shotbox-x {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
+  min-height: 44px; padding: 0 16px;          /* 44px: a thumb target, these reps are older */
+  border: 1px solid rgba(255,255,255,.35); border-radius: 999px;
+  background: rgba(255,255,255,.08); color: #fff;
+  font: 600 13px/1 inherit; letter-spacing: .08em; text-transform: uppercase;
   cursor: pointer;
 }
-.sk-ftrain .sk-copy:hover { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
-.sk-ftrain .sk-copy[data-done="1"] { border-color: var(--sk-brand-deep); color: var(--sk-brand-deep); }
+.sk-shotbox-x:hover { background: rgba(255,255,255,.18); }
+.sk-shotbox-x svg { width: 16px; height: 16px; }
 
-@media (max-width: 899px) {
-  .sk-ftrain .sk-say-intro { margin-bottom: 20px; font-size: 15px; }
-  .sk-ftrain .sk-band-note { margin-left: 0; }
-  .sk-ftrain .sk-say-card { padding: 15px 14px 13px; }
-  .sk-ftrain .sk-say-q { font-size: 15.5px; }
+/* the screenshot scrolls INSIDE the sheet. A confirmation page is 2000-10000px
+   tall, so the alternative is a letterboxed thumbnail nobody can read */
+.sk-shotbox-scroll {
+  flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch;
+  padding: 0 14px 14px;
+}
+.sk-shotbox-img {
+  display: block; margin: 0 auto;
+  width: 100%; max-width: 860px; height: auto;
+  border-radius: 10px; background: #fff;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+@media (max-width: 640px) {
+  .sk-shotbox-scroll { padding: 0 8px 8px; }
+  .sk-shotbox-img { border-radius: 8px; }
 }
 
-/* a merged URL is long. It must wrap inside the bubble rather than overflow it,
-   and it must not be an <a>: what the rep pastes into a message is a bare URL,
-   per FUNNEL-TRAINING-SCRIPTS-SOP §7. */
-.sk-ftrain .sk-msg-body .sk-cv--url,
-.sk-ftrain .sk-say-script .sk-cv--url {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* a card whose script needs a custom value the rep has not filled in yet. It
-   stays readable, because reading it is harmless; what is disabled is SENDING
-   it. See _say.js for why the instruction text is the thing being guarded. */
-.sk-ftrain .sk-msg-body .sk-cv[data-unset],
-.sk-ftrain .sk-say-script .sk-cv[data-unset] {
-  background: rgba(180, 120, 0, .14);
-  color: #8a5a00;
-  font-variation-settings: "wght" 700;
-}
-.sk-ftrain .sk-say-unset {
-  margin: 12px 0 0;
-  font-size: 13.5px; line-height: 1.5;
-  color: #8a5a00;
-}
-.sk-ftrain .sk-copy[disabled] {
-  opacity: .55;
-  cursor: not-allowed;
-  border-style: dashed;
-}
+/* a page behind an open sheet must not scroll under the reader's finger */
+body.sk-shotbox-lock { overflow: hidden; }
