@@ -17,6 +17,9 @@
  *   TRAINING      optional  defaults to the 3-part shape below
  *   supportTease  optional  the one word of DEST that differed per system
  *   guideSub      optional  second line under every guide row (GLP prints one)
+ *   showCardDesc  optional  render `desc` on a funnel card (Conectiv, Nueva; GLP dropped it)
+ *   videoPage     optional  {slug, ariaLabel, note, buttonFirst} for the 2-minute video row
+ *   singleTrainingRow optional  one plain training link instead of three deep links
  *
  * ⚠️ TRAINING HAD THREE DIFFERENT SHAPES across the three forks — GLP an array
  * with icon+sub, Conectiv the same array without them, Nueva an OBJECT keyed
@@ -38,6 +41,7 @@
     var SYS = cfg.SYS;
     var SUPPORT_TEASE = cfg.supportTease || SUPPORT_TEASE_DEFAULT;
     var GUIDE_SUB = cfg.guideSub || '';
+    var SHOW_CARD_DESC = !!cfg.showCardDesc;
 
   var root = document.querySelector(cfg.scope);
   if (!root) return;
@@ -307,6 +311,19 @@
       list = TRAINING.filter(function (t, i) { return (i + 1) <= n; });
     }
     if (!list.length) return '';
+    /* ESCAPE HATCH, from Conectiv's fork. Its how-to pages were still the old
+       SINGLE-PAGE format when the deep links were written, so #part-N landed
+       every row at the top of the same page. `singleTrainingRow` collapses the
+       three deep links to one plain link at the page top. Conectiv runs with it
+       OFF today (its pages were rebuilt), so this branch is currently unused —
+       carried anyway, because a deliberate fallback that quietly disappears in
+       a refactor is the kind of thing nobody notices until they need it. */
+    if (cfg.singleTrainingRow) {
+      return subhead('Training / Guidance') + '<div class="sk-actions">' +
+        actionRow(base,
+          '<span class="sk-action-mark" aria-hidden="true">' + icon('play', 1.7) + '</span>',
+          'How to use this funnel') + '</div>';
+    }
     return subhead('Training / Guidance') + '<div class="sk-actions">' +
       list.map(function (t, i) {
         return '<a class="sk-action' + (t.sub ? ' sk-action--sub' : '') + '" href="' +
@@ -365,18 +382,41 @@
        for it to point at, so the row only ever rendered the support note. It is
        the rep's own /products-info step, so it is derived the same way the how-to
        links are. (Jeff, 2026-09-24, answering the ASSUMED CV note in block.html.) */
-    var tmv = howtoDomain && SYS.videoPageSlug
-      ? 'https://' + howtoDomain + '/' + SYS.videoPageSlug
+    /* ---------- the "two minute customer video page" row ----------
+       UNIFIED from two forks, 2026-09-25, and they built the URL differently
+       because the two link models differ:
+         domainCv systems (Conectiv, Nueva) — funnelUrl({slug}), the SAME
+           mechanism as every other link on the page. No extra custom value.
+         per-funnel-cv systems (GLP) — there is no cv for this page, so it is
+           assembled from the how-to domain plus a slug. Nueva's own comment on
+           this: "GLP had to guess at a CV here because GLP's links are
+           per-funnel CVs." Nueva's is the better shape; GLP cannot use it.
+
+       ⚠️ ORDER AND WORDING ARE CONFIG, DELIBERATELY. GLP puts the url ABOVE the
+       button (Joe, Figma #41: "Swap these, put the link above the button" — a
+       rep reads the address to check it is theirs before reaching for copy).
+       Nueva still has the old button-first order. Both are preserved verbatim
+       here rather than quietly unified, because a de-fork has to be
+       behaviour-preserving: mix a refactor with an improvement and you cannot
+       tell a merge bug from an intended change. Giving Nueva Joe's order is a
+       one-line config flip, and it should be made on purpose. */
+    var VP = cfg.videoPage || (SYS.videoPageSlug ? { slug: SYS.videoPageSlug } : null);
+    var tmv = !VP ? ''
+      : SYS.domainCv ? funnelUrl({ slug: VP.slug })
+      : (howtoDomain && VP.slug ? 'https://' + howtoDomain + '/' + VP.slug : '');
+    var tmvUrl = tmv
+      ? '<div class="sk-url"><span class="sk-url-text">' + tmv.replace(/^https?:\/\//, '') + '</span>' +
+        '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="' +
+          ((VP && VP.ariaLabel) || 'Open your customer video page') + '">' + icon('out', 1.8) + '</a></div>'
+      : '';
+    var tmvBtn = tmv
+      ? '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
+        icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
       : '';
     twoMin.innerHTML = tmv
-      /* link above the button, Joe Figma #41 "Swap these, put the link above
-         the button". A rep reads the address to check it is theirs before they
-         reach for copy; underneath, the button was the first thing they hit. */
-      ? '<div class="sk-url"><span class="sk-url-text">' + tmv.replace(/^https?:\/\//, '') + '</span>' +
-          '<a class="sk-open" href="' + href(tmv) + '" target="_blank" rel="noopener" aria-label="Open your customer video page">' + icon('out', 1.8) + '</a></div>' +
-        '<button class="sk-copy" type="button" data-copy-label="Copy the page link" data-copy="' + href(tmv) + '">' +
-          icon('copy', 1.8) + '<span class="sk-copy-label">Copy the page link</span></button>'
-      : '<p class="sk-note-line">Your domain has not been set up yet, so this link cannot be built. Contact support and we will finish it.</p>';
+      ? ((VP && VP.buttonFirst) ? tmvBtn + tmvUrl : tmvUrl + tmvBtn)
+      : '<p class="sk-note-line">' + ((VP && VP.note) ||
+          'Your domain has not been set up yet, so this link cannot be built. Contact support and we will finish it.') + '</p>';
   }
 
   /* ---------- funnel links ---------- */
@@ -396,6 +436,16 @@
           '<span class="sk-chev" aria-hidden="true">' + icon('down', 2) + '</span>' +
         '</button>' +
         '<div class="sk-panel"><div class="sk-panel-inner"><div class="sk-panel-pad">' +
+          /* ⚠️ THE CARD DESCRIPTION IS OPT-IN, and the default is OFF.
+             Joe, 2026-09-23 (Figma #11): "remove this (for all sections) - this
+             information is in the 'how do I generate leads with this funnel?'"
+             The paragraph said the same thing the part 2 training row links to,
+             twice on one card. GLP dropped it; Conectiv and Nueva still render
+             it, so they set cfg.showCardDesc and keep what they have today.
+             `desc` stays in every system's data either way — it is the only
+             place each funnel's job is written in plain language for whoever
+             edits the config next. Do not render it by default without asking. */
+          (SHOW_CARD_DESC && it.desc ? '<p class="sk-desc">' + it.desc + '</p>' : '') +
           '<button class="sk-copy" type="button" data-copy="' + full + '">' +
             icon('copy', 1.8) + '<span class="sk-copy-label">Copy my link</span></button>' +
           '<div class="sk-url"><span class="sk-url-text">' + url + '</span>' +
@@ -438,7 +488,17 @@
       return;
     }
     var rows = L.items.map(function (x) {
-      var u = x.url || (x.cv ? cv(x.cv) : '');
+      /* THREE WAYS A ROW GETS ITS URL, and a system may mix them in one list.
+           url   a literal
+           path  COMPOSED onto the rep's own subdomain from one custom value
+                 (Nueva: 36 product links derive from nueva_user_name alone,
+                 rather than 36 stored values). Yields '' unless the rep's id is
+                 filled, so an uncomposed link never renders — see composed().
+           cv    a stored full url (GLP's model, one value per link)
+         Nueva's product list deliberately mixes path and cv: every product row
+         is composed, and the opportunity row stays a stored value because it
+         points at the CORPORATE page, not a rep one. (Jeff, 2026-09-22.) */
+      var u = x.url || (x.path ? composed(x.path) : '') || (x.cv ? cv(x.cv) : '');
       if (!u) return '';
       u = href(u);
       return '<li class="sk-prow"><a class="sk-prow-name" href="' + u + '" target="_blank" rel="noopener">' +
