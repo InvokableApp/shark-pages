@@ -82,13 +82,34 @@ if (!window.__sharkFunnelTraining) {
      https://Enter the domain.../marketing-links is not. */
   var CV_DOMAIN = /(^|_)main_url$|_designated_domain$/;
   var HOSTNAME  = /^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/i;
-  /* the hub's step slug. Measured identical on all 7 GLP and all 3 Conectiv
-     accounts carrying this component, 2026-09-25. If a system ever renames that
-     step, change it HERE. */
-  var HUB_SLUG = "marketing-links";
+  /* THE HUB'S STEP SLUG IS PER SYSTEM. It is not derivable from anything on the
+     page, and there is no custom value holding it, so it is a measured table.
 
-  function repDomain(root) {
-    var mount = root.closest("[data-shark-block]");
+     🪤 This shipped as a single constant "marketing-links" on 2026-09-25 and was
+     WRONG FOR NUEVA within the hour. The constant was measured on all 7 GLP and
+     all 3 Conectiv accounts, agreed across both, and read as a house convention.
+     It is not one: Nueva's hub sits at /n-marketing-links. Two systems agreeing
+     is not a convention, it is two systems agreeing — the same n=1 trap as
+     CLAUDE.md §resolve ids to names, one sample further along.
+
+     Keyed off the system segment of the socket's own data-shark-block address.
+     An unlisted system falls back to "marketing-links", which is right for the
+     two that use it and wrong silently for anything else — so MEASURE A NEW
+     SYSTEM'S HUB SLUG AND ADD IT HERE before pointing this component at it. */
+  var HUB_SLUG_BY_SYSTEM = {
+    glp:      "marketing-links",      /* measured on 7 accounts, 2026-09-25 */
+    conectiv: "marketing-links",      /* measured on 3 accounts, 2026-09-25 */
+    nueva:    "n-marketing-links"     /* measured on the snapshot + Testing V2, 2026-09-25 */
+  };
+  var HUB_SLUG_FALLBACK = "marketing-links";
+
+  function hubSlug(mount) {
+    var addr = (mount.getAttribute("data-shark-block") || "");
+    var sys = addr.split("/")[0].toLowerCase();
+    return HUB_SLUG_BY_SYSTEM[sys] || HUB_SLUG_FALLBACK;
+  }
+
+  function repDomain(mount) {
     if (!mount) return "";
     var attrs = mount.attributes, fallback = "";
     for (var a = 0; a < attrs.length; a++) {
@@ -107,11 +128,13 @@ if (!window.__sharkFunnelTraining) {
 
   document.querySelectorAll(".sk-ftrain").forEach(function (root) {
     if (root.querySelector(".sk-backpill")) return;
-    var dom = repDomain(root);
+    var mount = root.closest("[data-shark-block]");
+    if (!mount) return;
+    var dom = repDomain(mount);
     if (!dom) return;
     var a = document.createElement("a");
     a.className = "sk-backpill";
-    a.href = "https://" + dom + "/" + HUB_SLUG;
+    a.href = "https://" + dom + "/" + hubSlug(mount);
     a.setAttribute("aria-label", "Go to your marketing hub");
     var g = icon("back");
     if (g) a.appendChild(g);
