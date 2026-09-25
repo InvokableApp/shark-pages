@@ -1,0 +1,70 @@
+{
+  "system": "conectiv",
+  "brand": "Conectiv Shark",
+  "host": "https://conectivshark.com",
+  "locationId": "uNxituXahyZtAIqwdVJI",
+  "logo": "logo-conectiv.svg",
+  "logoUrl": "https://storage.googleapis.com/msgsndr/uNxituXahyZtAIqwdVJI/media/0343d2e4-ddad-461c-85f5-6b40eb43ce8d.svg+xml",
+  "palette": {
+    "sk-brand": "#2563EB",
+    "sk-brand-deep": "#155EEF",
+    "sk-brand-tint": "#EAF0FD",
+    "sk-ink": "#0B1220",
+    "sk-ink-soft": "#5B6577",
+    "sk-ink-faint": "#8B93A5",
+    "sk-paper": "#F4F6FA",
+    "sk-line": "#DFE4EF",
+    "sk-line-soft": "#E9EDF5",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1229664459",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ]
+  },
+  "links": {
+    "support": "https://conectivshark.com/support",
+    "adsTraining": "https://conectivshark.com/get-ads",
+    "readyToPostImages": "",
+    "buyLeads": ""
+  },
+  "slug": "c-links",
+  "funnelName": "Social Links Share Page",
+  "ghlFunnel": "Conectiv - Links Page for Sharing On Social Profiles",
+  "ghlStep": "How To Use This Funnel",
+  "parts": [
+    "howItWorks"
+  ],
+  "flowDir": "flow/c-links",
+  "sections": {
+    "flowViz": false,
+    "optInExplainer": false,
+    "primaryGoal": false,
+    "nextSteps": false
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business."
+}
