@@ -996,7 +996,7 @@
       "path": "funnel-training/glp-what-i-do",
       "funnelId": "i3K4nmBuOROfrjBsc7l5",
       "pageId": "VHd5Jir5i4GBWxhL72gl",
-      "elementId": "custom-code-0xHm2WLXQs",
+      "elementId": "custom-code-cN11uc782t",
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
@@ -1126,6 +1126,528 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "k9ugkmTlNpaoQW90Mhb2",
+      "pageId": "AChHtXZtGReRW21nS37E",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "PLcewiM6Q3VjPEY3qqlT",
+      "pageId": "msAgLdMgSFbhJo4fZYLp",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "pFb6q13xHUiCdVhFizEi",
+      "pageId": "SClBCSikrffJrA3s1x5o",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "s8KWvd8nZN4ZIPOnnTNi",
+      "pageId": "SDiDjtQIEfBFZYZ1yyZK",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "eSaaXDlZsvAIo3rPX3Bj",
+      "pageId": "Zca1CelkXqKvNyWMgDls",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "DrH2XBNP1NvTqDHznv3Y",
+      "pageId": "AYzsFXSirTOCOcVo0bqu",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "exbNwZ11XuDeePz7kpWX",
+      "pageId": "uu1K0lGboHuJrsRgjirw",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "HlKpq9XK9xR5iCZKQrno",
+      "pageId": "FcxDHKLZWb2Dv8aVKonx",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "ES7rxJBesbwOLTVoBueO",
+      "pageId": "4cV6EAxNtrotSGby9NNw",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "3A84TC0444dK172Wcv4t"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "VPjq3KAs7GaE6oCm9w3F",
+      "pageId": "h2P0wRDTTPgKAgbzf6Zf",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "W991Z5FGfEZXOPnuPrNm",
+      "pageId": "D1r6fx9ikwD88CH4CM1h",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "YlsJmmEmpU1oo8fpBvvB",
+      "pageId": "nraHQwEPGuSdYxcZBpVh",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "LmLt1UJz2NZ3Ypk1eA75",
+      "pageId": "5fxdWL4pxMWljykkViuh",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "Gy3EL7BsnJRI32lXiRcy",
+      "pageId": "9RUNuHToiE0vPyhK2nHY",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "nYtFg8HTmugH6lQERHeT",
+      "pageId": "YsNQo8Z4tbDOZ9GxRiWh",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "Sv0ewd2GG1PykxMFOpsO",
+      "pageId": "bRSrXdFxWX5rLQfIU97e",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "jVDock6aRiST0pSjQnMp"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "VJfGDf7qDLIqREfDWt78",
+      "pageId": "vDw86lIjIPGExjkeNVAc",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "B0pZOD4FRoxbG21Z2pAl",
+      "pageId": "LQDTlYMQpRd5dmxXFP9M",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "Jsqgrsqgl1T2rcHSxfJV",
+      "pageId": "AxXMEz1T8BpvSaVufF1t",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "rYFRPWaJ1U6aA16eAWU6",
+      "pageId": "IBWStSqmxpdNJOGLfbVu",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "mXGVpSonNN21Upxtes5U",
+      "pageId": "Vw4EOe61Fw2xIN0R2okh",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "ADEKvM011Hv1Ad8rZPiM",
+      "pageId": "3LB0NU6gonK8XuqU9rjo",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "npFNk9CMICdsT1orDhpK",
+      "pageId": "5kISY5TARbR0AsJoMXsV",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "fNlXcZUmuVhPwrgN9Rgo"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "dkGY4PUVKP1gJkyOdoyq",
+      "pageId": "0w52JqKPgFWSRyQgJYT9",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "G85xrx16pEGmpcyoFSeX",
+      "pageId": "EIQfl9Jce6GfCZrMdPLI",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "xt4wCebckwyZO8F2tcIG",
+      "pageId": "yq7B4rQkJwibXuevB9en",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "9IVqNm5imCm09JkuoPmo",
+      "pageId": "89mwQT3heRfLayEO6GnF",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "qnV02qfuHZWbrZp79LYi",
+      "pageId": "bvUyJC6ghg1qOMQlUaYA",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "ZsKYWMPctDcZc9cz8DE8",
+      "pageId": "tK3cuV5bnzalbcvyz7y8",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "j2Q2Pp9LeU5whRQhCEak",
+      "pageId": "IPVFy1Ez6YYKvIhEG131",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "eba4M4JcUW4YU1p6rGp5"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "FGz8anZB00XDTK2x1sRO",
+      "pageId": "4lhhuvhErVA1GjxfAtl9",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "2GpVmqsfhEq4lnWxNwrz",
+      "pageId": "N8nfMLUrGf5GdWOoWJ3g",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "ivF5fWAAbUlSEjLCKHCM",
+      "pageId": "GC0U1udeD28PcQO1xauR",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "nSKJkISS345gmUEWOyIk",
+      "pageId": "CWXmDM3Kjvn7VHc91MHT",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "R98LQyjIGa38hk8sjIpT",
+      "pageId": "ElRoSjJ72xLhu5uQcU9H",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "YTwRRmy7bYjnxxmDEBFI",
+      "pageId": "iXsaSvv3aUIsP1ENG2Op",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "0QhRk6cUijdBDPvlOFdC",
+      "pageId": "1jDU6JHhuJ3u9MQkapNd",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "FzocdUhVQrlw2Zehi5jw",
+      "pageId": "QHf9IwMEjhTzfdCbdRga",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "VqvDLnRgiCmME4HKGMW0",
+      "pageId": "gpGx4PlYLdOY8QIF2NQP",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "QaGPjP8b7Qf9Z7TMnutH",
+      "pageId": "ZKfnMEA6IeYFTva1zPo7",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "45qsZeOkfj6zDQm2wd3I",
+      "pageId": "v3II9G802Bombg6QT6JK",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "F30ipqn4mUMTYszF6Ovn",
+      "pageId": "p8EJiiPW5PPaepslDVa7",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "Eafou4pmOX9MMY6rTNeK",
+      "pageId": "GKB7LhLsSJGrc5W9SHAn",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "kioDfCNE7WARxn5B6NzY",
+      "pageId": "G46XV4CvHSDfFZAeW2kV",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "TYxbgaAp19qqHy3ZhfL0"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "faqF91KGTyWq1Qf4H8bp",
+      "pageId": "bHPAcpyJBP6SefsV0n9M",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "sxjW40Qzeg99RrvF0wEP",
+      "pageId": "TdD1NPQs20KEau39uneV",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "pEeoEjoM6h4v5U4a85pm",
+      "pageId": "bM9QCPJlcmoWWt7485Gj",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "lA1czHDLJOMSYvNwVxkX",
+      "pageId": "M90Pgfw3sjhONBYKEuoL",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "qgeizMdHm1Dw2fDPcLwe",
+      "pageId": "HVujDmg8OSGVrM2mRs6U",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "riUExwxbYRpDBpJ2wTm3",
+      "pageId": "obt92b0F7TdAwGl32bGF",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "ncfVd2cewCTJSZAceuOk"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "ywPNQM5Fbg3Bg31FLpa3",
+      "pageId": "EWWIbDrZe5O5tNeWIe2N",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-food-guide",
+      "funnelId": "zxNVIvF3xfoJyER6d5SH",
+      "pageId": "uZTU1Ra3AMT2sBAxsiVy",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-ignyt-sample",
+      "funnelId": "sLcbJPUZ9HeIr8FWF8gN",
+      "pageId": "1ZbRQZUEPPCMtY0RJFAO",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-weight-loss-quiz",
+      "funnelId": "9dmFB7gqcFsd0CKkkF0a",
+      "pageId": "p3cGVNslTLjz942VhVfS",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-side-hustle-quiz",
+      "funnelId": "e5RbeXFcJG063lfpNdYZ",
+      "pageId": "AenGGvQSQwAYKdH217n3",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-workout-guide",
+      "funnelId": "eClowwr68etOcijEusdW",
+      "pageId": "L6kpLAYWr0xoKXp3cYD6",
+      "elementId": "custom-code-0xHm2WLXQs",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-what-i-do",
+      "funnelId": "bRz7MTtxFLNSppkQQX0F",
+      "pageId": "kiZ2QU9xIYBn2gEkvyc3",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
+    },
+    {
+      "path": "funnel-training/glp-links",
+      "funnelId": "gnD0aeKJMbQFwnuEVofp",
+      "pageId": "TrE0GNtJcqtLCOI4IYfH",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
     }
   ]
 }

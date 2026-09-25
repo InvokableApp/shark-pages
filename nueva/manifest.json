@@ -383,6 +383,42 @@
       "elementTitle": "n-tone-and-tighten-guide-read",
       "pattern": "A",
       "locationId": "qvEo4GcZHYy4AUTn9ojQ"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product",
+      "funnelId": "xNJhPdwo3zLb7MAe4uUf",
+      "pageId": "EobGvmZeLYBH0kMQdHwt",
+      "elementId": "custom-code-4iwok1zft5",
+      "elementTitle": "n-tone-and-tighten-guide-product",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product",
+      "funnelId": "UONGZFfCp6kHKAylyT0Z",
+      "pageId": "60uOXWXOKtil7G734jh0",
+      "elementId": "custom-code-4iwok1zft5",
+      "elementTitle": "n-tone-and-tighten-guide-product",
+      "pattern": "A",
+      "locationId": "qvEo4GcZHYy4AUTn9ojQ"
+    },
+    {
+      "path": "funnel-training/n-links",
+      "funnelId": "ySATlpQUlOWKDfyOWjOY",
+      "pageId": "2EBIipJTtAS0wjPD8iTm",
+      "elementId": "custom-code-p5aufa3nu5",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "qvEo4GcZHYy4AUTn9ojQ"
+    },
+    {
+      "path": "funnel-training/n-tone-and-tighten-guide",
+      "funnelId": "UONGZFfCp6kHKAylyT0Z",
+      "pageId": "xHPN9qHaUEqHNEIs2bVS",
+      "elementId": "custom-code-wfk4jc17jw",
+      "elementTitle": "n-tone-and-tighten-guide-funnel",
+      "pattern": "A",
+      "locationId": "qvEo4GcZHYy4AUTn9ojQ"
     }
   ]
 }

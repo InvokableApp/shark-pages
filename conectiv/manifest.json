@@ -302,6 +302,285 @@
       "elementTitle": "links",
       "pattern": "A",
       "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-clean-iced-coffee",
+      "funnelId": "ivaNIncdN3S1JPZdhrwX",
+      "pageId": "pjSTzmOYrMpPXuJtslZQ",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-clean-iced-coffee",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-free-coffee-sample",
+      "funnelId": "DeZgKrKpHuyQrQAKIAUm",
+      "pageId": "Eucjeeq6Da0cmhBu5Sny",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-free-coffee-sample",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-glp-foods-guide",
+      "funnelId": "0b0AypfX8M1eK0xIDE6a",
+      "pageId": "GgiiELE243J8gOgKdCWP",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-glp-foods-guide",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-investment-options-quiz",
+      "funnelId": "ju8HyrjefgjD3csCM1y4",
+      "pageId": "OpRTP7Dd07vpuZaE8c1x",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-investment-options-quiz",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-links",
+      "funnelId": "r3gh7AOepxwykbHNwmzM",
+      "pageId": "JCzHYZO5jL5U0jkMneVD",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-linktree",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-side-hustle-quiz",
+      "funnelId": "ETeFUo74lHxdqfLWSY7P",
+      "pageId": "ZjlbjsnrAxuSKtpOia65",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-side-hustle-quiz",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-what-i-do",
+      "funnelId": "jTfzEaMYgwIX41wuDkeU",
+      "pageId": "kwpGFxYzrw1Ao4tUMGUW",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-what-i-do",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "funnel-training/c-clean-iced-coffee",
+      "funnelId": "xV4WMWGnnZWHVbUgvRqv",
+      "pageId": "6sFSyfaKPZYgSw4TZWay",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-clean-iced-coffee",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-free-coffee-sample",
+      "funnelId": "d1Ric5f7ZCXWwtRpVWBv",
+      "pageId": "EEUUvsFvToolH8fidifm",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-free-coffee-sample",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-glp-foods-guide",
+      "funnelId": "sqTtRjrmw4VBYXlFBP07",
+      "pageId": "do4XAgmRS24pA0GQilYg",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-glp-foods-guide",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-investment-options-quiz",
+      "funnelId": "UszGGliwMPN5pDdQer2C",
+      "pageId": "gXzFGBiVvp2Eo0TM6hKz",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-investment-options-quiz",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-links",
+      "funnelId": "o4VH7POknGKfqtZ2eBP8",
+      "pageId": "a8gpksgGMbchDB6ykpdK",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-linktree",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-side-hustle-quiz",
+      "funnelId": "m2JTtLLXAn700UzzwCYy",
+      "pageId": "aDKTmTr5nkb38V5z7V0v",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-side-hustle-quiz",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-what-i-do",
+      "funnelId": "Ww1JTpJS0cLfED3hwwyC",
+      "pageId": "SK2RrsIrG6Sl6tGJ72GZ",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-what-i-do",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "funnel-training/c-clean-iced-coffee",
+      "funnelId": "HJjP3HWBDrcGBFtXiceq",
+      "pageId": "UasUJIncUyPIdbgANPs6",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-clean-iced-coffee",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-free-coffee-sample",
+      "funnelId": "Z3KTMBkWdVzd3oMvwE52",
+      "pageId": "npAjWyIGsON1XQUKjTBt",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-free-coffee-sample",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-glp-foods-guide",
+      "funnelId": "90i2IQlBpEIVUBYzDCYs",
+      "pageId": "y8CMH8bM6lAvKisFxUjK",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-glp-foods-guide",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-investment-options-quiz",
+      "funnelId": "2ugxOQnbnQz3DyB3T28r",
+      "pageId": "AGgoQjvW8bzp6cnPofPN",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-investment-options-quiz",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-links",
+      "funnelId": "q2CD5YrGf9o7MmX7i9FH",
+      "pageId": "IYJHaUXx5bC1wcGLX2Dh",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-linktree",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-side-hustle-quiz",
+      "funnelId": "pB53nrbwodOkilzKrp50",
+      "pageId": "w8uidOmgkg0YxMww5MzD",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-side-hustle-quiz",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-what-i-do",
+      "funnelId": "A306i2wjrwTKmbjc0pUK",
+      "pageId": "c0k6w0p4V4WP6XY20j7E",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-what-i-do",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "funnel-training/c-clean-iced-coffee",
+      "funnelId": "ZxzhvKBKr7XydQOE5Frz",
+      "pageId": "5KEPCaYwHjD419xzIDyz",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-clean-iced-coffee",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-free-coffee-sample",
+      "funnelId": "twEEoBi5Jn31x1Hk9sK1",
+      "pageId": "WOsao4oRqOUL27jElgS0",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-free-coffee-sample",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-glp-foods-guide",
+      "funnelId": "NTUtdyXX7LYY4qpQxCCz",
+      "pageId": "paMKpSXo3tEiVnb0HpM2",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-glp-foods-guide",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-investment-options-quiz",
+      "funnelId": "LuLicMuVe2L0ybb46ouZ",
+      "pageId": "Gmm7KtNbbqLIV403FhfI",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-investment-options-quiz",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-links",
+      "funnelId": "TSd13Jq63fqfPYIZaJQH",
+      "pageId": "WXDjo8ushNpVmn9tzKHh",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-linktree",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-side-hustle-quiz",
+      "funnelId": "LihbL2xvZEnol2qwrxp9",
+      "pageId": "SYXE8ZgqEXT8ecElmvO7",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-side-hustle-quiz",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "funnel-training/c-what-i-do",
+      "funnelId": "DhiSZlJbxjK5XT3FtfTx",
+      "pageId": "JucIJycrD26ODUQYZUw8",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "c-what-i-do",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page-v2",
+      "funnelId": "allhb3Rc0wAXc0Uu9mLw",
+      "pageId": "3D8andUs0sNVm5f9Q8RI",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "yPU0KI9WKXJ89F11zbuE"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page-v2",
+      "funnelId": "X6fm3ipLWd4ygZBue9SZ",
+      "pageId": "WVlKQuqoUfOgFq4JsRdv",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "6awCbaPTY5hRJJzy7Uw2"
+    },
+    {
+      "path": "your-funnel-links/c-user-links-page-v2",
+      "funnelId": "71wfExKWvaciD9bADuEj",
+      "pageId": "Kae8EBtP0RWEIw5JkBMb",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
     }
   ]
 }
