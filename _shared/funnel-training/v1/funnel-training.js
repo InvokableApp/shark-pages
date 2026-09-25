@@ -577,7 +577,14 @@ if (!window.__sharkFunnelTraining) {
   var UNSET = /^\s*(paste|enter)\b/i;
 
   function isUnset(t) {
-    return !t || !t.trim() || t.indexOf("{{") > -1 || UNSET.test(t);
+    if (!t || !t.trim() || t.indexOf("{{") > -1) return true;
+    /* A URL pill reads "https://" + the custom value, so the instruction text is never
+       at the START of the string and the UNSET test sailed straight past it: an
+       un-onboarded rep saw, and could copy and send, "https://Enter YOUR OWN funnel
+       domain, the one connected to this account, WITHOUT https:/". Strip the scheme
+       before testing. Found 2026-09-25; it affected every https://{{...}} pill on every
+       funnel training page, not just the one it was found on. */
+    return UNSET.test(String(t).replace(/^\s*https?:\/\//i, ""));
   }
 
   /* plain text for the clipboard: one paragraph per line, blank line between */
