@@ -36,7 +36,7 @@ var SYS = {
         guides:[{ label:"Access / Print / Share The Guide", cv:"conectiv__coffee_guide_download_url" }],
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." },
       { howtoSlug:"c-free-coffee-sample-how-to", slug:"c-free-coffee-sample-optin", gateCv:"conectiv__free_sample_live",
-        howto:"https://conectivshark.com/c-free-coffee-sample-training", icon:"coffee", name:"Free ALIVE Sample",
+        canva:"https://canva.link/xfj62nc69jesx7q", howto:"https://conectivshark.com/c-free-coffee-sample-training", icon:"coffee", name:"Free ALIVE Sample",
         tease:"You post them a real sample",
         desc:"They ask for a free ALIVE sample and you put it in the post yourself. Nothing is delivered automatically, so this one lives or dies on you calling and texting. The scripts are on the how to page." } ]},
 
