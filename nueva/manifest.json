@@ -356,6 +356,15 @@
       "elementTitle": "n-what-is-nueva-how-to",
       "pattern": "A",
       "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-your-marketing-links/n-marketing-links-v2",
+      "funnelId": "pVd8sPgsGJJTlfuEtoA6",
+      "pageId": "jsqbIQLSBDxMCfUpeuZw",
+      "elementId": "custom-code-4rg78i6gq2",
+      "elementTitle": "n-marketing-links",
+      "pattern": "A",
+      "locationId": "qvEo4GcZHYy4AUTn9ojQ"
     }
   ]
 }
