@@ -1117,6 +1117,15 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "ym6uvqiOJQ4RO21nrZyP"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "GUDBGa3HTGYdil39MZsw",
+      "pageId": "fGmM9UH8TBAS96v1SIco",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "64kuz0fUzvQb1YtjwHz1"
     }
   ]
 }

@@ -284,6 +284,24 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "uNxituXahyZtAIqwdVJI"
+    },
+    {
+      "path": "your-links/links",
+      "funnelId": "q2CD5YrGf9o7MmX7i9FH",
+      "pageId": "NPPfTrXtZUgIoKVmJoGe",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "links",
+      "pattern": "A",
+      "locationId": "yfQfLQAMe4BqhKrtxQWC"
+    },
+    {
+      "path": "your-links/links",
+      "funnelId": "TSd13Jq63fqfPYIZaJQH",
+      "pageId": "xWbB8fYtH7P6jSEXYmXr",
+      "elementId": "custom-code-zyetceUudQ",
+      "elementTitle": "links",
+      "pattern": "A",
+      "locationId": "uNxituXahyZtAIqwdVJI"
     }
   ]
 }

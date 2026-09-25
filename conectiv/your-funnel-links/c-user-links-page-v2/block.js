@@ -61,7 +61,12 @@ var SYS = {
         tease:"The full overview",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
-    { label:"Your linktree", items:[
+    /* RENAMED 2026-09-25, the same call Joe and Jess made for GLP on 2026-09-24
+       ("we were getting rid of linktree yeah? swap out the words" / "should say
+       Social Share Links"). Conectiv was missed in that pass and was still saying
+       "Your linktree" to every rep. Wording matches GLP exactly so the two systems
+       do not drift apart on the same label. */
+    { label:"Social share links", items:[
       { howtoSlug:"c-links-how-to", slug:"c-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
         tease:"All your socials in one place",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}

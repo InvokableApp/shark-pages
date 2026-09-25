@@ -173,10 +173,18 @@ var SYS = {
        page for this - "Links Page for Sharing On Social Profiles" (/your-links) -
        and its custom value is your_links_funnel_link. */
     /* RENAMED 2026-09-24. Joe: "we were getting rid of linktree yeah? swap out
-       the words." Jess: "should say Social Share Links." Display copy only: the
-       block folder, the funnel, the step slug and the custom value all still say
-       linktree, and renaming any of those breaks a live URL or a shipped socket
-       for no gain the rep can see. */
+       the words." Jess: "should say Social Share Links."
+       ⚠️ That note used to say "display copy only, the block folder / funnel / step
+       slug / custom value all still say linktree". Two thirds of that was wrong and
+       it made the cleanup look more expensive than it was: the FUNNEL is "Links Page
+       for Sharing On Social Profiles", the step slug is how-to-use-links and the
+       custom value is your_links_funnel_link. All three already said "links". The
+       block FOLDER was the only holdout, and it was renamed glp-linktree -> glp-links
+       on 2026-09-25 (Jeff). The reason it was left alone on the 24th still held then:
+       the folder name is baked into every shipped socket, so moving it costs a sweep
+       of every account. What changed is that the sweep is happening anyway, to add the
+       data-cv-* declarations, so the rename rides along instead of paying for itself.
+       NOTHING about a rep's URLs moves. */
     { label: 'Social share links', items: [
       { cv: 'your_links_funnel_link', icon: 'compass', name: 'Social share links page',
         tease: 'Let them choose their path',
