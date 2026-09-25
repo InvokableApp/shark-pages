@@ -78,16 +78,30 @@
   // shift it, and falling back to the shop link when the page is not served from inside the
   // funnel (builder preview), so the button is never dead.
   (function () {
-    var step = root.getAttribute("data-buy-step");
-    var buy = cv("nueva_buy_link");
-    var btns = root.querySelectorAll("[data-buy]");
-    if (!btns.length) return;
+    // Read off the ROOT attribute, not cv(): data-buy-url already carries this value and
+    // is the spelling the shared product component uses. Reading it through cv() would
+    // need a second data-cv-nueva_buy_link declaration on every socket carrying this
+    // block, and a socket can only be changed with account access, never a git push.
+    var buy = (root.getAttribute("data-buy-url") || "").trim();
     var path = location.pathname.replace(/\/+$/, "");
-    var href = null;
-    if (step && path && !/\/preview\//.test(path)) href = path.replace(/[^\/]*$/, "") + step;
-    else if (buy) href = "https://" + buy.replace(/^https?:\/\//, "");
-    if (!href) return;
-    for (var i = 0; i < btns.length; i++) btns[i].setAttribute("href", href);
+    var inFunnel = path && !/\/preview\//.test(path);
+
+    // Two destinations, same resolution. [data-buy] goes straight to the tracked redirect
+    // step (Fire Lead). [data-tour] goes to the Product Tour Page first (Hot Lead), whose
+    // own buttons then carry on to that same redirect. Both fall back to the raw shop link
+    // when the page is not served from inside the funnel, so no button is ever dead.
+    function wire(sel, attr) {
+      var step = root.getAttribute(attr);
+      var btns = root.querySelectorAll(sel);
+      if (!btns.length) return;
+      var href = null;
+      if (step && inFunnel) href = path.replace(/[^\/]*$/, "") + step;
+      else if (buy) href = "https://" + buy.replace(/^https?:\/\//, "");
+      if (!href) return;
+      for (var i = 0; i < btns.length; i++) btns[i].setAttribute("href", href);
+    }
+    wire("[data-buy]", "data-buy-step");
+    wire("[data-tour]", "data-tour-step");
   })();
 
   // ---- 2. jump nav ---------------------------------------------------------

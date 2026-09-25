@@ -16,7 +16,12 @@
   THIS FILE IS THE CONFIG for this page only. Design lives in _shared/product/v1.
 -->
 <div class="sk-prod sk-prod-nva-tone"
-     data-buy-step="n-snow-slim-redirect"
+     <!-- ⚠️ This page is the Snow Slim build reskinned for Tone and Tighten, and it
+          arrived still declaring the SNOW SLIM redirect step. That funnel is not in the
+          snapshot, so the shared component was rewriting all three buy buttons to a
+          step that does not exist. The hardcoded hrefs were already right; this
+          attribute was silently overriding them. Fixed 2026-09-25. -->
+     data-buy-step="n-tone-and-tighten-guide-redirect"
      data-buy-url="{{custom_values.nueva_snow_slim_link}}">
 
   <div class="sk-prod-prog" aria-hidden="true"><i></i></div>

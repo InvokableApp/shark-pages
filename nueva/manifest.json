@@ -365,6 +365,24 @@
       "elementTitle": "n-marketing-links",
       "pattern": "A",
       "locationId": "qvEo4GcZHYy4AUTn9ojQ"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read",
+      "funnelId": "xNJhPdwo3zLb7MAe4uUf",
+      "pageId": "5da2S3s4FdJpWvRWGI0S",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "n-tone-and-tighten-guide-read",
+      "pattern": "A",
+      "locationId": "sKmJ8BrXPCYR2g7aYRX0"
+    },
+    {
+      "path": "n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-read",
+      "funnelId": "UONGZFfCp6kHKAylyT0Z",
+      "pageId": "bawB1BZGLTth4Dp0m2l2",
+      "elementId": "custom-code-8di8XCNqb2",
+      "elementTitle": "n-tone-and-tighten-guide-read",
+      "pattern": "A",
+      "locationId": "qvEo4GcZHYy4AUTn9ojQ"
     }
   ]
 }

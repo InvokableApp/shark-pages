@@ -9,9 +9,18 @@
   print stylesheet, not meaning; renaming them would mean rewriting 394 lines of css to change
   nothing on screen.
 -->
+<!--
+  data-tour-step: the Product Tour Page, which is what Hot Lead fires on. Before
+  2026-09-25 nothing in the system linked to that page at all, so the trigger could
+  never fire on this funnel, on any account. ONE button routes through it and the other
+  two stay direct: a reader who has already decided should not be slowed down, and a
+  reader who is browsing gets counted. The tour page's own buttons carry on to the same
+  redirect step, so Fire Lead still fires either way.
+-->
 <div class="sk-nva-guide"
      data-buy-step="n-tone-and-tighten-guide-redirect"
      data-buy-url="{{custom_values.nueva_buy_link}}"
+     data-tour-step="n-tone-and-tighten-guide-product"
      data-cv-nueva_rep_first_name="{{custom_values.nueva_rep_first_name}}"
      data-cv-nueva_tone_and_tighten_guide_pdf_url="{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}">
 <nav class="gnav"><span class="brand">Tone and Tighten Guide</span><a href="#start">Start Here</a><a href="#workouts">The Workouts</a><a href="#movements">How To Do Them</a><a href="#schedule">The Schedule</a><a href="#food">The Food</a><a href="#recipes">Recipes</a><a href="#grocery">Grocery</a><a href="#cheat">Cheat Sheet</a><a data-cv-href="nueva_tone_and_tighten_guide_pdf_url" target="_blank" rel="noopener">Print</a><span class="spacer"></span><a class="nav-cta" href="n-tone-and-tighten-guide-redirect" data-buy>Nueva shop</a></nav>
@@ -341,7 +350,7 @@
       <div class="product-name">Nueva</div>
       <div class="product-meta" data-cv-opt="nueva_rep_first_name">Shared with you by <span data-cv-val></span></div>
       <div class="product-desc">This guide came from someone on the Nueva team. They can answer questions about any of it, and they are the one to ask about the products that sit alongside training and food.</div>
-      <a class="product-btn" href="n-tone-and-tighten-guide-redirect" data-buy>See their Nueva shop</a>
+      <a class="product-btn" href="n-tone-and-tighten-guide-product" data-tour>See their Nueva shop</a>
     </div></div>
   </section>
 <section class="page divider" id="food" style="background-image:url('assets/divider-food.jpg')">
