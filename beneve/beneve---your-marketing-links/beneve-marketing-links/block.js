@@ -153,6 +153,14 @@ var SYS = {
        they stay. GLP dropped its own on Joe's Figma note 11; that was a GLP call
        about GLP's copy, not a house rule. */
     showCardDesc: true,
+    /* Find conversations to join. `repIdCv` is a custom value the socket
+       ALREADY carries, which is what keeps this a git push rather than a
+       push-block to every account: it only spreads reps across the pool so
+       thirty of them do not land in one hashtag on one morning. */
+    search: {
+      terms: 'https://invokableapp.github.io/shark-pages/_shared/search-terms/beneve.json',
+      repIdCv: 'beneve_user_name'
+    },
     SYS: SYS
   });
 

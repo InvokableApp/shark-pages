@@ -77,6 +77,8 @@
      Inline path data in one map, 24x24, fill none, stroke currentColor. Never an
      icon font, never a remote sprite. */
   var I = {
+    search:  '<circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/>',
+    x:       '<path d="M6 6l12 12M18 6 6 18"/>',
     link:    '<path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/>',
     inbox:   '<path d="M2.5 13.5h5l1.6 2.6h5.8l1.6-2.6h5"/><path d="M4.6 5.4 2.5 13.5v3.6a2.4 2.4 0 0 0 2.4 2.4h14.2a2.4 2.4 0 0 0 2.4-2.4v-3.6L19.4 5.4A2.4 2.4 0 0 0 17.2 4H6.8a2.4 2.4 0 0 0-2.2 1.4z"/>',
     rocket:  '<path d="M13.5 4.5c3.4-2.2 6-2 6-2s.2 2.6-2 6c-2.5 3.9-6.4 5.6-6.4 5.6l-3.2-3.2S9.6 7 13.5 4.5z"/><path d="M8 15.5 5 18M6.5 11.5 4 12.8l1.8 1.8M12.5 17.5l1.3-2.5 1.8 1.8"/>',
@@ -113,6 +115,32 @@
   function icon(k, w) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' +
       (w || 1.7) + '" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
+  }
+
+  /* ---------- platform brand marks ----------
+     ⚠️ COPIED FROM simple-icons v16.32.0, NEVER DRAWN. A brand mark reproduced
+     from memory is recognisably wrong, which is worse than no icon at all. Same
+     eight strings the platform app ships, lifted from its generated file so the
+     two cannot drift.
+
+     These are FILLED paths on a 24x24 box, not the stroked outline set above,
+     so they get their own renderer rather than being forced through icon().
+     They inherit the button's ink rather than each brand's own hex: eight brand
+     colours in one card fights the palette, and the SHAPE is what carries
+     recognition. Nobody identifies Reddit by the orange alone. */
+  var BRAND_MARKS = {
+    x: 'M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z',
+    reddit: 'M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z',
+    instagram: 'M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077',
+    tiktok: 'M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z',
+    facebook: 'M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z',
+    threads: 'M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z',
+    youtube: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
+    quora: 'M7.3799.9483A11.9628 11.9628 0 0 1 21.248 19.5397l2.4096 2.4225c.7322.7362.21 1.9905-.8272 1.9905l-10.7105.01a12.52 12.52 0 0 1-.304 0h-.02A11.9628 11.9628 0 0 1 7.3818.9503Zm7.3217 4.428a7.1717 7.1717 0 1 0-5.4873 13.2512 7.1717 7.1717 0 0 0 5.4883-13.2511Z'
+  };
+  function brandMark(k) {
+    var d = BRAND_MARKS[k];
+    return d ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + d + '"/></svg>' : '';
   }
 
   /* ---------- custom values ----------
@@ -174,6 +202,13 @@
        you start." Two sentences instead, because a dash clause is out in
        shipped copy and a comma there is a splice. His words, unchanged. */
     href: SYS.training });
+
+  /* Find conversations. PUSHED like the referral tile, for the same reason: a
+     system with no term file never grows a tile that leads nowhere. It sits
+     above referral because it is the rep's job and referral is their upside. */
+  if (cfg.search) DEST.push({ id: 'search', icon: 'search',
+    name: 'Find conversations to join',
+    tease: 'Today\u2019s search term, on every platform worth checking.' });
 
   if (SYS.affiliate) DEST.push({ id: 'referral', icon: 'share',
     name: 'My Shark System Referral Link', tease: 'Share the system, get yours for free.' });
@@ -746,12 +781,271 @@
     if (e.key === 'Escape' && !sheet.hidden) closeMenu();
   });
 
+  /* ================= find conversations to join =================
+     Ported from platform/src/lib/social.mjs, which is the same feature server
+     rendered for the platform buyer app. The link building half of that file is
+     pure, so this is the same logic rather than a second implementation.
+
+     ⚠️ THE SCREEN IS BUILT HERE, NOT IN block.html. block.html is git served, so
+     markup there would also have been a pure git push, but it would have been
+     FOUR copies of the same section drifting apart again, which is the thing the
+     merged engine exists to stop. Built here, every system gets the screen and
+     future changes from one file.
+
+     ⚠️ IT MUST RUN BEFORE THE ROUTER, which snapshots .sk-screen once. */
+  if (cfg.search) (function () {
+    var SEARCH = cfg.search;
+    var ROTATE_HOURS = SEARCH.rotateHours || 24;
+    var CHIP_COUNT = SEARCH.chipCount || 6;
+
+    function esc(x) {
+      return String(x == null ? '' : x)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function q(x) { return encodeURIComponent(String(x == null ? '' : x).trim()); }
+
+    /* ⚠️ DO NOT DERIVE A TAG FROM A PHRASE. "cant afford ozempic" strips to
+       #cantaffordozempic, which is a real URL that returns an empty feed and
+       reads to the rep as a broken feature. One word is lossless to strip;
+       anything longer needs a human to say which tag people actually follow,
+       which is why `hashtag` is authored in the term file and not computed. */
+    function hashtagify(x) {
+      return String(x == null ? '' : x).toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '').replace(/^\s+|\s+$/g, '').replace(/\s+/g, '');
+    }
+    function tagFor(t) {
+      if (t && t.hashtag) return t.hashtag;
+      var w = String((t && t.term) || '').replace(/^\s+|\s+$/g, '').split(/\s+/);
+      return (w.length === 1 && w[0]) ? hashtagify(w[0]) : null;
+    }
+
+    /* ⚠️ THE QUERY STRINGS ARE THE FEATURE, copied from social.mjs and never
+       retyped. Every one of these platforms defaults to ranking by popularity,
+       which serves the same viral posts for weeks. A rep looking for a
+       conversation to JOIN needs the newest posts: an eighteen month old thread
+       with 4,000 comments is not somewhere to introduce yourself. Drop f=live,
+       sort=new or the upload date sort and the feature still "works" while
+       quietly being useless. */
+    var PLATFORMS = {
+      instagram: { label: 'Instagram', needsTag: true,
+        url: function (t) { return 'https://www.instagram.com/explore/tags/' + q(tagFor(t)) + '/'; } },
+      tiktok:    { label: 'TikTok',   url: function (t) { return 'https://www.tiktok.com/search?q=' + q(t.term); } },
+      x:         { label: 'X',        url: function (t) { return 'https://x.com/search?q=' + q(t.term) + '&f=live'; } },
+      reddit:    { label: 'Reddit',   url: function (t) { return 'https://www.reddit.com/search/?q=' + q(t.term) + '&sort=new'; } },
+      facebook:  { label: 'Facebook', url: function (t) { return 'https://www.facebook.com/search/posts?q=' + q(t.term); } },
+      threads:   { label: 'Threads',  url: function (t) { return 'https://www.threads.net/search?q=' + q(t.term) + '&serp_type=default'; } },
+      youtube:   { label: 'YouTube',  url: function (t) { return 'https://www.youtube.com/results?search_query=' + q(t.term) + '&sp=CAI%253D'; } },
+      quora:     { label: 'Quora',    url: function (t) { return 'https://www.quora.com/search?q=' + q(t.term); } }
+    };
+    /* the order a rep should work them: where conversation happens, then where
+       people perform */
+    var ORDER = ['x', 'reddit', 'instagram', 'tiktok', 'facebook', 'threads', 'youtube', 'quora'];
+
+    /* ⚠️ `platforms` NARROWS, it does not enumerate. Read as the full list, a term
+       tagged {instagram,tiktok} offers two buttons and leaves out X, the single
+       best place to find a live conversation. Default is everywhere the term can
+       honestly go; the field exists only to rule one out. */
+    function searchLinks(t) {
+      if (!t || !String(t.term || '').trim()) return [];
+      var allow = (t.platforms && t.platforms.length) ? t.platforms : null;
+      var out = [];
+      ORDER.forEach(function (k) {
+        if (allow && allow.indexOf(k) === -1) return;
+        var p = PLATFORMS[k];
+        if (!p) return;
+        /* a tag platform with no honest tag is a dead button, and a dead button
+           reads as broken rather than absent */
+        if (p.needsTag && !tagFor(t)) return;
+        out.push({ key: k, label: p.label, url: p.url(t) });
+      });
+      return out;
+    }
+
+    /* ---------- which term, this slot ----------
+       Computed from the date and a stable per rep offset: no daily job to miss,
+       nothing stored, and a rep refreshing either side of midnight correctly
+       sees two different terms. The offset spreads reps across the pool, because
+       thirty people arriving in one hashtag on one morning is a pile on.
+
+       ⚠️ LOCAL TIME, NOT UTC. The platform divides the epoch by a day, which
+       flips the term at UTC midnight: early evening across the US, exactly when
+       a rep is working. This runs in the rep's own browser, so it uses their
+       midnight and the word "today" stays true.
+
+       ⚠️ THE POOL SIZE IS THE CYCLE LENGTH. ~100 terms at one a day is a repeat
+       every ~100 days; six terms is a repeat every six and reads as broken. */
+    function offsetOf(id) {
+      var h = 0, v = String(id || '');
+      for (var i = 0; i < v.length; i++) h = (h * 31 + v.charCodeAt(i)) >>> 0;
+      return h;
+    }
+    function slotNumber() {
+      var d = new Date();
+      return Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / (3600000 * ROTATE_HOURS));
+    }
+    /* the rep's own identity, from a custom value the socket ALREADY carries, so
+       this feature needs no push-block to any account */
+    var REP_ID = SEARCH.repIdCv ? cv(SEARCH.repIdCv) : '';
+    function pick(terms, n) {
+      var live = terms.filter(function (t) { return t.active !== false; });
+      if (!live.length) return null;
+      var i = slotNumber() + offsetOf(REP_ID) + (n || 0);
+      return live[((i % live.length) + live.length) % live.length];
+    }
+
+    /* ---------- the screen ---------- */
+    var sec = document.createElement('section');
+    sec.className = 'sk-screen';
+    sec.setAttribute('data-screen', 'search');
+    sec.innerHTML =
+      '<header class="sk-page-head">' +
+        '<h1 class="sk-page-title">Find conversations to&nbsp;join</h1>' +
+        '<p class="sk-page-sub">Answer questions where people are asking questions. Somebody is asking ' +
+        'yours right now, so here is today\u2019s term and every place worth looking.</p>' +
+      '</header>' +
+      '<div class="sk-srch">' +
+        '<label class="sk-srch-lab" for="sk-q">' +
+          (ROTATE_HOURS >= 24 ? 'Today\u2019s search term' : 'Your search term right now') + '</label>' +
+        '<div class="sk-srch-in">' +
+          '<span class="sk-srch-mark" aria-hidden="true">' + icon('search', 1.9) + '</span>' +
+          '<input id="sk-q" class="sk-srch-field" type="text" autocomplete="off" spellcheck="false" ' +
+            'aria-describedby="sk-q-note" value="">' +
+          '<button class="sk-srch-x" type="button" aria-label="Clear the search term" hidden>' +
+            icon('x', 2) + '</button>' +
+        '</div>' +
+        '<p class="sk-note-line" id="sk-q-note" data-note></p>' +
+      '</div>' +
+      '<h2 class="sk-h2" data-plathead>Look for it on</h2>' +
+      '<div class="sk-plats" data-plats></div>' +
+      '<p class="sk-note-line sk-plats-note" data-platnote hidden></p>' +
+      /* ⚠️ NOT .sk-callout. That class is already an SVG speech bubble component in
+         this stylesheet (rect / text / arrow), so reusing it for a text panel
+         inherited nothing and quietly collided. Own class, own rules. */
+      '<div class="sk-srch-rule">' +
+        '<p class="sk-srch-rule-head">One rule holds the whole strategy together: be useful first.</p>' +
+        '<p>Answer real questions, several times over, before you ever post a link. Authority is what ' +
+        'makes the link get clicked, and you have to build it before you spend it.</p>' +
+      '</div>' +
+      '<h2 class="sk-h2">Other terms worth working</h2>' +
+      '<div class="sk-chips" data-chips></div>';
+    root.appendChild(sec);
+
+    var platHead = null;   /* assigned once the screen is in the DOM */
+    var field = sec.querySelector('#sk-q'), note = sec.querySelector('[data-note]');
+    var plats = sec.querySelector('[data-plats]'), platnote = sec.querySelector('[data-platnote]');
+    var chips = sec.querySelector('[data-chips]'), clear = sec.querySelector('.sk-srch-x');
+    platHead = sec.querySelector('[data-plathead]');
+
+    function paint(t) {
+      var links = searchLinks(t);
+      /* EMPTY FIELD IS A REAL STATE, not an edge case: the rep clears it to type
+         their own. A heading with nothing under it reads as a page that failed to
+         load, so the whole block goes and a line says what to do instead. */
+      var blank = !String(t.term || '').trim();
+      if (platHead) platHead.hidden = blank;
+      plats.hidden = blank;
+      if (blank) {
+        plats.innerHTML = '';
+        note.textContent = '';
+        clear.hidden = true;
+        platnote.hidden = false;
+        platnote.textContent = 'Type a term above, or pick one from the list below.';
+        chips.querySelectorAll('.sk-chip-t').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        return;
+      }
+      plats.innerHTML = links.map(function (l) {
+        return '<a class="sk-plat" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer" ' +
+          'aria-label="Search ' + esc(l.label) + ' for ' + esc(t.term) + '">' +
+          '<span class="sk-plat-mark" aria-hidden="true">' + brandMark(l.key) + '</span>' +
+          '<span>' + esc(l.label) + '</span></a>';
+      }).join('');
+      note.textContent = t.note || '';
+      var live = !!String(t.term || '').trim();
+      platnote.hidden = !(live && !tagFor(t));
+      if (!platnote.hidden) {
+        platnote.textContent = 'Instagram is not offered for this term: it only has a tag page, ' +
+          'and this phrase has no tag people actually follow.';
+      }
+      clear.hidden = !field.value;
+      chips.querySelectorAll('.sk-chip-t').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-term') === t.term));
+      });
+    }
+
+    /* The terms are a file on Pages, not a custom value: a ~100 term pool cannot
+       live in a merge field, and a git push updates every account at once. */
+    fetch(SEARCH.terms, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (doc) {
+        var TERMS = (doc && doc.terms) || [];
+        if (!TERMS.length) throw new Error('no terms');
+        var today = pick(TERMS, 0);
+        /* the chips are the NEXT slots, so they are fresh every slot, never
+           duplicate today's term, and a rep working ahead gets tomorrow's */
+        var upcoming = [];
+        for (var i = 1; i <= Math.min(CHIP_COUNT, TERMS.length - 1); i++) upcoming.push(pick(TERMS, i));
+        chips.innerHTML = upcoming.map(function (t) {
+          return '<button class="sk-chip-t" type="button" data-term="' + esc(t.term) +
+            '" aria-pressed="false">' + esc(t.term) + '</button>';
+        }).join('');
+        chips.addEventListener('click', function (e) {
+          var b = e.target.closest && e.target.closest('.sk-chip-t');
+          if (!b) return;
+          var hit = TERMS.filter(function (x) { return x.term === b.getAttribute('data-term'); })[0];
+          var t = hit || { term: b.getAttribute('data-term') };
+          field.value = t.term; paint(t);
+        });
+        field.addEventListener('input', function () {
+          var hit = TERMS.filter(function (x) { return x.term === field.value; })[0];
+          paint(hit || { term: field.value });
+        });
+        clear.addEventListener('click', function () {
+          field.value = ''; paint({ term: '' }); field.focus();
+        });
+        field.value = today.term;
+        paint(today);
+      })
+      .catch(function (err) {
+        /* A failed fetch must not leave a blank screen pretending to be a tool.
+           Say what happened and keep the field usable, because the links are
+           built client side and work on anything the rep types. */
+        chips.innerHTML = '';
+        note.textContent = '';
+        platnote.hidden = false;
+        platnote.textContent = 'Today\u2019s suggested term could not be loaded. Type anything and the ' +
+          'links below still work.';
+        field.addEventListener('input', function () { paint({ term: field.value }); });
+        clear.addEventListener('click', function () { field.value = ''; paint({ term: '' }); field.focus(); });
+        paint({ term: '' });
+        if (window.console) console.warn('[shark hub] search terms:', err && err.message);
+      });
+
+    /* ---------- the entry point that is not a tile ----------
+       The promote screen's fourth daily item already reads "Answer questions
+       where people are asking questions" on all four systems. It was a statement
+       with nothing behind it; now it opens the screen. Matched on its text
+       because that is what the tile IS, and guarded: no match, no change. */
+    var tiles = root.querySelectorAll('[data-screen="promote"] .sk-tile');
+    for (var ti = 0; ti < tiles.length; ti++) {
+      if (!/asking questions/i.test(tiles[ti].textContent || '')) continue;
+      var t = tiles[ti];
+      var a = document.createElement('a');
+      a.className = t.className + ' sk-tile--go';
+      a.setAttribute('href', '#/search');
+      if (t.getAttribute('style')) a.setAttribute('style', t.getAttribute('style'));
+      a.innerHTML = t.innerHTML + '<span class="sk-tile-go" aria-hidden="true">' + icon('chev', 2) + '</span>';
+      t.parentNode.replaceChild(a, t);
+      break;
+    }
+  })();
+
   /* ---------- router ----------
      Hash routed so the whole hub is one block at one URL, which is what lets it
      travel inside a snapshot as a single custom code socket. */
   var screens = root.querySelectorAll('.sk-screen');
   var backBtn = root.querySelector('[data-back]');
   var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1, referral: 1 };
+  if (cfg.search) VALID.search = 1;
 
   function route() {
     var id = (location.hash || '').replace(/^#\/?/, '') || 'home';

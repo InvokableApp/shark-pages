@@ -35,6 +35,12 @@
 .sk-hub *::after { box-sizing: border-box; }
 
 .sk-hub {
+  /* named container: the platform grid below asks the BLOCK's width, not the
+     viewport's, because a hosted block lands in a page whose width it does not
+     control. Measured at 340px: a viewport rule gave four columns inside a
+     phone width block and truncated every label. */
+  container: sk-hub / inline-size;
+
   /* ⚠️ THE NINE PALETTE TOKENS ARE NOT HERE. They live in each block's own
      block.css, on the block's own scope class, and cascade in. That is the
      whole reskin, and it is the one thing a block is allowed to declare. */
@@ -1998,3 +2004,178 @@
    scroll correction in the same moment, which would invalidate it. */
 .sk-hub .sk-screen { overflow-anchor: none; }
 .sk-hub .sk-nosnap .sk-panel { transition: none; }
+
+/* ============================================================
+   FIND CONVERSATIONS TO JOIN
+   ============================================================ */
+/* ============================================================
+   THE SEARCH SCREEN — proposed addition to _shared/links-hub/v2
+   Every selector under .sk-hub, per HOSTED-BLOCKS-SOP section 1.
+   ============================================================ */
+
+.sk-hub .sk-srch { margin: 0 0 26px; }
+
+.sk-hub .sk-srch-lab {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sk-ink-faint);
+  margin: 0 0 8px;
+}
+
+/* The field is the loudest thing on the screen, because it is the one thing the
+   rep may want to change. Brand ink on the border rather than a fill: a filled
+   input reads as a button and invites a tap instead of a type. */
+.sk-hub .sk-srch-in {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: var(--sk-card);
+  border: 1.5px solid var(--sk-line);
+  border-radius: 14px;
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+.sk-hub .sk-srch-in:focus-within {
+  border-color: var(--sk-brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sk-brand) 14%, transparent);
+}
+
+.sk-hub .sk-srch-mark { display: flex; color: var(--sk-ink-faint); }
+.sk-hub .sk-srch-mark svg { width: 20px; height: 20px; }
+
+.sk-hub .sk-srch-field {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: none;
+  padding: 15px 0;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+.sk-hub .sk-srch-field:focus { outline: none; }
+
+.sk-hub .sk-srch-x {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border: 0; border-radius: 50%;
+  background: var(--sk-line-soft);
+  color: var(--sk-ink-soft);
+  cursor: pointer;
+  transition: background .14s ease, color .14s ease;
+}
+.sk-hub .sk-srch-x:hover { background: var(--sk-brand-tint); color: var(--sk-brand-deep); }
+.sk-hub .sk-srch-x svg { width: 14px; height: 14px; }
+
+/* ---------- the platform buttons ----------
+   Two up on a phone, because eight full width rows is a scroll and the marks
+   are recognisable at this size. The label stays under 360px on the aria-label
+   only, matching the platform app's own breakpoint behaviour. */
+.sk-hub .sk-plats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 22px;
+}
+/* ⚠️ A CONTAINER QUERY, NOT A MEDIA QUERY. A hosted block lands inside a page
+   whose width it does not control, so the viewport is the wrong thing to ask.
+   Measured on the mock at 340px: a viewport rule gave four columns inside a
+   phone-width block and truncated every label to "Redd", "Insta", "TikTo". */
+@container sk-hub (min-width: 560px) {
+  .sk-hub .sk-plats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.sk-hub .sk-plat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 12px;
+  background: var(--sk-card);
+  border: 1px solid var(--sk-line);
+  border-radius: 13px;
+  text-decoration: none;
+  color: var(--sk-ink);
+  font-weight: 650;
+  font-size: .93rem;
+  line-height: 1.15;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+}
+.sk-hub .sk-plat:hover,
+.sk-hub .sk-plat:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--sk-brand);
+  box-shadow: 0 6px 18px -10px color-mix(in srgb, var(--sk-ink) 40%, transparent);
+}
+
+/* The glyph inherits the button's ink rather than each brand's own hex. Eight
+   brand colours in one card fights the palette, and the SHAPE is what carries
+   recognition: nobody identifies Reddit by the orange alone. Switching to brand
+   colour is one rule here if we ever want it. (Same call the platform made.) */
+.sk-hub .sk-plat-mark { display: flex; flex: 0 0 auto; color: var(--sk-ink); }
+.sk-hub .sk-plat-mark svg { width: 19px; height: 19px; }
+
+.sk-hub .sk-plats-note { margin: -14px 0 22px; }
+
+/* ---------- other terms ---------- */
+.sk-hub .sk-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.sk-hub .sk-chip-t {
+  border: 1px solid var(--sk-line);
+  background: var(--sk-card);
+  color: var(--sk-ink-soft);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .14s ease, color .14s ease, background .14s ease;
+}
+.sk-hub .sk-chip-t:hover { border-color: var(--sk-brand); color: var(--sk-brand-deep); background: var(--sk-brand-tint); }
+.sk-hub .sk-chip-t[aria-pressed="true"] {
+  border-color: var(--sk-brand);
+  background: var(--sk-brand);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-hub .sk-plat, .sk-hub .sk-srch-in, .sk-hub .sk-chip-t, .sk-hub .sk-srch-x { transition: none; }
+  .sk-hub .sk-plat:hover { transform: none; }
+}
+
+/* the promote screen's fourth daily item, now a link into the screen */
+.sk-hub a.sk-tile--go { text-decoration: none; position: relative; padding-right: 34px; }
+.sk-hub a.sk-tile--go:hover,
+.sk-hub a.sk-tile--go:focus-visible { border-color: var(--sk-brand); }
+.sk-hub .sk-tile-go {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  color: var(--sk-ink-faint);
+}
+.sk-hub .sk-tile-go svg { width: 15px; height: 15px; }
+
+/* the one rule. A tinted panel rather than loose paragraphs: it is the thing
+   that stops a rep pasting a link into a thread and getting removed, so it has
+   to read as guidance and not as body copy that ran on. */
+.sk-hub .sk-srch-rule {
+  margin: 0 0 26px;
+  padding: 16px 18px;
+  background: var(--sk-brand-tint);
+  border-left: 3px solid var(--sk-brand);
+  border-radius: 12px;
+}
+.sk-hub .sk-srch-rule p { margin: 0; color: var(--sk-ink-soft); font-size: .94rem; line-height: 1.55; }
+.sk-hub .sk-srch-rule p + p { margin-top: 9px; }
+.sk-hub .sk-srch-rule-head { font-weight: 700; color: var(--sk-ink) !important; }
