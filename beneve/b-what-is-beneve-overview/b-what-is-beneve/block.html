@@ -28,9 +28,45 @@
 -->
 <div class="sk-prod sk-prod-bnv-what sk-what"
      data-buy-step="b-what-is-redirect-opportunity"
-     data-buy-url="{{custom_values.beneve_opportunity_url}}">
+     data-buy-url="{{custom_values.beneve_opportunity_url}}"
+     data-cv-beneve_rep_full_name="{{custom_values.beneve_rep_full_name}}"
+     data-cv-beneve_rep_first_name="{{custom_values.beneve_rep_first_name}}">
 
   <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- ============================ REP INTRO ============================
+       A page a rep SENDS should say who sent it before it says anything else,
+       and Jess asked for an introduction rather than a byline, so this carries
+       the rep's own opening line as well as their name (2026-09-26).
+
+       ⚠️ HIDDEN UNTIL THERE IS A NAME. On the snapshot both custom values are
+       empty by design, and an unsubstituted merge field renders as literal
+       braces. The ORYGN page this was modelled on currently shows "Enter Your
+       Full Name Here" to every visitor, which is exactly the outcome being
+       avoided here: block.js reveals this only once a real name is present, so
+       an un-onboarded account shows the page as it was before, not a placeholder.
+
+       ⚠️ THE SOCKET MUST DECLARE BOTH BRIDGES. The two data-cv-* attributes above
+       are only half of it: shark-embed fills merge fields from the SOCKET's
+       attributes, and a value the socket does not declare resolves to the empty
+       string with no error. Re-run push-block after editing, never hand-edit the
+       socket. This is the failure that made a links page read "Not set up yet".
+
+       The paragraph is one piece of copy for every rep on the system, so it
+       claims nothing about the products that Beneve does not already claim. -->
+  <div class="sk-what-rep" data-rep-intro hidden>
+    <div class="sk-what-rep-in">
+      <p class="sk-what-rep-by">Presented by <span data-rep-full>{{custom_values.beneve_rep_full_name}}</span></p>
+      <p class="sk-what-rep-hi">Hi, I&rsquo;m <span data-rep-first>{{custom_values.beneve_rep_first_name}}</span>.</p>
+      <p class="sk-what-rep-copy">I share Beneve because the products are built to work together rather than pile up on a shelf. Have a look at what they are, see whether any of it fits what you are working on, and if you want to know how I get paid for sharing them, that is on this page too.</p>
+      <ul class="sk-what-rep-nav">
+        <li><a href="#sk-what-difference">The difference</a></li>
+        <li><a href="#sk-what-products">Products</a></li>
+        <li><a href="#sk-what-opp">Opportunity</a></li>
+        <li><a href="#sk-what-next">What next</a></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="sk-prod-bar" hidden>
     <span class="sk-prod-bar-name">What is Beneve</span>

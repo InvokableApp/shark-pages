@@ -65,7 +65,49 @@
     slot.appendChild(btn);
   }
 
+  /* ── REP INTRO ──────────────────────────────────────────────────────────────
+   * The band is hidden in the markup and only revealed here, once there is a real
+   * name to show. Three states have to resolve to "stay hidden", and only one of
+   * them is obvious:
+   *
+   *   empty      the snapshot, where the custom value is deliberately blank
+   *   "{{...}}"  the socket never declared the bridge, so nothing substituted
+   *   a sample   an onboarding instruction left in the field rather than a name
+   *
+   * Failing closed costs an onboarded rep nothing (block.js runs before paint on
+   * every page in this system) and failing open would print "Enter Your Full Name
+   * Here" to every visitor, which is what the page this was modelled on does today.
+   *
+   * The first name is allowed to fall back to the full name: a buyer who filled one
+   * field and not the other still gets a sentence that reads, rather than "Hi, I'm ." */
+  function nameOf(el) {
+    if (!el) return "";
+    var v = (el.textContent || "").trim();
+    if (!v) return "";
+    if (v.indexOf("{{") > -1 || v.indexOf("}}") > -1) return "";
+    if (/^(enter|add|your|paste)\b/i.test(v)) return "";   /* the instruction, not a name */
+    return v;
+  }
+
+  function repIntro() {
+    var band = document.querySelector(".sk-prod-bnv-what [data-rep-intro]");
+    if (!band) return;
+    var fullEl = band.querySelector("[data-rep-full]");
+    var firstEl = band.querySelector("[data-rep-first]");
+    var full = nameOf(fullEl);
+    var first = nameOf(firstEl) || full.split(/\s+/)[0] || "";
+
+    if (!full && !first) return;            /* nothing real to show, stay hidden */
+
+    if (full) fullEl.textContent = full;
+    else fullEl.parentNode.setAttribute("hidden", "hidden");   /* no full name, drop the byline only */
+    firstEl.textContent = first;
+
+    band.removeAttribute("hidden");
+  }
+
   function run() {
+    repIntro();
     var slots = document.querySelectorAll(".sk-prod-bnv-what .sk-what-video");
     for (var i = 0; i < slots.length; i++) wire(slots[i]);
   }

@@ -199,3 +199,50 @@
   .sk-prod-bnv-what .sk-what-shot{ aspect-ratio:4/3; }
   .sk-prod-bnv-what .sk-what-video-play{ width:54px; height:54px; }
 }
+
+
+/* ── REP INTRO ──────────────────────────────────────────────────────────────
+ * Sits above the hero on the page a rep sends. Same navy as the hero so the two
+ * read as one masthead rather than a band stuck on top, with the pills picking
+ * up the teal on hover the way every other control in the system does.
+ *
+ * Starts hidden in the markup and is revealed by block.js only when a real name
+ * is present. Do not remove the [hidden] attribute to "preview" it: that is what
+ * ships a placeholder name to every visitor on an un-onboarded account. */
+.sk-prod-bnv-what .sk-what-rep{
+  background:linear-gradient(103deg,var(--sk-navy) 0%,var(--sk-navy-d) 100%);
+  color:#fff;
+}
+.sk-prod-bnv-what .sk-what-rep[hidden]{ display:none; }
+.sk-prod-bnv-what .sk-what-rep-in{
+  max-width:1080px; margin:0 auto; padding:26px 24px 24px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.sk-prod-bnv-what .sk-what-rep-by{
+  margin:0; font-size:.72rem; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--sk-teal);
+}
+.sk-prod-bnv-what .sk-what-rep-hi{
+  margin:0; font-family:var(--sk-serif); font-weight:600;
+  font-size:clamp(1.5rem,3vw,1.95rem); line-height:1.15;
+  letter-spacing:-.01em; color:#fff; text-wrap:balance;
+}
+.sk-prod-bnv-what .sk-what-rep-copy{
+  margin:0; max-width:60ch; font-size:.97rem; line-height:1.6;
+  color:rgba(255,255,255,.86);
+}
+.sk-prod-bnv-what .sk-what-rep-nav{
+  display:flex; gap:8px; flex-wrap:wrap; margin:0; padding:0; list-style:none;
+}
+.sk-prod-bnv-what .sk-what-rep-nav a{
+  display:inline-block; padding:.34rem .72rem; border-radius:999px;
+  font-size:.82rem; font-weight:600; text-decoration:none;
+  color:#fff; background:rgba(255,255,255,.12);
+}
+.sk-prod-bnv-what .sk-what-rep-nav a:hover{ background:var(--sk-teal); color:var(--sk-navy-d); }
+.sk-prod-bnv-what .sk-what-rep-nav a:focus-visible{
+  outline:2px solid var(--sk-teal); outline-offset:2px;
+}
+@media (max-width:620px){
+  .sk-prod-bnv-what .sk-what-rep-in{ padding:20px 18px 18px; gap:12px; }
+}
