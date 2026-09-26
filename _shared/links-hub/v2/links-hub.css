@@ -45,12 +45,27 @@
      block.css, on the block's own scope class, and cascade in. That is the
      whole reskin, and it is the one thing a block is allowed to declare. */
 
+  /* ⚠️ DERIVED tokens, defaulting to GLP's values so GLP renders unchanged.
+     CSS cannot pull the channels out of a hex, so a system that overrides
+     --sk-brand MUST also override --sk-brand-rgb or its translucent surfaces stay
+     orange. That is exactly what had happened: 13 literals below hardcoded GLP's
+     #EC5E2A / #C94A1E / warm off-whites, so every OTHER system rendered peach icon
+     chips and warm washes on top of its own palette, and Beneve's carefully derived
+     navy block.css declared four tokens the component never read. Found 2026-09-26
+     porting the hub to Beneve. */
+  --sk-brand-rgb:      236,94,42;
+  --sk-brand-deep-rgb: 201,74,30;
+  --sk-brand-deepest:  #C94A1E;   /* footer gradient far stop */
+  --sk-shadow-rgb:     18,24,15;  /* so shadows take the system's cast, not olive */
+  --sk-wash:           #FDFBF9;   /* chip / pill surface */
+  --sk-wash-alt:       #FDFAF7;   /* the slightly warmer sibling */
+
   /* structural tokens, identical in every system */
   --sk-r:      18px;
   --sk-r-sm:   12px;
   --sk-pad:    20px;
-  --sk-shadow: 0 1px 2px rgba(18,24,15,.04), 0 8px 24px -12px rgba(18,24,15,.18);
-  --sk-shadow-lift: 0 2px 4px rgba(18,24,15,.05), 0 18px 40px -18px rgba(18,24,15,.28);
+  --sk-shadow: 0 1px 2px rgba(var(--sk-shadow-rgb),.04), 0 8px 24px -12px rgba(var(--sk-shadow-rgb),.18);
+  --sk-shadow-lift: 0 2px 4px rgba(var(--sk-shadow-rgb),.05), 0 18px 40px -18px rgba(var(--sk-shadow-rgb),.28);
 
   /* full bleed ground, capped content. The measure is a grid column, never an
      auto margin: components that set the margin shorthand would reset it. */
@@ -167,7 +182,7 @@
   width: 62px; height: 62px;
   border-radius: 50%;
   background: linear-gradient(122deg, var(--sk-brand) 0%, var(--sk-brand-deep) 88%);
-  box-shadow: 0 10px 26px -10px rgba(201,74,30,.8);
+  box-shadow: 0 10px 26px -10px rgba(var(--sk-brand-deep-rgb),.8);
   transition: transform .22s cubic-bezier(.2,.8,.3,1);
 }
 .sk-hub .sk-frame:hover .sk-play { transform: scale(1.06); }
@@ -228,7 +243,7 @@
   flex: none;
   width: 42px; height: 42px;
   border-radius: var(--sk-r-sm);
-  background: linear-gradient(140deg, rgba(236,94,42,.16), rgba(201,74,30,.10));
+  background: linear-gradient(140deg, rgba(var(--sk-brand-rgb),.16), rgba(var(--sk-brand-deep-rgb),.10));
   color: var(--sk-brand-deep);
   transition: background .35s ease, transform .35s cubic-bezier(.2,.8,.3,1), color .35s ease;
 }
@@ -283,7 +298,7 @@
 .sk-hub .sk-card + .sk-card { margin-top: 10px; }
 
 .sk-hub .sk-card[data-open="true"] {
-  border-color: rgba(236,94,42,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
 }
 
@@ -387,7 +402,7 @@
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(236,94,42,.45);
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
   text-underline-offset: 2px;
   transition: text-decoration-color .2s ease;
 }
@@ -465,7 +480,7 @@
   padding: 8px 13px;
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r-sm);
-  background: #FDFBF9;
+  background: var(--sk-wash);
   color: var(--sk-brand-deep);
   font-size: 13.4px;
   font-weight: 600;
@@ -512,7 +527,7 @@
   padding: 9px 11px 9px 10px;
   border: 1px solid var(--sk-line);
   border-radius: var(--sk-r-sm);
-  background: #FDFBF9;
+  background: var(--sk-wash);
   color: var(--sk-ink);
   font-size: 15px;
   font-weight: 600;
@@ -560,7 +575,7 @@
   border: 1px solid var(--sk-line);
   border-left: 3px solid var(--sk-brand);
   border-radius: var(--sk-r-sm);
-  background: #FDFBF9;
+  background: var(--sk-wash);
   overflow: hidden;
 }
 
@@ -615,7 +630,7 @@
 .sk-hub .sk-foot-card {
   padding: 30px var(--sk-pad) 28px;
   border-radius: var(--sk-r);
-  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, #C94A1E 100%);
+  background: linear-gradient(155deg, var(--sk-brand-deep) 0%, var(--sk-brand-deepest) 100%);
   color: #fff;
   text-align: center;
   box-shadow: var(--sk-shadow-lift);
@@ -796,7 +811,7 @@
   animation: sk-hub-rise .5s cubic-bezier(.2,.7,.3,1) both;
 }
 .sk-hub .sk-dest:hover {
-  border-color: rgba(236,94,42,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }
@@ -1184,7 +1199,7 @@
   color: var(--sk-brand-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(236,94,42,.45);
+  text-decoration-color: rgba(var(--sk-brand-rgb),.45);
   text-underline-offset: 2px;
 }
 .sk-hub .sk-lede a:hover { text-decoration-color: var(--sk-brand); }
@@ -1200,7 +1215,7 @@
   padding: 11px 13px;
   border: 1px dashed var(--sk-line);
   border-radius: var(--sk-r-sm);
-  background: #FDFAF7;
+  background: var(--sk-wash-alt);
 }
 .sk-hub .sk-url-text {
   flex: 1;
@@ -1274,7 +1289,7 @@
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.8,.3,1);
 }
 .sk-hub .sk-contact:hover {
-  border-color: rgba(236,94,42,.45);
+  border-color: rgba(var(--sk-brand-rgb),.45);
   box-shadow: var(--sk-shadow-lift);
   transform: translateY(-1px);
 }

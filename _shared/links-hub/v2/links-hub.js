@@ -206,7 +206,13 @@
   /* Find conversations. PUSHED like the referral tile, for the same reason: a
      system with no term file never grows a tile that leads nowhere. It sits
      above referral because it is the rep's job and referral is their upside. */
-  if (cfg.search) DEST.push({ id: 'search', icon: 'search',
+  /* "Find conversations to join". Present and configured, but a system can switch
+     it off with `search.enabled:false` and the tile, the screen and the route all
+     disappear together. Off everywhere 2026-09-26 at Joe's request; the term pools
+     and the code stay in place, so turning it back on is one boolean per system. */
+  var SEARCH_ON = !!cfg.search && cfg.search.enabled !== false;
+
+  if (SEARCH_ON) DEST.push({ id: 'search', icon: 'search',
     name: 'Find conversations to join',
     tease: 'Today\u2019s search term, on every platform worth checking.' });
 
@@ -793,7 +799,7 @@
      future changes from one file.
 
      ⚠️ IT MUST RUN BEFORE THE ROUTER, which snapshots .sk-screen once. */
-  if (cfg.search) (function () {
+  if (SEARCH_ON) (function () {
     var SEARCH = cfg.search;
     var ROTATE_HOURS = SEARCH.rotateHours || 24;
     var CHIP_COUNT = SEARCH.chipCount || 6;
@@ -1051,7 +1057,7 @@
   var screens = root.querySelectorAll('.sk-screen');
   var backBtn = root.querySelector('[data-back]');
   var VALID = { home: 1, links: 1, leads: 1, promote: 1, support: 1, referral: 1 };
-  if (cfg.search) VALID.search = 1;
+  if (SEARCH_ON) VALID.search = 1;
 
   function route() {
     var id = (location.hash || '').replace(/^#\/?/, '') || 'home';

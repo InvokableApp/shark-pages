@@ -25,7 +25,11 @@ var SYS = {
   /* The system's training hub. NOT KNOWN YET: no live host was found for this
      system on 2026-09-24, so the Fast Start Training tile does not render. Set
      it to the URL and the tile appears; that is the only change needed. */
-  training: null,
+  /* Joe's "Fast Start Training" tile. System level, not per rep. Beneve's hub lives
+     on marketingshark.io, NOT beneveshark.com (Jeff, 2026-09-26) — and note the page
+     is Marketing Shark branded, which is intended, not a donor leftover.
+     ⚠️ sharksuite.ai/training 404s; do not use it. */
+  training: 'https://marketingshark.io/training',
   domainCv: 'beneve_main_url',
   /* v2 reads how-to urls from their OWN key and does NOT fall back to domainCv,
      so leaving this unset silently sends every training link to the published v1
@@ -158,6 +162,9 @@ var SYS = {
        push-block to every account: it only spreads reps across the pool so
        thirty of them do not land in one hashtag on one morning. */
     search: {
+      /* OFF at Joe's request, 2026-09-26. Flip to true to bring the tile,
+         the screen and the #/search route back; nothing else is needed. */
+      enabled: false,
       terms: 'https://invokableapp.github.io/shark-pages/_shared/search-terms/beneve.json',
       repIdCv: 'beneve_user_name'
     },
