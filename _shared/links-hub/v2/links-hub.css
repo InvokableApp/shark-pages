@@ -2084,12 +2084,23 @@
   gap: 10px;
   margin: 0 0 22px;
 }
+/* An odd number of platforms in two columns leaves a half-width tile with a hole
+   beside it, which reads as a tile that failed to load rather than one that isn't
+   there. Let the orphan span the row instead. Live since Reddit came out of ORDER
+   and the count went 8 -> 7.
+   ⚠️ MUST STAY ABOVE the container query: the cancel rule in there has identical
+   specificity, so only source order decides which wins at wide widths. */
+.sk-hub .sk-plats > .sk-plat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
 /* ⚠️ A CONTAINER QUERY, NOT A MEDIA QUERY. A hosted block lands inside a page
    whose width it does not control, so the viewport is the wrong thing to ask.
    Measured on the mock at 340px: a viewport rule gave four columns inside a
    phone-width block and truncated every label to "Redd", "Insta", "TikTo". */
 @container sk-hub (min-width: 560px) {
   .sk-hub .sk-plats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* four across, so an odd count just leaves a trailing empty cell. Cancel the
+     two-column span rule or the last tile stretches across the whole row. */
+  .sk-hub .sk-plats > .sk-plat:last-child:nth-child(odd) { grid-column: auto; }
 }
 
 .sk-hub .sk-plat {

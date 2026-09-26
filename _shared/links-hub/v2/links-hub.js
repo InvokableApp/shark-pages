@@ -839,7 +839,13 @@
     };
     /* the order a rep should work them: where conversation happens, then where
        people perform */
-    var ORDER = ['x', 'reddit', 'instagram', 'tiktok', 'facebook', 'threads', 'youtube', 'quora'];
+    /* ⚠️ REDDIT IS DELIBERATELY OUT OF ORDER, so it renders no button. The entry
+       stays in PLATFORMS because the URL itself is correct: the failure is the
+       handoff. On a phone the universal link is claimed by the Reddit app, whose
+       deep-link handler drops the query string and lands the rep on the app's own
+       home, so the term "doesn't carry over" (Joe, 2026-09-26). Put the key back
+       in this array to restore the button; nothing else needs changing. */
+    var ORDER = ['x', 'instagram', 'tiktok', 'facebook', 'threads', 'youtube', 'quora'];
 
     /* ⚠️ `platforms` NARROWS, it does not enumerate. Read as the full list, a term
        tagged {instagram,tiktok} offers two buttons and leaves out X, the single
