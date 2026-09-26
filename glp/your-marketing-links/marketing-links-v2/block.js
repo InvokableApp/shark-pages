@@ -239,9 +239,10 @@ var SYS = {
        spreads reps across the term pool, so thirty of them do not land in
        one hashtag on one morning. */
     search: {
-      /* OFF at Joe's request, 2026-09-26. Flip to true to bring the tile,
-         the screen and the #/search route back; nothing else is needed. */
-      enabled: false,
+      /* Off briefly on 2026-09-26 at Joe's request, back on the same day.
+         One boolean moves the tile, the screen and the #/search route
+         together, which is why this is a flag and not a deletion. */
+      enabled: true,
       terms: 'https://invokableapp.github.io/shark-pages/_shared/search-terms/glp.json',
       repIdCv: 'your_email_designated_domain'
     },
