@@ -1,0 +1,78 @@
+{
+  "system": "glp",
+  "brand": "GLP Shark",
+  "host": "https://glpshark.com",
+  "locationId": "hKYM2WhsSBKHjvCPGkZo",
+  "logo": "logo-glp.svg",
+  "logoUrl": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+  "palette": {
+    "sk-brand": "#EC5E2A",
+    "sk-brand-deep": "#C94A1E",
+    "sk-brand-tint": "#FDF0EA",
+    "sk-ink": "#101410",
+    "sk-ink-soft": "#56605A",
+    "sk-ink-faint": "#8B948E",
+    "sk-paper": "#F7F4F1",
+    "sk-line": "#E6E0DA",
+    "sk-line-soft": "#EFE9E3",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1212767746",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Opt in page showcasing the lead magnet",
+      "Lead submits their info…",
+      "Confirmation page with call to action (specified below)"
+    ],
+    "optInStep": "Landing",
+    "confirmStep": "Confirmation",
+    "ctaText": "Get The Free Guide",
+    "formMode": "popup"
+  },
+  "links": {
+    "support": "https://glpshark.com/support",
+    "adsTraining": "https://glpshark.com/get-ads",
+    "readyToPostImages": "https://canva.link/n6t92pxvso2744m",
+    "buyLeads": "",
+    "confirmationPage": "",
+    "guidePdf": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6d26aa1b-773f-4b35-a7e7-86d6616d9027.pdf"
+  },
+  "slug": "glp-recipe-guide",
+  "funnelName": "High Protein Recipe & Grocery List Guide",
+  "ghlFunnel": "High Protein, Fat Burning FREE Recipe & Grocery List Funnel (Lead Mag)",
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "flowDir": "flow/glp-recipe-guide",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+}
