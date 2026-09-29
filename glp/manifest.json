@@ -1011,6 +1011,15 @@
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
     },
     {
+      "path": "funnel-training/glp-sizzle",
+      "funnelId": "DFKc9OYPO6qA9MlMhjHl",
+      "pageId": "4RGYSOnj7tDfiy53HDO9",
+      "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
       "path": "glp-natural-foods-guide/glp-food-guide-confirmation",
       "funnelId": "BHECev3EqcSkpKe0BHa4",
       "pageId": "Q4gATJPMnu3VTeYsyraM",
@@ -1645,6 +1654,132 @@
       "funnelId": "gnD0aeKJMbQFwnuEVofp",
       "pageId": "TrE0GNtJcqtLCOI4IYfH",
       "elementId": "custom-code-cN11uc782t",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "hKYM2WhsSBKHjvCPGkZo"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "1pzxrcxyNgR8mkTuKSIp",
+      "pageId": "wafKbELTUJAQXvkalY2m",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "Ts4f72yIrPYzJUtc7asG"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "8ZWQ25zg8qo23FGESYTY",
+      "pageId": "y4d5MKaMfjt1w3DyOz1Z",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "P7WiixA3rCQm35ZFWZh4"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "300EsmzHs4bFd6ODZiIS",
+      "pageId": "QoVTuOnn0EyZrGuin3ep",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "egU93jl4E9KTFrkb9dWF"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "88djE2si9yx37vDE06cM",
+      "pageId": "Ayxov1sWmfKnCwWlYACi",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "m2SLlZUtOKM7KsIEvbxV"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "mGCQbPervAfuJAz8iILw",
+      "pageId": "2IoFIeyqBfZvtE4krcpe",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "72kTBmKheMia2Qbqe1gc"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "PauI1xYDdGhwgnKDn7Ft",
+      "pageId": "9PVokhSvbbmouq6qMMRU",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "zxlh6FYEcnAa3rRmsOzJ"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "byNb0rIsRfcNsANbsoih",
+      "pageId": "cwClAn2l806VxInhaqtw",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "0ymBoqO8b1CiOzaSwHG1"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "FECh3tGPQg8CJhU3ktZr",
+      "pageId": "xipQOTb3ZjwzAlMLAvI9",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "Bf65QODuhpHYr9Ivsw0X"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "KjEd4rIjbK8C9oETPGAt",
+      "pageId": "ZhphTlIVjNqRRJmPD7xy",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "M0a4wCUbR8fn34mwzPxt"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "cUetRRNAzvpV5MVN1mi4",
+      "pageId": "1GEegeOxSJAvbGyESCh6",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "65tKMXwLOwoQAGLy47nD"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "mLEcIq4uHiwlOyJm2P2y",
+      "pageId": "9MxMVWEItPiSsW5PryTp",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "INyZzcjlVsJ1zTNnSSbE"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "lCoJr2zvWikXjWf4CI8b",
+      "pageId": "jHWunD8q2ucuuHVdaKGk",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "Nrk1oNzxqNwLTZTrUvUV"
+    },
+    {
+      "path": "your-marketing-links/marketing-links-v2",
+      "funnelId": "SofCOTjYvuix9xLJm0e8",
+      "pageId": "KPi9PhFz0VqPrXPOoyJC",
+      "elementId": "custom-code-PZqon_ZaNz",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "xogLFFXb7LeMzoGDDUc5"
+    },
+    {
+      "path": "funnel-training/glp-recipe-guide",
+      "funnelId": "zZZJsEK12A3iru3EZKdm",
+      "pageId": "MwsVqvlNtsh3O5lqdaxw",
+      "elementId": "custom-code-0xHm2WLXQs",
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "hKYM2WhsSBKHjvCPGkZo"
