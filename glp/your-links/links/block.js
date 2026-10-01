@@ -84,9 +84,12 @@
       { icon: 'leaf', cvKey: 'glp_foods_guide_funnel_link', slug: 'glp-food-guide',
         name: 'Natural GLP foods guide',
         tease: 'The everyday foods to build your meals around.' },
-      { icon: 'book', cvKey: 'protein_recipe_guide_funnel_link', slug: 'recipe-guide',
-        name: 'High protein recipes and grocery list',
-        tease: 'Meals worth repeating, plus the list to shop from.' },
+      /* High protein recipes REMOVED 2026-10-01. Joe retired the funnel and Jess
+         deleted it from buyer accounts, but deleting a funnel does not clear
+         protein_recipe_guide_funnel_link, and /recipe-guide on a GLP domain
+         serves the catch-all ("What Is ORYGN?") with a 200. Cochise and Ruth
+         Desario's rows both landed there. Same removal as marketing-links-v2
+         (_itemsOff, 2026-09-24). Do not restore without a live funnel behind it. */
       { icon: 'pulse', cvKey: 'glp_workout_guide_funnel_link', slug: 'free-workout-guide',
         name: 'Free workout plan',
         tease: 'Training you can do without a gym membership.' },
