@@ -2,13 +2,16 @@
   quantaira/watch/webinar: page 3 (/webinar). Jeff, 2026-10-01: "a pre-recorded webinar and a
   button to sign up" which goes to the rep's link (/sign-up, a redirect step).
   COPY: Jeff, 2026-10-01: a "Step" pill on top, page 1 "Watch this short overview" with "Watch the full explainer"; pages 2 and 3 drafted to match, waiting on his OK. The button words are Jeff's.
+  WORDS (0126): every word a person reads comes from words/{language}.json next to these pages, in
+  the language the rep picked for them; en.json is the default and fills any gap. data-label is the
+  English the rep is told ("John tapped Download the app"), whatever language the page is in.
 -->
 <main class="qp">
-  <span class="qp-pill">Full webinar</span>
-  <h1>Watch the <span class="qp-grad">launch webinar</span></h1>
-  <div class="qv" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar"></div>
+  <span class="qp-pill">{{words.webinar_pill}}</span>
+  <h1 data-label="Watch the launch webinar">{{words.webinar_h1_a}} <span class="qp-grad" data-fit>{{words.webinar_h1_b}}</span></h1>
+  <div class="qv" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar" data-soon="{{words.video_soon}}"></div>
   <div class="qp-acts col">
-    <a class="qp-btn" href="/sign-up">Sign up</a>
+    <a class="qp-btn" href="/sign-up" data-label="Sign up">{{words.webinar_signup}}</a>
   </div>
-  <p class="qp-ask"><a href="/message-me"><span aria-hidden="true">💬</span> Questions? Ask me about this</a></p>
+  <p class="qp-ask"><a href="/message-me" data-label="Questions? Ask me about this"><span aria-hidden="true">💬</span> {{words.ask}}</a></p>
 </main>

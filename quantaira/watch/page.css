@@ -73,3 +73,8 @@ body{min-height:100vh;margin:0;color:var(--qta-text);font:16px/1.6 var(--qta-san
   /* "under": these buttons stay one above the other at every width */
   .qp-acts.col{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Other languages (0126). Tight negative tracking is for Latin letters: it breaks joined Arabic
+   letters apart and crowds Japanese and Chinese, so those set at their natural spacing. */
+:lang(ar) .qp h1,:lang(he) .qp h1,:lang(ja) .qp h1,:lang(zh) .qp h1,:lang(ko) .qp h1{letter-spacing:0;line-height:1.2}
+:lang(ar) .qp-btn,:lang(ja) .qp-btn,:lang(zh) .qp-btn,:lang(ko) .qp-btn{letter-spacing:0}

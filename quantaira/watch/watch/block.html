@@ -4,14 +4,17 @@
   platform knows who is watching and tells the rep (0120). No opt-in, on purpose.
   COPY: Jeff, 2026-10-01: a "Step" pill on top, page 1 "Watch this short overview" with "Watch the full explainer"; pages 2 and 3 drafted to match, waiting on his OK. The button words are Jeff's.
   The video is a content value; until it is set the box says "Video coming soon".
+  WORDS (0126): every word a person reads comes from words/{language}.json next to these pages, in
+  the language the rep picked for them; en.json is the default and fills any gap. data-label is the
+  English the rep is told ("John tapped Download the app"), whatever language the page is in.
 -->
 <main class="qp">
-  <span class="qp-pill">3 minute overview</span>
-  <h1>Watch this <span class="qp-grad">short overview</span></h1>
-  <div class="qv" data-video="{{custom_values.quantaira_video_watch}}" data-name="the short overview"></div>
+  <span class="qp-pill">{{words.watch_pill}}</span>
+  <h1 data-label="Watch this short overview">{{words.watch_h1_a}} <span class="qp-grad" data-fit>{{words.watch_h1_b}}</span></h1>
+  <div class="qv" data-video="{{custom_values.quantaira_video_watch}}" data-name="the short overview" data-soon="{{words.video_soon}}"></div>
   <div class="qp-acts col">
-    <a class="qp-btn" href="/learn-more">Watch the full explainer</a>
-    <a class="qp-btn grad" href="/get-the-app">Download and start now</a>
+    <a class="qp-btn" href="/learn-more" data-label="Watch the full explainer">{{words.watch_next}}</a>
+    <a class="qp-btn grad" href="/get-the-app" data-label="Download and start now">{{words.watch_app}}</a>
   </div>
-  <p class="qp-ask"><a href="/message-me"><span aria-hidden="true">💬</span> Questions? Ask me about this</a></p>
+  <p class="qp-ask"><a href="/message-me" data-label="Questions? Ask me about this"><span aria-hidden="true">💬</span> {{words.ask}}</a></p>
 </main>
