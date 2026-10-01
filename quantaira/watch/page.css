@@ -22,7 +22,12 @@ body{background:
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.09;background:url("bg-grain.svg")}
 
 .qp{position:relative;max-width:760px;margin:0 auto;padding:44px 20px 56px;display:grid;gap:28px;isolation:isolate}
-.qp h1{margin:0;font:600 clamp(27px,7.2vw,46px)/1.12 var(--qta-display);letter-spacing:-.02em;text-wrap:balance}
+/* "Step 1 of 3": the three pages are a sequence, so the pill says where they are in it. */
+.qp-pill{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 12px;border-radius:999px;
+  border:1px solid rgba(25,227,210,.45);background:rgba(25,227,210,.08);color:var(--qta-teal);
+  font:600 14px/1.2 var(--qta-sans);letter-spacing:.01em;margin-bottom:-10px}
+.qp-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--qta-teal);box-shadow:0 0 10px var(--qta-teal)}
+.qp h1{text-shadow:0 0 18px #000,0 0 6px #000,0 2px 2px #000;margin:0;font:600 clamp(27px,7.2vw,46px)/1.12 var(--qta-display);letter-spacing:-.02em;text-wrap:balance}
 .qp-sub{margin:-12px 0 0;color:var(--qta-muted);max-width:36em;text-wrap:pretty}
 
 /* The screen. The 2px edge is the turning gradient showing through the gap between the outer
