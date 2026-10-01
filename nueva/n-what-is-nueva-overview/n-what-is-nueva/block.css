@@ -132,6 +132,15 @@
 .sk-prod-nva-what .sk-prod-close .sk-prod-btn-ghost{
   color:#fff; border-bottom-color:rgba(255,255,255,.4);
 }
+/* "See how sharing works" is a <button> (it opens the ask popup), and the shared ghost style
+ * is written for a link: it never clears the browser's grey button box, so the white label sat
+ * on light grey and could not be read, in GHL and on the platform alike (2026-10-01). Clear
+ * the box so the button reads as the underlined link it is drawn as. */
+.sk-prod-nva-what button.sk-prod-btn-ghost{
+  background:none; border:0; border-bottom:1.5px solid rgba(30,56,106,.25); border-radius:0;
+  padding:0 0 2px; font:inherit; font-weight:600; font-size:.95rem; cursor:pointer;
+}
+.sk-prod-nva-what .sk-prod-close button.sk-prod-btn-ghost{ border-bottom-color:rgba(255,255,255,.4); }
 .sk-prod-nva-what .sk-prod-close .sk-prod-btn-ghost:hover{ border-bottom-color:var(--sk-teal); }
 
 /* The closing heading and subline are centred, so the button row is too. Scoped to the band, so
