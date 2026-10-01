@@ -1,27 +1,48 @@
-/* quantaira/watch: the look all three pages share. One column, phone first: a headline, a video,
-   the buttons. Each page's block.css imports this and adds nothing unless it needs to. */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@600;700&display=swap");
+/* quantaira/watch: the look all three pages share. Black room, one lit screen.
+   The memorable thing is the video's edge: a slow blue / teal / violet light turning around it,
+   with its glow on the floor below. Everything else is quiet on purpose: white words, one teal
+   button, one dark one. Phone first; one column at every width. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;600&display=swap");
 
-body{background:var(--qta-paper);color:var(--qta-ink);font:17px/1.55 var(--qta-sans);-webkit-font-smoothing:antialiased}
-.qp{max-width:720px;margin:0 auto;padding:36px 16px 48px;display:grid;gap:22px;text-align:center}
-.qp-kicker{font:600 13px/1 var(--qta-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--qta-brand)}
-.qp h1{font:700 clamp(28px,6.4vw,44px)/1.12 var(--qta-display);letter-spacing:-.01em;margin:0;text-wrap:balance}
-.qp-sub{margin:0 auto;max-width:34em;color:var(--qta-body);text-wrap:pretty}
+@property --qta-turn{syntax:"<angle>";inherits:false;initial-value:0deg}
 
-/* The video box. watch.js (the platform's, /_pf/watch.js) puts the player in it; until then, or
-   with no video set yet, it holds its 16:9 shape so nothing jumps. */
-.qv{position:relative;aspect-ratio:16/9;width:100%;border-radius:14px;overflow:hidden;background:#0b1428;
-  box-shadow:0 18px 40px -18px rgba(14,27,51,.45)}
-.qv iframe,.qv video{position:absolute;inset:0;width:100%;height:100%;border:0}
-.qv-soon{position:absolute;inset:0;display:grid;place-items:center;color:#c9d6f5;font:500 16px/1.4 var(--qta-sans);padding:16px}
+/* A faint horizon of the screen's colours at the top; the page is otherwise black. On the page's
+   own background, so nothing hangs past the edge of a phone. */
+html{background:var(--qta-black)}
+body{background:radial-gradient(90% 420px at 50% 0%,rgba(47,107,255,.20),rgba(139,92,255,.09) 50%,transparent 80%) no-repeat,var(--qta-black)}
+body{color:var(--qta-text);font:17px/1.6 var(--qta-sans);-webkit-font-smoothing:antialiased}
 
-.qp-acts{display:grid;gap:12px;justify-items:center}
-.qp-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;width:100%;max-width:420px;
-  padding:14px 22px;border-radius:12px;background:var(--qta-brand);color:#fff;text-decoration:none;
-  font:600 18px/1.2 var(--qta-sans);box-shadow:0 10px 24px -12px rgba(26,79,214,.7);transition:background .15s}
-.qp-btn:hover,.qp-btn:focus-visible{background:var(--qta-brand-d)}
-.qp-btn.alt{background:var(--qta-card);color:var(--qta-brand);box-shadow:inset 0 0 0 2px var(--qta-brand)}
-.qp-btn.alt:hover,.qp-btn.alt:focus-visible{background:var(--qta-tint)}
-.qp-msg{font-size:15px;color:var(--qta-body)}
-.qp-msg a{color:var(--qta-brand);font-weight:600}
-@media (min-width:720px){.qp{padding-top:56px}}
+.qp{position:relative;max-width:760px;margin:0 auto;padding:44px 20px 56px;display:grid;gap:28px;isolation:isolate}
+.qp h1{margin:0;font:600 clamp(27px,7.2vw,46px)/1.12 var(--qta-display);letter-spacing:-.02em;text-wrap:balance}
+.qp-sub{margin:-12px 0 0;color:var(--qta-muted);max-width:36em;text-wrap:pretty}
+
+/* The screen. The 2px edge is the turning gradient showing through the gap between the outer
+   box and the black inner one; the glow is the same gradient, blurred, underneath. */
+.qv{position:relative;aspect-ratio:16/9;width:100%;border-radius:18px;padding:2px;
+  background:conic-gradient(from var(--qta-turn),var(--qta-blue),var(--qta-teal),var(--qta-violet),var(--qta-blue));
+  animation:qta-turn 9s linear infinite}
+.qv::after{content:"";position:absolute;inset:18% 6% -10%;z-index:-1;border-radius:50%;filter:blur(44px);opacity:.75;
+  background:conic-gradient(from var(--qta-turn),var(--qta-blue),var(--qta-teal),var(--qta-violet),var(--qta-blue));
+  animation:qta-turn 9s linear infinite}
+.qv > *{position:absolute;inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border:0;border-radius:16px;background:#000;overflow:hidden}
+.qv-soon{display:grid;place-items:center;color:var(--qta-muted);font:500 15px/1.4 var(--qta-sans);padding:16px;text-align:center}
+@keyframes qta-turn{to{--qta-turn:360deg}}
+@media (prefers-reduced-motion:reduce){.qv,.qv::after{animation:none}}
+
+.qp-acts{display:grid;gap:12px}
+.qp-btn{display:flex;align-items:center;justify-content:center;min-height:58px;padding:14px 22px;border-radius:14px;
+  text-decoration:none;font:600 18px/1.2 var(--qta-sans);letter-spacing:.005em;transition:background-color .15s,border-color .15s,transform .1s}
+.qp-btn{background:var(--qta-teal);color:#000}
+.qp-btn:hover{background:#4ff0e2}
+.qp-btn.alt{background:transparent;color:var(--qta-text);border:1px solid var(--qta-line)}
+.qp-btn.alt:hover{border-color:var(--qta-violet);background:rgba(139,92,255,.08)}
+.qp-btn:active{transform:translateY(1px)}
+.qp-btn:focus-visible,.qp-msg a:focus-visible{outline:2px solid var(--qta-teal);outline-offset:3px}
+
+.qp-msg{margin:0;font-size:15px;color:var(--qta-muted)}
+.qp-msg a{color:var(--qta-text);text-underline-offset:3px;text-decoration-color:var(--qta-violet)}
+
+@media (min-width:720px){
+  .qp{padding-top:72px;gap:32px}
+  .qp-acts{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+}
