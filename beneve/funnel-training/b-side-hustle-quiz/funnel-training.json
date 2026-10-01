@@ -1,0 +1,83 @@
+{
+  "system": "beneve",
+  "brand": "Beneve Shark",
+  "host": "",
+  "locationId": "4LHtjbobpDp6Jz3pwIKU",
+  "logo": "logo-beneve.svg",
+  "logoUrl": "https://invokableapp.github.io/shark-pages/_brand/beneve/logo.svg",
+  "logoAlt": "Marketing Shark, AI Marketing System",
+  "palette": {
+    "sk-brand": "#1E386A",
+    "sk-brand-deep": "#14284C",
+    "sk-brand-tint": "#EAEEF6",
+    "sk-ink": "#16233D",
+    "sk-ink-soft": "#4A5568",
+    "sk-ink-faint": "#8792A8",
+    "sk-paper": "#F4F6FA",
+    "sk-line": "#DDE4EE",
+    "sk-line-soft": "#E9EEF5",
+    "sk-card": "#FFFFFF"
+  },
+  "videos": {
+    "organic": {
+      "id": "1229235533",
+      "status": "real"
+    },
+    "communities": {
+      "id": "1227065680",
+      "status": "real"
+    },
+    "ads": {
+      "id": "1229242447",
+      "status": "real"
+    },
+    "followUp": {
+      "id": "1227449690",
+      "status": "real"
+    },
+    "howItWorks": {
+      "id": "1228591895",
+      "status": "real"
+    }
+  },
+  "flow": {
+    "captions": [
+      "Quiz landing page posing the question",
+      "Lead answers the questions…",
+      "Results page with call to action (specified below)"
+    ],
+    "optInStep": "Quiz Landing Page",
+    "confirmStep": "Quiz Results Page",
+    "ctaText": "",
+    "formMode": "inline"
+  },
+  "links": {
+    "support": "",
+    "adsTraining": "",
+    "readyToPostImages": "https://canva.link/88d04yj0r000kkh",
+    "buyLeads": "",
+    "postingDoc": "https://docs.google.com/document/d/1qHhx0OsHL0Ki_pm53ByQrI5ATryk4C5eZAbgeH2REfs/edit?usp=sharing",
+    "confirmationPage": "shot"
+  },
+  "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL!",
+  "slug": "b-side-hustle-quiz",
+  "funnelName": "Side Hustle Quiz",
+  "ghlFunnel": "Beneve - Side Hustle Quiz - Funnel",
+  "communities": {
+    "asking": "someone is asking how to make extra money from home, whether this kind of business is worth it, or what side income actually fits around a full time job.",
+    "term": "side hustle"
+  },
+  "flowDir": "flow/b-side-hustle-quiz",
+  "parts": [
+    "howItWorks",
+    "generateLeads",
+    "followUp"
+  ],
+  "sections": {
+    "flowViz": true,
+    "optInExplainer": true,
+    "primaryGoal": true,
+    "nextSteps": true
+  },
+  "headerSub": "Everything you need to understand how to use this funnel to build your business, in three parts."
+}
