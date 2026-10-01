@@ -12,13 +12,17 @@ body{min-height:100vh;margin:0;color:var(--qta-text);font:16px/1.6 var(--qta-san
 
 .qp{max-width:680px;margin:0 auto;padding:56px 20px 64px;display:grid;gap:24px}
 
-/* "Step 1 of 3": the three pages are a sequence, so the pill says where they are in it. */
-.qp-pill{justify-self:center;display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 10px;border-radius:999px;
+/* The pill above the headline: what this page is ("3 minute overview") or where they are ("Step 2 of 3"). */
+.qp-pill{justify-self:center;display:inline-flex;align-items:center;gap:9px;padding:7px 16px 7px 13px;border-radius:999px;
   border:1px solid rgba(238,242,255,.12);background:rgba(238,242,255,.03);color:var(--qta-muted);
-  font:500 13px/1.2 var(--qta-sans);letter-spacing:.01em;margin-bottom:-6px}
-.qp-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--qta-teal);box-shadow:0 0 8px rgba(25,227,210,.7)}
+  font:500 15px/1.2 var(--qta-sans);letter-spacing:.01em;margin-bottom:-4px}
+.qp-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--qta-teal);box-shadow:0 0 8px rgba(25,227,210,.7)}
 
-.qp h1{margin:0;text-align:center;font:600 clamp(28px,6.6vw,42px)/1.1 var(--qta-display);letter-spacing:-.035em;text-wrap:balance}
+.qp h1{margin:0;text-align:center;font:600 clamp(34px,11vw,68px)/1.04 var(--qta-display);letter-spacing:-.04em;text-wrap:balance}
+/* The words that matter in a headline, in the brand's teal-blue-violet. Always its own line, so the
+   headline reads in two: "Watch this / short overview". */
+.qp-grad{display:table;margin:0 auto;padding-bottom:.08em;background:linear-gradient(90deg,var(--qta-teal),var(--qta-blue) 55%,var(--qta-violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
 .qp-sub{margin:-8px auto 0;text-align:center;color:var(--qta-muted);max-width:36em;text-wrap:pretty}
 
 /* The screen: a 1px edge of slowly turning blue / teal / violet light, and its glow, faint, below. */
