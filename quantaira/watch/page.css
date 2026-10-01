@@ -6,11 +6,20 @@
 
 @property --qta-turn{syntax:"<angle>";inherits:false;initial-value:0deg}
 
-/* A faint horizon of the screen's colours at the top; the page is otherwise black. On the page's
-   own background, so nothing hangs past the edge of a phone. */
+/* The texture: a trading app's own world. A faint candlestick chart (generated, not real prices)
+   glows across the top behind the headline and fades into the black; a fine grain over everything
+   keeps the black from reading as a flat screen. Both on the page's own background, so nothing
+   hangs past the edge of a phone. The chart is masked by the glow layer above it. */
 html{background:var(--qta-black)}
-body{background:radial-gradient(90% 420px at 50% 0%,rgba(47,107,255,.20),rgba(139,92,255,.09) 50%,transparent 80%) no-repeat,var(--qta-black)}
-body{color:var(--qta-text);font:17px/1.6 var(--qta-sans);-webkit-font-smoothing:antialiased}
+body{background:
+  url("bg-grain.svg") repeat,
+  linear-gradient(180deg,rgba(0,0,0,.15) 0,rgba(0,0,0,.45) 260px,#000 520px) no-repeat,
+  url("bg-candles.svg") 50% 8px / max(1000px, 110vw) auto no-repeat,
+  radial-gradient(90% 460px at 50% 0%,rgba(47,107,255,.22),rgba(139,92,255,.10) 50%,transparent 80%) no-repeat,
+  var(--qta-black);
+  background-blend-mode:soft-light,normal,normal,normal;
+  min-height:100vh;color:var(--qta-text);font:17px/1.6 var(--qta-sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.09;background:url("bg-grain.svg")}
 
 .qp{position:relative;max-width:760px;margin:0 auto;padding:44px 20px 56px;display:grid;gap:28px;isolation:isolate}
 .qp h1{margin:0;font:600 clamp(27px,7.2vw,46px)/1.12 var(--qta-display);letter-spacing:-.02em;text-wrap:balance}
