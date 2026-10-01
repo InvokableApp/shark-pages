@@ -36,12 +36,21 @@ var SYS = {
      page instead of the rep's own. Beneve funnels and how-tos share one domain,
      so it is the same custom value, stated rather than assumed. */
   howtoDomainCv: 'beneve_main_url',
+  /* howtoSlug: the funnel's "how to use this funnel" page IN THE REP'S OWN ACCOUNT.
+     Added 2026-10-01 (Jeff: "theres no links to the training or how to use pages",
+     "we only need the slugs in her account"). Every Beneve funnel ships a -how-to
+     step and the hub was not linking to any of them, so the training rows were
+     missing from all six cards on every Beneve account.
+     ⚠️ NO `howto:` key here on purpose. That one is an ABSOLUTE url to a system
+     training page; GLP has them on glpshark.com, Beneve does not, and howtoUrl()
+     falls back to it only when howtoSlug is unset. Adding one would ship a dead
+     link. Resolution is howtoDomainCv (beneve_main_url) + this slug. */
   groups: [
     {
       label: "Start a conversation",
       items: [
         { icon: "leaf", name: "Hormone Lunchbox Guide",
-          slug: "b-hormone-lunchbox", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
+          slug: "b-hormone-lunchbox", howtoSlug: "b-hormone-lunchbox-how-to", scripts: "https://sharksuite.ai/hormone-recipe-scripts",
           canva: "https://canva.link/klve68vn95zpvp9",
           /* The guide PDF. The custom value was on the socket from the start and
              nothing read it, so the rep had no way to open, print or hand out the
@@ -50,7 +59,7 @@ var SYS = {
           tease: "Free make ahead lunches",
           desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
-          slug: "b-glp-food-guide", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
+          slug: "b-glp-food-guide", howtoSlug: "b-glp-food-guide-how-to", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
           canva: "https://canva.link/c2s35l1i69u68vp",
           guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_glp_foods_guide_pdf_url' }],
           tease: "Foods that support GLP naturally",
@@ -61,7 +70,7 @@ var SYS = {
       label: "Explain the company",
       items: [
         { icon: "info", name: "What Is Beneve",
-          slug: "b-what-is-beneve",
+          slug: "b-what-is-beneve", howtoSlug: "b-what-is-beneve-how-to",
           /* Its Canva was on the how-to page and not here, so the one funnel a rep
              sends most had no ready made images. Verified live 2026-09-25: all
              seven Beneve Canva links 200 and every one is a distinct design. */
@@ -74,17 +83,17 @@ var SYS = {
       label: "Quizzes and tools",
       items: [
         { icon: "quiz", name: "Side Hustle Quiz",
-          slug: "b-match-quiz", scripts: "https://sharksuite.ai/side-hustle-scripts",
+          slug: "b-match-quiz", howtoSlug: "b-side-hustle-how-to", scripts: "https://sharksuite.ai/side-hustle-scripts",
           canva: "https://canva.link/88d04yj0r000kkh",
           tease: "Sorts them into the right fit",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Beneve fits. Use it when someone is interested but not ready to talk." },
         { icon: "drop", name: "Water Report",
-          slug: "b-water-report", scripts: "https://sharksuite.ai/water-report-scripts",
+          slug: "b-water-report", howtoSlug: "b-water-report-how-to", scripts: "https://sharksuite.ai/water-report-scripts",
           canva: "https://canva.link/4lhscdgpr4icfw3",
           tease: "Free report on their own tap water",
           desc: "Someone types in their address and gets the federal testing data for their own tap water. Nothing is sold on the page, which is what makes people pass it around and what opens the conversation." },
         { icon: "scan", name: "Skin Diagnostic",
-          slug: "b-skin", scripts: "https://sharksuite.ai/skin-diagnostic-scripts",
+          slug: "b-skin", howtoSlug: "b-skin-how-to", scripts: "https://sharksuite.ai/skin-diagnostic-scripts",
           canva: "https://canva.link/1n08nso1az22mzn",
           tease: "Free 90 day skin routine",
           desc: "A 45 second quiz that hands every lead a free 90 day skin routine, then points them at Renew, Luxe or Glutathione+ depending on the result. Strong opener for anyone already spending money on skincare." }
