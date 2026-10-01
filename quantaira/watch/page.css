@@ -1,0 +1,27 @@
+/* quantaira/watch: the look all three pages share. One column, phone first: a headline, a video,
+   the buttons. Each page's block.css imports this and adds nothing unless it needs to. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@600;700&display=swap");
+
+body{background:var(--qta-paper);color:var(--qta-ink);font:17px/1.55 var(--qta-sans);-webkit-font-smoothing:antialiased}
+.qp{max-width:720px;margin:0 auto;padding:36px 16px 48px;display:grid;gap:22px;text-align:center}
+.qp-kicker{font:600 13px/1 var(--qta-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--qta-brand)}
+.qp h1{font:700 clamp(28px,6.4vw,44px)/1.12 var(--qta-display);letter-spacing:-.01em;margin:0;text-wrap:balance}
+.qp-sub{margin:0 auto;max-width:34em;color:var(--qta-body);text-wrap:pretty}
+
+/* The video box. watch.js (the platform's, /_pf/watch.js) puts the player in it; until then, or
+   with no video set yet, it holds its 16:9 shape so nothing jumps. */
+.qv{position:relative;aspect-ratio:16/9;width:100%;border-radius:14px;overflow:hidden;background:#0b1428;
+  box-shadow:0 18px 40px -18px rgba(14,27,51,.45)}
+.qv iframe,.qv video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.qv-soon{position:absolute;inset:0;display:grid;place-items:center;color:#c9d6f5;font:500 16px/1.4 var(--qta-sans);padding:16px}
+
+.qp-acts{display:grid;gap:12px;justify-items:center}
+.qp-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;width:100%;max-width:420px;
+  padding:14px 22px;border-radius:12px;background:var(--qta-brand);color:#fff;text-decoration:none;
+  font:600 18px/1.2 var(--qta-sans);box-shadow:0 10px 24px -12px rgba(26,79,214,.7);transition:background .15s}
+.qp-btn:hover,.qp-btn:focus-visible{background:var(--qta-brand-d)}
+.qp-btn.alt{background:var(--qta-card);color:var(--qta-brand);box-shadow:inset 0 0 0 2px var(--qta-brand)}
+.qp-btn.alt:hover,.qp-btn.alt:focus-visible{background:var(--qta-tint)}
+.qp-msg{font-size:15px;color:var(--qta-body)}
+.qp-msg a{color:var(--qta-brand);font-weight:600}
+@media (min-width:720px){.qp{padding-top:56px}}
