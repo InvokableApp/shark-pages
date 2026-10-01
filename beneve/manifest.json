@@ -870,6 +870,51 @@
       "elementTitle": "Custom Code",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-natural-foods-guide",
+      "funnelId": "Ua6huPvmrGSnt0bThkN3",
+      "pageId": "QE3xgis100yjLoNxEtxE",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-side-hustle-quiz",
+      "funnelId": "dlqFfcFkpXzeYUrC0B6k",
+      "pageId": "rKaC0gFzyzi9VYPYNc7N",
+      "elementId": "custom-code-LazZRp3TTK",
+      "elementTitle": "Custom Code",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-water-report",
+      "funnelId": "l5wHw77MjObvMGlMJIGp",
+      "pageId": "fLpDMvR0NkhWjBhnuVb9",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "b-water-report-funnel",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-skin-diagnostic",
+      "funnelId": "z5ixvJQ2is3n8kY567OU",
+      "pageId": "5fW7YA4n6noy8jTe4Wed",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "beneve-skin-how-to",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-links",
+      "funnelId": "kUIpYHuCpC6HZ7o0R48X",
+      "pageId": "MCSyvGdkRfhnVHbJyp47",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "beneve---your-marketing-links",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
