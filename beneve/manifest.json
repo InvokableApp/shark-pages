@@ -852,6 +852,15 @@
       "elementTitle": "beneve---your-marketing-links",
       "pattern": "A",
       "locationId": "4LHtjbobpDp6Jz3pwIKU"
+    },
+    {
+      "path": "funnel-training/b-what-is-beneve",
+      "funnelId": "okNtN0qXgAqKILBy2tCf",
+      "pageId": "xpr06Y6FPqPK9YLyAqYP",
+      "elementId": "custom-code-b6zamobm4a",
+      "elementTitle": "b-what-is-beneve-overview",
+      "pattern": "A",
+      "locationId": "4LHtjbobpDp6Jz3pwIKU"
     }
   ]
 }
