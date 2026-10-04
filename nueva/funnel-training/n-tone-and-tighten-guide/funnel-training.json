@@ -65,6 +65,10 @@
   "funnelName": "Tone and Tighten Guide",
   "ghlFunnel": "Nueva - Tone and Tighten Guide - Funnel",
   "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "communities": {
+    "ask": "how to tone up when the scale will not move, which workouts actually tighten things up, or what actually helps",
+    "q": "toning and tightening"
+  },
   "flowDir": "flow/n-tone-and-tighten-guide",
   "parts": [
     "howItWorks",

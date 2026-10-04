@@ -63,6 +63,10 @@
   "funnelName": "Side Hustle Quiz",
   "ghlFunnel": "Nueva - Side Hustle Quiz - Funnel",
   "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "communities": {
+    "ask": "how to make extra money from home, whether a side hustle is worth the time, or what actually works",
+    "q": "side hustle from home"
+  },
   "flowDir": "flow/n-side-hustle",
   "parts": [
     "howItWorks",

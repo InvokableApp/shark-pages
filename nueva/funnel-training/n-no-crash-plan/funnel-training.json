@@ -65,6 +65,10 @@
   "funnelName": "The No Crash Plan",
   "ghlFunnel": "Nueva - The No Crash Plan - Funnel",
   "ghlStep": "🚨 HOW TO MARKET / USE THIS FUNNEL",
+  "communities": {
+    "ask": "why they crash every afternoon, how to keep their energy up without more coffee, or what actually helps",
+    "q": "afternoon energy crash"
+  },
   "flowDir": "flow/n-no-crash-plan",
   "parts": [
     "howItWorks",
