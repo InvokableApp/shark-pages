@@ -1,0 +1,22 @@
+<!--
+  nueva/n-opportunity-video/n-opportunity-video: Nueva's opportunity video page (the "sizzle" page).
+  Jeff, 2026-10-06: "a funnel thats just a sizzle video ... user would send to a prospect, would have a
+  simple headline > video > button ... jump right to sign up as a rep ... kinda like the quant page", and
+  "opportunity page, then under 'message me back for more details' literally like the quant page".
+
+  Platform only (Nueva on GHL is finished). The rep sends it plain or as a personal link (0142), and with
+  a personal link they hear who opened it and how long they watched (watch.js).
+
+  THE VIDEO is John Melton's 3-minute opportunity video (3:06), a content value. It ends "get back to the
+  person that shared this video with you", which is what the message link under the button is for.
+  BUTTON  → the step's own redirect to the rep's opportunity page (nueva_opportunity_url).
+  MESSAGE → the redirect to the rep's Messenger (opens the app on a phone, server.mjs).
+  data-label is what the rep is told ("John tapped Sign up now").
+-->
+<main class="nov">
+  <span class="nov-pill">3 minute video</span>
+  <h1 data-label="Here's the business I told you about">Here's the business <span class="nov-hl">I told you about</span></h1>
+  <div class="qv nov-video" data-video="{{custom_values.nueva_opportunity_video}}" data-name="the opportunity video"></div>
+  <a class="nov-btn" href="/n-opportunity-video-join" data-label="Sign up now">Sign up now</a>
+  <p class="nov-ask"><a href="/n-opportunity-video-message" data-label="Message me back for more details"><span aria-hidden="true">💬</span> Message me back for more details</a></p>
+</main>

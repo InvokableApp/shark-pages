@@ -490,6 +490,9 @@
   var liveCount = 0;
   SYS.groups.forEach(function (g) {
     var rows = g.items.map(function (it) {
+      /* platformOnly: a funnel that exists only on our platform (Nueva's opportunity video, 2026-10-06).
+         The platform draws the hub from this same config; here in GHL the page is not there. */
+      if (it.platformOnly) return '';
       var full = funnelUrl(it);
       if (!full) return '';
       var url = full.replace(/^https?:\/\//, '');
