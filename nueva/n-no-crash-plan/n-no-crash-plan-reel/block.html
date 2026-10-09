@@ -1,0 +1,126 @@
+<!--
+  nueva/n-no-crash-plan/n-no-crash-plan-reel
+  The opt-in for The No Crash Plan as a REEL: seven full screens she flicks through, on the platform only.
+  Jeff, 2026-10-09: "something someone can flip through, like we break the landing page up into bite sized
+  animations a user can flop through almost like instagram reels ... keep that button floating on the bottom tho,
+  and have helper arrows that feel native", "each pannel doesnt need a darkened photo, we can change it up",
+  "break it up with ones that dont", "keep optin button that you made pinned to bottom".
+
+  ⚠️ PLATFORM ONLY. GHL keeps serving n-no-crash-plan (the scrolling page); nothing in GHL points here. The
+  platform's opt-in step points its page_ref at this folder (platform migration 0206).
+  ⚠️ EVERY WORD IS THE SCROLLING PAGE'S, verbatim, and the same rules hold: Everyday Well only, no Nueva mark or
+  product name, no weight-loss promise, the numbers agree with the guide (19 pages, 14 days, 3 changes, 10
+  minutes), and "who this is not for" stays (screen 6). Change the words there and here together.
+  ⚠️ PHOTO, PLAIN, DARK, PLAIN, PHOTO, PLAIN, PHOTO. The photos are the guide's own cover and the page's path
+  strip, read from the scrolling page's assets folder so nothing is copied.
+  The button is the platform's dock (data-pf-dock, src/lib/funnel-native.mjs), pinned to the bottom on a phone;
+  on a computer the reel sits in a phone-shaped frame with its own button and arrows.
+-->
+<div class="rl" data-pf-native data-pf-dock="Get the free plan" data-pf-handoff="#faf9f5">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover -->
+      <section class="rl-p rl-photo rl-cover" aria-label="The No Crash Plan">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/guide-cover.jpg')"></div>
+        <div class="rl-in">
+          <div class="rl-mark" data-in>everyday well</div>
+          <span class="rl-eyebrow" data-in style="--d:.1s">The No Crash Plan</span>
+          <h1 data-in style="--d:.2s">Free Download: A 19 Page Plan To Stop The 3pm Crash</h1>
+          <img class="rl-book" data-in style="--d:.45s" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/guide-cover.jpg" width="695" height="900" alt="The No Crash Plan, a nineteen page guide">
+          <ul class="rl-pills" data-in style="--d:.65s"><li>19 pages</li><li>14 days</li><li>3 changes</li><li>10 minutes a day</li></ul>
+          <p class="rl-note" data-in style="--d:.8s">Free. A tool kit, not a diet or a meal plan.</p>
+          <!-- The helper arrows: in the cover's own flow, so they can never sit on its words. Gone after the first flick. -->
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PLAIN: the problem, two thirty -->
+      <section class="rl-p rl-paper" aria-label="The problem">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The problem</span>
+          <h2 data-in style="--d:.1s">We've all experienced "the crash"</h2>
+          <div class="rl-big" data-in style="--d:.3s" aria-hidden="true">2:30</div>
+          <h3 data-in style="--d:.45s">Two thirty and you're done</h3>
+          <p data-in style="--d:.55s">Your eyes get heavy and you read the same line three times. Whatever you were
+            going to get done after lunch, you're not getting it done now.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: something sweet -->
+      <section class="rl-p rl-night">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The problem</span>
+          <h3 class="rl-h-lg" data-in style="--d:.1s">You want something sweet, and only something sweet</h3>
+          <p data-in style="--d:.3s">You ate two hours ago, so you're not hungry. A sandwich won't do. It has to be
+            chocolate, or a cookie, or whatever's in the cupboard.</p>
+        </div>
+      </section>
+
+      <!-- 4. PLAIN: coffee, the cups fill one by one -->
+      <section class="rl-p rl-tint">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The problem</span>
+          <div class="rl-cups" aria-hidden="true">
+            <svg data-in style="--d:.15s" viewBox="0 0 48 48"><path class="cup" d="M8 16h26v12a10 10 0 0 1-10 10h-6A10 10 0 0 1 8 28V16Z"/><path class="cup" d="M34 19h3a5 5 0 0 1 0 10h-3"/><path class="fill" d="M10 22h22v6a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-6Z"/></svg>
+            <svg data-in style="--d:.45s" viewBox="0 0 48 48"><path class="cup" d="M8 16h26v12a10 10 0 0 1-10 10h-6A10 10 0 0 1 8 28V16Z"/><path class="cup" d="M34 19h3a5 5 0 0 1 0 10h-3"/><path class="fill" d="M10 22h22v6a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-6Z"/></svg>
+            <svg data-in style="--d:.75s" viewBox="0 0 48 48"><path class="cup" d="M8 16h26v12a10 10 0 0 1-10 10h-6A10 10 0 0 1 8 28V16Z"/><path class="cup" d="M34 19h3a5 5 0 0 1 0 10h-3"/><path class="fill" d="M10 22h22v6a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-6Z"/></svg>
+          </div>
+          <h3 class="rl-h-lg" data-in style="--d:.2s">Coffee buys you about an hour</h3>
+          <p data-in style="--d:.35s">So you have another one. It's four o'clock, that's your third cup today, and you're
+            going to sleep badly again.</p>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: the reason, and the curve drawing itself -->
+      <section class="rl-p rl-photo rl-why">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/strip.jpg')"></div>
+        <div class="rl-in">
+          <p class="rl-say" data-in>It's not a lack of willpower, it's a blood sugar dip that sends mixed hunger signals.</p>
+          <svg class="rl-curve" viewBox="0 0 560 120" aria-hidden="true">
+            <line class="base" x1="30" y1="62" x2="530" y2="62"/>
+            <path class="spike" d="M 30 62 C 90 62 110 26 165 26 C 215 26 225 88 280 88 C 330 88 345 26 400 26 C 450 26 465 88 530 88"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 6. PLAIN: what you get, the pages fan out -->
+      <section class="rl-p rl-paper rl-get">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What you get</span>
+          <div class="rl-fan" aria-hidden="true">
+            <img class="f3" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/page-journal.jpg" alt="">
+            <img class="f2" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/page-calendar.jpg" alt="">
+            <img class="f1" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/page-crash.jpg" alt="">
+            <img class="f0" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/guide-cover.jpg" alt="">
+          </div>
+          <h2 data-in style="--d:.5s">The dip is fixable, and the fix takes ten minutes a day</h2>
+          <p data-in style="--d:.6s">Nineteen pages: what's actually happening at 3pm, three changes
+            that take about ten minutes, a snack list for home, work and the car, and two pages
+            you print and tick off.</p>
+          <p class="rl-note" data-in style="--d:.7s">Free. It lands in your inbox in about a minute. It won't fix
+            afternoons that are really a sleep or a medication problem.</p>
+        </div>
+      </section>
+
+      <!-- 7. PHOTO: the close -->
+      <section class="rl-p rl-photo rl-close">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/strip.jpg')"></div>
+        <div class="rl-in">
+          <img class="rl-book rl-book-lg" data-in src="/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/guide-cover.jpg" width="695" height="900" alt="">
+          <h2 data-in style="--d:.2s">Get the plan and start this afternoon</h2>
+          <p data-in style="--d:.3s">Nineteen pages, a snack list, and two pages you print and tick off.
+            Everything you need to stop losing your afternoons, and it takes about ten minutes a day.</p>
+          <p class="rl-note" data-in style="--d:.4s">Free. It lands in your inbox in about a minute.</p>
+          <div class="rl-mark rl-foot" data-in style="--d:.5s">everyday well</div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. -->
+    <button type="button" class="rl-cta" data-sk-open>Get the free plan</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
