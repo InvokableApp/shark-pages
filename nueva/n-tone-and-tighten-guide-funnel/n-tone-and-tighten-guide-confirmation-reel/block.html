@@ -1,0 +1,93 @@
+<!--
+  nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation-reel
+  The Tone and Tighten confirmation as a REEL, after its opt-in (Jeff, 2026-10-09). Five screens on the platform only;
+  the platform's step points here (migration 0210). GHL keeps n-tone-and-tighten-guide-confirmation, and its rules hold:
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is a message to the rep for the companion guide, so the "Swipe up to message Alex"
+  dock is on every screen. It opens the Facebook step when the rep has Messenger, and the text page when they don't
+  ([data-needs] on the Facebook button, reel.js), the same way the scrolling page hides that button.
+  ⚠️ THE CARD SAYS WHY TO GET THE GUIDE, NEVER WHAT IS IN IT (Jeff, 2026-09-22). No product named. "Get", not "Download".
+  ⚠️ EVERY WORD IS THE SCROLLING CONFIRMATION'S, verbatim, and the whole disclaimer stays (the last screen).
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
+-->
+<div class="rl rl-tone rlt" data-pf-native data-pf-message="for the companion guide" data-pf-arrive="#fcfeff">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: you are in. The page rises out of the white the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <span class="rlt-pill" data-in>✅ You are in. Your guide is on its way.</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type"><span data-if-name>{{contact.first_name}}, </span>Your Tone And Tighten Guide Is Being Sent <span class="rl-hl">In 2 Minutes.</span></h1>
+          <p data-in style="--d:.3s">Check your email. If you do not see it there, check your <b>SPAM</b> folder.</p>
+          <p class="rl-note" data-in style="--d:.4s">Or skip the wait and open it right now. Both are the same guide.</p>
+          <div class="rl-btns" data-in style="--d:.5s">
+            <a class="rl-btn" href="/n-tone-and-tighten-guide-read">READ IT ONLINE</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}" href="https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}" target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
+          </div>
+          <!-- Jeff, 2026-10-09, on the No Crash Plan: "a little swipe indicator that says swipe for a free gift". The gift is
+               the companion guide, the next screen. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a free gift</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the companion guide, the one she has to ask for. It gets the picture. -->
+      <section class="rl-p rl-night rlt-guide">
+        <div class="rl-in">
+          <span class="rlt-badge" data-in>💬 The companion guide</span>
+          <img class="rl-book rlt-cover rl-art" data-in style="--d:.15s" src="/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
+               width="772" height="1000" alt="The cover of the companion guide, Which One Is Right For Me?">
+          <p class="rlt-free" data-in style="--d:.25s"><b>Free</b> · Ten pages</p>
+          <h2 data-in style="--d:.35s">Get The Companion Guide That Tells You Which Supplements Are Worth The Money</h2>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: why she wants it, never what is in it -->
+      <section class="rl-p rl-tint rlt-why rl-wide">
+        <div class="rl-in">
+          <p class="rlt-say" data-in>Fifteen ingredients claiming to burn fat are graded, and eight of them don't
+            pass.</p>
+          <ul class="rlt-gets">
+            <li data-in style="--d:.2s"><b>Know before you buy.</b> No standing in the aisle holding a bottle you have
+              no way to judge.</li>
+            <li data-in style="--d:.35s"><b>Spend it on what actually changes your shape.</b> A bottle a month for a
+              year is real money, and more than half of what is sold for fat loss does not earn
+              it.</li>
+            <li data-in style="--d:.5s"><b>Judge any label yourself.</b> It takes about a minute once you know what you
+              are looking at.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: ask for it, with the rep -->
+      <section class="rl-p rl-photo rlt-ask rl-wide">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/card-bg.webp')"></div>
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <p class="rlt-say" data-in style="--d:.1s">It's not emailed and it's not on this site. Ask for it and it comes straight back.</p>
+          <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.nueva_rep_messenger}}" data-in style="--d:.25s" href="/n-tone-and-tighten-redirect-dm">Message me COMPARE on Facebook</a>
+          <p class="rlt-alt" data-in style="--d:.35s">Prefer to text? <a data-pf-message-link href="/n-tone-and-tighten-redirect-sms">Send COMPARE by message instead</a></p>
+        </div>
+      </section>
+
+      <!-- 5. PLAIN: the disclaimer, whole -->
+      <section class="rl-p rl-paper rlt-fine rl-wide">
+        <div class="rl-in">
+          <p class="rl-fine">This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>
+          <p class="rl-fine">We are not physicians, registered dietitians, physiotherapists, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+          <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any exercise or nutrition program, especially if you are pregnant, nursing, have an injury or an existing medical condition, or take medication. Stop any exercise that causes pain.</p>
+          <p class="rl-fine">Individual results vary and no particular outcome is guaranteed.</p>
+          <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. Nueva products are not intended to diagnose, treat, cure or prevent any disease.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
+    <a class="rl-cta" data-rep-cta="Message {first} for the companion guide" data-needs="{{custom_values.nueva_rep_messenger}}" data-alt-href="/n-tone-and-tighten-redirect-sms" href="/n-tone-and-tighten-redirect-dm">Message me for the companion guide</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

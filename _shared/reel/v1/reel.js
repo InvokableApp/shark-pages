@@ -8,7 +8,8 @@
  *   .rl-who             the rep's picture, big, with a check (the platform's #pfn-data)
  *   .rl-gift-word       "Swipe ..." on a phone, "Scroll ..." on a computer (the word Swipe is swapped)
  *   .rl-cta[data-rep-cta="Message {first} for the companion guide"]   a computer's button with the rep in it
- *   [data-needs]        hidden when the value it names came through empty (an unfilled custom value)
+ *   [data-needs]        hidden when the value it names came through empty (an unfilled custom value), or sent to its
+ *                       data-alt-href instead when it has one (the computer's button: no Messenger, the text page)
  */
 (function () {
   var root = document.querySelector(".rl");
@@ -23,7 +24,9 @@
   // [data-needs]: a button whose value didn't come through (no Messenger link yet) leaves the screen.
   [].forEach.call(root.querySelectorAll("[data-needs]"), function (el) {
     var v = String(el.getAttribute("data-needs") || "").trim();
-    if (!v || /\{\{|^https?:\/\/$/.test(v)) { el.hidden = true; el.removeAttribute("data-pf-message-link"); }
+    if (v && !/\{\{|^https?:\/\/$/.test(v)) return;
+    if (el.hasAttribute("data-alt-href")) { el.setAttribute("href", el.getAttribute("data-alt-href")); return; }
+    el.hidden = true; el.removeAttribute("data-pf-message-link");
   });
 
   // The word above the dots, turned on its side (Jeff, 2026-10-09). A phone swipes; a computer scrolls.
@@ -86,6 +89,17 @@
     // The dock's own swipe (funnel-native.js pfnSwipe): the form's sheet, or the card whose button is TAPPED, because an
     // iPhone opens Messenger's app only for a link the finger lifts on (2026-10-09).
     if (dy < -70 && track.scrollTop + track.clientHeight >= track.scrollHeight - 4) { var o = opener(); if (o) (o.pfnSwipe || o.click).call(o); }
+  });
+
+  // A sideways row of cards (.rl-cards) keeps its "1 of 6" (.rl-cards-cue, the next element) in step with the card in view.
+  [].forEach.call(root.querySelectorAll(".rl-cards"), function (row) {
+    var cue = row.nextElementSibling, n = row.children.length;
+    if (!cue || !cue.classList.contains("rl-cards-cue") || !cue.firstChild || cue.firstChild.nodeType !== 3) return;
+    row.addEventListener("scroll", function () {
+      var w = row.children[0].getBoundingClientRect().width + 12, k = Math.min(n, Math.round(row.scrollLeft / w) + 1);
+      if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 4) k = n;
+      cue.firstChild.nodeValue = k + " of " + n;
+    }, { passive: true });
   });
 
   /* ---------- a confirmation's pieces ---------- */

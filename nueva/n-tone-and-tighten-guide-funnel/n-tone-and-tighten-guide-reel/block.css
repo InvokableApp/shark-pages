@@ -1,0 +1,110 @@
+/* nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-reel — the Tone and Tighten opt-in as a reel (platform
+ * only; see block.html). The reel is _shared/reel/v1/reel.css; this is the guide's look (Nueva's teal and navy, Montserrat
+ * set heavy and tight, the teal numerals) and its own screens: the month of ticks, the flat bars, the half ring, the
+ * spread, the six things inside, the dishes. The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap");
+
+.rl.rl-tone{
+  --paper:#fcfeff; --tint:#e8f8f6; --night:#102a2a; --ink:#141313; --body:#4a5560; --grey:#6b7a82; --on-dark:#fcfeff;
+  --head:Montserrat,system-ui,sans-serif; --head-w:800; --sans:Montserrat,system-ui,sans-serif;
+  --eyebrow:#087f7b; --eyebrow-dark:#5fd9d5; --cta:#087f7b; --cta-ink:#fff; --mark:#0abab5; --shade:10,32,32;
+  --teal:#0abab5; --teal-d:#087f7b; --teal-l:#5fd9d5; --line:#d5dfe1;
+}
+.rl-tone h1,.rl-tone h2,.rl-tone h3{ letter-spacing:-.03em; }
+.rl-tone h1{ font-weight:900; line-height:1.02; }
+.rl-tone h3{ font-weight:700; }
+.rl-tone h3.rl-h-lg{ font-weight:800; line-height:1.06; }
+.rl-tone .rl-eyebrow{ font-weight:700; }
+.rl-tone p strong{ font-weight:700; color:var(--ink); }
+.rl-tone .rl-night p strong,.rl-tone .rl-photo p strong{ color:#fff; }
+/* the signature: the counts in teal */
+.rl-fig{ color:var(--teal); font-weight:900; }
+.rl-night .rl-fig,.rl-photo .rl-fig{ color:var(--teal-l); }
+.rl-hl{ color:var(--teal-d); }
+.rl-night .rl-hl,.rl-photo .rl-hl{ color:var(--teal-l); }
+.rl-tone .rl-btn{ border-radius:999px; text-transform:none; }
+
+/* 1. the cover: the light room under the navy */
+.rl-tone .rl-cover .rl-in{ padding-top:40px; }
+.rl-tone .rl-cover .rl-bg{ background-position:30% center; }
+.rl-tone .rl-cover h1{ font-size:clamp(32px,9vw,40px); }
+
+/* 2. a month of sessions, every one ticked */
+.rl-ticks{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; width:min(240px,64%); margin:6px 0 24px; }
+.rl-ticks i{ aspect-ratio:1; border-radius:6px; background:var(--tint); border:1.5px solid var(--line); position:relative; transition:background-color .25s,border-color .25s; }
+.rl-ticks i::after{ content:""; position:absolute; left:32%; top:22%; width:28%; height:44%; border:solid #fff; border-width:0 2.5px 2.5px 0; transform:rotate(45deg) scale(0); transition:transform .25s; }
+.rl-p.is-on .rl-ticks i{ background:var(--teal); border-color:var(--teal); }
+.rl-p.is-on .rl-ticks i::after{ transform:rotate(45deg) scale(1); }
+/* the month fills in order */
+.rl-p.is-on .rl-ticks i:nth-child(1),.rl-p.is-on .rl-ticks i:nth-child(1)::after{ transition-delay:200ms; } .rl-p.is-on .rl-ticks i:nth-child(2),.rl-p.is-on .rl-ticks i:nth-child(2)::after{ transition-delay:230ms; } .rl-p.is-on .rl-ticks i:nth-child(3),.rl-p.is-on .rl-ticks i:nth-child(3)::after{ transition-delay:260ms; } .rl-p.is-on .rl-ticks i:nth-child(4),.rl-p.is-on .rl-ticks i:nth-child(4)::after{ transition-delay:290ms; } .rl-p.is-on .rl-ticks i:nth-child(5),.rl-p.is-on .rl-ticks i:nth-child(5)::after{ transition-delay:320ms; } .rl-p.is-on .rl-ticks i:nth-child(6),.rl-p.is-on .rl-ticks i:nth-child(6)::after{ transition-delay:350ms; } .rl-p.is-on .rl-ticks i:nth-child(7),.rl-p.is-on .rl-ticks i:nth-child(7)::after{ transition-delay:380ms; } .rl-p.is-on .rl-ticks i:nth-child(8),.rl-p.is-on .rl-ticks i:nth-child(8)::after{ transition-delay:410ms; } .rl-p.is-on .rl-ticks i:nth-child(9),.rl-p.is-on .rl-ticks i:nth-child(9)::after{ transition-delay:440ms; } .rl-p.is-on .rl-ticks i:nth-child(10),.rl-p.is-on .rl-ticks i:nth-child(10)::after{ transition-delay:470ms; } .rl-p.is-on .rl-ticks i:nth-child(11),.rl-p.is-on .rl-ticks i:nth-child(11)::after{ transition-delay:500ms; } .rl-p.is-on .rl-ticks i:nth-child(12),.rl-p.is-on .rl-ticks i:nth-child(12)::after{ transition-delay:530ms; } .rl-p.is-on .rl-ticks i:nth-child(13),.rl-p.is-on .rl-ticks i:nth-child(13)::after{ transition-delay:560ms; } .rl-p.is-on .rl-ticks i:nth-child(14),.rl-p.is-on .rl-ticks i:nth-child(14)::after{ transition-delay:590ms; } .rl-p.is-on .rl-ticks i:nth-child(15),.rl-p.is-on .rl-ticks i:nth-child(15)::after{ transition-delay:620ms; } .rl-p.is-on .rl-ticks i:nth-child(16),.rl-p.is-on .rl-ticks i:nth-child(16)::after{ transition-delay:650ms; } .rl-p.is-on .rl-ticks i:nth-child(17),.rl-p.is-on .rl-ticks i:nth-child(17)::after{ transition-delay:680ms; } .rl-p.is-on .rl-ticks i:nth-child(18),.rl-p.is-on .rl-ticks i:nth-child(18)::after{ transition-delay:710ms; } .rl-p.is-on .rl-ticks i:nth-child(19),.rl-p.is-on .rl-ticks i:nth-child(19)::after{ transition-delay:740ms; } .rl-p.is-on .rl-ticks i:nth-child(20),.rl-p.is-on .rl-ticks i:nth-child(20)::after{ transition-delay:770ms; } .rl-p.is-on .rl-ticks i:nth-child(21),.rl-p.is-on .rl-ticks i:nth-child(21)::after{ transition-delay:800ms; } .rl-p.is-on .rl-ticks i:nth-child(22),.rl-p.is-on .rl-ticks i:nth-child(22)::after{ transition-delay:830ms; } .rl-p.is-on .rl-ticks i:nth-child(23),.rl-p.is-on .rl-ticks i:nth-child(23)::after{ transition-delay:860ms; } .rl-p.is-on .rl-ticks i:nth-child(24),.rl-p.is-on .rl-ticks i:nth-child(24)::after{ transition-delay:890ms; } .rl-p.is-on .rl-ticks i:nth-child(25),.rl-p.is-on .rl-ticks i:nth-child(25)::after{ transition-delay:920ms; } .rl-p.is-on .rl-ticks i:nth-child(26),.rl-p.is-on .rl-ticks i:nth-child(26)::after{ transition-delay:950ms; } .rl-p.is-on .rl-ticks i:nth-child(27),.rl-p.is-on .rl-ticks i:nth-child(27)::after{ transition-delay:980ms; } .rl-p.is-on .rl-ticks i:nth-child(28),.rl-p.is-on .rl-ticks i:nth-child(28)::after{ transition-delay:1010ms; }
+
+/* 3. eight sessions, every bar the same height */
+.rl-bars{ display:flex; align-items:flex-end; gap:8px; height:96px; width:min(260px,70%); margin:6px 0 26px; border-bottom:1.5px solid rgba(255,255,255,.25); }
+.rl-bars i{ flex:1; height:62%; border-radius:6px 6px 0 0; background:var(--teal-l); opacity:.9; transform-origin:50% 100%; transform:scaleY(0); transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+.rl-p.is-on .rl-bars i{ transform:scaleY(1); }
+
+/* 4. half the protein: the ring stops at half */
+.rl-ring{ width:110px; height:110px; margin:6px 0 24px; transform:rotate(-90deg); }
+.rl-ring circle{ fill:none; stroke-width:12; }
+.rl-ring .track{ stroke:#fff; }
+.rl-ring .fill{ stroke:var(--teal); stroke-linecap:round; stroke-dasharray:314; stroke-dashoffset:314; transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1) .35s; }
+.rl-p.is-on .rl-ring .fill{ stroke-dashoffset:157; }
+
+/* 5. two real pages of the guide */
+.rl-spread{ display:block; width:100%; height:auto; margin:4px 0 22px; filter:drop-shadow(0 18px 30px rgba(16,42,42,.18)); }
+
+/* 6. the six things inside: dark cards in a sideways row */
+.rl-inlist > div{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px 20px 20px; }
+.rl-inlist .n{ display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--teal); color:var(--night); font-weight:800; font-size:15px; margin-bottom:14px; }
+.rl-inlist h3{ font-size:22px; font-weight:800; color:var(--on-dark); }
+.rl-inlist p{ font-size:15.5px; }
+
+/* 7. the dishes */
+.rl-food .rl-bg{ background-position:center 30%; }
+.rl-dishes figure{ margin:0; border-radius:18px; overflow:hidden; background:#fff; color:var(--ink); }
+.rl-dishes img{ display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; }
+.rl-dishes figcaption{ padding:14px 16px 16px; font-weight:800; font-size:17px; letter-spacing:-.02em; }
+.rl-dishes small{ display:block; font-weight:500; font-size:14px; letter-spacing:0; color:var(--body); margin-top:4px; }
+
+/* 8. the close */
+.rl-tone .rl-close .rl-bg{ background-position:center 60%; }
+
+/* most phones: the cover's book stays small enough that the cover fits above the dock */
+@media (max-width:700px) and (max-height:900px){ .rl-tone .rl-cover .rl-book{ width:34%; margin-top:18px; } .rl-tone .rl-cover .rl-pills{ margin-top:18px; } }
+/* shorter phones */
+@media (max-width:700px) and (max-height:760px){
+  .rl-tone .rl-cover .rl-in{ padding-top:24px; }
+  .rl-tone .rl-cover h1{ font-size:29px; }
+  .rl-tone .rl-cover .rl-book{ width:30%; margin-top:16px; }
+  .rl-tone .rl-cover .rl-pills{ margin-top:14px; } .rl-tone .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
+  .rl-tone .rl-cover .rl-note{ margin-top:10px; } .rl-tone .rl-hint{ margin-top:10px; }
+  .rl-tone h3.rl-h-lg{ font-size:30px; }
+  .rl-ticks{ width:min(200px,56%); margin-bottom:18px; } .rl-bars{ height:76px; margin-bottom:18px; } .rl-ring{ width:86px; height:86px; margin-bottom:16px; }
+  .rl-spread{ width:84%; margin-bottom:14px; }
+  .rl-inlist p{ font-size:14.5px; }
+  .rl-tone .rl-close .rl-fine{ font-size:10.5px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-tone .rl-cover h1{ font-size:25px; } .rl-tone .rl-cover p{ font-size:14.5px; }
+  .rl-tone .rl-cover .rl-book{ display:none; }
+  .rl-tone h3.rl-h-lg{ font-size:25px; }
+  .rl-ticks,.rl-bars,.rl-ring{ display:none; }
+  .rl-spread{ width:64%; }
+  .rl-inlist > div{ padding:16px; } .rl-inlist h3{ font-size:19px; } .rl-inlist p{ font-size:13.5px; }
+  .rl-dishes figcaption{ padding:10px 12px 12px; font-size:15px; } .rl-dishes small{ font-size:12.5px; }
+  .rl-tone .rl-close h2{ font-size:22px; } .rl-tone .rl-close p{ font-size:14px; }
+  .rl-tone .rl-close .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+
+/* a computer */
+@media (min-width:701px){
+  .rl-tone .rl-cover h1{ font-size:clamp(44px,4.4vw,62px); }
+  .rl-ticks{ width:min(420px,32vw); gap:10px; } .rl-ticks i{ border-radius:9px; }
+  .rl-bars{ height:220px; width:min(440px,34vw); gap:14px; }
+  .rl-ring{ width:min(300px,24vw); height:min(300px,24vw); }
+  .rl-spread{ width:min(560px,40vw); }
+  .rl-inlist > *{ flex-basis:31%; }
+  .rl-dishes > *{ flex-basis:31%; }
+}
+@media (prefers-reduced-motion:reduce){ .rl-ticks i,.rl-ticks i::after,.rl-bars i,.rl-ring .fill{ transition:none !important; } }
