@@ -1,0 +1,212 @@
+/* _shared/reel/v1/reel.css — the REEL page format (references/REEL-PAGE-SOP.md), shared by every reel block.
+ * Platform only: GHL never loads it. A block imports it (@import url("../../../_shared/reel/v1/reel.css") from
+ * {system}/{funnel}/{page}/block.css) and sets its look on .rl with the variables below; its own screens' pictures
+ * and figures live in its own block.css. The moves are reel.js next to this file.
+ *
+ *   --paper --tint --night       the three plain screens' backgrounds
+ *   --ink --body --grey          headings, body text, small print on a light screen
+ *   --on-dark                    words on the night screen
+ *   --head --head-w --sans       the heading font and weight, the body font
+ *   --eyebrow --eyebrow-dark     the small capitals above a heading, on light and on dark
+ *   --cta --cta-ink              the button (a phone's dock takes --cta too, as --sk-accent)
+ *   --mark                       the short rule on top of a night screen
+ *   --shade                      the photo overlay's colour, as r,g,b
+ *
+ * A phone: full screens flicked like stories (scroll snap), "Swipe" over the dots, the platform's dock pinned below.
+ * A computer: the same screens as full-window chapters, words left and the picture (.rl-art) right, the button
+ * floating at the bottom centre (.rl-cta), arrows bottom right. */
+
+.rl{
+  --paper:#faf9f5; --tint:#f0f2ea; --night:#12160f; --ink:#1f2420; --body:#3a4035; --grey:#6f7568; --on-dark:#fdf6f3;
+  --head:Georgia,serif; --head-w:400; --sans:system-ui,-apple-system,sans-serif;
+  --eyebrow:#6d7d5e; --eyebrow-dark:#a8b899; --cta:#4c5a41; --cta-ink:#fff; --mark:#b35f49; --shade:12,15,10;
+  --sk-accent:var(--cta);
+  --dock-room:calc(104px + env(safe-area-inset-bottom,0px));
+  position:fixed; inset:0; background:var(--night); font-family:var(--sans); color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+.rl.rl.pfn-on{ padding-bottom:0; }   /* the dock floats over the reel; each screen keeps room for it */
+.rl *,.rl *::before,.rl *::after{ box-sizing:border-box; }
+.rl-frame{ position:relative; height:100%; width:100%; overflow:hidden; }
+.rl-track{ height:100%; overflow-y:auto; scroll-snap-type:y mandatory; overscroll-behavior:contain;
+  scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.rl-track::-webkit-scrollbar{ display:none; }
+
+/* ---------- a screen ---------- */
+.rl-p{ position:relative; height:100%; scroll-snap-align:start; scroll-snap-stop:always; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center; }
+.rl-in{ position:relative; z-index:1; width:100%; max-width:520px; margin:0 auto;
+  padding:56px 28px var(--dock-room); text-align:left; }
+.rl-paper{ background:var(--paper); }
+.rl-tint{ background:var(--tint); }
+.rl-night{ background:var(--night); color:var(--on-dark); }
+.rl-photo{ color:#fff; }
+.rl-bg{ position:absolute; inset:-4%; background-size:cover; background-position:center; transform:scale(1.04); transition:transform 6s ease-out; }
+.rl-p.is-on .rl-bg{ transform:scale(1.12); }
+.rl-photo::after{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--shade),.55) 0%,rgba(var(--shade),.35) 35%,rgba(var(--shade),.82) 100%); }
+.rl-night .rl-in::before{ content:""; display:block; width:44px; height:3px; border-radius:2px; background:var(--mark); margin-bottom:26px; }
+.rl-night.rl-plain .rl-in::before{ display:none; }
+
+/* ---------- words ---------- */
+.rl-mark{ font-family:var(--head); font-size:17px; letter-spacing:.01em; opacity:.92; margin-bottom:22px; }
+.rl-eyebrow{ display:block; font-size:12px; font-weight:650; letter-spacing:.18em; text-transform:uppercase; color:var(--eyebrow); margin-bottom:14px; }
+.rl-photo .rl-eyebrow,.rl-night .rl-eyebrow{ color:var(--eyebrow-dark); }
+.rl h1,.rl h2,.rl h3{ font-family:var(--head); font-weight:var(--head-w); margin:0; letter-spacing:-.01em; text-wrap:balance; }
+.rl h1{ font-size:clamp(34px,9.6vw,44px); line-height:1.08; }
+.rl h2{ font-size:clamp(28px,8vw,36px); line-height:1.12; }
+.rl h3{ font-size:22px; line-height:1.2; margin-top:4px; }
+.rl h3.rl-h-lg{ font-size:clamp(32px,9vw,42px); line-height:1.1; }
+.rl-night h1,.rl-night h2,.rl-night h3{ color:var(--on-dark); }
+.rl p{ margin:16px 0 0; font-size:17px; line-height:1.55; color:var(--body); text-wrap:pretty; }
+.rl-night p{ color:color-mix(in srgb,var(--on-dark) 80%,transparent); }
+.rl-photo p{ color:rgba(255,255,255,.86); }
+.rl-note{ font-size:14px !important; color:var(--grey) !important; }
+.rl-photo .rl-note,.rl-night .rl-note{ color:rgba(255,255,255,.7) !important; }
+.rl-foot{ margin:26px 0 0; font-size:15px; opacity:.75; }
+.rl-fine{ font-size:11.5px !important; line-height:1.5 !important; color:var(--grey) !important; margin-top:12px !important; }
+.rl-photo .rl-fine,.rl-night .rl-fine{ color:rgba(255,255,255,.6) !important; }
+
+/* ---------- pieces any screen can use ---------- */
+/* the download's mockup, tilted */
+.rl-book{ display:block; width:46%; max-width:200px; height:auto; margin:26px 0 0; border-radius:4px;
+  transform:rotate(-4deg); box-shadow:0 22px 44px -12px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08); }
+/* fact pills (glass on a photo, outlined on paper) */
+.rl-pills{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+.rl-pills li{ font-size:13px; font-weight:600; padding:7px 12px; border-radius:999px; color:#fff;
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.rl-paper .rl-pills li,.rl-tint .rl-pills li{ color:var(--ink); background:transparent; border-color:color-mix(in srgb,var(--ink) 18%,transparent); }
+/* buttons inside a screen */
+.rl-btns{ display:flex; flex-direction:column; gap:10px; margin-top:26px; }
+.rl-btn{ display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:14px; font-weight:650; font-size:16px;
+  background:var(--cta); color:var(--cta-ink); border:1.5px solid var(--cta); }
+.rl-btn-2{ background:transparent; color:var(--cta); }
+.rl-night .rl-btn-2,.rl-photo .rl-btn-2{ color:#fff; border-color:rgba(255,255,255,.6); }
+/* a sideways row of cards inside a screen (its own swipe, like a carousel post) */
+.rl-cards{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; margin:22px -28px 0; padding:0 28px 6px;
+  scrollbar-width:none; overscroll-behavior-x:contain; }
+.rl-cards::-webkit-scrollbar{ display:none; }
+.rl-cards > *{ flex:0 0 82%; scroll-snap-align:start; scroll-margin-left:28px; }
+.rl-cards-cue{ display:flex; align-items:center; gap:6px; margin-top:12px; font:650 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--eyebrow); }
+.rl-night .rl-cards-cue,.rl-photo .rl-cards-cue{ color:var(--eyebrow-dark); }
+.rl-cards-cue svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; animation:rl-nudge-x 1.6s ease-in-out infinite; }
+@keyframes rl-nudge-x{ 0%,100%{ transform:translateX(0); } 45%{ transform:translateX(4px); } }
+/* the rep, big, with a check (filled from the platform's data by reel.js; hidden until it is) */
+.rl-who{ position:relative; width:84px; height:84px; margin:26px 0 4px; }
+.rl-who[hidden]{ display:none; }
+.rl-who-pic{ display:grid; place-items:center; width:100%; height:100%; border-radius:50%; overflow:hidden; background:var(--cta); color:var(--cta-ink);
+  font:600 34px var(--head); box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--cta); }
+.rl-who-pic img,.rl-who-pic svg{ width:100%; height:100%; object-fit:cover; display:block; }
+.rl-who-check{ position:absolute; right:-2px; bottom:0; width:26px; height:26px; border-radius:50%; background:var(--cta); color:var(--cta-ink);
+  display:grid; place-items:center; box-shadow:0 0 0 3px var(--paper); }
+.rl-who-check svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:3.5; stroke-linecap:round; stroke-linejoin:round; }
+/* the typed headline (reel.js types an h1.rl-type when the platform put the visitor's name in it) */
+[data-if-name]{ display:none; }
+.rl-type .tw-c{ opacity:0; }
+.rl-type .tw-c.tw-on{ opacity:1; }
+.rl-type.is-typing .tw-cur{ box-shadow:2px 0 0 0 var(--eyebrow); }
+
+/* ---------- arriving ---------- */
+.rl [data-in]{ opacity:0; transform:translateY(18px); transition:opacity .6s ease-out,transform .7s cubic-bezier(.2,.8,.2,1); transition-delay:var(--d,0s); }
+.rl-book[data-in]{ transform:translateY(26px) rotate(-4deg); }
+.rl-p.is-on [data-in]{ opacity:1; transform:none; }
+.rl-p.is-on .rl-book[data-in]{ transform:rotate(-4deg); }
+
+/* ---------- the progress dots, "Swipe", the helper arrows ---------- */
+.rl-dots{ position:absolute; right:10px; top:50%; transform:translateY(-50%); z-index:5; display:flex; flex-direction:column; align-items:center; gap:7px; }
+.rl-dots button{ width:5px; height:5px; padding:0; border:0; border-radius:3px; background:currentColor; opacity:.35; cursor:pointer;
+  transition:height .3s,opacity .3s; color:var(--dot,#fff); }
+.rl-dots button[aria-current="true"]{ height:18px; opacity:.95; }
+.rl-swipe{ writing-mode:vertical-rl; transform:rotate(180deg); margin-bottom:6px; font:650 9.5px/1 var(--sans); letter-spacing:.24em;
+  text-transform:uppercase; color:var(--dot,#fff); opacity:.75; transition:color .3s; }
+.rl-hint{ display:flex; flex-direction:column; align-items:center; margin:22px 0 0; color:#fff; transition:opacity .4s; pointer-events:none; }
+.rl-paper .rl-hint,.rl-tint .rl-hint{ color:var(--cta); }
+.rl-hint svg{ width:26px; height:26px; margin-top:-12px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+  animation:rl-hint 1.6s ease-in-out infinite; }
+.rl-hint svg:nth-child(2){ animation-delay:.18s; opacity:.55; }
+@keyframes rl-hint{ 0%,100%{ transform:translateY(4px); opacity:.25; } 45%{ transform:translateY(-4px); opacity:1; } }
+.rl.rl-moved .rl-hint{ opacity:0; }
+/* "Swipe for a free gift": words over the arrows (a computer reads "Scroll", reel.js) */
+.rl-gift{ margin-top:24px; }
+.rl-gift-word{ font:650 12.5px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.rl-gift-ar{ display:flex; flex-direction:column; align-items:center; }
+
+/* ---------- shorter phones ---------- */
+@media (max-width:700px) and (max-height:760px){
+  .rl-btns{ margin-top:18px; } .rl-btn{ padding:13px 16px; }
+  .rl-who{ width:64px; height:64px; margin-top:18px; } .rl-who-pic{ font-size:26px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-in{ padding-top:24px; }
+  .rl h2{ font-size:24px; } .rl p{ font-size:15px; line-height:1.5; margin-top:10px; } .rl-note{ font-size:13px !important; }
+  .rl-btns{ flex-direction:row; } .rl-btn{ flex:1; font-size:14.5px; padding:12px 8px; }
+  .rl-who{ display:none; }
+}
+
+/* ---------- a computer: full-window chapters (Jeff, 2026-10-09: "still keep the presentation format") ---------- */
+.rl-cta,.rl-arrows{ display:none; }
+@media (min-width:701px){
+  .rl{ --dock-room:132px; }
+  .rl-in{ max-width:1180px; padding:72px 96px var(--dock-room); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    column-gap:88px; align-items:center; align-content:center; }
+  .rl-in > *{ grid-column:1; }
+  .rl-in > .rl-art{ grid-column:2; grid-row:1 / span 12; justify-self:center; align-self:center; margin:0; }
+  .rl-p.rl-wide .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }   /* a screen of words alone */
+
+  .rl h1{ font-size:clamp(46px,4.6vw,66px); }
+  .rl h2{ font-size:clamp(38px,3.8vw,54px); }
+  .rl h3{ font-size:28px; }
+  .rl h3.rl-h-lg{ font-size:clamp(46px,4.8vw,68px); }
+  .rl p{ font-size:20px; max-width:34em; }
+  .rl-note{ font-size:16px !important; }
+  .rl-fine{ font-size:12.5px !important; max-width:60em; }
+  .rl-mark{ font-size:20px; }
+  .rl-pills li{ font-size:15px; padding:9px 15px; }
+  .rl-btns{ flex-direction:row; max-width:560px; } .rl-btn{ flex:1; }
+  .rl-who{ width:110px; height:110px; } .rl-who-pic{ font-size:44px; }
+  .rl-cards{ margin:28px 0 0; padding:0 0 8px; } .rl-cards > *{ flex-basis:46%; scroll-margin-left:0; }
+
+  .rl-photo::after{ background:linear-gradient(90deg,rgba(var(--shade),.86) 0%,rgba(var(--shade),.6) 48%,rgba(var(--shade),.28) 100%); }
+  .rl-book{ width:min(360px,30vw); max-width:none; }
+  .rl-hint{ align-items:flex-start; transform:rotate(180deg); transform-origin:13px 50%; margin-top:30px; }
+  .rl-gift{ display:inline-flex; transform:none; }
+  .rl-gift .rl-gift-ar{ transform:rotate(180deg); }
+
+  .rl-dots{ right:28px; gap:9px; } .rl-dots button{ width:6px; height:6px; } .rl-dots button[aria-current="true"]{ height:24px; }
+  .rl-swipe{ font-size:10.5px; margin-bottom:10px; }
+
+  .rl-cta{ display:flex; align-items:center; justify-content:center; gap:12px; position:fixed; left:50%; bottom:28px; transform:translateX(-50%);
+    z-index:6; min-width:360px; padding:16px 30px; border:0; border-radius:999px; background:var(--cta); color:var(--cta-ink);
+    font:700 17px var(--sans); text-decoration:none; cursor:pointer; box-shadow:0 18px 40px -14px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);
+    transition:transform .2s,filter .2s; }
+  .rl-cta:hover{ filter:brightness(1.08); transform:translateX(-50%) translateY(-2px); }
+  .rl-cta::after{ content:""; width:9px; height:9px; border:solid currentColor; border-width:2.5px 2.5px 0 0; transform:rotate(45deg); margin-left:2px; }
+  .rl.rl-last .rl-cta{ animation:rl-pulse-d 1.9s ease-in-out infinite; }
+  @keyframes rl-pulse-d{ 50%{ box-shadow:0 0 0 8px color-mix(in srgb,var(--cta) 30%,transparent),0 18px 40px -14px rgba(0,0,0,.55); } }
+  .rl-cta.rl-cta-rep{ padding:10px 30px 10px 10px; }
+  .rl-cta-pic{ position:relative; width:44px; height:44px; flex:0 0 auto; }
+  .rl-cta-pic > span:first-child{ display:grid; place-items:center; width:44px; height:44px; border-radius:50%; overflow:hidden;
+    background:rgba(255,255,255,.2); font:600 19px var(--head); box-shadow:0 0 0 2px rgba(255,255,255,.85); }
+  .rl-cta-pic svg,.rl-cta-pic img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .rl-cta-pic .rl-who-check{ width:18px; height:18px; right:-3px; bottom:-2px; background:#fff; color:var(--cta); box-shadow:0 0 0 2px var(--cta); }
+  .rl-cta-pic .rl-who-check svg{ width:10px; height:10px; }
+
+  .rl-arrows{ display:flex; flex-direction:column; gap:10px; position:fixed; right:28px; bottom:28px; z-index:6; color:var(--dot,#fff); }
+  .rl-arrows button{ width:48px; height:48px; border-radius:50%; border:0; background:rgba(127,127,127,.22); color:inherit; cursor:pointer;
+    display:grid; place-items:center; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+  .rl-arrows button:hover{ background:rgba(127,127,127,.36); }
+  .rl-arrows svg{ width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+}
+@media (min-width:701px) and (max-height:720px){
+  .rl-in{ padding-top:40px; } .rl h1{ font-size:44px; } .rl-book{ width:min(280px,24vw); }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rl [data-in],.rl-bg{ transition:none !important; }
+  .rl-hint svg,.rl-cards-cue svg{ animation:none; }
+}
+
+/* On the last screen the platform's dock (outside the block, so not under .rl) breathes: this is the moment. */
+.pfn-dock.rl-pulse{ animation:rl-pulse 1.9s ease-in-out infinite; }
+@keyframes rl-pulse{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); box-shadow:0 0 0 7px rgba(255,255,255,.28),0 18px 36px -10px rgba(0,0,0,.5); } }
+@media (prefers-reduced-motion:reduce){ .pfn-dock.rl-pulse{ animation:none; } }

@@ -1,12 +1,7 @@
 /* nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel — the confirmation reel (platform only; see block.html).
- * The reel's moves are the opt-in reel's own script; this adds the typed headline, the rep's picture on the ask
- * screen, and the desktop note on the text option. */
-(function () {
-  var s = document.createElement("script");
-  s.src = "/_p/nueva/n-no-crash-plan/n-no-crash-plan-reel/block.js";
-  s.defer = true;
-  document.body.appendChild(s);
-})();
+ * The reel's moves are _shared/reel/v1/reel.js (block.html loads it); this adds the typed headline, the rep's picture on
+ * the ask screen, and the desktop note on the text option. (A newer reel uses reel.js's own versions of these:
+ * h1.rl-type, .rl-who, .rl-gift-word.) */
 
 /* THE REP'S PICTURE, big, with the check: the same picture the dock shows (src/lib/funnel-native.mjs puts it in
  * #pfn-data). No picture and no name: the space stays empty rather than showing a stranger's initial. */
