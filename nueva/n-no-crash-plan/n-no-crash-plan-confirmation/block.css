@@ -62,7 +62,7 @@
    ⚠️ TERRACOTTA IS THE SYSTEM'S OWN ALERT TONE, not a new colour: it already draws the crash
    line on the guide's chart and the Skip verdict in the companion. The point of the bar is that
    it does not belong to the calm page it sits on. */
-.sk-ew-conf{ --alert:#b35f49; --alert-deep:#9c4f3b; }
+.sk-ew-conf{ --alert:#b35f49; --alert-deep:#9c4f3b; --pfn-accent:var(--alert); }   /* the platform's phone dock (data-pf-native) carries the bar's colour */
 .sk-ew-conf .ew-bar{
   position:sticky; top:0; z-index:50;
   background:var(--alert); color:#fdf6f3;
