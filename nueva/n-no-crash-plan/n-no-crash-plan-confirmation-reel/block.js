@@ -17,6 +17,14 @@
   if (!d.rep || !d.rep.pic) return;
   box.querySelector(".rlc-pic").innerHTML = d.rep.pic;   // made on the server (rep-avatar.mjs pictureHtml), escaped there
   box.hidden = false;
+  // A computer's floating button carries the rep too: their picture, the check, "Message Alex for the free supplement guide".
+  var cta = document.querySelector(".rlc .rl-cta");
+  if (cta && d.rep.first) {
+    var name = document.createElement("span"); name.textContent = "Message " + d.rep.first + " for the free supplement guide";
+    cta.textContent = "";
+    cta.insertAdjacentHTML("afterbegin", '<span class="rlc-cta-pic" aria-hidden="true"><span>' + d.rep.pic + '</span><span class="rlc-check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span>');
+    cta.appendChild(name);
+  }
 })();
 
 /* `sms:` HAS NO HANDLER ON MOST DESKTOPS (the scrolling confirmation's rule): on a device with no touch the text

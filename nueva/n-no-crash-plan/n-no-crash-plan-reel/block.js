@@ -31,6 +31,8 @@
     screens.forEach(function (s, k) { s.classList.toggle("is-on", k === i); });
     [].forEach.call(dots.querySelectorAll("button"), function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
     dots.style.setProperty("--dot", LIGHT.test(screens[i].className) ? "#1f2420" : "#fff");
+    root.classList.toggle("rl-last", i === screens.length - 1);
+    root.querySelector(".rl-arrows").style.setProperty("--dot", LIGHT.test(screens[i].className) ? "#1f2420" : "#fff");
     var d = document.querySelector(".pfn-dock");
     if (d) d.classList.toggle("rl-pulse", i === screens.length - 1);
   }
