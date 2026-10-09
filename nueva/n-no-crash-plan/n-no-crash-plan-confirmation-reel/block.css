@@ -1,0 +1,64 @@
+/* nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel — the confirmation as a reel (platform only; see block.html).
+ * Everything a reel is comes from the opt-in reel's stylesheet; this adds the confirmation's own pieces. */
+@import url("../n-no-crash-plan-reel/block.css");
+
+.rlc{ --pfn-accent:var(--alert); }   /* the dock carries the confirmation's terracotta, as its bar always did */
+[data-if-name]{ display:none; }      /* GHL never fills the name; the platform replaces the span */
+
+/* 1. it's in your inbox */
+.rlc-env{ width:46px; height:46px; fill:none; stroke:var(--sage-deep); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; margin-bottom:18px; }
+.rlc-top h1{ font-size:clamp(34px,9.4vw,42px); line-height:1.1; }
+.rlc-top .rl-hint{ color:var(--sage-deep); }
+.rlc-btns{ display:flex; flex-direction:column; gap:10px; margin-top:26px; }
+.rlc-btn{ display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:14px; font-weight:650; font-size:16px;
+  background:var(--sage-deep); color:#fff; border:1.5px solid var(--sage-deep); }
+.rlc-btn-2{ background:transparent; color:var(--sage-deep); }
+
+/* The typed headline: every letter in place from the start, revealed in turn (block.js), so nothing below moves. */
+.rlc h1 .tw-c{ opacity:0; }
+.rlc h1 .tw-c.tw-on{ opacity:1; }
+.rlc h1.is-typing .tw-cur{ box-shadow:2px 0 0 0 var(--sage-mid); }
+
+/* 2. the second guide */
+.rlc-guide .rl-in{ text-align:center; }
+.rlc-cover{ width:58%; max-width:250px; margin:8px auto 28px; transform:rotate(-3deg); }
+.rlc-cover[data-in]{ transform:translateY(26px) rotate(-3deg); }
+.rl-p.is-on .rlc-cover[data-in]{ transform:rotate(-3deg); }
+.rlc-guide h2{ color:var(--cream); }
+
+/* 3. what's in it, and who to ask */
+.rlc-ask p:first-child{ font-family:var(--serif); font-size:clamp(21px,5.8vw,25px); line-height:1.35; color:var(--ink); margin:0; }
+.rlc-who{ position:relative; width:84px; height:84px; margin:26px 0 4px; }
+.rlc-who[hidden]{ display:none; }
+.rlc-pic{ display:grid; place-items:center; width:84px; height:84px; border-radius:50%; overflow:hidden; background:var(--alert); color:#fff;
+  font:600 34px var(--serif); box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--alert); }
+.rlc-pic img,.rlc-pic svg{ width:100%; height:100%; object-fit:cover; display:block; }
+.rlc-check{ position:absolute; right:-2px; bottom:0; width:26px; height:26px; border-radius:50%; background:var(--alert); color:#fff;
+  display:grid; place-items:center; box-shadow:0 0 0 3px var(--tint); }
+.rlc-check svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:3.5; stroke-linecap:round; stroke-linejoin:round; }
+.rlc-msg{ margin-top:20px; background:var(--alert); border-color:var(--alert); }
+.rlc-alt{ margin:14px 0 0 !important; font-size:15px !important; text-align:center; }
+.rlc-alt a{ color:var(--body); }
+
+/* 4. the walk */
+.rlc-walk .rl-bg{ background-position:center 60%; }
+
+/* Shorter phones: the long screens tighten (the reel's own steps cover the rest). */
+@media (max-width:700px) and (max-height:760px){
+  .rlc-top h1{ font-size:31px; } .rlc-env{ width:38px; height:38px; margin-bottom:10px; }
+  .rlc-btns{ margin-top:18px; } .rlc-btn{ padding:13px 16px; }
+  .rlc-cover{ width:46%; margin-bottom:20px; }
+  .rlc-ask p:first-child{ font-size:19px; }
+  .rlc-who{ width:64px; height:64px; margin-top:18px; } .rlc-pic{ width:64px; height:64px; font-size:26px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlc-top h1{ font-size:27px; } .rlc-btns{ flex-direction:row; } .rlc-btn{ flex:1; font-size:14.5px; padding:12px 8px; }
+  .rlc-cover{ width:38%; }
+  .rlc-ask p:first-child{ font-size:17px; } .rlc-who{ display:none; }
+}
+
+/* A computer: the frame's button is the ask, in terracotta; the backdrop is the guide she has to ask for. */
+@media (min-width:701px){
+  .rlc{ background:var(--night) url('/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation/assets/supplement-cover.jpg') center top/cover no-repeat; }
+  .rlc .rl-cta{ background:var(--alert); text-align:center; text-decoration:none; }
+}

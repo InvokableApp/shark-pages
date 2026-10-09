@@ -114,6 +114,9 @@
 .rl-dots button{ width:5px; height:5px; padding:0; border:0; border-radius:3px; background:currentColor; opacity:.35; cursor:pointer;
   transition:height .3s,opacity .3s; color:var(--dot,#fff); }
 .rl-dots button[aria-current="true"]{ height:18px; opacity:.95; }
+.rl-dots{ align-items:center; }
+.rl-swipe{ writing-mode:vertical-rl; transform:rotate(180deg); margin-bottom:6px; font:650 9.5px/1 var(--sans); letter-spacing:.24em;
+  text-transform:uppercase; color:var(--dot,#fff); opacity:.75; transition:color .3s; }
 .rl-hint{ display:flex; flex-direction:column; align-items:center; margin:22px 0 0; color:#fff; transition:opacity .4s; pointer-events:none; }
 .rl-hint svg{ width:26px; height:26px; margin-top:-12px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
   animation:rl-hint 1.6s ease-in-out infinite; }

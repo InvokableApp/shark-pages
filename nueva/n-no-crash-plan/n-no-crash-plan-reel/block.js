@@ -9,6 +9,12 @@
   var dots = root.querySelector(".rl-dots"), on = 0;
   var LIGHT = /\brl-(paper|tint)\b/;
 
+  // The word above the dots, turned on its side (Jeff, 2026-10-09: "swipe helper text next to the indicators ... rotated
+  // and sits above the carousel dots"). A phone swipes; a computer scrolls.
+  var word = document.createElement("span");
+  word.className = "rl-swipe"; word.setAttribute("aria-hidden", "true");
+  word.textContent = window.matchMedia("(pointer: coarse)").matches ? "Swipe" : "Scroll";
+  dots.appendChild(word);
   screens.forEach(function (s, i) {
     var b = document.createElement("button");
     b.type = "button"; b.setAttribute("aria-label", "Screen " + (i + 1));
@@ -23,7 +29,7 @@
   function mark(i) {
     on = i;
     screens.forEach(function (s, k) { s.classList.toggle("is-on", k === i); });
-    [].forEach.call(dots.children, function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    [].forEach.call(dots.querySelectorAll("button"), function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
     dots.style.setProperty("--dot", LIGHT.test(screens[i].className) ? "#1f2420" : "#fff");
     var d = document.querySelector(".pfn-dock");
     if (d) d.classList.toggle("rl-pulse", i === screens.length - 1);

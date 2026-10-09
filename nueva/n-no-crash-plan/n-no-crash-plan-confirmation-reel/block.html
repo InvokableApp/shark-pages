@@ -1,0 +1,78 @@
+<!--
+  nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel
+  The No Crash Plan's confirmation as a REEL, following the opt-in reel (Jeff, 2026-10-09: "dude. this is it. now do
+  confirmation page"). Four screens, on the platform only; the platform's step points here (migration 0207). GHL
+  keeps serving n-no-crash-plan-confirmation, and every rule written there holds here too:
+  ⚠️ THE PAGE IS THE SECOND FILTER, and its one job is the message to the rep for the supplement guide. So the
+  "Swipe up to message Alex" dock (src/lib/funnel-native.mjs) is on every screen from the first, and the guide's
+  own screen comes second. Everyday Well only, no Nueva mark, no product named; the button never says "get it now".
+  ⚠️ EVERY WORD IS THE SCROLLING CONFIRMATION'S, verbatim. Change one, change both.
+  Shares the opt-in reel's styles and moves (block.css imports it, block.js loads it); this block adds the typed
+  headline, the rep's picture and its own colours.
+-->
+<div class="rl rlc" data-pf-native data-pf-message="for the free supplement guide" data-pf-arrive="#faf9f5">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: it's in your inbox. The page rises out of the cream the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <div class="rl-mark" data-in style="--d:.05s">everyday well</div>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); block.js types the headline out when it is. -->
+          <h1>Check your email<span data-if-name>, {{contact.first_name}}</span>. The No Crash Plan is in there.</h1>
+          <p data-in style="--d:.3s">It should land within a minute or two. If it isn't there, look in
+            promotions and spam, because that's usually where it ends up.</p>
+          <div class="rlc-btns" data-in style="--d:.45s">
+            <a class="rlc-btn" href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-read">Read it online</a>
+            <a class="rlc-btn rlc-btn-2" href="https://{{custom_values.nueva_no_crash_plan_guide_pdf_url}}">Download the PDF</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the second guide, the one she has to ask for. It gets the picture. -->
+      <section class="rl-p rl-night rlc-guide">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>One more thing, also free</span>
+          <img class="rl-book rlc-cover" data-in style="--d:.15s" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation/assets/supplement-cover.jpg"
+               width="695" height="900" alt="The cover of What To Take, And What To Skip">
+          <h2 data-in style="--d:.35s">The second guide is about what to take</h2>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: what is in it, and who to ask. The rep's own picture (funnel-native data), big, with the check. -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <p data-in>The plan covers what to do. This one covers what people take for cravings, focus and
+            steady energy: green tea extract, chromium, berberine, saffron, the apple cider vinegar
+            gummies, caffeine. Sixteen of them, each with a straight verdict, and about half don't
+            survive it.</p>
+          <div class="rlc-who" data-in style="--d:.2s" hidden><span class="rlc-pic"></span><span class="rlc-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <p class="rl-note" data-in style="--d:.3s">It isn't a download link. Message whoever sent you this and they'll
+            send it over, and you can ask them whatever you want.</p>
+          <a class="rlc-btn rlc-msg" data-pf-message-link data-in style="--d:.4s" href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-supplement-dm-redirect">Message me for the supplement guide</a>
+          <p class="rlc-alt" data-in style="--d:.5s"><a href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-sms-redirect">Or send a text instead</a></p>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: something to do in the next hour -->
+      <section class="rl-p rl-photo rlc-walk">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/strip.jpg')"></div>
+        <div class="rl-in">
+          <h2 data-in>Day one is a ten minute walk</h2>
+          <p data-in style="--d:.15s">You don't have to read the whole thing first. Walk for five to ten minutes after your
+            next meal, ideally lunch. That's day one done, and it's the move that does the most.</p>
+          <div class="rl-mark rl-foot" data-in style="--d:.3s">everyday well</div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask and the arrows live in the frame. -->
+    <a class="rl-cta" href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-supplement-dm-redirect">Message me for the supplement guide</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
