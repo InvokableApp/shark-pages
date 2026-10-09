@@ -48,8 +48,10 @@
     <div class="sk-conf-wrap">
       <span class="sk-conf-pill">✅ You are in. Your guide is on its way.</span>
 
+      <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't
+           known (render.mjs fillLeadName); GHL never fills it and block.css hides it there. -->
       <h1>
-        The Tone And Tighten Guide<br>
+        <span data-if-name>{{contact.first_name}}, </span>Your Tone And Tighten Guide<br>
         Is Being Sent <span class="sk-conf-em">In 2 Minutes.</span>
       </h1>
 

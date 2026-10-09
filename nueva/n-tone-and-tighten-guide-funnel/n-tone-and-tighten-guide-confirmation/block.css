@@ -156,3 +156,12 @@
   .sk-conf-nva .sk-conf-grades li{ grid-template-columns:1fr; gap:.3rem; }
   .sk-conf-nva .sk-conf-grades b{ justify-self:start; }
 }
+
+/* The visitor's first name (2026-10-09): the platform fills <span data-if-name> or removes it. GHL fills
+ * neither, so the raw marker is hidden there. While the headline types itself out (block.js) the letters
+ * appear in turn with a caret on the newest one. */
+[data-if-name]{ display:none; }
+.sk-conf-nva h1 .tw-c{ opacity:0; }
+.sk-conf-nva h1 .tw-c.tw-on{ opacity:1; }
+.sk-conf-nva h1.is-typing .tw-cur{ box-shadow:.06em 0 0 currentColor; animation:nva-conf-caret 1s steps(1) infinite; }
+@keyframes nva-conf-caret{ 50%{ box-shadow:none; } }

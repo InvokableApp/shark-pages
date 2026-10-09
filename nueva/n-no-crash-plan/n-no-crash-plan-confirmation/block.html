@@ -68,7 +68,9 @@
     <div class="ew-wrap">
       <div class="ew-mark">everyday well</div>
 
-      <h1>Check your email. The No Crash Plan is in there.</h1>
+      <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't
+           known (render.mjs fillLeadName); GHL never fills it and block.css hides it there. -->
+      <h1>Check your email<span data-if-name>, {{contact.first_name}}</span>. The No Crash Plan is in there.</h1>
       <p class="ew-lede">It should land within a minute or two. If it isn't there, look in
         promotions and spam, because that's usually where it ends up.</p>
 

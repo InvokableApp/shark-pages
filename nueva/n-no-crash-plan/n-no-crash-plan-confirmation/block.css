@@ -171,3 +171,12 @@
   .sk-ew-conf .ew-gate-copy p{ margin-left:auto; margin-right:auto; }
   .sk-ew-conf .ew-btn-lg{ width:100%; }
 }
+
+/* The visitor's first name (2026-10-09): the platform fills <span data-if-name> or removes it. GHL fills
+ * neither, so the raw marker is hidden there. While the headline types itself out (block.js) the letters
+ * appear in turn with a caret on the newest one. */
+[data-if-name]{ display:none; }
+.sk-ew-conf h1 .tw-c{ opacity:0; }
+.sk-ew-conf h1 .tw-c.tw-on{ opacity:1; }
+.sk-ew-conf h1.is-typing .tw-cur{ box-shadow:.06em 0 0 currentColor; animation:ew-caret 1s steps(1) infinite; }
+@keyframes ew-caret{ 50%{ box-shadow:none; } }
