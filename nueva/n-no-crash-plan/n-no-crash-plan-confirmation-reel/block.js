@@ -27,6 +27,12 @@
   }
 })();
 
+/* "Swipe for a free gift" under the buttons; a computer scrolls. */
+(function () {
+  var w = document.querySelector(".rlc-gift-word");
+  if (w && !window.matchMedia("(pointer: coarse)").matches) w.textContent = "Scroll for a free gift";
+})();
+
 /* `sms:` HAS NO HANDLER ON MOST DESKTOPS (the scrolling confirmation's rule): on a device with no touch the text
  * option says so before the click. */
 (function () {

@@ -9,6 +9,9 @@
 .rlc-env{ width:46px; height:46px; fill:none; stroke:var(--sage-deep); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; margin-bottom:18px; }
 .rlc-top h1{ font-size:clamp(34px,9.4vw,42px); line-height:1.1; }
 .rlc-top .rl-hint{ color:var(--sage-deep); }
+.rlc-gift{ margin-top:24px; }
+.rlc-gift-word{ font:650 12.5px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.rlc-gift-ar{ display:flex; flex-direction:column; align-items:center; }
 .rlc-btns{ display:flex; flex-direction:column; gap:10px; margin-top:26px; }
 .rlc-btn{ display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:14px; font-weight:650; font-size:16px;
   background:var(--sage-deep); color:#fff; border:1.5px solid var(--sage-deep); }
@@ -59,6 +62,8 @@
 
 /* A computer: the reel's chapters (its block.css). The ask is the floating button, in terracotta, with the rep. */
 @media (min-width:701px){
+  .rlc .rlc-gift{ display:inline-flex; transform:none; }          /* the words stay upright; only the arrows point down */
+  .rlc .rlc-gift-ar{ transform:rotate(180deg); }
   .rlc-top .rl-in,.rlc-ask .rl-in,.rlc-walk .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
   .rlc-top h1{ font-size:clamp(46px,4.6vw,64px); }
   .rlc-btns{ flex-direction:row; max-width:560px; } .rlc-btn{ flex:1; }
