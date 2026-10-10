@@ -1,0 +1,65 @@
+/* glp/glp-free-ignyt-sample/ignyt-sample-confirmation-reel — the IGNYT sample confirmation as a reel (platform only; see
+ * block.html). The reel and IGNYT's look come from the opt-in reel's sheet; this adds the confirmation's own pieces. */
+@import url("../ignyt-sample-optin-reel/block.css");
+
+/* 1. one more step. A message glyph, not a tick: one thing is not done yet (v2's rule). */
+.rlc-pill{ display:inline-flex; align-items:center; gap:8px; font:700 12.5px/1 var(--head); font-stretch:70%; letter-spacing:.2em;
+  text-transform:uppercase; padding:9px 14px; border-radius:999px; background:rgba(250,67,0,.14); border:1px solid rgba(250,67,0,.45);
+  color:var(--spark); margin-bottom:18px; }
+.rlc-pill svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.rlc-top h1{ font-size:clamp(32px,9vw,42px); }
+.rlc-top p{ margin-top:18px; }
+.rlc-top .rl-btn-2{ font-size:14px; }
+
+/* 2. what happens next */
+.rlc-steps{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:18px; }
+.rlc-steps li{ display:flex; gap:16px; align-items:flex-start; }
+.rlc-steps li > span{ flex:0 0 auto; font:900 30px/1 var(--head); font-stretch:75%; color:var(--ember); min-width:38px; }
+.rlc-steps h3{ font-size:20px; margin:0; color:var(--ink); }
+.rlc-steps p{ font-size:15.5px !important; margin-top:6px !important; line-height:1.45 !important; }
+
+/* 3. the envelope */
+.rlc-pack{ width:56%; margin:0 0 4px -4%; }
+.rlc-checks{ list-style:none; padding:0; margin:18px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+.rlc-checks li{ font-size:13px; font-weight:600; padding:7px 12px; border-radius:999px; color:#fff; background:rgba(250,67,0,.12); border:1px solid rgba(250,67,0,.4); }
+
+/* 4. the ask */
+.rlc-ask .rl-bg{ background-position:60% center; }
+.rlc-ask .rl-who-pic{ box-shadow:0 0 0 3px #07070a,0 0 0 5px var(--ember); background:var(--ember); }
+.rlc-ask .rl-who-check{ box-shadow:0 0 0 3px #07070a; }
+.rlc-say{ font-family:var(--head); font-stretch:88%; font-weight:800 !important; text-transform:uppercase; font-size:clamp(25px,7vw,31px) !important;
+  line-height:1.06 !important; color:#fff !important; margin:0 !important; }
+.rlc-go{ display:inline-block; margin-top:24px; padding:15px 24px; }
+.rlc-alt{ font-size:15px !important; margin-top:14px !important; }
+.rlc-alt a{ color:#fff; font-weight:600; }
+.rlc-ask .rl-fine{ margin-top:22px !important; }
+
+/* most phones: the pack and the five supports both fit above the dock */
+@media (max-width:700px) and (max-height:900px){ .rlc-pack{ width:40%; } .rlc-checks{ gap:6px; margin-top:14px; } .rlc-checks li{ font-size:12.5px; padding:6px 11px; } .rlc-what h2{ font-size:30px; } }
+@media (max-width:700px) and (max-height:760px){
+  .rlc-top h1{ font-size:29px; } .rlc-pill{ margin-bottom:12px; }
+  .rlc-top .rl-hint{ display:none; }
+  .rlc-steps{ margin-top:16px; gap:12px; } .rlc-steps p{ font-size:14px !important; }
+  .rlc-pack{ width:30%; }
+  .rlc-checks li{ font-size:12px; padding:5px 9px; } .rlc-what p:not(.rl-note){ font-size:15px; } .rlc-what .rl-note{ display:none; }
+  .rlc-say{ font-size:23px !important; } .rlc-go{ margin-top:16px; }
+  .rlc-ask .rl-fine{ font-size:10.5px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlc-top h1{ font-size:25px; }
+  .rlc-steps p{ display:none; }
+  .rlc-pack{ display:none; }
+  .rlc-say{ font-size:20px !important; }
+  .rlc-ask .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+@media (min-width:701px){
+  .rlc-pill,.rlc-go{ justify-self:start; }
+  .rlc-top .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
+  .rlc-top h1{ font-size:clamp(46px,4.6vw,64px); }
+  .rlc-top .rl-btns{ max-width:760px; } .rlc-top .rl-btn{ flex:0 1 auto; white-space:nowrap; padding:16px 28px; font-size:16px; }
+  .rlc-steps{ flex-direction:row; gap:28px; } .rlc-steps li{ flex:1; flex-direction:column; gap:10px; }
+  .rlc-steps li > span{ font-size:54px; } .rlc-steps h3{ font-size:24px; } .rlc-steps p{ font-size:17px !important; }
+  .rlc-pack{ width:min(500px,36vw); margin:0; }
+  .rlc-checks li{ font-size:15px; padding:9px 15px; }
+  .rlc-say{ font-size:clamp(34px,3.4vw,48px) !important; max-width:20em; }
+}
