@@ -32,7 +32,7 @@ var SYS = {
         canva:"https://canva.link/azr1yqqdtzrl5hc",
         guides:[
           { label:"Read / print / share the plan", cv:"nueva_no_crash_plan_guide_pdf_url" },
-          { label:"The supplement guide you send on request", cv:"nueva_no_crash_plan_supplement_pdf_url" },
+          { label:"The link for \"What To Take, And What To Skip\", the supplement guide you send on request", cv:"nueva_no_crash_plan_supplement_pdf_url" },
           { label:"The plan, print ready in Canva", url:"https://canva.link/190d9m8801yjmpf" },
           { label:"What To Take, print ready in Canva", url:"https://canva.link/1mxvpi5mnuzmtwp" }
         ],
@@ -43,7 +43,7 @@ var SYS = {
         canva:"https://canva.link/gmt6ngmhri0ce3d",
         guides:[
           { label:"Read / print / share the guide", cv:"nueva_tone_and_tighten_guide_pdf_url" },
-          { label:"Which One Is Right, the companion guide", cv:"nueva_tone_and_tighten_companion_pdf_url" },
+          { label:"The link for \"Which One Is Right\", the supplement companion guide", cv:"nueva_tone_and_tighten_companion_pdf_url" },
           { label:"The guide, print ready in Canva", url:"https://canva.link/c7miytdp4ku0py8" },
           { label:"Which One Is Right, print ready in Canva", url:"https://canva.link/97sdbxn2w14y0w9" }
         ],
