@@ -95,6 +95,30 @@ var SYS = {
         print: 'https://canva.link/luaureyrm9zlnx3',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
         desc: 'A free high protein recipe guide and grocery list. Best for anyone trying to lose weight without giving up the food they like.' },
+      /* Off 2026-10-12, same reason as the recipe tile. v2 does not ship the Drops or
+         Opportunity funnels (GLP-BUYER-ONBOARDING-SOP-V2: those links are empty on a
+         correct v2 account), but an account moved from v1 keeps its old values, so the
+         hub showed tiles that bounced back to /links (Linda Jeffries, triglpglobal.com).
+         Jeff: "make sure those tiles aren't showing", then "fix on GitHub side". */
+      { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
+        tease: 'For people who already know you',
+        howtoSlug: 'how-to-use-3',
+        howto: 'https://glpshark.com/drops-funnel-training',
+        desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
+      { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
+        tease: 'For cold traffic',
+        howtoSlug: 'how-to-use-13',
+        desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' },
+      { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
+        tease: 'For people who asked about the business',
+        howtoSlug: 'how-to-use-2',
+        howto: 'https://glpshark.com/opportunity-warm-training',
+        desc: 'The business explained, for people who have already told you they want to hear more.' },
+      { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
+        tease: 'For cold traffic',
+        howtoSlug: 'how-to-use-1',
+        howto: 'https://glpshark.com/opportunity-cold-training',
+        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' },
   ],
   groups: [
     { label: 'Product funnels', items: [
@@ -123,33 +147,14 @@ var SYS = {
         tease: 'Recommends the right support',
         howtoSlug: 'weight-loss-supplement-recommendation-quiz-funnel-how-to-use',
         howto: 'https://glpshark.com/weight-loss-quiz-training',
-        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
-      { cv: 'drops_funnel_link', icon: 'drop', name: 'Drops, warm leads',
-        tease: 'For people who already know you',
-        howtoSlug: 'how-to-use-3',
-        howto: 'https://glpshark.com/drops-funnel-training',
-        desc: 'The DROPS information page for people who have already spoken with you. Straight to the product, no warm up.' },
-      { cv: 'drops_ads_funnel_link', icon: 'drop', name: 'Drops, ads and social',
-        tease: 'For cold traffic',
-        howtoSlug: 'how-to-use-13',
-        desc: 'The DROPS funnel built for cold traffic. Captures first, then explains, so post it publicly or run ads to it.' } ]},
+        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' } ]},
 
     { label: 'Recruiting funnels', items: [
       { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
         tease: 'Finds their work-from-home fit',
         howtoSlug: 'tour-funnel-how-to-use-wfh-quiz',
         howto: 'https://glpshark.com/side-hustle-quiz-training',
-        desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' },
-      { cv: 'opportunity_warm_funnel_link', icon: 'users', name: 'Opportunity, warm leads',
-        tease: 'For people who asked about the business',
-        howtoSlug: 'how-to-use-2',
-        howto: 'https://glpshark.com/opportunity-warm-training',
-        desc: 'The business explained, for people who have already told you they want to hear more.' },
-      { cv: 'opportunity_funnel_link', icon: 'users', name: 'Opportunity, ads and social',
-        tease: 'For cold traffic',
-        howtoSlug: 'how-to-use-1',
-        howto: 'https://glpshark.com/opportunity-cold-training',
-        desc: 'The recruiting funnel for cold traffic. Captures first, then explains the business.' } ]},
+        desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' } ]},
 
     /* Joe's '"what I do" funnel' is the what-is page: for GLP that is the ORYGN
        Tour, whose step slug is literally /what-is-orygn. Jeff, 2026-09-17.
