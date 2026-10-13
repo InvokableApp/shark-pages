@@ -90,3 +90,8 @@
   display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; pointer-events:none; }
 .rv-swipe .rl-hint{ margin:0; align-items:center; }
 @media (min-width:900px){ .rv-swipe .rl-hint{ transform:rotate(180deg); transform-origin:50% 50%; margin:0; } }
+
+/* The video's progress bar: the reel's green line above the video, as wide as the video, filled as it plays (block.js
+   sets --rv-p; Jeff, 2026-10-13) */
+.rv-watch .rl-in::before{ width:min(100%, calc((100svh - 100px) * 9 / 16)); height:4px; margin:0 auto 14px;
+  background:linear-gradient(90deg, var(--mark) var(--rv-p,0%), rgba(255,255,255,.18) var(--rv-p,0%)); }

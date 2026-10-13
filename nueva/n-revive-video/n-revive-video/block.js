@@ -29,6 +29,12 @@
     if (!v) { if (box && tries++ < 40) setTimeout(hook, 250); return; }
     var poster = box.getAttribute("data-poster");
     if (poster && /^https?:\/\//.test(poster)) v.poster = poster;
+    // The green line above the video is its progress bar (Jeff, 2026-10-13): filled as it plays, smooth while playing.
+    var bar = box.closest(".rl-in"), raf = 0;
+    function prog() { if (bar && v.duration) bar.style.setProperty("--rv-p", Math.min(100, v.currentTime / v.duration * 100).toFixed(2) + "%"); }
+    function run() { prog(); raf = !v.paused && !v.ended ? requestAnimationFrame(run) : 0; }
+    v.addEventListener("play", function () { if (!raf) run(); });
+    ["timeupdate", "seeked", "loadedmetadata", "pause"].forEach(function (ev) { v.addEventListener(ev, prog); });
     v.addEventListener("ended", function () { var ask = root.querySelector(".rv-ask"); if (ask) ask.scrollIntoView({ behavior: "smooth" }); });
   })();
 })();
