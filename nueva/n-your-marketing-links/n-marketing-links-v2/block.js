@@ -56,7 +56,9 @@ var SYS = {
         canva:"https://canva.link/bngpbfh4y2eme3c",
         desc:"A short quiz that sorts curious people into the kind of side hustle that suits them, then hands them into the Nueva opportunity page. Use it on someone who is interested in earning but not ready to talk to you yet." },
       /* Platform only (2026-10-06): GHL's hub skips it, the page is not in GHL. */
-      { slug:"n-opportunity-video", icon:"play", platformOnly:true,
+      /* personal: sent to one person at a time, so the app's card has Send a private link and no public post button
+         (Jeff, 2026-10-13). */
+      { slug:"n-opportunity-video", icon:"play", platformOnly:true, personal:true,
         name:"Opportunity Sizzle Video",
         tease:"Three minutes, then sign up under you",
         desc:"John Melton's three minute video on the Nueva opportunity. Under it, one button to sign up through your opportunity link, and a link to message you. Send it to someone who already asked what you do. Sent as a personal link, you see when they open it and how much they watch." } ]},
