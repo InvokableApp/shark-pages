@@ -62,7 +62,7 @@
   .rl-cover .rl-in{ padding-top:26px; padding-bottom:calc(var(--dock-room) + 8px); }
   .rl-cover .rl-mark{ margin-bottom:14px; }
   .rl-cover h1{ font-size:31px; }
-  .rl-cover .rl-book{ width:32%; margin-top:18px; }
+  .rl-cover .rl-book{ width:42%; margin-top:18px; }
   .rl-cover .rl-pills{ margin-top:16px; } .rl-cover .rl-pills li{ padding:6px 11px; font-size:12.5px; }
   .rl-cover .rl-note{ margin-top:12px; } .rl-hint{ margin-top:12px; }
   .rl-big{ font-size:96px; margin:18px 0 10px; }
@@ -92,3 +92,15 @@
 }
 @media (min-width:701px) and (max-height:720px){ .rl-fan{ height:300px; } .rl-big{ font-size:200px; } }
 @media (prefers-reduced-motion:reduce){ .rl-fan img,.rl-cups .fill,.rl-curve .spike{ transition:none !important; } }
+/* A darker photo on a phone so the words and the guide stand off it (Jeff, 2026-10-13: "the background needs to be darker
+   on mobile so evertthing in front is clearer"). This page only; the shared reel.css keeps its lighter shade. */
+@media (max-width:700px){
+  .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.8) 0%,rgba(var(--shade),.7) 35%,rgba(var(--shade),.92) 100%); }
+}
+/* A phone shows three pills, not four, and a bigger guide (Jeff, 2026-10-13: "on mobile just make three pills, take the
+   '3 changes' pill out ... make the pdf mockup bigger on mobile"). */
+@media (max-width:700px){
+  .rl-cover .rl-pills .ncp-desk{ display:none; }
+  .rl-cover .rl-book{ width:60%; max-width:260px; }
+}
+@media (max-width:700px) and (max-height:760px){ .rl-cover .rl-book{ width:50%; } }
