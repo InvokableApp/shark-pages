@@ -70,13 +70,20 @@
 /* 8. the close */
 .rl-tone .rl-close .rl-bg{ background-position:center 60%; }
 
+/* A darker photo and a bigger guide on a phone (Jeff, 2026-10-13: "do what we did with the other guide, make the guide
+   bigger, make the bg much darker"; the No Crash Plan's same pass). Every photo screen, here and on the confirmation and
+   the Revive page that import this sheet (the Revive cover keeps its own, set after this). */
+@media (max-width:700px){
+  .rl-tone .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.82) 0%,rgba(var(--shade),.72) 35%,rgba(var(--shade),.93) 100%); }
+  .rl-tone .rl-cover .rl-book{ width:56%; max-width:250px; }
+}
 /* most phones: the cover's book stays small enough that the cover fits above the dock */
-@media (max-width:700px) and (max-height:900px){ .rl-tone .rl-cover .rl-book{ width:34%; margin-top:18px; } .rl-tone .rl-cover .rl-pills{ margin-top:18px; } }
+@media (max-width:700px) and (max-height:900px){ .rl-tone .rl-cover .rl-book{ width:46%; margin-top:18px; } .rl-tone .rl-cover .rl-pills{ margin-top:18px; } }
 /* shorter phones */
 @media (max-width:700px) and (max-height:760px){
   .rl-tone .rl-cover .rl-in{ padding-top:24px; }
   .rl-tone .rl-cover h1{ font-size:29px; }
-  .rl-tone .rl-cover .rl-book{ width:30%; margin-top:16px; }
+  .rl-tone .rl-cover .rl-book{ width:36%; margin-top:16px; }
   .rl-tone .rl-cover .rl-pills{ margin-top:14px; } .rl-tone .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
   .rl-tone .rl-cover .rl-note{ margin-top:10px; } .rl-tone .rl-hint{ margin-top:10px; }
   .rl-tone h3.rl-h-lg{ font-size:30px; }

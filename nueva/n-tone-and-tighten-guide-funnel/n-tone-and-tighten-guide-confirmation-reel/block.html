@@ -9,7 +9,7 @@
   ⚠️ EVERY WORD IS THE SCROLLING CONFIRMATION'S, verbatim, and the whole disclaimer stays (the last screen).
   The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
 -->
-<div class="rl rl-tone rlt" data-pf-native data-pf-message="for the companion guide" data-pf-arrive="#fcfeff">
+<div class="rl rl-tone rlt" data-pf-native data-pf-message="for the companion guide" data-pf-say="Hey {first}, COMPARE! I just got the Tone and Tighten guide. Can you send me the companion guide? Thanks!" data-pf-arrive="#fcfeff">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -19,7 +19,7 @@
           <span class="rlt-pill" data-in>✅ You are in. Your guide is on its way.</span>
           <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
                (render.mjs fillLeadName); reel.js types the headline out when it is. -->
-          <h1 class="rl-type"><span data-if-name>{{contact.first_name}}, </span>Your Tone And Tighten Guide Is Being Sent <span class="rl-hl">In 2 Minutes.</span></h1>
+          <h1 class="rl-type"><span data-if-name>Hi {{contact.first_name}}, </span>Your Tone And Tighten Guide Is Being Sent <span class="rl-hl">In 2 Minutes.</span></h1>
           <p data-in style="--d:.3s">Check your email. If you do not see it there, check your <b>SPAM</b> folder.</p>
           <p class="rl-note" data-in style="--d:.4s">Or skip the wait and open it right now. Both are the same guide.</p>
           <div class="rl-btns" data-in style="--d:.5s">
@@ -65,9 +65,9 @@
         <div class="rl-bg" style="background-image:url('/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/card-bg.webp')"></div>
         <div class="rl-in">
           <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <p class="rlt-say" data-in style="--d:.1s">It's not emailed and it's not on this site. Ask for it and it comes straight back.</p>
-          <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.nueva_rep_messenger}}" data-in style="--d:.25s" href="/n-tone-and-tighten-redirect-dm">Message me COMPARE on Facebook</a>
-          <p class="rlt-alt" data-in style="--d:.35s">Prefer to text? <a data-pf-message-link href="/n-tone-and-tighten-redirect-sms">Send COMPARE by message instead</a></p>
+          <p class="rlt-say" data-in style="--d:.1s">It's not emailed and it's not on this site. I'd love to send it to you.</p>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.nueva_rep_messenger}}" data-in style="--d:.25s" href="/n-tone-and-tighten-redirect-dm">Message me COMPARE on Facebook</a>
+          <p class="rlt-alt" data-in style="--d:.35s">Prefer to text? <a data-pf-message-link data-pf-text-link href="/n-tone-and-tighten-redirect-sms">Send COMPARE by message instead</a></p>
         </div>
       </section>
 
@@ -86,7 +86,7 @@
 
     <nav class="rl-dots" aria-label="Screens"></nav>
     <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
-    <a class="rl-cta" data-rep-cta="Message {first} for the companion guide" data-needs="{{custom_values.nueva_rep_messenger}}" data-alt-href="/n-tone-and-tighten-redirect-sms" href="/n-tone-and-tighten-redirect-dm">Message me for the companion guide</a>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for the companion guide" data-needs="{{custom_values.nueva_rep_messenger}}" data-alt-href="/n-tone-and-tighten-redirect-sms" href="/n-tone-and-tighten-redirect-dm">Message me for the companion guide</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

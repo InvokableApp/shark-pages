@@ -79,7 +79,7 @@
   /* ── no usable number: say the ask without it, and stop ──────────────────────────────── */
   if (nums.length < 10) {
     var label = cta.querySelector("[data-sms-label]");
-    if (label) label.textContent = "Text SAMPLE now";
+    if (label) label.textContent = "Text COMPARE now";
     cta.removeAttribute("href");
     cta.setAttribute("role", "text");
     // The card would otherwise print the whole instruction sentence where a number belongs.
@@ -87,7 +87,7 @@
     return;
   }
 
-  var href = "sms:" + e164 + "?&body=SAMPLE";
+  var href = "sms:" + e164 + "?&body=COMPARE";   // the word the page asks for (was SAMPLE, left from the page this was copied from; 2026-10-13)
   cta.setAttribute("href", href);
   if (print) print.textContent = e164;
 

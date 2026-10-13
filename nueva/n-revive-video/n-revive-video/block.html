@@ -20,6 +20,10 @@
   number they go to the rep's Messenger instead ([data-needs], reel.js).
 -->
 <div class="rl rl-tone rv" data-pf-native>
+  <!-- THE REP, ACROSS THE TOP (Jeff, 2026-10-13: "put the name of the rep on a banner across the top, then ... 'Hey (name),
+       (rep name) wanted you to see this...' ... under nueva revive pill"): their picture and name, from the page's data
+       (block.js); hidden until there is a name. -->
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -28,6 +32,7 @@
         <div class="rl-bg" style="background-image:url('/_p/nueva/n-revive-video/n-revive-video/assets/revive-pool.webp')"></div>
         <div class="rl-in">
           <span class="rv-pill" data-in>Nueva Revive</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
           <h1 data-in style="--d:.1s" data-label="Nueva Revive: the video">Full-spectrum osmolyte and <span class="rl-hl">cellular hydration</span> solution</h1>
           <p data-in style="--d:.25s">Designed to help support hydration at the cellular level, where hydration actually happens.*</p>
           <div class="rv-next" data-in style="--d:.4s">Swipe up to watch the video</div>
