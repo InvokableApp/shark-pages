@@ -52,7 +52,12 @@ var SYS = {
       { slug:"n-revive-video", icon:"play", platformOnly:true, personal:true,
         name:"Revive Video",
         tease:"One minute on Revive, then who comes to mind",
-        desc:"A one minute video on Nueva Revive, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Send it after the Hydrate message. Sent as a personal link, you see when they open it, how much they watch and what they pick." } ]},
+        desc:"A one minute video on Nueva Revive, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Send it after the Hydrate message. Sent as a personal link, you see when they open it, how much they watch and what they pick." },
+      /* Platform only, sent one to one (Joe, 2026-10-13: "Nitro Sample Funnel ... clone out revive sample funnel"). */
+      { slug:"n-nitro-video", icon:"play", platformOnly:true, personal:true,
+        name:"Nitro Video",
+        tease:"A short video on Nitro, then who comes to mind",
+        desc:"A short video on Nueva Nitro, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Sent as a personal link, you see when they open it, how much they watch and what they pick." } ]},
 
     { label:"Opportunity funnels", items:[
       { slug:"n-match-quiz", howtoSlug:"n-side-hustle-how-to", icon:"quiz",
