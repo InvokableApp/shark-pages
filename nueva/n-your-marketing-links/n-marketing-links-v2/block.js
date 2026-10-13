@@ -47,7 +47,12 @@ var SYS = {
           { label:"The guide, print ready in Canva", url:"https://canva.link/c7miytdp4ku0py8" },
           { label:"Which One Is Right, print ready in Canva", url:"https://canva.link/97sdbxn2w14y0w9" }
         ],
-        desc:"A free workout and food guide for women who already train and want the work to show: eight twenty minute sessions and twelve high protein recipes. The ones who ask for the companion guide, the one that says which supplements are worth the money, are the ones ready to talk." } ]},
+        desc:"A free workout and food guide for women who already train and want the work to show: eight twenty minute sessions and twelve high protein recipes. The ones who ask for the companion guide, the one that says which supplements are worth the money, are the ones ready to talk." },
+      /* Platform only, sent one to one (Jeff, 2026-10-13): the page after Joe's Hydrate script in Send a message. */
+      { slug:"n-revive-video", icon:"play", platformOnly:true, personal:true,
+        name:"Revive Video",
+        tease:"One minute on Revive, then who comes to mind",
+        desc:"A one minute video on Nueva Revive, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Send it after the Hydrate message. Sent as a personal link, you see when they open it, how much they watch and what they pick." } ]},
 
     { label:"Opportunity funnels", items:[
       { slug:"n-match-quiz", howtoSlug:"n-side-hustle-how-to", icon:"quiz",
