@@ -16,11 +16,14 @@
   THE VIDEO is a content value, glp_orygn_product_video (an .mp4 in our storage, the "media" bucket), with
   glp_orygn_product_video_poster as the still. Both hold a PLACEHOLDER video for now (Jeff: "just put placeholder videos
   for now"; platform migration 0271): never empty, or GLP signups stop (clone_tenant, 0047). When it ends, the page moves on to the cards.
+  From 2026-10-14 it is the Sizzle page's triGLP video (platform migration 0281; Jeff: "the video on this page /sizzle - can
+  you put that video on the product swipe glp send link?"), 16:9, so the page carries rv-wide: a wide frame, the whole
+  picture shown. The opportunity page imports this stylesheet without the class and keeps the phone-shaped frame.
   THE PHOTO is the recipe guide reel's ORYGN flat lay (orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets).
   TEXT ME buttons are redirect steps to a text with the message written (/orygn-video-try, /orygn-video-refer) to the
   rep's phone (rep_phone); with no phone they go to the rep's Messenger instead ([data-needs], reel.js).
 -->
-<div class="rl rl-pf rv" data-pf-native>
+<div class="rl rl-pf rv rv-wide" data-pf-native>
   <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
   <div class="rl-frame">
     <div class="rl-track">
