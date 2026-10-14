@@ -1,0 +1,94 @@
+<!--
+  glp/glp-orygn-video/orygn-product-video: GLP's PRODUCT VIDEO page, a reel with Nueva Nitro's flow (nueva/n-nitro-video;
+  Jeff, 2026-10-14: "the way we did for nueva yesterday ... we need to start with glp"). The headline, swipe to the video,
+  swipe to "After seeing this video... Who Comes To Mind?", Myself / Someone I Know / No One, each with a pop-up.
+
+  ⚠️ JOE'S WORDS (his SCRIPTS doc, ORYGN > Product flow, and his page glp-guide.lovable.app): the headline "GLP-1 Results,
+  Naturally / Without The Side Effects." (Jeff: "use joes glp headline for glpshark"), the three cards, the pop-ups. The
+  pop-ups say his sentences with his " - " made into a colon or a full stop, and "(name)" / "(lead name)" filled with the
+  visitor's and the rep's names.
+  ⚠️ NO LOGO (Jeff: "no logo"). The look is the High Protein Recipe Guide reel's (ORYGN's green and cream), imported.
+
+  Platform only. The rep sends it one to one as a personal link and hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (No One) is only true for a personal link: a stranger's tap reports to no one.
+
+  THE VIDEO is a content value, glp_orygn_product_video (an .mp4 in our storage, the "media" bucket), with
+  glp_orygn_product_video_poster as the still. Both EMPTY for now (Jeff: "just put placeholder videos for now"): the page
+  says "Video coming soon" until they're set (platform migration 0270). When it ends, the page moves on to the cards.
+  THE PHOTO is the recipe guide reel's ORYGN flat lay (orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets).
+  TEXT ME buttons are redirect steps to a text with the message written (/orygn-video-try, /orygn-video-refer) to the
+  rep's phone (rep_phone); with no phone they go to the rep's Messenger instead ([data-needs], reel.js).
+-->
+<div class="rl rl-pf rv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the headline -->
+      <section class="rl-p rl-photo rl-cover rv-cover" aria-label="GLP-1 results, naturally">
+        <div class="rl-bg" style="background-image:url('/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/flatlay.webp')"></div>
+        <div class="rl-in">
+          <span class="rv-pill" data-in>2 minute video</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.1s" data-label="The GLP product video">GLP-1 Results, <em>Naturally</em>*</h1>
+          <p class="rv-sub" data-in style="--d:.25s">Without The Side Effects.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video, filling the screen like a story -->
+      <section class="rl-p rl-night rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.glp_orygn_product_video}}" data-poster="{{custom_values.glp_orygn_product_video_poster}}" data-name="the product video"></div>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: who comes to mind (Joe's cards, verbatim) -->
+      <section class="rl-p rl-paper rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Myself: I'd like to try the products">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd be interested in trying out the products&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.3s" data-label="Someone I Know: I think they'd be interested">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd be interested in these products&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.4s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">03</b><span class="rv-t"><b>No One</b><small>Not interested / don't know anyone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- The pop-ups (Joe's): {rep} is filled from the page's data (block.js); the visitor's name only when the platform
+       knows it (data-if-name). -->
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>These products are going viral and for good reason: GLP results, naturally, without the harsh side effects.* Text <span data-rv-rep>me</span> back right now and request information about getting these products in your hand!</p>
+    <a class="rv-btn" href="/orygn-video-try" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-video-message" data-label="Text me: I'd like to try the products">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>These products are going viral and for good reason: GLP results, naturally, without the harsh side effects.* Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/orygn-video-refer" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-video-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No One" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+    <p class="rv-ps">P.S. Clicked this by mistake? Simply close this box using the X to return to the page.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
