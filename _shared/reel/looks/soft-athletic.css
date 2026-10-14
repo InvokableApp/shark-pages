@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+/* _shared/reel/looks/soft-athletic.css — LOOK "Soft athletic" (references/REEL-LOOKS.md; Jeff 2026-10-14: "remember these").
+ * Manrope, rounded everything. Warm sand, deep forest green, coral. Calm and friendly. Use: @import after reel.css,
+ * <div class="rl rl-look-soft">. Helpers: .lk-card (a dark rounded card for a figure), .lk-tiles (white rounded rows with
+ * an icon dot: <div><span>💪</span><span><strong>Title</strong>line</span></div>), .lk-chip (a white pill on a photo). */
+.rl.rl-look-soft{
+  --coral:#F26B4F; --forest:#1F3B33; --sand:#F4EEE6;
+  --paper:var(--sand); --tint:#EAF0EC; --night:var(--forest);
+  --ink:var(--forest); --body:#4b5d57; --grey:#7c8a85; --on-dark:#fff;
+  --head:"Manrope",system-ui,sans-serif; --head-w:800; --sans:"Manrope",system-ui,sans-serif;
+  --eyebrow:var(--coral); --eyebrow-dark:#FFB59F;
+  --cta:var(--forest); --cta-ink:#fff; --mark:var(--coral); --shade:31,59,51;
+  --sk-accent:var(--forest); --pfn-accent:var(--forest); --pfn-ink:#fff;
+}
+.rl-look-soft h1,.rl-look-soft h2{ letter-spacing:-.03em; line-height:1.04; }
+.rl-look-soft h1{ font-size:clamp(34px,10vw,42px); }
+.rl-look-soft h1 em,.rl-look-soft h2 em{ font-style:normal; color:var(--coral); }
+.rl-look-soft .rl-night h1 em,.rl-look-soft .rl-night h2 em,.rl-look-soft .rl-photo h1 em,.rl-look-soft .rl-photo h2 em{ color:#FFB59F; }
+.rl-look-soft .rl-eyebrow{ font-weight:700; letter-spacing:.12em; }
+.rl-look-soft .rl-btn,.rl-look-soft .pfn-dock{ border-radius:999px; }
+.rl-look-soft .rl-cards > *{ border-radius:24px; }
+.rl-look-soft .lk-card{ background:var(--forest); color:#fff; border-radius:26px; padding:24px 22px; }
+.rl-look-soft .lk-card .lk-big{ font:800 72px/1 var(--head); letter-spacing:-.04em; color:#FFB59F; }
+.rl-look-soft .lk-tiles{ display:grid; gap:10px; margin-top:16px; }
+.rl-look-soft .lk-tiles > div{ background:#fff; border-radius:18px; padding:13px 15px; font-size:14px; line-height:1.35; color:var(--body); display:grid; grid-template-columns:36px 1fr; align-items:center; }
+.rl-look-soft .lk-tiles > div > span:first-child{ width:28px; height:28px; border-radius:50%; background:#FCE3DB; display:grid; place-items:center; font-size:14px; }
+.rl-look-soft .lk-tiles strong{ display:block; color:var(--ink); font-size:15px; }
+.rl-look-soft .lk-chip{ display:inline-flex; gap:8px; align-items:center; background:#fff; color:var(--ink); border-radius:999px; padding:8px 14px; font-weight:700; font-size:12.5px; }
+.rl-look-soft .lk-chip::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--coral); }
+@media (min-width:701px){ .rl-look-soft .rl-cta{ border-radius:999px; } }

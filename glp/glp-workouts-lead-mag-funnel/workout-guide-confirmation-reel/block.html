@@ -1,0 +1,67 @@
+<!--
+  glp/glp-workouts-lead-mag-funnel/workout-guide-confirmation-reel
+  The GLP Workout Guide thank-you page as a REEL, look "Gym poster" like its opt-in (Jeff, 2026-10-14). Three screens,
+  PLATFORM ONLY: the platform's /thank-you step on this funnel points here (migration 0282). GHL keeps serving the native
+  page on every installed GLP account.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's own: message "RECIPE" to the rep, on Facebook or by text, for
+     the free High Protein Recipe Guide. Every button that asks goes where the page's did: the funnel's redirect step,
+     /workout-guide-redirect (the rep's Messenger).
+  ⚠️ EVERY WORD IS THE NATIVE PAGE'S (sentence case, its " - " made a colon), plus the visitor's first name in the headline
+     (PAGE-COPY-SOP §5c). The recipe guide's cover is that guide's own (recipe-guide-reel/assets/book.webp).
+-->
+<div class="rl rl-look-poster rlw rlwc" data-pf-native data-pf-message="for the free recipe guide" data-pf-say="RECIPE" data-pf-arrive="#0B0B0B">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: it's on its way -->
+      <section class="rl-p rl-night rl-plain rlwc-top">
+        <div class="rl-in">
+          <svg class="rlwc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">✅ You're in</span>
+          <h1 data-in style="--d:.1s">Hey<span data-if-name> {{contact.first_name}}</span>! Your guide is <em>on its way.</em></h1>
+          <p data-in style="--d:.25s">Arriving in two minutes. But wait: want another awesome free resource to help you on your GLP journey?</p>
+          <div class="rlwc-gift"><span>Swipe for one more free guide</span><span class="rlwc-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the recipe guide -->
+      <section class="rl-p rl-paper rlwc-recipe">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free download</span>
+          <img class="rl-book rlwc-book rl-art" data-in style="--d:.1s" src="/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/book.webp"
+               width="760" height="984" alt="The High Protein Recipe Guide's cover">
+          <h2 data-in style="--d:.2s">Download our free <em>High Protein Recipe Guide!</em></h2>
+          <p data-in style="--d:.3s">21 easy, GLP optimized, family friendly breakfasts, lunches, and dinners, plus protein packed desserts and a
+            done for you grocery shopping list!</p>
+          <p data-in style="--d:.38s">Every recipe is high in protein and simple to make, easy to get down and built to help you lose fat while
+            keeping the muscle, energy, and metabolism most diets strip away.</p>
+          <a class="rl-btn rlwc-go" data-in style="--d:.46s" href="/workout-guide-redirect">Yeah! Give me the free recipe guide too, please!</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT (lime): the ask, with the rep -->
+      <section class="rl-p rl-tint rlwc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want the recipe guide? 🔥</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "RECIPE" to a trusted team member on Facebook now!</h2>
+          <p data-in style="--d:.3s">They can send you this free recipe guide now to pair with your workout guide! 🔥</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}"
+               href="/workout-guide-redirect">💬 Message "RECIPE" on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.rep_phone}}"
+               href="sms:{{custom_values.rep_phone}}?&body=RECIPE">📲 Rather text? Text RECIPE to <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.5s">Not medical advice: consult your prescribing physician.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for the recipe guide" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       data-alt-href="sms:{{custom_values.rep_phone}}?&body=RECIPE" href="/workout-guide-redirect">Message us for the recipe guide</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

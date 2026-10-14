@@ -1,0 +1,45 @@
+/* glp/glp-workouts-lead-mag-funnel/workout-guide-reel — the GLP Workout Guide opt-in as a reel, look "Gym poster"
+ * (references/REEL-LOOKS.md). The kit and the look come from the shared files; this adds the screens' own pieces. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/poster.css");
+
+/* 1. cover: the guide leaning in, small, under the words */
+.rlw-book{ width:34%; max-width:150px; margin-top:18px; box-shadow:0 18px 40px -10px rgba(0,0,0,.8); }
+.rlw-cover .rl-pills{ margin-top:16px; }
+
+/* 2. the figure */
+.rlw-stat .lk-big{ white-space:nowrap; font-size:clamp(96px,30vw,150px); margin:6px 0 14px; }
+.rlw-stat h2{ font-size:clamp(32px,9.4vw,44px); }
+
+/* 3. fat, water, muscle */
+.rlw-three{ display:grid; gap:8px; margin-top:22px; }
+.rlw-three > div{ border:2.5px solid var(--black); background:#fff; padding:13px 14px; display:grid; grid-template-columns:1fr auto; align-items:center; column-gap:10px; }
+.rlw-three b{ font:900 24px/1 var(--head); font-stretch:62%; text-transform:uppercase; }
+.rlw-three p{ grid-column:1 / -1; font-size:14px !important; margin-top:6px; color:var(--body); }
+.rlw-pill{ font:800 11px var(--head); font-stretch:110%; letter-spacing:.12em; text-transform:uppercase; padding:5px 8px 4px; background:var(--lime); }
+.rlw-three > div:nth-child(2) .rlw-pill{ background:#E6E3DA; border:1.5px solid var(--black); }
+.rlw-three .rlw-bad{ background:var(--black); color:#fff; } .rlw-three .rlw-bad p{ color:#ccc; }
+.rlw-three .rlw-bad .rlw-pill{ background:#fff; color:var(--black); }
+
+/* 4. what's inside */
+.rlw-list{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:10px; }
+.rlw-list li{ position:relative; padding-left:26px; font-size:15px; line-height:1.4; color:rgba(255,255,255,.88); }
+.rlw-list li::before{ content:""; position:absolute; left:0; top:5px; width:12px; height:12px; background:var(--lime); }
+.rlw-list b{ color:#fff; }
+
+/* 5. on the lime: what you don't and do need */
+.rlw-vs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px; }
+.rlw-vs > div{ display:flex; flex-direction:column; gap:7px; padding:14px 12px; border:2.5px solid var(--black); }
+.rlw-vs > div:last-child{ background:var(--black); color:var(--lime); }
+.rlw-vs small{ font:800 10.5px var(--head); font-stretch:110%; letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; }
+.rlw-vs s,.rlw-vs b{ font:900 19px/1 var(--head); font-stretch:62%; text-transform:uppercase; }
+.rlw-vs s{ text-decoration-thickness:2px; opacity:.6; }
+
+/* 6. close: the fine print is long, so it scrolls in its own box on a short phone */
+.rlw-close .rl-fine{ max-height:28vh; overflow:auto; }
+
+@media (min-width:701px){
+  .rlw-book{ width:auto; max-width:300px; }
+  .rlw-three,.rlw-vs{ max-width:560px; }
+  .rlw-close .rl-fine{ max-height:30vh; }
+}

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap");
+/* _shared/reel/looks/training-log.css — LOOK "Training log" (references/REEL-LOOKS.md; Jeff 2026-10-14: "remember these").
+ * Inter Tight, tight and heavy, with small mono labels. Bone white, black ink, signal orange. Reads like a coach's program
+ * sheet: numbers in a row under a rule, numbered lists. Use: @import after reel.css, <div class="rl rl-look-log">.
+ * Helpers: .lk-meta (a row of figures under a rule: <div>28<small>days</small></div>), .lk-big (one huge figure),
+ * .lk-list (numbered rows: <div><b>01</b><span><strong>Title</strong>line</span></div>). */
+.rl.rl-look-log{
+  --orange:#FF4D1A; --black:#121212; --bone:#F3F1EC;
+  --paper:var(--bone); --tint:#E9E6DF; --night:var(--black);
+  --ink:var(--black); --body:#3a3a3a; --grey:#7a7770; --on-dark:#F3F1EC;
+  --head:"Inter Tight",system-ui,sans-serif; --head-w:800; --sans:"Inter Tight",system-ui,sans-serif;
+  --eyebrow:var(--orange); --eyebrow-dark:var(--orange);
+  --cta:var(--black); --cta-ink:#fff; --mark:var(--orange); --shade:18,18,18;
+  --sk-accent:var(--black); --pfn-accent:var(--black); --pfn-ink:#fff;
+}
+.rl-look-log h1,.rl-look-log h2{ letter-spacing:-.035em; line-height:.98; }
+.rl-look-log h1{ font-size:clamp(40px,11.5vw,50px); }
+.rl-look-log h2{ font-size:clamp(30px,8.6vw,40px); }
+.rl-look-log h3{ font-weight:700; letter-spacing:-.02em; }
+.rl-look-log h1 em,.rl-look-log h2 em{ font-style:normal; color:var(--orange); }
+.rl-look-log .rl-eyebrow{ font:500 11.5px "JetBrains Mono",ui-monospace,monospace; letter-spacing:.08em; }
+.rl-look-log .rl-pills li{ border-radius:3px; font:500 11.5px "JetBrains Mono",ui-monospace,monospace; letter-spacing:.04em; text-transform:uppercase; }
+.rl-look-log .rl-btn,.rl-look-log .pfn-dock{ border-radius:6px; }
+.rl-look-log .rl-night .rl-in::before{ width:100%; height:1.5px; border-radius:0; opacity:.5; }
+.rl-look-log .lk-meta{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1.5px solid currentColor; margin-top:18px; }
+.rl-look-log .lk-meta div{ padding-top:10px; font:700 22px var(--head); letter-spacing:-.02em; }
+.rl-look-log .lk-meta small{ display:block; font:500 10.5px "JetBrains Mono",monospace; letter-spacing:.06em; text-transform:uppercase; opacity:.6; margin-top:2px; }
+.rl-look-log .lk-big{ white-space:nowrap; font:800 clamp(72px,22vw,96px)/.9 var(--head); letter-spacing:-.06em; color:var(--orange); }
+.rl-look-log .lk-list{ margin-top:20px; border-top:1.5px solid currentColor; }
+.rl-look-log .lk-list > div{ display:grid; grid-template-columns:36px 1fr; padding:11px 0; border-bottom:1px solid color-mix(in srgb,currentColor 22%,transparent); font-size:14.5px; line-height:1.35; }
+.rl-look-log .lk-list b{ font:500 11px "JetBrains Mono",monospace; color:var(--orange); padding-top:3px; }
+.rl-look-log .lk-list strong{ display:block; font-size:15.5px; }
+@media (min-width:701px){ .rl-look-log h1{ font-size:clamp(56px,6vw,92px); } .rl-look-log h2{ font-size:clamp(44px,4.6vw,72px); } .rl-look-log .rl-cta{ border-radius:6px; } }

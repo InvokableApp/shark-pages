@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap");
+/* _shared/reel/looks/poster.css — LOOK "Gym poster" (references/REEL-LOOKS.md). Jeff, 2026-10-14, picking it for the GLP
+ * workout guide: "holy moly these are so good do b"; "please remember these and generate more looks, well use these!".
+ *
+ * Archivo condensed, all caps, black and acid lime. Loud and sporty: stops the thumb. Photos go black and white under a
+ * fade to black. Use it on a reel with:
+ *   block.css   @import url("../../../_shared/reel/v1/reel.css"); @import url("../../../_shared/reel/looks/poster.css");
+ *   block.html  <div class="rl rl-look-poster" ...>
+ * A block can still set --cta / --lime etc. after the imports to shift the accent. Platform only: GHL never loads it. */
+
+.rl.rl-look-poster{
+  --lime:#D4FF3A; --black:#0B0B0B; --bone:#F2F1EC;
+  --paper:var(--bone); --tint:var(--lime); --night:var(--black);
+  --ink:var(--black); --body:#2b2b2b; --grey:#6a6a66; --on-dark:#fff;
+  --head:"Archivo",system-ui,sans-serif; --head-w:900; --sans:"Archivo",system-ui,sans-serif;
+  --eyebrow:var(--black); --eyebrow-dark:var(--lime);
+  --cta:var(--lime); --cta-ink:var(--black); --mark:var(--lime); --shade:11,11,11;
+  --sk-accent:var(--lime); --pfn-accent:var(--lime); --pfn-ink:var(--black);
+}
+/* headings: condensed, heavy, upper case, tight */
+.rl-look-poster h1,.rl-look-poster h2,.rl-look-poster h3{ font-stretch:62%; text-transform:uppercase; letter-spacing:0; line-height:.9; }
+.rl-look-poster h1{ font-size:clamp(52px,15.5vw,70px); }
+.rl-look-poster h2{ font-size:clamp(40px,11.5vw,54px); }
+.rl-look-poster h3{ font-size:24px; font-stretch:75%; line-height:1; }
+.rl-look-poster h1 em,.rl-look-poster h2 em{ font-style:normal; color:var(--lime); }
+.rl-look-poster .rl-paper h1 em,.rl-look-poster .rl-paper h2 em{ color:var(--ink); background:var(--lime); padding:0 .08em; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.rl-look-poster .rl-tint h1 em,.rl-look-poster .rl-tint h2 em{ color:var(--lime); background:var(--black); padding:0 .08em; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.rl-look-poster p{ font-weight:500; }
+.rl-look-poster .rl-tint p{ color:var(--black); }
+/* the label above a heading: a solid tag */
+.rl-look-poster .rl-eyebrow{ display:inline-block; font-weight:800; font-stretch:110%; font-size:12px; letter-spacing:.1em;
+  padding:7px 10px 6px; background:var(--black); color:var(--lime); margin-bottom:16px; }
+.rl-look-poster .rl-eyebrow{ width:max-content; max-width:100%; justify-self:start; align-self:flex-start; }
+.rl-look-poster .rl-photo .rl-eyebrow,.rl-look-poster .rl-night .rl-eyebrow{ background:var(--lime); color:var(--black); }
+/* photos: black and white, fading to black at the bottom where the words sit */
+.rl-look-poster .rl-photo .rl-bg{ filter:grayscale(1) contrast(1.15); }
+.rl-look-poster .rl-photo::after{ background:linear-gradient(180deg,rgba(11,11,11,.25) 0%,rgba(11,11,11,.45) 40%,rgba(11,11,11,.96) 78%); }
+.rl-look-poster .rl-photo .rl-in,.rl-look-poster .rl-cover .rl-in{ margin-top:auto; }
+.rl-look-poster .rl-night .rl-in::before{ width:56px; height:6px; border-radius:0; }
+/* pills, buttons, cards: square corners */
+.rl-look-poster .rl-pills li{ border-radius:0; text-transform:uppercase; font-weight:800; font-stretch:90%; letter-spacing:.06em; font-size:12px; }
+.rl-look-poster .rl-btn{ border-radius:4px; text-transform:uppercase; font-weight:900; font-stretch:115%; letter-spacing:.06em; }
+.rl-look-poster .rl-cards > *{ border-radius:0; }
+.rl-look-poster .rl-dots button{ border-radius:0; }
+/* helpers: .lk-big (one huge lime figure), .lk-boxes (bordered boxes: <div><strong>Title</strong>line</div>),
+   .lk-tag-row (a row of small tags) */
+.rl-look-poster .lk-big{ font:900 clamp(120px,38vw,160px)/.8 var(--head); font-stretch:62%; color:var(--lime); letter-spacing:-.01em; }
+.rl-look-poster .rl-paper .lk-big,.rl-look-poster .rl-tint .lk-big{ color:var(--black); }
+.rl-look-poster .lk-boxes{ display:grid; gap:8px; margin-top:20px; }
+.rl-look-poster .lk-boxes > div{ border:1.5px solid rgba(255,255,255,.18); padding:12px 14px; font-size:14px; line-height:1.35; color:#bbb; }
+.rl-look-poster .rl-paper .lk-boxes > div,.rl-look-poster .rl-tint .lk-boxes > div{ border-color:var(--black); color:var(--body); }
+.rl-look-poster .lk-boxes strong{ display:block; color:inherit; font:800 17px var(--head); font-stretch:80%; text-transform:uppercase; letter-spacing:.02em; }
+.rl-look-poster .rl-night .lk-boxes strong,.rl-look-poster .rl-photo .lk-boxes strong{ color:#fff; }
+/* the dock: lime, black words, square-ish, its up arrow on a dark chip */
+.rl-look-poster .pfn-dock{ border-radius:6px; }
+.rl-look-poster .pfn-txt b{ text-transform:uppercase; font-weight:900; font-stretch:110%; letter-spacing:.05em; }
+.rl-look-poster .pfn-up{ background:rgba(11,11,11,.12); }
+@media (min-width:701px){
+  .rl-look-poster h1{ font-size:clamp(64px,7.4vw,112px); }
+  .rl-look-poster h2{ font-size:clamp(52px,5.6vw,84px); }
+  .rl-look-poster .rl-cta{ border-radius:6px; text-transform:uppercase; font-weight:900; font-stretch:115%; letter-spacing:.06em; }
+  .rl-look-poster .rl-photo::after{ background:linear-gradient(90deg,rgba(11,11,11,.96) 0%,rgba(11,11,11,.7) 46%,rgba(11,11,11,.2) 100%); }
+}

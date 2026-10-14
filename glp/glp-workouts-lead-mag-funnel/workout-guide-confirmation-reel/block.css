@@ -1,0 +1,28 @@
+/* glp/glp-workouts-lead-mag-funnel/workout-guide-confirmation-reel — the thank-you reel, look "Gym poster" via the opt-in's
+ * sheet (references/REEL-LOOKS.md). Adds the envelope, the swipe hint, the recipe guide cover and the ask. */
+@import url("../workout-guide-reel/block.css");
+
+[data-if-name]{ display:none; }   /* GHL never fills the name; the platform drops the span whole when it's unknown */
+
+.rlwc-env{ display:block; width:48px; height:48px; fill:none; stroke:var(--lime); stroke-width:2.4; stroke-linejoin:round; margin-bottom:16px; }
+.rlwc-top h1{ font-size:clamp(48px,14vw,64px); }
+.rlwc-gift{ display:flex; flex-direction:row; align-items:center; gap:10px; margin-top:34px; color:var(--lime); }
+.rlwc-gift > span:first-child{ font:800 13px var(--head); font-stretch:110%; letter-spacing:.1em; text-transform:uppercase; }
+.rlwc-ar{ display:inline-flex; flex-direction:column; }
+.rlwc-ar svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.6; margin:-7px 0; }
+
+.rlwc-book{ width:38%; max-width:170px; margin:0 0 16px; box-shadow:0 18px 34px -12px rgba(0,0,0,.45); }
+.rlwc-recipe h2{ font-size:clamp(34px,10vw,46px); }
+.rlwc-recipe p{ font-size:15px; }
+.rlwc-go{ margin-top:16px; background:var(--black); color:var(--lime); }
+
+.rlwc-ask .rl-btn{ background:var(--black); color:var(--lime); }
+.rlwc-ask .rl-btn-2{ background:transparent; color:var(--black); border:2.5px solid var(--black); }
+.rlwc-ask .rl-fine{ color:var(--black) !important; opacity:.7; }
+
+@media (min-width:701px){
+  .rlwc-book{ width:auto; max-width:300px; }
+  .rlwc-top h1{ font-size:clamp(64px,6.4vw,100px); }
+  .rlwc-ask h2{ font-size:clamp(40px,3.8vw,58px); }
+  .rlwc-ask .rl-btns{ flex-direction:row; max-width:640px; }
+}
