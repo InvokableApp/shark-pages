@@ -130,6 +130,13 @@ var SYS = {
         print: 'https://canva.link/q84wz59vwmx3oi1',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_food_guide_pdf_url' }],
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
+      /* The recipe guide, platform only (Jeff, 2026-10-14: "add the card", so its campaign posts have a home on My
+         funnels). platformOnly: the GHL copy of this page leaves it out, so the GHL hub is unchanged. */
+      { cv: 'protein_recipe_guide_funnel_link', icon: 'guide', name: 'High Protein Recipe Guide', platformOnly: true,
+        tease: 'Free recipes and grocery list',
+        howtoSlug: 'orygn-recipe-guide-how-to',
+        guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
+        desc: 'A free guide of 21 high protein recipes, 4 desserts and a grocery list, built to lose the fat and keep the muscle. An easy opener for anyone who cooks or is trying to eat better.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
         tease: 'Free workout download',
         howtoSlug: 'how-to-use-12',
