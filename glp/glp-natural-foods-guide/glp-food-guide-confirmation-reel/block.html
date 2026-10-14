@@ -1,0 +1,87 @@
+<!--
+  glp/glp-natural-foods-guide/glp-food-guide-confirmation-reel
+  The Natural GLP Foods Guide confirmation as a REEL, after its opt-in reel (Jeff, 2026-10-14). Four screens, PLATFORM
+  ONLY: the platform's /glp-food-guide-confirmation step points here (migration 0270). GHL keeps loading the folder next
+  door (glp-food-guide-confirmation, github.io) on every installed GLP account; it is never edited.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: message "PRODUCT INFO" to the rep, on Facebook or by text, for
+     product and sample info. Every button that asks goes where the page's did since 2026-09-18 (Jeff's call, header of
+     the folder next door): the DM Redirect step, /glp-food-guide-dm-redirect (the rep's Messenger, InitiateCheckout).
+  ⚠️ EVERY WORD IS THE PAGE'S, verbatim (sentence case), plus the visitor's first name in the headline (PAGE-COPY-SOP §5c),
+     and the guide's own "Start here" three on the last screen (guide/recipe-guide-content.md, Make It Stick). The video
+     screen ("While you wait, watch this") is not carried over: a reel screen is a still, so it waits for Jeff's call.
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
+-->
+<div class="rl rl-nf rlc" data-pf-native data-pf-message="for product and sample info" data-pf-say="PRODUCT INFO" data-pf-arrive="#f6f3ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: you are in -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">✅ You are in</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your GLP foods guide is on its way to your inbox in about 2 minutes.</h1>
+          <p data-in style="--d:.3s">Check your email inbox. If you do not see your guide there, check your SPAM folder.</p>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for product and sample info</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the two products on the sage -->
+      <section class="rl-p rl-night rlc-products">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>🌿 Step two, if you want it</span>
+          <img class="rlc-pack rl-art" data-in style="--d:.1s" src="/_p/glp/glp-natural-foods-guide/glp-food-guide-reel/assets/products.webp"
+               width="1566" height="1676" alt="The IGNYT pouch with a stick and the triGLP dropper bottle">
+          <h2 data-in style="--d:.25s">Are you looking for an easy way to quiet food cravings and support your weight naturally?</h2>
+          <p data-in style="--d:.35s">Supporting these hormones with food is step one, and it is not always easy on your own. The all natural
+            GLP support products going viral in the wellness community are formulated to support the same GLP pathways, to
+            help quiet the food noise, cut cravings, and support your weight journey.</p>
+          <a class="rl-btn rlc-go" data-in style="--d:.45s" href="/glp-food-guide-dm-redirect">Yeah! Send me product &amp; sample info! 🔥</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: want to try the products? The rep, and the ask. -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want to try the products? ✅</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "PRODUCT INFO" to a trusted team member on Facebook now!</h2>
+          <p data-in style="--d:.3s">They can send you more information on the product, sampling options and even special pricing details! 🔥</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}"
+               href="/glp-food-guide-dm-redirect">💬 Message "PRODUCT INFO" to us on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.rep_phone}}"
+               href="sms:{{custom_values.rep_phone}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: start here, from the guide's closing page -->
+      <section class="rl-p rl-photo rl-wide rlc-today">
+        <div class="rl-bg" style="background-image:url('/_p/glp/glp-natural-foods-guide/glp-food-guide-reel/assets/plate.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>While you wait</span>
+          <h2 data-in style="--d:.1s">Pick two or three things from the guide and make them automatic. Start here:</h2>
+          <ol class="rlc-habits">
+            <li data-in style="--d:.25s"><span>1</span><div>Add a real protein to every breakfast.</div></li>
+            <li data-in style="--d:.4s"><span>2</span><div>Cook a batch of barley or beans on Sunday.</div></li>
+            <li data-in style="--d:.55s"><span>3</span><div>Swap butter for olive oil, and eat your protein before your carbs.</div></li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.7s">The information in this guide is for educational and informational purposes only and is not medical,
+            nutritional, diagnostic, or treatment advice. We are not physicians, medical professionals, registered dietitians, or
+            licensed healthcare providers. This content is not a substitute for professional advice. Consult your physician or a
+            qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an
+            existing medical condition. These are general food and recipe suggestions. Results vary from person to person. We
+            make no guarantees regarding weight loss, appetite, or any other outcome.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for product info" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       data-alt-href="sms:{{custom_values.rep_phone}}?&body=PRODUCT%20INFO" href="/glp-food-guide-dm-redirect">Message us for product info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

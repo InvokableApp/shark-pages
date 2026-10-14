@@ -1,0 +1,99 @@
+/* glp/glp-natural-foods-guide/glp-food-guide-reel: the Natural GLP Foods Guide opt-in as a reel (platform only; see
+ * block.html). The reel is _shared/reel/v1/reel.css; this is the guide's own look, read off its cover: warm cream paper,
+ * sage green, a salmon accent (the salmon on every divider), Playfair Display over Inter like the recipe guide.
+ * Its own screens: the guide on the cover, the three hormone chips, the switch, the three struggle cards, the six-line list.
+ * The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap");
+
+.rl.rl-nf{
+  --sage:#2f4a3a; --sage-deep:#22382b; --salmon:#f2a582; --salmon-ink:#c9633d; --green-ink:#3f7a55; --cream:#f6f3ec;
+  --paper:var(--cream); --tint:#e9efe6; --night:var(--sage); --ink:#1f2922; --body:#3e4a42; --grey:#6d776f; --on-dark:#f6f3ec;
+  --head:"Playfair Display",Georgia,serif; --head-w:600; --sans:Inter,system-ui,-apple-system,sans-serif;
+  --eyebrow:var(--green-ink); --eyebrow-dark:#a9d5b3; --cta:#3f7a55; --cta-ink:#fff; --mark:var(--salmon); --shade:34,56,43;
+}
+.rl-nf h1 em,.rl-nf h2 em{ font-style:italic; color:var(--salmon); }
+.rl-nf .rl-paper h2 em,.rl-nf .rl-tint h2 em{ color:var(--salmon-ink); }
+.rl-nf .rl-btn{ border-radius:999px; font-weight:600; }
+
+/* 1. the cover: her kitchen, the guide over it. Every photo screen fades its picture hard (Jeff, 2026-10-14, the recipe
+   guide: "really fade the image a lot more so the text is legible"). */
+.rl-cover .rl-bg{ background-position:88% 28%; }
+.rl-nf .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.86) 0%,rgba(var(--shade),.8) 40%,rgba(var(--shade),.96) 100%); }
+.rl-nf .rl-photo .rl-bg{ filter:saturate(.85); }
+.rl-nf .rl-cover h1{ font-size:clamp(36px,10vw,50px); line-height:1.02; }
+.rln-book{ width:60%; max-width:270px; margin-top:18px; border-radius:6px; transform:rotate(-4deg); box-shadow:0 30px 50px -16px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.12); }
+
+/* 2. the three hormones, lit one after another */
+.rln-chips{ display:block; width:min(300px,86%); height:auto; margin:4px 0 20px; overflow:visible; }
+.rln-chip rect{ fill:#fff; stroke:rgba(31,41,34,.12); transition:fill .4s calc(.4s + var(--n) * .3s),stroke .4s calc(.4s + var(--n) * .3s); }
+.rln-chip circle{ fill:rgba(31,41,34,.15); transition:fill .4s calc(.4s + var(--n) * .3s),transform .4s calc(.4s + var(--n) * .3s); transform-box:fill-box; transform-origin:center; }
+.rln-chip text{ font:600 14px var(--sans); fill:var(--ink); letter-spacing:.02em; }
+.rln-chip .rln-chip-what{ font:500 12px var(--sans); fill:var(--grey); opacity:0; transition:opacity .4s calc(.6s + var(--n) * .3s); }
+.rl-p.is-on .rln-chip rect{ fill:#dff0e4; stroke:var(--green-ink); }
+.rl-p.is-on .rln-chip circle{ fill:var(--green-ink); transform:scale(1.15); }
+.rl-p.is-on .rln-chip .rln-chip-what{ opacity:1; }
+.rln-shot h2{ font-size:clamp(26px,7.4vw,32px); }
+
+/* 3. the switch: off when the screen lands, on a beat later */
+.rln-toggle{ display:block; width:min(220px,60%); height:auto; margin:2px 0 20px; overflow:visible; }
+.rln-toggle-track{ fill:rgba(246,243,236,.14); stroke:rgba(246,243,236,.25); stroke-width:1.5; transition:fill .5s .9s,stroke .5s .9s; }
+.rln-toggle-knob{ fill:#f6f3ec; transition:transform .5s cubic-bezier(.4,0,.2,1) .9s; }
+.rln-toggle-off,.rln-toggle-on{ font:600 13px var(--sans); fill:rgba(246,243,236,.7); letter-spacing:.08em; text-transform:uppercase; transition:opacity .3s .9s; }
+.rln-toggle-on{ opacity:0; fill:var(--salmon); }
+.rl-p.is-on .rln-toggle-track{ fill:var(--green-ink); stroke:var(--green-ink); }
+.rl-p.is-on .rln-toggle-knob{ transform:translateX(100px); }
+.rl-p.is-on .rln-toggle-off{ opacity:0; } .rl-p.is-on .rln-toggle-on{ opacity:1; }
+.rln-say{ font-size:clamp(28px,8vw,38px) !important; line-height:1.1 !important; }
+
+/* 4. the three struggles */
+.rln-cards > div{ background:var(--cream); border:1px solid rgba(31,41,34,.08); border-radius:20px; padding:22px 20px 20px; box-shadow:0 10px 26px -16px rgba(34,56,43,.35); }
+.rln-ico{ display:grid; place-items:center; width:46px; height:46px; border-radius:14px; margin-bottom:16px; background:#fbe3d6; color:var(--salmon-ink); }
+.rln-ico svg{ width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.rln-cards h3{ font-size:22px; color:var(--ink); }
+.rln-cards p{ font-size:15.5px; margin-top:10px; }
+
+/* 5. what's inside: six lines, a salmon rule each */
+.rln-inside .rl-bg{ background-position:center 40%; }
+.rln-inside h2{ font-size:clamp(24px,6.8vw,30px); }
+.rln-list{ list-style:none; padding:0; margin:18px 0 0; display:flex; flex-direction:column; gap:10px; }
+.rln-list li{ border-left:3px solid var(--salmon); padding-left:12px; font-size:14.5px; line-height:1.4; color:rgba(255,255,255,.86); }
+.rln-list b{ color:#fff; font-weight:600; }
+
+/* 6. the close */
+.rln-close .rl-bg{ background-position:60% 30%; }
+.rln-close h2{ font-size:clamp(30px,8.6vw,40px); }
+.rln-close .rl-fine{ margin-top:18px !important; }
+
+/* most phones */
+@media (max-width:700px) and (max-height:900px){ .rln-book{ width:52%; } }
+@media (max-width:700px) and (max-height:760px){
+  .rl-nf .rl-cover .rl-in{ padding-top:28px; }
+  .rl-nf .rl-cover h1{ font-size:32px; }
+  .rln-book{ width:48%; margin-top:12px; }
+  .rl-nf .rl-cover .rl-pills{ margin-top:14px; } .rl-nf .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
+  .rl-nf .rl-cover .rl-note{ margin-top:10px; }
+  .rln-chips{ width:72%; margin-bottom:12px; } .rln-shot h2{ font-size:24px; }
+  .rln-toggle{ width:46%; margin-bottom:12px; } .rln-say{ font-size:26px !important; }
+  .rln-cards h3{ font-size:19px; } .rln-cards p{ font-size:14px; }
+  .rln-inside h2{ font-size:22px; } .rln-list{ margin-top:12px; gap:7px; } .rln-list li{ font-size:13px; }
+  .rln-close h2{ font-size:28px; } .rln-close .rl-fine{ font-size:10.5px !important; margin-top:12px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-nf .rl-cover h1{ font-size:28px; }
+  .rln-book{ width:26%; margin-top:8px; }
+  .rln-chips{ display:none; } .rln-toggle{ display:none; }
+  .rln-list li{ font-size:12px; } .rln-list li b{ display:block; }
+  .rln-close .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+/* a computer */
+@media (min-width:701px){
+  .rl-nf .rl-cover h1{ font-size:clamp(48px,4.2vw,66px); }
+  .rln-book{ width:min(400px,27vw); max-width:none; margin:0; }
+  .rln-chips{ width:min(420px,30vw); margin:0; } .rln-shot h2{ font-size:clamp(34px,3.2vw,46px); }
+  .rln-toggle{ width:min(360px,26vw); margin:0; } .rln-say{ font-size:clamp(38px,3.4vw,50px) !important; }
+  .rln-cards > *{ flex-basis:31%; }
+  .rln-inside h2{ font-size:clamp(34px,3vw,44px); } .rln-list{ display:grid; grid-template-columns:1fr 1fr; gap:14px 28px; } .rln-list li{ font-size:16px; }
+  .rln-close h2{ font-size:clamp(40px,3.6vw,56px); }
+}
+@media (prefers-reduced-motion:reduce){ .rln-chip rect,.rln-chip circle,.rln-chip-what,.rln-toggle-track,.rln-toggle-knob,.rln-toggle-off,.rln-toggle-on{ transition:none !important; } }
