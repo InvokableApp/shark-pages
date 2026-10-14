@@ -43,7 +43,10 @@
     });
   }
   function go(i) {
+    // A screen a page has hidden (a quiz question its branching skips) is stepped over, in the direction of travel.
+    var dir = i < on ? -1 : 1;
     i = Math.max(0, Math.min(screens.length - 1, i));
+    while (screens[i] && screens[i].hidden && i + dir >= 0 && i + dir < screens.length) i += dir;
     track.scrollTo({ top: screens[i].offsetTop, behavior: "smooth" });
   }
   function opener() { return document.querySelector(".pfn-dock") || root.querySelector(".rl-cta"); }

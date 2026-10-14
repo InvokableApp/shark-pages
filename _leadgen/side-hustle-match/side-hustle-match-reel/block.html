@@ -1,0 +1,189 @@
+<!--
+  _leadgen/side-hustle-match/side-hustle-match-reel
+  The lead-gen SIDE HUSTLE MATCH QUIZ as a reel (Jeff, 2026-10-14): one quiz for every system, on the lead-gen domain,
+  that asks what they're into and hands the lead to the rep owed one next on a system that fits ("it asks the users
+  interests and sorts leads into optimized accounts ... a glp user, a beneve user, a nueva user"; "make it a swipe
+  funnel ... yes, from the start").
+
+  ⚠️ JOE'S QUESTIONS ARE VERBATIM AND ALL OF THEM STAY (Jeff: "make sure all joes questions stay in dont cut his qs
+  theyre important data points"), in his order and with his branching, from the Side Hustle Quiz survey
+  (NUEVASHARK/_install/backups/side-hustle-quiz/survey-rewired.json): single skips the spouse answer, employed asks the
+  job, the hours question words itself by employment, over $100k skips "ready to invest". The one new question,
+  "What interests you personally?", comes after the 90 day target (Jeff: "lets move q2 to after q6").
+  ⚠️ NO COMPANY OR PRODUCT NAMES: the lead is matched to a system after the form, so nothing here names one.
+  ⚠️ THE ANSWER WORDS ARE THE ROUTING. quiz.js sends the interests as picked; the platform's routing campaign maps each
+  interest to the systems that fit (routing_campaigns.route_by, platform migration 0266). Rename an interest there and
+  here together.
+  The answers ride with the form (window.__pfExtra, platform form.js) under readable names, so a rep's lead page shows
+  them as they are. The dock stays hidden until the last screen, so nobody skips the questions.
+-->
+<div class="rl rl-match" data-pf-native data-pf-dock="See my match" data-pf-handoff="#f7f5f0">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the cover -->
+      <section class="rl-p rl-night rl-cover rl-wide" aria-label="Side hustle match quiz">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free side hustle quiz</span>
+          <h1 data-in style="--d:.1s">Which side hustle actually fits you?</h1>
+          <p data-in style="--d:.25s">A few quick questions about your time, your goals and what you're into, and we'll match you with a business that fits your life.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>Free</li><li>About 2 minutes</li><li>No experience needed</li></ul>
+          <div class="qz-go" data-in style="--d:.55s"><button type="button" class="rl-btn" data-qz-next>Start the quiz</button></div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. Joe: Parent Status -->
+      <section class="rl-p rl-paper rl-wide" data-qz="Which best describes you">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">To start, which best describes you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button">I'm a husband, looking for more time &amp; financial freedom.</button>
+            <button type="button">I'm a wife, looking for more time &amp; financial freedom.</button>
+            <button type="button" data-qz-single>I'm single, looking for more time &amp; financial freedom.</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Joe: Employment (single: no spouse answer) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="Currently employed">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Are you currently employed?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-qz-employed>Yes, I am</button>
+            <button type="button">No, I am not</button>
+            <button type="button" data-qz-spouse>Not me, but my spouse is</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Joe: Occupation (employed only) -->
+      <section class="rl-p rl-paper rl-wide" data-qz="What they do for work" data-qz-if="employed">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What do you currently do for work?</h2>
+          <div class="qz-text" data-in style="--d:.25s">
+            <input type="text" placeholder="Your job or industry" autocomplete="organization-title" enterkeyhint="next">
+            <button type="button" class="rl-btn" data-qz-next>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Joe: Time Per Week (worded by employment) -->
+      <section class="rl-p rl-night rl-wide" data-qz="Hours a week">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s" data-qz-hours-employed="With your current job, how much time could you put toward building a side hustle each week? (rough estimate)">How much time could you put toward building a business each week? (rough estimate)</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button">1 to 5 hours</button>
+            <button type="button">5 to 10 hours</button>
+            <button type="button">10 to 15 hours</button>
+            <button type="button">15 to 20 hours</button>
+            <button type="button">20 or more hours</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Joe: Income Goal -->
+      <section class="rl-p rl-paper rl-wide" data-qz="Main goal">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What is your main goal right now?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button">I'm mostly focused on making more money...</button>
+            <button type="button">I'm mostly focused on creating more time freedom...</button>
+            <button type="button">I want both, more time &amp; financial freedom...</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Joe: Target Income -->
+      <section class="rl-p rl-tint rl-wide" data-qz="Target income in 90 days">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What is your target income in the next 90 days?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button">I'd be happy with an extra $500 - $1k/month</button>
+            <button type="button">I really need to be earning an extra $1k - $3k/month</button>
+            <button type="button">$3k - $5k per month would give me some real freedom</button>
+            <button type="button">I want this to become my full-time income, $5k/month+</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. NEW: interests, several allowed. These words are the routing (route_by, 0266). -->
+      <section class="rl-p rl-night rl-wide" data-qz="Interests" data-qz-many>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What interests you personally?</h2>
+          <p data-in style="--d:.18s">Pick all that fit.</p>
+          <div class="qz-opts qz-chips" data-in style="--d:.28s">
+            <button type="button" aria-pressed="false">Health and wellness</button>
+            <button type="button" aria-pressed="false">Cutting-edge GLP alternatives and weight loss</button>
+            <button type="button" aria-pressed="false">Women's health and hormones</button>
+            <button type="button" aria-pressed="false">Beauty and skincare</button>
+            <button type="button" aria-pressed="false">Energy and healthier coffee</button>
+            <button type="button" aria-pressed="false">Gut health and blood sugar</button>
+            <button type="button" aria-pressed="false">Travel</button>
+            <button type="button" aria-pressed="false">Stocks, crypto and trading</button>
+          </div>
+          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next disabled>Next</button></div>
+        </div>
+      </section>
+
+      <!-- 9. Joe: Household Income -->
+      <section class="rl-p rl-paper rl-wide" data-qz="Current income">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Got your financial goal, but where are you at currently?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button">I earn less than $30,000 / year</button>
+            <button type="button">I earn $30,000 - $50,000 / year</button>
+            <button type="button">I earn $50,000 - $100,000 / year</button>
+            <button type="button" data-qz-high>I earn more than $100,000 / year</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Joe: Investment Ready (skipped over $100k) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="Ready to invest" data-qz-if="not-high">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 class="qz-h-sm" data-in style="--d:.1s">Based on your answers, we have an opportunity that could be a strong fit.</h2>
+          <p data-in style="--d:.2s">This is a legitimate businesses with real income potential, and like any business, it requires an initial investment. Startup costs typically range from $99 to $599+.</p>
+          <p data-in style="--d:.28s"><strong>IF (and only IF) this opportunity felt right for you, is this something you’d be able to invest both the time and money needed to give it a real shot?</strong></p>
+          <div class="qz-opts" data-in style="--d:.36s">
+            <button type="button">Yes, absolutely I'd be willing to invest time &amp; money into something that makes sense for me.</button>
+            <button type="button">Not sure yet, but I still want to see the recommendation.</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Joe: Processing, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Your match">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Building your custom match...</h2>
+          <ul class="qz-steps">
+            <li style="--d:.3s">Analyzing your answers</li>
+            <li style="--d:1.5s">Matching you with a business model</li>
+            <li style="--d:2.6s">Generating your report</li>
+          </ul>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">Your match is ready. Swipe up to see it.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. -->
+    <button type="button" class="rl-cta" data-sk-open>See my match</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves, then the quiz's (both deferred, so in this order, before the platform builds the dock). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/_leadgen/side-hustle-match/side-hustle-match-reel/quiz.js?v=2" defer></script>

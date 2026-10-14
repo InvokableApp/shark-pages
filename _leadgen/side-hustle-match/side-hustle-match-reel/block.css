@@ -1,0 +1,86 @@
+/* _leadgen/side-hustle-match/side-hustle-match-reel — the lead-gen side hustle match quiz as a reel (see block.html).
+ * The reel is _shared/reel/v1/reel.css; this is the quiz's look (no system's brand: it sorts leads to every system, so a
+ * warm paper and ink with the house orange) and its own pieces: the answers, the interest chips, the job box, the
+ * processing screen. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap");
+
+.rl.rl-match{
+  --paper:#f7f5f0; --tint:#efe9df; --night:#141820; --ink:#151821; --body:#454a55; --grey:#6c717c; --on-dark:#f7f5f0;
+  --head:Inter,system-ui,sans-serif; --head-w:800; --sans:Inter,system-ui,sans-serif;
+  --eyebrow:#c4561f; --eyebrow-dark:#f39a62; --cta:#e8692f; --cta-ink:#fff; --mark:#e8692f; --shade:20,24,32;
+}
+.rl-match h1,.rl-match h2{ letter-spacing:-.025em; }
+.rl-match h2{ font-size:clamp(25px,7vw,32px); }
+.rl-match h2.qz-h-sm{ font-size:clamp(22px,6vw,27px); }
+.rl-match .rl-p[hidden],.rl-match .qz-opts button[hidden],.rl-dots button[hidden]{ display:none; }
+.rl-match .rl-btn{ border-radius:999px; font:700 16px var(--sans); cursor:pointer; width:100%; }
+.rl-match .rl-btn:disabled{ opacity:.4; cursor:default; }
+.rl-match .rl-cover h1{ font-size:clamp(36px,10vw,48px); }
+.qz-go{ margin-top:28px; }
+
+/* the answers: one tap keeps it and moves on */
+.qz-opts{ display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+.qz-opts button{ text-align:left; font:600 16px/1.35 var(--sans); color:var(--ink); background:#fff; cursor:pointer;
+  border:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent); border-radius:16px; padding:15px 18px;
+  transition:border-color .15s,background-color .15s,transform .1s; }
+.qz-opts button:active{ transform:scale(.98); }
+.qz-opts button.is-picked,.qz-opts button[aria-pressed="true"]{ border-color:var(--cta); background:color-mix(in srgb,var(--cta) 12%,#fff); }
+.rl-night .qz-opts button{ color:var(--on-dark); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.16); }
+.rl-night .qz-opts button.is-picked,.rl-night .qz-opts button[aria-pressed="true"]{ border-color:var(--cta); background:color-mix(in srgb,var(--cta) 26%,transparent); }
+@media (hover:hover){ .qz-opts button:hover{ border-color:var(--cta); } }
+
+/* the interests: chips, several at once */
+.qz-chips{ flex-direction:row; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.qz-chips button{ border-radius:999px; padding:10px 15px; font-size:15px; display:inline-flex; align-items:center; gap:7px; }
+.qz-chips button::before{ content:""; width:15px; height:15px; border-radius:50%; border:1.5px solid currentColor; opacity:.5; flex:none; }
+.qz-chips button[aria-pressed="true"]::before{ opacity:1; border-color:var(--cta); background:var(--cta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat; }
+
+/* the job box */
+.qz-text{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+.qz-text input{ font:500 17px var(--sans); color:var(--ink); background:#fff; border:1.5px solid color-mix(in srgb,var(--ink) 18%,transparent);
+  border-radius:16px; padding:15px 18px; width:100%; }
+.qz-text input:focus{ outline:none; border-color:var(--cta); }
+
+/* processing (Joe's): the spinner, three ticks in turn, the bar filling, then "ready" */
+.qz-proc .rl-in{ text-align:center; }
+.qz-proc .rl-in::before{ margin-left:auto; margin-right:auto; }
+.qz-spin{ width:56px; height:56px; margin:0 auto 22px; border:5px solid rgba(255,255,255,.14); border-top-color:var(--cta); border-radius:50%; animation:qz-spin 1s linear infinite; }
+@keyframes qz-spin{ to{ transform:rotate(360deg); } }
+.qz-steps{ list-style:none; padding:0; margin:22px auto 0; max-width:320px; text-align:left; font:600 16px/1.3 var(--sans); color:var(--on-dark); }
+.qz-steps li{ margin:12px 0; opacity:0; transform:translateY(6px); transition:opacity .45s ease,transform .45s ease; }
+.qz-steps li::before{ content:"\2713"; color:#36c46f; font-weight:800; margin-right:10px; }
+.rl-p.is-on .qz-steps li{ opacity:1; transform:none; transition-delay:var(--d); }
+.qz-bar{ max-width:320px; height:8px; margin:24px auto 0; background:rgba(255,255,255,.12); border-radius:99px; overflow:hidden; }
+.qz-bar i{ display:block; height:100%; width:0; background:var(--cta); border-radius:99px; }
+.rl-p.is-on .qz-bar i{ width:100%; transition:width 3.3s ease .2s; }
+.qz-ready{ opacity:0; font-weight:700; color:var(--on-dark) !important; margin-top:22px !important; }
+.rl-p.is-on .qz-ready{ opacity:1; transition:opacity .5s ease 3.6s; }
+
+/* the dock (the form) waits for the last screen: nobody skips the questions */
+body:has(.rl-match:not(.rl-last)) .pfn-dock{ opacity:0; pointer-events:none; transform:translateY(20px); }
+.rl-match:not(.rl-last) .rl-cta{ opacity:0; pointer-events:none; }
+body:has(.rl-match) .pfn-dock{ transition:opacity .4s,transform .4s; }
+
+/* a short phone: tighter answers */
+@media (max-height:700px){
+  .qz-opts{ gap:8px; margin-top:16px; } .qz-opts button{ padding:12px 15px; font-size:15px; }
+  .qz-chips button{ padding:8px 12px; font-size:14px; }
+  .rl-match h2{ font-size:clamp(22px,6.4vw,28px); }
+}
+/* The questions have no dock under them (it waits for the last screen), so they don't keep its room, and a short
+   phone gets everything a size down. Measured at 375x560, 390x664 and 430x800: every screen inside its own. */
+.rl-match .rl-p:not(.qz-proc) .rl-in{ padding-bottom:40px; }
+@media (max-height:620px){
+  .rl-match .rl-in{ padding-top:30px; }
+  .rl-match .rl-night .rl-in::before{ margin-bottom:16px; }
+  .rl-match .rl-eyebrow{ margin-bottom:8px; }
+  .rl-match .rl-cover h1{ font-size:32px; } .rl-match .rl-cover p{ font-size:15px; margin-top:10px; }
+  .rl-match .rl-pills{ margin-top:14px; } .qz-go{ margin-top:18px; } .rl-match .rl-hint{ margin-top:22px; }
+  .rl-match h2{ font-size:21px; } .rl-match h2.qz-h-sm{ font-size:19px; }
+  .rl-match p{ font-size:14px; line-height:1.42; margin-top:8px; }
+  .qz-opts{ gap:6px; margin-top:12px; } .qz-opts button{ padding:10px 13px; font-size:14px; border-radius:13px; }
+  .qz-chips{ gap:6px; margin-top:12px; } .qz-chips button{ padding:7px 11px; font-size:13px; }
+  .rl-match .rl-btn{ padding:12px 16px; }
+}
+@media (min-width:900px){ .qz-opts:not(.qz-chips),.qz-text{ max-width:560px; } }
