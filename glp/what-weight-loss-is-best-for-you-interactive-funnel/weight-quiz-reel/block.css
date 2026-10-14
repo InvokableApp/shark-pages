@@ -1,0 +1,20 @@
+/* glp/what-weight-loss-is-best-for-you-interactive-funnel/weight-quiz-reel: GLP's Weight Loss Supplement Recommendation
+ * Quiz as a reel (see block.html). The quiz is the lead-gen match quiz's look and moves
+ * (_leadgen/side-hustle-match/side-hustle-match-reel): this sheet imports its look and puts the survey's own colours on
+ * it (forms.schema.theme: the green #00853E and its lighter #18BD5B, the slate question ink #0F172A, the pale #F8FAFC),
+ * with a deep green for the dark screens. The results reel imports this sheet. */
+@import url("../../../_leadgen/side-hustle-match/side-hustle-match-reel/block.css");
+
+.rl.rl-match.rl-wq{
+  --paper:#ffffff; --tint:#eef6f1; --night:#11302a; --ink:#0f172a; --body:#475569; --grey:#64748b; --on-dark:#f8fafc;
+  --eyebrow:#00853e; --eyebrow-dark:#5fd48f; --cta:#00853e; --cta-ink:#fff; --mark:#18bd5b; --shade:17,48,42;
+}
+.rl-wq .qz-opts button{ border-color:#e2e8f0; }
+.rl-wq .rl-night .qz-opts button{ border-color:rgba(248,250,252,.18); }
+.rl-wq .qz-steps li::before{ color:#5fd48f; }
+.rl-wq .rl-cover h1{ font-size:clamp(30px,8.6vw,40px); }
+/* the "select all that apply" chips: a tap toggles, Next moves on even with none picked (the survey didn't require it) */
+.rl-wq .qz-chips{ margin-top:16px; }
+.rl-wq [data-qz-many] .qz-go{ margin-top:18px; }
+@media (max-height:620px){ .rl-wq .rl-cover h1{ font-size:26px; } }
+@media (min-width:701px){ .rl-wq .rl-cover h1{ font-size:clamp(40px,3.8vw,54px); } }

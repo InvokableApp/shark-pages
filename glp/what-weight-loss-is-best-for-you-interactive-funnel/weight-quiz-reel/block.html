@@ -1,0 +1,153 @@
+<!--
+  glp/what-weight-loss-is-best-for-you-interactive-funnel/weight-quiz-reel
+  GLP's WEIGHT LOSS SUPPLEMENT RECOMMENDATION QUIZ as a REEL, on every GLP rep's own site (Jeff, 2026-10-14: "lets do the
+  weight loss supplement quiz, we need to convert that into the side hustle quiz format"). PLATFORM ONLY: the platform's
+  /weight-support-tool step points here (migration 0279); GHL keeps serving its own survey on every installed account.
+  ⚠️ THE QUESTIONS ARE THE SURVEY'S, VERBATIM (forms "Weight Loss Supplement Recommendation Quiz", schema.survey after
+     0279): seven questions in its order, its options word for word, its own icons (schema icons) in the quiz's green.
+     No branching: the survey has none (rules []).
+  ⚠️ THE ANSWER KEYS ARE THE SURVEY'S FIELD NAMES (contactglp_primary_goal, contactglp_weight_loss_duration,
+     contactglp_struggle, contactglp_activity_level, glp_wellness_product_features, contactglp_injection_feeling,
+     contactglp_budget): the answers ride with the form as window.__pfExtra into contacts.custom, so the rep's lead page
+     shows them. The rep's alerts read only name, email and phone.
+  ⚠️ THE DOCK OPENS THE FUNNEL'S OWN FORM, "Weight Loss Supplement Recommendation Quiz", which 0279 turns from the survey
+     into its contact slide alone (name, email, phone, the rep's consent line): the warm-lead alert, the three emails and
+     the SMS nurture trigger on that form's name.
+  The moves are the side hustle quiz reel's (quiz.js, a copy with these keys and no branching); the look is the lead-gen
+  reel's sheet with the survey's green over it (block.css: schema.theme accent #00853E).
+-->
+<div class="rl rl-match rl-wq" data-pf-native data-pf-dock="See my match" data-pf-handoff="#ffffff">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the cover: the survey's landing page, verbatim (schema.page) -->
+      <section class="rl-p rl-night rl-cover rl-wide" aria-label="Weight loss supplement quiz">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Supplement Recommendation Tool</span>
+          <h1 data-in style="--d:.1s">Let's Find The Weight Loss Support Supplement Option That Fits You Best</h1>
+          <p data-in style="--d:.25s">Answer a few quick questions and we'll make a supplement recommendation to help fuel and optimize your weight loss journey based on your goals, preference, and lifestyle.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>Takes &lt; 60 seconds</li><li>Personalized recommendation</li><li>No obligation</li></ul>
+          <div class="qz-go" data-in style="--d:.55s"><button type="button" class="rl-btn" data-qz-next>Find My Recommendation</button></div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. contactglp_primary_goal -->
+      <section class="rl-p rl-paper rl-wide" data-qz="contactglp_primary_goal">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What is your primary goal right now?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17l-8.5-8.5-5 5L2 7"/><path d="M16 17h6v-6"/></svg><span>Lose 10-20 pounds</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><span>Lose 20-50 pounds</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s4 4 4 9a4 4 0 0 1-8 0c0-1.2.5-2.2 1.2-3 .4 1 1 1.6 1.8 1.8C11 8 12 5 12 2z"/></svg><span>Lose 50+ pounds</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Maintain weight and improve overall wellness</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 3. contactglp_weight_loss_duration -->
+      <section class="rl-p rl-tint rl-wide" data-qz="contactglp_weight_loss_duration">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How long have you been trying to lose weight?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Less than 6 months</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><span>6-12 months</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-8 5"/><path d="M3 4v4h4"/><path d="M12 8v4l3 2"/></svg><span>1-3 years</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12M6 22h12M8 2c0 4 4 5 4 8s-4 4-4 8M16 2c0 4-4 5-4 8s4 4 4 8"/></svg><span>More than 3 years</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 4. contactglp_struggle -->
+      <section class="rl-p rl-paper rl-wide" data-qz="contactglp_struggle">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Which statement best describes your current eating habits?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg><span>I prioritize healthy foods most of the time.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 9v13M18 2c-2 0-3 2-3 5s1 4 3 4v11"/></svg><span>I try to eat healthy, but I'm not always consistent.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg><span>I know what I should eat, but I struggle to stick with it.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><span>Healthy eating has been a real challenge for me.</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 5. contactglp_activity_level -->
+      <section class="rl-p rl-night rl-wide" data-qz="contactglp_activity_level">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How often do you intentionally exercise?</h2>
+          <p data-in style="--d:.18s">For example: Go to the gym, go for a walk/run outside, workout at home.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg><span>I exercise regularly (4+ days/week)</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg><span>I work out a few times a week (2-3x/week)</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16c-.5-2 0-4 .5-6 .5-1.4 2.5-1.4 3 0 .5 2 .3 4 0 6M4.5 20h3M16 12c-.5-2 0-4 .5-6 .5-1.4 2.5-1.4 3 0 .5 2 .3 4 0 6M16.5 16h3"/></svg><span>I exercise occasionally (1-2x/week)</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/><path d="M4 10a2 2 0 0 0-2 2v4h20v-4a2 2 0 0 0-4 0v1H6v-1a2 2 0 0 0-2-2z"/><path d="M5 18v2M19 18v2"/></svg><span>Honestly, I rarely intentionally exercise</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 6. glp_wellness_product_features -->
+      <section class="rl-p rl-tint rl-wide" data-qz="glp_wellness_product_features" data-qz-many>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s" class="qz-h-sm">When looking at potential supplements to help fuel your weight loss journey, which features appeal most to you?</h2>
+          <p data-in style="--d:.18s">Select all that apply</p>
+          <div class="qz-opts qz-chips" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Easy daily routine</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg><span>Naturally sourced ingredients</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><span>Fits into a busy schedule</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Supports healthy habits</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg><span>Long-term consistency</span></button>
+          </div>
+          <div class="qz-go" data-in style="--d:.35s"><button type="button" class="rl-btn" data-qz-next>Next</button></div>
+        </div>
+      </section>
+      <!-- 7. contactglp_injection_feeling -->
+      <section class="rl-p rl-paper rl-wide" data-qz="contactglp_injection_feeling">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s" class="qz-h-sm">If you could choose, how would you prefer to take a weight loss supplement?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg><span>I prefer a weekly injection.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg><span>I prefer something I can take orally, like a pill, shake, or liquid drops.</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 8. contactglp_budget -->
+      <section class="rl-p rl-tint rl-wide" data-qz="contactglp_budget">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What kind of budget are you working with?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="M18.1 8.4a5 5 0 0 1-5.7 7.6"/><path d="M7 6h1.5v4.5"/></svg><span>I'm on a tight budget, need something very affordable...</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h12v3M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6H17a2 2 0 0 0 0 4h4"/></svg><span>I'm not rich, but willing to spend the money on the right product...</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l3.5 6L12 21 2.5 9 6 3z"/><path d="M2.5 9h19M9 3l-2.5 6L12 21l5.5-12L15 3"/></svg><span>Budget isn't really a huge factor, the supplement itself is...</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. the survey's processing slide, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Your match">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Analyzing your responses...</h2>
+          <ul class="qz-steps">
+            <li style="--d:.3s">Building your personalized recommendation</li>
+            <li style="--d:1.5s">Scanning options</li>
+            <li style="--d:2.6s">Finding the weight loss solution that fits your answers</li>
+          </ul>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">We have a weight loss supplement match for you. Swipe up to see it.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. -->
+    <button type="button" class="rl-cta" data-sk-open>See my match</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves, then the quiz's (both deferred, so in this order, before the platform builds the dock). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/weight-quiz-reel/quiz.js?v=1" defer></script>
