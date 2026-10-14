@@ -1,0 +1,13 @@
+/* glp/which-work-from-home-model-is-right-for-you-quiz-funnel/side-hustle-quiz-reel: GLP's Side Hustle Opportunity Quiz
+ * as a reel (see block.html). The quiz is the lead-gen match quiz's (_leadgen/side-hustle-match/side-hustle-match-reel):
+ * this sheet imports its look and moves and puts GLP's colours on it, read off the survey the page replaces
+ * (forms.schema.theme: the ORYGN orange #fe5000, slate ink #1e293b, the pale #f8fafc). */
+@import url("../../../_leadgen/side-hustle-match/side-hustle-match-reel/block.css");
+
+.rl.rl-match.rl-glpq{
+  --paper:#ffffff; --tint:#f8fafc; --night:#1e293b; --ink:#1e293b; --body:#475569; --grey:#64748b; --on-dark:#f8fafc;
+  --eyebrow:#fe5000; --eyebrow-dark:#ffa06e; --cta:#fe5000; --cta-ink:#fff; --mark:#fe5000; --shade:30,41,59;
+}
+.rl-glpq .qz-opts button{ border-color:#e2e8f0; }
+.rl-glpq .rl-night .qz-opts button{ border-color:rgba(248,250,252,.18); }
+.rl-glpq .qz-steps li::before{ color:#ffa06e; }
