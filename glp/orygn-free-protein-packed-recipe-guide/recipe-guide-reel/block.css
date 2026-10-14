@@ -1,0 +1,127 @@
+/* glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel — the High Protein Recipe Guide opt-in as a reel (platform
+ * only; see block.html). The reel is _shared/reel/v1/reel.css; this is the guide's own look, read off its cover: the cover's
+ * cream, its forest green cloth, the bright "First" green, Playfair Display over Inter (the native lander's two faces).
+ * Its own screens: the book on the cover, the giant quarter, the three struggle cards, the four counts, the tablet.
+ * The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap");
+
+.rl.rl-pf{
+  --forest:#1b3a2a; --forest-deep:#12281c; --leaf:#37ca37; --leaf-ink:#1f8a3a; --cream:#f6f2ea;
+  --paper:var(--cream); --tint:#e8efe4; --night:var(--forest); --ink:#1c2420; --body:#3b463f; --grey:#6c766f; --on-dark:#f6f2ea;
+  --head:"Playfair Display",Georgia,serif; --head-w:600; --sans:Inter,system-ui,-apple-system,sans-serif;
+  --eyebrow:var(--leaf-ink); --eyebrow-dark:#8fe39b; --cta:#1f6b3c; --cta-ink:#fff; --mark:var(--leaf); --shade:18,40,28;
+}
+.rl-pf h1 em,.rl-pf h2 em{ font-style:italic; color:var(--leaf); }
+.rl-pf .rl-paper h2 em,.rl-pf .rl-tint h2 em{ color:var(--leaf-ink); }
+.rlp-green{ color:var(--leaf); }
+.rl-pf .rl-btn{ border-radius:999px; font-weight:600; }
+
+/* 1. the cover: the family table shot, the book tilted over its lower half */
+.rl-cover .rl-bg{ background-position:38% 20%; }
+/* Every photo screen fades its picture hard, so the words come first (Jeff, 2026-10-14: "the bg darker", "darker still",
+   "these screens with bg images need to really fade the image a lot more so the text is legible"). The photo is mood. */
+.rl-pf .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.86) 0%,rgba(var(--shade),.8) 40%,rgba(var(--shade),.96) 100%); }
+.rl-pf .rl-photo .rl-bg{ filter:saturate(.85); }
+.rl-pf .rl-cover h1{ font-size:clamp(42px,12vw,56px); line-height:1; }
+.rlp-book{ width:60%; max-width:270px; margin-top:18px; border-radius:6px; transform:rotate(-4deg); box-shadow:0 30px 50px -16px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.12); }
+
+/* 2. the quarter: a fraction drawn big, the bar strikes through */
+.rlp-big{ display:inline-flex; align-items:center; gap:10px; margin:8px 0 18px; font-family:var(--head); font-weight:500;
+  font-size:clamp(84px,24vw,112px); line-height:.9; color:var(--forest); letter-spacing:-.04em; }
+.rlp-big i{ display:block; width:0; height:6px; border-radius:3px; background:var(--leaf); transform:rotate(-70deg); transition:width .6s cubic-bezier(.4,0,.2,1) .5s; }
+.rl-p.is-on .rlp-big i{ width:.62em; }
+.rlp-quarter h2{ font-size:clamp(26px,7.4vw,32px); }
+
+/* 3. the fix: two bars. The fat drains to a third while the muscle holds, then a tick lands on the muscle. */
+.rlp-bars{ display:block; width:min(270px,74%); height:auto; margin:2px 0 22px; overflow:visible; }
+.rlp-bar-track{ fill:rgba(246,242,234,.08); stroke:rgba(246,242,234,.18); stroke-width:1; }
+.rlp-bar{ transform-box:fill-box; transform-origin:50% 100%; }
+.rlp-bar-muscle{ fill:var(--leaf); }
+.rlp-bar-fat{ fill:#c9a27a; transition:transform 1.4s cubic-bezier(.4,0,.2,1) .5s; }
+.rl-p.is-on .rlp-bar-fat{ transform:scaleY(.32); }
+.rlp-bar-label{ font:600 12px var(--sans); fill:rgba(246,242,234,.7); letter-spacing:.06em; text-transform:uppercase; }
+.rlp-bar-tick{ fill:none; stroke:var(--forest-deep); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:40; stroke-dashoffset:40; transition:stroke-dashoffset .5s ease-out 1.7s; }
+.rl-p.is-on .rlp-bar-tick{ stroke-dashoffset:0; }
+.rlp-say{ font-size:clamp(30px,8.6vw,40px) !important; line-height:1.1 !important; }
+
+/* 4. the three struggles: cream cards on the tint, a leaf icon each */
+.rlp-cards > div{ background:var(--cream); border:1px solid rgba(28,36,32,.08); border-radius:20px; padding:22px 20px 20px;
+  box-shadow:0 10px 26px -16px rgba(18,40,28,.35); }
+.rlp-ico{ display:grid; place-items:center; width:46px; height:46px; border-radius:14px; margin-bottom:16px; background:#dff5e1; color:var(--leaf-ink); }
+.rlp-ico svg{ width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.rlp-cards h3{ font-size:22px; color:var(--ink); }
+.rlp-cards p{ font-size:15.5px; margin-top:10px; }
+
+/* 5. what's inside: the four counts */
+.rlp-inside .rl-bg{ background-position:center 70%; }
+.rlp-inside h2{ font-size:clamp(26px,7.4vw,32px); }
+.rlp-counts{ display:grid; grid-template-columns:1fr 1fr; gap:16px 18px; margin-top:22px; }
+.rlp-counts b{ display:block; font:600 clamp(44px,12vw,56px)/.9 var(--head); color:var(--leaf); letter-spacing:-.02em; }
+.rlp-counts span{ display:block; margin-top:6px; font-size:13.5px; line-height:1.35; color:rgba(255,255,255,.82); }
+
+/* 6. the extras: the tablet and the grocery list side by side on the forest, then two lines */
+.rlp-shelf{ display:flex; align-items:flex-end; gap:16px; margin:0 0 12px; }
+.rlp-tablet{ display:block; width:40%; max-width:190px; height:auto; margin:0; border-radius:14px; flex:0 0 auto; }
+.rlp-list{ display:block; width:min(190px,48%); height:auto; overflow:visible; }
+.rlp-list-card{ fill:var(--cream); stroke:rgba(28,36,32,.1); }
+.rlp-list-title{ font:600 13px var(--head); fill:var(--ink); }
+.rlp-list-row text{ font:500 12px var(--sans); fill:var(--body); }
+.rlp-box{ fill:#fff; stroke:rgba(28,36,32,.3); stroke-width:1.2; transition:fill .3s calc(.6s + var(--n) * .35s),stroke .3s calc(.6s + var(--n) * .35s); }
+.rlp-check{ fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:14; stroke-dashoffset:14; transition:stroke-dashoffset .35s ease-out calc(.75s + var(--n) * .35s); }
+.rl-p.is-on .rlp-box{ fill:var(--leaf-ink); stroke:var(--leaf-ink); }
+.rl-p.is-on .rlp-check{ stroke-dashoffset:0; }
+.rlp-tablet[data-in]{ transform:translateY(22px) scale(.97); }
+.rl-p.is-on .rlp-tablet[data-in]{ transform:none; }
+.rlp-extra{ list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:14px; }
+.rlp-extra li{ border-left:3px solid var(--leaf); padding-left:14px; }
+.rlp-extra h3{ color:var(--on-dark); font-size:19px; margin:0; }
+.rlp-extra p{ font-size:15px !important; margin-top:4px !important; line-height:1.45 !important; }
+
+/* 7. the close */
+.rlp-close .rl-bg{ background-position:center 30%; }
+.rlp-close h2{ font-size:clamp(30px,8.6vw,40px); }
+.rlp-close .rl-fine{ margin-top:18px !important; }
+
+/* most phones: the cover's book stays small enough that the cover fits above the dock */
+@media (max-width:700px) and (max-height:900px){ .rlp-book{ width:52%; } .rlp-tablet{ width:34%; } }
+/* shorter phones */
+@media (max-width:700px) and (max-height:760px){
+  .rl-pf .rl-cover .rl-in{ padding-top:28px; }
+  .rl-pf .rl-cover h1{ font-size:36px; }
+  .rlp-book{ width:40%; margin-top:12px; }
+  .rl-pf .rl-cover .rl-pills{ margin-top:14px; } .rl-pf .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
+  .rl-pf .rl-cover .rl-note{ margin-top:10px; }
+  .rlp-big{ font-size:76px; margin:4px 0 12px; } .rlp-quarter h2{ font-size:24px; }
+  .rlp-say{ font-size:27px !important; }
+  .rlp-cards h3{ font-size:19px; } .rlp-cards p{ font-size:14px; }
+  .rlp-inside h2{ font-size:24px; } .rlp-counts{ margin-top:16px; gap:12px 14px; } .rlp-counts b{ font-size:40px; } .rlp-counts span{ font-size:12.5px; }
+  .rlp-bars{ width:58%; margin-bottom:14px; }
+  .rlp-tablet{ width:30%; } .rlp-list{ width:44%; } .rlp-shelf{ gap:12px; } .rlp-extra{ gap:10px; } .rlp-extra h3{ font-size:17px; } .rlp-extra p{ font-size:14px !important; }
+  .rlp-close h2{ font-size:28px; } .rlp-close .rl-fine{ font-size:10.5px !important; margin-top:12px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-pf .rl-cover h1{ font-size:30px; }
+  .rlp-book{ width:28%; margin-top:8px; }
+  .rlp-big{ font-size:60px; }
+  .rlp-quarter p{ font-size:14px; }
+  .rlp-counts span{ font-size:11.5px; } .rlp-counts b{ font-size:34px; }
+  .rlp-bars{ display:none; }
+  .rlp-tablet{ display:none; } .rlp-list{ width:40%; }
+  .rlp-close .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+
+/* a computer */
+@media (min-width:701px){
+  .rl-pf .rl-cover h1{ font-size:clamp(52px,4.6vw,72px); }
+  .rlp-book{ width:min(440px,30vw); max-width:none; margin:0; }
+  .rlp-big{ font-size:clamp(140px,13vw,200px); }
+  .rlp-say{ font-size:clamp(38px,3.4vw,50px) !important; }
+  .rlp-cards > *{ flex-basis:31%; }
+  .rlp-counts{ grid-template-columns:repeat(4,1fr); } .rlp-counts b{ font-size:clamp(60px,5.6vw,84px); } .rlp-counts span{ font-size:15px; }
+  .rlp-bars{ width:min(420px,30vw); margin-bottom:0; }
+  .rlp-shelf{ gap:28px; margin:0; } .rlp-tablet{ width:min(300px,20vw); max-width:none; } .rlp-list{ width:min(280px,19vw); }
+  .rlp-extra h3{ font-size:23px; } .rlp-extra p{ font-size:17px !important; }
+  .rlp-close h2{ font-size:clamp(40px,3.6vw,56px); }
+}
+@media (prefers-reduced-motion:reduce){ .rlp-big i,.rlp-bar-fat,.rlp-bar-tick,.rlp-box,.rlp-check{ transition:none !important; } }

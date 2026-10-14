@@ -1,0 +1,99 @@
+<!--
+  glp/orygn-free-protein-packed-recipe-guide/recipe-guide-confirmation-reel
+  The High Protein Recipe Guide confirmation as a REEL, after its opt-in reel (Jeff, 2026-10-14). Four screens, PLATFORM
+  ONLY: the platform's /download-your-recipe-guide step points here (migration 0268). GHL keeps serving the native
+  confirmation on every installed GLP account; it is never edited.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's: message "PRODUCT INFO" to the rep, on Facebook or by text, for
+     product and sample info. The "Yeah... send me product & sample info" button goes where the native page's does, the
+     /recipe-guide-redirect step (the rep's buy link): that visit is what fires the Fire Lead alert and InitiateCheckout.
+  ⚠️ THE ASK COMES WITH ITS WORDS (Jeff, 2026-10-13, Nueva's confirmation): data-pf-say is the message the lead sends; the
+     dock and every [data-pf-ask] open the card (tap to copy, then Message on Facebook or Send a text). This funnel has no
+     DM redirect step, so Facebook is the rep's Messenger link itself ([data-needs]: hidden for a rep without one) and the
+     text is an sms: link with PRODUCT INFO in it, as the native page's popup had them.
+  ⚠️ EVERY WORD IS THE NATIVE PAGE'S, verbatim, plus the visitor's first name in the headline (PAGE-COPY-SOP §5c), and the
+     guide's own three quick habits on the last screen (from the guide online, /protein-first-recipe-guide).
+  ⚠️ The products shown are the ones the native page shows (IGNYT and triGLP, the lander's product shot); no price, no
+     offer terms, the fine print as the native page has it.
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
+-->
+<div class="rl rl-pf rlc" data-pf-native data-pf-message="for product and sample info" data-pf-say="PRODUCT INFO" data-pf-arrive="#f6f2ea">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: check your inbox. The page rises out of the cream the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Check your inbox</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your recipe guide is being emailed to you. Give it 2 minutes 📬</h1>
+          <p data-in style="--d:.3s">We've sent the High Protein Recipe Guide to your email. It should arrive within the next two minutes.
+            If you don't see it, please check your Promotions, Updates, or Spam folder as it could be there!</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/protein-first-recipe-guide">Access the free guide now</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for product and sample info</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: by the way. The two products on the forest. -->
+      <section class="rl-p rl-night rlc-products">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>By the way</span>
+          <img class="rlc-pack rl-art" data-in style="--d:.1s" src="/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/products.webp"
+               width="1566" height="1676" alt="The IGNYT pouch with a stick and the triGLP dropper bottle">
+          <h2 data-in style="--d:.25s">Looking for an easy way to help with food cravings and lose some weight?</h2>
+          <p data-in style="--d:.35s">Eating HEALTHY meals that promote muscle and burning excess fat while living a busy life isn't always easy. 😞
+            These TWO products make it EASY for any busy person to quiet the food noise, cut down on cravings and support your
+            weight loss journey.</p>
+          <a class="rl-btn rlc-go" data-in style="--d:.45s" href="/recipe-guide-redirect">Yeah... send me product &amp; sample info! 👀</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: want to try the products? The rep's own picture, big, with the check, and the ask. -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want to try the products? ✅</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "PRODUCT INFO" to a trusted team member on Facebook now!</h2>
+          <p data-in style="--d:.3s">They can send you more information on the product, sampling options and even special pricing details!</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}"
+               href="https://{{custom_values.your_facebook_messenger_link}}">💬 Message "PRODUCT INFO" to us on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.rep_phone}}"
+               href="sms:{{custom_values.rep_phone}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: something to do today, from the guide -->
+      <section class="rl-p rl-photo rl-wide rlc-today">
+        <div class="rl-bg" style="background-image:url('/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/flatlay.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Start today</span>
+          <h2 data-in style="--d:.1s">Three quick habits that make this work</h2>
+          <ol class="rlc-habits">
+            <li data-in style="--d:.25s"><span>1</span><div>Anchor every meal with a protein you can see (chicken, eggs, fish, beef, beans, Greek yogurt).</div></li>
+            <li data-in style="--d:.4s"><span>2</span><div>Aim for a palm to a palm and a half of protein per person, per meal.</div></li>
+            <li data-in style="--d:.55s"><span>3</span><div>Drink water with every meal. A quiet appetite can also be a quiet thirst.</div></li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.7s">The information in this guide is for educational and informational purposes only and is not medical,
+            nutritional, diagnostic, or treatment advice. We are not physicians, medical professionals, registered dietitians, or
+            licensed healthcare providers. This content is not a substitute for professional advice. Consult your physician or a
+            qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an
+            existing medical condition. These are general recipe suggestions. Results vary from person to person. We make no
+            guarantees regarding weight loss, muscle retention, or any other outcome.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window with the rep (reel.js). -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for product info" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       data-alt-href="sms:{{custom_values.rep_phone}}?&body=PRODUCT%20INFO" href="https://{{custom_values.your_facebook_messenger_link}}">Message us for product info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

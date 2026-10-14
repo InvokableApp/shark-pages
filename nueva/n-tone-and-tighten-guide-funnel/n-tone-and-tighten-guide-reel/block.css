@@ -78,14 +78,14 @@
   .rl-tone .rl-cover .rl-book{ width:56%; max-width:250px; }
 }
 /* most phones: the cover's book stays small enough that the cover fits above the dock */
-@media (max-width:700px) and (max-height:900px){ .rl-tone .rl-cover .rl-book{ width:46%; margin-top:18px; } .rl-tone .rl-cover .rl-pills{ margin-top:18px; } }
+@media (max-width:700px) and (max-height:900px){ .rl-tone .rl-cover .rl-book{ width:40%; margin-top:16px; } .rl-tone .rl-cover .rl-pills{ margin-top:18px; } }
 /* shorter phones */
 @media (max-width:700px) and (max-height:760px){
   .rl-tone .rl-cover .rl-in{ padding-top:24px; }
   .rl-tone .rl-cover h1{ font-size:29px; }
   .rl-tone .rl-cover .rl-book{ width:36%; margin-top:16px; }
   .rl-tone .rl-cover .rl-pills{ margin-top:14px; } .rl-tone .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
-  .rl-tone .rl-cover .rl-note{ margin-top:10px; } .rl-tone .rl-hint{ margin-top:10px; }
+  .rl-tone .rl-cover .rl-note{ margin-top:10px; }
   .rl-tone h3.rl-h-lg{ font-size:30px; }
   .rl-ticks{ width:min(200px,56%); margin-bottom:18px; } .rl-bars{ height:76px; margin-bottom:18px; } .rl-ring{ width:86px; height:86px; margin-bottom:16px; }
   .rl-spread{ width:84%; margin-bottom:14px; }

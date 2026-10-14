@@ -1,0 +1,63 @@
+/* glp/orygn-free-protein-packed-recipe-guide/recipe-guide-confirmation-reel — the recipe guide confirmation as a reel
+ * (platform only; see block.html). The reel and the guide's look come from the opt-in reel's sheet; this adds the
+ * confirmation's own pieces: the envelope, the gift hint, the products on the forest, the rep's ask, the three habits. */
+@import url("../recipe-guide-reel/block.css");
+
+/* GHL never fills the name; the span stays hidden there (the platform drops it whole when the name is unknown). */
+[data-if-name]{ display:none; }
+
+/* 1. check your inbox */
+.rlc-env{ width:46px; height:46px; fill:none; stroke:var(--leaf-ink); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; margin-bottom:14px; }
+.rlc-top h1{ font-size:clamp(30px,8.4vw,40px); }
+.rlc-top p{ margin-top:18px; }
+.rl-gift{ display:flex; align-items:center; gap:10px; }
+.rl-gift-word{ font-size:13px; font-weight:600; letter-spacing:.04em; color:var(--leaf-ink); }
+.rl-gift-ar{ display:inline-flex; flex-direction:column; }
+.rl-gift-ar svg{ width:18px; height:18px; fill:none; stroke:var(--leaf-ink); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; margin:-7px 0; }
+
+/* 2. the products */
+.rlc-pack{ display:block; width:62%; max-width:300px; height:auto; margin:0 0 8px -2%; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+.rlc-pack[data-in]{ transform:translateY(22px) scale(.97); }
+.rl-p.is-on .rlc-pack[data-in]{ transform:none; }
+.rlc-products h2{ font-size:clamp(26px,7.4vw,32px); }
+.rlc-products p{ font-size:16px; }
+.rlc-go{ display:inline-block; margin-top:22px; padding:15px 22px; }
+
+/* 3. the ask */
+.rlc-ask .rl-who-pic{ box-shadow:0 0 0 3px var(--tint),0 0 0 5px var(--leaf); background:var(--forest); }
+.rlc-ask .rl-who-check{ box-shadow:0 0 0 3px var(--tint); background:var(--leaf-ink); }
+.rlc-ask h2{ font-size:clamp(26px,7.4vw,32px); }
+.rlc-ask .rl-btn-2{ font-size:14px; }
+
+/* 4. the three habits */
+.rlc-habits{ list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:12px; }
+.rlc-habits li{ display:flex; gap:14px; align-items:flex-start; font-size:15.5px; line-height:1.45; color:rgba(255,255,255,.88); }
+.rlc-habits li > span{ flex:0 0 30px; height:30px; border-radius:50%; display:grid; place-items:center; background:var(--leaf); color:var(--forest-deep); font:700 15px/1 var(--sans); }
+.rlc-today .rl-fine{ margin-top:20px !important; }
+
+/* most phones */
+@media (max-width:700px) and (max-height:900px){ .rlc-pack{ width:48%; } }
+@media (max-width:700px) and (max-height:760px){
+  .rlc-env{ width:36px; height:36px; margin-bottom:8px; }
+  .rlc-top h1{ font-size:28px; } .rlc-top p{ font-size:15px; margin-top:12px; }
+  .rlc-pack{ width:36%; } .rlc-products h2{ font-size:24px; } .rlc-products p{ font-size:14.5px; } .rlc-go{ margin-top:14px; padding:13px 18px; }
+  .rlc-ask h2{ font-size:24px; } .rlc-ask p{ font-size:15px; }
+  .rlc-habits{ margin-top:14px; gap:9px; } .rlc-habits li{ font-size:14px; }
+  .rlc-today .rl-fine{ font-size:10.5px !important; margin-top:12px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlc-top h1{ font-size:24px; } .rl-gift{ display:none; }
+  .rlc-pack{ display:none; } .rlc-products p{ display:none; }
+  .rlc-ask p{ display:none; }
+  .rlc-today .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+/* a computer */
+@media (min-width:701px){
+  .rlc-top .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
+  .rlc-top h1{ font-size:clamp(44px,4.2vw,60px); }
+  .rlc-top .rl-btns{ max-width:760px; } .rl-pf .rl-btn{ flex:0 1 auto; white-space:nowrap; padding:16px 28px; font-size:16px; }
+  .rlc-pack{ width:min(420px,30vw); max-width:none; margin:0; }
+  .rlc-products h2,.rlc-ask h2{ font-size:clamp(34px,3.2vw,46px); }
+  .rlc-ask .rl-btns{ max-width:760px; }
+  .rlc-habits li{ font-size:18px; }
+}

@@ -64,7 +64,7 @@
   .rl-cover h1{ font-size:31px; }
   .rl-cover .rl-book{ width:42%; margin-top:18px; }
   .rl-cover .rl-pills{ margin-top:16px; } .rl-cover .rl-pills li{ padding:6px 11px; font-size:12.5px; }
-  .rl-cover .rl-note{ margin-top:12px; } .rl-hint{ margin-top:12px; }
+  .rl-cover .rl-note{ margin-top:12px; }
   .rl-big{ font-size:96px; margin:18px 0 10px; }
   .rl-fan{ height:150px; }
   .rl-book-lg{ width:40%; margin-bottom:18px; }
@@ -103,4 +103,6 @@
   .rl-cover .rl-pills .ncp-desk{ display:none; }
   .rl-cover .rl-book{ width:60%; max-width:260px; }
 }
-@media (max-width:700px) and (max-height:760px){ .rl-cover .rl-book{ width:50%; } }
+@media (max-width:700px) and (max-height:760px){ .rl-cover .rl-book{ width:44%; } }
+/* the shortest phones: room for the arrows' 40px (reel.css). After the 760 rule above, which would otherwise win. */
+@media (max-width:700px) and (max-height:620px){ .rl-cover .rl-book{ width:26%; margin-top:8px; } .rl-cover .rl-pills li{ padding:5px 9px; font-size:12px; } }
