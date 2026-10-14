@@ -84,3 +84,14 @@ body:has(.rl-match) .pfn-dock{ transition:opacity .4s,transform .4s; }
   .rl-match .rl-btn{ padding:12px 16px; }
 }
 @media (min-width:900px){ .qz-opts:not(.qz-chips),.qz-text{ max-width:560px; } }
+
+/* An icon on the left of every answer (Jeff, 2026-10-14: "add the svgs back into the buttons ... feels less like a job
+   application"): Joe's own, from his survey (forms.schema icons), in the quiz's orange; the interests get matching ones. */
+.qz-opts button{ display:flex; align-items:center; gap:13px; }
+.qz-ico{ flex:none; width:26px; height:26px; fill:none; stroke:var(--cta); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rl-night .qz-ico{ stroke:var(--eyebrow-dark); }
+.qz-opts button.is-picked .qz-ico,.qz-opts button[aria-pressed="true"] .qz-ico{ stroke:var(--cta); }
+.qz-chips button::before{ display:none; }
+.qz-chips button{ gap:8px; }
+.qz-chips .qz-ico{ width:18px; height:18px; }
+@media (max-height:620px){ .qz-ico{ width:22px; height:22px; } .qz-chips .qz-ico{ width:15px; height:15px; } .qz-opts button{ gap:10px; } }
