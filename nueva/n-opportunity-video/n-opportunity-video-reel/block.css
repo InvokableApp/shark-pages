@@ -1,0 +1,8 @@
+/* nueva/n-opportunity-video/n-opportunity-video-reel — Nueva's opportunity video page as a reel (platform only; see
+ * block.html): Nitro's video page, imported (Nueva's teal, Montserrat, the banner, the cards and pop-ups). This adds a
+ * plain cover and the sign up link. */
+@import url("../../n-nitro-video/n-nitro-video/block.css");
+
+.rv-cover.rl-night h1{ color:var(--on-dark); }
+.rv-join{ margin:16px 0 0; text-align:center; font:600 15px/1.3 var(--sans); }
+.rv-join a{ color:var(--teal-d); text-decoration:underline; text-underline-offset:3px; }
