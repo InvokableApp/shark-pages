@@ -1,7 +1,7 @@
 /* glp / what-weight-loss-is-best-for-you-interactive-funnel / products-info-reel — GLP's Sizzle page as a reel (platform
  * only; see block.html). The reel's moves are _shared/reel/v1/reel.js (loaded by block.html). This adds:
  *
- *   1. THE BUTTONS GO TO THIS FUNNEL'S DM STEP. One page serves two funnels (/sizzle and /products-info), each with its
+ *   1. THE BUTTONS GO TO THE REP'S SHOP (rep_buy_link, root data-gz-shop), or with none on file to THIS FUNNEL'S DM STEP. One page serves two funnels (/sizzle and /products-info), each with its
  *      own redirect step to the rep's Messenger; the root's data-gz-dm names them ("/sizzle=/sizzle-redirect ...").
  *      The in-screen buttons and the computer's floating button get that address; the phone's dock (drawn by the
  *      platform, funnel-native.js) is sent there on a tap or a swipe. Only while the step has no form: with one,
@@ -23,13 +23,19 @@
     var kv = pair.split("=");
     if (kv.length === 2 && here.slice(-kv[0].length) === kv[0]) dm = kv[1];
   });
-  [].forEach.call(root.querySelectorAll("[data-gz-go]"), function (a) { a.setAttribute("href", dm); });
+  // The product buttons go to the rep's own shop (rep_buy_link, Jeff 2026-10-14: "can we make that go to reps replicated
+  // link?"), the science link stays on the DM step. No shop link on file (or a placeholder that didn't fill): the DM step.
+  var shop = String(root.getAttribute("data-gz-shop") || "").trim();
+  if (!shop || shop.indexOf("{{") > -1) shop = "";
+  else if (!/^https?:\/\//i.test(shop)) shop = "https://" + shop;
+  var go = shop || dm;
+  [].forEach.call(root.querySelectorAll("[data-gz-go]"), function (a) { a.setAttribute("href", a.getAttribute("data-gz-go") === "dm" ? dm : go); });
   var hasForm = function () { return !!(window.__PF__ && (window.__PF__.form || window.__PF__.survey)); };
   document.addEventListener("click", function (e) {
     var d = e.target.closest && e.target.closest(".pfn-dock");
     if (!d || hasForm()) return;
     e.preventDefault();
-    location.href = dm;
+    location.href = go;
   }, true);
 
   /* ---- 2. the video's still ---- */

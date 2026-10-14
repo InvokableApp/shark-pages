@@ -24,14 +24,16 @@
   children, 2026-10-05 backup), and on the platform the step has no form, so [data-optin] opened nothing at all
   (measured on yourname.heresthepage.com/sizzle, 2026-10-14). Both funnels' next step is the rep's Facebook DM redirect
   (/sizzle-redirect, /redirect-weightloss), and the page's own line says "Message us on Facebook (or text us) for more
-  product & sampling info!". So every button here, and the dock, goes to THIS funnel's DM step (block.js picks it by
-  the address the page is on: data-gz-dm). Each keeps data-optin, so if a form is ever put on the step, form.js opens
+  product & sampling info!". Jeff, 2026-10-14: "try these products can we make that go to reps replicated link?" So
+  every product button, and the dock, goes to the rep's own shop (rep_buy_link, data-gz-shop); a rep with no shop link
+  on file sends them to THIS funnel's DM step instead (block.js picks it by the address the page is on: data-gz-dm).
+  "Check Out More Of The Science" stays on the DM step (data-gz-go="dm"). Each keeps data-optin, so if a form is ever put on the step, form.js opens
   it instead, as it does on every other page.
 
   THE VIDEO is a .qv box, so the platform's player (watch.js) plays it and tells the rep how much was watched when
   the visitor came by their personal link.
 -->
-<div class="rl rl-pf gz" data-pf-native data-pf-dock="Try These Products!" data-gz-dm="/products-info=/redirect-weightloss /sizzle=/sizzle-redirect">
+<div class="rl rl-pf gz" data-pf-native data-pf-dock="Try These Products!" data-gz-dm="/products-info=/redirect-weightloss /sizzle=/sizzle-redirect" data-gz-shop="{{custom_values.rep_buy_link}}">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -210,7 +212,7 @@
             </article>
           </div>
           <p class="rl-cards-cue" data-in style="--d:.22s">1 of 8<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
-          <p class="gz-more" data-in style="--d:.28s"><a class="gz-link" href="/sizzle-redirect" data-optin data-gz-go>Check Out More Of The Science&hellip;</a></p>
+          <p class="gz-more" data-in style="--d:.28s"><a class="gz-link" href="/sizzle-redirect" data-optin data-gz-go="dm">Check Out More Of The Science&hellip;</a></p>
         </div>
       </section>
 
