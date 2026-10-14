@@ -1,0 +1,17 @@
+/* nueva/n-side-hustle-quiz-funnel/side-hustle-quiz-reel: Nueva's Side Hustle Quiz as a reel (see block.html). The quiz is
+ * the lead-gen match quiz's, as GLP's is: this sheet imports its look and moves and puts Nueva's colours on it, the
+ * Tone and Tighten reel's (teal #0abab5, deep teal #087f7b, navy #102a2a, Montserrat), the same as the funnel's next page. */
+@import url("../../../_leadgen/side-hustle-match/side-hustle-match-reel/block.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap");
+
+.rl.rl-match.rl-nvq{
+  --paper:#fcfeff; --tint:#e8f8f6; --night:#102a2a; --ink:#141313; --body:#4a5560; --grey:#6b7a82; --on-dark:#fcfeff;
+  --head:Montserrat,system-ui,sans-serif; --head-w:800; --sans:Montserrat,system-ui,sans-serif;
+  --eyebrow:#087f7b; --eyebrow-dark:#5fd9d5; --cta:#087f7b; --cta-ink:#fff; --mark:#0abab5; --shade:16,42,42;
+}
+.rl-nvq h1,.rl-nvq h2{ letter-spacing:-.03em; }
+.rl-nvq .qz-opts button{ border-color:#d5dfe1; }
+.rl-nvq .rl-night .qz-opts button{ border-color:rgba(252,254,255,.18); }
+.rl-nvq .qz-steps li::before{ color:#5fd9d5; }
+.rl-nvq .qz-spin{ border-top-color:#0abab5; }
+.rl-nvq .rl-night .qz-opts button.is-picked{ border-color:#0abab5; }
