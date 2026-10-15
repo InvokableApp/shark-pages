@@ -6,7 +6,7 @@
 @import url("../../../_shared/reel/looks/editorial-serif.css");
 
 /* 1. the cover: the guide, tilted */
-.lb-book{ width:50%; max-width:230px; margin-top:24px; box-shadow:0 26px 44px -16px rgba(42,26,23,.45),0 0 0 1px rgba(42,26,23,.08); }
+.lb-book{ width:64%; max-width:300px; margin-top:24px; box-shadow:0 26px 44px -16px rgba(42,26,23,.45),0 0 0 1px rgba(42,26,23,.08); }
 .rl-look-serif .rl-cover h1{ font-size:clamp(36px,10.4vw,46px); }
 .rl-cover .rl-note{ margin-top:20px; }
 
@@ -46,7 +46,7 @@
 /* most phones */
 @media (max-width:700px) and (max-height:760px){
   .rl-look-serif .rl-cover h1{ font-size:33px; }
-  .lb-book{ width:40%; margin-top:18px; }
+  .lb-book{ width:50%; margin-top:18px; }
   .rl-look-serif .lb-big{ font-size:110px; }
   .lb-lede{ font-size:20px !important; }
   .lb-cards h3{ font-size:21px; } .lb-cards p{ font-size:14.5px; }
@@ -57,7 +57,7 @@
 }
 @media (max-width:700px) and (max-height:620px){
   .rl-look-serif .rl-cover h1{ font-size:29px; }
-  .lb-book{ width:28%; margin-top:12px; }
+  .lb-book{ width:35%; margin-top:12px; }
   .rl-look-serif .lb-big{ font-size:84px; }
   .lb-lede{ font-size:18px !important; }
   .lb-cards > div{ padding:16px 16px 18px; } .lb-n{ font-size:24px; margin-bottom:8px; } .lb-cards-dark .lb-n{ font-size:32px; }
@@ -71,7 +71,7 @@
   .rl-look-serif .rl-cover h1{ font-size:clamp(46px,3.9vw,60px); }
   /* the floating button is the look's ink; a hairline of cream keeps it from sinking into the dark and photo chapters */
   .rl-lb .rl-cta{ box-shadow:0 18px 40px -14px rgba(0,0,0,.55),0 0 0 1px rgba(246,241,233,.4); }
-  .lb-book{ width:min(380px,26vw); max-width:none; margin:0; }
+  .lb-book{ width:min(480px,32vw); max-width:none; margin:0; }
   .rl-look-serif .lb-big{ font-size:clamp(220px,20vw,320px); }
   .lb-lede{ font-size:clamp(26px,2.2vw,32px) !important; max-width:24em !important; }
   .lb-stack{ width:min(560px,40vw); max-width:none; margin:0; }
