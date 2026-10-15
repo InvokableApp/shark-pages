@@ -1,0 +1,176 @@
+<!--
+  quantaira/income-quiz/income-quiz-reel
+  The PASSIVE INCOME QUIZ, Quantaira's second opt-in (platform only; step /income-quiz, migration 0316). A cover,
+  the truth about passive income, 8 questions, then the form (the dock: name and email). quiz.js adds up the answers
+  into one of six results and sends it with the form as pq_result (the plain name) and pq_result_key; the result reel reads
+  it back from this browser (sessionStorage "quantaira-pq") or from ?r= in an email's link.
+  ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
+  the script; never edit this file by hand.
+  Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
+  ("i also like the wheels").
+-->
+<div class="rl rl-match rl-look-print rl-pq" data-pf-native data-pf-dock="Show my result" data-pf-handoff="#f3f1ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- the cover -->
+      <section class="rl-p rl-paper rl-cover rl-wide" aria-label="Find the AI income that fits your life, with the real hours and costs">
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>Hours vs. money</span><span>8 questions</span></div>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Free · 2 minutes</span>
+          <h1 data-in style="--d:.1s">Find the AI income that fits your life, with the real hours and costs</h1>
+          <p data-in style="--d:.25s">Eight quick questions about your time, your money and how hands-off you want it. You get your match, with the hours, cost and wait behind it.</p>
+          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Start the quiz</button></div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- the truth about passive income -->
+      <section class="rl-p rl-night rl-wide pq-truth">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The truth about passive income</span>
+          <h2 data-in style="--d:.1s">Most side hustles are a second job with a new name</h2>
+          <div class="pq-stat" data-in style="--d:.2s" aria-hidden="true"><div><b>$200</b><small>a month, typical</small></div><div><b>~20</b><small>hours a month</small></div></div>
+          <p data-in style="--d:.3s">The typical side hustle pays about $200 a month for close to 20 hours of work. Faceless channels, SEO sites, print on demand: most of them are hours, not passive. This quiz shows you the real numbers for each kind of AI income, so you pick the one that fits.</p>
+          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Start the questions</button></div>
+        </div>
+      </section>
+
+      <!-- 1. hours -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_hours">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">How many hours a week could you really give it?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Under 2</button>
+            <button type="button" data-a="1">2 to 5</button>
+            <button type="button" data-a="2">5 to 10</button>
+            <button type="button" data-a="3">10 or more</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. passive -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_passive">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">What does &quot;passive&quot; mean to you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Set it up once and barely touch it</button>
+            <button type="button" data-a="1">Build something once and sell it again and again</button>
+            <button type="button" data-a="2">A few focused hours a week is fine</button>
+            <button type="button" data-a="3">I just want extra money coming in</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. soon -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_soon">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">How soon do you want the first dollar?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">This month</button>
+            <button type="button" data-a="1">In the next few months</button>
+            <button type="button" data-a="2">I can wait a year if it keeps growing</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. money -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_money">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">How much could you put in to get started?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Under $100</button>
+            <button type="button" data-a="1">$100 to $500</button>
+            <button type="button" data-a="2">$500 to $2,000</button>
+            <button type="button" data-a="3">More than $2,000</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. risk -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_risk">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">How do you feel about ups and downs?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">I can't afford to lose any of it</button>
+            <button type="button" data-a="1">Small swings are fine</button>
+            <button type="button" data-a="2">I'm OK with risk for a bigger upside</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. you -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_you">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Which sounds most like you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">I like making things: templates, designs, planners</button>
+            <button type="button" data-a="1">I'd post videos or talk on camera</button>
+            <button type="button" data-a="2">I'd rather sell a service to businesses</button>
+            <button type="button" data-a="3">I'd rather my money did the work</button>
+            <button type="button" data-a="4">I'm always telling people about things I like</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. tech -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_tech">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">How are you with tech?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Keep it simple, please</button>
+            <button type="button" data-a="1">I can follow steps</button>
+            <button type="button" data-a="2">I like building things</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. tried -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_tried" data-qz-many>
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count></span><span>Hours vs. money</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">What have you tried already?</h2>
+          <p class="pq-many" data-in style="--d:.18s">Pick all that fit.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Dropshipping</button>
+            <button type="button" data-a="1">YouTube, TikTok or a blog</button>
+            <button type="button" data-a="2">Crypto or trading</button>
+            <button type="button" data-a="3">Selling on Etsy or eBay</button>
+            <button type="button" data-a="4">Nothing yet</button>
+          </div>
+          <div class="qz-go"><button type="button" class="rl-btn" data-qz-next disabled>Next</button></div>
+        </div>
+      </section>
+
+      <!-- adding it up, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Your match is ready">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Where should we send your result?</h2>
+          <ul class="qz-steps">
+            <li style="--d:.3s">Adding up your answers</li>
+            <li style="--d:1.5s">Matching your hours and budget</li>
+            <li style="--d:2.6s">Pulling the real numbers</li>
+          </ul>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">Your match is ready. Your result opens on the next screen, and we email it to you with the numbers.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Show my result</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script type="application/json" id="pq-scoring">{"questions":[{"id":"hours","a":[{"s":{"allocator":3,"connector":1},"never":null},{"s":{"maker":1,"connector":2,"allocator":1},"never":null},{"s":{"builder":1,"publisher":2,"maker":1},"never":null},{"s":{"builder":2,"creator":2},"never":null}]},{"id":"passive","a":[{"s":{"allocator":3},"never":null},{"s":{"maker":2,"publisher":2},"never":null},{"s":{"builder":1,"creator":1,"connector":1},"never":null},{"s":{"connector":2,"builder":1},"never":null}]},{"id":"soon","a":[{"s":{"builder":2,"connector":2},"never":null},{"s":{"maker":1,"allocator":1,"publisher":1},"never":null},{"s":{"publisher":2,"creator":2},"never":null}]},{"id":"money","a":[{"s":{"connector":2,"creator":1,"maker":1},"never":null},{"s":{"maker":1,"publisher":1,"builder":1},"never":null},{"s":{"allocator":2},"never":null},{"s":{"allocator":3},"never":null}]},{"id":"risk","a":[{"s":{"connector":1,"maker":1},"never":"allocator"},{"s":{"allocator":1},"never":null},{"s":{"allocator":2},"never":null}]},{"id":"you","a":[{"s":{"maker":3},"never":null},{"s":{"creator":3},"never":null},{"s":{"builder":3},"never":null},{"s":{"allocator":3},"never":null},{"s":{"connector":3},"never":null}]},{"id":"tech","a":[{"s":{"allocator":1,"connector":1},"never":null},{"s":{"maker":1,"publisher":1},"never":null},{"s":{"builder":2,"publisher":1},"never":null}]},{"id":"tried","a":[{"s":{"maker":1},"never":null},{"s":{"creator":1},"never":null},{"s":{"allocator":2},"never":null},{"s":{"maker":1},"never":null},{"s":{},"never":null}]}],"tiebreak":["allocator","connector","builder","maker","publisher","creator"],"names":{"builder":"AI services","publisher":"Newsletter or site","creator":"Faceless videos","maker":"Digital products","allocator":"An AI that trades for you","connector":"Sharing what you like"}}</script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/quantaira/income-quiz/income-quiz-reel/quiz.js?v=1" defer></script>

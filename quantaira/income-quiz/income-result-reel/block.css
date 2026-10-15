@@ -1,0 +1,45 @@
+/* quantaira/income-quiz/income-result-reel — the quiz's result (see block.html), in Tech print. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/tech-print.css");
+
+.rl-pr h1{ font-size:clamp(32px,9.6vw,44px); }
+.rl-pr .rl-btn{ width:100%; }
+/* the Reddit line */
+.pq-real{ margin:22px 0 0; border-top:3px solid #141414; padding-top:12px; }
+.pq-real q{ display:block; margin-top:10px; font:500 16px/1.4 "Space Grotesk",sans-serif; color:#141414; quotes:"\201C" "\201D"; }
+.pq-real::after{ content:attr(data-src); display:block; margin-top:6px; font:400 11px "Space Mono",monospace; color:#6b6b6b; }
+/* the wheels: outer ring their path, inner ring Quantaira; they fill when the screen comes on */
+.pq-lg{ display:flex; gap:16px; flex-wrap:wrap; font:400 11px "Space Mono",monospace; text-transform:uppercase; margin-top:14px; }
+.pq-lg i{ display:inline-block; width:11px; height:11px; margin-right:6px; vertical-align:-1px; }
+.pq-lg i.y{ background:#141414; } .pq-lg i.q{ background:#2b4dff; }
+.pq-wh{ display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; margin-top:14px; width:100%; }
+.pq-wc{ border-top:1px solid #141414; padding-top:8px; text-align:center; }
+.pq-wc svg{ width:min(108px,30vw); display:block; margin:0 auto 6px; }
+.pq-wc .tr{ fill:none; stroke:#dedad1; stroke-width:8; }
+.pq-wc .ar{ fill:none; stroke-width:8; transform:rotate(-90deg); transform-origin:40px 40px; stroke-dashoffset:var(--full);
+  transition:stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1) .2s; }
+.pq-wc .ar.y{ stroke:#141414; } .pq-wc .ar.q{ stroke:#2b4dff; transition-delay:.8s; } .pq-wc .ar.q.dp{ stroke:#8fa0ff; }
+.rl-p.is-on .pq-wc .ar{ stroke-dashoffset:var(--off); }
+.pq-wc text{ font:700 11px "Space Mono",monospace; fill:#2b4dff; text-anchor:middle; }
+.pq-wl{ font:700 10px "Space Mono",monospace; text-transform:uppercase; letter-spacing:.03em; }
+.pq-wv{ font:500 13px/1.3 "Space Grotesk",sans-serif; margin-top:3px; } .pq-wv b{ display:block; font-weight:600; } .pq-wv em{ display:block; font-style:normal; color:#2b4dff; }
+.rl-pr .pq-note{ font:400 11px/1.5 "Space Mono",monospace; color:#6b6b6b; margin-top:14px; }
+/* the first step and the search */
+.rl-pr .pq-start{ font-size:19px; line-height:1.4; color:#141414; margin-top:16px; }
+.rl-pr h3{ font:900 22px/1.05 "Archivo",sans-serif; font-stretch:80%; margin-top:26px; }
+.pq-ys{ display:flex; align-items:center; gap:10px; border:2px solid #141414; background:#fff; padding:10px 10px 10px 12px; margin-top:12px; }
+.pq-yi{ width:14px; height:14px; border:2px solid #141414; border-radius:50%; position:relative; flex:none; }
+.pq-yi::after{ content:""; position:absolute; width:2px; height:7px; background:#141414; right:-4px; bottom:-6px; transform:rotate(-45deg); }
+.pq-yq{ flex:1; font:500 15px/1.3 "Space Grotesk",sans-serif; color:#141414; user-select:all; }
+.pq-yc{ background:#ffe94d; color:#141414; border:0; font:700 11px "Space Mono",monospace; text-transform:uppercase; padding:8px 10px; cursor:pointer; }
+/* the turn and the pitch */
+.pq-turn h2{ font-size:clamp(36px,11vw,52px); }
+.pq-alt{ font-size:14px !important; margin-top:12px !important; }
+.rl-night .pq-alt a{ color:#ffe94d; }
+@media (max-height:700px){ .pq-wc svg{ width:min(84px,24vw); } .pq-wv{ font-size:12px; } .rl-pr h1{ font-size:clamp(28px,8.4vw,36px); } }
+@media (max-height:620px){ .pq-wc svg{ width:68px; } .pq-wh{ gap:8px 10px; } .rl-pr .pq-note{ display:none; } }
+@media (min-width:701px){
+  .rl-pr h1{ font-size:clamp(44px,4.2vw,64px); }
+  .pq-nums .pq-wh{ max-width:460px; }
+  .pq-wc svg{ width:120px; }
+}
