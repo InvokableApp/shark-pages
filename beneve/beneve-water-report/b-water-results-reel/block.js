@@ -48,7 +48,10 @@
     return "";
   };
   var mem = stored();
-  var address = val("address") || mem.address || "";
+  // An address with "#" in it (Apt #4) arrives cut in two: the emails write ?address={{contact.address1}} unencoded and
+  // last, so everything from the "#" lands in location.hash. Put it back, and below the bar gets the whole address.
+  var hashTail = val("address") && location.hash && /[?&]address=[^&]*$/.test(location.search) ? decodeURIComponent(location.hash) : "";
+  var address = (val("address") ? (hashTail ? (q.get("address") + hashTail).trim() : val("address")) : "") || mem.address || "";
   var system = val("system", "beneve_water_system");
   var lead   = val("lead", "beneve_water_lead_90th");
   var pfas   = val("pfas", "beneve_water_pfas_count");
@@ -57,8 +60,8 @@
   // "arrived carrying the form's values"; here it is also "the opt-in reel saw the form sent in this tab".
   var FROM_FUNNEL = !!(val("address") || system || lead || pfas || mem.sent);
   // The address goes back on the address bar, so a reload or a shared link opens the same report (as on GHL).
-  if (address && !val("address")) {
-    try { q.set("address", address); history.replaceState(null, "", location.pathname + "?" + q.toString() + location.hash); } catch (e) {}
+  if (address && (!val("address") || hashTail)) {
+    try { q.set("address", address); history.replaceState(null, "", location.pathname + "?" + q.toString() + (hashTail ? "" : location.hash)); } catch (e) {}
   }
 
   function syncDots() {

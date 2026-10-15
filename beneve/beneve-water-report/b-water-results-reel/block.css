@@ -61,7 +61,7 @@
 .wrr-long .wrr-row{ padding:7px 12px; font-size:13px; }
 
 /* ---------- 4. the PDF ---------- */
-.wrr-shot{ display:block; width:38%; max-width:170px; height:auto; margin:4px 0 14px; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+.wrr-shot{ display:block; width:48%; max-width:220px; height:auto; margin:4px 0 14px; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
 .wrr-blurb h2{ font-size:clamp(26px,7.4vw,34px); }
 .wrr-blurb p{ font-size:16px; }
 .wrr-msg{ display:block; margin-top:20px; font:600 16px var(--sans); }
@@ -102,7 +102,7 @@
 @media (max-width:700px) and (max-height:760px){
   .wrr-top h1{ font-size:30px; }
   .wrr-fig-v{ font-size:26px !important; }
-  .wrr-shot{ width:30%; max-width:130px; margin-bottom:10px; }
+  .wrr-shot{ width:38%; max-width:165px; margin-bottom:10px; }
   .wrr-blurb p{ font-size:15px; line-height:1.5; }
   .wrr-days{ margin-top:12px; }
   .wrr-nsf li{ padding:11px 13px; }
@@ -114,7 +114,7 @@
   .wrr-fig{ padding:11px 11px 10px; } .wrr-fig-v{ font-size:23px !important; } .wrr-fig-s{ font-size:12px !important; }
   .wrr-meta{ margin-top:10px; gap:6px 10px; } .wrr-meta b{ font-size:13px; } .wrr-fine{ margin-top:8px !important; }
   .wrr-tsub{ display:none; } .wrr-row{ padding:6px 10px; font-size:12.5px; } .wrr-num{ font-size:12px; } .wrr-tnote{ margin-top:6px !important; }
-  .wrr-shot{ width:22%; margin-bottom:6px; } .wrr-blurb h2{ font-size:23px; } .wrr-blurb p{ font-size:14px; } .wrr-msg{ margin-top:12px; padding:12px 14px; }
+  .wrr-shot{ width:28%; margin-bottom:6px; } .wrr-blurb h2{ font-size:23px; } .wrr-blurb p{ font-size:14px; } .wrr-msg{ margin-top:12px; padding:12px 14px; }
   .wrr-lede{ font-size:14px !important; margin-top:6px !important; } .wrr-pills{ margin-top:8px; }
   .wrr-days{ margin-top:10px; } .wrr-days li{ padding:10px 12px; } .wrr-days h3{ font-size:15px !important; } .wrr-ex{ font-size:12.5px !important; margin-top:3px !important; }
   .wrr-nsf{ margin-top:12px; gap:7px; } .wrr-nsf li{ padding:9px 12px; } .wrr-nsf span{ font-size:14px; }
@@ -131,7 +131,7 @@
   .wrr-fig{ padding:22px 24px 20px; } .wrr-fig-l{ font-size:13px !important; } .wrr-fig-v{ font-size:46px !important; } .wrr-fig-s{ font-size:15px !important; }
   .wrr-meta{ grid-template-columns:repeat(4,1fr); } .wrr-meta b{ font-size:16px; }
   .wrr-row{ padding:12px 18px; font-size:16px; } .wrr-num{ font-size:15px; } .wrr-row-h{ font-size:12px; }
-  .wrr-shot{ width:min(340px,26vw); max-width:none; margin:0; }
+  .wrr-shot{ width:min(430px,32vw); max-width:none; margin:0; }
   .wrr-blurb p{ font-size:19px; } .wrr-msg{ max-width:420px; }
   .wrr-lede,.wrr-ask-p{ font-size:19px !important; }
   .wrr-days{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0 0; padding:0; overflow:visible; } .wrr-cue{ display:none !important; } .wrr-days h3{ font-size:19px !important; } .wrr-ex{ font-size:15px !important; }
