@@ -1,0 +1,150 @@
+<!--
+  hu translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-guide-reel
+  The setup guide for the crypto alert bot, as a REEL to swipe through on a phone (Jeff, 2026-10-15: "a pdf they can
+  swipe through on their phone ... how to set up a git, a server and a telegram and all the api keys theyll need and
+  how to keep them safe"; "people just arent downloading pdfs in this world"). "Signal" look. Platform only: the step
+  /alert-bot-guide points here (platform migration 0299).
+  ⚠️ IT FOLLOWS THE PROMPT'S NINE STEPS (QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md) and says nothing the
+  prompt doesn't: browser only, keys only in Railway's Variables screen, the private repository, the Procfile line,
+  SEND_TEST_ON_START. Change the prompt and this page together. Railway's cost as the prompt says it, and the prompt
+  has the AI check Railway's pricing page with them, because the terms move.
+  ⚠️ The last screen is the same pitch as the confirmation's: the gap made plain (see that block's header).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="a Quantaira AI-jához való hozzáférésért" data-pf-say="Szia {first}, most állítom be a riasztó botot. Hogyan kaphatok hozzáférést a Quantaira AI-jához?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: the cover -->
+      <section class="rl-p rl-paper qab-cover" aria-label="A beállítási útmutató">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Beállítási útmutató</span>
+          <h1 data-in style="--d:.1s">Állítsd be a riasztó botodat: <em>Telegram, egy AI-kulcs, GitHub és Railway</em></h1>
+          <p data-in style="--d:.25s">Lapozd végig a telefonodon, aztán ülj le a számítógéphez a prompttal. Az AI vezet végig,
+            ez itt a térkép.</p>
+          <ul class="rl-pills" data-in style="--d:.35s"><li>Csak böngésző</li><li>Kódolás nélkül</li><li>Kb. havi $5</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+        <svg class="qab-chart" viewBox="0 0 150 130" aria-hidden="true">
+          <defs><linearGradient id="qabG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6a8"/><stop offset=".6" stop-color="#2fa8ff"/><stop offset="1" stop-color="#4b6bff"/></linearGradient></defs>
+          <g class="qab-candles"><rect x="4" y="92" width="10" height="28" rx="2"/><rect x="24" y="74" width="10" height="46" rx="2"/><rect x="44" y="84" width="10" height="36" rx="2"/><rect x="64" y="58" width="10" height="62" rx="2"/><rect x="84" y="68" width="10" height="52" rx="2"/><rect x="104" y="36" width="10" height="84" rx="2"/><rect x="124" y="14" width="10" height="106" rx="2"/></g>
+          <path class="qab-line" pathLength="1" d="M9 88 L29 70 L49 80 L69 54 L89 64 L109 32 L129 10"/>
+          <circle class="qab-tip" cx="129" cy="10" r="4"/><circle class="qab-tip-ring" cx="129" cy="10" r="4"/>
+        </svg>
+      </section>
+
+      <!-- 2. TINT: what you'll need -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Ami kell hozzá</span>
+          <h2 data-in style="--d:.1s">Négy fiók és <em>egy jegyzet alkalmazás</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>A telefonodon. Ingyenes.</li>
+            <li data-in style="--d:.3s"><b>OpenAI vagy Anthropic</b>A mondathoz, ami megmondja, miért mozdult. Havonta fillérek.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Itt van a botod kódja. Ingyenes.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Éjjel-nappal futtatja. Kb. havi $5 egy egyszeri próbakredit után.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.6s">A jegyzet alkalmazásod pár percig őrzi az egyes kulcsokat, amíg be nem kerülnek a Railway-be.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: part 1, Telegram -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>1. rész · Telegram</span>
+          <h2 data-in style="--d:.1s">Készítsd el a botodat, és <em>keresd meg a chat id-det</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Nyisd meg a @BotFathert</b>Küldd el a /newbot parancsot, és válassz nevet. Kapsz egy tokent: mentsd el a jegyzeteidbe.</li>
+            <li data-in style="--d:.3s"><b>Koppints a Start gombra az új botodnál</b>Addig a bot nem tud neked üzenni.</li>
+            <li data-in style="--d:.4s"><b>Nyiss meg egy címet a böngésződben</b>Az AI megadja. Megmutatja a chat id-det, ami egy szám. Ezt is mentsd el.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">Ebben a címben benne van a tokened. Se a címet, se róla készült képernyőképet ne oszd meg.</p>
+        </div>
+      </section>
+
+      <!-- 4. PLAIN: part 2, the AI key -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>2. rész · Az AI-kulcsod</span>
+          <h2 data-in style="--d:.1s">Egy kulcs, <em>költési limittel</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Hozz létre egy OpenAI vagy Anthropic fiókot</b>Bármelyik jó. Az AI megmondja, hol találod a kulcsot.</li>
+            <li data-in style="--d:.3s"><b>Állíts be kis havi limitet</b>A bot csak akkor kérdez, amikor riasztás megy ki, havonta néhányszor.</li>
+            <li data-in style="--d:.4s"><b>Mentsd el a kulcsot a jegyzeteidbe</b>Soha ne illeszd be az AI-jal folytatott beszélgetésbe.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. TINT: part 3, GitHub -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>3. rész · GitHub</span>
+          <h2 data-in style="--d:.1s">Két fájl <em>egy privát repositoryban</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Hozz létre egy fiókot, és kapcsold be a kétlépcsős bejelentkezést</b>Aztán egy új repositoryt, Private beállítással.</li>
+            <li data-in style="--d:.3s"><b>Add file, Create new file: bot.py</b>Illeszd be a kódot, amit az AI ír neked, és commitold.</li>
+            <li data-in style="--d:.4s"><b>Még egy fájl: Procfile</b>Egy sor van benne: worker: python3 bot.py. Ez mondja meg a szervernek, hogyan indítsa el a botodat.</li>
+          </ol>
+          <div class="lk-code qab-type" data-in style="--d:.5s"><i>btc-alert-bot / <em>bot.py</em></i><span>btc-alert-bot / Procfile</span></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: part 4, Railway -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>4. rész · Railway</span>
+          <h2 data-in style="--d:.1s">Kapcsold be, és <em>nézd, ahogy megjön a teszt riasztás</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Regisztrálj a GitHubbal</b>Az AI előbb végigmegy veled a Railway árazási oldalán.</li>
+            <li data-in style="--d:.3s"><b>New Project, Deploy from GitHub repo</b>Válaszd ki a botod repositoryját.</li>
+            <li data-in style="--d:.4s"><b>Add hozzá a kulcsaidat a Variables részben</b>A tokened, a chat id-d és az AI-kulcsod, a választott coin, és a SEND_TEST_ON_START yes értékkel. Az AI mindet felsorolja. Aztán töröld őket a jegyzeteidből.</li>
+            <li data-in style="--d:.5s"><b>Megjön a teszt riasztás a Telegramon</b>Nézd meg, hogy a naplóban 5 percenként megjelenik egy árellenőrzés, aztán állítsd a SEND_TEST_ON_START értékét no-ra.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 7. PLAIN: keys, and when the screen doesn't match -->
+      <section class="rl-p rl-paper qab-scan qab-close">
+        <div class="rl-in">
+          <svg class="qab-lock" viewBox="0 0 64 76" aria-hidden="true">
+            <defs><linearGradient id="qabG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee6a8"/><stop offset="1" stop-color="#2fa8ff"/></linearGradient></defs>
+            <path class="qab-shackle qab-shut" d="M18 36 V24 a14 14 0 0 1 28 0 V36"/>
+            <rect class="qab-body" x="8" y="34" width="48" height="38" rx="9"/>
+            <path class="qab-hole" d="M32 48 v10"/><circle class="qab-hole-dot" cx="32" cy="48" r="4"/>
+          </svg>
+          <span class="rl-eyebrow" data-in>Biztonság</span>
+          <h2 data-in style="--d:.1s">A kulcsaid <em>csak egy helyen vannak</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>A Railway Variables képernyője</b>Soha nem a kódban, soha nem a GitHubon, soha nem a beszélgetésben.</li>
+            <li data-in style="--d:.3s"><b>Kétlépcsős bejelentkezés mindenhol</b>GitHub, Railway, Telegram és az AI-fiókod.</li>
+            <li data-in style="--d:.4s"><b>Kiszivárgott egy kulcs? Vond vissza</b>Készíts újat, és illeszd be a Railway-be. Az AI minden szolgáltatásnál megmutatja, hogyan.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">A weboldalak néha áthelyezik a gombjaikat. Ha a képernyőd nem egyezik, mondd el az AI-nak, mit látsz, és abból dolgozik tovább.</p>
+        </div>
+      </section>
+
+      <!-- 8. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Szeretnéd, hogy helyetted kössék meg az ügyleteket?</span>
+          <h2 data-in style="--d:.1s">A botod kb. 300 sor kód. <em>A Quantaira AI-ját több mint egy évtizedig</em> és 40 millió dollárból építették.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 sor</b><small>A riasztó botod. Szól, hogy valami mozdult.</small></div>
+            <div class="big"><b>10+ év</b><small>A Quantaira AI-ja. Olvassa a híreket és a grafikonokat, és megköti az ügyleteket.</small></div>
+          </div>
+          <p data-in style="--d:.3s">A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor
+            kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
+          <p class="qab-alt" data-in style="--d:.45s">Inkább SMS-t írnál? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Küldj inkább egy SMS-t</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Képernyők"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Írj {first} részére a hozzáférésért" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Előző képernyő"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Következő képernyő"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,138 @@
+<!--
+  fr translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-prompt-reel
+  The confirmation after the alert bot opt-in, as a REEL, in the "Signal" look. Platform only: the step /alert-bot-prompt
+  points here (platform migration 0299). Four screens: the prompt (greeted by name), copy it, what you'll need, the pitch.
+  ⚠️ THE PROMPT ON SCREEN 2 IS QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md, word for word. It is written in
+  by QUANTAIRASHARK/lead-magnets/telegram-alert-bot/build-pages.py from pages/prompt-reel.src.html there: edit PROMPT.md or that source,
+  then run the script. Never edit block.html by hand.
+  ⚠️ THE PITCH (screen 4) MAKES THE GAP CLEAR (Jeff, 2026-10-15: "what theyre setting up here is small and tiny and
+  untrained ... really want to make sure that distinction is CLEAR"). Its facts are the launch webinar's (Oct 10):
+  Endotech has spent over a decade on AI for the markets (Dr. Anna, 2:00) and over $40 million on it (Jeremy, 5:30);
+  the money stays in the person's own Coin Zoom account, trade-only keys, switch off any time (7:00, 42:50); no upfront
+  fee (4:00). "A small performance fee" is Jeff's wording; the rep answers the details. Never "free", never "bot" for
+  Quantaira's AI (Jeremy, 27:00: "This is a true artificial intelligence system"). The risk line stays.
+  ⚠️ The ask is a message to the rep: Messenger, or a text when the rep has no Messenger link ([data-needs]).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="pour accéder à l'IA de Quantaira" data-pf-say="Salut {first}, j'ai reçu le prompt du bot d'alertes. Comment j'accède à l'IA de Quantaira ?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <!-- The bonus bar, pinned to the top of every screen (Jeff, 2026-10-15, on the review page: "lets make it clear on
+         the confirmation page ... maybe a banner sticking to top of page"). A tap goes to the pitch, the last screen.
+         "Bonus", not "free bonus": access has a performance fee (see the header). -->
+    <a class="qab-bonus" href="#qab-pitch" data-qab-bonus><span class="qab-bonus-tag">Bonus</span><span class="qab-bonus-txt">Accède à l'IA de trading avancée de Quantaira</span><span aria-hidden="true">&rsaquo;</span></a>
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: here's your prompt, by name -->
+      <section class="rl-p rl-paper">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>C'est bon</span>
+          <!-- The name is filled from the opt-in and the span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 class="rl-type">Voici ton prompt<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Copie-le à l'écran suivant, ou ouvre sur ton ordinateur l'e-mail qu'on vient de t'envoyer. Il y est
+            aussi, avec le guide d'installation.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/alert-bot-guide">Ouvrir le guide d'installation</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the prompt itself, scrolls inside the screen -->
+      <section class="rl-p rl-night">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Le prompt</span>
+          <h2 data-in style="--d:.1s">Colle-le dans <em>ChatGPT ou Claude</em></h2>
+          <div class="qab-prompt rl-art" data-in style="--d:.2s">
+            <pre id="qab-prompt" tabindex="0">Tu es mon coach d'installation patient. Guide-moi pour construire mon propre bot d'alertes crypto pour Telegram, une étape à la fois. Je ne suis pas programmeur et je n'ai jamais utilisé GitHub ni un serveur. Tout se passe dans mon navigateur web et dans l'application Telegram : ne me demande jamais d'ouvrir un terminal, une ligne de commande ni d'installer quoi que ce soit. Explique chaque étape avec des mots simples, dis-moi exactement où cliquer, et attends que je dise « c'est fait » avant de passer à la suite. Les sites changent leurs boutons, donc si ce que je vois ne correspond pas à ce que tu as décrit, demande-moi ce qu'il y a sur mon écran et pars de là.
+
+CE QUE FAIT LE BOT
+Toutes les 5 minutes, il vérifie le prix de la crypto que je choisis (Bitcoin sauf si je dis autre chose ; Ethereum, Solana ou l'or via PAXG fonctionnent aussi). Quand elle bouge de 2 % ou plus en une heure, il m'envoie un message Telegram, rédigé en français, avec :
+1. De combien elle a bougé et le prix actuel.
+2. Les 3 principaux titres d'actualité sur cette crypto des deux dernières heures, avec les liens.
+3. Une ligne écrite par une IA sur le titre qui explique le plus probablement le mouvement, ou sur le fait qu'aucun ne l'explique.
+4. Ce qui s'est passé avant : sur les 12 derniers mois, combien d'heures ont connu un mouvement aussi fort dans le même sens, et combien de fois le prix était en hausse ou en baisse 24 heures plus tard.
+Il ne trade jamais. Il lit seulement les prix et l'actualité, et il ne détient jamais de clé d'un compte sur une plateforme d'échange.
+
+COMMENT LE CONSTRUIRE (pour toi, le coach)
+- Python 3, bibliothèque standard uniquement, un seul fichier appelé bot.py.
+- Prix : les données de prix publiques et gratuites de Coinbase (les bougies de api.exchange.coinbase.com pour le réglage COIN, par exemple BTC-USD). Aucune clé nécessaire. Utilise des bougies de 5 minutes pour la dernière heure et des bougies d'1 heure pour l'historique sur 12 mois (300 par requête, donc remonte page par page).
+- Compte un gros mouvement comme un seul échantillon : après une correspondance, saute 24 heures en avant.
+- Actualité : ces flux gratuits, sans clé. Garde les articles des deux dernières heures dont le titre contient le réglage NEWS_WORD (par exemple bitcoin), et supprime les doublons. Pour le flux Google News, cherche le NEWS_WORD au lieu de bitcoin.
+  https://www.coindesk.com/arc/outboundfeeds/rss/
+  https://cointelegraph.com/rss
+  https://decrypt.co/feed
+  https://news.google.com/rss/search?q=bitcoin+when:2h&amp;hl=en-US&amp;gl=US&amp;ceid=US:en
+- La ligne de l'IA : utilise la clé que j'ai, OpenAI ou Anthropic. Dis-lui de ne pas prédire les prix ni de dire d'acheter ou de vendre, et d'écrire en français. Si l'appel à l'IA échoue, envoie l'alerte sans cette ligne.
+- Une seule alerte par sens toutes les deux heures, pour qu'un gros mouvement n'envoie pas douze messages.
+- Si un flux ou la vérification du prix échoue, passe-le et réessaie la fois suivante. Ne plante jamais.
+- Termine chaque alerte par : « C'est l'historique, pas une prédiction. »
+- Il tourne en continu, vérifie toutes les 5 minutes, et écrit une ligne dans le journal à chaque vérification.
+- Quand le réglage SEND_TEST_ON_START vaut "yes", il envoie une alerte dès son démarrage, quel que soit le mouvement, pour que je voie que ça marche.
+- Les réglages viennent uniquement des variables d'environnement : TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (par défaut BTC-USD), NEWS_WORD (par défaut bitcoin), MOVE_PCT (par défaut 2), SEND_TEST_ON_START, et OPENAI_API_KEY ou ANTHROPIC_API_KEY. Rien de secret n'est jamais écrit dans le code.
+- Donne-moi le fichier complet dans un seul bloc de code, prêt à coller.
+
+CLÉS ET SÉCURITÉ (à respecter du début à la fin)
+- Ne me demande jamais de coller une clé ou un token dans cette conversation, et n'en mets jamais dans le code. Chaque clé va à un seul endroit : l'écran Variables de Railway. D'ici là, je la garde dans l'application de notes de mon téléphone ou de mon ordinateur.
+- Mon dépôt GitHub doit être privé.
+- Fais-moi activer la connexion en deux étapes pour GitHub, Railway, Telegram et le compte de l'IA.
+- Pour chaque service, explique-moi comment révoquer une clé et en créer une nouvelle si l'une d'elles fuite un jour.
+
+LES ÉTAPES, DANS CET ORDRE
+1. Telegram : ouvre @BotFather, envoie /newbot, choisis un nom, et enregistre le token qu'il me donne dans mes notes.
+2. Mon chat id : j'ouvre mon nouveau bot et j'appuie sur Démarrer. Puis j'ouvre cette adresse dans mon navigateur en remplaçant TOKEN par mon token : https://api.telegram.org/botTOKEN/getUpdates et tu me montres quel nombre est mon chat id. Rappelle-moi que cette adresse contient mon token, donc je ne dois pas la partager, ni une capture d'écran de celle-ci.
+3. La clé d'IA : aide-moi à obtenir une clé OpenAI ou Anthropic, à y mettre une petite limite de dépenses mensuelle, et à l'enregistrer dans mes notes.
+4. GitHub : demande-moi quelle crypto je veux surveiller, puis crée un compte gratuit et active la connexion en deux étapes. Crée un nouveau dépôt PRIVÉ appelé btc-alert-bot.
+5. Le code : dans le dépôt, Add file, Create new file, nomme-le bot.py, colle le code que tu écris pour moi, et fais un commit. Puis crée un deuxième fichier appelé Procfile (sans extension) avec cette seule ligne : worker: python3 bot.py
+6. Railway : inscris-toi avec mon compte GitHub. Avant que j'ajoute quoi que ce soit, ouvre avec moi la page des tarifs de Railway et dis-moi avec des mots simples ce que ça va me coûter aujourd'hui et chaque mois. Puis New Project, Deploy from GitHub repo, et laisse Railway voir mon dépôt btc-alert-bot quand il le demande.
+7. Mes clés : dans l'écran Variables du service, ajoute TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (BTC-USD, ou la crypto que j'ai choisie), NEWS_WORD (bitcoin, ou le nom de ma crypto), MOVE_PCT (2), ANTHROPIC_API_KEY ou OPENAI_API_KEY, et SEND_TEST_ON_START (yes). Puis supprime les clés de mon application de notes.
+8. Le test : quand le déploiement est terminé, une alerte de test doit arriver dans Telegram. Montre-moi où se trouvent les journaux (logs) de Railway et qu'une ligne de vérification du prix apparaît toutes les 5 minutes. Puis passe SEND_TEST_ON_START à no.
+9. Donne-moi une courte liste récapitulative de tout ce que j'ai mis en place, de l'endroit où vit chaque clé, et de la façon de mettre le bot en pause (le supprimer dans Railway) si un jour je le souhaite.
+
+Commence par me dire, en trois lignes, ce que nous allons construire, combien de temps ça prend à peu près, et ce que ça pourrait coûter. Puis commence l'étape 1.</pre>
+          </div>
+          <button type="button" class="rl-btn qab-copy" data-qab-copy data-in style="--d:.3s">Copier le prompt</button>
+          <span class="qab-copied" data-qab-copied>Copié. Colle-le dans une nouvelle conversation.</span>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: what you'll need -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Avant de commencer</span>
+          <h2 data-in style="--d:.1s">Quatre comptes, <em>tous créés dans ton navigateur</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>Sur ton téléphone. Gratuit.</li>
+            <li data-in style="--d:.3s"><b>OpenAI ou Anthropic</b>Pour la ligne de l'IA. Quelques centimes par mois, avec une limite de dépenses que tu fixes.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Stocke le code de ton bot. Gratuit.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Le fait tourner. Environ 5 $ par mois après un crédit d'essai unique.</li>
+          </ol>
+          <div class="rl-btns" data-in style="--d:.6s"><a class="rl-btn rl-btn-2" href="/alert-bot-guide">Ouvrir le guide d'installation</a></div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch" id="qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tu veux que les trades soient passés pour toi ?</span>
+          <h2 data-in style="--d:.1s">Tu viens de recevoir environ 300 lignes de code. <em>L'IA de Quantaira a demandé plus de dix ans</em> et 40 millions $ de développement.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 lignes</b><small>Ton bot d'alertes. Il te dit que quelque chose a bougé.</small></div>
+            <div class="big"><b>10+ ans</b><small>L'IA de Quantaira. Elle lit l'actu et les graphiques et passe les ordres.</small></div>
+          </div>
+          <p data-in style="--d:.3s">Elle trade depuis ton propre compte Coin Zoom, donc ton argent ne le quitte jamais, et tu peux
+            la couper quand tu veux. Aucuns frais de départ, juste une petite commission sur les performances, et rien à configurer.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Écris-moi pour y accéder</a>
+          <p class="qab-alt" data-in style="--d:.45s">Tu préfères les SMS ? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Envoie-moi plutôt un SMS</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">Le trading comporte des risques, y compris des mois de pertes. N'utilise que de l'argent que tu peux te permettre de perdre.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Écrans"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Écris à {first} pour y accéder" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Écris-moi pour y accéder</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Écran précédent"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Écran suivant"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

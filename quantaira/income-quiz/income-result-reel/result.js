@@ -37,13 +37,13 @@
     });
   }
 
-  // Copy the YouTube search. A browser that refuses the clipboard gets the words selected instead.
+  // Copy the YouTube search (the button's words come from the page, in its language). A browser that refuses the clipboard gets the words selected instead.
   var btn = root.querySelector("[data-pq-copy]");
   if (btn) btn.addEventListener("click", function (e) {
     e.stopPropagation();
     var t = root.querySelector('[data-pr="search"]');
-    function sel() { var g = document.createRange(); g.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(g); btn.textContent = "Selected"; }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.textContent).then(function () { btn.textContent = "Copied"; }, sel);
+    function sel() { var g = document.createRange(); g.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(g); btn.textContent = btn.getAttribute("data-selected") || "Selected"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.textContent).then(function () { btn.textContent = btn.getAttribute("data-copied") || "Copied"; }, sel);
     else sel();
   });
 })();

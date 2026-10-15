@@ -1,0 +1,150 @@
+<!--
+  de translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-guide-reel
+  The setup guide for the crypto alert bot, as a REEL to swipe through on a phone (Jeff, 2026-10-15: "a pdf they can
+  swipe through on their phone ... how to set up a git, a server and a telegram and all the api keys theyll need and
+  how to keep them safe"; "people just arent downloading pdfs in this world"). "Signal" look. Platform only: the step
+  /alert-bot-guide points here (platform migration 0299).
+  ⚠️ IT FOLLOWS THE PROMPT'S NINE STEPS (QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md) and says nothing the
+  prompt doesn't: browser only, keys only in Railway's Variables screen, the private repository, the Procfile line,
+  SEND_TEST_ON_START. Change the prompt and this page together. Railway's cost as the prompt says it, and the prompt
+  has the AI check Railway's pricing page with them, because the terms move.
+  ⚠️ The last screen is the same pitch as the confirmation's: the gap made plain (see that block's header).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="für Zugang zur KI von Quantaira" data-pf-say="Hey {first}, ich richte gerade den Alarm-Bot ein. Wie bekomme ich Zugang zur KI von Quantaira?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: the cover -->
+      <section class="rl-p rl-paper qab-cover" aria-label="Der Einrichtungs-Guide">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Einrichtungs-Guide</span>
+          <h1 data-in style="--d:.1s">Richte deinen Alarm-Bot ein: <em>Telegram, ein KI-Schlüssel, GitHub und Railway</em></h1>
+          <p data-in style="--d:.25s">Wisch auf dem Handy durch, dann setz dich mit dem Prompt an deinen Computer. Die KI
+            führt dich, das hier ist die Karte.</p>
+          <ul class="rl-pills" data-in style="--d:.35s"><li>Nur im Browser</li><li>Ohne Programmieren</li><li>Etwa 5 $ im Monat</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+        <svg class="qab-chart" viewBox="0 0 150 130" aria-hidden="true">
+          <defs><linearGradient id="qabG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6a8"/><stop offset=".6" stop-color="#2fa8ff"/><stop offset="1" stop-color="#4b6bff"/></linearGradient></defs>
+          <g class="qab-candles"><rect x="4" y="92" width="10" height="28" rx="2"/><rect x="24" y="74" width="10" height="46" rx="2"/><rect x="44" y="84" width="10" height="36" rx="2"/><rect x="64" y="58" width="10" height="62" rx="2"/><rect x="84" y="68" width="10" height="52" rx="2"/><rect x="104" y="36" width="10" height="84" rx="2"/><rect x="124" y="14" width="10" height="106" rx="2"/></g>
+          <path class="qab-line" pathLength="1" d="M9 88 L29 70 L49 80 L69 54 L89 64 L109 32 L129 10"/>
+          <circle class="qab-tip" cx="129" cy="10" r="4"/><circle class="qab-tip-ring" cx="129" cy="10" r="4"/>
+        </svg>
+      </section>
+
+      <!-- 2. TINT: what you'll need -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Was du brauchst</span>
+          <h2 data-in style="--d:.1s">Vier Konten und <em>eine Notizen-App</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>Auf deinem Handy. Kostenlos.</li>
+            <li data-in style="--d:.3s"><b>OpenAI oder Anthropic</b>Für die Zeile, die sagt, warum es sich bewegt hat. Ein paar Cent im Monat.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Speichert den Code deines Bots. Kostenlos.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Lässt ihn Tag und Nacht laufen. Etwa 5 $ im Monat nach einem einmaligen Testguthaben.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.6s">Deine Notizen-App hält jeden Schlüssel ein paar Minuten lang, bis er in Railway landet.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: part 1, Telegram -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Teil 1 · Telegram</span>
+          <h2 data-in style="--d:.1s">Leg deinen Bot an und <em>finde deine Chat-ID</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Öffne @BotFather</b>Schick /newbot und wähl einen Namen. Du bekommst einen Token: Speicher ihn in deinen Notizen.</li>
+            <li data-in style="--d:.3s"><b>Tipp bei deinem neuen Bot auf Start</b>Vorher kann dir ein Bot keine Nachrichten schicken.</li>
+            <li data-in style="--d:.4s"><b>Öffne eine Adresse in deinem Browser</b>Die KI gibt sie dir. Dort steht deine Chat-ID, eine Zahl. Speicher sie auch.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">In dieser Adresse steckt dein Token. Teil sie nicht, auch keinen Screenshot davon.</p>
+        </div>
+      </section>
+
+      <!-- 4. PLAIN: part 2, the AI key -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Teil 2 · Dein KI-Schlüssel</span>
+          <h2 data-in style="--d:.1s">Ein Schlüssel, mit <em>einem Ausgabenlimit</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Leg ein Konto bei OpenAI oder Anthropic an</b>Beides geht. Die KI sagt dir, wo der Schlüssel ist.</li>
+            <li data-in style="--d:.3s"><b>Leg ein kleines Monatslimit fest</b>Der Bot fragt nur, wenn ein Alarm ausgelöst wird, eine Handvoll Mal im Monat.</li>
+            <li data-in style="--d:.4s"><b>Speicher den Schlüssel in deinen Notizen</b>Füg ihn nie in den Chat mit der KI ein.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. TINT: part 3, GitHub -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Teil 3 · GitHub</span>
+          <h2 data-in style="--d:.1s">Zwei Dateien in <em>einem privaten Repository</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Leg ein Konto an und schalte die Zwei-Faktor-Anmeldung ein</b>Dann ein neues Repository, auf Private gestellt.</li>
+            <li data-in style="--d:.3s"><b>Add file, Create new file: bot.py</b>Füg den Code ein, den die KI für dich schreibt, und committe ihn.</li>
+            <li data-in style="--d:.4s"><b>Noch eine Datei: Procfile</b>Mit einer Zeile darin, worker: python3 bot.py. Sie sagt dem Server, wie er deinen Bot startet.</li>
+          </ol>
+          <div class="lk-code qab-type" data-in style="--d:.5s"><i>btc-alert-bot / <em>bot.py</em></i><span>btc-alert-bot / Procfile</span></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: part 4, Railway -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Teil 4 · Railway</span>
+          <h2 data-in style="--d:.1s">Schalte ihn ein und <em>sieh zu, wie der Test-Alarm ankommt</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Registrier dich mit GitHub</b>Die KI geht vorher die Preisseite von Railway mit dir durch.</li>
+            <li data-in style="--d:.3s"><b>New Project, Deploy from GitHub repo</b>Wähl das Repository deines Bots.</li>
+            <li data-in style="--d:.4s"><b>Trag deine Schlüssel in Variables ein</b>Deinen Token, deine Chat-ID und deinen KI-Schlüssel, den Coin, den du gewählt hast, und SEND_TEST_ON_START auf yes. Die KI listet alle auf. Danach löschst du sie aus deinen Notizen.</li>
+            <li data-in style="--d:.5s"><b>Dein Test-Alarm kommt in Telegram an</b>Prüf, ob die Logs alle 5 Minuten eine Preisprüfung zeigen, dann stell SEND_TEST_ON_START auf no.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 7. PLAIN: keys, and when the screen doesn't match -->
+      <section class="rl-p rl-paper qab-scan qab-close">
+        <div class="rl-in">
+          <svg class="qab-lock" viewBox="0 0 64 76" aria-hidden="true">
+            <defs><linearGradient id="qabG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee6a8"/><stop offset="1" stop-color="#2fa8ff"/></linearGradient></defs>
+            <path class="qab-shackle qab-shut" d="M18 36 V24 a14 14 0 0 1 28 0 V36"/>
+            <rect class="qab-body" x="8" y="34" width="48" height="38" rx="9"/>
+            <path class="qab-hole" d="M32 48 v10"/><circle class="qab-hole-dot" cx="32" cy="48" r="4"/>
+          </svg>
+          <span class="rl-eyebrow" data-in>Sicher aufbewahren</span>
+          <h2 data-in style="--d:.1s">Deine Schlüssel liegen <em>nur an einem Ort</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Der Variables-Bildschirm von Railway</b>Nie im Code, nie auf GitHub, nie im Chat.</li>
+            <li data-in style="--d:.3s"><b>Überall Zwei-Faktor-Anmeldung</b>GitHub, Railway, Telegram und dein KI-Konto.</li>
+            <li data-in style="--d:.4s"><b>Ein Schlüssel ist nach außen gelangt? Sperr ihn</b>Erstell einen neuen und füg ihn in Railway ein. Die KI zeigt dir für jeden Dienst, wie das geht.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">Websites verschieben ihre Buttons. Wenn dein Bildschirm anders aussieht, sag der KI, was du siehst, dann arbeitet sie damit weiter.</p>
+        </div>
+      </section>
+
+      <!-- 8. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Willst du, dass die Trades für dich platziert werden?</span>
+          <h2 data-in style="--d:.1s">Dein Bot hat etwa 300 Zeilen Code. <em>Die KI von Quantaira hat über zehn Jahre</em> und 40 Millionen $ Entwicklung gekostet.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 Zeilen</b><small>Dein Alarm-Bot. Er sagt dir, dass sich etwas bewegt hat.</small></div>
+            <div class="big"><b>10+ Jahre</b><small>Die KI von Quantaira. Sie liest die Nachrichten und die Charts und platziert die Trades.</small></div>
+          </div>
+          <p data-in style="--d:.3s">Sie tradet von deinem eigenen Coin-Zoom-Konto aus, dein Geld verlässt es also nie, und du kannst
+            sie jederzeit ausschalten. Keine Vorabgebühr, nur eine kleine Erfolgsgebühr, und nichts einzurichten.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Schreib mir für Zugang</a>
+          <p class="qab-alt" data-in style="--d:.45s">Lieber per SMS? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Schick mir stattdessen eine SMS</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">Trading ist mit Risiko verbunden, auch mit Verlustmonaten. Setz nur Geld ein, dessen Verlust du dir leisten kannst.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Schreib {first} für Zugang" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Schreib mir für Zugang</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Vorheriger Screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Nächster Screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

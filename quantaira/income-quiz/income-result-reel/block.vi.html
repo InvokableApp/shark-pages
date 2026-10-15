@@ -1,0 +1,79 @@
+<!--
+  quantaira/income-quiz/income-result-reel (vi: quiz.vi.json, a translation; the English is block.html)
+  The passive income quiz's RESULT, after the form (step /income-result, migration 0318). One page for all six
+  results: result.js fills it from the result quiz.js kept (sessionStorage "quantaira-pq"), or ?r=<key> from an email.
+  The four results that aren't Quantaira get the wheels (their hours, effort, cost and wait against Quantaira's), a first
+  step and a YouTube search to copy (Jeff: "lets not link out"), then the turn to Quantaira; the two Quantaira results go
+  straight to the pitch. The pitch's facts are the alert bot's (alert-bot-prompt-reel's header): never "free", never
+  "bot" for Quantaira's AI, the risk line stays.
+  ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
+  the script; never edit this file by hand.
+  Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
+  ("i also like the wheels").
+-->
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="về Quantaira" data-pf-say="Chào {first}, mình vừa làm quiz về thu nhập. Bạn kể thêm cho mình về Quantaira được không?" data-pf-arrive="#f3f1ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the result, by name -->
+      <section class="rl-p rl-paper rl-wide">
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>Kết quả của bạn</span><span data-pr="name"></span></div>
+          <h1 data-in style="--d:.1s"><span data-if-name>{{contact.first_name}} ơi, </span><span data-pr="h"></span></h1>
+          <p data-in style="--d:.25s" data-pr="p"></p>
+          <blockquote class="pq-real" data-in style="--d:.35s" data-pr-side><span class="rl-eyebrow">Nói thật nhé</span><q data-pr="real"></q></blockquote>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <section class="rl-p rl-paper pq-nums" data-pr-side>
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>Hình 1</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 data-in style="--d:.1s"><span data-pr="name"></span> so với <em>Quantaira</em></h2>
+          <div class="pq-lg" data-in style="--d:.15s"><span><i class="y"></i><span data-pr="name"></span></span><span><i class="q"></i>Quantaira</span></div>
+          <div class="pq-wh rl-art" data-in style="--d:.2s"><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">01</text></svg><div class="pq-wl">Giờ mỗi tuần</div><div class="pq-wv"><b data-pr-v="0"></b><em>Vài phút, sau khi thiết lập</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">02</text></svg><div class="pq-wl">Công sức</div><div class="pq-wv"><b data-pr-v="1"></b><em>Thấp</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">03</text></svg><div class="pq-wl">Chi phí ban đầu</div><div class="pq-wv"><b data-pr-v="2"></b><em>Không tốn phí ban đầu</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q dp" r="23" cx="40" cy="40"/><text x="40" y="44">04</text></svg><div class="pq-wl">Thời gian đến đồng đầu tiên</div><div class="pq-wv"><b data-pr-v="3"></b><em>Tùy thị trường</em></div></div></div>
+          <p class="pq-note" data-in style="--d:.3s">Không tốn phí ban đầu: số tiền được giao dịch vẫn nằm trong tài khoản của chính bạn, và giao dịch luôn có rủi ro. (ước tính) là con số ước tính của chúng mình.</p>
+        </div>
+      </section>
+
+      <!-- 3. a first step, and a YouTube search to copy -->
+      <section class="rl-p rl-tint rl-wide" data-pr-side>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Để bắt đầu ngay tuần này</span>
+          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
+          <h3 data-in style="--d:.2s">Muốn bắt đầu? Thử gõ từ khóa này trên YouTube để tìm vài người làm nội dung hay.</h3>
+          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Đã sao chép" data-selected="Đã chọn">Sao chép</button></div>
+        </div>
+      </section>
+
+      <!-- 4. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">Mọi con đường ở trên đều đổi giờ của bạn lấy tiền. <em>Có một con đường thì không.</em></h2>
+        </div>
+      </section>
+
+      <!-- 5. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Một AI mất hơn mười năm và $40 triệu để xây dựng, giao dịch thay bạn</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Nhắn cho mình về Quantaira</a>
+          <p class="pq-alt" data-in style="--d:.35s">Thích nhắn SMS hơn? <a data-pf-message-link data-pf-text-link href="/income-text">Nhắn SMS cho mình nhé</a></p>
+          <p class="rl-fine" data-in style="--d:.4s">Giao dịch luôn có rủi ro, kể cả những tháng bị lỗ. Chỉ dùng số tiền bạn có thể chấp nhận mất.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Màn hình"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Màn hình trước"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Màn hình tiếp"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Dịch vụ AI","h":"hướng hợp với bạn nhất là bán giải pháp AI cho doanh nghiệp địa phương","p":"Bạn sẽ bán giải pháp AI cho các doanh nghiệp quanh mình: một chatbot cho phòng khám nha, vài quy trình tự động cho thợ sửa ống nước. Đây là con đường AI nhanh nhất để có khoản tiền đầu tiên, vì doanh nghiệp trả tiền cho kết quả. Nhưng nó cũng là việc bán hàng: bạn phải tự tìm khách và giữ khách.","real":"\"Đó là ăn chênh lệch, không phải thu nhập thụ động. Bạn vẫn phải tìm khách, quản lý người làm freelance, rồi kiểm tra chất lượng.\" (r/passive_income)","start":"Chọn một ngành bạn đã quen. Làm sản phẩm đầu tiên với giá rẻ, đổi lại một lời nhận xét và một lần giới thiệu khách.","search":"cách mở agency AI cho doanh nghiệp nhỏ","side":true,"values":["5 đến 10 (ước tính)","Cao: bạn phải tự tìm và giữ khách","$50 đến $200 tiền công cụ (ước tính)","1 đến 2 tháng (ước tính)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter hoặc website","h":"hướng hợp với bạn nhất là một newsletter hoặc website chạy bằng AI","p":"Bạn sẽ làm một website hoặc newsletter về chủ đề mình rành, để AI lo phần tìm hiểu và viết bản nháp đầu. Nếu thành công, nó sẽ cứ lớn dần, nhưng rất chậm, và giờ các câu trả lời AI của Google đang lấy mất rất nhiều lượt click.","real":"\"Lượt hiển thị tăng ở mọi nơi, nhưng lượt click gần như bằng không.\" (r/SEO, 2026)","start":"Chọn một chủ đề hẹp mà bạn có thể viết suốt một năm, và đăng một trang hữu ích mỗi tuần trước khi bỏ ra đồng nào.","search":"cách làm newsletter kiếm tiền với beehiiv","side":true,"values":["5 đến 10 (ước tính)","Trung bình đến cao","$100 đến $300 (ước tính)","3 đến 12 tháng"],"scale":[72,68,45,82]},"creator":{"name":"Video không lộ mặt","h":"hướng hợp với bạn nhất là một kênh video không lộ mặt","p":"Bạn sẽ làm một kênh video không lộ mặt hoặc một trang TikTok Shop, có AI hỗ trợ viết kịch bản và lồng tiếng. Khi trúng thì trúng lớn. Nhưng phần lớn các kênh phải mất rất lâu mới tới được đó: YouTube chỉ trả tiền khi có 1,000 người đăng ký và 4,000 giờ xem, còn TikTok Shop cần 1,000 người theo dõi.","real":"\"Ai cũng gọi kênh không lộ mặt là 'thu nhập thụ động', nhưng viết kịch bản, dựng video, làm thumbnail, tìm hiểu nội dung và đăng đều đặn thì giống một công việc thứ hai hơn.\" (r/passive_income)","start":"Chọn một chủ đề và đăng cùng một kiểu video ba lần mỗi tuần trong 90 ngày rồi mới đánh giá.","search":"cách làm kênh YouTube không lộ mặt","side":true,"values":["5 đến 15 (ước tính)","Cao: phải đăng bài liên tục","$0 đến $200 (ước tính)","6 tháng đến hơn 3 năm"],"scale":[85,85,30,95]},"maker":{"name":"Sản phẩm số","h":"hướng hợp với bạn nhất là bán sản phẩm số","p":"Bạn sẽ làm sản phẩm số như template, sổ kế hoạch, prompt, hoặc thiết kế in theo yêu cầu, rồi bán trên Etsy hoặc Gumroad. Đây là cách rẻ nhất để bắt đầu và mỗi sản phẩm bạn chỉ làm một lần. Cái khó là làm sao để người ta thấy nó.","real":"\"Muốn thành công với POD thì phải bán số lượng rất lớn. Bên in ăn phần lớn lợi nhuận của mỗi món hàng.\" (r/EtsySellers)","start":"Làm một sản phẩm giải quyết vấn đề chính bạn từng gặp, và xem có 10 người lạ chịu mua không trước khi làm thêm mười cái nữa.","search":"cách bán sản phẩm số trên Etsy cho người mới","side":true,"values":["3 đến 8 (ước tính)","Trung bình: bạn vẫn phải tự quảng bá","$0 đến $100 (ước tính)","1 đến 3 tháng (ước tính)"],"scale":[55,60,20,45]},"allocator":{"name":"Một AI giao dịch thay bạn","h":"tiền của bạn làm việc, chứ không phải giờ của bạn","p":"Bạn muốn một thứ thiết lập một lần rồi gần như không phải đụng tới, và bạn chấp nhận chuyện lên xuống. Phần lớn việc làm thêm không cho bạn được điều đó. Một AI giao dịch thay bạn thì có thể.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Chia sẻ thứ bạn thích","h":"hướng hợp với bạn nhất là được trả tiền khi chia sẻ một thứ tốt","p":"Bạn là người mà mọi người hay hỏi ý kiến. Khi thấy thứ gì hay, bạn kể cho người khác nghe. Phần lớn việc làm thêm bắt bạn phải xây dựng người theo dõi trước. Bạn thì đã có sẵn rồi: những người vẫn nghe bạn nói.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Giờ mỗi tuần","Công sức","Chi phí ban đầu","Thời gian đến đồng đầu tiên"],"quantaira":{"values":["Vài phút, sau khi thiết lập","Thấp","Không tốn phí ban đầu","Tùy thị trường"],"scale":[3,10,2,28],"note":"Không tốn phí ban đầu: số tiền được giao dịch vẫn nằm trong tài khoản của chính bạn, và giao dịch luôn có rủi ro."},"pitch_p":"Nó giao dịch ngay từ tài khoản Coin Zoom của chính bạn, nên tiền của bạn không bao giờ rời khỏi đó, và bạn có thể tắt nó bất cứ lúc nào. Không tốn phí ban đầu, chỉ một khoản phí nhỏ theo hiệu quả, và không phải thiết lập gì. Bạn còn có thể được trả tiền khi chia sẻ nó.","connector_p":"Chia sẻ Quantaira với những người sẽ cần nó, và được trả tiền cho việc đó. Đây là một AI giao dịch ngay từ tài khoản Coin Zoom của chính họ, không tốn phí ban đầu và không phải thiết lập gì. Mình sẽ chỉ bạn cách chia sẻ hoạt động thế nào."}</script>
+<!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
+<script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

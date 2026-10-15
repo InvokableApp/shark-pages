@@ -1,0 +1,139 @@
+<!--
+  hu translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-prompt-reel
+  The confirmation after the alert bot opt-in, as a REEL, in the "Signal" look. Platform only: the step /alert-bot-prompt
+  points here (platform migration 0299). Four screens: the prompt (greeted by name), copy it, what you'll need, the pitch.
+  ⚠️ THE PROMPT ON SCREEN 2 IS QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md, word for word. It is written in
+  by QUANTAIRASHARK/lead-magnets/telegram-alert-bot/build-pages.py from pages/prompt-reel.src.html there: edit PROMPT.md or that source,
+  then run the script. Never edit block.html by hand.
+  ⚠️ THE PITCH (screen 4) MAKES THE GAP CLEAR (Jeff, 2026-10-15: "what theyre setting up here is small and tiny and
+  untrained ... really want to make sure that distinction is CLEAR"). Its facts are the launch webinar's (Oct 10):
+  Endotech has spent over a decade on AI for the markets (Dr. Anna, 2:00) and over $40 million on it (Jeremy, 5:30);
+  the money stays in the person's own Coin Zoom account, trade-only keys, switch off any time (7:00, 42:50); no upfront
+  fee (4:00). "A small performance fee" is Jeff's wording; the rep answers the details. Never "free", never "bot" for
+  Quantaira's AI (Jeremy, 27:00: "This is a true artificial intelligence system"). The risk line stays.
+  ⚠️ The ask is a message to the rep: Messenger, or a text when the rep has no Messenger link ([data-needs]).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="a Quantaira AI-jához való hozzáférésért" data-pf-say="Szia {first}, megkaptam a riasztó bot promptját. Hogyan kaphatok hozzáférést a Quantaira AI-jához?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <!-- The bonus bar, pinned to the top of every screen (Jeff, 2026-10-15, on the review page: "lets make it clear on
+         the confirmation page ... maybe a banner sticking to top of page"). A tap goes to the pitch, the last screen.
+         "Bonus", not "free bonus": access has a performance fee (see the header). -->
+    <a class="qab-bonus" href="#qab-pitch" data-qab-bonus><span class="qab-bonus-tag">Bónusz</span><span class="qab-bonus-txt">Hozzáférés a Quantaira fejlett kereskedő AI-jához</span><span aria-hidden="true">&rsaquo;</span></a>
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: here's your prompt, by name -->
+      <section class="rl-p rl-paper">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Bent vagy</span>
+          <!-- The name is filled from the opt-in and the span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 class="rl-type">Itt a promptod<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Másold ki a következő képernyőn, vagy nyisd meg a számítógépeden az e-mailt, amit most küldtünk. Abban
+            is benne van, a beállítási útmutatóval együtt.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/alert-bot-guide">Nyisd meg a beállítási útmutatót</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the prompt itself, scrolls inside the screen -->
+      <section class="rl-p rl-night">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>A prompt</span>
+          <h2 data-in style="--d:.1s">Illeszd be a <em>ChatGPT-be vagy a Claude-ba</em></h2>
+          <div class="qab-prompt rl-art" data-in style="--d:.2s">
+            <pre id="qab-prompt" tabindex="0">Légy a türelmes beállítási segítőm. Vezess végig lépésről lépésre azon, hogyan építsem meg a saját kripto riasztó botomat Telegramra. Nem vagyok programozó, és soha nem használtam még GitHubot vagy szervert. Minden a webböngészőmben és a Telegram alkalmazásban történik: soha ne kérd, hogy terminált vagy parancssort nyissak, vagy bármit telepítsek. Minden lépést egyszerű szavakkal magyarázz el, mondd meg pontosan, mire kattintsak, és várd meg, hogy azt írjam: "kész", mielőtt továbblépsz. A weboldalak változtatják a gombjaikat, úgyhogy ha amit látok, nem egyezik azzal, amit leírtál, kérd meg, hogy mondjam el, mi van a képernyőmön, és abból dolgozz.
+
+MIT CSINÁL A BOT
+5 percenként ellenőrzi az általam választott coin árát (Bitcoin, hacsak mást nem mondok; Ethereum, Solana vagy arany a PAXG-n keresztül is működik). Ha egy óra alatt 2%-ot vagy többet mozdul, küld nekem egy Telegram üzenetet, benne:
+1. Mennyit mozdult, és mennyi most az ár.
+2. Az utolsó két óra 3 legfontosabb hírcíme arról a coinról, linkekkel.
+3. Egy AI által írt mondat arról, melyik hír magyarázza a legvalószínűbben a mozgást, vagy hogy egyik sem.
+4. Mi történt korábban: az elmúlt 12 hónapban hány óra mozdult ennyit ugyanabba az irányba, és hányszor volt utána 24 órával feljebb vagy lejjebb.
+Soha nem kereskedik. Csak árakat és híreket olvas, és soha nincs nála kulcs semmilyen tőzsdei fiókhoz.
+
+HOGYAN ÉPÍTSD MEG (neked, a segítőnek)
+- Python 3, csak a standard library, egyetlen fájl, a neve bot.py.
+- Árak: a Coinbase ingyenes nyilvános áradatai (api.exchange.coinbase.com gyertyák a COIN beállításhoz, például BTC-USD). Nem kell hozzá kulcs. Az utolsó órához 5 perces gyertyákat használj, a 12 hónapos előzményekhez 1 órás gyertyákat (kérésenként 300, úgyhogy lapozz visszafelé).
+- Egy nagy mozgást egy mintának számolj: egy találat után ugorj előre 24 órát.
+- Hírek: ezek az ingyenes hírcsatornák, nem kell hozzájuk kulcs. Tartsd meg az utolsó két óra azon híreit, amelyek címében szerepel a NEWS_WORD beállítás (például bitcoin), és szűrd ki az ismétlődéseket. A Google News csatornánál a bitcoin helyett a NEWS_WORD-re keress.
+  https://www.coindesk.com/arc/outboundfeeds/rss/
+  https://cointelegraph.com/rss
+  https://decrypt.co/feed
+  https://news.google.com/rss/search?q=bitcoin+when:2h&amp;hl=en-US&amp;gl=US&amp;ceid=US:en
+- Az AI-mondat: azt a kulcsot használd, amelyik nekem van, OpenAI vagy Anthropic. Mondd meg neki, hogy ne jósoljon árat, és ne mondja, hogy vegyek vagy adjak el. Ha az AI-hívás nem sikerül, küldd el a riasztást e nélkül a mondat nélkül.
+- Irányonként csak egy riasztás két óránként, hogy egy nagy mozgás ne küldjön tizenkét üzenetet.
+- Ha egy hírcsatorna vagy az árellenőrzés nem sikerül, hagyd ki, és próbáld újra legközelebb. Soha ne omoljon össze.
+- A bot minden riasztást magyarul írjon: a mozgást, a múltbeli adatokat és az AI-mondatot is (a hírcímek maradhatnak eredeti nyelven). Kérd meg az AI-t, hogy magyarul válaszoljon.
+- Minden riasztás végén ez álljon: "Ez múltbeli adat, nem előrejelzés."
+- Örökké fut, 5 percenként ellenőriz, és minden ellenőrzésnél egy sort ír a naplóba.
+- Ha a SEND_TEST_ON_START beállítás értéke "yes", akkor indításkor azonnal küld egy riasztást, bármekkora is a mozgás, hogy lássam, működik.
+- A beállítások csak környezeti változókból jönnek: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (alapértelmezés BTC-USD), NEWS_WORD (alapértelmezés bitcoin), MOVE_PCT (alapértelmezés 2), SEND_TEST_ON_START, valamint OPENAI_API_KEY vagy ANTHROPIC_API_KEY. Semmi titkos nem kerül soha a kódba.
+- Az egész fájlt egyetlen kódblokkban add meg, beillesztésre készen.
+
+KULCSOK ÉS BIZTONSÁG (ezeket végig tartsd be)
+- Soha ne kérd, hogy kulcsot vagy tokent illesszek be ebbe a beszélgetésbe, és soha ne tegyél egyet se a kódba. Minden kulcs pontosan egy helyre kerül: a Railway Variables képernyőjére. Addig a telefonom vagy a számítógépem jegyzet alkalmazásában tartom.
+- A GitHub repositorym legyen privát.
+- Kapcsoltasd be velem a kétlépcsős bejelentkezést a GitHubon, a Railway-en, a Telegramon és az AI-fiókon.
+- Minden szolgáltatásnál mondd el, hogyan tudok visszavonni egy kulcsot és újat készíteni, ha valaha kiszivárogna.
+
+A LÉPÉSEK, EBBEN A SORRENDBEN
+1. Telegram: nyisd meg a @BotFathert, küldd el a /newbot parancsot, válassz nevet, és mentsd el a jegyzeteimbe a tokent, amit ad.
+2. A chat id-m: megnyitom az új botomat, és rákoppintok a Start gombra. Aztán megnyitom ezt a címet a böngészőmben, a TOKEN helyére a saját tokenemet írva: https://api.telegram.org/botTOKEN/getUpdates és te megmutatod, melyik szám a chat id-m. Emlékeztess, hogy ebben a címben benne van a tokenem, ezért se a címet, se róla készült képernyőképet ne osszam meg.
+3. Az AI-kulcs: segíts szerezni egy OpenAI vagy Anthropic kulcsot, állíts rá egy kis havi költési limitet, és mentsd el a jegyzeteimbe.
+4. GitHub: kérdezd meg, melyik coint szeretném figyelni, aztán hozzunk létre egy ingyenes fiókot, és kapcsoljuk be a kétlépcsős bejelentkezést. Hozzunk létre egy új PRIVÁT repositoryt btc-alert-bot néven.
+5. A kód: a repositoryban Add file, Create new file, a neve legyen bot.py, illeszd be a kódot, amit nekem írsz, és commitold. Aztán hozz létre egy második fájlt Procfile néven (kiterjesztés nélkül), ezzel az egy sorral: worker: python3 bot.py
+6. Railway: regisztrálj a GitHub-fiókommal. Mielőtt bármit hozzáadnék, nyisd meg velem a Railway árazási oldalát, és mondd el egyszerű szavakkal, mennyibe kerül ez nekem ma és havonta. Aztán New Project, Deploy from GitHub repo, és engedd, hogy a Railway lássa a btc-alert-bot repositorymat, amikor rákérdez.
+7. A kulcsaim: a szolgáltatás Variables képernyőjén add hozzá ezeket: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (BTC-USD, vagy az általam választott coin), NEWS_WORD (bitcoin, vagy a coinom neve), MOVE_PCT (2), ANTHROPIC_API_KEY vagy OPENAI_API_KEY, és SEND_TEST_ON_START (yes). Aztán töröld a kulcsokat a jegyzet alkalmazásomból.
+8. A teszt: amikor a deploy befejeződik, egy teszt riasztásnak kell megérkeznie a Telegramra. Mutasd meg, hol vannak a Railway naplói, és hogy 5 percenként megjelenik egy árellenőrzési sor. Aztán állítsd át a SEND_TEST_ON_START értékét no-ra.
+9. Adj egy rövid ellenőrzőlistát mindarról, amit beállítottam, hol van az egyes kulcsok helye, és hogyan tudom szüneteltetni a botot (törlöm a Railway-ből), ha valaha szeretném.
+
+Kezdd azzal, hogy három sorban elmondod, mit fogunk építeni, nagyjából mennyi ideig tart, és mennyibe kerülhet. Aztán kezdd el az 1. lépést.</pre>
+          </div>
+          <button type="button" class="rl-btn qab-copy" data-qab-copy data-in style="--d:.3s">Másold ki a promptot</button>
+          <span class="qab-copied" data-qab-copied>Kimásolva. Illeszd be egy új beszélgetésbe.</span>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: what you'll need -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Mielőtt belekezdesz</span>
+          <h2 data-in style="--d:.1s">Négy fiók, <em>mind a böngésződben</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>A telefonodon. Ingyenes.</li>
+            <li data-in style="--d:.3s"><b>OpenAI vagy Anthropic</b>Az AI-mondathoz. Havonta fillérek, általad beállított költési limittel.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Itt van a botod kódja. Ingyenes.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Ez tartja futásban. Kb. havi $5 egy egyszeri próbakredit után.</li>
+          </ol>
+          <div class="rl-btns" data-in style="--d:.6s"><a class="rl-btn rl-btn-2" href="/alert-bot-guide">Nyisd meg a beállítási útmutatót</a></div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch" id="qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Szeretnéd, hogy helyetted kössék meg az ügyleteket?</span>
+          <h2 data-in style="--d:.1s">Most kaptál kb. 300 sor kódot. <em>A Quantaira AI-ját több mint egy évtizedig</em> és 40 millió dollárból építették.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 sor</b><small>A riasztó botod. Szól, hogy valami mozdult.</small></div>
+            <div class="big"><b>10+ év</b><small>A Quantaira AI-ja. Olvassa a híreket és a grafikonokat, és megköti az ügyleteket.</small></div>
+          </div>
+          <p data-in style="--d:.3s">A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor
+            kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
+          <p class="qab-alt" data-in style="--d:.45s">Inkább SMS-t írnál? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Küldj inkább egy SMS-t</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Képernyők"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Írj {first} részére a hozzáférésért" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Előző képernyő"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Következő képernyő"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,150 @@
+<!--
+  ja translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-guide-reel
+  The setup guide for the crypto alert bot, as a REEL to swipe through on a phone (Jeff, 2026-10-15: "a pdf they can
+  swipe through on their phone ... how to set up a git, a server and a telegram and all the api keys theyll need and
+  how to keep them safe"; "people just arent downloading pdfs in this world"). "Signal" look. Platform only: the step
+  /alert-bot-guide points here (platform migration 0299).
+  ⚠️ IT FOLLOWS THE PROMPT'S NINE STEPS (QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md) and says nothing the
+  prompt doesn't: browser only, keys only in Railway's Variables screen, the private repository, the Procfile line,
+  SEND_TEST_ON_START. Change the prompt and this page together. Railway's cost as the prompt says it, and the prompt
+  has the AI check Railway's pricing page with them, because the terms move.
+  ⚠️ The last screen is the same pitch as the confirmation's: the gap made plain (see that block's header).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="QuantairaのAIの利用について" data-pf-say="{first}さん、今アラートボットを設定しています。QuantairaのAIを使うにはどうすればいいですか？" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: the cover -->
+      <section class="rl-p rl-paper qab-cover" aria-label="セットアップガイド">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>セットアップガイド</span>
+          <h1 data-in style="--d:.1s">アラートボットの準備：<em>Telegram、AIのキー、GitHub、Railway</em></h1>
+          <p data-in style="--d:.25s">まずスマホでスワイプして目を通し、それからプロンプトを持ってパソコンの前へ。
+            道案内はAIがしてくれます。これはその地図です。</p>
+          <ul class="rl-pills" data-in style="--d:.35s"><li>ブラウザだけ</li><li>コーディング不要</li><li>月5ドルほど</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+        <svg class="qab-chart" viewBox="0 0 150 130" aria-hidden="true">
+          <defs><linearGradient id="qabG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6a8"/><stop offset=".6" stop-color="#2fa8ff"/><stop offset="1" stop-color="#4b6bff"/></linearGradient></defs>
+          <g class="qab-candles"><rect x="4" y="92" width="10" height="28" rx="2"/><rect x="24" y="74" width="10" height="46" rx="2"/><rect x="44" y="84" width="10" height="36" rx="2"/><rect x="64" y="58" width="10" height="62" rx="2"/><rect x="84" y="68" width="10" height="52" rx="2"/><rect x="104" y="36" width="10" height="84" rx="2"/><rect x="124" y="14" width="10" height="106" rx="2"/></g>
+          <path class="qab-line" pathLength="1" d="M9 88 L29 70 L49 80 L69 54 L89 64 L109 32 L129 10"/>
+          <circle class="qab-tip" cx="129" cy="10" r="4"/><circle class="qab-tip-ring" cx="129" cy="10" r="4"/>
+        </svg>
+      </section>
+
+      <!-- 2. TINT: what you'll need -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>必要なもの</span>
+          <h2 data-in style="--d:.1s">4つのアカウントと<em>メモアプリ</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>スマホに入れます。無料。</li>
+            <li data-in style="--d:.3s"><b>OpenAIかAnthropic</b>動いた理由をひとことで書くためのもの。月にごくわずかな費用です。</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>ボットのコードを置く場所。無料。</li>
+            <li data-in style="--d:.5s"><b>Railway</b>ボットを昼も夜も動かします。初回の無料トライアル分のあとは月5ドルほど。</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.6s">それぞれのキーは、Railwayに入れるまでの数分間だけメモアプリに保管します。</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: part 1, Telegram -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>パート1 · Telegram</span>
+          <h2 data-in style="--d:.1s">ボットを作って<em>チャットIDを確認する</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>@BotFatherを開く</b>/newbotを送って名前を決めます。トークンがもらえるので、メモに保存しましょう。</li>
+            <li data-in style="--d:.3s"><b>作ったボットで「開始」をタップ</b>これをしないと、ボットはあなたにメッセージを送れません。</li>
+            <li data-in style="--d:.4s"><b>ブラウザでアドレスを1つ開く</b>アドレスはAIが教えてくれます。あなたのチャットID（数字）が表示されるので、それも保存しましょう。</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">このアドレスにはあなたのトークンが含まれています。アドレスもスクリーンショットも人に見せないでください。</p>
+        </div>
+      </section>
+
+      <!-- 4. PLAIN: part 2, the AI key -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>パート2 · AIのキー</span>
+          <h2 data-in style="--d:.1s">キーは1つ。<em>利用上限を設定</em>しておきます</h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>OpenAIかAnthropicのアカウントを作る</b>どちらでも大丈夫です。キーの場所はAIが教えてくれます。</li>
+            <li data-in style="--d:.3s"><b>少額の月間上限を設定する</b>ボットがAIを使うのはアラートが出るときだけ。月に数回程度です。</li>
+            <li data-in style="--d:.4s"><b>キーをメモに保存する</b>AIとのチャットには絶対に貼り付けないでください。</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. TINT: part 3, GitHub -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>パート3 · GitHub</span>
+          <h2 data-in style="--d:.1s"><em>非公開リポジトリ</em>に2つのファイル</h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>アカウントを作り、二段階認証をオンにする</b>次に新しいリポジトリを作り、Private（非公開）に設定します。</li>
+            <li data-in style="--d:.3s"><b>Add file、Create new file：bot.py</b>AIが書いてくれたコードを貼り付けて、コミットします。</li>
+            <li data-in style="--d:.4s"><b>もう1つのファイル：Procfile</b>中身は1行だけ、worker: python3 bot.py。サーバーにボットの起動方法を伝えるファイルです。</li>
+          </ol>
+          <div class="lk-code qab-type" data-in style="--d:.5s"><i>btc-alert-bot / <em>bot.py</em></i><span>btc-alert-bot / Procfile</span></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: part 4, Railway -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>パート4 · Railway</span>
+          <h2 data-in style="--d:.1s">起動して<em>テストのアラートが届くのを確認</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>GitHubで登録する</b>最初に、AIがRailwayの料金ページを一緒に確認してくれます。</li>
+            <li data-in style="--d:.3s"><b>New Project、Deploy from GitHub repo</b>ボットのリポジトリを選びます。</li>
+            <li data-in style="--d:.4s"><b>Variablesにキーを追加する</b>トークン、チャットID、AIのキー、選んだコイン、そしてyesにしたSEND_TEST_ON_START。AIが全部リストにしてくれます。終わったらメモから削除しましょう。</li>
+            <li data-in style="--d:.5s"><b>Telegramにテストのアラートが届く</b>ログに5分ごとの価格チェックが出ているのを確認したら、SEND_TEST_ON_STARTをnoにします。</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 7. PLAIN: keys, and when the screen doesn't match -->
+      <section class="rl-p rl-paper qab-scan qab-close">
+        <div class="rl-in">
+          <svg class="qab-lock" viewBox="0 0 64 76" aria-hidden="true">
+            <defs><linearGradient id="qabG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee6a8"/><stop offset="1" stop-color="#2fa8ff"/></linearGradient></defs>
+            <path class="qab-shackle qab-shut" d="M18 36 V24 a14 14 0 0 1 28 0 V36"/>
+            <rect class="qab-body" x="8" y="34" width="48" height="38" rx="9"/>
+            <path class="qab-hole" d="M32 48 v10"/><circle class="qab-hole-dot" cx="32" cy="48" r="4"/>
+          </svg>
+          <span class="rl-eyebrow" data-in>安全に使うために</span>
+          <h2 data-in style="--d:.1s">キーを置くのは<em>1か所だけ</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>RailwayのVariables画面</b>コードにも、GitHubにも、チャットにも絶対に入れません。</li>
+            <li data-in style="--d:.3s"><b>すべてで二段階認証</b>GitHub、Railway、Telegram、そしてAIのアカウント。</li>
+            <li data-in style="--d:.4s"><b>キーが漏れたら？無効にする</b>新しいキーを作ってRailwayに貼り付けます。やり方はサービスごとにAIが教えてくれます。</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">ウェブサイトのボタンの位置は変わることがあります。画面が説明と違うときは、見えているものをAIに伝えれば、それに合わせて進めてくれます。</p>
+        </div>
+      </section>
+
+      <!-- 8. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>取引も任せたいですか？</span>
+          <h2 data-in style="--d:.1s">あなたのボットはおよそ300行のコード。<em>QuantairaのAIは開発に10年以上</em>と4,000万ドルをかけています。</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>約300行</b><small>あなたのアラートボット。何かが動いたことを知らせます。</small></div>
+            <div class="big"><b>10年以上</b><small>QuantairaのAI。ニュースとチャートを読んで、取引まで行います。</small></div>
+          </div>
+          <p data-in style="--d:.3s">トレードはあなた自身のCoin Zoom口座から行うので、お金が口座の外に出ることはありません。
+            いつでも止められます。初期費用はなく、少額の成功報酬だけ。設定も必要ありません。</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">メッセージで利用を申し込む</a>
+          <p class="qab-alt" data-in style="--d:.45s">テキストメッセージのほうがいいですか？ <a data-pf-message-link data-pf-text-link href="/alert-bot-text">代わりにSMSを送ってください</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">トレードにはリスクがあり、損失が出る月もあります。失っても困らないお金だけを使ってください。</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="画面"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="{first}さんにメッセージで利用を申し込む" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">メッセージで利用を申し込む</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="前の画面"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="次の画面"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,150 @@
+<!--
+  vi translation of block.html (Claude draft, 2026-10-15). Change block.html first, then this.
+  quantaira/alert-bot/alert-bot-guide-reel
+  The setup guide for the crypto alert bot, as a REEL to swipe through on a phone (Jeff, 2026-10-15: "a pdf they can
+  swipe through on their phone ... how to set up a git, a server and a telegram and all the api keys theyll need and
+  how to keep them safe"; "people just arent downloading pdfs in this world"). "Signal" look. Platform only: the step
+  /alert-bot-guide points here (platform migration 0299).
+  ⚠️ IT FOLLOWS THE PROMPT'S NINE STEPS (QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md) and says nothing the
+  prompt doesn't: browser only, keys only in Railway's Variables screen, the private repository, the Procfile line,
+  SEND_TEST_ON_START. Change the prompt and this page together. Railway's cost as the prompt says it, and the prompt
+  has the AI check Railway's pricing page with them, because the terms move.
+  ⚠️ The last screen is the same pitch as the confirmation's: the gap made plain (see that block's header).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="để được truy cập AI của Quantaira" data-pf-say="Chào {first}, mình đang thiết lập bot báo động. Làm sao để mình được truy cập AI của Quantaira?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: the cover -->
+      <section class="rl-p rl-paper qab-cover" aria-label="Hướng dẫn thiết lập">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Hướng dẫn thiết lập</span>
+          <h1 data-in style="--d:.1s">Thiết lập bot báo động của bạn: <em>Telegram, một khóa AI, GitHub và Railway</em></h1>
+          <p data-in style="--d:.25s">Lướt qua trên điện thoại, rồi ngồi vào máy tính cùng với prompt. AI sẽ dẫn đường,
+            còn đây là tấm bản đồ.</p>
+          <ul class="rl-pills" data-in style="--d:.35s"><li>Chỉ cần trình duyệt</li><li>Không cần biết code</li><li>Khoảng $5 một tháng</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+        <svg class="qab-chart" viewBox="0 0 150 130" aria-hidden="true">
+          <defs><linearGradient id="qabG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6a8"/><stop offset=".6" stop-color="#2fa8ff"/><stop offset="1" stop-color="#4b6bff"/></linearGradient></defs>
+          <g class="qab-candles"><rect x="4" y="92" width="10" height="28" rx="2"/><rect x="24" y="74" width="10" height="46" rx="2"/><rect x="44" y="84" width="10" height="36" rx="2"/><rect x="64" y="58" width="10" height="62" rx="2"/><rect x="84" y="68" width="10" height="52" rx="2"/><rect x="104" y="36" width="10" height="84" rx="2"/><rect x="124" y="14" width="10" height="106" rx="2"/></g>
+          <path class="qab-line" pathLength="1" d="M9 88 L29 70 L49 80 L69 54 L89 64 L109 32 L129 10"/>
+          <circle class="qab-tip" cx="129" cy="10" r="4"/><circle class="qab-tip-ring" cx="129" cy="10" r="4"/>
+        </svg>
+      </section>
+
+      <!-- 2. TINT: what you'll need -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Bạn sẽ cần gì</span>
+          <h2 data-in style="--d:.1s">Bốn tài khoản và <em>một ứng dụng ghi chú</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>Trên điện thoại của bạn. Miễn phí.</li>
+            <li data-in style="--d:.3s"><b>OpenAI hoặc Anthropic</b>Cho dòng giải thích vì sao giá biến động. Chỉ vài xu mỗi tháng.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Chứa code của bot. Miễn phí.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Chạy bot cả ngày lẫn đêm. Khoảng $5 một tháng sau khi dùng hết khoản tín dụng dùng thử một lần.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.6s">Ứng dụng ghi chú giữ từng khóa trong vài phút, cho đến khi khóa được đưa vào Railway.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: part 1, Telegram -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Phần 1 · Telegram</span>
+          <h2 data-in style="--d:.1s">Tạo bot và <em>tìm chat id của bạn</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Mở @BotFather</b>Gửi /newbot và chọn một cái tên. Nó sẽ đưa bạn một token: lưu nó vào ghi chú.</li>
+            <li data-in style="--d:.3s"><b>Bấm Start trên bot mới của bạn</b>Bot không nhắn được cho bạn cho tới khi bạn bấm.</li>
+            <li data-in style="--d:.4s"><b>Mở một địa chỉ trên trình duyệt</b>AI sẽ đưa địa chỉ đó cho bạn. Nó hiện chat id của bạn, là một con số. Lưu cả số đó lại.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">Địa chỉ đó có chứa token của bạn. Đừng chia sẻ nó hay ảnh chụp màn hình của nó.</p>
+        </div>
+      </section>
+
+      <!-- 4. PLAIN: part 2, the AI key -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Phần 2 · Khóa AI của bạn</span>
+          <h2 data-in style="--d:.1s">Một khóa, có <em>hạn mức chi tiêu</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Tạo tài khoản OpenAI hoặc Anthropic</b>Cái nào cũng được. AI sẽ chỉ bạn khóa nằm ở đâu.</li>
+            <li data-in style="--d:.3s"><b>Đặt một hạn mức nhỏ mỗi tháng</b>Bot chỉ hỏi AI khi có báo động, vài lần mỗi tháng.</li>
+            <li data-in style="--d:.4s"><b>Lưu khóa vào ghi chú</b>Đừng bao giờ dán nó vào cuộc trò chuyện với AI.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. TINT: part 3, GitHub -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Phần 3 · GitHub</span>
+          <h2 data-in style="--d:.1s">Hai file trong <em>một repository riêng tư</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Tạo tài khoản và bật đăng nhập hai bước</b>Rồi tạo một repository mới, để chế độ Private.</li>
+            <li data-in style="--d:.3s"><b>Add file, Create new file: bot.py</b>Dán code AI viết cho bạn vào rồi commit.</li>
+            <li data-in style="--d:.4s"><b>Thêm một file nữa: Procfile</b>Bên trong chỉ có một dòng, worker: python3 bot.py. Nó cho máy chủ biết cách khởi động bot của bạn.</li>
+          </ol>
+          <div class="lk-code qab-type" data-in style="--d:.5s"><i>btc-alert-bot / <em>bot.py</em></i><span>btc-alert-bot / Procfile</span></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: part 4, Railway -->
+      <section class="rl-p rl-night qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Phần 4 · Railway</span>
+          <h2 data-in style="--d:.1s">Bật lên và <em>xem báo động thử về máy</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Đăng ký bằng GitHub</b>AI sẽ cùng bạn xem trang giá của Railway trước.</li>
+            <li data-in style="--d:.3s"><b>New Project, Deploy from GitHub repo</b>Chọn repository của bot.</li>
+            <li data-in style="--d:.4s"><b>Thêm các khóa vào Variables</b>Token, chat id và khóa AI của bạn, đồng coin bạn chọn, và SEND_TEST_ON_START đặt là yes. AI sẽ liệt kê từng cái. Sau đó xóa chúng khỏi ghi chú.</li>
+            <li data-in style="--d:.5s"><b>Báo động thử về Telegram</b>Kiểm tra log có một lần kiểm tra giá mỗi 5 phút, rồi đổi SEND_TEST_ON_START thành no.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 7. PLAIN: keys, and when the screen doesn't match -->
+      <section class="rl-p rl-paper qab-scan qab-close">
+        <div class="rl-in">
+          <svg class="qab-lock" viewBox="0 0 64 76" aria-hidden="true">
+            <defs><linearGradient id="qabG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee6a8"/><stop offset="1" stop-color="#2fa8ff"/></linearGradient></defs>
+            <path class="qab-shackle qab-shut" d="M18 36 V24 a14 14 0 0 1 28 0 V36"/>
+            <rect class="qab-body" x="8" y="34" width="48" height="38" rx="9"/>
+            <path class="qab-hole" d="M32 48 v10"/><circle class="qab-hole-dot" cx="32" cy="48" r="4"/>
+          </svg>
+          <span class="rl-eyebrow" data-in>Giữ an toàn</span>
+          <h2 data-in style="--d:.1s">Các khóa của bạn chỉ nằm ở <em>một chỗ duy nhất</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Màn hình Variables của Railway</b>Không bao giờ trong code, không bao giờ trên GitHub, không bao giờ trong cuộc trò chuyện.</li>
+            <li data-in style="--d:.3s"><b>Đăng nhập hai bước ở mọi nơi</b>GitHub, Railway, Telegram và tài khoản AI của bạn.</li>
+            <li data-in style="--d:.4s"><b>Khóa bị lộ? Hủy nó đi</b>Tạo khóa mới và dán vào Railway. AI sẽ chỉ bạn cách làm với từng dịch vụ.</li>
+          </ol>
+          <p class="rl-note" data-in style="--d:.5s">Các trang web hay đổi vị trí nút. Khi màn hình của bạn không giống, kể cho AI nghe bạn đang thấy gì và nó sẽ làm tiếp từ đó.</p>
+        </div>
+      </section>
+
+      <!-- 8. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Muốn có người đặt lệnh thay bạn?</span>
+          <h2 data-in style="--d:.1s">Bot của bạn chỉ khoảng 300 dòng code. <em>AI của Quantaira mất hơn mười năm</em> và $40 triệu để xây dựng.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 dòng</b><small>Bot báo động của bạn. Nó báo cho bạn biết giá vừa biến động.</small></div>
+            <div class="big"><b>10+ năm</b><small>AI của Quantaira. Nó đọc tin tức, đọc biểu đồ và đặt lệnh.</small></div>
+          </div>
+          <p data-in style="--d:.3s">Nó giao dịch ngay từ tài khoản Coin Zoom của chính bạn, nên tiền của bạn không bao giờ rời khỏi đó, và bạn có thể
+            tắt nó bất cứ lúc nào. Không tốn phí ban đầu, chỉ một khoản phí nhỏ theo hiệu quả, và không phải thiết lập gì.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Nhắn cho mình để được truy cập</a>
+          <p class="qab-alt" data-in style="--d:.45s">Thích nhắn SMS hơn? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Nhắn SMS cho mình nhé</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">Giao dịch luôn có rủi ro, kể cả những tháng bị lỗ. Chỉ dùng số tiền bạn có thể chấp nhận mất.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Màn hình"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Nhắn {first} để được truy cập" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Nhắn cho mình để được truy cập</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Màn hình trước"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Màn hình tiếp"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

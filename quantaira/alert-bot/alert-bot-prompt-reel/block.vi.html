@@ -1,0 +1,139 @@
+<!--
+  vi translation of prompt-reel.src.html (Claude draft, 2026-10-15). Change prompt-reel.src.html first, then this.
+  quantaira/alert-bot/alert-bot-prompt-reel
+  The confirmation after the alert bot opt-in, as a REEL, in the "Signal" look. Platform only: the step /alert-bot-prompt
+  points here (platform migration 0299). Four screens: the prompt (greeted by name), copy it, what you'll need, the pitch.
+  ⚠️ THE PROMPT ON SCREEN 2 IS QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md, word for word. It is written in
+  by QUANTAIRASHARK/lead-magnets/telegram-alert-bot/build-pages.py from pages/prompt-reel.src.html there: edit PROMPT.md or that source,
+  then run the script. Never edit block.html by hand.
+  ⚠️ THE PITCH (screen 4) MAKES THE GAP CLEAR (Jeff, 2026-10-15: "what theyre setting up here is small and tiny and
+  untrained ... really want to make sure that distinction is CLEAR"). Its facts are the launch webinar's (Oct 10):
+  Endotech has spent over a decade on AI for the markets (Dr. Anna, 2:00) and over $40 million on it (Jeremy, 5:30);
+  the money stays in the person's own Coin Zoom account, trade-only keys, switch off any time (7:00, 42:50); no upfront
+  fee (4:00). "A small performance fee" is Jeff's wording; the rep answers the details. Never "free", never "bot" for
+  Quantaira's AI (Jeremy, 27:00: "This is a true artificial intelligence system"). The risk line stays.
+  ⚠️ The ask is a message to the rep: Messenger, or a text when the rep has no Messenger link ([data-needs]).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="để được truy cập AI của Quantaira" data-pf-say="Chào {first}, mình đã nhận prompt bot báo động. Làm sao để mình được truy cập AI của Quantaira?" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <!-- The bonus bar, pinned to the top of every screen (Jeff, 2026-10-15, on the review page: "lets make it clear on
+         the confirmation page ... maybe a banner sticking to top of page"). A tap goes to the pitch, the last screen.
+         "Bonus", not "free bonus": access has a performance fee (see the header). -->
+    <a class="qab-bonus" href="#qab-pitch" data-qab-bonus><span class="qab-bonus-tag">Tặng thêm</span><span class="qab-bonus-txt">Truy cập AI giao dịch tiên tiến của Quantaira</span><span aria-hidden="true">&rsaquo;</span></a>
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: here's your prompt, by name -->
+      <section class="rl-p rl-paper">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Bạn đã vào rồi</span>
+          <!-- The name is filled from the opt-in and the span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 class="rl-type">Prompt của bạn đây<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Sao chép nó ở màn hình tiếp theo, hoặc mở email chúng mình vừa gửi trên máy tính của bạn. Trong
+            đó cũng có prompt, kèm hướng dẫn thiết lập.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/alert-bot-guide">Mở hướng dẫn thiết lập</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the prompt itself, scrolls inside the screen -->
+      <section class="rl-p rl-night">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Prompt</span>
+          <h2 data-in style="--d:.1s">Dán nó vào <em>ChatGPT hoặc Claude</em></h2>
+          <div class="qab-prompt rl-art" data-in style="--d:.2s">
+            <pre id="qab-prompt" tabindex="0">Bạn là người hướng dẫn thiết lập kiên nhẫn của mình. Hãy hướng dẫn mình tự làm một bot báo động crypto cho Telegram, từng bước một. Mình không phải lập trình viên và chưa từng dùng GitHub hay máy chủ. Mọi thứ đều làm trên trình duyệt web và ứng dụng Telegram: đừng bao giờ bảo mình mở terminal, dòng lệnh hay cài đặt bất cứ thứ gì. Giải thích từng bước bằng lời dễ hiểu, nói rõ chính xác phải bấm vào đâu, và chờ mình nói "xong" rồi mới đi tiếp. Các trang web hay đổi nút, nên nếu thứ mình thấy không giống bạn mô tả, hãy hỏi mình màn hình đang hiện gì và làm tiếp từ đó.
+
+BOT LÀM GÌ
+Cứ mỗi 5 phút nó kiểm tra giá của đồng coin mình chọn (Bitcoin, trừ khi mình chọn khác; Ethereum, Solana hoặc vàng qua PAXG cũng được). Khi giá biến động từ 2% trở lên trong một giờ, nó gửi cho mình một tin nhắn Telegram, viết bằng tiếng Việt, gồm:
+1. Giá đã biến động bao nhiêu và giá hiện tại.
+2. 3 tin nổi bật nhất về đồng coin đó trong hai giờ qua, kèm đường link.
+3. Một dòng do AI viết bằng tiếng Việt, cho biết tin nào nhiều khả năng giải thích được biến động nhất, hoặc không tin nào giải thích được.
+4. Chuyện gì đã xảy ra trước đây: trong 12 tháng qua, có bao nhiêu giờ giá biến động mạnh như vậy theo cùng chiều, và bao nhiêu lần sau 24 giờ giá tăng hay giảm.
+Nó không bao giờ giao dịch. Nó chỉ đọc giá và tin tức, và không bao giờ giữ khóa của bất kỳ tài khoản sàn nào.
+
+CÁCH LÀM (dành cho bạn, người hướng dẫn)
+- Python 3, chỉ dùng thư viện chuẩn, một file duy nhất tên là bot.py.
+- Giá: dữ liệu giá công khai miễn phí của Coinbase (nến từ api.exchange.coinbase.com cho thiết lập COIN, ví dụ BTC-USD). Không cần khóa. Dùng nến 5 phút cho giờ vừa qua và nến 1 giờ cho lịch sử 12 tháng (300 nến mỗi lần gọi, nên lùi dần từng trang).
+- Tính một lần biến động lớn là một mẫu: sau mỗi lần khớp, bỏ qua 24 giờ tiếp theo.
+- Tin tức: các nguồn miễn phí dưới đây, không cần khóa. Giữ lại những tin trong hai giờ qua có tiêu đề nhắc đến thiết lập NEWS_WORD (ví dụ bitcoin), và bỏ tin trùng. Với nguồn Google News, tìm theo NEWS_WORD thay cho bitcoin.
+  https://www.coindesk.com/arc/outboundfeeds/rss/
+  https://cointelegraph.com/rss
+  https://decrypt.co/feed
+  https://news.google.com/rss/search?q=bitcoin+when:2h&amp;hl=en-US&amp;gl=US&amp;ceid=US:en
+- Dòng AI: dùng khóa nào mình có, OpenAI hoặc Anthropic. Dặn nó viết bằng tiếng Việt, không dự đoán giá và không nói mua hay bán. Nếu gọi AI bị lỗi, vẫn gửi báo động nhưng bỏ dòng đó.
+- Viết mọi tin nhắn báo động bằng tiếng Việt. Tiêu đề tin tức giữ nguyên như nguồn.
+- Mỗi chiều chỉ một báo động trong mỗi hai giờ, để một lần biến động lớn không gửi mười hai tin nhắn.
+- Nếu một nguồn tin hoặc lần kiểm tra giá bị lỗi, bỏ qua và thử lại lần sau. Không bao giờ để bot bị dừng vì lỗi.
+- Kết thúc mỗi báo động bằng: "Đây là lịch sử, không phải dự đoán."
+- Nó chạy mãi mãi, kiểm tra mỗi 5 phút, và in một dòng vào log sau mỗi lần kiểm tra.
+- Khi thiết lập SEND_TEST_ON_START là "yes", nó gửi một báo động ngay khi khởi động, bất kể giá biến động thế nào, để mình thấy nó chạy được.
+- Các thiết lập chỉ lấy từ biến môi trường: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (mặc định BTC-USD), NEWS_WORD (mặc định bitcoin), MOVE_PCT (mặc định 2), SEND_TEST_ON_START, và OPENAI_API_KEY hoặc ANTHROPIC_API_KEY. Không bao giờ viết thông tin bí mật vào trong code.
+- Đưa mình toàn bộ file trong một khối code, sẵn sàng để dán.
+
+KHÓA VÀ AN TOÀN (làm theo những điều này suốt quá trình)
+- Không bao giờ bảo mình dán khóa hay token vào cuộc trò chuyện này, và không bao giờ đặt chúng trong code. Mỗi khóa chỉ nằm ở đúng một chỗ: màn hình Variables của Railway. Cho tới lúc đó, mình giữ nó trong ứng dụng ghi chú trên điện thoại hoặc máy tính.
+- Repository GitHub của mình phải để chế độ riêng tư (private).
+- Bảo mình bật đăng nhập hai bước cho GitHub, Railway, Telegram và tài khoản AI.
+- Với mỗi dịch vụ, chỉ mình cách hủy một khóa và tạo khóa mới nếu có khóa nào bị lộ.
+
+CÁC BƯỚC, THEO ĐÚNG THỨ TỰ NÀY
+1. Telegram: mở @BotFather, gửi /newbot, chọn một cái tên, và lưu token nó đưa cho mình vào ghi chú.
+2. Chat id của mình: mình mở bot mới và bấm Start. Sau đó mình mở địa chỉ này trên trình duyệt, thay TOKEN bằng token của mình: https://api.telegram.org/botTOKEN/getUpdates và bạn chỉ cho mình con số nào là chat id. Nhắc mình rằng địa chỉ này có chứa token của mình, nên không được chia sẻ nó hay ảnh chụp màn hình của nó.
+3. Khóa AI: giúp mình lấy khóa OpenAI hoặc Anthropic, đặt một hạn mức chi tiêu nhỏ mỗi tháng cho nó, và lưu nó vào ghi chú.
+4. GitHub: hỏi mình muốn theo dõi đồng coin nào, rồi tạo một tài khoản miễn phí và bật đăng nhập hai bước. Tạo một repository RIÊNG TƯ (PRIVATE) mới tên là btc-alert-bot.
+5. Code: trong repository, chọn Add file, Create new file, đặt tên là bot.py, dán code bạn viết cho mình vào, rồi commit. Sau đó tạo file thứ hai tên là Procfile (không có đuôi) với đúng một dòng: worker: python3 bot.py
+6. Railway: đăng ký bằng tài khoản GitHub của mình. Trước khi mình thêm bất cứ thứ gì, cùng mình mở trang giá của Railway và nói bằng lời dễ hiểu là hôm nay mình sẽ tốn bao nhiêu và mỗi tháng tốn bao nhiêu. Sau đó New Project, Deploy from GitHub repo, và cho Railway xem repository btc-alert-bot của mình khi nó hỏi.
+7. Các khóa của mình: trong màn hình Variables của service, thêm TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (BTC-USD, hoặc đồng coin mình chọn), NEWS_WORD (bitcoin, hoặc tên đồng coin của mình), MOVE_PCT (2), ANTHROPIC_API_KEY hoặc OPENAI_API_KEY, và SEND_TEST_ON_START (yes). Sau đó xóa các khóa khỏi ứng dụng ghi chú.
+8. Chạy thử: khi deploy xong, một báo động thử sẽ về Telegram. Chỉ mình chỗ xem log của Railway và cho mình thấy cứ mỗi 5 phút lại có một dòng kiểm tra giá. Sau đó đổi SEND_TEST_ON_START thành no.
+9. Đưa mình một danh sách ngắn mọi thứ mình đã thiết lập, mỗi khóa nằm ở đâu, và cách tạm dừng bot (gỡ nó khỏi Railway) nếu có lúc mình muốn.
+
+Hãy bắt đầu bằng cách nói cho mình biết, trong ba dòng, chúng ta sắp làm gì, mất khoảng bao lâu, và có thể tốn bao nhiêu. Rồi bắt đầu bước 1.</pre>
+          </div>
+          <button type="button" class="rl-btn qab-copy" data-qab-copy data-in style="--d:.3s">Sao chép prompt</button>
+          <span class="qab-copied" data-qab-copied>Đã sao chép. Dán nó vào một cuộc trò chuyện mới.</span>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: what you'll need -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Trước khi bắt đầu</span>
+          <h2 data-in style="--d:.1s">Bốn tài khoản, <em>đều tạo trên trình duyệt</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>Trên điện thoại của bạn. Miễn phí.</li>
+            <li data-in style="--d:.3s"><b>OpenAI hoặc Anthropic</b>Cho dòng giải thích của AI. Chỉ vài xu mỗi tháng, với hạn mức chi tiêu do bạn đặt.</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>Chứa code của bot. Miễn phí.</li>
+            <li data-in style="--d:.5s"><b>Railway</b>Giữ cho bot luôn chạy. Khoảng $5 một tháng sau khi dùng hết khoản tín dụng dùng thử một lần.</li>
+          </ol>
+          <div class="rl-btns" data-in style="--d:.6s"><a class="rl-btn rl-btn-2" href="/alert-bot-guide">Mở hướng dẫn thiết lập</a></div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch" id="qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Muốn có người đặt lệnh thay bạn?</span>
+          <h2 data-in style="--d:.1s">Bạn vừa nhận khoảng 300 dòng code. <em>AI của Quantaira mất hơn mười năm</em> và $40 triệu để xây dựng.</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>~300 dòng</b><small>Bot báo động của bạn. Nó báo cho bạn biết giá vừa biến động.</small></div>
+            <div class="big"><b>10+ năm</b><small>AI của Quantaira. Nó đọc tin tức, đọc biểu đồ và đặt lệnh.</small></div>
+          </div>
+          <p data-in style="--d:.3s">Nó giao dịch ngay từ tài khoản Coin Zoom của chính bạn, nên tiền của bạn không bao giờ rời khỏi đó, và bạn có thể
+            tắt nó bất cứ lúc nào. Không tốn phí ban đầu, chỉ một khoản phí nhỏ theo hiệu quả, và không phải thiết lập gì.</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Nhắn cho mình để được truy cập</a>
+          <p class="qab-alt" data-in style="--d:.45s">Thích nhắn SMS hơn? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Nhắn SMS cho mình nhé</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">Giao dịch luôn có rủi ro, kể cả những tháng bị lỗ. Chỉ dùng số tiền bạn có thể chấp nhận mất.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Màn hình"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Nhắn {first} để được truy cập" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Nhắn cho mình để được truy cập</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Màn hình trước"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Màn hình tiếp"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

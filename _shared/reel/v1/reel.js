@@ -29,15 +29,18 @@
     el.hidden = true; el.removeAttribute("data-pf-message-link");
   });
 
+  // The platform's words in the page's language (platform page-words.mjs, 2026-10-15): English where none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
+
   // The word above the dots, turned on its side (Jeff, 2026-10-09). A phone swipes; a computer scrolls.
   if (dots) {
     var word = document.createElement("span");
     word.className = "rl-swipe"; word.setAttribute("aria-hidden", "true");
-    word.textContent = touch ? "Swipe" : "Scroll";
+    word.textContent = touch ? W("reel.swipe", "Swipe") : W("reel.scroll", "Scroll");
     dots.appendChild(word);
     screens.forEach(function (s, i) {
       var b = document.createElement("button");
-      b.type = "button"; b.setAttribute("aria-label", "Screen " + (i + 1));
+      b.type = "button"; b.setAttribute("aria-label", W("reel.screen_n", "Screen {n}").replace("{n}", i + 1));
       b.addEventListener("click", function () { go(i); });
       dots.appendChild(b);
     });
@@ -101,13 +104,16 @@
     row.addEventListener("scroll", function () {
       var w = row.children[0].getBoundingClientRect().width + 12, k = Math.min(n, Math.round(row.scrollLeft / w) + 1);
       if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 4) k = n;
-      cue.firstChild.nodeValue = k + " of " + n;
+      cue.firstChild.nodeValue = W("reel.k_of_n", "{k} of {n}").replace("{k}", k).replace("{n}", n);
     }, { passive: true });
   });
 
   /* ---------- a confirmation's pieces ---------- */
   var gift = root.querySelector(".rl-gift-word");
-  if (gift && !touch) gift.textContent = gift.textContent.replace(/^Swipe/, "Scroll");
+  if (gift && !touch) {
+    var sw = W("reel.swipe", "Swipe");
+    if (gift.textContent.indexOf(sw) === 0) gift.textContent = W("reel.scroll", "Scroll") + gift.textContent.slice(sw.length);
+  }
 
   var who = root.querySelector(".rl-who");
   if (who && rep.pic) {

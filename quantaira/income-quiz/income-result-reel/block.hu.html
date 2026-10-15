@@ -1,0 +1,79 @@
+<!--
+  quantaira/income-quiz/income-result-reel (hu: quiz.hu.json, a translation; the English is block.html)
+  The passive income quiz's RESULT, after the form (step /income-result, migration 0318). One page for all six
+  results: result.js fills it from the result quiz.js kept (sessionStorage "quantaira-pq"), or ?r=<key> from an email.
+  The four results that aren't Quantaira get the wheels (their hours, effort, cost and wait against Quantaira's), a first
+  step and a YouTube search to copy (Jeff: "lets not link out"), then the turn to Quantaira; the two Quantaira results go
+  straight to the pitch. The pitch's facts are the alert bot's (alert-bot-prompt-reel's header): never "free", never
+  "bot" for Quantaira's AI, the risk line stays.
+  ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
+  the script; never edit this file by hand.
+  Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
+  ("i also like the wheels").
+-->
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="a Quantairáról" data-pf-say="Szia {first}, kitöltöttem a jövedelem-kvízt. Mesélnél többet a Quantairáról?" data-pf-arrive="#f3f1ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the result, by name -->
+      <section class="rl-p rl-paper rl-wide">
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>Az eredményed</span><span data-pr="name"></span></div>
+          <h1 data-in style="--d:.1s"><span data-if-name>{{contact.first_name}}, </span><span data-pr="h"></span></h1>
+          <p data-in style="--d:.25s" data-pr="p"></p>
+          <blockquote class="pq-real" data-in style="--d:.35s" data-pr-side><span class="rl-eyebrow">Őszintén</span><q data-pr="real"></q></blockquote>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <section class="rl-p rl-paper pq-nums" data-pr-side>
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>1. ábra</span><span>Órák vs. pénz</span></div>
+          <h2 data-in style="--d:.1s"><span data-pr="name"></span> vs. <em>Quantaira</em></h2>
+          <div class="pq-lg" data-in style="--d:.15s"><span><i class="y"></i><span data-pr="name"></span></span><span><i class="q"></i>Quantaira</span></div>
+          <div class="pq-wh rl-art" data-in style="--d:.2s"><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">01</text></svg><div class="pq-wl">Óra hetente</div><div class="pq-wv"><b data-pr-v="0"></b><em>Pár perc, a beállítás után</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">02</text></svg><div class="pq-wl">Erőfeszítés</div><div class="pq-wv"><b data-pr-v="1"></b><em>Alacsony</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q" r="23" cx="40" cy="40"/><text x="40" y="44">03</text></svg><div class="pq-wl">Kezdő költség</div><div class="pq-wv"><b data-pr-v="2"></b><em>Nincs előzetes díj</em></div></div><div class="pq-wc"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="tr" r="34" cx="40" cy="40"/><circle class="ar y" r="34" cx="40" cy="40"/><circle class="tr" r="23" cx="40" cy="40"/><circle class="ar q dp" r="23" cx="40" cy="40"/><text x="40" y="44">04</text></svg><div class="pq-wl">Idő az első dollárig</div><div class="pq-wv"><b data-pr-v="3"></b><em>A piactól függ</em></div></div></div>
+          <p class="pq-note" data-in style="--d:.3s">Nincs előzetes díj: a pénz, amivel kereskedik, a saját számládon marad, és a kereskedés kockázattal jár. A (becs.) a mi becslésünk.</p>
+        </div>
+      </section>
+
+      <!-- 3. a first step, and a YouTube search to copy -->
+      <section class="rl-p rl-tint rl-wide" data-pr-side>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Hogy már a héten elkezdd</span>
+          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
+          <h3 data-in style="--d:.2s">Szeretnél belevágni? Írd be ezt a YouTube keresőbe, és találsz pár jó alkotót.</h3>
+          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Kimásolva" data-selected="Kiválasztva">Másolás</button></div>
+        </div>
+      </section>
+
+      <!-- 4. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">Minden fenti út az órákat váltja pénzre. <em>Egy nem.</em></h2>
+        </div>
+      </section>
+
+      <!-- 5. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Egy AI, amit több mint egy évtizedig és 40 millió dollárból építettek, és helyetted kereskedik</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Írj nekem a Quantairáról</a>
+          <p class="pq-alt" data-in style="--d:.35s">Inkább SMS-t írnál? <a data-pf-message-link data-pf-text-link href="/income-text">Küldj inkább egy SMS-t</a></p>
+          <p class="rl-fine" data-in style="--d:.4s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Képernyők"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Előző képernyő"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Következő képernyő"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"AI-szolgáltatások","h":"neked az illik a legjobban, ha AI-segítséget adsz el helyi cégeknek","p":"AI-segítséget adnál el helyi vállalkozásoknak: egy chatbotot egy fogorvosnak, automatizálást egy vízszerelőnek. Ez a leggyorsabb AI-út az első fizetésig, mert a cégek az eredményért fizetnek. Viszont ez értékesítői munka: te keresed meg az ügyfeleket, és te tartod meg őket.","real":"\"Ez arbitrázs, nem passzív jövedelem. Ugyanúgy neked kell ügyfelet találni, a szabadúszót irányítani, a minőséget ellenőrizni.\" (r/passive_income)","start":"Válassz egy olyan vállalkozástípust, amit már ismersz. Az első munkát add olcsón, cserébe egy pozitív véleményért és egy ajánlásért.","search":"AI ügynökség indítása kisvállalkozásoknak","side":true,"values":["5-10 (becs.)","Magas: te szerzed és tartod meg az ügyfeleket","$50-$200 eszközökre (becs.)","1-2 hónap (becs.)"],"scale":[72,85,35,40]},"publisher":{"name":"Hírlevél vagy weboldal","h":"neked egy AI-jal működtetett hírlevél vagy weboldal illik a legjobban","p":"Egy olyan témáról vinnél weboldalt vagy hírlevelet, amihez értesz, és az AI csinálná a kutatást meg az első vázlatokat. Ha beindul, folyamatosan nő, de lassú, és a Google AI-válaszai ma már elviszik a kattintások nagy részét.","real":"\"A forgalom mindenhol nő, de a kattintás szinte nulla.\" (r/SEO, 2026)","start":"Válassz egy szűk témát, amiről egy évig tudnál írni, és hetente tegyél ki egy hasznos oldalt, mielőtt egy fillért is költenél.","search":"hírlevél indítása beehiiv","side":true,"values":["5-10 (becs.)","Közepes vagy magas","$100-$300 (becs.)","3-12 hónap"],"scale":[72,68,45,82]},"creator":{"name":"Arc nélküli videók","h":"neked egy arc nélküli videós csatorna illik a legjobban","p":"Arc nélküli videós csatornát vagy TikTok Shop oldalt vinnél, és az AI segítene a forgatókönyvben és a hangban. Ha betalál, nagyot szól. A legtöbb csatornának viszont sokáig tart eljutni idáig: a YouTube csak 1000 feliratkozó és 4000 megtekintési óra után fizet, a TikTok Shophoz pedig 1000 követő kell.","real":"\"Az emberek 'passzív jövedelemnek' hívják az arc nélküli csatornákat, de a forgatókönyv, a vágás, a bélyegképek, a kutatás és a rendszeres posztolás inkább egy második munkának tűnik.\" (r/passive_income)","start":"Válassz egy témát, és 90 napig posztolj hetente háromszor ugyanolyan típusú videót, mielőtt ítélkeznél.","search":"arc nélküli youtube csatorna indítása","side":true,"values":["5-15 (becs.)","Magas: folyamatos posztolás","$0-$200 (becs.)","6 hónap és 3+ év között"],"scale":[85,85,30,95]},"maker":{"name":"Digitális termékek","h":"neked a digitális termékek eladása illik a legjobban","p":"Digitális termékeket készítenél, például sablonokat, tervezőket és promptokat, vagy print-on-demand dizájnokat, és eladnád őket Etsyn vagy Gumroadon. Ezzel a legolcsóbb elindulni, és mindegyiket csak egyszer kell elkészítened. A nehéz rész az, hogy észrevegyék őket.","real":"\"A POD-dal csak nagyon nagy eladási volumennel lehet sikeres lenni. Minden terméknél a nyomda viszi el a haszon oroszlánrészét.\" (r/EtsySellers)","start":"Készíts egy terméket egy olyan problémára, ami neked is volt, és nézd meg, vesz-e belőle 10 idegen, mielőtt még tízet csinálnál.","search":"digitális termékek eladása Etsyn kezdőknek","side":true,"values":["3-8 (becs.)","Közepes: a marketing rád marad","$0-$100 (becs.)","1-3 hónap (becs.)"],"scale":[55,60,20,45]},"allocator":{"name":"Egy AI, ami helyetted kereskedik","h":"nálad a pénzed dolgozik, nem az óráid","p":"Olyasmit szeretnél, amit egyszer beállítasz és alig kell hozzányúlnod, és nem zavar a hullámzás. A legtöbb mellékállás ezt nem tudja megadni. Egy AI, ami helyetted kereskedik, igen.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Megosztani, ami tetszik","h":"neked az illik a legjobban, ha fizetnek azért, hogy megossz valami jót","p":"Téged kérdeznek meg az emberek. Ha találsz valami jót, elmondod másoknak. A legtöbb mellékállásnál előbb közönséget kell építeni. Neked már van: azok, akik hallgatnak rád.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Óra hetente","Erőfeszítés","Kezdő költség","Idő az első dollárig"],"quantaira":{"values":["Pár perc, a beállítás után","Alacsony","Nincs előzetes díj","A piactól függ"],"scale":[3,10,2,28],"note":"Nincs előzetes díj: a pénz, amivel kereskedik, a saját számládon marad, és a kereskedés kockázattal jár."},"pitch_p":"A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod. Azért is kaphatsz pénzt, ha megosztod.","connector_p":"Oszd meg a Quantairát azokkal, akiknek kellene, és kapj érte pénzt. Ez egy AI, ami az ő saját Coin Zoom számlájukról kereskedik, előzetes díj nélkül, és semmit nem kell beállítani. Megmutatom, hogyan működik a megosztás."}</script>
+<!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
+<script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

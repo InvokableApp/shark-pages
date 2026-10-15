@@ -1,0 +1,138 @@
+<!--
+  ja translation of prompt-reel.src.html (Claude draft, 2026-10-15). Change prompt-reel.src.html first, then this.
+  quantaira/alert-bot/alert-bot-prompt-reel
+  The confirmation after the alert bot opt-in, as a REEL, in the "Signal" look. Platform only: the step /alert-bot-prompt
+  points here (platform migration 0299). Four screens: the prompt (greeted by name), copy it, what you'll need, the pitch.
+  ⚠️ THE PROMPT ON SCREEN 2 IS QUANTAIRASHARK/lead-magnets/telegram-alert-bot/PROMPT.md, word for word. It is written in
+  by QUANTAIRASHARK/lead-magnets/telegram-alert-bot/build-pages.py from pages/prompt-reel.src.html there: edit PROMPT.md or that source,
+  then run the script. Never edit block.html by hand.
+  ⚠️ THE PITCH (screen 4) MAKES THE GAP CLEAR (Jeff, 2026-10-15: "what theyre setting up here is small and tiny and
+  untrained ... really want to make sure that distinction is CLEAR"). Its facts are the launch webinar's (Oct 10):
+  Endotech has spent over a decade on AI for the markets (Dr. Anna, 2:00) and over $40 million on it (Jeremy, 5:30);
+  the money stays in the person's own Coin Zoom account, trade-only keys, switch off any time (7:00, 42:50); no upfront
+  fee (4:00). "A small performance fee" is Jeff's wording; the rep answers the details. Never "free", never "bot" for
+  Quantaira's AI (Jeremy, 27:00: "This is a true artificial intelligence system"). The risk line stays.
+  ⚠️ The ask is a message to the rep: Messenger, or a text when the rep has no Messenger link ([data-needs]).
+-->
+<div class="rl rl-look-signal" data-pf-native data-pf-message="QuantairaのAIの利用について" data-pf-say="{first}さん、アラートボットのプロンプトを受け取りました。QuantairaのAIを使うにはどうすればいいですか？" data-pf-arrive="#050b16">
+  <div class="rl-frame">
+    <!-- The bonus bar, pinned to the top of every screen (Jeff, 2026-10-15, on the review page: "lets make it clear on
+         the confirmation page ... maybe a banner sticking to top of page"). A tap goes to the pitch, the last screen.
+         "Bonus", not "free bonus": access has a performance fee (see the header). -->
+    <a class="qab-bonus" href="#qab-pitch" data-qab-bonus><span class="qab-bonus-tag">特典</span><span class="qab-bonus-txt">Quantairaの高度なトレードAIを利用する</span><span aria-hidden="true">&rsaquo;</span></a>
+    <div class="rl-track">
+
+      <!-- 1. PLAIN: here's your prompt, by name -->
+      <section class="rl-p rl-paper">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>登録完了</span>
+          <!-- The name is filled from the opt-in and the span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 class="rl-type"><span data-if-name>{{contact.first_name}}さん、</span>プロンプトをお届けします。</h1>
+          <p data-in style="--d:.3s">次の画面でコピーするか、今お送りしたメールをパソコンで開いてください。
+            メールにもプロンプトとセットアップガイドが入っています。</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/alert-bot-guide">セットアップガイドを開く</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the prompt itself, scrolls inside the screen -->
+      <section class="rl-p rl-night">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>プロンプト</span>
+          <h2 data-in style="--d:.1s"><em>ChatGPTかClaude</em>に貼り付けてください</h2>
+          <div class="qab-prompt rl-art" data-in style="--d:.2s">
+            <pre id="qab-prompt" tabindex="0">あなたは私の辛抱強いセットアップコーチです。Telegram用の自分専用の仮想通貨アラートボットを作るまで、1ステップずつ案内してください。私はプログラマーではなく、GitHubやサーバーを使ったこともありません。作業はすべてウェブブラウザとTelegramアプリの中で行います。ターミナルやコマンドラインを開くこと、何かをインストールすることは絶対に頼まないでください。各ステップをわかりやすい言葉で説明し、どこをクリックすればいいか正確に教えてください。私が「できた」と言うまで次に進まないでください。ウェブサイトのボタンは変わることがあるので、見えている画面があなたの説明と違うときは、画面に何が表示されているか私に聞いて、それに合わせて進めてください。
+
+ボットがすること
+5分ごとに、私が選んだコインの価格をチェックします（特に指定しなければビットコイン。イーサリアム、ソラナ、PAXG経由の金でも使えます）。1時間で2%以上動いたら、日本語で書かれたTelegramメッセージを1通送ってくれます。内容は次のとおりです：
+1. どれだけ動いたかと、現在の価格。
+2. そのコインに関する直近2時間の主なニュース見出し3件と、そのリンク。
+3. どの見出しが値動きの理由として一番考えられるか（または、どれも当てはまらないか）を、AIがひとことで。
+4. 過去の例：過去12か月で、同じ方向にこれだけ動いた1時間が何回あったか、そしてその24時間後に上がっていたのが何回、下がっていたのが何回か。
+ボットは取引を一切しません。読むのは価格とニュースだけで、取引所のアカウントのキーを持つこともありません。
+
+作り方（コーチであるあなた向け）
+- Python 3、標準ライブラリのみ、bot.pyという1つのファイル。
+- 価格：Coinbaseの無料の公開価格データ（COIN設定の値、たとえばBTC-USDに対するapi.exchange.coinbase.comのローソク足）。キーは不要。直近1時間には5分足、12か月の履歴には1時間足を使う（1回のリクエストで300本なので、さかのぼってページ送りする）。
+- 大きな値動き1回を1サンプルとして数える：一致したら24時間先まで飛ばす。
+- ニュース：次の無料フィードを使う。キーは不要。直近2時間の記事のうち、タイトルにNEWS_WORD設定の語（たとえばbitcoin）を含むものを残し、重複は除く。Google Newsのフィードでは、bitcoinの代わりにNEWS_WORDで検索する。
+  https://www.coindesk.com/arc/outboundfeeds/rss/
+  https://cointelegraph.com/rss
+  https://decrypt.co/feed
+  https://news.google.com/rss/search?q=bitcoin+when:2h&amp;hl=en-US&amp;gl=US&amp;ceid=US:en
+- AIのひとこと：私が持っている方のキー（OpenAIかAnthropic）を使う。価格を予想したり、買い・売りを言ったりしないよう指示し、日本語で書かせる。AIの呼び出しに失敗したら、その1行なしでアラートを送る。
+- アラートは同じ方向につき2時間に1回だけ。大きな値動き1回で12通も届かないようにする。
+- フィードや価格チェックに失敗したら、それは飛ばして次回にまた試す。絶対にクラッシュさせない。
+- アラートのメッセージはすべて日本語で書き、最後は必ず「これは過去のデータであり、予測ではありません。」で締める。
+- ずっと動き続け、5分ごとにチェックし、チェックのたびにログに1行出力する。
+- SEND_TEST_ON_START設定が「yes」のときは、値動きに関係なく、起動してすぐにアラートを1通送る。動いていることを私が確認できるように。
+- 設定は環境変数からだけ読み込む：TELEGRAM_BOT_TOKEN、TELEGRAM_CHAT_ID、COIN（初期値BTC-USD）、NEWS_WORD（初期値bitcoin）、MOVE_PCT（初期値2）、SEND_TEST_ON_START、そしてOPENAI_API_KEYかANTHROPIC_API_KEY。秘密の情報は一切コードに書かない。
+- ファイル全体を1つのコードブロックで、そのまま貼り付けられる形でください。
+
+キーと安全（最初から最後まで守ってください）
+- キーやトークンをこのチャットに貼り付けるよう頼まないこと。コードにも絶対に入れないこと。キーを入れる場所はただひとつ、RailwayのVariables画面です。それまでは、スマホかパソコンのメモアプリに保管しておきます。
+- 私のGitHubリポジトリは非公開（private）にすること。
+- GitHub、Railway、Telegram、AIのアカウントで二段階認証をオンにさせること。
+- サービスごとに、万一キーが漏れたときにキーを無効にして新しく作り直す方法を教えること。
+
+手順（この順番で）
+1. Telegram：@BotFatherを開いて/newbotを送り、名前を決め、もらったトークンをメモに保存する。
+2. 私のチャットID：作ったボットを開いて「開始」をタップする。次に、TOKENの部分を自分のトークンに置き換えたこのアドレスをブラウザで開く：https://api.telegram.org/botTOKEN/getUpdates そして、どの数字が私のチャットIDかを教えてください。このアドレスには私のトークンが含まれているので、アドレスやそのスクリーンショットを人に見せないよう念を押してください。
+3. AIのキー：OpenAIかAnthropicのキーを取得するのを手伝い、少額の月間利用上限を設定して、メモに保存する。
+4. GitHub：どのコインを見たいか私に聞いてから、無料アカウントを作り、二段階認証をオンにする。btc-alert-botという名前の新しい非公開（PRIVATE）リポジトリを作る。
+5. コード：リポジトリで「Add file」、「Create new file」を選び、名前をbot.pyにして、あなたが書いたコードを貼り付けてコミットする。次に、Procfileという2つ目のファイル（拡張子なし）を作り、次の1行を入れる：worker: python3 bot.py
+6. Railway：GitHubアカウントで登録する。何かを追加する前に、一緒にRailwayの料金ページを開き、今日いくらかかるか、毎月いくらかかるかをわかりやすい言葉で教えてください。それから「New Project」、「Deploy from GitHub repo」を選び、聞かれたらRailwayがbtc-alert-botリポジトリを見られるように許可する。
+7. 私のキー：サービスのVariables画面で、TELEGRAM_BOT_TOKEN、TELEGRAM_CHAT_ID、COIN（BTC-USD、または私が選んだコイン）、NEWS_WORD（bitcoin、または私のコインの名前）、MOVE_PCT（2）、ANTHROPIC_API_KEYかOPENAI_API_KEY、そしてSEND_TEST_ON_START（yes）を追加する。それが済んだら、メモアプリからキーを削除する。
+8. テスト：デプロイが終わると、Telegramにテストのアラートが届くはずです。Railwayのログがどこにあるか、そして5分ごとに価格チェックの行が出ていることを見せてください。それからSEND_TEST_ON_STARTをnoに変える。
+9. 設定したものすべて、各キーの保管場所、そして（いつかそうしたくなったときの）ボットの止め方（Railwayで削除する）を、短いチェックリストにまとめてください。
+
+まず、これから何を作るのか、だいたいどれくらい時間がかかるか、いくらかかりそうかを3行で教えてください。それからステップ1を始めてください。</pre>
+          </div>
+          <button type="button" class="rl-btn qab-copy" data-qab-copy data-in style="--d:.3s">プロンプトをコピー</button>
+          <span class="qab-copied" data-qab-copied>コピーしました。新しいチャットに貼り付けてください。</span>
+        </div>
+      </section>
+
+      <!-- 3. PLAIN: what you'll need -->
+      <section class="rl-p rl-paper qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>始める前に</span>
+          <h2 data-in style="--d:.1s">4つのアカウント。<em>すべてブラウザで作れます</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Telegram</b>スマホに入れます。無料。</li>
+            <li data-in style="--d:.3s"><b>OpenAIかAnthropic</b>AIのひとこと用。費用は月にごくわずかで、利用上限も自分で設定できます。</li>
+            <li data-in style="--d:.4s"><b>GitHub</b>ボットのコードを置く場所。無料。</li>
+            <li data-in style="--d:.5s"><b>Railway</b>ボットを動かし続けます。初回の無料トライアル分のあとは月5ドルほど。</li>
+          </ol>
+          <div class="rl-btns" data-in style="--d:.6s"><a class="rl-btn rl-btn-2" href="/alert-bot-guide">セットアップガイドを開く</a></div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the pitch, the gap made plain, and the ask -->
+      <section class="rl-p rl-night rl-wide qab-pitch" id="qab-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>取引も任せたいですか？</span>
+          <h2 data-in style="--d:.1s">あなたが今受け取ったのは、およそ300行のコード。<em>QuantairaのAIは開発に10年以上</em>と4,000万ドルをかけています。</h2>
+          <div class="qab-vs" data-in style="--d:.2s">
+            <div><b>約300行</b><small>あなたのアラートボット。何かが動いたことを知らせます。</small></div>
+            <div class="big"><b>10年以上</b><small>QuantairaのAI。ニュースとチャートを読んで、取引まで行います。</small></div>
+          </div>
+          <p data-in style="--d:.3s">トレードはあなた自身のCoin Zoom口座から行うので、お金が口座の外に出ることはありません。
+            いつでも止められます。初期費用はなく、少額の成功報酬だけ。設定も必要ありません。</p>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">メッセージで利用を申し込む</a>
+          <p class="qab-alt" data-in style="--d:.45s">テキストメッセージのほうがいいですか？ <a data-pf-message-link data-pf-text-link href="/alert-bot-text">代わりにSMSを送ってください</a></p>
+          <p class="rl-fine" data-in style="--d:.5s">トレードにはリスクがあり、損失が出る月もあります。失っても困らないお金だけを使ってください。</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="画面"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="{first}さんにメッセージで利用を申し込む" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">メッセージで利用を申し込む</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="前の画面"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="次の画面"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

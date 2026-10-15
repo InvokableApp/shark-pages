@@ -40,7 +40,7 @@
   }
   function count() {
     var qs = screens.filter(function (s) { return s.hasAttribute("data-qz"); });
-    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = "Question " + (i + 1) + " of " + qs.length; });
+    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e && !e.textContent) e.textContent = "Question " + (i + 1) + " of " + qs.length; });
   }
   function next(from) {
     var s = screens[screens.indexOf(from) + 1];

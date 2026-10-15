@@ -1,0 +1,176 @@
+<!--
+  quantaira/income-quiz/income-quiz-reel (vi: quiz.vi.json, a translation; the English is block.html)
+  The PASSIVE INCOME QUIZ, Quantaira's second opt-in (platform only; step /income-quiz, migration 0318). A cover,
+  the truth about passive income, 8 questions, then the form (the dock: name and email). quiz.js adds up the answers
+  into one of six results and sends it with the form as pq_result (the plain name) and pq_result_key; the result reel reads
+  it back from this browser (sessionStorage "quantaira-pq") or from ?r= in an email's link.
+  ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
+  the script; never edit this file by hand.
+  Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
+  ("i also like the wheels").
+-->
+<div class="rl rl-match rl-look-print rl-pq" data-pf-native data-pf-dock="Xem kết quả của mình" data-pf-handoff="#f3f1ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- the cover -->
+      <section class="rl-p rl-paper rl-cover rl-wide" aria-label="Tìm cách kiếm thu nhập bằng AI hợp với cuộc sống của bạn, kèm số giờ và chi phí thật">
+        <div class="rl-in">
+          <div class="tp-mh" data-in><span>Giờ làm và tiền kiếm</span><span>8 câu hỏi</span></div>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Miễn phí · 2 phút</span>
+          <h1 data-in style="--d:.1s">Tìm cách kiếm thu nhập bằng AI hợp với cuộc sống của bạn, kèm số giờ và chi phí thật</h1>
+          <p data-in style="--d:.25s">Tám câu hỏi nhanh về thời gian, tiền bạc và mức độ bạn muốn &quot;để đó tự chạy&quot;. Bạn sẽ thấy kết quả phù hợp nhất, cùng số giờ, chi phí và thời gian chờ đằng sau nó.</p>
+          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Bắt đầu làm quiz</button></div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- the truth about passive income -->
+      <section class="rl-p rl-night rl-wide pq-truth">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Sự thật về thu nhập thụ động</span>
+          <h2 data-in style="--d:.1s">Phần lớn việc làm thêm chỉ là một công việc thứ hai được đổi tên</h2>
+          <div class="pq-stat" data-in style="--d:.2s" aria-hidden="true"><div><b>$200</b><small>mỗi tháng, thông thường</small></div><div><b>~20</b><small>giờ mỗi tháng</small></div></div>
+          <p data-in style="--d:.3s">Một việc làm thêm điển hình trả khoảng $200 một tháng cho gần 20 giờ làm. Kênh không lộ mặt, website SEO, in theo yêu cầu: phần lớn đều tốn giờ, chẳng thụ động chút nào. Quiz này cho bạn thấy con số thật của từng kiểu thu nhập bằng AI, để bạn chọn đúng cái hợp với mình.</p>
+          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Bắt đầu trả lời</button></div>
+        </div>
+      </section>
+
+      <!-- 1. hours -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_hours">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 1 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Thật lòng thì mỗi tuần bạn dành được bao nhiêu giờ?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Dưới 2 giờ</button>
+            <button type="button" data-a="1">2 đến 5 giờ</button>
+            <button type="button" data-a="2">5 đến 10 giờ</button>
+            <button type="button" data-a="3">10 giờ trở lên</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. passive -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_passive">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 2 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Với bạn, &quot;thụ động&quot; nghĩa là gì?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Thiết lập một lần rồi gần như không phải đụng tới</button>
+            <button type="button" data-a="1">Làm ra một thứ một lần rồi bán đi bán lại</button>
+            <button type="button" data-a="2">Vài giờ tập trung mỗi tuần là được</button>
+            <button type="button" data-a="3">Mình chỉ muốn có thêm tiền vào</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. soon -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_soon">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 3 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Bạn muốn có đồng đầu tiên sớm cỡ nào?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Ngay trong tháng này</button>
+            <button type="button" data-a="1">Trong vài tháng tới</button>
+            <button type="button" data-a="2">Chờ một năm cũng được, miễn là nó cứ tăng dần</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. money -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_money">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 4 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Bạn có thể bỏ ra bao nhiêu để bắt đầu?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Dưới $100</button>
+            <button type="button" data-a="1">$100 đến $500</button>
+            <button type="button" data-a="2">$500 đến $2,000</button>
+            <button type="button" data-a="3">Hơn $2,000</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. risk -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_risk">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 5 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Bạn thấy sao với chuyện lên xuống?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Mình không thể mất đồng nào</button>
+            <button type="button" data-a="1">Dao động nhỏ thì không sao</button>
+            <button type="button" data-a="2">Mình chấp nhận rủi ro để có cơ hội lời nhiều hơn</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. you -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_you">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 6 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Câu nào giống bạn nhất?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Mình thích tự làm ra đồ: template, thiết kế, sổ kế hoạch</button>
+            <button type="button" data-a="1">Mình sẵn sàng đăng video hoặc nói trước ống kính</button>
+            <button type="button" data-a="2">Mình thích bán dịch vụ cho doanh nghiệp hơn</button>
+            <button type="button" data-a="3">Mình muốn tiền tự làm việc thay mình</button>
+            <button type="button" data-a="4">Mình hay giới thiệu cho mọi người những thứ mình thích</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. tech -->
+      <section class="rl-p rl-paper rl-wide" data-qz="pq_tech">
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 7 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Bạn rành công nghệ cỡ nào?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Càng đơn giản càng tốt</button>
+            <button type="button" data-a="1">Mình làm theo hướng dẫn được</button>
+            <button type="button" data-a="2">Mình thích tự xây đồ</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. tried -->
+      <section class="rl-p rl-tint rl-wide" data-qz="pq_tried" data-qz-many>
+        <div class="rl-in">
+          <div class="tp-mh"><span data-qz-count>Câu 8 trên 8</span><span>Giờ làm và tiền kiếm</span></div>
+          <h2 class="qz-h" data-in style="--d:.1s">Bạn đã thử những gì rồi?</h2>
+          <p class="pq-many" data-in style="--d:.18s">Chọn tất cả những câu đúng với bạn.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-a="0">Dropshipping</button>
+            <button type="button" data-a="1">YouTube, TikTok hoặc viết blog</button>
+            <button type="button" data-a="2">Crypto hoặc trading</button>
+            <button type="button" data-a="3">Bán hàng trên Etsy hoặc eBay</button>
+            <button type="button" data-a="4">Chưa thử gì</button>
+          </div>
+          <div class="qz-go"><button type="button" class="rl-btn" data-qz-next disabled>Tiếp</button></div>
+        </div>
+      </section>
+
+      <!-- adding it up, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Đã có kết quả cho bạn">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Mình gửi kết quả cho bạn ở đâu?</h2>
+          <ul class="qz-steps">
+            <li style="--d:.3s">Đang cộng các câu trả lời của bạn</li>
+            <li style="--d:1.5s">Đang so số giờ và ngân sách của bạn</li>
+            <li style="--d:2.6s">Đang lấy các con số thật</li>
+          </ul>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">Đã có kết quả cho bạn. Kết quả sẽ hiện ở màn hình tiếp theo, và chúng mình cũng gửi email kèm các con số cho bạn.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Màn hình"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Xem kết quả của mình</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Màn hình trước"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Màn hình tiếp"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script type="application/json" id="pq-scoring">{"questions":[{"id":"hours","a":[{"s":{"allocator":3,"connector":1},"never":null},{"s":{"maker":1,"connector":2,"allocator":1},"never":null},{"s":{"builder":1,"publisher":2,"maker":1},"never":null},{"s":{"builder":2,"creator":2},"never":null}]},{"id":"passive","a":[{"s":{"allocator":3},"never":null},{"s":{"maker":2,"publisher":2},"never":null},{"s":{"builder":1,"creator":1,"connector":1},"never":null},{"s":{"connector":2,"builder":1},"never":null}]},{"id":"soon","a":[{"s":{"builder":2,"connector":2},"never":null},{"s":{"maker":1,"allocator":1,"publisher":1},"never":null},{"s":{"publisher":2,"creator":2},"never":null}]},{"id":"money","a":[{"s":{"connector":2,"creator":1,"maker":1},"never":null},{"s":{"maker":1,"publisher":1,"builder":1},"never":null},{"s":{"allocator":2},"never":null},{"s":{"allocator":3},"never":null}]},{"id":"risk","a":[{"s":{"connector":1,"maker":1},"never":"allocator"},{"s":{"allocator":1},"never":null},{"s":{"allocator":2},"never":null}]},{"id":"you","a":[{"s":{"maker":3},"never":null},{"s":{"creator":3},"never":null},{"s":{"builder":3},"never":null},{"s":{"allocator":3},"never":null},{"s":{"connector":3},"never":null}]},{"id":"tech","a":[{"s":{"allocator":1,"connector":1},"never":null},{"s":{"maker":1,"publisher":1},"never":null},{"s":{"builder":2,"publisher":1},"never":null}]},{"id":"tried","a":[{"s":{"maker":1},"never":null},{"s":{"creator":1},"never":null},{"s":{"allocator":2},"never":null},{"s":{"maker":1},"never":null},{"s":{},"never":null}]}],"tiebreak":["allocator","connector","builder","maker","publisher","creator"],"names":{"builder":"Dịch vụ AI","publisher":"Newsletter hoặc website","creator":"Video không lộ mặt","maker":"Sản phẩm số","allocator":"Một AI giao dịch thay bạn","connector":"Chia sẻ thứ bạn thích"}}</script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/quantaira/income-quiz/income-quiz-reel/quiz.js?v=1" defer></script>
