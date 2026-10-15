@@ -24,10 +24,16 @@
           <ul class="rl-pills" data-in style="--d:.35s"><li>Browser only</li><li>No coding</li><li>About $5 a month</li></ul>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
         </div>
+        <svg class="qab-chart" viewBox="0 0 150 130" aria-hidden="true">
+          <defs><linearGradient id="qabG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6a8"/><stop offset=".6" stop-color="#2fa8ff"/><stop offset="1" stop-color="#4b6bff"/></linearGradient></defs>
+          <g class="qab-candles"><rect x="4" y="92" width="10" height="28" rx="2"/><rect x="24" y="74" width="10" height="46" rx="2"/><rect x="44" y="84" width="10" height="36" rx="2"/><rect x="64" y="58" width="10" height="62" rx="2"/><rect x="84" y="68" width="10" height="52" rx="2"/><rect x="104" y="36" width="10" height="84" rx="2"/><rect x="124" y="14" width="10" height="106" rx="2"/></g>
+          <path class="qab-line" pathLength="1" d="M9 88 L29 70 L49 80 L69 54 L89 64 L109 32 L129 10"/>
+          <circle class="qab-tip" cx="129" cy="10" r="4"/><circle class="qab-tip-ring" cx="129" cy="10" r="4"/>
+        </svg>
       </section>
 
       <!-- 2. TINT: what you'll need -->
-      <section class="rl-p rl-tint">
+      <section class="rl-p rl-tint qab-scan">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>What you'll need</span>
           <h2 data-in style="--d:.1s">Four accounts and <em>a notes app</em></h2>
@@ -42,7 +48,7 @@
       </section>
 
       <!-- 3. DARK: part 1, Telegram -->
-      <section class="rl-p rl-night">
+      <section class="rl-p rl-night qab-scan">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Part 1 · Telegram</span>
           <h2 data-in style="--d:.1s">Make your bot and <em>find your chat id</em></h2>
@@ -56,7 +62,7 @@
       </section>
 
       <!-- 4. PLAIN: part 2, the AI key -->
-      <section class="rl-p rl-paper">
+      <section class="rl-p rl-paper qab-scan">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Part 2 · Your AI key</span>
           <h2 data-in style="--d:.1s">One key, with <em>a spending limit on it</em></h2>
@@ -69,7 +75,7 @@
       </section>
 
       <!-- 5. TINT: part 3, GitHub -->
-      <section class="rl-p rl-tint">
+      <section class="rl-p rl-tint qab-scan">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Part 3 · GitHub</span>
           <h2 data-in style="--d:.1s">Two files in <em>a private repository</em></h2>
@@ -78,12 +84,12 @@
             <li data-in style="--d:.3s"><b>Add file, Create new file: bot.py</b>Paste the code the AI writes for you and commit it.</li>
             <li data-in style="--d:.4s"><b>One more file: Procfile</b>One line in it, worker: python3 bot.py. It tells the server how to start your bot.</li>
           </ol>
-          <div class="lk-code" data-in style="--d:.5s">btc-alert-bot / <span>bot.py</span><br>btc-alert-bot / <span>Procfile</span></div>
+          <div class="lk-code qab-type" data-in style="--d:.5s"><i>btc-alert-bot / <em>bot.py</em></i><span>btc-alert-bot / Procfile</span></div>
         </div>
       </section>
 
       <!-- 6. DARK: part 4, Railway -->
-      <section class="rl-p rl-night">
+      <section class="rl-p rl-night qab-scan">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Part 4 · Railway</span>
           <h2 data-in style="--d:.1s">Switch it on and <em>watch the test alert land</em></h2>
@@ -97,8 +103,14 @@
       </section>
 
       <!-- 7. PLAIN: keys, and when the screen doesn't match -->
-      <section class="rl-p rl-paper">
+      <section class="rl-p rl-paper qab-scan qab-close">
         <div class="rl-in">
+          <svg class="qab-lock" viewBox="0 0 64 76" aria-hidden="true">
+            <defs><linearGradient id="qabG3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee6a8"/><stop offset="1" stop-color="#2fa8ff"/></linearGradient></defs>
+            <path class="qab-shackle qab-shut" d="M18 36 V24 a14 14 0 0 1 28 0 V36"/>
+            <rect class="qab-body" x="8" y="34" width="48" height="38" rx="9"/>
+            <path class="qab-hole" d="M32 48 v10"/><circle class="qab-hole-dot" cx="32" cy="48" r="4"/>
+          </svg>
           <span class="rl-eyebrow" data-in>Keep it safe</span>
           <h2 data-in style="--d:.1s">Your keys live in <em>one place only</em></h2>
           <ol class="lk-steps rl-art">
