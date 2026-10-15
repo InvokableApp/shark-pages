@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+/* _shared/reel/looks/signal.css — LOOK "Signal" (references/REEL-LOOKS.md). Jeff, 2026-10-15, picking it for
+ * Quantaira's crypto alert bot guide: "signal, 100% - lets get it!".
+ *
+ * Night everywhere: deep navy with a faint grid, a green to blue glow, wide white capitals (Michroma) and a terminal's
+ * voice for the small print (JetBrains Mono). Made for tech and trading offers. Every screen is dark, so --paper and
+ * --tint are dark too: the three plain screens differ by their glow, not by turning light. Use it on a reel with:
+ *   block.css   @import url("../../../_shared/reel/v1/reel.css"); @import url("../../../_shared/reel/looks/signal.css");
+ *   block.html  <div class="rl rl-look-signal" ...>
+ * Platform only: GHL never loads it. */
+
+.rl.rl-look-signal{
+  --sig-green:#3ee6a8; --sig-blue:#2fa8ff; --sig-indigo:#4b6bff; --sig-navy:#050b16; --sig-panel:#0c182b;
+  --sig-line:rgba(80,140,220,.28); --sig-text:#b9c7dd;
+  --sig-grad:linear-gradient(90deg,var(--sig-green),var(--sig-blue) 55%,var(--sig-indigo));
+  --paper:var(--sig-navy); --tint:#061420; --night:#03070f;
+  --ink:#EAF2FF; --body:var(--sig-text); --grey:#8a9ab3; --on-dark:#EAF2FF;
+  --head:"Michroma",system-ui,sans-serif; --head-w:400; --sans:"Inter",system-ui,sans-serif;
+  --eyebrow:var(--sig-green); --eyebrow-dark:var(--sig-green);
+  --cta:var(--sig-blue); --cta-ink:#04101f; --mark:var(--sig-green); --shade:5,11,22;
+  --sk-accent:var(--sig-blue); --pfn-accent:var(--sig-blue); --pfn-ink:#04101f;
+  color:var(--ink);
+}
+/* the glow and the grid, on every plain screen */
+.rl-look-signal .rl-paper{ background:radial-gradient(120% 70% at 85% 0%,#123a5c 0%,rgba(18,58,92,0) 55%),
+  radial-gradient(90% 60% at 0% 100%,#0d3b3a 0%,rgba(13,59,58,0) 60%),var(--sig-navy); }
+.rl-look-signal .rl-tint{ background:radial-gradient(110% 70% at 10% 0%,#0e3d38 0%,rgba(14,61,56,0) 55%),
+  radial-gradient(90% 60% at 100% 100%,#152a63 0%,rgba(21,42,99,0) 60%),var(--tint); }
+.rl-look-signal .rl-paper::before,.rl-look-signal .rl-tint::before,.rl-look-signal .rl-night::before{ content:""; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(120,170,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,170,255,.06) 1px,transparent 1px);
+  background-size:32px 32px; -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 75%); mask-image:linear-gradient(180deg,#000 0%,transparent 75%);
+  pointer-events:none; }
+/* headings: wide capitals, the key words in the gradient */
+.rl-look-signal h1,.rl-look-signal h2,.rl-look-signal h3{ text-transform:uppercase; letter-spacing:.01em; color:var(--ink); }
+.rl-look-signal h1{ font-size:clamp(25px,7.6vw,32px); line-height:1.18; }
+.rl-look-signal h2{ font-size:clamp(19px,5.4vw,23px); line-height:1.3; }
+.rl-look-signal h3{ font-size:15px; line-height:1.35; }
+.rl-look-signal h1 em,.rl-look-signal h2 em{ font-style:normal; background:var(--sig-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.rl-look-signal p{ color:var(--body); font-size:16px; line-height:1.5; }
+.rl-look-signal strong{ color:var(--ink); }
+/* the label above a heading: mono, green, with a lit dot */
+.rl-look-signal .rl-eyebrow{ font:700 11.5px "JetBrains Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--sig-green);
+  display:flex; gap:8px; align-items:center; }
+.rl-look-signal .rl-eyebrow::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--sig-green); box-shadow:0 0 10px var(--sig-green); flex:none; }
+/* photos sink into the navy */
+.rl-look-signal .rl-photo::after{ background:linear-gradient(180deg,rgba(5,11,22,.3) 0%,rgba(5,11,22,.55) 40%,rgba(5,11,22,.97) 80%); }
+.rl-look-signal .rl-photo .rl-in,.rl-look-signal .rl-cover .rl-in{ margin-top:auto; }
+/* pills, buttons, cards */
+.rl-look-signal .rl-pills li{ background:rgba(12,24,43,.8); border:1px solid var(--sig-line); color:var(--ink); border-radius:8px;
+  font:700 12px "JetBrains Mono",monospace; letter-spacing:.04em; }
+.rl-look-signal .rl-btn{ background:var(--sig-grad); color:#04101f; border-radius:14px; font-weight:700; box-shadow:0 0 26px rgba(47,168,255,.35); }
+.rl-look-signal .rl-btn-2{ background:transparent; color:var(--ink); border:1px solid var(--sig-line); box-shadow:none; }
+.rl-look-signal .rl-cards > *{ background:rgba(12,24,43,.9); border:1px solid var(--sig-line); border-radius:16px; color:var(--body); }
+/* helpers:
+ *   .lk-code    a terminal panel: <div class="lk-code">&gt; line<br><span>&gt; the lit line</span></div>
+ *   .lk-alert   a Telegram message from the bot: <div class="lk-alert"><b>title</b><p>...</p><i>small print</i></div>,
+ *               with .lk-bot above it (<div class="lk-bot"><i></i>Your alert bot</div>)
+ *   .lk-candles a small candlestick chart: <div class="lk-candles"><span style="height:40px"></span>...</div>
+ *   .lk-steps   numbered rows: <ol class="lk-steps"><li><b>Title</b>line</li></ol>
+ *   .lk-big     one huge figure in the gradient */
+.rl-look-signal .lk-code{ font:500 13px/1.65 "JetBrains Mono",monospace; color:#8fb3d9; background:rgba(10,22,40,.78);
+  border:1px solid var(--sig-line); border-radius:12px; padding:12px 14px; margin-top:22px; }
+.rl-look-signal .lk-code span{ color:var(--sig-green); }
+.rl-look-signal .lk-bot{ display:flex; gap:10px; align-items:center; font:600 13px var(--sans); color:#9fb3cf; margin:14px 0 10px; }
+.rl-look-signal .lk-bot i{ width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--sig-green),#2f6bff); display:block; flex:none; }
+.rl-look-signal .lk-alert{ background:rgba(16,30,52,.92); border:1px solid var(--sig-line); border-radius:16px; padding:15px 16px 12px;
+  font-size:14px; line-height:1.45; color:#dfe9f8; }
+.rl-look-signal .lk-alert b{ display:block; color:#fff; font-size:15px; margin-bottom:6px; }
+.rl-look-signal .lk-alert p{ color:#dfe9f8; font-size:14px; margin:7px 0 0; }
+.rl-look-signal .lk-alert a{ color:#5cc8ff; text-decoration:none; }
+.rl-look-signal .lk-alert ul{ margin:5px 0 0 16px; padding:0; } .rl-look-signal .lk-alert li{ margin:3px 0; }
+.rl-look-signal .lk-alert i{ display:block; margin-top:9px; opacity:.7; font-size:13px; }
+.rl-look-signal .lk-candles{ display:flex; gap:9px; align-items:flex-end; opacity:.6; margin-top:24px; }
+.rl-look-signal .lk-candles span{ width:9px; border-radius:2px; background:linear-gradient(180deg,var(--sig-green),var(--sig-blue)); }
+.rl-look-signal .lk-steps{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; counter-reset:lk; }
+.rl-look-signal .lk-steps li{ counter-increment:lk; position:relative; padding:11px 13px 11px 46px; background:rgba(12,24,43,.85);
+  border:1px solid var(--sig-line); border-radius:12px; font-size:14px; line-height:1.4; color:var(--body); }
+.rl-look-signal .lk-steps li::before{ content:counter(lk); position:absolute; left:13px; top:11px; width:22px; height:22px; border-radius:6px;
+  background:var(--sig-grad); color:#04101f; font:700 12px/22px "JetBrains Mono",monospace; text-align:center; }
+.rl-look-signal .lk-steps b{ display:block; color:var(--ink); font-size:14.5px; }
+.rl-look-signal .lk-big{ font:400 clamp(64px,20vw,96px)/1 var(--head); background:var(--sig-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* the dock: the gradient, dark words. The platform puts the dock outside the reel's root, so it is reached through the
+   page (html:has), which also outranks funnel-native.css, loaded after this sheet. */
+html:has(.rl-look-signal) .pfn-dock{ background:linear-gradient(90deg,#3ee6a8,#2fa8ff 55%,#4b6bff); border-radius:14px; box-shadow:0 0 26px rgba(47,168,255,.4); }
+html:has(.rl-look-signal) .pfn-up{ background:rgba(4,16,31,.15); }
+@media (min-width:701px){
+  .rl-look-signal h1{ font-size:clamp(28px,2.7vw,40px); }
+  .rl-look-signal h2{ font-size:clamp(24px,2.4vw,34px); }
+  .rl-look-signal .rl-cta{ background:var(--sig-grad); color:#04101f; border-radius:14px; }
+}
+/* short phones: lists and cards tighten so a screen of steps still clears the dock (measured at 390x664 and 375x560) */
+@media (max-width:700px) and (max-height:700px){
+  .rl-look-signal h2{ font-size:clamp(16px,4.8vw,19px); }
+  .rl-look-signal .lk-steps{ gap:6px; margin-top:12px; }
+  .rl-look-signal .lk-steps li{ padding:8px 11px 8px 42px; font-size:13px; line-height:1.35; }
+  .rl-look-signal .lk-steps li::before{ top:8px; left:11px; }
+  .rl-look-signal .lk-steps b{ font-size:13.5px; }
+  .rl-look-signal .lk-alert{ padding:12px 13px 10px; font-size:12.5px; }
+  .rl-look-signal .lk-alert p{ font-size:12.5px; margin-top:5px; }
+  .rl-look-signal p{ font-size:15px; }
+}
+@media (max-width:700px) and (max-height:600px){
+  .rl-look-signal .rl-in{ padding-top:30px; }
+  .rl-look-signal h1{ font-size:21px; }
+  .rl-look-signal h2{ font-size:16px; }
+  .rl-look-signal .rl-eyebrow{ font-size:10.5px; }
+  .rl-look-signal .rl-note{ display:none; }
+  .rl-look-signal .lk-code{ display:none; }
+  .rl-look-signal .lk-steps li{ padding-top:6px; padding-bottom:6px; font-size:12.5px; }
+  .rl-look-signal p{ font-size:14px; line-height:1.45; }
+}
