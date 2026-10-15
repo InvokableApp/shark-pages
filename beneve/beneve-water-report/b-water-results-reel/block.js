@@ -124,7 +124,7 @@
   // The API asks us to say this: a five digit lookup answers from the centre of the ZIP code (GHL zipCaveat, verbatim).
   function zipCaveat(d) {
     if (!d || d.how !== "zip-centroid") return "";
-    return '<p class="wrr-zip"><b>Not your utility?</b> That was matched from the centre of ' +
+    return '<p class="wrr-zip"><b>Not your utility?</b> That was matched from the center of ' +
       'your ZIP code, so a ZIP with more than one utility in it can land on the wrong one. Try ' +
       'again with your exact address, in this format: ' +
       '<button type="button" class="wr-eg wrr-relook">500 Boston Post Rd, Sudbury, MA</button></p>';

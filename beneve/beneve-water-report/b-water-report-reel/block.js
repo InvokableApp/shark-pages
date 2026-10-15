@@ -114,7 +114,7 @@
           'result and the federal limit beside each one.</p>' +
           (d.how === "zip-centroid"
             ? '<p class="wr-zip" data-in style="--d:.28s"><b>Not your utility?</b> That was matched from the ' +
-              'centre of your ZIP code. Try again with your exact address, in this format: ' +
+              'center of your ZIP code. Try again with your exact address, in this format: ' +
               '<button type="button" class="wr-eg" data-wr-eg="500 Boston Post Rd, Sudbury, MA">500 Boston Post Rd, Sudbury, MA</button></p>'
             : "")
         : '<h2 data-in>No public water system on record for that address</h2>' +
