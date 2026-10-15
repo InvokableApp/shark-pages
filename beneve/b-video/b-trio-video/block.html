@@ -1,0 +1,98 @@
+<!--
+  beneve/b-video/b-trio-video: Beneve's TRIO PRODUCT VIDEO page, a reel with GLP's product video page's flow
+  (glp/glp-orygn-video/orygn-product-video; Jeff, 2026-10-14: "just do both with a placeholder funnel"). The headline,
+  swipe to the video, swipe to "After seeing this video... Who Comes To Mind?", Myself / Someone I Know / No One, each
+  with a pop-up.
+
+  ⚠️ JOE'S WORDS: his SCRIPTS doc, BENEVE > Product flow > For TRIO, is the outreach script only. The cover's headline and
+  line are that script's own ("a few brand new supplements specifically built for busy women in the 30-60 age range",
+  "Would you be open to watching a quick 2-minute video? I'd love to hear what you think and whether you - or another
+  woman you know - might be interested"). No product is named: nothing called TRIO exists in our Beneve product pages.
+  ⚠️ THE CARDS AND POP-UPS ARE WAITING ON JOE (Jeff, 2026-10-14: "idk, asking joe"). The doc gives a page only for
+  ORYGN's product flow; these are those words with its GLP claim ("GLP results, naturally without the harsh side
+  effects") taken out, because it is not Beneve's. Replace them with Joe's when he sends them.
+  ⚠️ THE LOOK is "Clinical calm" (REEL-LOOKS.md), the opportunity page's stylesheet, imported. No logo.
+
+  THE VIDEO is a content value, beneve_trio_video. Until the real one exists it holds a PLACEHOLDER: Beneve's own
+  "Beneve Vision" (Vimeo 954476127, 1:40, the What Is Beneve page's; platform migration 0291). Never empty (clone_tenant,
+  0047). When the real video arrives, watch it (REEL-PAGE-SOP §A video page) and make the cards follow its ask.
+
+  Platform only. The rep sends it one to one as a personal link and hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (No One) is only true for a personal link: a stranger's tap reports to no one.
+  TEXT ME buttons are redirect steps (/b-trio-try, /b-trio-refer) to the rep's phone (beneve_rep_phone), or their
+  Messenger without one.
+  THE PHOTO is the opportunity page's own (b-what-is-beneve-overview/b-opportunity-more-info/assets/redefining.webp):
+  two women with Beneve's own tub, not a TRIO product shot.
+-->
+<div class="rl rl-pf rl-look-calm rv bv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under a photo card -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="New supplements for busy women">
+        <div class="rl-in">
+          <div class="lk-photo bv-photo" data-in style="background-image:url('/_p/beneve/b-what-is-beneve-overview/b-opportunity-more-info/assets/redefining.webp');background-position:50% 55%"></div>
+          <span class="lk-tag" data-in style="--d:.05s">2 minute video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="The TRIO product video">A few brand new supplements built for <em>busy women 30 to 60</em></h1>
+          <p class="bv-lede" data-in style="--d:.25s">Watch the 2 minute video and tell me what you think, and whether you or another woman you know might be interested.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.beneve_trio_video}}" data-name="the TRIO video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (waiting on Joe: see the header) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Myself: I'd like to try the products">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd be interested in trying out the products&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.3s" data-label="Someone I Know: I think they'd be interested">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd be interested in these products&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.4s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">03</b><span class="rv-t"><b>No One</b><small>Not interested / don't know anyone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and request information about getting these products in your hand!</p>
+    <a class="rv-btn" href="/b-trio-try" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-trio-message" data-label="Text me: I'd like to try the products">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/b-trio-refer" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-trio-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No One" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+    <p class="rv-ps">P.S. Clicked this by mistake? Simply close this box using the X to return to the page.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

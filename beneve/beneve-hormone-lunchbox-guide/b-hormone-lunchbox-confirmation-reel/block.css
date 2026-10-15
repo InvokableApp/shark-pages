@@ -1,0 +1,84 @@
+/* beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-reel: the Hormone Lunchbox confirmation as a reel
+ * (platform only; see block.html). The reel and the look (G · Editorial serif) come from the opt-in reel's sheet; this
+ * adds the confirmation's own pieces: the envelope, the drawn group feed, the rep's ask, the two paragraphs, the fine print.
+ * The feed is sized in em off .rlc-fbg's font-size, so a short phone shrinks the whole drawing in one line. */
+@import url("../b-hormone-lunchbox-reel/block.css");
+
+/* GHL never fills the name; the span stays hidden there (the platform drops it whole when the name is unknown). */
+[data-if-name]{ display:none; }
+
+/* 1. on the way */
+.rlc-env{ width:44px; height:44px; fill:none; stroke:var(--oxblood); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-bottom:16px; }
+.rl-look-serif .rlc-top h1{ font-size:clamp(32px,9vw,42px); }
+.rlc-top .rl-type em{ font-style:italic; color:var(--oxblood); }
+.rlc-kicker{ font-family:var(--head); font-size:21px !important; line-height:1.3 !important; color:var(--ink) !important; border-top:1px solid var(--line); padding-top:16px; margin-top:20px !important; }
+
+/* 2. the group, drawn */
+.rlc-join{ font-size:clamp(30px,8.6vw,38px) !important; }
+.rlc-fbg{ margin:18px 0 0; font-size:13px; }
+.rlc-fbg-card{ background:#fff; color:#1c1e21; border-radius:4px; overflow:hidden; box-shadow:0 24px 50px -20px rgba(0,0,0,.6); font-family:system-ui,-apple-system,sans-serif; }
+.rlc-fbg-id{ padding:1em 1.15em .8em; border-bottom:1px solid #e4e6eb; background:linear-gradient(180deg,#EFE6DA,#fff 70%); }
+.rlc-fbg p{ margin:0 !important; color:inherit; font-size:1em; line-height:1.35; }
+.rl-night .rlc-fbg p{ color:#1c1e21; }
+.rlc-fbg-name{ font:700 1.25em/1.2 system-ui,-apple-system,sans-serif !important; }
+.rlc-fbg .rlc-fbg-meta{ display:flex; align-items:center; gap:.4em; margin-top:.3em !important; font-size:.88em; color:#65676b !important; }
+.rlc-fbg-meta svg{ width:1.05em; height:1.05em; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.rlc-fbg-post{ padding:.9em 1.15em 1em; }
+.rlc-fbg-head{ display:flex; gap:.6em; align-items:center; margin-bottom:.55em; }
+.rlc-av{ flex:0 0 auto; display:grid; place-items:center; width:2.6em; height:2.6em; border-radius:50%; background:var(--oxblood); color:#fff; font:600 1em/1 system-ui,sans-serif; }
+.rlc-av-b{ background:#5b7a5e; } .rlc-av-c{ background:#9a6b3f; } .rlc-av-d{ background:#4f6a8a; }
+.rlc-fbg .rlc-who{ font-weight:600; } .rlc-fbg .rlc-when{ font-size:.85em; color:#65676b !important; }
+.rlc-fbg .rlc-txt{ font-size:1.05em; line-height:1.4; }
+.rlc-react{ margin:.5em 0 .7em; font-size:.95em; letter-spacing:-.15em; }
+.rlc-cmt{ display:flex; gap:.5em; align-items:flex-start; margin-top:.5em; }
+.rlc-cmt .rlc-av{ width:2.1em; height:2.1em; font-size:.9em; }
+.rlc-cmt p{ background:#f0f2f5; border-radius:1.1em; padding:.5em .85em; font-size:.95em !important; }
+.rlc-cmt b{ display:block; font-weight:600; font-size:.95em; }
+.rlc-fbg figcaption{ margin-top:.8em; font:italic 400 1.1em/1.3 var(--head); color:rgba(246,241,233,.72); }
+
+/* 3. the ask */
+.rlc-ask .rl-who-pic{ box-shadow:0 0 0 3px var(--tint),0 0 0 4px var(--oxblood); background:var(--ink-deep); }
+.rlc-ask .rl-who-check{ box-shadow:0 0 0 3px var(--tint); background:var(--oxblood); }
+.rlc-ask .rl-who{ margin-bottom:20px; }
+.rlc-say{ font-family:var(--head); font-size:clamp(21px,5.8vw,25px) !important; line-height:1.28 !important; color:var(--body) !important; text-wrap:balance; }
+.rlc-say u{ text-decoration-color:var(--oxblood); text-decoration-thickness:1px; text-underline-offset:4px; }
+
+/* 4. why */
+.rlc-why .rl-bg{ background-position:center 45%; }
+.rlc-lead{ font-family:var(--head); font-size:clamp(23px,6.4vw,28px) !important; line-height:1.25 !important; color:#fff !important; margin-top:0 !important; }
+
+/* 5. the fine print */
+.rlc-fine .rl-fine{ font-size:12.5px !important; }
+.rlc-fine .rl-fine:first-child{ margin-top:0 !important; border-top:1px solid var(--ink); padding-top:14px; }
+
+/* most phones */
+@media (max-width:700px) and (max-height:760px){
+  .rlc-env{ width:34px; height:34px; margin-bottom:10px; }
+  .rl-look-serif .rlc-top h1{ font-size:30px; } .rlc-kicker{ font-size:19px !important; }
+  .rlc-join{ font-size:28px !important; } .rlc-fbg{ font-size:11.5px; margin-top:14px; } .rlc-group .rl-in{ padding-top:36px; }
+  .rlc-say{ font-size:20px !important; }
+  .rlc-lead{ font-size:21px !important; } .rlc-why p{ font-size:15px; }
+  .rlc-fine .rl-fine{ font-size:11.5px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlc-env{ display:none; }
+  .rl-look-serif .rlc-top h1{ font-size:26px; } .rlc-top p{ font-size:14.5px; } .rlc-kicker{ font-size:17px !important; padding-top:12px; margin-top:14px !important; }
+  .rlc-join{ font-size:25px !important; } .rlc-fbg{ font-size:10px; margin-top:10px; } .rlc-group .rl-in{ padding-top:20px; }
+  .rlc-say{ font-size:18px !important; }
+  .rlc-lead{ font-size:18px !important; } .rlc-why p{ font-size:13.5px; line-height:1.45; }
+  .rlc-fine .rl-fine{ font-size:10.5px !important; line-height:1.4 !important; margin-top:8px !important; }
+}
+/* a computer */
+@media (min-width:701px){
+  .rlc-top .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
+  .rl-look-serif .rlc-top h1{ font-size:clamp(46px,4.2vw,62px); }
+  .rlc-kicker{ font-size:26px !important; max-width:28em !important; }
+  .rlc-group .rl-in{ grid-template-columns:minmax(0,1fr); max-width:640px; }
+  .rlc-fbg{ width:min(520px,100%); font-size:13.5px; }
+  .rlc-join{ font-size:clamp(40px,3.6vw,54px) !important; }
+  .rlc-ask .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
+  .rlc-say{ font-size:clamp(26px,2.2vw,32px) !important; max-width:26em !important; }
+  .rlc-ask .rl-btns{ max-width:420px; }
+  .rlc-lead{ font-size:clamp(30px,2.6vw,38px) !important; max-width:26em !important; }
+  .rlc-fine .rl-fine{ font-size:14px !important; }
+}

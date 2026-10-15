@@ -1,0 +1,121 @@
+/* beneve/beneve-side-hustle-quiz-funnel/b-side-hustle-quiz-reel: Beneve's Side Hustle Quiz as a reel (see block.html).
+ * The reel kit, the "Clinical calm" look (references/REEL-LOOKS.md, D) in Beneve's deeper teal, as on Beneve's video
+ * pages (b-video/b-opportunity-video), then the quiz's own pieces, copied from the side hustle quiz reels
+ * (_leadgen/side-hustle-match/side-hustle-match-reel/block.css) and set in the look: the answers, the job box, the
+ * progress bar, the processing screen. The results reel imports this sheet. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/clinical-calm.css");
+
+/* Beneve's teal, deepened so small words on white read (as b-video/b-opportunity-video) */
+.rl.rl-look-calm.bvq{ --teal:#2f7c7e; --teal-soft:#e4f1f1; --eyebrow-dark:#9fd6d7; }
+
+.bvq h2{ font-size:clamp(25px,7vw,32px); }
+.bvq h2.qz-h-sm{ font-size:clamp(22px,6vw,26px); }
+.bvq .rl-p[hidden],.bvq .qz-opts button[hidden],.rl-dots button[hidden]{ display:none; }
+.bvq .rl-btn{ font:600 16px var(--sans); cursor:pointer; width:100%; border:0; }
+.bvq .rl-btn:disabled{ opacity:.4; cursor:default; }
+.bvq strong{ font-weight:600; color:var(--ink); }
+.bvq .rl-night strong{ color:var(--on-dark); }
+
+/* 1. the cover: the photo as a card, then the words */
+.bvq .bvq-photo{ width:100%; height:clamp(120px,24svh,230px); margin-bottom:20px; background-position:50% 14%; }
+.bvq-cover .lk-tag{ margin-bottom:14px; text-transform:none; letter-spacing:.02em; }
+.bvq-lede{ font:400 17px/1.5 var(--sans); color:var(--body); margin:12px 0 0; }
+.qz-go{ margin-top:22px; }
+.bvq-cover .rl-fine{ margin-top:14px !important; }
+
+/* the count and the bar over each question */
+.bvq [data-qz-count]{ margin-bottom:10px; }
+.qz-prog{ max-width:220px; margin-bottom:20px; }
+.rl-night .qz-prog{ background:rgba(255,255,255,.14); }
+.rl-night .qz-prog > i{ background:var(--eyebrow-dark); }
+.qz-prog > i{ transition:width .6s ease .2s; }
+
+/* the answers: one tap keeps it and moves on, an icon on the left of each (as the survey's) */
+.qz-opts{ display:flex; flex-direction:column; gap:10px; margin-top:22px; }
+.qz-opts button{ display:flex; align-items:center; gap:13px; text-align:left; font:500 16px/1.35 var(--sans); color:var(--ink); background:#fff; cursor:pointer;
+  border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+  transition:border-color .15s,background-color .15s,transform .1s; }
+.qz-opts button:active{ transform:scale(.98); }
+.qz-opts button.is-picked{ border-color:var(--teal); background:var(--teal-soft); box-shadow:inset 0 0 0 1px var(--teal); }
+.rl-night .qz-opts button{ color:var(--on-dark); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18); }
+.rl-night .qz-opts button.is-picked{ border-color:var(--eyebrow-dark); background:rgba(159,214,215,.16); box-shadow:none; }
+@media (hover:hover){ .qz-opts button:hover{ border-color:var(--teal); } .rl-night .qz-opts button:hover{ border-color:var(--eyebrow-dark); } }
+.qz-ico{ flex:none; width:24px; height:24px; fill:none; stroke:var(--teal); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rl-night .qz-ico{ stroke:var(--eyebrow-dark); }
+.qz-lab{ display:block; margin-top:18px; font:500 12px/1.2 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--grey); }
+.qz-lab + .qz-opts{ margin-top:10px; }
+.bvq p{ font-size:16px; line-height:1.5; color:var(--body); margin:12px 0 0; }
+.bvq .rl-night p{ color:rgba(255,255,255,.84); }
+
+/* the job box */
+.qz-text{ display:flex; flex-direction:column; gap:12px; margin-top:22px; }
+.qz-text input{ font:400 17px var(--sans); color:var(--ink); background:#fff; border:1px solid var(--line);
+  border-radius:12px; padding:15px 16px; width:100%; }
+.qz-text input:focus{ outline:none; border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-soft); }
+
+/* processing (the survey's): the spinner, three ticks in turn, the bar filling, then "ready" */
+.qz-proc .rl-in{ text-align:center; }
+.qz-proc .rl-in::before{ margin-left:auto; margin-right:auto; }
+.qz-spin{ width:56px; height:56px; margin:0 auto 22px; border:5px solid rgba(255,255,255,.14); border-top-color:var(--eyebrow-dark); border-radius:50%; animation:qz-spin 1s linear infinite; }
+@keyframes qz-spin{ to{ transform:rotate(360deg); } }
+.qz-proc-h{ font-size:clamp(24px,6.6vw,30px) !important; }
+.qz-steps{ list-style:none; padding:0; margin:22px auto 0; max-width:320px; text-align:left; font:500 16px/1.3 var(--sans); color:var(--on-dark); }
+.qz-steps li{ margin:12px 0; opacity:0; transform:translateY(6px); transition:opacity .45s ease,transform .45s ease; }
+.qz-steps li::before{ content:"\2713"; color:var(--eyebrow-dark); font-weight:700; margin-right:10px; }
+.rl-p.is-on .qz-steps li{ opacity:1; transform:none; transition-delay:var(--d); }
+.qz-bar{ max-width:320px; height:6px; margin:24px auto 0; background:rgba(255,255,255,.14); border-radius:3px; overflow:hidden; }
+.qz-bar i{ display:block; height:100%; width:0; background:var(--eyebrow-dark); border-radius:3px; }
+.rl-p.is-on .qz-bar i{ width:100%; transition:width 3.3s ease .2s; }
+.qz-ready{ opacity:0; font-weight:600; color:var(--on-dark) !important; margin-top:22px !important; }
+.rl-p.is-on .qz-ready{ opacity:1; transition:opacity .5s ease 3.6s; }
+
+/* the dock (the form) waits for the last screen: nobody skips the questions */
+body:has(.rl-match:not(.rl-last)) .pfn-dock{ opacity:0; pointer-events:none; transform:translateY(20px); }
+.rl-match:not(.rl-last) .rl-cta{ opacity:0; pointer-events:none; }
+body:has(.rl-match) .pfn-dock{ transition:opacity .4s,transform .4s; }
+
+/* The questions have no dock under them (it waits for the last screen), so they don't keep its room. */
+.bvq .rl-p:not(.qz-proc):not(.bvq-cover) .rl-in{ padding-bottom:40px; }
+.bvq .bvq-cover .rl-in{ padding-bottom:48px; }
+
+/* a short phone: tighter answers */
+@media (max-width:700px) and (max-height:700px){
+  .qz-opts{ gap:8px; margin-top:16px; } .qz-opts button{ padding:11px 14px; font-size:15px; }
+  .bvq h2{ font-size:clamp(22px,6.4vw,27px); }
+  .qz-prog{ margin-bottom:14px; }
+  .bvq .bvq-photo{ height:clamp(100px,19svh,150px); margin-bottom:14px; }
+  .bvq-lede{ font-size:16px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .bvq .rl-in{ padding-top:26px; }
+  .bvq .rl-night .rl-in::before{ margin-bottom:14px; }
+  .bvq [data-qz-count]{ margin-bottom:8px; }
+  .qz-prog{ margin-bottom:12px; }
+  .bvq .rl-cover h1{ font-size:28px; } .bvq-lede{ font-size:15px; margin-top:8px; }
+  .bvq .bvq-photo{ height:84px; margin-bottom:12px; }
+  .bvq-cover .lk-tag{ margin-bottom:10px; }
+  .qz-go{ margin-top:14px; }
+  .bvq h2{ font-size:21px; } .bvq h2.qz-h-sm{ font-size:19px; }
+  .bvq p{ font-size:14px; line-height:1.42; margin-top:8px; }
+  .qz-lab{ margin-top:10px; }
+  .qz-opts{ gap:6px; margin-top:12px; } .qz-opts button{ padding:9px 12px; font-size:14px; gap:10px; }
+  .qz-ico{ width:20px; height:20px; }
+  .bvq .rl-btn{ padding:12px 16px; }
+}
+
+/* a computer: the cover's photo on the right, the answers no wider than they need */
+@media (min-width:701px){
+  .bvq .bvq-photo{ width:min(460px,36vw); height:min(520px,60vh); margin:0; }
+  .bvq-cover .rl-in > .rl-art{ grid-row:1 / span 6; }
+  .bvq p{ font-size:18px; }
+  .qz-opts,.qz-text{ max-width:560px; }
+  .qz-prog{ max-width:280px; }
+  .bvq h2{ font-size:clamp(32px,3vw,42px); }
+  .bvq h2.qz-h-sm{ font-size:clamp(28px,2.5vw,34px); }
+  .bvq .rl-p:not(.qz-proc):not(.bvq-cover) .rl-in{ padding-bottom:72px; }
+  .bvq .bvq-cover .rl-in{ padding-bottom:var(--dock-room); }
+  /* the processing screen is centred: a grid item with auto margins would shrink the bar to nothing */
+  .bvq .rl-hint{ margin-top:40px; }   /* the kit's computer gap is 30; REEL-PAGE-SOP asks 40 under the last line */
+  .qz-proc .qz-bar{ width:100%; } .qz-proc .qz-ready{ max-width:none; justify-self:center; }
+}

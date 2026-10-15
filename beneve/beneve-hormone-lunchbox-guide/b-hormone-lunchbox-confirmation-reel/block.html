@@ -1,0 +1,112 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-reel
+  The Hormone Lunchbox confirmation as a REEL, after its opt-in reel. Five screens, PLATFORM ONLY: the platform's
+  /b-hormone-lunchbox-confirmation step points here (migration 0303). GHL keeps loading the folder it was cut from,
+  ../beneve-hormone-lunchbox-confirmation-group (split test B, the private group), and that folder is never edited.
+  Every rule in that folder's header holds here too, the ones that matter most:
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: join the private support group. Every button that asks goes
+     to the funnel's own steps, so the visit is recorded: JOIN goes to /b-hormone-group-join-redirect, the rep's own
+     group (beneve_hormone_group, asked at setup, optional), or to /b-hormone-group-message, the rep's Messenger, when
+     they left it blank (0306; Jeff, 2026-10-15). The "Swipe up to message {rep}" dock is on every screen and always
+     goes to Messenger: it says "message". The headline names the guide "Hormone Lunchbox", as the opt-in does (Jeff,
+     2026-10-15; the GHL page says "Hormone Support Recipe Guide").
+  ⚠️ NO "nothing is for sale in there", NO "free to join", NO outcome or count in the drawn group feed, never sell the
+     group by downgrading the guide. "Hormone support", never "hormone balancing". No product is named, so no FDA line;
+     the four guide disclaimers and the group's own line stay, whole, on the last screen.
+  ⚠️ EVERY WORD IS THE PAGE'S, verbatim, plus the visitor's first name in the headline (PAGE-COPY-SOP §5c), written to
+     read right without it. The drawn feed is the page's own (names, post, replies, caption).
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it): G · Editorial serif.
+-->
+<div class="rl rl-look-serif rl-lb rlc" data-pf-native data-pf-message="to join our private group" data-pf-arrive="#F6F1E9">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: it is on the way. The page rises out of the cream the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="lk-rule" data-in style="--d:.05s">☀️ Your PDF is on the way. One more thing below...</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type"><span data-if-name>Hi {{contact.first_name}}, </span>Your Hormone Lunchbox Guide Is Being Sent <em>In 2 Minutes.</em></h1>
+          <p data-in style="--d:.3s">Check your email. If you do not see it there, check your <b>SPAM</b> folder.</p>
+          <p class="rlc-kicker" data-in style="--d:.45s">While you wait, come and meet the women dealing with the same thing.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the group itself, drawn: the post and the replies she is being invited into (the page's own feed). -->
+      <section class="rl-p rl-night rl-plain rlc-group">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>🎁 Bonus offer</span>
+          <figure class="rlc-fbg" data-in style="--d:.15s">
+            <div class="rlc-fbg-card">
+              <div class="rlc-fbg-id">
+                <p class="rlc-fbg-name">The Hormone Lunchbox Group</p>
+                <p class="rlc-fbg-meta"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Private group · Only members see what is posted</p>
+              </div>
+              <div class="rlc-fbg-post">
+                <div class="rlc-fbg-head"><span class="rlc-av" aria-hidden="true">D</span><div><p class="rlc-who">Dana</p><p class="rlc-when">2h</p></div></div>
+                <p class="rlc-txt">Third night this week I have been wide awake at 3am, and then I am no use to anyone by the
+                  afternoon. I keep getting told it is just my age. Some days I do not feel like myself at all.</p>
+                <div class="rlc-react" aria-hidden="true"><span>💜</span><span>🥰</span><span>❤️</span></div>
+                <div class="rlc-cmt"><span class="rlc-av rlc-av-b" aria-hidden="true">R</span><p><b>Ruth</b>You are not imagining it and you are not being
+                  dramatic. I could have written this two years ago, word for word.</p></div>
+                <div class="rlc-cmt"><span class="rlc-av rlc-av-c" aria-hidden="true">P</span><p><b>Priya</b>The 3am waking was the hardest part for me
+                  too. Be gentle with yourself on the wrecked days. They are not a failure.</p></div>
+                <div class="rlc-cmt"><span class="rlc-av rlc-av-d" aria-hidden="true">K</span><p><b>Kim</b>Ask in here before you Google at 3am. Someone
+                  is nearly always awake. 💜</p></div>
+              </div>
+            </div>
+            <figcaption>The kind of thing posted in there most days.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the ask, with the rep: the offer's headline, the ask line, the button -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 class="rlc-join" data-in style="--d:.1s">Join Our Free Facebook Support Group.</h2>
+          <p class="rlc-say" data-in style="--d:.2s">Where we support each other in our holistic approach to navigating our hormonal struggles. <u>Click below and we will add you...</u></p>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" href="/b-hormone-group-join-redirect">JOIN OUR PRIVATE GROUP</a>
+            <a hidden data-pf-message-link data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-hormone-group-message"></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: why it helps, the page's two paragraphs -->
+      <section class="rl-p rl-photo rl-wide rlc-why">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-hormone-lunchbox-guide/beneve-hormone-lunchbox/assets/lunch-2.webp')"></div>
+        <div class="rl-in">
+          <p class="rlc-lead" data-in>Your guide gives you the food. What it cannot give you is the other women dealing with
+            the same thing right now, some a few months ahead of you, some a few months behind.
+            That is usually what decides whether any of this sticks past week two.</p>
+          <p data-in style="--d:.2s">It is where the day to day goes: the 3pm crash, the 3am wake ups, the weight that
+            moved and will not move back, what somebody tried last month that actually helped. No
+            pressure to post, nobody telling you it is all in your head, and plenty worth reading
+            even on the weeks you say nothing.</p>
+        </div>
+      </section>
+
+      <!-- 5. PAPER: the disclaimer, whole -->
+      <section class="rl-p rl-paper rl-wide rlc-fine">
+        <div class="rl-in">
+          <p class="rl-fine">The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+          <p class="rl-fine">We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+          <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+          <p class="rl-fine">These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding hormone support, weight, or any other outcome.</p>
+          <p class="rl-fine">Our private group is a peer community. Comments and experiences shared by members are their own and are not endorsed by us, are not medical advice, and should not be relied on in place of care from your own provider.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). -->
+    <a class="rl-cta" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" href="/b-hormone-group-join-redirect">Join our private group</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

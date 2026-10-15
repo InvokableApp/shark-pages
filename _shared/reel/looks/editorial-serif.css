@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap");
+/* _shared/reel/looks/editorial-serif.css — LOOK "Editorial serif" (references/REEL-LOOKS.md; first used on Beneve's
+ * Hormone Lunchbox, Jeff 2026-10-15). DM Serif Display over DM Sans; cream, oxblood, fine rules. A magazine feature.
+ * Use: @import after reel.css, <div class="rl rl-look-serif">.
+ * Helpers: .lk-rule (a small-caps label under a fine rule, the magazine's section head), .lk-list (rows under fine
+ * rules with an italic serif numeral: <div><b>i.</b><span><strong>Title</strong>line</span></div>), .lk-big (a large
+ * italic serif figure). */
+.rl.rl-look-serif{
+  --oxblood:#7A2E2A; --cream:#F6F1E9; --ink-deep:#2A1A17;
+  --paper:var(--cream); --tint:#EFE6DA; --night:#2A1A17;
+  --ink:var(--ink-deep); --body:#5a4a44; --grey:#8a7a72; --on-dark:#F6F1E9;
+  --head:"DM Serif Display",Georgia,serif; --head-w:400; --sans:"DM Sans",system-ui,sans-serif;
+  --eyebrow:var(--oxblood); --eyebrow-dark:#E3B5A8;
+  --cta:var(--ink-deep); --cta-ink:var(--cream); --mark:var(--oxblood); --shade:42,26,23;
+  --line:#d8cfc4;
+  --sk-accent:var(--ink-deep); --pfn-accent:var(--ink-deep); --pfn-ink:var(--cream);
+}
+.rl-look-serif h1,.rl-look-serif h2{ letter-spacing:-.01em; line-height:1.04; }
+.rl-look-serif h1{ font-size:clamp(34px,10vw,44px); }
+.rl-look-serif h1 em,.rl-look-serif h2 em{ font-style:italic; color:var(--oxblood); }
+.rl-look-serif .rl-night h1 em,.rl-look-serif .rl-night h2 em,.rl-look-serif .rl-photo h1 em,.rl-look-serif .rl-photo h2 em{ color:#E3B5A8; }
+.rl-look-serif .rl-eyebrow{ font:500 11.5px/1.3 var(--sans); letter-spacing:.22em; border-top:1px solid currentColor; padding-top:10px; width:fit-content; }
+.rl-look-serif .rl-btn,.rl-look-serif .pfn-dock{ border-radius:2px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; }
+.rl-look-serif .rl-cards > *{ border-radius:2px; }
+.rl-look-serif .lk-rule{ display:block; font:500 11.5px/1.3 var(--sans); letter-spacing:.22em; text-transform:uppercase; color:var(--oxblood);
+  border-top:1px solid var(--ink); padding-top:10px; margin-bottom:12px; }
+.rl-look-serif .lk-list{ display:grid; margin-top:16px; }
+.rl-look-serif .lk-list > div{ display:grid; grid-template-columns:44px 1fr; padding:13px 0; border-top:1px solid var(--line); font-size:15px; line-height:1.45; color:var(--body); }
+.rl-look-serif .lk-list b{ font:400 italic 26px/1 var(--head); color:var(--oxblood); }
+.rl-look-serif .lk-list strong{ display:block; color:var(--ink); font-weight:500; }
+.rl-look-serif .lk-big{ font:400 italic clamp(88px,26vw,120px)/.9 var(--head); color:var(--oxblood); }
+@media (min-width:701px){ .rl-look-serif .rl-cta{ border-radius:2px; letter-spacing:.12em; text-transform:uppercase; } }

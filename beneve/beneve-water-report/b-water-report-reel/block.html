@@ -1,0 +1,105 @@
+<!--
+  beneve/beneve-water-report/b-water-report-reel
+  Beneve's WATER REPORT opt-in as a REEL, on the platform only: the platform's /b-water-report step points here
+  (migration 0304). GHL keeps serving beneve/beneve-water-report/b-water-report on every installed account; that folder
+  is never edited.
+  Look: D, Clinical calm (references/REEL-LOOKS.md, Jeff 2026-10-15), in Beneve's deeper teal as on b-video.
+  WARNING: EVERY WORD IS THE GHL PAGE'S, verbatim: its hero, its two examples, its gate card (block.js gate()), its three
+     "Where these numbers come from" articles and its fine print. Change one, change both.
+  WARNING: THE LOOKUP RUNS FIRST, THE FORM SECOND, as on GHL (Jeff, 2026-09-07). The dock reads "Check My Water" and
+     takes the visitor to the ZIP box until a lookup has come back; only then does it open the form, and it says
+     "Show my water report" (the form's own button). block.js holds the dock back until then.
+  WARNING: THE SAME LOOKUP, COPIED NOT LOADED. The GHL block.js cannot be loaded here: it finds .sk-wat, writes a GHL form
+     iframe into its own gate and wires GHL's form_embed.js. Its lookup (water-api /lookup) and the six-plus water values
+     it hands the form are copied into this folder's block.js, unchanged; the values ride with the platform form as
+     window.__pfExtra under the GHL hidden fields' own keys (beneve_water_*, address1), the keys the delivery email and
+     the rep alert merge.
+  Screens: 1 the tool (photo card, headline, ZIP box), 2 the gate (hidden until a lookup returns), 3 to 5 where the
+  numbers come from, one article each, with the fine print on the last.
+-->
+<div class="rl rl-look-calm wr" data-pf-native data-pf-dock="Check My Water" data-pf-handoff="#F7FAFC"
+     data-rep="{{custom_values.beneve_rep_first_name}}">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the tool. The photo is a card (the look's lk-photo); on a computer it is the picture on the right. -->
+      <section class="rl-p rl-paper wr-cover" aria-label="Check your water">
+        <div class="rl-in">
+          <div class="lk-photo wr-photo rl-art" data-in role="img" aria-label="A glass and a carafe of tap water on a kitchen counter"
+               style="background-image:url('/_p/beneve/beneve-water-report/b-water-report/assets/hero.jpg')"></div>
+          <span class="lk-tag" data-in style="--d:.05s">Free, and it takes about five seconds</span>
+          <h1 data-in style="--d:.12s">Type your ZIP code and see what the EPA has on file for <em>your water</em></h1>
+          <p class="wr-lede" data-in style="--d:.22s">Five digits is enough. We read your water utility's own results from
+            the EPA's public records and show you what they found, in plain numbers.</p>
+          <form class="wr-form" data-in style="--d:.3s" novalidate>
+            <label class="wr-srt" for="wr-addr">Your ZIP code, or your full address</label>
+            <!-- autocomplete is postal-code, inputmode is deliberately NOT numeric: a full street address still works here
+                 and is the more exact answer where one ZIP holds more than one utility (the GHL page's rule). -->
+            <input id="wr-addr" name="address" type="text" autocomplete="postal-code" placeholder="Your ZIP code" spellcheck="false">
+            <button type="submit" class="wr-go">Check My Water
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+          <p class="wr-note" data-in style="--d:.38s"><b>Just the 5 digits</b>, like
+            <button type="button" class="wr-eg" data-wr-eg="08205">08205</button>.
+            A full street address is more exact, like
+            <button type="button" class="wr-eg" data-wr-eg="500 Boston Post Rd, Sudbury, MA">500 Boston Post Rd, Sudbury, MA</button>.
+            Nothing is saved unless you ask for the full report.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: the gate, filled by block.js once the lookup returns (the GHL gate card's words), hidden until then. -->
+      <section class="rl-p rl-tint wr-gate" hidden aria-label="Your report">
+        <div class="rl-in" aria-live="polite"></div>
+      </section>
+
+      <!-- 3. NIGHT: where the numbers come from, one -->
+      <section class="rl-p rl-night wr-src wr-src-1">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Where these numbers come from</span>
+          <svg class="wr-pin" data-in style="--d:.1s" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-10 0-18 8-18 18 0 13 18 32 18 32s18-19 18-32c0-10-8-18-18-18z"/><path d="M32 17c3 4 7 8 7 12a7 7 0 0 1-14 0c0-4 4-8 7-12z"/></svg>
+          <h2 data-in style="--d:.2s">Your utility, not your neighbourhood</h2>
+          <p data-in style="--d:.3s">Your address is matched against the EPA's map of water system service areas, so the
+            results belong to the utility that actually pipes water to your street.</p>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: two. The giant number is the federal action level the article names. -->
+      <section class="rl-p rl-paper wr-src wr-src-2">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Where these numbers come from</span>
+          <div class="wr-big" data-in style="--d:.1s"><b>15</b><span>ppb</span></div>
+          <h2 data-in style="--d:.2s">Lead, from the required testing</h2>
+          <p data-in style="--d:.3s">Utilities test taps in their own service area and report the 90th percentile result to
+            the EPA. The federal action level is 15 parts per billion.</p>
+        </div>
+      </section>
+
+      <!-- 5. TINT: three, and the fine print. The two figures are the article's own. -->
+      <section class="rl-p rl-tint wr-src wr-src-3">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Where these numbers come from</span>
+          <div class="wr-figs lk-cardrow" data-in style="--d:.1s">
+            <div><b>29</b><span>PFAS compounds</span></div>
+            <div><b>4</b><span>parts per trillion for PFOA and PFOS</span></div>
+          </div>
+          <h2 data-in style="--d:.2s">PFAS, from EPA's national sampling</h2>
+          <p data-in style="--d:.3s">Between 2023 and 2025 the EPA had larger systems sampled for 29 PFAS compounds. In
+            2024 it set a limit of 4 parts per trillion for PFOA and PFOS.</p>
+          <p class="rl-fine wr-fine" data-in style="--d:.4s">These are your utility's compliance results, not a test of the tap in
+            your kitchen. Private wells are not covered by any of it, because nobody is required to
+            report them.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. block.js holds it back until a lookup. -->
+    <button type="button" class="rl-cta" data-sk-open>Check My Water</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves. This folder's block.js (the lookup) is added after it by the platform, so runs second. -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

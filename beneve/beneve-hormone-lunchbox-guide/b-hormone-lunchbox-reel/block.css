@@ -1,0 +1,83 @@
+/* beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-reel: the Hormone Lunchbox opt-in as a reel (platform only;
+ * see block.html). The reel is _shared/reel/v1/reel.css; the look is G · Editorial serif (looks/editorial-serif.css).
+ * This sheet adds only the screens' own pieces: the guide on the cover, the giant 10, the three cards, the fanned pages,
+ * the six numbered cards, the three lunches. The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/editorial-serif.css");
+
+/* 1. the cover: the guide, tilted */
+.lb-book{ width:50%; max-width:230px; margin-top:24px; box-shadow:0 26px 44px -16px rgba(42,26,23,.45),0 0 0 1px rgba(42,26,23,.08); }
+.rl-look-serif .rl-cover h1{ font-size:clamp(36px,10.4vw,46px); }
+.rl-cover .rl-note{ margin-top:20px; }
+
+/* 2. the giant 10, over the crunch salad */
+.lb-ten .rl-bg{ background-position:40% center; }
+.rl-lb .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.78) 0%,rgba(var(--shade),.72) 40%,rgba(var(--shade),.94) 100%); }
+.rl-look-serif .lb-big{ color:#E3B5A8; font-size:clamp(120px,38vw,170px); margin-bottom:6px; }
+.lb-lede{ font-family:var(--head); font-size:clamp(21px,6vw,25px) !important; line-height:1.32 !important; color:#fff !important; text-wrap:pretty; }
+
+/* 3 and 5. the cards: a fine rule on top, an italic numeral */
+.lb-cards > div{ background:var(--paper); border-top:2px solid var(--oxblood); padding:20px 20px 22px; box-shadow:0 12px 28px -18px rgba(42,26,23,.35); }
+.lb-n{ display:block; font:400 italic 30px/1 var(--head); color:var(--oxblood); margin-bottom:12px; }
+.lb-cards h3{ font-size:23px; color:var(--ink); }
+.lb-cards p{ font-size:15.5px; margin-top:10px; }
+.lb-cards-dark > div{ background:rgba(246,241,233,.06); border-top-color:#E3B5A8; box-shadow:none; outline:1px solid rgba(246,241,233,.12); }
+.lb-cards-dark .lb-n{ color:#E3B5A8; font-size:44px; }
+.rl-night .lb-cards-dark h3{ color:var(--on-dark); }
+.lb-cards-dark p{ color:rgba(246,241,233,.78) !important; }
+
+/* 4. what is inside: the cover with two of its pages */
+.lb-stack{ display:block; width:100%; max-width:440px; height:auto; margin:0 0 14px; mix-blend-mode:multiply; }
+.lb-plain{ font-family:var(--head); font-size:clamp(23px,6.6vw,28px) !important; line-height:1.25 !important; color:var(--ink) !important; }
+.lb-six-h{ font-size:clamp(26px,7.4vw,32px) !important; }
+
+/* 6. the three lunches */
+.lb-eat h2{ font-size:clamp(30px,8.6vw,38px); }
+.lb-lunches figure{ margin:0; background:var(--paper); box-shadow:0 12px 28px -18px rgba(42,26,23,.35); }
+.lb-lunches img{ display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; }
+.lb-lunches figcaption{ padding:14px 16px 16px; font:400 21px/1.2 var(--head); color:var(--ink); }
+.lb-lunches small{ display:block; margin-top:6px; font:400 14.5px/1.4 var(--sans); color:var(--body); }
+
+/* 7. the close */
+.lb-close .rl-bg{ background-position:center 40%; }
+.lb-close h2{ font-size:clamp(32px,9vw,42px); }
+.lb-close .rl-fine{ margin-top:22px !important; }
+
+/* most phones */
+@media (max-width:700px) and (max-height:760px){
+  .rl-look-serif .rl-cover h1{ font-size:33px; }
+  .lb-book{ width:40%; margin-top:18px; }
+  .rl-look-serif .lb-big{ font-size:110px; }
+  .lb-lede{ font-size:20px !important; }
+  .lb-cards h3{ font-size:21px; } .lb-cards p{ font-size:14.5px; }
+  .lb-stack{ width:84%; margin-bottom:8px; }
+  .lb-plain{ font-size:22px !important; } .lb-six-h{ font-size:24px !important; }
+  .lb-eat h2{ font-size:28px; } .lb-lunches figcaption{ font-size:19px; padding:12px 14px 14px; } .lb-lunches small{ font-size:13.5px; }
+  .lb-close h2{ font-size:30px; } .lb-close .rl-fine{ font-size:10.5px !important; margin-top:14px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-look-serif .rl-cover h1{ font-size:29px; }
+  .lb-book{ width:28%; margin-top:12px; }
+  .rl-look-serif .lb-big{ font-size:84px; }
+  .lb-lede{ font-size:18px !important; }
+  .lb-cards > div{ padding:16px 16px 18px; } .lb-n{ font-size:24px; margin-bottom:8px; } .lb-cards-dark .lb-n{ font-size:32px; }
+  .lb-stack{ width:62%; }
+  .lb-plain{ font-size:20px !important; } .lb-six-h{ font-size:21px !important; }
+  .lb-eat h2{ font-size:25px; } .lb-lunches img{ aspect-ratio:2/1; }
+  .lb-close h2{ font-size:27px; } .lb-close .rl-fine{ font-size:10px !important; line-height:1.4 !important; }
+}
+/* a computer */
+@media (min-width:701px){
+  .rl-look-serif .rl-cover h1{ font-size:clamp(46px,3.9vw,60px); }
+  /* the floating button is the look's ink; a hairline of cream keeps it from sinking into the dark and photo chapters */
+  .rl-lb .rl-cta{ box-shadow:0 18px 40px -14px rgba(0,0,0,.55),0 0 0 1px rgba(246,241,233,.4); }
+  .lb-book{ width:min(380px,26vw); max-width:none; margin:0; }
+  .rl-look-serif .lb-big{ font-size:clamp(220px,20vw,320px); }
+  .lb-lede{ font-size:clamp(26px,2.2vw,32px) !important; max-width:24em !important; }
+  .lb-stack{ width:min(560px,40vw); max-width:none; margin:0; }
+  .lb-plain{ font-size:clamp(32px,2.8vw,42px) !important; } .lb-six-h{ font-size:clamp(38px,3.4vw,50px) !important; }
+  .lb-cards > *{ flex-basis:31%; }
+  .lb-lunches > *{ flex-basis:31%; }
+  .lb-eat h2{ font-size:clamp(40px,3.6vw,54px); }
+  .lb-close h2{ font-size:clamp(42px,3.8vw,58px); }
+}

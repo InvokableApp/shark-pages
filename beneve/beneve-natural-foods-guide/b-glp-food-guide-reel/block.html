@@ -1,0 +1,118 @@
+<!--
+  beneve/beneve-natural-foods-guide/b-glp-food-guide-reel
+  Beneve's Natural GLP Foods Guide opt-in as a REEL (2026-10-15, Beneve moving to the platform). Six screens, PLATFORM
+  ONLY (references/REEL-PAGE-SOP.md). The structure is GLP's reel of the same campaign
+  (glp/glp-natural-foods-guide/glp-food-guide-reel); the words are BENEVE'S page's.
+  ⚠️ A NEW FOLDER ON PURPOSE. GHL serves this funnel's native opt-in (steps.native_page, the GHL builder's own) on every
+  installed Beneve account and never loads this. The platform's /b-glp-food-guide step points here (migration 0310).
+  ⚠️ EVERY WORD IS THE NATIVE PAGE'S, verbatim (supabase/masters/steps.json, /b-glp-food-guide), in sentence case. The
+  hero's paragraph is cut to the cover's pills ("12 delicious recipes", "done-for-you grocery list"); its other words
+  ("discover everyday foods that may support your body's natural GLP-1 response") are on the screens after it.
+  KNOWN, LEFT AS THE PAGE HAS THEM FOR JEFF'S CALL: "11" recipes (the guide has 12: its cover says 12 RECIPES, and
+  beneve-glp-food-guide-read has twelve), and "working within your body".
+  ⚠️ THE LOOK is C · Soft athletic (references/REEL-LOOKS.md, _shared/reel/looks/soft-athletic.css; Jeff picked it).
+  PHOTO, PAPER, DARK, TINT, PHOTO, PHOTO. The photos are the native page's two (her and him reading the guide, moved off
+  GHL's storage into assets/), the guide's own cover (book.webp, the same cover as GLP's) and its cover's food spread.
+  The form is the platform's own (Beneve - Natural GLP Foods Guide - Opt-In Form), opened by the dock as a sheet.
+-->
+<div class="rl rl-look-soft rl-bf" data-pf-native data-pf-dock="Send me the recipe guide" data-pf-handoff="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover. Her in the kitchen with the guide; the guide over it. -->
+      <section class="rl-p rl-photo rl-cover" aria-label="The free GLP foods guide">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-natural-foods-guide/b-glp-food-guide-reel/assets/cover.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The free GLP foods guide</span>
+          <h1 data-in style="--d:.1s">Eat the foods that support your body's <em>natural GLP&#8209;1 release.</em></h1>
+          <img class="rl-book rlb-book rl-art" data-in style="--d:.35s" src="/_p/beneve/beneve-natural-foods-guide/b-glp-food-guide-reel/assets/book.webp"
+               width="760" height="984" alt="Foods That Naturally Support Your GLP Producing Hormones, the guide">
+          <ul class="rl-pills" data-in style="--d:.55s"><li>12 delicious recipes</li><li>Done-for-you grocery list</li></ul>
+          <p class="rl-note" data-in style="--d:.7s">No prescription, no shots. Just real food working within your body!</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: what the shot conversation leaves out. The three hormones light up one after another. -->
+      <section class="rl-p rl-paper rlb-shot">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Here is what the shot conversation leaves out</span>
+          <div class="rlb-chips rl-art" aria-hidden="true">
+            <span style="--n:0">GLP-1</span><span style="--n:1">GLP-2</span><span style="--n:2">GIP</span>
+          </div>
+          <h2 data-in style="--d:.1s">Your body already makes GLP&#8209;1, GLP&#8209;2, and GIP every day.</h2>
+          <p data-in style="--d:.25s">These are the hormones that quiet hunger, steady your blood sugar, and keep your gut healthy.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: the switch. Off, then on, as the screen arrives. -->
+      <section class="rl-p rl-night rlb-switch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The foods on your plate</span>
+          <svg class="rlb-toggle rl-art" viewBox="0 0 240 120" aria-hidden="true">
+            <rect class="rlb-toggle-track" x="40" y="30" width="160" height="60" rx="30"/>
+            <circle class="rlb-toggle-knob" cx="70" cy="60" r="24"/>
+            <text class="rlb-toggle-off" x="120" y="112" text-anchor="middle">Off</text>
+            <text class="rlb-toggle-on" x="120" y="112" text-anchor="middle">On</text>
+          </svg>
+          <p class="rlb-lead" data-in style="--d:.05s">The foods on your plate can help your body make more of them, or less.</p>
+          <h2 class="rlb-say" data-in style="--d:.15s">Most people are unknowingly eating in a way that keeps these signals <em>switched off.</em></h2>
+          <p data-in style="--d:.3s">This guide shows you exactly which foods turn them back on, and simple ways to eat more of them.</p>
+        </div>
+      </section>
+
+      <!-- 4. TINT: do you struggle with? Three cards, a sideways row. -->
+      <section class="rl-p rl-tint rl-wide rlb-struggle">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Do you struggle with?</span>
+          <div class="rl-cards rlb-cards" data-in style="--d:.15s">
+            <div><span class="rlb-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg></span><h3>Cravings that win</h3><p>Certain everyday foods prompt your gut to release the hormones that quiet cravings on their own.</p></div>
+            <div><span class="rlb-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><h3>The 3pm crash</h3><p>Blood sugar swings drain your energy. Hormone supporting meals hold it steady instead of the afternoon crash.</p></div>
+            <div><span class="rlb-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 13s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></span><h3>Never feeling full</h3><p>When your GLP-1 signals stay low, your brain never gets the message that you are satisfied. The right foods help switch it back on.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: what's inside, the six things -->
+      <section class="rl-p rl-photo rl-wide rlb-inside">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-natural-foods-guide/b-glp-food-guide-reel/assets/reading.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What's inside</span>
+          <h2 data-in style="--d:.1s">Real foods that work with your body's own <em>appetite hormones.</em></h2>
+          <p class="rlb-sub" data-in style="--d:.18s">Simple prep, everyday ingredients, and easy swaps so the whole household can eat the same way.</p>
+          <ul class="rlb-list">
+            <li data-in style="--d:.25s"><b>The direct drivers</b>, the foods that trigger your GLP-1, GLP-2, and GIP at the source.</li>
+            <li data-in style="--d:.35s"><b>The gut support foods</b>, what keeps the hormone producing lining of your gut healthy.</li>
+            <li data-in style="--d:.45s"><b>The blood sugar foods</b>, everyday choices that steady the swings that drive cravings.</li>
+            <li data-in style="--d:.55s"><b>12 hero recipes</b>, simple meals built around the foods that matter, with monk fruit swaps.</li>
+            <li data-in style="--d:.65s"><b>Simple uses for every food</b>, easy ways to work each one into meals you already eat.</li>
+            <li data-in style="--d:.75s"><b>A done for you grocery list</b>, know exactly what to buy, grouped by aisle.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. PHOTO: the close, and the fine print -->
+      <section class="rl-p rl-photo rl-wide rlb-close">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-natural-foods-guide/b-glp-food-guide-reel/assets/foods.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free download</span>
+          <h2 data-in style="--d:.1s">Support your appetite hormones the natural way, <em>starting today.</em></h2>
+          <p data-in style="--d:.25s">Get the free guide in your inbox in under 2 minutes.</p>
+          <p class="rl-fine" data-in style="--d:.4s">The information in this guide is for educational and informational purposes only and is not medical,
+            nutritional, diagnostic, or treatment advice. We are not physicians, medical professionals, registered dietitians, or
+            licensed healthcare providers. This content is not a substitute for professional advice. Consult your physician or a
+            qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an
+            existing medical condition. These are general food and recipe suggestions. Results vary from person to person. We
+            make no guarantees regarding weight loss, appetite, or any other outcome.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Send me the recipe guide</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

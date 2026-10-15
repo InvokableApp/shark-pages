@@ -1,0 +1,96 @@
+/* beneve/b-video/b-opportunity-video — Beneve's opportunity video page as a reel (see block.html): the reel kit, the
+ * "Clinical calm" look in a deeper Beneve teal, then GLP's video page pieces (glp/glp-orygn-video/orygn-product-video)
+ * restyled for light screens: the rep banner, the photo card, the wide video with its bar, the three numbered cards and
+ * their pop-ups. The TRIO video page imports this sheet. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/clinical-calm.css");
+
+/* Beneve's teal, deepened so small words on white read (#4e9799 is too light for text) */
+.rl.rl-look-calm.bv{ --teal:#2f7c7e; --teal-soft:#e4f1f1; --eyebrow-dark:#9fd6d7; }
+
+/* the rep across the top, on every screen */
+.rv-banner{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:center; gap:10px;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px; background:rgba(255,255,255,.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); color:var(--ink); font:500 14px/1.2 var(--sans); }
+.rv-banner[hidden]{ display:none; }
+.rv-banner b{ font-weight:700; }
+.rv-banner-pic{ display:grid; place-items:center; width:30px; height:30px; border-radius:50%; overflow:hidden; background:var(--teal); color:#fff;
+  font:700 14px var(--sans); }
+.rv-banner-pic img,.rv-banner-pic svg{ width:100%; height:100%; object-fit:cover; display:block; }
+.rv-has-banner .rv-cover .rl-in{ padding-top:64px; }
+.rv-has-banner .rv-watch .rl-in{ padding-top:58px; }
+.rv-has-banner .rv-ask .rl-in{ padding-top:60px; }
+
+/* 1. the cover: a photo card, then the words */
+.bv-photo{ width:100%; height:clamp(140px,30svh,280px); margin-bottom:22px; background-position:50% 30%; }
+.rv-cover .lk-tag{ margin-bottom:14px; }
+.rv-from{ font:500 16px/1.35 var(--sans); color:var(--body); margin:0 0 10px; }
+.bv-lede{ font:400 16px/1.5 var(--sans); color:var(--body); margin:12px 0 0; }
+.rv-next{ font:500 12px/1 var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--teal); }
+.rv-cover .rl-hint{ color:var(--teal); }
+
+/* 2. the video, wide (16:9), nothing cropped; the bar and the time under it */
+.rv-watch .rl-in{ display:flex; flex-direction:column; justify-content:center; }
+.rv-video{ position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:var(--navy);
+  box-shadow:0 24px 50px -24px rgba(14,42,59,.55); }
+.rv-video video,.rv-video iframe{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; border:0; background:#000; }
+.rv-video .qv-soon{ position:absolute; inset:0; display:grid; place-items:center; color:#fff; font:600 16px var(--sans); }
+.bv-bar{ width:100%; margin-top:16px; }
+.bv-time{ width:100%; display:flex; justify-content:space-between; margin:8px 0 0; font:500 11.5px/1 var(--mono); color:var(--grey); }
+
+/* 3. the cards */
+.rv-ask .rl-in{ justify-content:center; }
+.rv-eyebrow{ display:block; font:500 12px/1.2 var(--mono); letter-spacing:.04em; text-transform:uppercase; color:var(--teal); }
+.rv-ask h2{ font-size:clamp(28px,8vw,36px); margin:10px 0 20px; }
+.rv-cards{ display:flex; flex-direction:column; gap:10px; }
+.rv-card{ display:flex; align-items:center; gap:14px; width:100%; padding:16px 16px; border:1px solid var(--line); border-radius:12px;
+  background:#fff; font:inherit; color:var(--ink); text-align:left; cursor:pointer; transition:transform .15s, border-color .15s;
+  -webkit-tap-highlight-color:transparent; }
+.rv-card:active{ transform:scale(.98); border-color:var(--teal); }
+.rv-n{ align-self:flex-start; padding-top:4px; font:500 13px/1 var(--mono); color:var(--teal); }
+.rv-t{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }
+.rv-t b{ font:600 18px/1.2 var(--head); letter-spacing:-.01em; }
+.rv-t small{ font:400 14.5px/1.35 var(--sans); color:var(--body); }
+.rv-go{ font-size:20px; color:var(--teal); }
+.rv-fine{ margin-top:18px; color:var(--grey); }
+
+/* the pop-ups */
+.rv-pop{ position:fixed; inset:0; z-index:2147481500; display:flex; align-items:flex-end; justify-content:center;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px)); background:rgba(14,42,59,.5); }
+.rv-pop[hidden]{ display:none; }
+.rv-pop-card{ position:relative; width:100%; max-width:440px; border-radius:16px; padding:28px 22px 22px; background:#fff; color:var(--ink);
+  font-family:var(--sans); box-shadow:0 24px 60px -12px rgba(0,0,0,.45); animation:rv-up .35s cubic-bezier(.2,.8,.2,1); }
+@keyframes rv-up{ from{ transform:translateY(40px); opacity:0; } }
+.rv-pop-card p{ font-size:16px; line-height:1.5; color:var(--body); margin:0 0 12px; }
+.rv-pop-card .rv-pop-h{ font:600 23px/1.15 var(--head); letter-spacing:-.02em; color:var(--ink); margin-bottom:10px; padding-right:28px; }
+.rv-ps{ font-size:13.5px !important; color:var(--grey) !important; }
+.rv-x{ position:absolute; top:14px; right:14px; width:36px; height:36px; border:0; border-radius:50%; background:var(--tint); color:var(--ink);
+  font-size:22px; line-height:1; cursor:pointer; }
+.rv-btn{ display:block; margin-top:8px; padding:16px; border-radius:12px; background:var(--teal); color:#fff; text-align:center;
+  font:600 17px/1 var(--sans); text-decoration:none; }
+
+/* Swipe up: the arrows and the words under them, pinned to the bottom of the first screen and centred */
+.rv-swipe{ position:absolute; left:0; right:0; bottom:calc(28px + env(safe-area-inset-bottom,0px)); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; pointer-events:none; }
+.rv-swipe .rl-hint{ margin:0; align-items:center; }
+@media (min-width:900px){ .rv-swipe .rl-hint{ transform:rotate(180deg); transform-origin:50% 50%; margin:0; } }
+
+/* shorter phones: the photo gives way first, never the words or the gap above the swipe */
+@media (max-width:700px) and (max-height:700px){
+  .bv-photo{ height:clamp(90px,18svh,140px); margin-bottom:16px; }
+  .rv-cover h1{ font-size:28px; }
+  .bv-lede{ font-size:15px; margin-top:8px; }
+  .rv-ask h2{ font-size:26px; margin:8px 0 14px; }
+  .rv-card{ padding:12px 14px; } .rv-t b{ font-size:16.5px; } .rv-t small{ font-size:13.5px; }
+}
+
+/* a computer: the chapters, one column, the video centred */
+@media (min-width:701px){
+  .rv-pop{ align-items:center; }
+  .rv-cover .rl-in,.rv-watch .rl-in,.rv-ask .rl-in{ grid-template-columns:minmax(0,1fr); max-width:760px; }
+  .bv-photo{ height:clamp(200px,36vh,340px); }
+  .rv-watch .rl-in{ max-width:min(960px, calc((100vh - 200px) * 16 / 9)); }
+  .rv-cover h1{ font-size:clamp(40px,4vw,54px); max-width:16em; }
+  .rv-ask h2{ font-size:clamp(40px,4vw,54px); }
+  .rv-card{ padding:22px 24px; } .rv-t b{ font-size:22px; } .rv-t small{ font-size:16px; }
+}

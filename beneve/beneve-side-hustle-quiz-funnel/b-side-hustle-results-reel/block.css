@@ -1,0 +1,36 @@
+/* beneve/beneve-side-hustle-quiz-funnel/b-side-hustle-results-reel: the quiz results as a reel (see block.html). The look
+ * is the quiz reel's (Clinical calm in Beneve's teal, imported); this adds the result's own pieces. */
+@import url("../b-side-hustle-quiz-reel/block.css");
+[data-if-name]{ display:none; }
+/* this reel has no quiz in it: the dock and the window button show from the first screen */
+body:has(.rlr) .pfn-dock{ opacity:1 !important; pointer-events:auto !important; transform:none !important; }
+.rlr .rl-cta{ opacity:1 !important; pointer-events:auto !important; }
+.bvq.rlr .rl-p .rl-in{ padding-bottom:var(--dock-room); }
+.rlr-top .lk-tag{ margin-bottom:16px; }
+.rlr-top h1{ font-size:clamp(32px,9vw,42px); }
+.rlr-top p{ margin-top:14px; }
+.rlr-note h2{ font-size:clamp(26px,7.4vw,32px); }
+.rlr-go{ display:inline-block; margin-top:22px; padding:15px 22px; width:auto !important; }
+.rlr-note .rl-note{ margin-top:12px; color:rgba(255,255,255,.7); font-size:14px; }
+.rlr-ask .rl-who-pic{ box-shadow:0 0 0 3px var(--tint),0 0 0 5px var(--teal); background:var(--night); }
+.rlr-ask .rl-who-check{ box-shadow:0 0 0 3px var(--tint); background:var(--teal); }
+.rlr-ask .rl-who{ margin:0 0 18px; }
+.rlr-ask h2{ font-size:clamp(23px,6.4vw,28px); }
+.rlr-ask .rl-btns{ display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+.rlr-ask .rl-btn-2{ font-size:14.5px; border:1px solid var(--teal); }
+@media (max-width:700px) and (max-height:760px){
+  .rlr-top h1{ font-size:29px; } .rlr-top p{ font-size:15px; margin-top:10px; }
+  .rlr-note h2{ font-size:24px; } .rlr-go{ margin-top:14px; padding:13px 18px; }
+  .rlr-ask h2{ font-size:21px; } .rlr-ask .rl-btns{ margin-top:14px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlr-top h1{ font-size:25px; } .rlr-top .lk-tag{ margin-bottom:10px; }
+  .rlr-ask .rl-btns{ flex-direction:column; gap:8px; } .rlr-ask .rl-btn{ font-size:14.5px; padding:11px 12px; }
+  .rlr-ask p{ margin-top:6px; }
+}
+@media (min-width:701px){
+  .rlr-top h1{ font-size:clamp(40px,3.8vw,54px); }
+  .rlr-note h2,.rlr-ask h2{ font-size:clamp(32px,3vw,42px); }
+  .rlr-ask .rl-btns{ flex-direction:column; max-width:460px; }
+  .rlr-ask .rl-btn{ flex:none; }
+}

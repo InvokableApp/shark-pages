@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap");
+/* _shared/reel/looks/clinical-calm.css — LOOK "Clinical calm" (references/REEL-LOOKS.md; first used on Beneve's video
+ * pages, Jeff 2026-10-14: "clinical calm"). IBM Plex Sans with Plex Mono labels; white, a pale blue-grey paper and one
+ * teal. Trustworthy, a health app: data cards, a progress bar. Use: @import after reel.css,
+ * <div class="rl rl-look-calm">. A block may set --teal (and --teal-soft, the pale fill behind a label) after the
+ * imports to wear its system's teal; the default is the mock's.
+ * Helpers: .lk-tag (a mono label in a pale teal box), .lk-photo (a photo as a rounded card, not full bleed),
+ * .lk-bar (a thin progress bar; its <i> takes width from --lk-p), .lk-cardrow (white bordered rows). */
+.rl.rl-look-calm{
+  --teal:#0B7A8A; --teal-soft:#e6f3f3; --navy:#0E2A3B;
+  --paper:#F7FAFC; --tint:#EEF4F7; --night:var(--navy);
+  --ink:var(--navy); --body:#43606f; --grey:#6b8592; --on-dark:#fff;
+  --head:"IBM Plex Sans",system-ui,sans-serif; --head-w:600; --sans:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --eyebrow:var(--teal); --eyebrow-dark:#8fd3d6;
+  --cta:var(--teal); --cta-ink:#fff; --mark:var(--teal); --shade:14,42,59;
+  --line:#d7e5ea;
+  --sk-accent:var(--teal); --pfn-accent:var(--teal); --pfn-ink:#fff;
+}
+.rl-look-calm h1,.rl-look-calm h2{ letter-spacing:-.02em; line-height:1.1; }
+.rl-look-calm h1{ font-size:clamp(30px,8.6vw,38px); }
+.rl-look-calm h1 em,.rl-look-calm h2 em{ font-style:normal; color:var(--teal); }
+.rl-look-calm .rl-night h1 em,.rl-look-calm .rl-night h2 em{ color:var(--eyebrow-dark); }
+.rl-look-calm .rl-eyebrow{ font:500 12px/1.2 var(--mono); letter-spacing:.04em; }
+.rl-look-calm .rl-btn,.rl-look-calm .pfn-dock{ border-radius:12px; }
+.rl-look-calm .lk-tag{ display:inline-flex; align-items:center; gap:8px; width:fit-content; padding:7px 11px; border-radius:6px;
+  background:var(--teal-soft); color:var(--teal); font:500 12px/1 var(--mono); letter-spacing:.04em; text-transform:uppercase; }
+.rl-look-calm .lk-tag::before{ content:""; width:7px; height:7px; border-radius:2px; background:currentColor; }
+.rl-look-calm .lk-photo{ border-radius:14px; background-size:cover; background-position:center; background-color:var(--tint); }
+.rl-look-calm .lk-bar{ height:6px; border-radius:3px; background:#e3eef1; overflow:hidden; }
+.rl-look-calm .lk-bar > i{ display:block; height:100%; width:var(--lk-p,0%); background:var(--teal); }
+.rl-look-calm .lk-cardrow{ display:grid; gap:10px; }
+.rl-look-calm .lk-cardrow > *{ background:#fff; border:1px solid var(--line); border-radius:12px; }
+@media (min-width:701px){ .rl-look-calm .rl-cta{ border-radius:12px; } }

@@ -1,0 +1,135 @@
+<!--
+  beneve/beneve-water-report/b-water-results-reel
+  Beneve's WATER REPORT results page as a REEL, after the opt-in reel, on the platform only: the platform's
+  /b-water-results step points here (migration 0304). GHL keeps serving beneve/beneve-water-report/b-water-results on
+  every installed account; that folder is never edited.
+  Look: D, Clinical calm, as the opt-in reel (block.css imports its sheet).
+  WARNING: EVERY WORD IS THE GHL RESULTS PAGE'S, verbatim (block.html and block.js there): the report's labels and
+     sentences, the blurb, the 3 Day Reset section, the filter list, the ask built from her own numbers, the sources and
+     the fine print. Plus the visitor's first name in the headline (PAGE-COPY-SOP 5c), on the page's own words
+     "Your water report".
+  WARNING: THE PAGE NEVER INTERPRETS (GHL rule). The utility's number beside the federal limit, nothing more. The meaning
+     lives in the guide, which is the one ask.
+  WARNING: ONE ACTION AND IT IS THE MESSAGE (Jeff, 2026-09-09). The dock, the blurb's button, the last screen's button and
+     a computer's button all open the platform's message card (data-pf-say): the word WATER, tap to copy, then Message on
+     Facebook through the funnel's own /b-water-dm-redirect step, so the hand-off, the tag and the rep alert happen as on
+     GHL, where the button copied WATER and went to the same step. No Messenger link: the buttons leave ([data-needs])
+     and there is no PDF fallback, ever (GHL rule).
+  WHERE THE ADDRESS COMES FROM: ?address= (GHL's way, and a shared link), else what the opt-in reel left in this tab
+  (sessionStorage), else the page asks for a ZIP code itself (the GHL page's askForAddress()).
+  Screens: 1 the report's cover, 2 the two numbers, 3 every compound (hidden when none), 4 not sure what these are,
+  5 the 3 Day Reset, 6 which filter takes out what, 7 the ask.
+-->
+<div class="rl rl-look-calm wr wrr" data-pf-native data-pf-message="for the free 3 Day Reset" data-pf-say="WATER" data-pf-arrive="#F7FAFC"
+     data-api="https://water-api-production-c8d2.up.railway.app">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the report's cover. The page rises out of the paper the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper wrr-top" aria-label="Your water report">
+        <div class="rl-in">
+          <span class="lk-tag">Water quality report</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Your water report<span data-if-name>, {{contact.first_name}}</span></h1>
+          <div class="wrr-head" aria-live="polite">
+            <div class="wrr-wait">
+              <p class="wrr-wait-t">Finding your water system...</p>
+              <p class="wrr-wait-s">Matching your address to the utility that supplies it</p>
+              <div class="lk-bar"><i></i></div>
+            </div>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: the two numbers, the record, the fine print (filled by block.js) -->
+      <section class="rl-p rl-tint wrr-figs" hidden>
+        <div class="rl-in"></div>
+      </section>
+
+      <!-- 3. PAPER: every compound they found (filled by block.js; hidden when none were) -->
+      <section class="rl-p rl-paper wrr-table" hidden>
+        <div class="rl-in"></div>
+      </section>
+
+      <!-- 4. NIGHT: the blurb. Static, so the offer is there on the day the lookup is not (GHL rule). -->
+      <section class="rl-p rl-night wrr-blurb">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free PDF</span>
+          <img class="wrr-shot rl-art" data-in style="--d:.1s" src="/_p/beneve/beneve-disruptor-quiz/b-disruptor-quiz-advanced-result/assets/program.png"
+               width="1028" height="1200" alt="The 3 Day Reset, a free PDF">
+          <h2 data-in style="--d:.2s">Not sure what any of these are?</h2>
+          <p data-in style="--d:.3s">Page 9 of the 3 Day Reset is how to read a report like this one:
+            what the lead figure means, what the PFAS count means, and which filter standard takes out
+            what. It is free and I will send it over.</p>
+          <a class="rl-btn wrr-msg" data-in style="--d:.4s" data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
+        </div>
+      </section>
+
+      <!-- 5. PAPER: the 3 Day Reset, its three days (a sideways row of cards on a phone) with two of each day's three swaps faded (GHL: "if you want to know,
+           dm me"). The faded ones are aria-hidden, so a screen reader does not hand over what the fade withholds. -->
+      <section class="rl-p rl-paper wrr-reset">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Your next step</span>
+          <h2 data-in style="--d:.08s">The 3 Day Reset</h2>
+          <p class="wrr-lede" data-in style="--d:.16s">27 swaps over 3 days, 9 a day. Day one
+            costs nothing. It also has a page on reading a water report like this one.</p>
+          <ul class="wrr-pills" data-in style="--d:.22s"><li>27 swaps</li><li>3 days</li><li>A source on every claim</li><li>Free</li></ul>
+          <ul class="wrr-days rl-cards" data-in style="--d:.3s">
+            <li><span class="wrr-d">Day 1</span><div><h3>Nothing to buy</h3>
+              <p class="wrr-ex"><span>Never heat food in plastic</span><span class="wrr-fade" aria-hidden="true">Say no to the receipt</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">Shoes off at the door</span></p></div></li>
+            <li><span class="wrr-d">Day 2</span><div><h3>Replace as they run out</h3>
+              <p class="wrr-ex"><span>Laundry detergent</span><span class="wrr-fade" aria-hidden="true">Body wash and shampoo</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">Candles and plug-ins</span></p></div></li>
+            <li><span class="wrr-d">Day 3</span><div><h3>Buy once, keep for years</h3>
+              <p class="wrr-ex"><span>A drinking water filter</span><span class="wrr-fade" aria-hidden="true">A shower filter</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">One good pan</span></p></div></li>
+          </ul>
+          <p class="rl-cards-cue wrr-cue" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+        </div>
+      </section>
+
+      <!-- 6. TINT: which filter takes out what -->
+      <section class="rl-p rl-tint wrr-filters">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>The 3 Day Reset</span>
+          <h2 data-in style="--d:.08s">Which filter takes out what</h2>
+          <ul class="wrr-nsf lk-cardrow">
+            <li data-in style="--d:.16s"><b>NSF/ANSI 53</b><span>Lead</span></li>
+            <li data-in style="--d:.22s"><b>NSF/ANSI 58</b><span>Reverse osmosis. The one that addresses PFAS</span></li>
+            <li data-in style="--d:.28s"><b>NSF/ANSI 401</b><span>Emerging contaminants, including some pharmaceuticals</span></li>
+            <li data-in style="--d:.34s"><b>NSF/ANSI 42</b><span>Chlorine, taste and odour only</span></li>
+          </ul>
+          <p class="wrr-nsf-n" data-in style="--d:.42s">The number on the box is what to look for, not the brand.</p>
+        </div>
+      </section>
+
+      <!-- 7. PAPER: the ask, built from her own numbers (block.js askCopy), then the button, the rep, the sources -->
+      <section class="rl-p rl-paper wrr-ask">
+        <div class="rl-in">
+          <h2 data-in>Want to know what these things mean?</h2>
+          <p class="wrr-ask-p" data-in style="--d:.1s">The 3 Day Reset names which filter standard takes out lead, which one addresses PFAS, and 26 other swaps. It is free.</p>
+          <a class="rl-btn wrr-msg" data-in style="--d:.2s" data-pf-message-link data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
+          <p class="wrr-how" data-in style="--d:.28s">Tap the button and we will copy the word WATER for you. Paste it
+            and send, and I will send the guide straight over.</p>
+          <p class="wrr-sign" data-in style="--d:.32s">{{custom_values.beneve_rep_full_name}}</p>
+          <div class="wrr-src" data-in style="--d:.4s">
+            <p class="wrr-src-h">Where these numbers come from</p>
+            <ul>
+              <li><a href="https://www.epa.gov/dwreginfo/lead-and-copper-rule" target="_blank" rel="noopener noreferrer">EPA, Lead and Copper Rule</a></li>
+              <li><a href="https://www.epa.gov/dwucmr/fifth-unregulated-contaminant-monitoring-rule" target="_blank" rel="noopener noreferrer">EPA, Fifth Unregulated Contaminant Monitoring Rule</a></li>
+              <li><a href="https://www.epa.gov/sdwa/drinking-water-regulations-pfas" target="_blank" rel="noopener noreferrer">EPA, PFAS drinking water regulations</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask and the arrows live in the frame. -->
+    <a class="rl-cta" data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves. This folder's block.js (the report) is added after it by the platform, so runs second. -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
