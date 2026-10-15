@@ -1,4 +1,4 @@
-/* quantaira/income-quiz/income-result-reel/block.js — fills the result page (see block.html) from #pr-data.
+/* quantaira/income-quiz/income-result-reel/result.js — fills the result page (see block.html) from #pr-data.
  * Which result: ?r=<key> (an email's link) first, then the one the quiz kept in this browser (sessionStorage
  * "quantaira-pq"), else "allocator" (straight to Quantaira). It runs as soon as the page is read, before reel.js counts
  * the screens, so the screens a Quantaira result skips are taken out rather than hidden. */
