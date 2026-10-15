@@ -4,7 +4,7 @@
   "host": "https://glpshark.com",
   "locationId": "hKYM2WhsSBKHjvCPGkZo",
   "logo": "logo-glp.svg",
-  "logoUrl": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6a5e4ebf1a0f0480509058aa.svg",
+  "logoUrl": "https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/ghl-copy/glp-shark-logo.png",
   "palette": {
     "sk-brand": "#EC5E2A",
     "sk-brand-deep": "#C94A1E",
@@ -56,7 +56,7 @@
     "readyToPostImages": "https://canva.link/n6t92pxvso2744m",
     "buyLeads": "",
     "confirmationPage": "",
-    "guidePdf": "https://assets.cdn.filesafe.space/hKYM2WhsSBKHjvCPGkZo/media/6d26aa1b-773f-4b35-a7e7-86d6616d9027.pdf"
+    "guidePdf": "https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/ghl-copy/6d26aa1b-773f-4b35-a7e7-86d6616d9027.pdf"
   },
   "slug": "glp-recipe-guide",
   "funnelName": "High Protein Recipe & Grocery List Guide",
