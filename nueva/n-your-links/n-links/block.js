@@ -161,7 +161,8 @@
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
   function row(it, href, mod) {
-    return '<a class="sk-row' + (mod ? ' ' + mod : '') + '" href="' + esc(href) + '">' +
+    // data-label: the rep is told the row's name alone, not its name and description run together (2026-10-16)
+    return '<a class="sk-row' + (mod ? ' ' + mod : '') + '" href="' + esc(href) + '" data-label="' + esc(it.name) + '">' +
       '<span class="sk-mark">' + icon(it.icon) + '</span>' +
       '<span class="sk-text">' +
         '<span class="sk-row-name">' + esc(it.name) + '</span>' +
