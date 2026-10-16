@@ -1,0 +1,80 @@
+<!--
+  conectiv/c-free-coffee-sample/c-sample-confirmation-reel
+  Conectiv's Free Coffee Sample confirmation as a REEL, after its opt-in reel (2026-10-16). Four screens, PLATFORM ONLY:
+  the platform's /c-free-coffee-sample-confirmation step points here (migration 0349). GHL loads
+  c-free-coffee-sample-confirmation next to this (manifest.json) and never loads this.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: watch the video, then send CONFIRM. Messenger first (the funnel's
+     Sample DM Redirect step, /c-free-coffee-sample-dm-redirect, so the hand-off, the tag and the rep alert happen; the
+     hand-off card shows CONFIRM to copy, data-pf-say), a text with CONFIRM written second. No Messenger: the buttons go to
+     the text instead ([data-needs] + data-alt-href, reel.js).
+  ⚠️ EVERY WORD IS THE PAGE'S, verbatim, in sentence case, plus the visitor's first name in the headline (PAGE-COPY-SOP
+     §5c). Its fine print is the page's own.
+  THE VIDEO is the page's own (a rep talking to camera, 720x1252 portrait), moved off GHL's file CDN to our storage
+  (media/conectiv/free-coffee-sample-confirm.mp4, remuxed to start at once) with its poster.
+  The look is the opt-in reel's sheet (block.css imports it): Soft athletic in teal.
+-->
+<div class="rl rl-look-soft lk-teal rl-cs csc" data-pf-native data-pf-message="to confirm your sample" data-pf-say="CONFIRM" data-pf-arrive="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: one more step -->
+      <section class="rl-p rl-paper csc-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>One more step</span>
+          <h1 class="rl-type">One message and your sample goes out<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Press play, then send us the word CONFIRM.</p>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe to watch</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the video, phone shaped -->
+      <section class="rl-p rl-night rl-plain csc-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv csc-video" data-in data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/conectiv/free-coffee-sample-confirm.mp4"
+               data-poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/conectiv/free-coffee-sample-confirm-poster.jpg" data-name="the sample video"></div>
+          <p class="csc-cap" data-in style="--d:.2s">Under a minute. Watch this first.</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: send CONFIRM -->
+      <section class="rl-p rl-tint csc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Step 1 of 2</span>
+          <h2 data-in style="--d:.1s">Watch the video, then send us <em>CONFIRM.</em></h2>
+          <p data-in style="--d:.2s">It takes under a minute and it covers exactly what happens next, and when your ALIVE sample goes in the post.</p>
+          <p class="csc-small" data-in style="--d:.26s" data-needs="{{custom_values.conectiv__your_messenger}}">Fastest way: message me on Facebook. Tap below and we will copy the word CONFIRM for you. In Messenger, paste it and hit send.</p>
+          <div class="rl-btns" data-in style="--d:.34s">
+            <a class="rl-btn" data-pf-message-link href="/c-free-coffee-sample-dm-redirect"
+               data-needs="{{custom_values.conectiv__your_messenger}}" data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=CONFIRM">Message me on Facebook</a>
+            <a class="rl-btn rl-btn-2" href="sms:{{custom_values.conectiv__your_phone}}?&body=CONFIRM" data-needs="{{custom_values.conectiv__your_phone}}">Text CONFIRM now</a>
+          </div>
+          <p class="csc-small" data-in style="--d:.4s">That is it. Your rep posts the sample out from there.</p>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: what happens next, and the fine print -->
+      <section class="rl-p rl-paper rl-wide csc-next">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What happens next</span>
+          <ol class="cs-steps csc-steps" data-in style="--d:.1s">
+            <li><b>You watch the video.</b> Under a minute, and it tells you what to expect from us and when.</li>
+            <li><b>You send CONFIRM.</b> Right now, while you are here, by message or by text. It confirms you are a real person and confirms where the sample is going.</li>
+            <li><b>It goes in the post.</b> Single serve sticks of ALIVE, mailed out by hand. No card, no subscription, nothing to cancel.</li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.3s">These statements have not been evaluated by the Food and Drug Administration. This product is not
+            intended to diagnose, treat, cure or prevent any disease. Individual results may vary. ALIVE is a product of MyLife
+            Wellness. Samples are provided and shipped by an independent Conectiv representative. One sample per household, while
+            supplies last.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: a text. -->
+    <a class="rl-cta" data-rep-cta="Message {first} to confirm your sample" data-needs="{{custom_values.conectiv__your_messenger}}"
+       data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=CONFIRM" href="/c-free-coffee-sample-dm-redirect">Message me on Facebook</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

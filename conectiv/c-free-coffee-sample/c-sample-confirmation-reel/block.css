@@ -1,0 +1,46 @@
+/* conectiv/c-free-coffee-sample/c-sample-confirmation-reel: Conectiv's Free Coffee Sample confirmation as a reel
+ * (platform only; see block.html). The look and the step list come from the opt-in reel's sheet; this adds the gift hint,
+ * the phone-shaped video, the CONFIRM ask. */
+@import url("../c-sample-reel/block.css");
+
+/* GHL never fills the name; the span stays hidden there (the platform drops it whole when the name is unknown). */
+[data-if-name]{ display:none; }
+
+/* 1. one more step */
+.csc-top h1{ font-size:clamp(32px,8.8vw,42px); }
+.csc-top p{ margin-top:16px; font-size:18px; }
+.rl-gift{ display:flex; align-items:center; gap:10px; }
+.rl-gift-word{ font-size:13px; font-weight:700; letter-spacing:.04em; color:var(--coral); }
+.rl-gift-ar{ display:inline-flex; flex-direction:column; }
+.rl-gift-ar svg{ width:18px; height:18px; fill:none; stroke:var(--coral); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; margin:-7px 0; }
+
+/* 2. the video, as tall as the screen allows, phone shaped */
+.csc-watch .rl-in{ padding-top:20px; padding-bottom:calc(var(--dock-room) - 20px); display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; }
+.csc-video{ position:relative; width:min(100%, calc((100svh - 190px) * 9 / 16)); aspect-ratio:9/16; border-radius:22px; overflow:hidden;
+  background:#000; box-shadow:0 24px 60px -18px rgba(0,0,0,.7); margin:0 auto; }
+.csc-video video,.csc-video iframe{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; background:#000; }
+.csc-video .qv-soon{ position:absolute; inset:0; display:grid; place-items:center; color:#fff; font:600 16px var(--sans); }
+.csc-cap{ margin-top:12px !important; text-align:center; font-size:14px !important; color:rgba(255,255,255,.7) !important; }
+
+/* 3. send CONFIRM */
+.csc-ask h2{ font-size:clamp(28px,8vw,38px); }
+.csc-small{ font-size:14.5px !important; color:var(--grey) !important; margin-top:12px; }
+.csc-ask .rl-btns{ margin-top:18px; display:grid; gap:10px; }
+.csc .rl-btn-2{ background:transparent; color:var(--forest); box-shadow:inset 0 0 0 2px var(--forest); }
+
+/* 4. what happens next: the steps on paper */
+.csc-steps li{ color:var(--body); }
+.csc-steps b{ color:var(--ink); }
+.csc-next .rl-fine{ margin-top:22px; }
+
+@media (max-width:700px) and (max-height:760px){
+  .csc-top h1{ font-size:30px; }
+  .csc-ask h2{ font-size:26px; } .csc-ask p{ font-size:15px; } .csc-small{ font-size:13.5px !important; }
+  .csc-steps li{ font-size:14px; }
+}
+@media (min-width:701px){
+  .csc-top h1{ font-size:clamp(44px,4.2vw,60px); }
+  .csc-ask h2{ font-size:clamp(34px,3.2vw,46px); }
+  .csc-ask .rl-btns{ grid-template-columns:auto auto; justify-content:start; }
+  .csc-video{ width:min(100%, calc((100svh - 160px) * 9 / 16)); }
+}

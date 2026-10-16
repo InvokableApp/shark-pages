@@ -1,0 +1,70 @@
+<!--
+  conectiv/c-side-hustle-quiz/c-side-hustle-results-reel
+  Conectiv's quiz RESULTS page as a REEL, after the side hustle quiz reel, in the quiz's look (D, Clinical calm, Conectiv's
+  teal). Three screens, PLATFORM ONLY: the platform's /c-side-hustle-results step points here (migration 0349). Built from
+  Beneve's (beneve/beneve-side-hustle-quiz-funnel/b-side-hustle-results-reel).
+  ⚠️ EVERY WORD IS CONECTIV'S NATIVE RESULTS PAGE'S (its result, its important note and button, its pop-up; the HTML is in
+     platform/supabase/masters/steps.json under /c-side-hustle-results), plus, as Beneve's:
+       - the visitor's first name (PAGE-COPY-SOP §5c): "Hey<name>!" before the result;
+       - a comma around "a trusted brand leader" (the pop-up ran "to {first} a trusted brand leader");
+       - the income disclaimer (conectiv__income_disclaimer, the quiz page's) under the buttons: the page talks income.
+     The result is the page's one result, "Network Marketing Model": the survey has no branch to another.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's: message "VIEW COMPENSATION PLAN" to the rep on Messenger, or
+     text it. Screen 2's button opens screen 3 (on the native page it opened the pop-up that screen 3 is); the message
+     button goes to the DM redirect step /c-side-hustle-message-redirect (the rep's Messenger; the visit fires the rep
+     alert). The text is an sms: link with the words in it.
+-->
+<div class="rl rl-look-calm rl-match csq rlr" data-pf-native data-pf-message="to see the compensation plan" data-pf-say="VIEW COMPENSATION PLAN" data-pf-arrive="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: your result -->
+      <section class="rl-p rl-paper rl-wide rlr-top">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Your Result</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your best fit is a <em>Network Marketing Model</em></h1>
+          <p data-in style="--d:.3s">Based on your answers, this opportunity appears to be a strong match for what you're looking for, offering
+            the flexibility, great income potential, and a supportive team environment.</p>
+          <p data-in style="--d:.4s"><strong>Ready to see how the opportunity actually works and how you'd get paid? 💰</strong></p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the important note, and its button -->
+      <section class="rl-p rl-night rl-wide rlr-note">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Important note:</span>
+          <h2 data-in style="--d:.1s">This information is available by invitation only.</h2>
+          <p data-in style="--d:.25s">Click the button below now to request company details and the official compensation plan from a trusted
+            company leader now.</p>
+          <button type="button" class="rl-btn rlr-go" data-in style="--d:.4s" data-go="1">Request To See The Compensation Plan!</button>
+          <p class="rl-note" data-in style="--d:.5s">Click here to message a company leader now...</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the pop-up: the rep, and the ask with its words -->
+      <section class="rl-p rl-tint rlr-ask">
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.1s">This specific opportunity is available by personal invitation only.</h2>
+          <p data-in style="--d:.2s">Click the button below and message <strong>“VIEW COMPENSATION PLAN”</strong> to {{custom_values.conectiv__your_first_name}}, a trusted brand leader,
+            on Messenger.</p>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.conectiv__your_messenger}}"
+               href="/c-side-hustle-message-redirect">Send {{custom_values.conectiv__your_first_name}} A Message</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.conectiv__your_phone}}"
+               href="sms:{{custom_values.conectiv__your_phone}}?&body=VIEW%20COMPENSATION%20PLAN">Rather text me? Text <span data-rep-phone>{{custom_values.conectiv__your_phone}}</span></a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.4s">{{custom_values.conectiv__income_disclaimer}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for the compensation plan" data-needs="{{custom_values.conectiv__your_messenger}}"
+       data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=VIEW%20COMPENSATION%20PLAN" href="/c-side-hustle-message-redirect">Message us for the compensation plan</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

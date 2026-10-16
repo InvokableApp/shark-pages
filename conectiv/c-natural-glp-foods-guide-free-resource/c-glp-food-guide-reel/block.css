@@ -1,0 +1,102 @@
+/* conectiv/c-natural-glp-foods-guide-free-resource/c-glp-food-guide-reel: Conectiv's GLP Foods Guide opt-in as a reel
+ * (platform only; see block.html). The reel kit, then the "Soft athletic" look in Conectiv's teal, then only this
+ * page's own screens. The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/soft-athletic.css");
+
+.rl-cf{ --coral-ink:#16706A; }
+.rl-cf .rl-btn{ border-radius:999px; font-weight:700; }
+
+/* every photo screen fades its picture hard, so the words read */
+.rl-cf .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.84) 0%,rgba(var(--shade),.78) 40%,rgba(var(--shade),.95) 100%); }
+.rl-cf .rl-photo .rl-bg{ filter:saturate(.85); }
+
+/* 1. the cover: her kitchen, the guide over it */
+.rl-cf .rl-cover .rl-bg{ background-position:62% 30%; }
+.rl-cf .rl-cover h1{ font-size:clamp(34px,9.6vw,46px); }
+.cgf-book{ width:72%; max-width:330px; margin-top:18px; border-radius:10px; transform:rotate(-4deg);
+  box-shadow:0 30px 50px -16px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.12); }
+.rl-cf .rl-cover .rl-pills li{ background:#fff; color:var(--forest); font-weight:700; border-color:transparent; }
+.rl-cf .rl-cover .rl-note{ font-weight:600; }
+
+/* 2. the three hormones, lit one after another */
+.cgf-chips{ display:flex; flex-wrap:wrap; gap:10px; margin:2px 0 22px; }
+.cgf-chips span{ display:inline-flex; align-items:center; gap:9px; padding:11px 18px 11px 14px; border-radius:999px; background:#fff;
+  border:1.5px solid rgba(31,59,51,.12); font:800 16px/1 var(--sans); color:var(--ink); letter-spacing:.01em;
+  transition:background .4s calc(.4s + var(--n) * .3s),border-color .4s calc(.4s + var(--n) * .3s),color .4s calc(.4s + var(--n) * .3s); }
+.cgf-chips span::before{ content:""; width:10px; height:10px; border-radius:50%; background:rgba(31,59,51,.18);
+  transition:background .4s calc(.4s + var(--n) * .3s),transform .4s calc(.4s + var(--n) * .3s); }
+.rl-p.is-on .cgf-chips span{ background:var(--forest); border-color:var(--forest); color:#fff; }
+.rl-p.is-on .cgf-chips span::before{ background:var(--coral); transform:scale(1.2); }
+.cgf-shot h2{ font-size:clamp(28px,7.8vw,36px); }
+
+/* 3. the switch: off when the screen lands, on a beat later */
+.cgf-toggle{ display:block; width:min(200px,54%); height:auto; margin:0 0 18px; overflow:visible; }
+.cgf-toggle-track{ fill:rgba(255,255,255,.12); stroke:rgba(255,255,255,.25); stroke-width:1.5; transition:fill .5s .9s,stroke .5s .9s; }
+.cgf-toggle-knob{ fill:#fff; transition:transform .5s cubic-bezier(.4,0,.2,1) .9s; }
+.cgf-toggle-off,.cgf-toggle-on{ font:800 13px var(--sans); fill:rgba(255,255,255,.7); letter-spacing:.1em; text-transform:uppercase; transition:opacity .3s .9s; }
+.cgf-toggle-on{ opacity:0; fill:#BFEDE8; }
+.rl-p.is-on .cgf-toggle-track{ fill:var(--coral); stroke:var(--coral); }
+.rl-p.is-on .cgf-toggle-knob{ transform:translateX(100px); }
+.rl-p.is-on .cgf-toggle-off{ opacity:0; } .rl-p.is-on .cgf-toggle-on{ opacity:1; }
+.cgf-lead{ font-size:16px; margin:0 0 12px !important; color:rgba(255,255,255,.8); }
+.cgf-say{ font-size:clamp(28px,7.8vw,36px) !important; }
+
+/* 4. the three struggles */
+.cgf-cards > div{ background:#fff; border:0; padding:22px 20px 20px; box-shadow:0 12px 28px -18px rgba(31,59,51,.45); }
+.cgf-ico{ display:grid; place-items:center; width:46px; height:46px; border-radius:50%; margin-bottom:16px; background:#D7EFEC; color:var(--coral-ink); }
+.cgf-ico svg{ width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.cgf-cards h3{ font-size:22px; color:var(--ink); letter-spacing:-.02em; }
+.cgf-cards p{ font-size:15.5px; margin-top:10px; }
+
+/* 5. what's inside: six lines, a teal dot each */
+.cgf-inside .rl-bg{ background-position:60% 40%; }
+.cgf-inside h2{ font-size:clamp(25px,7vw,32px); }
+.cgf-sub{ font-size:15px !important; margin-top:12px !important; color:rgba(255,255,255,.85); }
+.cgf-list{ list-style:none; padding:0; margin:16px 0 0; display:flex; flex-direction:column; gap:9px; }
+.cgf-list li{ position:relative; padding-left:20px; font-size:14.5px; line-height:1.4; color:rgba(255,255,255,.86); }
+.cgf-list li::before{ content:""; position:absolute; left:0; top:.45em; width:9px; height:9px; border-radius:50%; background:var(--coral); }
+.cgf-list b{ color:#fff; font-weight:800; }
+
+/* 6. the close */
+.cgf-close .rl-bg{ background-position:50% 70%; }
+.cgf-close h2{ font-size:clamp(30px,8.6vw,42px); }
+.cgf-close .rl-fine{ margin-top:18px !important; }
+
+/* most phones */
+@media (max-width:700px) and (max-height:900px){ .cgf-book{ width:64%; } }
+@media (max-width:700px) and (max-height:760px){
+  .rl-cf .rl-cover .rl-in{ padding-top:28px; }
+  .rl-cf .rl-cover h1{ font-size:32px; }
+  .cgf-book{ width:54%; margin-top:12px; }
+  .rl-cf .rl-cover .rl-pills{ margin-top:14px; } .rl-cf .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
+  .rl-cf .rl-cover .rl-note{ margin-top:10px; font-size:14px; }
+  .cgf-chips{ margin-bottom:14px; } .cgf-chips span{ padding:9px 14px 9px 12px; font-size:14px; } .cgf-shot h2{ font-size:26px; }
+  .cgf-toggle{ width:42%; margin-bottom:10px; } .cgf-say{ font-size:26px !important; } .cgf-lead{ font-size:15px; }
+  .cgf-cards h3{ font-size:19px; } .cgf-cards p{ font-size:14px; }
+  .cgf-inside h2{ font-size:23px; } .cgf-sub{ font-size:14px !important; } .cgf-list{ margin-top:12px; gap:6px; } .cgf-list li{ font-size:13px; }
+  .cgf-close h2{ font-size:28px; } .cgf-close .rl-fine{ font-size:10.5px !important; margin-top:12px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-cf .rl-cover h1{ font-size:28px; }
+  .cgf-book{ width:32%; margin-top:8px; }
+  .cgf-chips{ display:none; } .cgf-toggle{ display:none; }
+  .cgf-inside h2{ font-size:21px; } .cgf-sub{ display:none; }
+  .cgf-list li{ font-size:12px; } .cgf-list li b{ display:block; }
+  .cgf-close .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+/* a computer */
+@media (min-width:701px){
+  .rl-cf .rl-cover h1{ font-size:clamp(46px,4.2vw,64px); }
+  .cgf-book{ width:min(480px,32vw); max-width:none; margin:0; }
+  .cgf-chips{ flex-direction:column; align-items:flex-start; gap:16px; margin:0; }
+  .cgf-chips span{ font-size:clamp(26px,2.4vw,36px); padding:18px 30px 18px 22px; gap:14px; }
+  .cgf-chips span::before{ width:16px; height:16px; }
+  .cgf-shot h2{ font-size:clamp(34px,3.2vw,46px); }
+  .cgf-toggle{ width:min(340px,24vw); margin:0; } .cgf-say{ font-size:clamp(36px,3.3vw,48px) !important; }
+  .cgf-cards > *{ flex-basis:31%; }
+  .cgf-inside h2{ font-size:clamp(34px,3vw,44px); } .cgf-sub{ font-size:17px !important; }
+  .cgf-list{ display:grid; grid-template-columns:1fr 1fr; gap:14px 28px; } .cgf-list li{ font-size:16px; }
+  .cgf-close h2{ font-size:clamp(40px,3.6vw,56px); }
+}
+@media (prefers-reduced-motion:reduce){ .cgf-chips span,.cgf-chips span::before,.cgf-toggle-track,.cgf-toggle-knob,.cgf-toggle-off,.cgf-toggle-on{ transition:none !important; } }

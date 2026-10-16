@@ -1,0 +1,178 @@
+<!--
+  conectiv/c-side-hustle-quiz/c-side-hustle-quiz-reel
+  CONECTIV'S SIDE HUSTLE QUIZ as a REEL, in the look Jeff picked for it (D, Clinical calm, 2026-10-16) in Conectiv's teal.
+  PLATFORM ONLY: the platform's /c-side-hustle-quiz step points here (migration 0349). Built from Beneve's
+  (beneve/beneve-side-hustle-quiz-funnel/b-side-hustle-quiz-reel), which hosts the same survey the same way.
+  ⚠️ EVERY WORD IS CONECTIV'S: the cover is the /c-side-hustle-quiz host page (its eyebrow, headline, line, footer line and
+     its income disclaimer, the value conectiv__income_disclaimer); the questions are the survey's ("Conectiv - Side
+     Hustle Quiz - Survey", schema.survey after 0349), same eight questions, same words, same branching: employed ("Yes,
+     I am") asks the job and words the hours question for someone with a job; over $100k skips "ready to invest".
+     Carried from Jeff's Beneve rulings (2026-10-15): a single person is not offered "Not me, but my spouse is"; the
+     survey's "a legitimate businesses" reads "a legitimate business". Not carried over: the footer's "© 2026 {company}.
+     All rights reserved." (opportunity copy names no company) and its empty social icons.
+  ⚠️ THE ANSWER KEYS ARE THE SURVEY'S FIELD NAMES (con_sh_parent_status, con_sh_employment, con_sh_occupation,
+     con_sh_time_per_week, con_sh_income_goal, con_sh_target_income, con_sh_household_income, con_sh_investment_ready):
+     the answers ride with the form as window.__pfExtra into contacts.custom, as the survey's did.
+  ⚠️ THE DOCK OPENS THE FUNNEL'S OWN FORM, "Conectiv - Side Hustle Quiz - Survey", which 0349 turns from the survey into
+     its capture slide alone (its heading, name, email, phone, the rep's consent line): automations trigger on that name.
+  No photo: the host page has none.
+-->
+<div class="rl rl-look-calm rl-match csq" data-pf-native data-pf-dock="See my match" data-pf-handoff="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the cover: the host page's words, verbatim; the disclaimer is the page's own line -->
+      <section class="rl-p rl-paper rl-cover csq-cover" aria-label="Side hustle quiz">
+        <div class="rl-in">
+          <span class="lk-tag" data-in style="--d:.05s">For folks already employed, but...</span>
+          <h1 data-in style="--d:.12s">Looking For A <em>Side Hustle Opportunity?</em></h1>
+          <p class="csq-lede" data-in style="--d:.22s">Take this quick <strong>60-second quiz</strong> and we'll match you with the opportunity that best fits your schedule and income goals. 💸</p>
+          <div class="qz-go" data-in style="--d:.32s"><button type="button" class="rl-btn" data-qz-next>Start the quiz</button></div>
+          <p class="rl-fine" data-in style="--d:.4s">Helping you find the best way to earn from home. {{custom_values.conectiv__income_disclaimer}}</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. Parent Status -->
+      <section class="rl-p rl-tint rl-wide" data-qz="con_sh_parent_status">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">To start, which best describes you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>I'm a husband, looking for more time &amp; financial freedom.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>I'm a wife, looking for more time &amp; financial freedom.</span></button>
+            <button type="button" data-qz-single><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span>I'm single, looking for more time &amp; financial freedom.</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Employment (single: no spouse answer, as GLP's and Nueva's; Jeff, 2026-10-15) -->
+      <section class="rl-p rl-paper rl-wide" data-qz="con_sh_employment">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">Are you currently employed?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-qz-employed><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Yes, I am</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>No, I am not</span></button>
+            <button type="button" data-qz-spouse><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Not me, but my spouse is</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Occupation (employed only) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="con_sh_occupation" data-qz-if="employed">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">What do you currently do for work?</h2>
+          <div class="qz-text" data-in style="--d:.25s">
+            <input type="text" placeholder="Your job or industry" autocomplete="organization-title" enterkeyhint="next">
+            <button type="button" class="rl-btn" data-qz-next>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Time Per Week (worded by employment) -->
+      <section class="rl-p rl-night rl-wide" data-qz="con_sh_time_per_week">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s" data-qz-hours-employed="With your current job, how much time could you put toward building a side hustle each week? (rough estimate)">How much time could you put toward building a business each week? (rough estimate)</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>1 to 5 hours</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>5 to 10 hours</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg><span>10 to 15 hours</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><span>15 to 20 hours</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>20 or more hours</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Income Goal -->
+      <section class="rl-p rl-paper rl-wide" data-qz="con_sh_income_goal">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">What is your main goal right now?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span>I'm mostly focused on making more money...</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>I'm mostly focused on creating more time freedom...</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><span>I want both, more time &amp; financial freedom...</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Target Income -->
+      <section class="rl-p rl-tint rl-wide" data-qz="con_sh_target_income">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">What is your target income in the next 90 days?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/><path d="M16 11h.01"/></svg><span>I'd be happy with an extra $500 - $1k/month</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg><span>I really need to be earning an extra $1k - $3k/month</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span>$3k - $5k per month would give me some real freedom</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><span>I want this to become my full-time income, $5k/month+</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Household Income -->
+      <section class="rl-p rl-paper rl-wide" data-qz="con_sh_household_income">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">Got your financial goal, but where are you at currently?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg><span>I make less than $30k / year</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg><span>I make $30k - $50k / year</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V6"/></svg><span>I make $50k - $100k / year</span></button>
+            <button type="button" data-qz-high><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span>I make $100k+ / year</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Investment Ready (skipped over $100k) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="con_sh_investment_ready" data-qz-if="not-high">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 class="qz-h-sm" data-in style="--d:.1s">Based on your answers, we have an opportunity that could be a strong fit.</h2>
+          <p data-in style="--d:.2s">This is a legitimate business with real income potential, and like any business, it requires an initial investment. Startup costs typically range from $99 to $599+.</p>
+          <p data-in style="--d:.28s"><strong>IF (and only IF) this opportunity felt right for you, is this something you’d be able to invest both the time and money needed to give it a real shot?</strong></p>
+          <span class="qz-lab" data-in style="--d:.32s">Answer Below</span>
+          <div class="qz-opts" data-in style="--d:.36s">
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span>Yes, absolutely I'd be willing to invest time &amp; money into something that makes sense for me.</span></button>
+            <button type="button"><svg class="qz-ico" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span>Not sure yet, but I still want to see the recommendation.</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Processing, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Your match">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Building your custom match...</h2>
+          <ul class="qz-steps">
+            <li style="--d:.3s">Analyzing your answers</li>
+            <li style="--d:1.5s">Matching you with a business model</li>
+            <li style="--d:2.6s">Generating your report</li>
+          </ul>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">Your match is ready. Swipe up to see it.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. -->
+    <button type="button" class="rl-cta" data-sk-open>See my match</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves, then the quiz's (both deferred, so in this order, before the platform builds the dock). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/conectiv/c-side-hustle-quiz/c-side-hustle-quiz-reel/quiz.js?v=1" defer></script>

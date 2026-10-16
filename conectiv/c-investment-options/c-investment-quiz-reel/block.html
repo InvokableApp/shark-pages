@@ -1,0 +1,175 @@
+<!--
+  conectiv/c-investment-options/c-investment-quiz-reel
+  CONECTIV'S INVESTMENT OPTIONS QUIZ ("Investment Style Explorer") as a REEL, in the look Jeff picked (D, Clinical calm,
+  2026-10-16) in Conectiv's teal. PLATFORM ONLY: the platform's /c-investment-options step points here (migration 0349);
+  it had no page (the platform drew the survey from the form). Built the way the side hustle quiz reel is.
+  ⚠️ EVERY WORD IS THE SURVEY'S ("Conectiv - Investment Options Quiz - Survey", schema.survey after 0349): the cover is its
+     host page (the eyebrow, "Educational tool, not financial advice", the headline, the line, the closing disclaimer);
+     the eight questions and their answers are word for word, in order (the survey has no branching); the processing
+     screen is its "Analyzing" slide. Left off: the host page's "Meridian" logo, a brand that is neither Conectiv nor
+     the rep (raised for the campaign review).
+  ⚠️ THE ANSWER KEYS ARE THE SURVEY'S FIELD NAMES: the answers ride with the form as window.__pfExtra into
+     contacts.custom, as the survey's did, and are kept in this browser (sessionStorage "c-invest") for the results reel,
+     which shows the visitor their own answers.
+  ⚠️ THE DOCK OPENS THE FUNNEL'S OWN FORM, "Conectiv - Investment Options Quiz - Survey", which 0349 turns into the
+     survey's contact slide alone: automations trigger on that name.
+-->
+<div class="rl rl-look-calm rl-match csq ciq" data-pf-native data-pf-dock="See my results" data-pf-handoff="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the cover: the host page's words -->
+      <section class="rl-p rl-paper rl-cover ciq-cover" aria-label="Investment style explorer">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Investment style explorer</span>
+          <p class="ciq-note" data-in style="--d:.05s">Educational tool, not financial advice</p>
+          <h1 data-in style="--d:.12s">Explore investment options that <em>match your goals</em></h1>
+          <p class="csq-lede" data-in style="--d:.22s">Answer a few quick questions and we'll show you how different investment approaches compare based on your preferences.</p>
+          <div class="qz-go" data-in style="--d:.32s"><button type="button" class="rl-btn" data-qz-next>Start</button></div>
+          <p class="rl-fine" data-in style="--d:.4s">Educational purposes only. This tool does not provide financial, legal, or tax advice.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. How old are you? -->
+      <section class="rl-p rl-tint rl-wide" data-qz="how_old_are_you">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">How old are you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Under 25</span></button>
+            <button type="button"><span>25–34</span></button>
+            <button type="button"><span>35-44</span></button>
+            <button type="button"><span>45-54</span></button>
+            <button type="button"><span>55+</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 3. How much disposable income could you realistically invest each month? -->
+      <section class="rl-p rl-paper rl-wide" data-qz="how_much_disposable_income_could_you_realistically_invest_each_month">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 class="qz-h-sm" data-in style="--d:.1s">How much disposable income could you realistically invest each month?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Under $100/month</span></button>
+            <button type="button"><span>$100–$500/month</span></button>
+            <button type="button"><span>$500–$1,500/month</span></button>
+            <button type="button"><span>$1,500–$5,000/month</span></button>
+            <button type="button"><span>$5,000+/month</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 4. How comfortable are you with investment risk? -->
+      <section class="rl-p rl-night rl-wide" data-qz="how_comfortable_are_you_with_investment_risk">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">How comfortable are you with investment risk?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Very Conservative</span></button>
+            <button type="button"><span>Somewhat Conservative</span></button>
+            <button type="button"><span>Moderate</span></button>
+            <button type="button"><span>Aggressive</span></button>
+            <button type="button"><span>Very Aggressive</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 5. How soon would you like your investments to begin producing meaningful returns? -->
+      <section class="rl-p rl-tint rl-wide" data-qz="how_soon_would_you_like_your_investments_to_begin_producing_meaningful_returns">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 class="qz-h-sm" data-in style="--d:.1s">How soon would you like your investments to begin producing meaningful returns?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Long-term (10+ years)</span></button>
+            <button type="button"><span>5–10 years</span></button>
+            <button type="button"><span>3–5 years</span></button>
+            <button type="button"><span>1–3 years</span></button>
+            <button type="button"><span>As quickly as reasonably possible</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 6. How much time can you realistically dedicate each week? Some strategies are more hands-on than others. -->
+      <section class="rl-p rl-paper rl-wide" data-qz="how_much_time_can_you_realistically_dedicate_each_week_some_strategies_are_more_handson_than_others">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 class="qz-h-sm" data-in style="--d:.1s">How much time can you realistically dedicate each week? Some strategies are more hands-on than others.</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Less than 1 hour</span></button>
+            <button type="button"><span>1–3 hours</span></button>
+            <button type="button"><span>3–5 hours</span></button>
+            <button type="button"><span>5–10 hours</span></button>
+            <button type="button"><span>10+ hours</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 7. Which statement best describes you? -->
+      <section class="rl-p rl-tint rl-wide" data-qz="which_statement_best_describes_you">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">Which statement best describes you?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>I prefer passive investing</span></button>
+            <button type="button"><span>I don&#x27;t mind learning</span></button>
+            <button type="button"><span>I enjoy analyzing opportunities</span></button>
+            <button type="button"><span>I like active involvement</span></button>
+            <button type="button"><span>I&#x27;m open to almost anything</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 8. What is your primary financial goal? -->
+      <section class="rl-p rl-paper rl-wide" data-qz="what_is_your_primary_financial_goal">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">What is your primary financial goal?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Build long-term wealth</span></button>
+            <button type="button"><span>Generate passive income</span></button>
+            <button type="button"><span>Learn a high-income skill</span></button>
+            <button type="button"><span>Diversify my investments</span></button>
+            <button type="button"><span>Retire earlier</span></button>
+            <button type="button"><span>Protect against inflation</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 9. Have you invested before? -->
+      <section class="rl-p rl-night rl-wide" data-qz="have_you_invested_before">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <div class="lk-bar qz-prog" data-in aria-hidden="true"><i></i></div>
+          <h2 data-in style="--d:.1s">Have you invested before?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button"><span>Never</span></button>
+            <button type="button"><span>A little</span></button>
+            <button type="button"><span>Some experience</span></button>
+            <button type="button"><span>Experienced</span></button>
+            <button type="button"><span>Very experienced</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Analyzing, then the form (the dock) -->
+      <section class="rl-p rl-night rl-wide qz-proc" aria-label="Your results">
+        <div class="rl-in">
+          <div class="qz-spin" aria-hidden="true"></div>
+          <h2 class="qz-proc-h">Analyzing your responses...</h2>
+          <p class="ciq-proc-p">Comparing your goals, timeline, available capital, experience, and preferred style to match your next step.</p>
+          <div class="qz-bar" aria-hidden="true"><i></i></div>
+          <p class="qz-ready">Your results are ready. Swipe up to see them.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>See my results</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/conectiv/c-investment-options/c-investment-quiz-reel/quiz.js?v=1" defer></script>

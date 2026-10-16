@@ -1,0 +1,82 @@
+/* conectiv/c-free-coffee-sample/c-sample-reel: Conectiv's Free Coffee Sample opt-in as a reel (platform only; see
+ * block.html). The reel kit, then "Soft athletic" in teal, then only this page's own screens: the photo cover, the pack
+ * and its figures, the comparison, the three steps. The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/soft-athletic.css");
+
+.rl-cs .rl-btn{ border-radius:999px; font-weight:700; }
+
+/* every photo: words on top, the picture below them clear */
+.rl-cs .rl-photo{ justify-content:flex-start; }
+.rl-cs .rl-photo .rl-in{ padding-top:64px; }
+.rl-cs .rl-photo::after{ background:linear-gradient(180deg,rgba(20,24,22,.8) 0%,rgba(20,24,22,.58) 40%,rgba(20,24,22,0) 70%,rgba(20,24,22,.3) 100%); }
+.rl-cs .rl-photo .rl-pills li{ background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.35); color:#fff; }
+
+/* 1. the cover: the cup and the hands stay in view */
+.cs-cover .rl-bg{ background-position:22% 100%; }
+.cs-cover h1{ font-size:clamp(34px,9.4vw,46px); }
+
+/* 2. the pack and the four figures */
+.cs-pack{ display:block; width:auto; height:250px; margin:0 0 4px -16px; }
+.cs-what h2{ font-size:clamp(26px,7.4vw,34px); }
+.cs-figs{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:22px 0 0; }
+.cs-figs > div{ background:#fff; border-radius:18px; padding:14px 16px; }
+.cs-figs dt{ font:800 34px/1 var(--head); letter-spacing:-.03em; color:var(--coral); }
+.cs-figs dd{ margin:6px 0 0; font-size:13.5px; font-weight:600; color:var(--body); }
+
+/* 3. the benefits */
+.cs-why h2{ font-size:clamp(26px,7.4vw,34px); }
+.cs-why .lk-tiles > div{ grid-template-columns:40px 1fr; }
+
+/* 4. the comparison: theirs quiet, ours lit */
+.cs-vs h2{ font-size:clamp(30px,8.4vw,40px); }
+.cs-cols{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:22px; }
+.cs-col{ border-radius:18px; padding:16px 14px; }
+.cs-col b{ display:block; font:800 15px/1.2 var(--head); margin-bottom:10px; }
+.cs-col ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.cs-col li{ font-size:13.5px; line-height:1.35; padding-left:18px; position:relative; }
+.cs-col li::before{ position:absolute; left:0; top:0; font-weight:800; }
+.cs-them{ background:rgba(255,255,255,.06); color:rgba(255,255,255,.62); }
+.cs-them li::before{ content:"×"; color:rgba(255,255,255,.4); }
+.cs-us{ background:#fff; color:var(--ink); }
+.cs-us b{ color:var(--coral); }
+.cs-us li::before{ content:"✓"; color:var(--coral); }
+
+/* 5. how it works */
+.cs-how .rl-bg{ background-position:60% 100%; }
+.rl-cs .cs-how::after{ background:linear-gradient(180deg,rgba(20,24,22,.88) 0%,rgba(20,24,22,.8) 62%,rgba(20,24,22,.25) 88%,rgba(20,24,22,.35) 100%); }
+.cs-steps{ list-style:none; counter-reset:cs; margin:20px 0 0; padding:0; display:grid; gap:12px; }
+.cs-steps li{ counter-increment:cs; position:relative; padding-left:44px; font-size:15px; line-height:1.4; color:rgba(255,255,255,.88); }
+.cs-steps li::before{ content:counter(cs); position:absolute; left:0; top:-2px; width:30px; height:30px; border-radius:50%;
+  background:var(--coral); color:#fff; font:800 15px/30px var(--head); text-align:center; }
+.cs-steps b{ color:#fff; }
+
+/* 6. the close */
+.cs-close h2{ font-size:clamp(30px,8.4vw,40px); }
+.cs-close .rl-fine{ margin-top:22px; }
+
+/* short phones */
+@media (max-width:700px) and (max-height:760px){
+  .cs-cover h1{ font-size:32px; }
+  .cs-pack{ height:170px; }
+  .cs-figs dt{ font-size:28px; } .cs-figs > div{ padding:11px 13px; }
+  .cs-why .lk-tiles > div{ padding:10px 12px; font-size:13px; } .cs-why .lk-tiles{ gap:7px; }
+  .cs-col li{ font-size:12.5px; } .cs-col ul{ gap:7px; }
+  .cs-steps li{ font-size:14px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .cs-pack{ display:none; }
+  .cs-why .lk-tiles strong{ font-size:14px; }
+}
+/* a computer: the words left, the picture right */
+@media (min-width:701px){
+  .cs-cover h1{ font-size:clamp(46px,4.6vw,64px); }
+  .rl-cs .rl-photo .rl-in{ padding-top:96px; }
+  .rl-cs .rl-photo::after{ background:linear-gradient(90deg,rgba(20,24,22,.86) 0%,rgba(20,24,22,.55) 45%,rgba(20,24,22,.1) 100%); }
+  .cs-pack{ height:min(64vh,560px); margin:0 auto; }
+  /* the portrait cover photo shows only the table this wide: the counter photo, cup and pack side by side */
+  .cs-cover .rl-bg{ background-image:url('/_p/conectiv/c-free-coffee-sample/c-free-coffee-sample-optin/assets/scene-counter.webp') !important; background-position:70% 55%; }
+  .rl-cs .cs-how::after{ background:linear-gradient(90deg,rgba(20,24,22,.9) 0%,rgba(20,24,22,.6) 45%,rgba(20,24,22,.15) 100%); }
+  .cs-what h2,.cs-why h2{ font-size:clamp(34px,3.2vw,46px); }
+  .cs-cols,.cs-steps,.cs-why .lk-tiles{ max-width:620px; }
+}

@@ -1,0 +1,130 @@
+<!--
+  conectiv/c-investment-options/c-investment-results-reel
+  The Investment Options quiz's RESULTS page ("Your investment style overview") as a REEL, after the quiz reel, in the
+  quiz's look (D, Clinical calm, Conectiv's teal). Four screens, PLATFORM ONLY: the platform's /c-investment-confirmation
+  step points here (migration 0349). The native page's HTML is in platform/supabase/masters/steps.json.
+  ⚠️ EVERY WORD IS THE NATIVE PAGE'S, cut to fit, with ONE CORRECTION (GHL-TO-PLATFORM-SOP: facts match the funnel). The
+     native page was the same for everyone: a fixed "assessment" (Active-learning, Aggressive, 3–5 years, Experienced), a
+     paragraph that contradicted it ("moderate risk profile ... 5–10 year time horizon"), and twelve categories under
+     "RANKED FOR YOU" with fixed scores (83, 83, 80 ...). Here:
+       - the tiles show the visitor's OWN answers under the page's six labels (from the quiz reel, sessionStorage
+         "c-invest"; a tile with no answer stays hidden, and with none at all the tiles are not shown);
+       - the contradicting paragraph and the scores are left off;
+       - the twelve categories (the page's words: name, risk, time, horizon, "Often chosen by ...", Learn More to
+         investor.gov and the rest) come closest to the visitor's risk and weekly-time answers first (block.js), in the
+         page's order when there are none. Their advantages and drawbacks, and the nine-column comparison table, stay on
+         the native page: neither fits a phone screen.
+     Left off: the "Meridian" logo (neither Conectiv nor the rep).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: "See Your Recommended Next Step", to /c-financial-education-info.
+-->
+<div class="rl rl-look-calm csq ciq cir" data-pf-native data-pf-arrive="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the assessment, and the visitor's own answers -->
+      <section class="rl-p rl-paper rl-wide cir-top">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Your assessment</span>
+          <h1 class="rl-type">Your investment style overview<span data-if-name>, {{contact.first_name}}</span></h1>
+          <dl class="cir-tiles" data-in style="--d:.25s" hidden>
+            <div data-ans="which_statement_best_describes_you" hidden><dt>Preferred style</dt><dd></dd></div>
+            <div data-ans="how_comfortable_are_you_with_investment_risk" hidden><dt>Risk profile</dt><dd></dd></div>
+            <div data-ans="how_soon_would_you_like_your_investments_to_begin_producing_meaningful_returns" hidden><dt>Time horizon</dt><dd></dd></div>
+            <div data-ans="how_much_disposable_income_could_you_realistically_invest_each_month" hidden><dt>Capital availability</dt><dd></dd></div>
+            <div data-ans="how_much_time_can_you_realistically_dedicate_each_week_some_strategies_are_more_handson_than_others" hidden><dt>Learning preference</dt><dd></dd></div>
+            <div data-ans="have_you_invested_before" hidden><dt>Experience</dt><dd></dd></div>
+          </dl>
+          <p class="rl-fine" data-in style="--d:.35s">This assessment is intended for educational purposes only. It is not financial advice or a recommendation
+            to buy, sell, or invest in any specific asset. Always perform your own research and/or consult a qualified financial
+            professional before making investment decisions.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: the categories, a sideways row -->
+      <section class="rl-p rl-tint rl-wide cir-cats-s">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Best-fit investment categories</span>
+          <p class="cir-sub" data-in style="--d:.1s">Every investment type carries its own risks. There is no universally “best” investment, these are simply
+            approaches that could align with your responses.</p>
+          <div class="rl-cards cir-cats" data-in style="--d:.2s">
+            <div class="cir-cat" data-risk="4" data-time="2"><h3>Cryptocurrency</h3>
+              <dl><div><dt>Risk</dt><dd>Very High</dd></div><div><dt>Time</dt><dd>Moderate</dd></div><div><dt>Horizon</dt><dd>Variable</dd></div></dl>
+              <p>Often chosen by investors with high risk tolerance and interest in emerging technology.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/crypto-assets" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="3" data-time="3"><h3>Options Trading</h3>
+              <dl><div><dt>Risk</dt><dd>High</dd></div><div><dt>Time</dt><dd>High</dd></div><div><dt>Horizon</dt><dd>Short–Med</dd></div></dl>
+              <p>Often explored by experienced investors comfortable with complex instruments.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/options" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="2.5" data-time="2"><h3>Stock Market Investing</h3>
+              <dl><div><dt>Risk</dt><dd>Med–High</dd></div><div><dt>Time</dt><dd>Moderate</dd></div><div><dt>Horizon</dt><dd>Med–Long</dd></div></dl>
+              <p>Often chosen by investors comfortable with market swings who enjoy following companies.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="4" data-time="3"><h3>Forex Trading</h3>
+              <dl><div><dt>Risk</dt><dd>Very High</dd></div><div><dt>Time</dt><dd>High</dd></div><div><dt>Horizon</dt><dd>Short</dd></div></dl>
+              <p>Often researched by very active traders with time for analysis and risk management.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/forex-fraud" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="2" data-time="3"><h3>Real Estate Investing</h3>
+              <dl><div><dt>Risk</dt><dd>Medium</dd></div><div><dt>Time</dt><dd>High</dd></div><div><dt>Horizon</dt><dd>Long</dd></div></dl>
+              <p>Often chosen by investors with capital and interest in hands-on ownership.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="2" data-time="1"><h3>Dividend Investing</h3>
+              <dl><div><dt>Risk</dt><dd>Medium</dd></div><div><dt>Time</dt><dd>Low</dd></div><div><dt>Horizon</dt><dd>Long</dd></div></dl>
+              <p>Often chosen by investors seeking income alongside long-term growth.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/dividend" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="4" data-time="4"><h3>Starting or Buying a Business</h3>
+              <dl><div><dt>Risk</dt><dd>Very High</dd></div><div><dt>Time</dt><dd>Very High</dd></div><div><dt>Horizon</dt><dd>Long</dd></div></dl>
+              <p>Often chosen by those with entrepreneurial interests and long time horizons.</p><a href="https://www.sba.gov/business-guide/plan-your-business" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="1.5" data-time="3"><h3>Investing in Your Own Skills/Education</h3>
+              <dl><div><dt>Risk</dt><dd>Low–Med</dd></div><div><dt>Time</dt><dd>High</dd></div><div><dt>Horizon</dt><dd>Medium to Long</dd></div></dl>
+              <p>Often chosen by those seeking to increase income before deploying capital.</p><a href="https://www.consumerfinance.gov/consumer-tools/educator-tools/adult-financial-education/" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="2" data-time="0"><h3>REITs</h3>
+              <dl><div><dt>Risk</dt><dd>Medium</dd></div><div><dt>Time</dt><dd>Very Low</dd></div><div><dt>Horizon</dt><dd>Medium to Long</dd></div></dl>
+              <p>Often chosen by investors wanting real estate exposure with minimal effort.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="1.5" data-time="0"><h3>Precious Metals</h3>
+              <dl><div><dt>Risk</dt><dd>Low–Med</dd></div><div><dt>Time</dt><dd>Very Low</dd></div><div><dt>Horizon</dt><dd>Long</dd></div></dl>
+              <p>Often chosen by investors focused on diversification and inflation-related concerns.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/precious-metals" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="1" data-time="0"><h3>High-Yield Savings &amp; Fixed Income</h3>
+              <dl><div><dt>Risk</dt><dd>Low</dd></div><div><dt>Time</dt><dd>Very Low</dd></div><div><dt>Horizon</dt><dd>Short to Medium</dd></div></dl>
+              <p>Often chosen by investors prioritizing stability or short-term goals.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products" target="_blank" rel="noopener">Learn more</a></div>
+            <div class="cir-cat" data-risk="2" data-time="0"><h3>Index Funds &amp; ETFs</h3>
+              <dl><div><dt>Risk</dt><dd>Medium</dd></div><div><dt>Time</dt><dd>Very Low</dd></div><div><dt>Horizon</dt><dd>Long</dd></div></dl>
+              <p>Often chosen by investors seeking a hands-off, diversified approach.</p><a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds" target="_blank" rel="noopener">Learn more</a></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 12<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 3. DARK: foundations, a sideways row -->
+      <section class="rl-p rl-night rl-wide cir-found-s">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Foundations</span>
+          <h2 data-in style="--d:.1s">Educational insights</h2>
+          <div class="rl-cards cir-found" data-in style="--d:.2s">
+            <div><h3>Diversification</h3><p>Spreading capital across different assets can help reduce the impact of any single investment underperforming.</p></div>
+            <div><h3>Risk vs Reward</h3><p>Higher potential returns are generally paired with higher potential losses. Understanding this trade-off is foundational.</p></div>
+            <div><h3>Compound Growth</h3><p>Returns that are reinvested may generate their own returns over time, which can matter more the longer money stays invested.</p></div>
+            <div><h3>Volatility</h3><p>Volatility describes how much an investment’s price moves. High volatility means bigger swings in value in either direction.</p></div>
+            <div><h3>Liquidity</h3><p>Liquidity refers to how easily an asset can be converted to cash without a large price impact.</p></div>
+            <div><h3>Time Horizon</h3><p>Your time horizon is how long you expect to hold an investment before needing the money. Longer horizons can change how risk is perceived.</p></div>
+            <div><h3>Dollar Cost Averaging</h3><p>Investing a fixed amount on a regular schedule spreads purchases over time, regardless of price.</p></div>
+            <div><h3>Building an Investment Plan</h3><p>A written plan describing goals, timeline, risk tolerance, and contribution amount may help make decisions more consistent over time.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 8<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: continue learning, the next step -->
+      <section class="rl-p rl-paper rl-wide cir-next">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Continue learning</span>
+          <p class="cir-lede" data-in style="--d:.1s">Now that you’ve explored several investment approaches, continue researching the opportunities that interest you
+            most. The best investment strategy is one that aligns with your financial goals, risk tolerance, experience level, and
+            learning availability.</p>
+          <div class="rl-btns" data-in style="--d:.2s"><a class="rl-btn" href="/c-financial-education-info">See your recommended next step</a></div>
+          <p class="rl-fine" data-in style="--d:.3s">Educational purposes only. This tool does not provide financial, legal, or tax advice.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" href="/c-financial-education-info">See your recommended next step</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

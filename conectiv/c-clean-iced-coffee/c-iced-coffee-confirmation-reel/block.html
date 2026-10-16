@@ -1,0 +1,71 @@
+<!--
+  conectiv/c-clean-iced-coffee/c-iced-coffee-confirmation-reel
+  Conectiv's Clean Iced Coffee guide confirmation as a REEL, after its opt-in reel (2026-10-16). Four screens, PLATFORM
+  ONLY: the platform's /c-coffee-guide-confirmation step points here (migration 0349). GHL keeps serving the native page.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: "Request a sample of ALIVE!", which goes to the funnel's
+     /c-clean-brew-redirect step (on to the rep's Free Coffee Sample opt-in). "Open your recipe guide" opens the guide
+     online (/c-clean-brew-guide).
+  ⚠️ EVERY WORD IS THE PAGE'S, verbatim, in sentence case, plus the visitor's first name in the headline (PAGE-COPY-SOP
+     §5c). THE PAGE NAMES ALIVE, so the close adds MyLife Wellness's own product disclaimer (mylifewellness.com, read
+     2026-10-16); the native page carried none.
+  THE VIDEO is the page's own ("Coffee Recipe Guide Confirmation Video", Vimeo 1218393603, 16:9), in a wide frame.
+  THE PICTURE is the page's own (ALIVE with an iced latte), moved off GHL's file CDN into ../c-iced-coffee-reel/assets/.
+  The look is the opt-in reel's sheet (block.css imports it): G · Editorial serif.
+-->
+<div class="rl rl-look-serif rl-ic icc" data-pf-native data-pf-arrive="#F6F1E9">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: you're all set -->
+      <section class="rl-p rl-paper icc-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>You're all set</span>
+          <h1 class="rl-type">Your recipe guide is being sent to you in 2 minutes<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">We've sent the Clean Iced Coffee guide to your email. It should arrive within the next two minutes. If you
+            don't see it, please check your Promotions, Updates, or Spam folder as it could be there!</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn rl-btn-2 icc-read" href="/c-clean-brew-guide">Open your recipe guide</a></div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a healthy iced coffee powder</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: grab our ready to go, healthy iced coffee powder -->
+      <section class="rl-p rl-tint icc-alive">
+        <div class="rl-in">
+          <img class="icc-pack rl-art" data-in src="/_p/conectiv/c-clean-iced-coffee/c-iced-coffee-reel/assets/alive-iced.webp"
+               width="759" height="627" alt="ALIVE, with an iced latte made from it">
+          <span class="lk-rule" data-in style="--d:.05s">Grab our ready to go, healthy iced coffee powder</span>
+          <h2 data-in style="--d:.1s">ALIVE is more than <em>your morning coffee.</em></h2>
+          <p data-in style="--d:.2s">It's a premium collagen-infused superfood latte designed to help fuel your day with smooth, sustained energy
+            while supporting your overall wellness routine.</p>
+          <div class="rl-btns" data-in style="--d:.3s"><a class="rl-btn" href="/c-clean-brew-redirect">Request a sample of ALIVE!</a></div>
+        </div>
+      </section>
+
+      <!-- 3. DARK: the video, wide -->
+      <section class="rl-p rl-night rl-plain icc-watch" aria-label="The video">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Watch this video now!</span>
+          <div class="qv icc-video" data-in style="--d:.1s" data-video="https://vimeo.com/1218393603" data-name="the coffee video"></div>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: the close, and the product's fine print -->
+      <section class="rl-p rl-paper icc-close">
+        <div class="rl-in">
+          <p class="icc-lede" data-in>Each delicious serving combines rich Arabica coffee with hydrolyzed collagen, functional superfoods, and
+            thoughtfully selected wellness ingredients that work together to support daily energy, focus, and whole-body vitality.</p>
+          <h2 data-in style="--d:.12s">Enjoy a rich, smooth cup of coffee while giving your body <em>so much more than just caffeine.</em></h2>
+          <div class="rl-btns" data-in style="--d:.24s"><a class="rl-btn" href="/c-clean-brew-redirect">Request a sample of ALIVE!</a></div>
+          <p class="rl-fine" data-in style="--d:.34s">These statements have not been evaluated by the Food and Drug Administration. The products and
+            information provided by MyLife Wellness are not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" href="/c-clean-brew-redirect">Request a sample of ALIVE!</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

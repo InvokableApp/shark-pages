@@ -1,0 +1,85 @@
+<!--
+  conectiv/c-natural-glp-foods-guide-free-resource/c-glp-food-guide-confirmation-reel
+  Conectiv's GLP Foods Guide confirmation as a REEL, after its opt-in reel (2026-10-16). Four screens, PLATFORM ONLY:
+  the platform's /c-natural-glp-foods-guide-confirmation step points here (migration 0349). The structure is Beneve's
+  (beneve/beneve-natural-foods-guide/b-glp-food-guide-confirmation-reel).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: "DM Me For GLP Alternatives", which goes to the funnel's DM
+     Redirect step, /c-glp-dm-redirect (the rep's Messenger, conectiv__your_messenger), so the Messenger hand-off, the tag
+     and the rep alert happen. The page's text option ("Prefer to text? Text GLP to ...") is the alternative: a rep with
+     no Messenger gets a text to conectiv__your_phone with GLP written ([data-needs] + data-alt-href, reel.js), and the
+     hand-off card shows GLP to copy (data-pf-say).
+  ⚠️ EVERY WORD IS THE PAGE'S, verbatim, in sentence case, plus the visitor's first name in the headline (PAGE-COPY-SOP
+     §5c). "Access The Free Guide Now" opens the guide online (/c-natural-glp-foods-guide-read).
+  ⚠️ THE PAGE NAMES AMAZE, so the AMAZE screen shows the tub (the guide's own picture, ../c-glp-food-guide-reel/assets/
+     amaze.webp) and the fine print adds MyLife Wellness's own product disclaimer (mylifewellness.com/products/amaze,
+     read 2026-10-16) after the page's guide disclaimer.
+  The look is the opt-in reel's sheet (block.css imports it): Soft athletic in Conectiv's teal.
+-->
+<div class="rl rl-look-soft lk-teal rl-cf rlc" data-pf-native data-pf-message="for GLP alternatives" data-pf-say="GLP" data-pf-arrive="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: check your inbox -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Check your inbox</span>
+          <h1 class="rl-type">Your GLP foods guide is on its way<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">We have sent the GLP Foods Guide to your email. It should arrive within the next two minutes. If you do not
+            see it, please check your Promotions, Updates or Spam folders, as it could be there.</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn rl-btn-2 rlc-read" href="/c-natural-glp-foods-guide-read">Access the free guide now</a></div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for GLP alternatives</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. PHOTO: while you wait, a plate from the guide -->
+      <section class="rl-p rl-photo rlc-wait">
+        <div class="rl-bg" style="background-image:url('/_p/conectiv/c-natural-glp-foods-guide-free-resource/c-glp-food-guide-reel/assets/plate.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>While you wait</span>
+          <h2 data-in style="--d:.1s">If you want an easy way to quiet food cravings and support your weight, tap <em>"DM Me For GLP Alternatives"</em> below and shoot me a message.</h2>
+          <p data-in style="--d:.25s">These products could be a perfect fit.</p>
+          <div class="rl-btns" data-in style="--d:.35s"><a class="rl-btn rlc-go" href="/c-glp-dm-redirect"
+             data-needs="{{custom_values.conectiv__your_messenger}}" data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=GLP">DM me for GLP alternatives</a></div>
+        </div>
+      </section>
+
+      <!-- 3. TINT: step one, AMAZE, and the rep -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <img class="rlc-tub rl-art" data-in src="/_p/conectiv/c-natural-glp-foods-guide-free-resource/c-glp-food-guide-reel/assets/amaze.webp"
+               width="379" height="525" alt="AMAZE, from MyLife Wellness">
+          <h2 data-in style="--d:.1s">Supporting these hormones with food is step one, and it is not always easy to do on your own.</h2>
+          <p data-in style="--d:.2s">If you would like an easy way to go further, take a look at the all natural GLP support product going viral in
+            the wellness community.</p>
+          <p class="rlc-small" data-in style="--d:.28s">AMAZE is a daily gut-health formula built to support the same GLP pathways, to help quiet the
+            food noise, cut cravings, and support your weight journey.</p>
+          <div class="rl-btns" data-in style="--d:.36s">
+            <a class="rl-btn" data-pf-message-link href="/c-glp-dm-redirect"
+               data-needs="{{custom_values.conectiv__your_messenger}}" data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=GLP">DM me for GLP alternatives</a>
+          </div>
+          <p class="rlc-small rlc-text" data-in style="--d:.42s" data-needs="{{custom_values.conectiv__your_phone}}">Prefer to text? <a href="sms:{{custom_values.conectiv__your_phone}}?&body=GLP">Text GLP to me</a></p>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the disclaimers, whole -->
+      <section class="rl-p rl-night rl-wide rlc-fine">
+        <div class="rl-in">
+          <p class="rl-fine">The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+          <p class="rl-fine">We are not physicians, medical professionals, registered dietitians, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+          <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition.</p>
+          <p class="rl-fine">These are general food and recipe suggestions. Results vary from person to person. We make no guarantees regarding weight loss, appetite, or any other outcome.</p>
+          <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. The products and information provided by MyLife Wellness are not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: a text. -->
+    <a class="rl-cta" data-rep-cta="Message {first} for GLP alternatives" data-needs="{{custom_values.conectiv__your_messenger}}"
+       data-alt-href="sms:{{custom_values.conectiv__your_phone}}?&body=GLP" href="/c-glp-dm-redirect">DM me for GLP alternatives</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

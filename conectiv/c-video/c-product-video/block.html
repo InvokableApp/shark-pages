@@ -1,0 +1,97 @@
+<!--
+  conectiv/c-video/c-product-video: Conectiv's PRODUCT VIDEO page, a reel the rep sends one to one as a personal link
+  (Jeff, 2026-10-16: "opportunity reels with videos and scripts for reps to send as trackable links"). Beneve's TRIO
+  video page (beneve/b-video/b-trio-video), the same flow: the headline, swipe to the video, swipe to "Who Comes To
+  Mind?", three cards, each with a pop-up. Platform only.
+
+  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): "Conectiv - Product Description Video" (Vimeo 1214365741, 1:03, 16:9;
+     watched 2026-10-16). Two routes: MyLife Wellness, physical products (healthy coffee, energy, sleep, gut health with
+     GLP-1 support, skincare), or ConeqtX, digital (financial education, live trading sessions, educational trade
+     alerts). "Physical or digital ... find a route that makes sense for you." It ends pointing at the opportunity video.
+     So the cover names the two routes, and the "Myself" pop-up asks which route makes sense for them.
+  ⚠️ JOE'S WORDS where they fit (his SCRIPTS doc, the product flow on Beneve's TRIO page): the question, the three cards,
+     the "Someone I Know" and "No One" pop-ups. ⚠️ NOT JOE'S, waiting on Jeff's review: the cover's headline and line
+     (from the video), and the "Myself" pop-up (Joe's "getting these products in your hand" doesn't fit a digital route).
+  The page names MyLife Wellness's products, so the ask screen carries MyLife Wellness's own disclaimer (mylifewellness.com,
+  read 2026-10-16), and an educational-only line for the financial side.
+  THE VIDEO is a content value, conectiv__product_video, the same for every rep (migration 0350). Never empty (0047).
+  Its own poster shows the company's name: it stays inside the player.
+  THE PHOTO is the Free Coffee Sample opt-in's own (c-free-coffee-sample-optin/assets/life.webp).
+
+  The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
+  told). ⚠️ "We've let {rep} know" (No One) is only true for a personal link. TEXT buttons are redirect steps
+  (/c-product-try, /c-product-refer) to the rep's phone (conectiv__your_phone); with no phone, their Messenger.
+-->
+<div class="rl rl-pf rl-look-calm rv bv cv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under a photo card -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Wellness products or financial education">
+        <div class="rl-in">
+          <div class="lk-photo bv-photo" data-in style="background-image:url('/_p/conectiv/c-free-coffee-sample/c-free-coffee-sample-optin/assets/life.webp')"></div>
+          <span class="lk-tag" data-in style="--d:.05s">Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="The product video">Wellness products or financial education: <em>find the route that fits you</em></h1>
+          <p class="bv-lede" data-in style="--d:.25s">Healthy coffee, energy, sleep, gut health and skincare, or financial education with live trading sessions. This short video explains both.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.conectiv__product_video}}" data-name="the product video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (Joe's cards) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Myself: I'd like to hear more">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd like to hear more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.3s" data-label="Someone I Know: I think they'd be interested">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.4s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">03</b><span class="rv-t"><b>No One</b><small>Not interested, don't know anyone</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">These statements have not been evaluated by the Food and Drug Administration. The products and
+            information provided by MyLife Wellness are not intended to diagnose, treat, cure, or prevent any disease. Financial education is for
+            educational purposes only and is not financial advice.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and say which route makes sense for you: the wellness products or the financial education!</p>
+    <a class="rv-btn" href="/c-product-try" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-product-message" data-label="Text me: I'd like to hear more about the products">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/c-product-refer" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-product-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No One" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
