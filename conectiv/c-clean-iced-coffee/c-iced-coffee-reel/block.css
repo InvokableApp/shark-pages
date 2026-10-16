@@ -42,8 +42,10 @@
   .rl-ic .rl-cover .rl-note{ display:none; }
 }
 @media (min-width:701px){
-  .rl-look-serif.rl-ic .rl-cover h1{ font-size:clamp(40px,3.8vw,54px); }
-  .ic-guide{ max-width:none; width:min(46vw,720px); margin:0 auto; }
+  .rl-look-serif.rl-ic .rl-cover h1{ font-size:clamp(38px,3.4vw,50px); }
+  /* the guide sits right of the words, never under them (2026-10-16 live check: it covered "sweetened" at 1440) */
+  .rl-ic .rl-cover .rl-in{ column-gap:clamp(40px,5vw,96px); }
+  .ic-guide{ max-width:none; width:min(38vw,600px); margin:0 0 0 auto; justify-self:end; }
   .rl-ic .rl-photo::after{ background:linear-gradient(90deg,rgba(var(--shade),.9) 0%,rgba(var(--shade),.62) 48%,rgba(var(--shade),.2) 100%); }
   .ic-list{ max-width:620px; }
 }
