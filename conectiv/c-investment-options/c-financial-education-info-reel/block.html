@@ -1,0 +1,89 @@
+<!--
+  conectiv/c-investment-options/c-financial-education-info-reel
+  The Investment Options quiz's NEXT STEP (/c-financial-education-info) as a REEL, after the results reel, in the quiz's
+  look (D, Clinical calm, Conectiv's teal). PLATFORM ONLY: the platform's /c-financial-education-info step points here
+  (migration 0365); GHL keeps its native page (the HTML is in platform/supabase/masters/steps.json).
+  Jeff, 2026-10-16, on the native page: "the info page looks like.... idk, needs help? ... yea, i guess rebuild".
+  ⚠️ THE WORDS ARE THE NATIVE PAGE'S, with the lines that oversold a page under "not financial advice" said plainly
+     (raised on the campaign review):
+       "Master the Market With Live Guidance & Real-Time Alerts" -> "Learn the market with live guidance and real-time alerts"
+       "... From The EXPERTS!" and "Get insider access to" -> off
+       "designed to help you spot opportunities and take action with confidence" -> "so you understand what's moving and
+         why, and make your own decisions with more confidence"
+       "so you can act on opportunities instead of hearing about them after the fact" -> "so you hear about market moves
+         as they happen, not after the fact"; the bullet "Action signals" -> off
+       "Activate Trade Alerts Now!" -> "See how ConeqtX works"
+     Added: the visitor's best fit from the results reel (sessionStorage "c-invest-best", block.js), only when there is
+     one; the results page's not-financial-advice line at the close. Left off: the Conectiv logo the native page hotlinked
+     from conectivglobal.com.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's: its buttons went to /c-investment-redirect (the rep's ConeqtX
+     link; the visit fires the rep's fire alert), and so do these.
+  THE VIDEO is the page's own ("How these trade alerts work", on our storage since 0355), with a still from 0:15.
+  THE PICTURES are the page's own, moved off GHL's storage into assets/.
+-->
+<div class="rl rl-look-calm csq ciq cfi" data-pf-native data-pf-arrive="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the next step, with their best fit when the quiz picked one -->
+      <section class="rl-p rl-paper rl-cover cfi-cover" aria-label="Your next step">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Your next step</span>
+          <p class="cfi-fit" data-in style="--d:.05s" data-if-best hidden>Your best fit: <b data-best></b></p>
+          <h1 data-in style="--d:.12s">Learn the market with live guidance and <em>real-time alerts</em></h1>
+          <p class="csq-lede" data-in style="--d:.22s">Live financial empowerment sessions and instant alerts, so you understand what's moving and why, and make your own decisions with more confidence.</p>
+          <div class="rl-btns" data-in style="--d:.32s"><a class="rl-btn" href="/c-investment-redirect">See how ConeqtX works</a></div>
+          <img class="rl-art cfi-art" data-in style="--d:.2s" src="/_p/conectiv/c-investment-options/c-financial-education-info-reel/assets/collage.webp" width="1000" height="1225" alt="People learning together, and the ConeqtX app on a phone">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the page's video -->
+      <section class="rl-p rl-night rl-wide cfi-watch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Watch</span>
+          <h2 data-in style="--d:.08s">How these trade alerts work</h2>
+          <div class="qv cfi-video" data-in style="--d:.16s" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/conectiv/ghl-copy/how-these-trade-alerts-work.mp4" data-poster="/_p/conectiv/c-investment-options/c-financial-education-info-reel/assets/poster.jpg" data-name="the trade alerts video"></div>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the three things, the page's cards -->
+      <section class="rl-p rl-tint rl-wide cfi-what">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What's inside</span>
+          <div class="rl-cards cfi-cards" data-in style="--d:.12s">
+            <div class="cfi-card"><svg class="cfi-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Live Empowerment Sessions</h3>
+              <p>Learn directly in live sessions so you're never left guessing what to do next.</p>
+              <ul><li>Real-time education</li><li>Guided walkthroughs</li><li>Ask questions and get clarity</li></ul></div>
+            <div class="cfi-card"><svg class="cfi-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><h3>Real-Time Alerts</h3>
+              <p>Get instant alerts so you hear about market moves as they happen, not after the fact.</p>
+              <ul><li>Opportunity notifications</li><li>Market updates</li></ul></div>
+            <div class="cfi-card"><svg class="cfi-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5M11 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5"/></svg><h3>Community &amp; Guidance</h3>
+              <p>Learn everything you need to ensure financial empowerment while being surrounded by others in the same place.</p>
+              <ul><li>Learn with others</li><li>Stay accountable</li><li>Build decision-making confidence</li></ul></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: the close -->
+      <section class="rl-p rl-paper rl-cover cfi-close">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Live and guided</span>
+          <h2 data-in style="--d:.08s">This is a live, guided financial <em>empowerment experience.</em></h2>
+          <div class="rl-btns" data-in style="--d:.2s"><a class="rl-btn" href="/c-investment-redirect">Learn more now</a></div>
+          <p class="rl-fine" data-in style="--d:.3s">This is intended for educational purposes only. It is not financial advice or a recommendation to buy, sell,
+            or invest in any specific asset. Always perform your own research and/or consult a qualified financial professional
+            before making investment decisions.</p>
+          <img class="rl-art cfi-art2" data-in style="--d:.15s" src="/_p/conectiv/c-investment-options/c-financial-education-info-reel/assets/app.webp" width="1200" height="850" alt="The ConeqtX app">
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" href="/c-investment-redirect">See how ConeqtX works</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

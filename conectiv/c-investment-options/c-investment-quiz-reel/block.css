@@ -11,7 +11,11 @@
 /* The cover's dashboard (block.html .ciq-viz). A computer: right of the words, as any reel's .rl-art. A phone: a short
  * band above the eyebrow, and gone on a short screen, where the words need the room. */
 .ciq-viz{ display:block; width:100%; height:auto; overflow:visible; }
-@media (min-width:701px){ .ciq-cover .rl-in > .ciq-viz{ width:min(40vw,560px); justify-self:end; } }
+@media (min-width:701px){
+  /* a gap between the words and the dashboard (Jeff, 2026-10-16: "need to notice spacing there": Start ran into it) */
+  .ciq-cover .rl-in{ column-gap:clamp(40px,5vw,96px); }
+  .ciq-cover .rl-in > .ciq-viz{ width:100%; max-width:520px; justify-self:end; }
+}
 @media (max-width:700px){
   .ciq-cover .rl-in{ display:flex; flex-direction:column; }
   .ciq-cover .ciq-viz{ order:-1; width:auto; max-width:100%; height:min(26vh,200px); margin:0 auto 14px; }

@@ -62,6 +62,7 @@
   var best = document.querySelector(".cir-best"), more = document.querySelector(".cir-more");
   if (!best || !more) return;
   best.appendChild(ranked[0].el); best.hidden = false;
+  try { sessionStorage.setItem("c-invest-best", ranked[0].el.querySelector("h3").textContent.trim()); } catch (e) {}   // the next step names it
   var label = document.querySelector("[data-best-label]");
   if (label) label.textContent = label.getAttribute("data-best-label");
   var cue = row.nextElementSibling && row.nextElementSibling.classList.contains("rl-cards-cue") ? row.nextElementSibling : null;

@@ -1,0 +1,48 @@
+/* conectiv/c-investment-options/c-financial-education-info-reel: the investment quiz's next step as a reel (platform
+ * only; see block.html). The quiz reel's sheet (Clinical calm in Conectiv's teal), then this page's own few lines. */
+@import url("../c-investment-quiz-reel/block.css");
+
+.cfi-fit{ margin:12px 0 0 !important; display:inline-block; padding:7px 12px; border-radius:999px; background:var(--teal-soft);
+  font:500 13px/1.3 var(--mono) !important; color:var(--teal) !important; }
+.cfi-fit[hidden]{ display:none; }
+.cfi-fit b{ font-weight:700; color:var(--ink); }
+.cfi-cover h1{ margin-top:12px; }
+.cfi-cover .rl-btns,.cfi-close .rl-btns{ margin-top:20px; }
+.cfi-art{ display:block; width:min(100%,300px); height:auto; margin:18px auto 0; }
+.cfi-art2{ display:block; width:min(100%,360px); height:auto; margin:18px auto 0; }
+
+.cfi-watch h2{ font-size:clamp(26px,7.4vw,36px); }
+.cfi-video{ margin-top:16px; }
+
+.cfi-card{ background:#fff; border:1px solid #dfe9ec; border-radius:14px; padding:18px; display:flex; flex-direction:column; }
+.cfi-ico{ width:40px; height:40px; padding:8px; border-radius:50%; background:var(--teal-soft); fill:none; stroke:var(--teal);
+  stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.cfi-card h3{ margin-top:12px; font:600 20px/1.2 var(--head); color:var(--ink); }
+.cfi-card p{ margin-top:8px !important; font-size:14.5px !important; line-height:1.45 !important; color:var(--body) !important; }
+.cfi-card ul{ list-style:none; padding:0; margin:12px 0 0; display:grid; gap:6px; }
+.cfi-card li{ position:relative; padding-left:24px; font:500 14px/1.35 var(--sans); color:var(--ink); }
+.cfi-card li::before{ content:""; position:absolute; left:0; top:2px; width:16px; height:16px; border-radius:50%;
+  background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4.5 8.2 2.3 2.3 4.7-4.9' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+
+.cfi-close h2{ font-size:clamp(28px,8vw,40px); }
+.cfi-close .rl-fine{ margin-top:18px; }
+
+@media (max-width:700px) and (max-height:760px){
+  .cfi-art{ width:min(100%,220px); } .cfi-art2{ display:none; }
+}
+@media (min-width:701px){
+  .cfi-cover .rl-in,.cfi-close .rl-in{ column-gap:clamp(40px,5vw,96px); }
+  .cfi-art{ width:100%; max-width:460px; margin:0; justify-self:end; }
+  .cfi-art2{ width:100%; max-width:520px; margin:0; justify-self:end; }
+  .cfi-cover h1,.cfi-close h2{ font-size:clamp(38px,3.6vw,52px); }
+  .cfi-video{ width:min(100%, calc((100svh - 300px) * 16 / 9)); }
+  .cfi .cfi-cards > *{ flex:0 0 300px; }
+}
+.cfi-fit{ justify-self:start; width:max-content; max-width:100%; }
+@media (min-width:701px){
+  /* three cards fit side by side on a computer: a grid, no sideways row */
+  .cfi .cfi-cards{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; overflow:visible; }
+  .cfi .cfi-cards > *{ flex:none; }
+  .cfi-what .rl-cards-cue{ display:none; }
+  .cfi-what .rl-p .rl-in,.cfi-what .rl-in{ max-width:1080px; }
+}
