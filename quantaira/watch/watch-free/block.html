@@ -1,0 +1,101 @@
+<!--
+  quantaira/watch/watch-free: the free version of /watch at quantaira.life (Jeff, 2026-10-16: "set quantaira.life to be the
+  three video swipe page that any rep can use for free"; Joe: "its a free version of the page that reps can use ... pushes
+  everyone to the sales page"). The same reel as watch-reel (the three videos, then Ready to get started?), served on its own
+  domain by a lead-gen page (leadgen_pages.page_ref, 0364) over the master copy, so there is no rep behind it:
+    - no message dock, and no button goes to a rep's link: Sign up and Download open a popup, "Message the person who sent
+      this to you" (Jeff: "we should make it popup").
+    - "Already with Quantaira? Get your own version of this page" (Joe's footer line) pinned along the TOP goes to the
+      Quantaira sales page (Jeff, 2026-10-16: "make that stick to top of page"; the Get the system button came off).
+    - A language picker (Jeff: "can you put a language selector on this page?! client would LOVE that").
+  Jeff, 2026-10-16, on the preview: the reel ends on the webinar (no closing screen), Sign up under every video, and no Download
+  buttons. Both of the bars' and Sign up's words are the reel's own.
+  WORDS: words/{language}.json, the free_* keys. No data-pf-native: nothing here is the rep's.
+-->
+<div class="rl qr qf">
+  <!-- the top bar: Joe's line for the rep who wants this page as their own on the left, the language on the right (Jeff,
+       2026-10-16: "push the get version of this page to the left in nav, language selector to right") -->
+  <div class="qf-bar">
+    <p class="qf-own">{{words.free_foot_q}} <a href="https://marketingshark.app/quantaira" data-label="Get your own version of this page">{{words.free_foot_a}}</a></p>
+    <!-- Quantaira's seven languages (systems.languages), each in its own words; ?lang= is the server's, which remembers it -->
+    <label class="qf-lang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="qf-lang-name" data-qf-lang-name>English</span><span class="qf-lang-code" data-qf-lang-code>EN</span><svg class="qf-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+      <select data-qf-lang aria-label="Language">
+        <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option>
+        <option value="hu">Magyar</option><option value="ja">日本語</option><option value="vi">Tiếng Việt</option>
+      </select></label>
+  </div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the short overview -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.watch_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.watch_pill}}</span>
+          <h1 data-in style="--d:.08s">{{words.watch_h1_a}} <span class="qp-grad" data-fit>{{words.watch_h1_b}}</span></h1>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_watch}}" data-name="the short overview" data-soon="{{words.video_soon}}"></div>
+          <p class="qf-act" data-in style="--d:.24s"><a class="qp-btn" href="#qf-pop" data-qf-pop>{{words.webinar_signup}}</a></p>
+        </div>
+        <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div><span>{{words.reel_watch_next}}</span></div>
+      </section>
+
+      <!-- 2. the full explainer -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.learn_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.learn_pill}}</span>
+          <h2 class="qr-h" data-in style="--d:.08s">{{words.learn_h1_a}} <span class="qp-grad" data-fit>{{words.learn_h1_b}}</span></h2>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_learn}}" data-name="the full explainer" data-soon="{{words.video_soon}}"></div>
+          <p class="qf-act" data-in style="--d:.24s"><a class="qp-btn" href="#qf-pop" data-qf-pop>{{words.webinar_signup}}</a></p>
+        </div>
+        <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div><span>{{words.reel_learn_next}}</span></div>
+      </section>
+
+      <!-- 3. the launch webinar -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.webinar_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.webinar_pill}}</span>
+          <h2 class="qr-h" data-in style="--d:.08s">{{words.webinar_h1_a}} <span class="qp-grad" data-fit>{{words.webinar_h1_b}}</span></h2>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar" data-soon="{{words.video_soon}}"></div>
+          <p class="qf-act" data-in style="--d:.24s"><a class="qp-btn" href="#qf-pop" data-qf-pop>{{words.webinar_signup}}</a></p>
+        </div>
+      </section>
+
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+
+  <div class="qf-pop" id="qf-pop" role="dialog" aria-modal="true" aria-labelledby="qf-pop-h" hidden>
+    <div class="qf-card">
+      <span class="qf-icon" aria-hidden="true">💬</span>
+      <h3 id="qf-pop-h">{{words.free_pop_h}}</h3>
+      <p>{{words.free_pop_p}}</p>
+      <button type="button" class="qp-btn" data-qf-close>{{words.free_pop_ok}}</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var pick = document.querySelector("[data-qf-lang]");
+  if (pick) {
+    var now = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+    if (pick.querySelector('option[value="' + now + '"]')) pick.value = now;
+    var name = document.querySelector("[data-qf-lang-name]");
+    if (name) name.textContent = pick.options[pick.selectedIndex].text;
+    var code = document.querySelector("[data-qf-lang-code]");
+    if (code) code.textContent = pick.value.toUpperCase();
+    pick.addEventListener("change", function () { var u = new URL(location.href); u.searchParams.set("lang", pick.value); location.href = u.toString(); });
+  }
+  var pop = document.getElementById("qf-pop"), last = null;
+  if (!pop) return;
+  function open(e) { e.preventDefault(); last = e.currentTarget; pop.hidden = false; pop.querySelector("[data-qf-close]").focus(); }
+  function close() { pop.hidden = true; if (last) last.focus(); }
+  document.querySelectorAll("[data-qf-pop]").forEach(function (a) { a.addEventListener("click", open); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest("[data-qf-close]")) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !pop.hidden) close(); });
+  // a swipe inside the popup must not move the reel underneath it
+  ["touchstart", "touchmove", "wheel"].forEach(function (t) { pop.addEventListener(t, function (e) { e.stopPropagation(); }, { passive: true }); });
+})();
+</script>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
