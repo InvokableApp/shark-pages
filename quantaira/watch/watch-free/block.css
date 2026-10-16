@@ -6,8 +6,8 @@
 
 .qf{ --dock-room:calc(56px + env(safe-area-inset-bottom,0px)); }
 
-/* the top bar: Joe's line on the left, the language on the right, pinned over every screen */
-.qf .qf-bar{ position:fixed; z-index:20; left:0; right:0; top:0; display:flex; align-items:center; justify-content:space-between; gap:12px;
+/* the top bar, pinned over every screen: the language, centred (Joe's line, .qf-own, waits for launch: see block.html) */
+.qf .qf-bar{ position:fixed; z-index:20; left:0; right:0; top:0; display:flex; align-items:center; justify-content:center; gap:12px;
   padding:calc(10px + env(safe-area-inset-top,0px)) 16px 22px 20px; background:linear-gradient(to bottom, rgba(0,0,0,.92) 62%, rgba(0,0,0,0)); }
 .qf .qf-own{ margin:0; max-width:none; min-width:0; text-align:left; font:500 14px/1.35 var(--qta-sans); color:var(--qta-muted); }
 .qf .qf-own a{ color:var(--qta-text); font-weight:600; text-underline-offset:4px; text-decoration-color:var(--qta-teal); }
@@ -21,8 +21,7 @@
 .qf .qf-lang .qf-caret{ width:16px; height:16px; color:var(--qta-muted); pointer-events:none; }
 .qf .qf-lang span{ font:500 14px/1 var(--qta-sans); white-space:nowrap; }
 .qf .qf-lang-code{ display:none; letter-spacing:.04em; }
-/* a phone: the globe and the language's code, so Joe's line keeps the room */
-@media (max-width:700px){ .qf .qf-lang-name{ display:none; } .qf .qf-lang-code{ display:inline; } .qf .qf-lang{ gap:5px; padding:0 8px 0 10px; } }
+/* a phone with Joe's line back: show .qf-lang-code instead of the name, so the line keeps the room */
 /* the real select covers the pill, invisible, so a tap opens the phone's own list */
 .qf .qf-lang select{ position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer; font-size:16px; }
 .qf .qf-lang select option{ color:#000; }

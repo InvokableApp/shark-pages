@@ -13,10 +13,11 @@
   WORDS: words/{language}.json, the free_* keys. No data-pf-native: nothing here is the rep's.
 -->
 <div class="rl qr qf">
-  <!-- the top bar: Joe's line for the rep who wants this page as their own on the left, the language on the right (Jeff,
-       2026-10-16: "push the get version of this page to the left in nav, language selector to right") -->
+  <!-- the top bar: the language, centred (Jeff, 2026-10-16). Joe's "Already with Quantaira? Get your own version of this page"
+       stood on its left and is off until the system is on sale (Jeff: "take off the already with quant thing till we launch");
+       to bring it back, put this first in the bar and make .qf-bar space-between:
+       <p class="qf-own">{{words.free_foot_q}} <a href="https://marketingshark.app/quantaira" data-label="Get your own version of this page">{{words.free_foot_a}}</a></p> -->
   <div class="qf-bar">
-    <p class="qf-own">{{words.free_foot_q}} <a href="https://marketingshark.app/quantaira" data-label="Get your own version of this page">{{words.free_foot_a}}</a></p>
     <!-- Quantaira's seven languages (systems.languages), each in its own words; ?lang= is the server's, which remembers it -->
     <label class="qf-lang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="qf-lang-name" data-qf-lang-name>English</span><span class="qf-lang-code" data-qf-lang-code>EN</span><svg class="qf-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
       <select data-qf-lang aria-label="Language">
