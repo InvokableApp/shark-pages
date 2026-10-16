@@ -53,7 +53,23 @@
     track.scrollTo({ top: screens[i].offsetTop, behavior: "smooth" });
   }
   function opener() { return document.querySelector(".pfn-dock") || root.querySelector(".rl-cta"); }
+  // A video keeps playing only on the screen it is on (Jeff, 2026-10-16: "when a user scrolls to the next page the
+  // videos pause"). YouTube and Vimeo take a pause through postMessage (watch.js loads YouTube with enablejsapi=1); a
+  // player that is not playing ignores it.
+  function pauseOff(i) {
+    screens.forEach(function (s, k) {
+      if (k === i) return;
+      [].forEach.call(s.querySelectorAll("video"), function (v) { try { v.pause(); } catch (e) {} });
+      [].forEach.call(s.querySelectorAll("iframe"), function (f) {
+        var src = f.getAttribute("src") || "", w = f.contentWindow;
+        if (!w) return;
+        if (/youtube(-nocookie)?\.com\/embed\//.test(src)) w.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
+        else if (/player\.vimeo\.com\//.test(src)) w.postMessage('{"method":"pause"}', "*");
+      });
+    });
+  }
   function mark(i) {
+    if (i !== on) pauseOff(i);
     on = i;
     screens.forEach(function (s, k) { s.classList.toggle("is-on", k === i); });
     var ink = LIGHT.test(screens[i].className) ? "var(--ink)" : "#fff";
