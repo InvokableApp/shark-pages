@@ -114,3 +114,11 @@
 
 /* the bar and the time as wide as the tall video above them (2026-10-16) */
 .rv-watch .bv-bar,.rv-watch .bv-time{ width:min(100%, calc((100svh - 150px) * 9 / 16)); margin-left:auto; margin-right:auto; }
+
+/* Joe, 2026-10-16: "make SWIPE UP TO WATCH THE VIDEO be bigger and maybe pulsate ... to really call attention to it" */
+.rv-swipe .rv-next{ font-size:16px !important; animation:rv-call 1.6s ease-in-out infinite; }
+.rv-swipe .rl-hint svg{ width:34px; height:34px; }
+@keyframes rv-call{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.65; transform:scale(1.07); } }
+@media (prefers-reduced-motion:reduce){ .rv-swipe .rv-next{ animation:none; } }
+/* the line under the opportunity headline, in the "wanted you to see this" font (Joe, 2026-10-16) */
+.rv-from.rv-after{ margin:18px 0 0 !important; }
