@@ -7,3 +7,45 @@
 .ciq-cover h1{ margin-top:10px; }
 .ciq .qz-opts button{ padding-top:14px; padding-bottom:14px; }
 .ciq-proc-p{ max-width:340px; margin:14px auto 0 !important; color:rgba(255,255,255,.78) !important; font-size:16px !important; }
+
+/* The cover's dashboard (block.html .ciq-viz). A computer: right of the words, as any reel's .rl-art. A phone: a short
+ * band above the eyebrow, and gone on a short screen, where the words need the room. */
+.ciq-viz{ display:block; width:100%; height:auto; overflow:visible; }
+@media (min-width:701px){ .ciq-cover .rl-in > .ciq-viz{ width:min(40vw,560px); justify-self:end; } }
+@media (max-width:700px){
+  .ciq-cover .rl-in{ display:flex; flex-direction:column; }
+  .ciq-cover .ciq-viz{ order:-1; width:auto; max-width:100%; height:min(26vh,200px); margin:0 auto 14px; }
+}
+@media (max-width:700px) and (max-height:700px){ .ciq-cover .ciq-viz{ display:none; } }
+
+.ciq-viz-line{ stroke-dasharray:1; stroke-dashoffset:1; animation:ciqDraw 2.4s cubic-bezier(.4,0,.2,1) .5s forwards, ciqRedraw 9s ease-in-out 3s infinite; }
+.ciq-viz-area{ opacity:0; animation:ciqFade 1.4s ease 1.6s forwards; }
+.ciq-viz-line2{ animation:ciqDash 14s linear infinite; }
+.ciq-viz-dot{ opacity:0; animation:ciqFade .5s ease 2.7s forwards; }
+.ciq-viz-pulse{ transform-box:fill-box; transform-origin:center; animation:ciqPulse 2.2s ease-out 2.9s infinite; }
+.ciq-viz-seg{ animation:ciqRing 1.6s cubic-bezier(.4,0,.2,1) both; }
+.ciq-viz-seg1{ animation-delay:.6s; } .ciq-viz-seg2{ animation-delay:.9s; } .ciq-viz-seg3{ animation-delay:1.2s; } .ciq-viz-seg4{ animation-delay:1.5s; }
+.ciq-viz-spin{ animation:ciqSpin 24s linear infinite; }
+.ciq-viz-bars rect{ transform-box:fill-box; transform-origin:bottom; animation:ciqBar 4.8s ease-in-out infinite; }
+.ciq-viz-bars rect:nth-child(1){ animation-delay:.0s; --h:.35; } .ciq-viz-bars rect:nth-child(2){ animation-delay:.15s; --h:.5; }
+.ciq-viz-bars rect:nth-child(3){ animation-delay:.3s; --h:.6; } .ciq-viz-bars rect:nth-child(4){ animation-delay:.45s; --h:.72; }
+.ciq-viz-bars rect:nth-child(5){ animation-delay:.6s; --h:.8; } .ciq-viz-bars rect:nth-child(6){ animation-delay:.75s; --h:.9; }
+.ciq-viz-bars rect:nth-child(7){ animation-delay:.9s; --h:.96; } .ciq-viz-bars rect:nth-child(8){ animation-delay:1.05s; --h:1; }
+.ciq-viz-chip{ opacity:0; animation:ciqChip 12s ease-in-out infinite; }
+.ciq-viz-chip:nth-child(2){ animation-delay:3s; } .ciq-viz-chip:nth-child(3){ animation-delay:6s; } .ciq-viz-chip:nth-child(4){ animation-delay:9s; }
+
+@keyframes ciqDraw{ to{ stroke-dashoffset:0; } }
+@keyframes ciqRedraw{ 0%,70%,100%{ stroke-dashoffset:0; } 78%{ stroke-dashoffset:1; } 79%{ stroke-dashoffset:1; } }
+@keyframes ciqFade{ to{ opacity:1; } }
+@keyframes ciqDash{ to{ stroke-dashoffset:-220; } }
+@keyframes ciqPulse{ 0%{ transform:scale(.6); opacity:.5; } 100%{ transform:scale(2.2); opacity:0; } }
+@keyframes ciqRing{ from{ stroke-dasharray:0 100; } }
+@keyframes ciqSpin{ to{ transform:rotate(360deg); } }
+@keyframes ciqBar{ 0%,100%{ transform:scaleY(calc(var(--h) * .55)); } 50%{ transform:scaleY(var(--h)); } }
+@keyframes ciqChip{ 0%{ opacity:0; transform:translateY(8px); } 4%,22%{ opacity:1; transform:none; } 26%,100%{ opacity:0; transform:translateY(-6px); } }
+
+@media (prefers-reduced-motion:reduce){
+  .ciq-viz *{ animation:none !important; }
+  .ciq-viz-line{ stroke-dashoffset:0; } .ciq-viz-area,.ciq-viz-dot{ opacity:1; }
+  .ciq-viz-chip{ opacity:0; } .ciq-viz-chip:first-child{ opacity:1; }
+}

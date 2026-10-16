@@ -11,8 +11,9 @@
          "c-invest"; a tile with no answer stays hidden, and with none at all the tiles are not shown);
        - the contradicting paragraph and the scores are left off;
        - the twelve categories (the page's words: name, risk, time, horizon, "Often chosen by ...", Learn More to
-         investor.gov and the rest) come closest to the visitor's risk and weekly-time answers first (block.js), in the
-         page's order when there are none. Their advantages and drawbacks, and the nine-column comparison table, stay on
+         investor.gov and the rest): ONE best fit is shown, scored on all the visitor's answers (block.js), and the
+         other eleven open under "See how the other approaches compare" (Jeff, 2026-10-16: "shouldnt this page only
+         show one style based on answers?"); with no answers (the page opened on its own) the row shows all twelve. Their advantages and drawbacks, and the nine-column comparison table, stay on
          the native page: neither fits a phone screen.
      Left off: the "Meridian" logo (neither Conectiv nor the rep).
   ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: "See Your Recommended Next Step", to /c-financial-education-info.
@@ -44,9 +45,12 @@
       <!-- 2. TINT: the categories, a sideways row -->
       <section class="rl-p rl-tint rl-wide cir-cats-s">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Best-fit investment categories</span>
+          <span class="rl-eyebrow" data-in data-best-label="Your best fit">Best-fit investment categories</span>
           <p class="cir-sub" data-in style="--d:.1s">Every investment type carries its own risks. There is no universally “best” investment, these are simply
             approaches that could align with your responses.</p>
+          <!-- the visitor's best fit, picked from all their answers by block.js; the rest stay behind the button -->
+          <div class="cir-best" data-in style="--d:.2s" hidden></div>
+          <button type="button" class="cir-more" data-in style="--d:.3s" hidden>See how the other approaches compare</button>
           <div class="rl-cards cir-cats" data-in style="--d:.2s">
             <div class="cir-cat" data-risk="4" data-time="2"><h3>Cryptocurrency</h3>
               <dl><div><dt>Risk</dt><dd>Very High</dd></div><div><dt>Time</dt><dd>Moderate</dd></div><div><dt>Horizon</dt><dd>Variable</dd></div></dl>

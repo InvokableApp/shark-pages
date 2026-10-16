@@ -27,6 +27,66 @@
           <p class="csq-lede" data-in style="--d:.22s">Answer a few quick questions and we'll show you how different investment approaches compare based on your preferences.</p>
           <div class="qz-go" data-in style="--d:.32s"><button type="button" class="rl-btn" data-qz-next>Start</button></div>
           <p class="rl-fine" data-in style="--d:.4s">Educational purposes only. This tool does not provide financial, legal, or tax advice.</p>
+          <!-- The cover's picture (Jeff, 2026-10-16: "we need something in this hero ... svg animated ... kinda complex and
+               corporate looking"): an explorer dashboard drawn from the quiz's own ideas, no numbers and no returns: a
+               line drawing in over a grid, an allocation ring filling, risk bars rising, and the results page's categories
+               cycling with their risk, time and horizon (c-investment-results-reel). Motion is CSS (block.css .ciq-viz);
+               it holds still for prefers-reduced-motion. -->
+          <svg class="ciq-viz rl-art" data-in style="--d:.2s" viewBox="0 0 560 460" role="img" aria-label="An investment style dashboard: a chart, an allocation ring and risk bars">
+            <defs>
+              <linearGradient id="ciqFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E8A83" stop-opacity=".28"/><stop offset="1" stop-color="#1E8A83" stop-opacity="0"/></linearGradient>
+              <linearGradient id="ciqLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5FB8AF"/><stop offset="1" stop-color="#1E8A83"/></linearGradient>
+              <filter id="ciqShadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0f2a33" flood-opacity=".12"/></filter>
+            </defs>
+            <!-- the main card -->
+            <g filter="url(#ciqShadow)"><rect x="20" y="24" width="420" height="300" rx="18" fill="#fff"/></g>
+            <rect x="20" y="24" width="420" height="300" rx="18" fill="none" stroke="#E3EBEF"/>
+            <g class="ciq-viz-head">
+              <circle cx="46" cy="52" r="4" fill="#1E8A83"/><rect x="58" y="47" width="108" height="10" rx="5" fill="#DCE6EA"/>
+              <rect x="300" y="44" width="38" height="16" rx="8" fill="#E3F2F0"/><rect x="344" y="44" width="38" height="16" rx="8" fill="#1E8A83"/><rect x="388" y="44" width="34" height="16" rx="8" fill="#E3F2F0"/>
+            </g>
+            <g stroke="#EEF3F5" stroke-width="1">
+              <path d="M44 110H418M44 150H418M44 190H418M44 230H418M44 270H418"/>
+              <path d="M104 92V286M168 92V286M232 92V286M296 92V286M360 92V286" stroke-dasharray="2 5"/>
+            </g>
+            <path class="ciq-viz-area" d="M44 262 C80 254 96 236 128 238 S180 214 208 220 S256 190 284 186 S334 168 360 150 S400 126 418 112 L418 286 L44 286Z" fill="url(#ciqFill)"/>
+            <path class="ciq-viz-line" d="M44 262 C80 254 96 236 128 238 S180 214 208 220 S256 190 284 186 S334 168 360 150 S400 126 418 112" fill="none" stroke="url(#ciqLine)" stroke-width="3.5" stroke-linecap="round" pathLength="1"/>
+            <path class="ciq-viz-line2" d="M44 270 C90 266 120 258 160 256 S230 246 270 240 S340 226 418 214" fill="none" stroke="#C7D5DB" stroke-width="2" stroke-dasharray="5 6"/>
+            <g class="ciq-viz-dot"><circle cx="418" cy="112" r="14" fill="#1E8A83" opacity=".16" class="ciq-viz-pulse"/><circle cx="418" cy="112" r="6" fill="#fff" stroke="#1E8A83" stroke-width="3"/></g>
+            <g class="ciq-viz-ticks" fill="#B4C3CA"><rect x="44" y="300" width="22" height="6" rx="3"/><rect x="157" y="300" width="22" height="6" rx="3"/><rect x="285" y="300" width="22" height="6" rx="3"/><rect x="396" y="300" width="22" height="6" rx="3"/></g>
+            <!-- the allocation ring -->
+            <g filter="url(#ciqShadow)"><rect x="372" y="196" width="168" height="168" rx="18" fill="#fff"/></g>
+            <rect x="372" y="196" width="168" height="168" rx="18" fill="none" stroke="#E3EBEF"/>
+            <g transform="translate(456 280) rotate(-90)">
+              <circle r="46" fill="none" stroke="#EEF3F5" stroke-width="14"/>
+              <circle class="ciq-viz-seg ciq-viz-seg1" r="46" fill="none" stroke="#1E8A83" stroke-width="14" pathLength="100" stroke-dasharray="42 100"/>
+              <circle class="ciq-viz-seg ciq-viz-seg2" r="46" fill="none" stroke="#5FB8AF" stroke-width="14" pathLength="100" stroke-dasharray="26 100" stroke-dashoffset="-43"/>
+              <circle class="ciq-viz-seg ciq-viz-seg3" r="46" fill="none" stroke="#A9DCD6" stroke-width="14" pathLength="100" stroke-dasharray="18 100" stroke-dashoffset="-70"/>
+              <circle class="ciq-viz-seg ciq-viz-seg4" r="46" fill="none" stroke="#C9A227" stroke-width="14" pathLength="100" stroke-dasharray="10 100" stroke-dashoffset="-89"/>
+            </g>
+            <g class="ciq-viz-spin" style="transform-origin:456px 280px"><circle cx="456" cy="280" r="28" fill="none" stroke="#DCE6EA" stroke-dasharray="3 7"/></g>
+            <!-- the risk bars -->
+            <g filter="url(#ciqShadow)"><rect x="40" y="344" width="300" height="100" rx="18" fill="#fff"/></g>
+            <rect x="40" y="344" width="300" height="100" rx="18" fill="none" stroke="#E3EBEF"/>
+            <rect x="60" y="362" width="70" height="8" rx="4" fill="#DCE6EA"/>
+            <g class="ciq-viz-bars">
+              <rect x="64" y="384" width="22" height="44" rx="5" fill="#A9DCD6"/>
+              <rect x="96" y="384" width="22" height="44" rx="5" fill="#A9DCD6"/>
+              <rect x="128" y="384" width="22" height="44" rx="5" fill="#5FB8AF"/>
+              <rect x="160" y="384" width="22" height="44" rx="5" fill="#5FB8AF"/>
+              <rect x="192" y="384" width="22" height="44" rx="5" fill="#1E8A83"/>
+              <rect x="224" y="384" width="22" height="44" rx="5" fill="#1E8A83"/>
+              <rect x="256" y="384" width="22" height="44" rx="5" fill="#13474A"/>
+              <rect x="288" y="384" width="22" height="44" rx="5" fill="#13474A"/>
+            </g>
+            <!-- the categories, cycling (the results page's own) -->
+            <g class="ciq-viz-chips" font-family="Inter, system-ui, sans-serif">
+              <g class="ciq-viz-chip"><rect x="56" y="84" width="236" height="64" rx="12" fill="#13212B"/><text x="72" y="110" fill="#fff" font-size="14" font-weight="600">Index Funds &amp; ETFs</text><text x="72" y="132" fill="#A9DCD6" font-size="11" letter-spacing=".06em">RISK MEDIUM · TIME VERY LOW</text></g>
+              <g class="ciq-viz-chip"><rect x="56" y="84" width="236" height="64" rx="12" fill="#13212B"/><text x="72" y="110" fill="#fff" font-size="14" font-weight="600">Dividend Investing</text><text x="72" y="132" fill="#A9DCD6" font-size="11" letter-spacing=".06em">RISK MEDIUM · HORIZON LONG</text></g>
+              <g class="ciq-viz-chip"><rect x="56" y="84" width="236" height="64" rx="12" fill="#13212B"/><text x="72" y="110" fill="#fff" font-size="14" font-weight="600">Real Estate Investing</text><text x="72" y="132" fill="#A9DCD6" font-size="11" letter-spacing=".06em">RISK MEDIUM · TIME HIGH</text></g>
+              <g class="ciq-viz-chip"><rect x="56" y="84" width="236" height="64" rx="12" fill="#13212B"/><text x="72" y="110" fill="#fff" font-size="14" font-weight="600">Your Own Skills</text><text x="72" y="132" fill="#A9DCD6" font-size="11" letter-spacing=".06em">RISK LOW–MED · HORIZON LONG</text></g>
+            </g>
+          </svg>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
         </div>
       </section>
