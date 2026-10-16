@@ -1,0 +1,7 @@
+/* conectiv/c-video/c-coffee-video: Conectiv's Alive coffee video page as a reel: the opportunity video page's look and
+ * pieces, imported (see block.html). */
+@import url("../c-opportunity-video/block.css");
+
+/* this page's video is wide (16:9): the opportunity page's frame is tall since 2026-10-16 */
+.rv-video{ width:100%; aspect-ratio:16/9; }
+.rv-watch .bv-bar,.rv-watch .bv-time{ width:100%; }

@@ -1,0 +1,95 @@
+<!--
+  conectiv/c-video/c-coffee-video: Conectiv's ALIVE COFFEE VIDEO page, a reel the rep sends one to one as a personal link (Joe,
+  2026-10-16: "Opportunity, Coneqtx, Coffee ... those are fine for launch"; his SCRIPTS doc, CONECTIV > For ALIVE Coffee: "Send
+  them swipeable funnel with this video"). The product video page's flow (c-product-video): the headline, swipe to the video,
+  swipe to "Who Comes To Mind?", four cards (Joe's product flow, as on ORYGN's product page), each with a pop-up. Platform only.
+
+  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): Joe's Alive coffee video (sent in Slack 2026-10-16, 0:52, 16:9), watched:
+     the latte flavour, 8 grams of protein, superfoods, collagen, B6, B12, magnesium, 30 ingredients, 90 calories, sachets, hot
+     or iced. It ends "click the links on the site right now and pay the wholesale price": this page has no such link, so the
+     cards follow Joe's script instead (try a sample, give feedback) and the "Myself" pop-up asks the rep for a sample, which
+     Conectiv's reps send (the Free Coffee Sample funnel; its sample line is on this page too).
+  THE VIDEO is a content value, conectiv__coffee_video (our storage, mp4), with conectiv__coffee_video_poster as its still
+  (platform migration 0370). Never empty (0047). THE PHOTO is the Free Coffee Sample opt-in's own (assets/life.webp).
+  TEXT buttons are redirect steps (/c-coffee-try, -refer, -both) to the rep's phone; with no phone, their Messenger
+  (/c-coffee-message). ⚠️ "We've let {rep} know" (No One) is only true for a personal link.
+-->
+<div class="rl rl-pf rl-look-calm rv bv cv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under a photo card -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="A superfood coffee with 8 grams of protein">
+        <div class="rl-in">
+          <div class="lk-photo bv-photo" data-in style="background-image:url('/_p/conectiv/c-free-coffee-sample/c-free-coffee-sample-optin/assets/life.webp')"></div>
+          <span class="lk-tag" data-in style="--d:.05s">Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="A superfood coffee with 8 grams of protein">A superfood coffee with <em>8 grams of protein</em></h1>
+          <p class="bv-lede" data-in style="--d:.25s">Collagen, B6, B12 and magnesium in a 90 calorie latte. This short video shows what it's all about.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.conectiv__coffee_video}}" data-poster="{{custom_values.conectiv__coffee_video_poster}}" data-name="the coffee video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (Joe's cards) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:0.20s" data-label="Myself: I'd like to try a sample">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd like to try a sample&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:0.28s" data-label="Someone I Know: they'd like to try it">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd like to try this coffee&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:0.36s" data-label="Myself and someone I know">
+              <b class="rv-n">03</b><span class="rv-t"><b>Myself + Someone I Know</b><small>Honestly I'd like to try it + know someone else who might too.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:0.44s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>No One</b><small>Not interested / don't know anyone</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease. Individual results may vary. ALIVE is a product of MyLife Wellness. Samples are provided and shipped by an independent Conectiv representative. One sample per household, while supplies last.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and ask about trying a sample!</p>
+    <a class="rv-btn" href="/c-coffee-try" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-coffee-message" data-label="Text me: I'd like to try a sample">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/c-coffee-refer" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-coffee-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Myself and someone I know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may want to try it!</p>
+    <a class="rv-btn" href="/c-coffee-both" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-coffee-message" data-label="Text me: I'd like a sample, and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No One" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -8,19 +8,25 @@
      pop-ups. The cover's headline and line are his opportunity script's own ("earning some extra cash in exchange for
      posting about my company's products on social media", "They don't need a big following", "a quick video that
      explains exactly how it works"). No company or product name, no figures: opportunity copy never carries them.
-  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): "Conectiv - Opportunity Explanation Video" (Vimeo 1214367750, 1:33,
-     16:9; watched 2026-10-16). A rep explains the company pays affiliates instead of advertising, for sharing the
-     products and services, and ends "you actually have the ability to potentially create a residual income by sharing
-     the products and services". It asks nothing directly, so the cards keep Joe's flow. The video itself says the
-     company's name and "residual income"; that is the video's, our words name neither.
-  THE VIDEO is a content value, conectiv__opportunity_video, the same for every rep (migration 0350). Never empty, or
-  Conectiv signups stop (clone_tenant, 0047). Its own poster shows the company's name: it stays inside the player.
+  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): since platform migration 0370 (2026-10-16), Joe's opportunity sizzle with
+     Anthony (sent in Slack, 2:36, 9:16, our storage, mp4; Joe: "will have Ant shoot other ones but this will work for now"),
+     watched: Conectiv puts its advertising money into affiliates, pays residual income for the life of every customer, its
+     two routes (MyLife Wellness, ConeqtX), and "once you become a member ... you'll have the ability to unlock the business
+     opportunity". It asks nothing directly, so the cards keep Joe's flow. The video says the company's name and "residual
+     income"; that is the video's, our words name neither.
+  THE VIDEO is a content value, conectiv__opportunity_video, with conectiv__opportunity_video_poster as its still, the same for
+  every rep. Never empty, or Conectiv signups stop (clone_tenant, 0047). The frame is tall.
   NO PHOTO on the cover: none of Conectiv's own photos fits, and they all show a product.
 
   The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
   told). ⚠️ "We've let {rep} know" (Not interested) is only true for a personal link: a stranger's tap reports to no one.
   TEXT buttons are redirect steps to a text with the message written (/c-opportunity-try, /c-opportunity-refer) to the
   rep's phone (conectiv__your_phone); with no phone they go to the rep's Messenger instead ([data-needs], reel.js).
+
+  2026-10-16, Joe's "Trackable link funnel edits" doc (Nueva's opportunity page, "this same copy will translate in all of the
+  opportunity funnels"): the cover reads "Here's how this opportunity works. Does anyone come to mind?" with no line under
+  it, the question is "Who comes to mind?", and a third card "I'm interested + may know someone" (/c-opportunity-both, platform
+  migration 0370) sits before Not interested.
 -->
 <div class="rl rl-pf rl-look-calm rv bv cv cv-opp" data-pf-native>
   <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
@@ -28,12 +34,11 @@
     <div class="rl-track">
 
       <!-- 1. PAPER: the headline -->
-      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Earn some extra cash">
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Here's how this opportunity works">
         <div class="rl-in">
           <span class="lk-tag" data-in>Short video</span>
           <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
-          <h1 data-in style="--d:.15s" data-label="The opportunity video">Earn some extra cash posting about products on <em>social media</em></h1>
-          <p class="bv-lede" data-in style="--d:.25s">You don't need a big following. This short video explains exactly how it works.</p>
+          <h1 data-in style="--d:.15s" data-label="Here's how this opportunity works">Here's how this opportunity works. <em>Does anyone come to mind?</em></h1>
         </div>
         <div class="rv-swipe">
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
@@ -44,24 +49,26 @@
       <!-- 2. PAPER: the video, its progress bar under it -->
       <section class="rl-p rl-paper rv-watch" aria-label="The video">
         <div class="rl-in">
-          <div class="qv rv-video" data-in data-video="{{custom_values.conectiv__opportunity_video}}" data-name="the opportunity video"></div>
+          <div class="qv rv-video" data-in data-video="{{custom_values.conectiv__opportunity_video}}" data-poster="{{custom_values.conectiv__opportunity_video_poster}}" data-name="the opportunity video"></div>
           <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
           <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
         </div>
       </section>
 
       <!-- 3. TINT: what direction (Joe's buttons, verbatim) -->
-      <section class="rl-p rl-tint rv-ask" aria-label="What direction would you like to go?">
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
         <div class="rl-in">
           <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
-          <h2 data-in style="--d:.1s">What direction would you like to go?</h2>
+          <h2 data-in style="--d:.1s">Who comes to mind?</h2>
           <div class="rv-cards">
             <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
-              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>Tell me more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
-            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.3s" data-label="I know someone who might be interested">
-              <b class="rv-n">02</b><span class="rv-t"><b>I know someone</b><small>who might be interested in this&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
-            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.4s" data-label="Not interested, doesn't know anyone">
-              <b class="rv-n">03</b><span class="rv-t"><b>Not interested</b><small>Don't know anyone</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>I'd be interested in learning more about this. Tell me more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'm interested + may know someone</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Not interested / don't know anyone</b><small>Not really sure I can help you out here&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
           </div>
           <p class="rl-fine rv-fine" data-in style="--d:.5s">Results vary. The income results described are not typical and are not a guarantee of your results.</p>
         </div>
@@ -84,6 +91,12 @@
     <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
     <p>This is a really cool opportunity built for anyone who is looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
     <a class="rv-btn" href="/c-opportunity-refer" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-opportunity-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'm interested and may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity built for anyone who is looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may be interested in learning more!</p>
+    <a class="rv-btn" href="/c-opportunity-both" data-needs="{{custom_values.conectiv__your_phone}}" data-alt-href="/c-opportunity-message" data-label="Text me: I'm interested and someone came to mind">Text <span data-rv-rep>me</span></a>
   </div></div>
   <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Not interested" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Close">&times;</button>
