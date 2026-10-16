@@ -1,0 +1,51 @@
+/* quantaira/watch/watch-reel — /watch as a reel (see block.html). The reel's moves (_shared/reel/v1) dressed in /watch's own
+ * look (../page.css: black, the faint blue light, Geist, the pill, the gradient line, the video's turning edge). */
+@import url("../../../_shared/reel/v1/reel.css");
+@import "../page.css";
+
+.qr{ --night:var(--qta-black); --on-dark:var(--qta-text); --head:var(--qta-display); --head-w:600; --sans:var(--qta-sans);
+  --cta:var(--qta-teal); --cta-ink:#00110f; --pfn-accent:var(--qta-teal); --pfn-ink:#00110f; --mark:var(--qta-teal); --shade:0,0,0;
+  --eyebrow-dark:var(--qta-muted); }
+.qr .rl-p.rl-night{ background:radial-gradient(120% 420px at 50% -120px,rgba(61,116,255,.14),rgba(139,92,255,.05) 55%,transparent 80%) no-repeat,var(--qta-black); }
+.qr .rl-in{ display:grid; gap:20px; justify-items:center; text-align:center; max-width:640px; padding-top:48px; }
+
+/* the headline: page.css sizes .qp h1; here the same for every screen's heading */
+.qr h1,.qr .qr-h{ margin:0; text-align:center; font:600 clamp(30px,9vw,56px)/1.04 var(--qta-display); letter-spacing:-.04em; text-wrap:balance; color:var(--qta-text); }
+.qr .qr-big{ font-size:clamp(38px,11vw,68px); }
+.qr .qv{ width:100%; margin-top:4px; }
+.qr .qp-pill{ margin-bottom:0; }
+
+/* a small way out under a video, for the person who is ready now */
+.qr-skip{ margin:0; font:500 15px/1.4 var(--qta-sans); }
+.qr-skip a{ color:var(--qta-text); opacity:.6; text-underline-offset:4px; text-decoration-color:rgba(238,242,255,.4); }
+.qr-skip a:hover{ opacity:1; }
+
+/* what the next swipe brings, pinned above the dock */
+.qr-next{ position:absolute; left:0; right:0; bottom:calc(var(--dock-room) - 12px); z-index:2; display:grid; justify-items:center; gap:6px;
+  color:var(--qta-muted); font:500 13px/1.3 var(--qta-sans); letter-spacing:.02em; pointer-events:none; }
+.qr-next .rl-hint{ margin:0; }
+
+.qr-close .rl-in{ gap:28px; }
+.qr-close .qp-acts{ width:100%; max-width:420px; }
+.qr-ask{ display:none; font-size:16px; }
+@media (min-width:701px){ .qr-ask{ display:block; } }
+
+/* a phone: room on the right for the Swipe rail, the same on the left so the screen stays centred */
+@media (max-width:700px){ .qr .rl-in{ padding-left:36px; padding-right:36px; } }
+
+/* a short phone: the video and the words still clear the dock */
+@media (max-height:700px){
+  .qr .rl-in{ padding-top:28px; gap:14px; }
+  .qr h1,.qr .qr-h{ font-size:clamp(26px,8vw,40px); }
+  .qr-next span{ display:none; }
+}
+/* a computer: one centred column (not the reel's words-left, picture-right), the video as big as the window allows;
+   the reel's own arrows say what is next, so the hint goes */
+@media (min-width:701px){
+  .qr .rl-p .rl-in{ grid-template-columns:minmax(0,1fr); max-width:980px; padding:48px 64px var(--dock-room); justify-items:center; }
+  .qr .rl-p .rl-in > *{ grid-column:1; }
+  .qr .qv{ width:min(100%, calc((100svh - 300px) * 16 / 9)); }
+  .qr-next{ display:none; }
+  .qr .qr-skip{ font-size:16px; }
+}
+:lang(ja) .qr h1,:lang(ja) .qr .qr-h,:lang(zh) .qr h1,:lang(zh) .qr .qr-h,:lang(ar) .qr h1,:lang(ar) .qr .qr-h{ letter-spacing:0; line-height:1.2; }

@@ -1,0 +1,72 @@
+<!--
+  quantaira/watch/watch-reel: Quantaira's /watch as one reel (Jeff, 2026-10-15: "were gonna convrt that to a swipe funnel";
+  2026-10-16: "didnt we pull those vids from youtube?" ... "keep going"). The three pages it replaces at the same address
+  (watch, learn-more, webinar) become three screens, one video each, then a screen to sign up. Same slug, so every link a
+  rep has sent opens this. The look is /watch's own (page.css: black, one faint blue light, Geist, the pill with the teal
+  dot, the gradient line, the video's slowly turning lit edge), Jeff 2026-10-15: "the look on /watch page.... can you use
+  that for these pages".
+
+  WORDS: every word comes from words/{language}.json, the three pages' approved copy (Jeff, 2026-10-01), plus one new
+  line for the last screen (reel_close_a / reel_close_b, waiting on his OK). data-label is the English the rep is told,
+  as on the old pages ("John tapped Download the app"). The videos are the same content values, per language (0336).
+  watch.js reports each video by its data-name, so the rep still hears "all 3 minutes of the short overview".
+
+  The rep is one swipe away on every screen: the dock is "Swipe up to message {rep}" (data-pf-message, the /message-me
+  redirect step, which opens their Messenger and tells them). Platform only.
+-->
+<div class="rl qr" data-pf-native data-pf-message="{{words.ask}}">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the short overview -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.watch_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.watch_pill}}</span>
+          <h1 data-in style="--d:.08s" data-label="Watch this short overview">{{words.watch_h1_a}} <span class="qp-grad" data-fit>{{words.watch_h1_b}}</span></h1>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_watch}}" data-name="the short overview" data-soon="{{words.video_soon}}"></div>
+          <p class="qr-skip" data-in style="--d:.24s"><a href="/get-the-app" data-label="Download and start now">{{words.watch_app}}</a></p>
+        </div>
+        <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div><span>{{words.watch_next}}</span></div>
+      </section>
+
+      <!-- 2. the full explainer -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.learn_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.learn_pill}}</span>
+          <h2 class="qr-h" data-in style="--d:.08s">{{words.learn_h1_a}} <span class="qp-grad" data-fit>{{words.learn_h1_b}}</span></h2>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_learn}}" data-name="the full explainer" data-soon="{{words.video_soon}}"></div>
+          <p class="qr-skip" data-in style="--d:.24s"><a href="/get-the-app" data-label="Download the app">{{words.learn_app}}</a></p>
+        </div>
+        <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div><span>{{words.learn_next}}</span></div>
+      </section>
+
+      <!-- 3. the launch webinar -->
+      <section class="rl-p rl-night rl-plain qr-v" aria-label="{{words.webinar_pill}}">
+        <div class="rl-in">
+          <span class="qp-pill" data-in>{{words.webinar_pill}}</span>
+          <h2 class="qr-h" data-in style="--d:.08s">{{words.webinar_h1_a}} <span class="qp-grad" data-fit>{{words.webinar_h1_b}}</span></h2>
+          <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar" data-soon="{{words.video_soon}}"></div>
+        </div>
+        <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div></div>
+      </section>
+
+      <!-- 4. sign up -->
+      <section class="rl-p rl-night rl-plain qr-close" aria-label="{{words.webinar_signup}}">
+        <div class="rl-in">
+          <h2 class="qr-h qr-big" data-in>{{words.reel_close_a}} <span class="qp-grad" data-fit>{{words.reel_close_b}}</span></h2>
+          <div class="qp-acts col" data-in style="--d:.12s">
+            <a class="qp-btn" href="/sign-up" data-label="Sign up">{{words.webinar_signup}}</a>
+            <a class="qp-btn grad" href="/get-the-app" data-label="Download the app">{{words.learn_app}}</a>
+          </div>
+          <!-- a computer has no dock: the old pages' "Questions? Ask me about this", here -->
+          <p class="qp-msg qr-ask" data-in style="--d:.2s"><a href="/message-me" data-label="Questions? Ask me about this"><span aria-hidden="true">💬</span> {{words.ask}}</a></p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <a href="/message-me" data-pf-message-link data-label="Questions? Ask me about this" hidden>{{words.ask}}</a>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
