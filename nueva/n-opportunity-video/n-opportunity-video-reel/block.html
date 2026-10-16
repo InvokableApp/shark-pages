@@ -9,16 +9,16 @@
   THE VIDEO is John Melton's 3-minute opportunity video (nueva_opportunity_video), from our own storage since 0275 like
   Nitro's, so the page moves on to the cards when it ends; nueva_opportunity_video_poster is its still.
   It ends "get back to the person that shared this video with you", which is what the cards are for.
-  SIGN UP stays, as a small link under the cards (the scrolling page's button; Jeff 2026-10-06: "jump right to sign up as a
-  rep"): the funnel's /n-opportunity-video-join redirect to the rep's opportunity page.
+  NO SIGN UP LINK under the cards (Joe, 2026-10-16: "Take out the ready now? Sign up ... I think it might make the ol sales
+  wall go up"). The funnel's /n-opportunity-video-join redirect stays, unused by this page.
   TEXT ME buttons are redirect steps to a text with the message written (/n-opportunity-video-try, -refer; platform
   migration 0273); with no texting number they go to the rep's Messenger (/n-opportunity-video-message).
   No company or product name in what's said: opportunity copy never names one.
   The rep sends it as a personal link and hears who opened it, how much they watched and which card they tapped (watch.js).
   2026-10-16, Joe's "Trackable link funnel edits" doc: the cover reads "Here's how this opportunity works. Does anyone come to
   mind?" (his frame for every opportunity page), the question is "Who comes to mind?", and a third card "I'm interested + may
-  know someone" (/n-opportunity-video-both, platform migration 0370) sits before Not interested. The emojis are his, on
-  trial (his note: "not sure if the emojis are gonna look good here but we can look").
+  know someone" (/n-opportunity-video-both, platform migration 0370) sits before Not interested. No emojis on the cards
+  (Joe saw them, 2026-10-16: "Remove em").
   ⚠️ "We've let {rep} know" is only true for a personal link: a stranger's tap reports to no one.
 -->
 <div class="rl rl-tone rv" data-pf-native>
@@ -53,15 +53,14 @@
           <h2 data-in style="--d:.1s">Who comes to mind?</h2>
           <div class="rv-cards">
             <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
-              <b class="rv-n">01</b><span class="rv-t"><b><span class="rv-emo" aria-hidden="true">💸</span> I'm interested myself</b><small>I'd be interested in learning more about this, tell me more..</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>I'd be interested in learning more about this, tell me more..</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
             <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
-              <b class="rv-n">02</b><span class="rv-t"><b><span class="rv-emo" aria-hidden="true">🤔</span> I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+              <b class="rv-n">02</b><span class="rv-t"><b>I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
             <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
-              <b class="rv-n">03</b><span class="rv-t"><b><span class="rv-emo" aria-hidden="true">💸🤔</span> I'm interested + may know someone interested</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+              <b class="rv-n">03</b><span class="rv-t"><b>I'm interested + may know someone interested</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
             <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
               <b class="rv-n">04</b><span class="rv-t"><b>Not interested / don't know anyone.</b><small>Not really sure I can help you out here&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
           </div>
-          <p class="rv-join" data-in style="--d:.5s"><a href="/n-opportunity-video-join" data-label="Sign up now">Ready now? Sign up</a></p>
           <p class="rl-fine rv-fine" data-in style="--d:.55s">Results vary. The income results described are not typical and are not a guarantee of your results.</p>
         </div>
       </section>
