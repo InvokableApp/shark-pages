@@ -118,3 +118,9 @@
 @media (prefers-reduced-motion:reduce){ .rv-swipe .rv-next{ animation:none; } }
 /* the line under the opportunity headline, in the "wanted you to see this" font (Joe, 2026-10-16) */
 .rv-from.rv-after{ margin:18px 0 0 !important; }
+/* A computer: the chapter has more room around the video than a phone, so the tall video leaves more of the height
+   (Joe, 2026-10-17: "Beneve opp video not formatted right"; at 1440x900 its top ran under the Sent to you by bar) */
+@media (min-width:701px){
+  .rv-video,.rv-watch .bv-bar,.rv-watch .bv-time{ width:min(100%, calc((100svh - 260px) * 9 / 16)); }
+  .rv-has-banner .rv-video,.rv-has-banner .rv-watch .bv-bar,.rv-has-banner .rv-watch .bv-time{ width:min(100%, calc((100svh - 318px) * 9 / 16)); }
+}
