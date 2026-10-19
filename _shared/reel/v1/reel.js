@@ -153,9 +153,16 @@
     // Every letter in place from the start and revealed in turn, so nothing below moves.
     var letters = [], w = document.createTreeWalker(h, NodeFilter.SHOW_TEXT), nodes = [], n;
     while ((n = w.nextNode())) nodes.push(n);
+    // One character as the eye sees it: an emoji is two code units (and more with a skin tone or a joiner), and
+    // split("") typed each half on its own, so "Give it 2 minutes 📬" showed two empty boxes (Joe, 2026-10-19).
+    var seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+    var chars = function (str) {
+      if (seg) return Array.from(seg.segment(str), function (x) { return x.segment; });
+      return str.match(/(?:[\uD800-\uDBFF][\uDC00-\uDFFF]|[\s\S])(?:[︎️⃣]|\uD83C[\uDFFB-\uDFFF]|‍(?:[\uD800-\uDBFF][\uDC00-\uDFFF]|[\s\S]))*/g) || [];
+    };
     nodes.forEach(function (t) {
       var frag = document.createDocumentFragment();
-      t.nodeValue.replace(/\s+/g, " ").split("").forEach(function (ch) {
+      chars(t.nodeValue.replace(/\s+/g, " ")).forEach(function (ch) {
         if (ch === " ") { frag.appendChild(document.createTextNode(" ")); return; }
         var s = document.createElement("span"); s.className = "tw-c"; s.textContent = ch;
         frag.appendChild(s); letters.push(s);
