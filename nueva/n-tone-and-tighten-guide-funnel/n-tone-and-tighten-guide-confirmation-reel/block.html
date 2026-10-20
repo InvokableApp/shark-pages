@@ -1,15 +1,20 @@
 <!--
   nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation-reel
-  The Tone and Tighten confirmation as a REEL, after its opt-in (Jeff, 2026-10-09). Five screens on the platform only;
-  the platform's step points here (migration 0210). GHL keeps n-tone-and-tighten-guide-confirmation, and its rules hold:
-  ⚠️ THE ONE THING THIS PAGE ASKS FOR is a message to the rep for the companion guide, so the "Swipe up to message Alex"
-  dock is on every screen. It opens the Facebook step when the rep has Messenger, and the text page when they don't
-  ([data-needs] on the Facebook button, reel.js), the same way the scrolling page hides that button.
-  ⚠️ THE CARD SAYS WHY TO GET THE GUIDE, NEVER WHAT IS IN IT (Jeff, 2026-09-22). No product named. "Get", not "Download".
-  ⚠️ EVERY WORD IS THE SCROLLING CONFIRMATION'S, verbatim, and the whole disclaimer stays (the last screen).
+  The Tone and Tighten confirmation as a REEL, after its opt-in (Jeff, 2026-10-09). Six screens on the platform only;
+  the platform's step points here (migration 0210). GHL keeps n-tone-and-tighten-guide-confirmation.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the lead asking the rep to text them a Snow Slim discount code, with the free
+  companion guide (Jeff, 2026-10-20, from Joe's Nueva call doc). It replaced "message me COMPARE for the companion
+  guide". The dock (data-pf-dock, a phone; block.js sends its tap and swipe on), the floating button (.rl-cta, a
+  computer), a flick past the last screen and the ask screen's button all go to /n-tone-and-tighten-discount-request.
+  The lead is known there by the opt-in's cookie, and the opt-in already took their mobile number, so viewing that step
+  alerts the rep by text and email to text them the code (migration 0427). Nothing to fill in here.
+  ⚠️ THE CARD SAYS WHY TO GET THE GUIDE, NEVER WHAT IS IN IT (Jeff, 2026-09-22). "Get", not "Download".
+  ⚠️ THE GUIDE SCREENS ARE THE SCROLLING CONFIRMATION'S WORDS, verbatim; the ask's words are Joe's; the disclaimer stays whole.
+  THE VIDEO (screen 2) is Katie introducing Snow Slim (45s, 720x1280, media/nueva/tt-snow-slim-katie.mp4). It plays muted
+  while its screen is on, with a tap for sound (block.js); reel.js pauses it when the screen is swiped away.
   The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
 -->
-<div class="rl rl-tone rlt" data-pf-native data-pf-message="for the companion guide" data-pf-say="Hey {first}, COMPARE! I just got the Tone and Tighten guide. Can you send me the companion guide? Thanks!" data-pf-arrive="#fcfeff">
+<div class="rl rl-tone rlt" data-pf-native data-pf-dock="Get the guide + a discount" data-rl-next="/n-tone-and-tighten-discount-request" data-pf-arrive="#fcfeff">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -32,7 +37,20 @@
         </div>
       </section>
 
-      <!-- 2. DARK: the companion guide, the one she has to ask for. It gets the picture. -->
+      <!-- 2. DARK: the free gift, Katie on Snow Slim. Muted while it plays on its own; a tap gives the sound (block.js). -->
+      <section class="rl-p rl-night rl-plain rlt-vid" aria-label="The video">
+        <div class="rl-in">
+          <span class="rlt-badge" data-in>🎁 A free gift</span>
+          <div class="rlt-video rl-art" data-in style="--d:.15s">
+            <video src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie.mp4"
+                   poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie-poster.jpg"
+                   playsinline muted loop preload="metadata" aria-label="Katie on Nueva Snow Slim"></video>
+            <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. DARK: the companion guide, which comes with the code. It gets the picture. -->
       <section class="rl-p rl-night rlt-guide">
         <div class="rl-in">
           <span class="rlt-badge" data-in>💬 The companion guide</span>
@@ -43,7 +61,7 @@
         </div>
       </section>
 
-      <!-- 3. PLAIN: why she wants it, never what is in it -->
+      <!-- 4. PLAIN: why she wants it, never what is in it -->
       <section class="rl-p rl-tint rlt-why rl-wide">
         <div class="rl-in">
           <p class="rlt-say" data-in>Fifteen ingredients claiming to burn fat are graded, and eight of them don't
@@ -60,18 +78,18 @@
         </div>
       </section>
 
-      <!-- 4. PHOTO: ask for it, with the rep -->
+      <!-- 5. PHOTO: the ask, with the rep (Jeff, 2026-10-20). -->
       <section class="rl-p rl-photo rlt-ask rl-wide">
         <div class="rl-bg" style="background-image:url('/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/card-bg.webp')"></div>
         <div class="rl-in">
           <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <p class="rlt-say" data-in style="--d:.1s">It's not emailed and it's not on this site. I'd love to send it to you.</p>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.nueva_rep_messenger}}" data-in style="--d:.25s" href="/n-tone-and-tighten-redirect-dm">Message me COMPARE on Facebook</a>
-          <p class="rlt-alt" data-in style="--d:.35s">Prefer to text? <a data-pf-message-link data-pf-text-link href="/n-tone-and-tighten-redirect-sms">Send COMPARE by message instead</a></p>
+          <p class="rlt-say" data-in style="--d:.1s">Want the companion guide and a Snow Slim discount code?</p>
+          <p class="rlt-line" data-in style="--d:.2s">Tap below and I'll text you both.</p>
+          <a class="rl-btn" data-in style="--d:.3s" href="/n-tone-and-tighten-discount-request">Get the companion guide + a discount</a>
         </div>
       </section>
 
-      <!-- 5. PLAIN: the disclaimer, whole -->
+      <!-- 6. PLAIN: the disclaimer, whole -->
       <section class="rl-p rl-paper rlt-fine rl-wide">
         <div class="rl-in">
           <p class="rl-fine">This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>
@@ -85,8 +103,8 @@
     </div>
 
     <nav class="rl-dots" aria-label="Screens"></nav>
-    <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
-    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for the companion guide" data-needs="{{custom_values.nueva_rep_messenger}}" data-alt-href="/n-tone-and-tighten-redirect-sms" href="/n-tone-and-tighten-redirect-dm">Message me for the companion guide</a>
+    <!-- A computer has no dock: the ask floats in the window, with the rep's picture (reel.js data-rep-cta). -->
+    <a class="rl-cta" data-rep-cta="Get the companion guide + a discount" href="/n-tone-and-tighten-discount-request">Get the companion guide + a discount</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

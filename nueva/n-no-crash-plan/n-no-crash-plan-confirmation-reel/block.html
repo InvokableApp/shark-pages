@@ -2,18 +2,19 @@
   nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel
   The No Crash Plan's confirmation as a REEL, following the opt-in reel (Jeff, 2026-10-09: "dude. this is it. now do
   confirmation page"). Four screens, on the platform only; the platform's step points here (migration 0207). GHL
-  keeps serving n-no-crash-plan-confirmation, and every rule written there holds here too:
-  ⚠️ THE PAGE IS THE SECOND FILTER, and its one job is the message to the rep for the supplement guide. So the
-  "Swipe up to message Alex" dock (src/lib/funnel-native.mjs) is on every screen from the first, and the guide's
-  own screen comes second. Everyday Well only, no Nueva mark, no product named; the button never says "get it now".
-  ⚠️ EVERY WORD IS THE SCROLLING CONFIRMATION'S, verbatim. Change one, change both.
+  keeps serving n-no-crash-plan-confirmation.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the lead asking the rep to text them a Nueva Beyond discount code, with the
+  free supplement guide (Jeff, 2026-10-20, from Joe's Nueva call doc). It replaced "message me for the supplement guide".
+  The dock (data-pf-dock, a phone; block.js sends its tap and swipe on), the floating button (.rl-cta, a computer), a
+  flick past the last screen and the ask's button all go to /n-no-crash-plan-discount-request. The lead is known there
+  by the opt-in's cookie, and the opt-in already took their mobile number, so viewing that step alerts the rep by text
+  and email to text them the code (migration 0427). Nothing to fill in here.
+  Everyday Well only: no Nueva mark and no product named on the page (the rep's alert names Nueva Beyond).
+  ⚠️ THE GUIDE'S WORDS ARE THE SCROLLING CONFIRMATION'S, verbatim; the ask's words are Joe's.
   Shares the opt-in reel's styles and moves (block.css imports it, block.js loads it); this block adds the typed
   headline, the rep's picture and its own colours.
-  THE ASK COMES WITH ITS WORDS (Jeff, 2026-10-13): data-pf-say is the message the lead sends (the text step's own words;
-  {first} is the rep). The dock and every data-pf-ask open a card (src/assets/funnel-native.js sayCard): the message, tap
-  to copy, then Message on Facebook (copies it again) or Send a text. Opening it alerts no one; the two buttons do.
 -->
-<div class="rl rlc" data-pf-native data-pf-message="for the free supplement guide" data-pf-say="Hey {first}, I just got the No Crash Plan, can you send me the supplement guide? Thanks!" data-pf-arrive="#faf9f5">
+<div class="rl rlc" data-pf-native data-pf-dock="Get the guide + a discount" data-rl-next="/n-no-crash-plan-discount-request" data-pf-arrive="#faf9f5">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -47,7 +48,7 @@
         </div>
       </section>
 
-      <!-- 3. PLAIN: what is in it, and who to ask. The rep's own picture (funnel-native data), big, with the check. -->
+      <!-- 3. PLAIN: what is in it, then the ask (Joe's words), with the rep's own picture (funnel-native data), big, with the check. -->
       <section class="rl-p rl-tint rlc-ask">
         <div class="rl-in">
           <p data-in>The plan covers what to do. This one covers what people take for cravings, focus and
@@ -55,10 +56,9 @@
             gummies, caffeine. Sixteen of them, each with a straight verdict, and about half don't
             survive it.</p>
           <div class="rlc-who" data-in style="--d:.2s" hidden><span class="rlc-pic"></span><span class="rlc-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <p class="rl-note" data-in style="--d:.3s">It isn't a download link. Message whoever sent you this and they'll
-            send it over, and you can ask them whatever you want.</p>
-          <a class="rlc-btn rlc-msg" data-pf-message-link data-pf-ask data-in style="--d:.4s" href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-supplement-dm-redirect">Message me for the supplement guide</a>
-          <p class="rlc-alt" data-in style="--d:.5s"><a data-pf-text-link href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-sms-redirect">Or send a text instead</a></p>
+          <p class="rlc-q" data-in style="--d:.3s">Want the supplement guide and a Nueva Beyond discount code?</p>
+          <p class="rlc-line" data-in style="--d:.35s">Tap below and I'll text you both.</p>
+          <a class="rlc-btn rlc-msg" data-in style="--d:.4s" href="/n-no-crash-plan-discount-request">Get the supplement guide + a discount</a>
         </div>
       </section>
 
@@ -76,8 +76,8 @@
     </div>
 
     <nav class="rl-dots" aria-label="Screens"></nav>
-    <!-- A computer has no dock: the ask and the arrows live in the frame. -->
-    <a class="rl-cta" data-pf-ask href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-supplement-dm-redirect">Message me for the supplement guide</a>
+    <!-- A computer has no dock: the ask and the arrows live in the frame (block.js adds the rep's picture). -->
+    <a class="rl-cta" href="/n-no-crash-plan-discount-request">Get the supplement guide + a discount</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

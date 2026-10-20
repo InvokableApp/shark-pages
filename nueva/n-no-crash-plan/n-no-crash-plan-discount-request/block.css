@@ -1,0 +1,21 @@
+/* nueva/n-no-crash-plan/n-no-crash-plan-discount-request — the discount code request (platform only; see block.html).
+ * One screen in the No Crash Plan reels' look: the opt-in reel's sheet is imported for the colours and the type; the
+ * terracotta is the confirmation's ask colour. */
+@import url("../n-no-crash-plan-reel/block.css");
+
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rlr .rl-p{ overflow-y:auto; justify-content:safe center; }
+.rlr .rl-in{ padding-bottom:48px; }
+.rlr-pill{ display:inline-block; font-size:14px; font-weight:650; padding:8px 14px; border-radius:999px; background:var(--tint); color:var(--sage-deep); margin-bottom:18px; }
+.rlr .rlr-big{ font-family:var(--serif); font-size:clamp(25px,7vw,31px); line-height:1.2; color:var(--ink); margin:0; }
+.rlr .rlr-big b{ font-weight:600; color:var(--alert); }
+.rlr p b{ color:var(--ink); font-weight:650; }
+
+@media (max-width:700px) and (max-height:620px){
+  .rlr .rl-in{ padding-top:32px; } .rlr .rlr-big{ font-size:22px; } .rlr p{ font-size:15px; }
+}
+@media (min-width:701px){
+  .rlr .rl-in{ padding-bottom:72px; }
+  .rlr-pill{ justify-self:start; }
+  .rlr .rlr-big{ font-size:clamp(34px,3.2vw,44px); max-width:22em; }
+  }

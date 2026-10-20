@@ -9,7 +9,22 @@
 .rlt-top p b{ color:var(--ink); }
 .rlt-top .rl-hint{ color:var(--teal-d); }
 
-/* 2. the companion guide */
+/* 2. the free gift: Katie's video, phone shaped, as tall as the screen allows under the badge */
+.rlt-vid .rl-in{ text-align:center; }
+.rlt-video{ position:relative; width:min(100%, calc((100svh - var(--dock-room) - 150px) * 9 / 16)); max-width:340px; aspect-ratio:9/16;
+  margin:18px auto 0; border-radius:22px; overflow:hidden; background:#000; box-shadow:0 24px 60px -18px rgba(0,0,0,.7); }
+.rlt-video video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+.rlt-sound{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(16,42,42,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; bottom:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
+
+/* 3. the companion guide */
 .rlt-badge{ display:inline-block; font-size:13px; font-weight:700; padding:7px 13px; border-radius:999px; background:rgba(255,255,255,.1); color:var(--teal-l); }
 .rlt-cover{ width:52%; max-width:230px; margin:22px 0 0; transform:rotate(-3deg); }
 .rlt-cover[data-in]{ transform:translateY(26px) rotate(-3deg); }
@@ -17,7 +32,7 @@
 .rlt-free{ font-size:14px !important; margin:14px 0 6px !important; }
 .rlt-guide h2{ font-size:clamp(26px,7.4vw,32px); }
 
-/* 3. why she wants it */
+/* 4. why she wants it */
 .rlt-say{ font-family:var(--head); font-weight:800 !important; font-size:clamp(26px,7.4vw,32px) !important; line-height:1.15 !important; letter-spacing:-.03em; color:var(--ink) !important; margin:0 !important; }
 .rlt-gets{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:14px; }
 .rlt-gets li{ position:relative; padding-left:32px; font-size:16.5px; line-height:1.5; color:var(--body); }
@@ -25,16 +40,16 @@
 .rlt-gets li::after{ content:""; position:absolute; left:7px; top:7px; width:5px; height:9px; border:solid #fff; border-width:0 2.2px 2.2px 0; transform:rotate(45deg); }
 .rlt-gets b{ color:var(--ink); }
 
-/* 4. ask for it */
+/* 5. the ask: Joe's question, his line, one button */
 .rlt-ask .rl-bg{ background-position:62% center; }
 .rlt-ask .rlt-say{ color:#fff !important; }
+.rlt-line{ font-size:17px !important; line-height:1.5 !important; color:rgba(255,255,255,.92) !important; margin:14px 0 0 !important; max-width:30em; }
 .rlt-ask .rl-who-pic{ box-shadow:0 0 0 3px #fff,0 0 0 5px var(--teal); background:var(--teal-d); }
 .rlt-ask .rl-who-check{ box-shadow:0 0 0 3px #fff; }
-.rlt-ask .rl-btn{ display:inline-block; margin-top:24px; padding:15px 24px; background:var(--teal); border-color:var(--teal); color:var(--night); font-weight:800; }
-.rlt-alt{ font-size:15px !important; margin-top:14px !important; }
-.rlt-alt a{ color:#fff; font-weight:600; }
+.rlt-ask .rl-btn{ display:inline-block; margin-top:24px; padding:15px 24px; background:var(--teal); border:1.5px solid var(--teal); color:var(--night);
+  font:800 16px var(--sans); cursor:pointer; }
 
-/* 5. the disclaimer */
+/* 6. the disclaimer */
 .rlt-fine .rl-fine{ font-size:12.5px !important; }
 .rlt-fine .rl-fine:first-child{ margin-top:0 !important; }
 
@@ -42,6 +57,7 @@
   .rlt-top h1{ font-size:28px; } .rlt-pill{ margin-bottom:12px; font-size:12.5px; }
   .rlt-cover{ width:40%; margin-top:16px; }
   .rlt-say{ font-size:24px !important; } .rlt-gets{ margin-top:16px; gap:10px; } .rlt-gets li{ font-size:15px; }
+  .rlt-line{ font-size:15.5px !important; }
   .rlt-fine .rl-fine{ font-size:11.5px !important; }
 }
 @media (max-width:700px) and (max-height:620px){
@@ -51,7 +67,11 @@
   .rlt-fine .rl-fine{ font-size:10.5px !important; line-height:1.4 !important; margin-top:8px !important; }
 }
 @media (min-width:701px){
-  .rlt-pill,.rlt-badge,.rlt-ask .rl-btn{ justify-self:start; }   /* in the chapter's grid a pill and a button hug their words */
+  .rlt-pill,.rlt-badge,.rlt-ask .rl-btn{ justify-self:start; }
+  .rlt-vid .rl-in{ grid-template-columns:minmax(0,1fr); justify-items:center; text-align:center; }   /* the video alone, centred */
+  .rlt-vid .rl-in > .rlt-video{ grid-column:1; grid-row:auto; width:min(340px, calc((100vh - 250px) * 9 / 16)); margin:18px 0 0; }
+  .rlt-vid .rlt-badge{ justify-self:center; }
+  .rlt-line{ font-size:20px !important; }   /* in the chapter's grid a pill and a button hug their words */
   .rlt-top .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
   .rlt-top h1{ font-size:clamp(44px,4.4vw,60px); }
   .rlt-cover{ width:min(340px,28vw); max-width:none; }

@@ -1,0 +1,23 @@
+<!--
+  nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-discount-request
+  The page a lead lands on after tapping "Get the companion guide + a discount" on the confirmation reel (Jeff, 2026-10-20, from
+  Joe's Nueva call doc): a Snow Slim discount code.
+  Platform only. ⚠️ ITS VIEW IS THE ALERT: the step /n-tone-and-tighten-discount-request starts "Nueva - Tone and Tighten
+  Guide - Discount Request" (migration 0427), which tags the lead, marks them hot, and texts and emails the rep to text
+  the code. Known leads only (the opt-in's cookie); once per lead.
+  ⚠️ THE WORDS ARE JOE'S POPUP COPY as Jeff set them (2026-10-20): the rep texts the code; nothing for the lead to do.
+  The look is the confirmation reel's (one screen of it); the page fades up out of its own paper (data-pf-arrive).
+-->
+<div class="rl rl-tone rlr" data-pf-native data-pf-arrive="#fcfeff">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlr-big" data-in style="--d:.1s">I'll text you a <b>special discount code within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
