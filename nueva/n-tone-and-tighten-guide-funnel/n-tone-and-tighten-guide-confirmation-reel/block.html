@@ -1,25 +1,28 @@
 <!--
   nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation-reel
-  The Tone and Tighten confirmation as a REEL, after its opt-in (Jeff, 2026-10-09). Six screens on the platform only;
-  the platform's step points here (migration 0210). GHL keeps n-tone-and-tighten-guide-confirmation.
-  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the lead asking the rep to text them a Snow Slim discount code, with the free
-  supplement (companion) guide (Jeff, 2026-10-20, from Joe's Nueva call doc). It replaced "message me COMPARE for the
-  companion guide".
-  ⚠️ THE CLAIM IS ON THIS PAGE (Joe, 2026-10-20: "just modify the confirmation page to do this ... the popup comes up ...
-  dont need the other page"). The dock (data-pf-dock, a phone), the floating button (.rl-cta, a computer), a flick past
-  the last screen and the ask screen's button ([data-rl-claim-open]) all open the claim card (.rlt-claim, Joe's words),
-  and the first open fetches /n-tone-and-tighten-discount-request in the background (data-rl-claim, block.js). The lead
-  is known there by the opt-in's cookie, and the opt-in already took their mobile number, so that view still alerts the
-  rep by text and email to text them the code (migration 0427), exactly as a visit to the page did. The hrefs stay on
-  the buttons, so with no script a tap still lands on that page. The card's number is the rep's own phone
-  (nueva_rep_phone, tap to text DISCOUNT on a phone); with no number set, that last paragraph leaves the card.
-  ⚠️ THE CARD SAYS WHY TO GET THE GUIDE, NEVER WHAT IS IN IT (Jeff, 2026-09-22). "Get", not "Download".
-  ⚠️ THE GUIDE SCREENS ARE THE SCROLLING CONFIRMATION'S WORDS, verbatim; the ask's words are Joe's; the disclaimer stays whole.
-  THE VIDEO (screen 2) is Katie introducing Snow Slim (45s, 720x1280, media/nueva/tt-snow-slim-katie.mp4). It plays muted
-  while its screen is on, with a tap for sound (block.js); reel.js pauses it when the screen is swiped away.
+  The Tone and Tighten confirmation as a REEL, after its opt-in. Platform only; the platform's step points here (migration
+  0210). GHL keeps n-tone-and-tighten-guide-confirmation.
+  ⚠️ THREE SCREENS, JEFF'S "SWIPE UP FOR A BONUS" FRAME (2026-10-20):
+    1. you are in (the guide's own screen, its words unchanged); the dock says "Swipe up for a bonus 🎁" and takes them to 2
+    2. the bonus: Katie's Snow Slim video on top, the BONUS OFFER coupon card (the supplement companion guide on the left,
+       the write-up on the right), the claim button, "Yes, text me the guide + my coupon code" (Jeff, 2026-10-20: "these
+       buttons should say 'yes, text me the...'")
+    3. the guide "ad": what is in the supplement companion guide (from the guide's own file, n-tone-and-tighten-companion),
+       the same button, an info-only "Recommended supplement: Snow Slim" card (true to the guide; no button, no photo),
+       and the disclaimer, whole, as small print
+  ⚠️ ONE NAME: "the supplement companion guide" everywhere on this page and in its popup.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup (.rlt-claim, Joe's
+  words) and, on the first open, fetch /n-tone-and-tighten-discount-request in the background (data-rl-claim, block.js): that
+  step's view is the rep's alert (migration 0427), for a lead the opt-in's cookie names. The dock only moves them to the
+  bonus, and a flick past the last screen does nothing (block.js), so scrolling to the end never alerts the rep. The hrefs
+  stay on the buttons, so with no script a tap still lands on the request page.
+  "I" is the rep: the coupon card says "Texted to you by {rep first name}" with their picture (block.js, from #pfn-data).
+  THE VIDEO is Katie introducing Snow Slim (45s, 720x1280, media/nueva/tt-snow-slim-katie.mp4, Joe's Slack file compressed;
+  2026-10-20 the same file again). It plays muted while its screen is on, with a tap for sound (block.js); reel.js pauses it
+  when the screen is swiped away.
   The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
 -->
-<div class="rl rl-tone rlt" data-pf-native data-pf-dock="Get the guide + discount code" data-rl-claim="/n-tone-and-tighten-discount-request" data-pf-arrive="#fcfeff">
+<div class="rl rl-tone rlt" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/n-tone-and-tighten-discount-request" data-pf-arrive="#fcfeff">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -36,92 +39,86 @@
             <a class="rl-btn" href="/n-tone-and-tighten-guide-read">READ IT ONLINE</a>
             <a class="rl-btn rl-btn-2" data-needs="{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}" href="https://{{custom_values.nueva_tone_and_tighten_guide_pdf_url}}" target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
           </div>
-          <!-- Jeff, 2026-10-09, on the No Crash Plan: "a little swipe indicator that says swipe for a free gift". The gift is
-               the companion guide, the next screen. A computer reads "Scroll" (reel.js). -->
-          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a free gift</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+          <!-- The swipe indicator (Jeff, 2026-10-09) names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a bonus</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
         </div>
       </section>
 
-      <!-- 2. DARK: the free gift, Katie on Snow Slim. Muted while it plays on its own; a tap gives the sound (block.js). -->
-      <section class="rl-p rl-night rl-plain rlt-vid" aria-label="The video">
+      <!-- 2. DARK: the bonus. Katie's video on top (muted, a tap for sound), the coupon card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Your bonus">
         <div class="rl-in">
-          <span class="rlt-badge" data-in>🎁 A free gift</span>
-          <div class="rlt-video rl-art" data-in style="--d:.15s">
-            <video src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie.mp4"
-                   poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie-poster.jpg"
-                   playsinline muted loop preload="metadata" aria-label="Katie on Nueva Snow Slim"></video>
-            <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie.mp4"
+                     poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/tt-snow-slim-katie-poster.jpg"
+                     playsinline muted loop preload="metadata" aria-label="Katie on Nueva Snow Slim"></video>
+              <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+            </div>
           </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Bonus offer</span>
+            <img class="rlb-cover" src="/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
+                 width="772" height="1000" alt="The supplement companion guide, Which One Is Right For Me?">
+            <div class="rlb-copy">
+              <p class="rlb-h">Free supplement companion guide</p>
+              <p class="rlb-plus">+ a bonus Snow Slim coupon code</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Both sent to you by text</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/n-tone-and-tighten-discount-request">Yes, text me the guide + my coupon code</a>
         </div>
       </section>
 
-      <!-- 3. DARK: the companion guide, which comes with the code. It gets the picture. -->
-      <section class="rl-p rl-night rlt-guide">
+      <!-- 3. PAPER: the guide "ad", the button again, the recommended supplement (information only), the small print. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="The supplement companion guide">
         <div class="rl-in">
-          <span class="rlt-badge" data-in>💬 The companion guide</span>
-          <img class="rl-book rlt-cover rl-art" data-in style="--d:.15s" src="/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
-               width="772" height="1000" alt="The cover of the companion guide, Which One Is Right For Me?">
-          <p class="rlt-free" data-in style="--d:.25s"><b>Free</b> · Ten pages</p>
-          <h2 data-in style="--d:.35s">Get The Companion Guide That Tells You Which Supplements Are Worth The Money</h2>
-        </div>
-      </section>
-
-      <!-- 4. PLAIN: why she wants it, never what is in it -->
-      <section class="rl-p rl-tint rlt-why rl-wide">
-        <div class="rl-in">
-          <p class="rlt-say" data-in>Fifteen ingredients claiming to burn fat are graded, and eight of them don't
-            pass.</p>
-          <ul class="rlt-gets">
-            <li data-in style="--d:.2s"><b>Know before you buy.</b> No standing in the aisle holding a bottle you have
-              no way to judge.</li>
-            <li data-in style="--d:.35s"><b>Spend it on what actually changes your shape.</b> A bottle a month for a
-              year is real money, and more than half of what is sold for fat loss does not earn
-              it.</li>
-            <li data-in style="--d:.5s"><b>Judge any label yourself.</b> It takes about a minute once you know what you
-              are looking at.</li>
+          <span class="rlb-eyebrow" data-in>The supplement companion guide</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <img class="rlb-adcover" src="/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/companion-cover.jpg"
+                 width="772" height="1000" alt="The cover of Which One Is Right For Me?">
+            <h2>Inside the guide</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">Every weight supplement, graded</li>
+            <li data-in style="--d:.3s">4 questions to ask before you buy</li>
+            <li data-in style="--d:.4s">Which ones are worth your money</li>
           </ul>
-        </div>
-      </section>
-
-      <!-- 5. PHOTO: the ask, with the rep (Jeff, 2026-10-20). -->
-      <section class="rl-p rl-photo rlt-ask rl-wide">
-        <div class="rl-bg" style="background-image:url('/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation/assets/card-bg.webp')"></div>
-        <div class="rl-in">
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <p class="rlt-say" data-in style="--d:.1s">Want the supplement guide and a Snow Slim discount code?</p>
-          <p class="rlt-line" data-in style="--d:.2s">Tap below and I'll text you both.</p>
-          <a class="rl-btn" data-in style="--d:.3s" data-rl-claim-open href="/n-tone-and-tighten-discount-request">Get the guide + discount code</a>
-        </div>
-      </section>
-
-      <!-- 6. PLAIN: the disclaimer, whole -->
-      <section class="rl-p rl-paper rlt-fine rl-wide">
-        <div class="rl-in">
-          <p class="rl-fine">This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>
-          <p class="rl-fine">We are not physicians, registered dietitians, physiotherapists, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
-          <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any exercise or nutrition program, especially if you are pregnant, nursing, have an injury or an existing medical condition, or take medication. Stop any exercise that causes pain.</p>
-          <p class="rl-fine">Individual results vary and no particular outcome is guaranteed.</p>
-          <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. Nueva products are not intended to diagnose, treat, cure or prevent any disease.</p>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/n-tone-and-tighten-discount-request">Yes, text me the guide + my coupon code</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img" src="/_p/nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-product/assets/bottle.webp" width="924" height="920" alt="Two bottles of Nueva Snow Slim">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">Recommended supplement</span>
+              <p class="rlb-rec-h">Snow Slim</p>
+              <p>One tablespoon a day, no stimulants.</p>
+            </div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">This guide is general fitness and wellness information for educational purposes only. It is not medical, nutritional, diagnostic, or treatment advice, and it is not a weight loss program.</p>
+            <p class="rl-fine">We are not physicians, registered dietitians, physiotherapists, or licensed healthcare providers. This content is not a substitute for professional advice.</p>
+            <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any exercise or nutrition program, especially if you are pregnant, nursing, have an injury or an existing medical condition, or take medication. Stop any exercise that causes pain.</p>
+            <p class="rl-fine">Individual results vary and no particular outcome is guaranteed.</p>
+            <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. Nueva products are not intended to diagnose, treat, cure or prevent any disease.</p>
+          </div>
         </div>
       </section>
 
     </div>
 
     <nav class="rl-dots" aria-label="Screens"></nav>
-    <!-- A computer has no dock: the ask floats in the window, with the rep's picture (reel.js data-rep-cta). -->
-    <a class="rl-cta" data-rep-cta="Get the supplement guide + discount code" data-rl-claim-open href="/n-tone-and-tighten-discount-request">Get the guide + discount code</a>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 
-  <!-- THE CLAIM CARD: Joe's popup words (2026-10-20), opened by every claim button (block.js). "skip the code" is "keep the
-       code" for the grammar, and the second "unknown senders" is capitalised like the first. -->
+  <!-- THE CLAIM POPUP: Joe's words (2026-10-20), opened only by the claim buttons (block.js). "supplement guide" is "supplement
+       companion guide" (Jeff's one name), "skip the code" is "keep the code" for the grammar, and the second "unknown
+       senders" is capitalised like the first. -->
   <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
     <div class="rlt-claim-card">
       <button type="button" class="rlt-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       <span class="rlt-pill">✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
-      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>supplement guide</b> AND <b>special discount code via text message within 24 hours</b> (usually much sooner!).</p>
+      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>supplement companion guide</b> AND <b>special discount code via text message within 24 hours</b> (usually much sooner!).</p>
       <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
-      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure you receive your code with no issues?</b> Simply text <b>“DISCOUNT”</b> to <a class="rlt-claim-num" data-claim-num href="sms:{{custom_values.nueva_rep_phone}}?&amp;body=DISCOUNT">{{custom_values.nueva_rep_phone}}</a> to keep the code from potentially landing in your “Unknown Senders” folder.</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure you receive your code with no issues?</b> Simply text <b>“DISCOUNT”</b> to <a class="rlt-claim-num" data-claim-num data-word="DISCOUNT" href="sms:{{custom_values.nueva_rep_phone}}?&amp;body=DISCOUNT">{{custom_values.nueva_rep_phone}}</a> to keep the code from potentially landing in your “Unknown Senders” folder.</p>
       <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Got it</button>
     </div>
   </div>

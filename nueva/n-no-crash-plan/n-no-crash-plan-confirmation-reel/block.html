@@ -1,21 +1,28 @@
 <!--
   nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel
-  The No Crash Plan's confirmation as a REEL, following the opt-in reel (Jeff, 2026-10-09: "dude. this is it. now do
-  confirmation page"). Four screens, on the platform only; the platform's step points here (migration 0207). GHL
-  keeps serving n-no-crash-plan-confirmation.
-  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the lead asking the rep to text them the free supplement guide (Joe's request
-  page copy, 2026-10-20, is the source of truth: the guide by text, no discount code named; this morning's version also
-  offered a Nueva Beyond discount code). It replaced "message me for the supplement guide".
-  The dock (data-pf-dock, a phone; block.js sends its tap and swipe on), the floating button (.rl-cta, a computer), a
-  flick past the last screen and the ask's button all go to /n-no-crash-plan-discount-request. The lead is known there
-  by the opt-in's cookie, and the opt-in already took their mobile number, so viewing that step alerts the rep by text
-  and email to text them (migration 0427). Nothing to fill in here.
-  Everyday Well only: no Nueva mark and no product named on the page (the rep's alert names Nueva Beyond).
-  ⚠️ THE GUIDE'S WORDS ARE THE SCROLLING CONFIRMATION'S, verbatim; the ask's words are Joe's.
-  Shares the opt-in reel's styles and moves (block.css imports it, block.js loads it); this block adds the typed
-  headline, the rep's picture and its own colours.
+  The No Crash Plan's confirmation as a REEL, following the opt-in reel (Jeff, 2026-10-09). Platform only; the platform's
+  step points here (migration 0207). GHL keeps serving n-no-crash-plan-confirmation.
+  ⚠️ THREE SCREENS, JEFF'S "SWIPE UP FOR A BONUS" FRAME (2026-10-20), the same as the Tone and Tighten confirmation:
+    1. it's in your inbox (its words unchanged); the dock says "Swipe up for a bonus 🎁" and takes them to 2
+    2. the bonus: a video spot on top (a still until the Nueva Beyond video exists; see THE VIDEO SPOT below), the BONUS
+       OFFER coupon card (the supplement companion guide on the left, the write-up on the right) and the claim button,
+       "Yes, text me the guide + my coupon code" (Jeff, 2026-10-20: "these buttons should say 'yes, text me the...'")
+    3. the guide "ad": what is in the supplement companion guide (from the guide's own file, n-no-crash-plan-companion), the
+       same button, an info-only "Recommended supplement: Nueva Beyond Daily" card (true to the guide; no button, no photo),
+       and the disclaimer as small print
+  ⚠️ ONE NAME: "the supplement companion guide" everywhere on this page and in its popup.
+  ⚠️ NUEVA BEYOND IS NAMED ON THE PAGE NOW (Jeff's frame: the coupon and the recommended supplement). Until 2026-10-20 this
+  page was Everyday Well only, with the product named only in the rep's alert.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup (Joe's words,
+  adapted for a Nueva Beyond code; his keyword SUPPLEMENTS) and, on the first open, fetch /n-no-crash-plan-discount-request
+  in the background (data-rl-claim, block.js): that step's view is the rep's alert (migration 0427). The dock only moves them
+  to the bonus, and a flick past the last screen does nothing, so scrolling to the end never alerts the rep. The hrefs stay
+  on the buttons, so with no script a tap still lands on the request page.
+  "I" is the rep: the coupon card says "Texted to you by {rep first name}" with their picture (block.js, from #pfn-data).
+  ⚠️ THE GUIDE'S WORDS on screen 1 are the scrolling confirmation's, verbatim. Shares the opt-in reel's styles and moves
+  (block.css imports it, block.html loads reel.js); this block adds the typed headline, the bonus frame and its colours.
 -->
-<div class="rl rlc" data-pf-native data-pf-dock="Get the supplement guide" data-rl-next="/n-no-crash-plan-discount-request" data-pf-arrive="#faf9f5">
+<div class="rl rlc" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/n-no-crash-plan-discount-request" data-pf-arrive="#faf9f5">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -33,53 +40,86 @@
             <a class="rlc-btn" href="https://{{custom_values.nueva_main_url}}/n-no-crash-plan-read">Read it online</a>
             <a class="rlc-btn rlc-btn-2" href="https://{{custom_values.nueva_no_crash_plan_guide_pdf_url}}">Download the PDF</a>
           </div>
-          <!-- Jeff, 2026-10-09: "right under the download the pdf button ... a little swipe indicator that says swipe for a
-               free gift". The gift is the supplement guide, two screens on. A computer reads "Scroll" (block.js). -->
-          <div class="rl-hint rlc-gift"><span class="rlc-gift-word">Swipe for a free gift</span><span class="rlc-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+          <!-- The swipe indicator (Jeff, 2026-10-09) names the next screen, the bonus. A computer reads "Scroll" (block.js). -->
+          <div class="rl-hint rlc-gift"><span class="rlc-gift-word">Swipe for a bonus</span><span class="rlc-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
         </div>
       </section>
 
-      <!-- 2. DARK: the second guide, the one she has to ask for. It gets the picture. -->
-      <section class="rl-p rl-night rlc-guide">
+      <!-- 2. DARK: the bonus. The coupon card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>One more thing, also free</span>
-          <img class="rl-book rlc-cover rl-art" data-in style="--d:.15s" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation/assets/supplement-cover.jpg"
-               width="695" height="900" alt="The cover of What To Take, And What To Skip">
-          <h2 data-in style="--d:.35s">The second guide is about what to take</h2>
+          <!-- ⚠️ THE VIDEO SPOT (Jeff, 2026-10-20): the same size and place as Katie's video on Tone and Tighten. There is no
+               Nueva Beyond video yet, so it shows a still (the guide's cover). TO ADD THE VIDEO, set data-video-src to its
+               address (a 9:16 mp4 hosted like media/nueva/tt-snow-slim-katie.mp4) and data-video-poster to its first
+               frame; block.js swaps the still for the video, muted with a tap for sound. Nothing else changes. -->
+          <div class="rlb-vidbox" data-video-src="" data-video-poster="">
+            <div class="rlt-video rlb-still"><img src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel/assets/video-still.webp"
+                 width="720" height="1280" alt="The supplement companion guide, What To Take, And What To Skip"></div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.1s">
+            <span class="rlb-tag">Bonus offer</span>
+            <img class="rlb-cover" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation/assets/supplement-cover.jpg"
+                 width="695" height="900" alt="The supplement companion guide, What To Take, And What To Skip">
+            <div class="rlb-copy">
+              <p class="rlb-h">Free supplement companion guide</p>
+              <p class="rlb-plus">+ a bonus Nueva Beyond coupon code</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Both sent to you by text</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.15s" data-rl-claim-open href="/n-no-crash-plan-discount-request">Yes, text me the guide + my coupon code</a>
         </div>
       </section>
 
-      <!-- 3. PLAIN: what is in it, then the ask (Joe's words), with the rep's own picture (funnel-native data), big, with the check. -->
-      <section class="rl-p rl-tint rlc-ask">
+      <!-- 3. PAPER: the guide "ad", the button again, the recommended supplement (information only), the small print. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="The supplement companion guide">
         <div class="rl-in">
-          <p data-in>The plan covers what to do. This one covers what people take for cravings, focus and
-            steady energy: green tea extract, chromium, berberine, saffron, the apple cider vinegar
-            gummies, caffeine. Sixteen of them, each with a straight verdict, and about half don't
-            survive it.</p>
-          <div class="rlc-who" data-in style="--d:.2s" hidden><span class="rlc-pic"></span><span class="rlc-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <p class="rlc-q" data-in style="--d:.3s">Want the supplement guide?</p>
-          <p class="rlc-line" data-in style="--d:.35s">Tap below and I'll text it to you.</p>
-          <a class="rlc-btn rlc-msg" data-in style="--d:.4s" href="/n-no-crash-plan-discount-request">Get the supplement guide</a>
-        </div>
-      </section>
-
-      <!-- 4. PHOTO: something to do in the next hour -->
-      <section class="rl-p rl-photo rlc-walk">
-        <div class="rl-bg" style="background-image:url('/_p/nueva/n-no-crash-plan/n-no-crash-plan/assets/strip.jpg')"></div>
-        <div class="rl-in">
-          <h2 data-in>Day one is a ten minute walk</h2>
-          <p data-in style="--d:.15s">You don't have to read the whole thing first. Walk for five to ten minutes after your
-            next meal, ideally lunch. That's day one done, and it's the move that does the most.</p>
-          <div class="rl-mark rl-foot" data-in style="--d:.3s">everyday well</div>
+          <span class="rlb-eyebrow" data-in>The supplement companion guide</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <img class="rlb-adcover" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation/assets/supplement-cover.jpg"
+                 width="695" height="900" alt="The cover of What To Take, And What To Skip">
+            <h2>Inside the guide</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">Every craving and energy supplement, graded</li>
+            <li data-in style="--d:.3s">How to read a label</li>
+            <li data-in style="--d:.4s">Which ones are worth taking</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/n-no-crash-plan-discount-request">Yes, text me the guide + my coupon code</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img" src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel/assets/beyond-daily.webp" width="360" height="360" alt="A bottle of Nueva Beyond Daily">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">Recommended supplement</span>
+              <p class="rlb-rec-h">Nueva Beyond Daily</p>
+              <p>A morning capsule for cravings, mood and energy.</p>
+            </div>
+          </div>
+          <!-- The small print is the guide's own fine print, its first two paragraphs verbatim (n-no-crash-plan-companion). -->
+          <div class="rlb-fine">
+            <p class="rl-fine">This guide is general information about dietary supplements. It is not medical advice, it is not a diagnosis, and it is not a treatment plan. Nothing in it is intended to diagnose, treat, cure or prevent any disease. These statements have not been evaluated by the Food and Drug Administration.</p>
+            <p class="rl-fine">Dietary supplements are not reviewed for safety or effectiveness before they are sold. Talk to your doctor or pharmacist before starting anything here, and especially if you take prescription medication, have a medical condition, are pregnant or breastfeeding, or are giving anything to a child.</p>
+          </div>
         </div>
       </section>
 
     </div>
 
     <nav class="rl-dots" aria-label="Screens"></nav>
-    <!-- A computer has no dock: the ask and the arrows live in the frame (block.js adds the rep's picture). -->
-    <a class="rl-cta" href="/n-no-crash-plan-discount-request">Get the supplement guide</a>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: Joe's Tone and Tighten words (2026-10-20), adapted as Jeff set them: "the supplement companion guide AND
+       a special Nueva Beyond discount code", with Joe's No Crash Plan keyword SUPPLEMENTS. "skip the code" is "keep the code"
+       for the grammar, and the second "unknown senders" is capitalised like the first. Opened only by the claim buttons. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>supplement companion guide</b> AND a <b>special Nueva Beyond discount code via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure you receive your code with no issues?</b> Simply text <b>“SUPPLEMENTS”</b> to <a class="rlt-claim-num" data-claim-num data-word="SUPPLEMENTS" href="sms:{{custom_values.nueva_rep_phone}}?&amp;body=SUPPLEMENTS">{{custom_values.nueva_rep_phone}}</a> to keep the code from potentially landing in your “Unknown Senders” folder.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Got it</button>
+    </div>
   </div>
 </div>
 <script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
