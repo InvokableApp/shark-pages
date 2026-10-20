@@ -8,10 +8,8 @@
 
   ⚠️ JOE'S WORDS (his SCRIPTS doc and "Trackable link funnel edits", 2026-10-16, as on every system): the cover, the
      question, the four cards, the pop-ups. No company or product name, no figures (brain/mpg.md: opportunity copy never
-     names MPG). ⚠️ NOT JOE'S, waiting on Jeff's review: the "I'm interested myself" pop-up swaps "folks all around the
-     world are starting to take advantage of" for the meals (MPG's Absolutes 09, "Say what it does. Not more."), and
-     "request to see the compensation plan" for "ask how it works and how you'd get paid" (MPG wants its income
-     disclosure with any plan talk, P&P §3.13.A.VII: the rep brings both, the page asks for neither by name).
+     names MPG). Joe's "I'm interested myself" pop-up too, after a try at changing it for MPG's rules (Jeff, 2026-10-20:
+     "put joes wording back").
   ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): the approved script (MPGSHARK/sendable-links/scripts-draft-4.json,
      opp_new; Jeff: "these are good, rendering videos"), not the render, which isn't in yet: "is that you? Or does someone
      you know come to mind who's looking for a legitimate side hustle? Just reply to the friend who sent this". So Joe's
@@ -50,7 +48,7 @@
         <div class="rl-in">
           <div class="qv rv-video" data-in data-video="{{custom_values.mpg_opportunity_video}}" data-poster="{{custom_values.mpg_opportunity_video_poster}}" data-name="the opportunity video"></div>
           <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
-          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Swipe up to tell <span data-rv-rep>me</span> what you think</span><span class="rv-on-computer">Tell <span data-rv-rep>me</span> what you think</span></span></button>
         </div>
       </section>
 
@@ -82,8 +80,8 @@
   <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="I'm interested myself" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Close">&times;</button>
     <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
-    <p>This is a really cool opportunity, and every bag of the main product sold helps feed a child in need. Text <span data-rv-rep>me</span> back right now and ask how it works and how you'd get paid!</p>
-    <a class="rv-btn" href="/m-opportunity-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-opportunity-message" data-label="Text me: tell me how it works">Text <span data-rv-rep>me</span></a>
+    <p>This is a really cool opportunity that folks all around the world are starting to take advantage of. Text <span data-rv-rep>me</span> back right now and request to see the compensation plan so you can see how you'd get paid!</p>
+    <a class="rv-btn" href="/m-opportunity-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-opportunity-message" data-label="Text me: show me the compensation plan">Text <span data-rv-rep>me</span></a>
   </div></div>
   <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="I may know someone" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Close">&times;</button>

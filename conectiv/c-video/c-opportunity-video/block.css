@@ -5,6 +5,7 @@
  * this sheet. */
 @import url("../../../_shared/reel/v1/reel.css");
 @import url("../../../_shared/reel/looks/clinical-calm.css");
+@import url("../../../_shared/reel/v1/video-watch.css");   /* the video screen: fit and the prompt under the video */
 
 /* Conectiv's teal, as on its quiz reels (c-side-hustle-quiz-reel) */
 .rl.rl-look-calm.cv{ --teal:#1E8A83; --teal-soft:#e3f2f0; --eyebrow-dark:#BFEDE8; }
@@ -34,17 +35,17 @@
 .rv-cover .rl-hint{ color:var(--teal); }
 
 /* 2. the video, tall (9:16, the 2026-10-16 opportunity video is vertical), nothing cropped; the bar and the time under it */
-.rv-watch .rl-in{ display:flex; flex-direction:column; justify-content:center; height:100%; container-type:size; }
+.rv-watch .rl-in{ display:flex; flex-direction:column; justify-content:center; height:100%; container-type:size; }  /* and the shared video screen sheet */
 /* THE VIDEO FITS THE ROOM IT REALLY HAS (Jeff, 2026-10-20: "we need to make sure the tops arent getting cut off"):
    the screen's inner box is a size container, so 100cqh is its height after its own padding (the rep banner's
-   included) and the video is as tall as that leaves, less 48px for the bar and the time under it. No guessed
+   included) and the video is as tall as that leaves, less 22px for the bar and var(--rv-onward) for the prompt under it. No guessed
    screen-height-minus-pixels sizes: those left the top under the banner on phones 745px tall or less. */
 /* even room above and below it (rv-even): nothing is pinned to the bottom of this screen, so it doesn't keep the
    button's room there, and the video sits in the middle instead of hugging the banner */
 .rl .rv-watch .rl-in{ padding-top:24px; padding-bottom:24px; }
 .rl.rv-has-banner .rv-watch .rl-in{ padding-top:70px; }
 @media (min-width:701px){ .rl .rv-watch .rl-in{ padding-top:48px; padding-bottom:48px; } .rl.rv-has-banner .rv-watch .rl-in{ padding-top:80px; } }
-.rv-video{ position:relative; width:min(100cqw, calc((100cqh - 48px) * 9 / 16)); margin:0 auto; aspect-ratio:9/16; border-radius:14px; overflow:hidden; background:var(--navy);
+.rv-video{ position:relative; width:min(100cqw, calc((100cqh - 22px - var(--rv-onward)) * 9 / 16)); margin:0 auto; aspect-ratio:9/16; border-radius:14px; overflow:hidden; background:var(--navy);
   box-shadow:0 24px 50px -24px rgba(14,42,59,.55); }
 .rv-video video,.rv-video iframe{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; border:0; background:#000; }
 .rv-video .qv-soon{ position:absolute; inset:0; display:grid; place-items:center; color:#fff; font:600 16px var(--sans); }
@@ -122,7 +123,7 @@
 }
 
 /* the bar and the time as wide as the tall video above them (2026-10-16) */
-.rv-watch .bv-bar,.rv-watch .bv-time{ width:min(100cqw, calc((100cqh - 48px) * 9 / 16)); margin-left:auto; margin-right:auto; }
+.rv-watch .bv-bar,.rv-watch .bv-time{ width:min(100cqw, calc((100cqh - 22px - var(--rv-onward)) * 9 / 16)); margin-left:auto; margin-right:auto; }
 
 /* Joe, 2026-10-16: "make SWIPE UP TO WATCH THE VIDEO be bigger and maybe pulsate ... to really call attention to it" */
 .rv-swipe .rv-next{ font-size:16px !important; animation:rv-call 1.6s ease-in-out infinite; }

@@ -1,0 +1,32 @@
+/* _shared/reel/v1/video-watch.css: the VIDEO SCREEN of every sendable link video page (Beneve, Conectiv, GLP, MPG,
+ * Nueva), imported by each system's video sheet after the reel kit.
+ *
+ * 1. THE PROMPT UNDER THE VIDEO (Jeff, 2026-10-20: "under vid should we add a swipe to see details?", then "yes"): the
+ *    page moves on by itself when the video ends (each page's block.js), but someone who stops halfway, or never
+ *    presses play, had nothing telling them there's a screen after it. So, under the video: the cover's pulsing arrows
+ *    and "Swipe up to tell {rep} what you think" (a computer: "Tell {rep} what you think", arrows down). It names what's
+ *    next, the cards that answer the rep, not "details". It is a button too: a tap goes to the next screen (reel.js
+ *    [data-go]). Its words take the page's own .rv-next look (the cover's "Swipe up to watch the video").
+ * 2. THE VIDEO FITS THE ROOM IT HAS (Jeff, 2026-10-20: "make sure the tops arent getting cut off"): the screen's inner
+ *    box is a size container, so each sheet sizes its player from 100cqh, its height after padding and the banner, less
+ *    its bar and var(--rv-onward), the prompt's room. Check: platform/scripts/video-fit-check.mjs.
+ */
+.rl .rv-watch{ --rv-onward:86px; }
+.rl .rv-watch .rl-in{ display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; container-type:size; }
+
+.rv-onward{ display:flex; flex-direction:column; align-items:center; gap:4px; margin:12px auto 0; padding:2px 10px; height:calc(var(--rv-onward) - 12px);
+  border:0; background:none; font:inherit; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.rv-onward .rv-next{ display:block; text-align:center; font-size:14px !important; line-height:1.25 !important; text-wrap:balance; max-width:22em; animation:rv-onward-call 1.6s ease-in-out infinite; }
+.rv-onward .rv-onward-arrows{ display:flex; flex-direction:column; align-items:center; }
+.rv-onward-arrows svg{ width:24px; height:24px; margin-top:-11px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.rv-onward-arrows svg:first-child{ margin-top:0; }
+.rv-onward-arrows svg:nth-child(2){ opacity:.55; }
+.rv-onward .rv-on-computer{ display:none; }
+@media (min-width:701px){
+  .rv-onward .rv-on-phone{ display:none; }
+  .rv-onward .rv-on-computer{ display:inline; }
+  .rv-onward .rv-onward-arrows{ flex-direction:column-reverse; }
+  .rv-onward-arrows svg{ transform:rotate(180deg); }   /* the svgs, not their box: the pulse animates the box's transform */
+}
+@keyframes rv-onward-call{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.65; transform:scale(1.05); } }
+@media (prefers-reduced-motion:reduce){ .rv-onward .rv-next{ animation:none; } }

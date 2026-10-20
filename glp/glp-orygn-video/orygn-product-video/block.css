@@ -3,6 +3,7 @@
  * Playfair over Inter), imported. This adds the pill, the story-sized video, the three numbered cards and their
  * pop-ups. The opportunity video page imports this sheet. */
 @import url("../../orygn-free-protein-packed-recipe-guide/recipe-guide-reel/block.css");
+@import url("../../../_shared/reel/v1/video-watch.css");   /* the video screen: fit and the prompt under the video */
 
 /* Orange where the recipe guide is green (Jeff, 2026-10-14: "can we just make this orange instead of green?"): the
    accents only; the guide's green ground and cream stay. */
@@ -35,14 +36,14 @@
 
 /* 2. the video, as tall as the screen allows, phone shaped */
 .rv-watch .rl-in{ padding-top:20px; padding-bottom:20px; justify-content:center; align-items:center; }
-.rv-video{ position:relative; width:min(100%, calc((100svh - 100px) * 9 / 16)); aspect-ratio:9/16; max-height:calc(100svh - 100px);
+.rv-video{ position:relative; width:min(100cqw, calc((100cqh - 18px - var(--rv-onward)) * 9 / 16)); aspect-ratio:9/16; 
   border-radius:22px; overflow:hidden; background:#000; box-shadow:0 24px 60px -18px rgba(0,0,0,.7); margin:0 auto; }
 .rv-video video,.rv-video iframe{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; background:#000; }
 .rv-video .qv-soon{ position:absolute; inset:0; display:grid; place-items:center; color:#fff; font:600 16px var(--sans); }
 
 /* rv-wide (this page only; 2026-10-14): a 16:9 video in a wide frame, nothing cropped, as the Sizzle reel shows it.
    The opportunity page imports this file without the class and keeps the phone shape. */
-.rv-wide .rv-video{ width:min(100%, calc((100svh - 100px) * 16 / 9)); aspect-ratio:16/9; max-height:none; border-radius:16px; }
+.rv-wide .rv-video{ width:min(100cqw, calc((100cqh - 18px - var(--rv-onward)) * 16 / 9)); aspect-ratio:16/9; max-height:none; border-radius:16px; }
 .rv-wide .rv-video video{ object-fit:contain; }
 
 /* 3. who comes to mind */
@@ -102,9 +103,9 @@
 
 /* The video's progress bar: the reel's green line above the video, as wide as the video, filled as it plays (block.js
    sets --rv-p; Jeff, 2026-10-13) */
-.rv-watch .rl-in::before{ width:min(100%, calc((100svh - 100px) * 9 / 16)); height:4px; margin:0 auto 14px;
+.rv-watch .rl-in::before{ width:min(100cqw, calc((100cqh - 18px - var(--rv-onward)) * 9 / 16)); height:4px; margin:0 auto 14px;
   background:linear-gradient(90deg, var(--mark) var(--rv-p,0%), rgba(255,255,255,.18) var(--rv-p,0%)); }
-.rv-wide .rv-watch .rl-in::before{ width:min(100%, calc((100svh - 100px) * 16 / 9)); }
+.rv-wide .rv-watch .rl-in::before{ width:min(100cqw, calc((100cqh - 18px - var(--rv-onward)) * 16 / 9)); }
 
 /* Joe's second line, under the headline: set like a sub-headline, not body copy */
 .rv-cover .rv-sub{ font:600 clamp(22px,6.4vw,28px)/1.2 var(--head) !important; color:#fff !important; margin-top:10px !important; }
