@@ -1,0 +1,99 @@
+<!--
+  mpg/m-video/m-gut-video: MPG's VERACELL (gut and immune powder) PRODUCT VIDEO page, a reel the rep sends one to one as a personal link (Jeff,
+  2026-10-20: "product script for the two products ... then we need pages for each", then "lets build out the sendable
+  links with plaeholders"). Conectiv's coffee video page (conectiv/c-video/c-coffee-video), the same flow, in the
+  opportunity page's sheet: the headline, swipe to the video, swipe to "Who Comes To Mind?", Joe's four product cards
+  (Myself / Someone I Know / Myself + Someone I Know / No One, 0370), each with a pop-up. Platform only.
+
+  ⚠️ NO COMPANY OR PRODUCT NAME, anywhere a lead reads it, the slug included (Jeff, scripts review page, 2026-10-20: "lets
+     not name the company or product?"; brain/mpg.md; MPG's P&P §9.4.A on product names in addresses). Say what it is.
+  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): the approved script (MPGSHARK/sendable-links/scripts-draft-4.json,
+     veracell), not the render, which isn't in yet: "Would you be interested in giving it a try yourself? Or maybe you know someone who might be?" So "giving it a try", never "a sample": MPG reps don't
+     hand out free product (P&P §9.5.A). Check the cards against the render when it lands.
+  THE CLAIM is MPG's own (the VeraCell sheet and product page: "supports healthy immune function and gut health"; the meals are VeraCell's, MPGSHARK/MISSION.md), as the approved script says it. No other claim.
+  ⚠️ NOT JOE'S, waiting on Jeff's review: the cover's headline and line, and the first line of the Myself and Someone I Know pop-ups (from the script).
+  THE VIDEO is a content value, mpg_gut_video, with mpg_gut_video_poster, the same for every rep. ⚠️ PLACEHOLDER until
+  Jeff's HeyGen render ("coming soon": the player says "Video coming soon", watch.js). Never empty (0047).
+
+  The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
+  told). ⚠️ "We've let {rep} know" is only true for a personal link. TEXT buttons are redirect steps (/m-gut-try,
+  -refer, -both) to the rep's texting number (mpg_rep_sms); with none, their Messenger (/m-gut-message).
+-->
+<div class="rl rl-pf rl-look-calm rv bv mv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="A daily gut and immune support powder">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="A daily gut and immune support powder">A daily gut and immune support powder, <span class="rl-hl">made from aloe</span></h1>
+          <p class="bv-lede" data-in style="--d:.25s">Five ingredients, a scoop in water morning and night, to support healthy immune function and gut health.* And every bag sold helps feed a child in need.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.mpg_gut_video}}" data-poster="{{custom_values.mpg_gut_video_poster}}" data-name="the video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (Joe's product cards) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:0.20s" data-label="Myself: I'd like to try it">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd like to give it a try&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:0.28s" data-label="Someone I Know: they'd like to try it">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd like to try this&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:0.36s" data-label="Myself and someone I know">
+              <b class="rv-n">03</b><span class="rv-t"><b>Myself + Someone I Know</b><small>Honestly I'd like to try it + know someone else who might too.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:0.44s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>No One</b><small>Not interested / don't know anyone</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>It's a daily powder made to support healthy immune function and gut health,* and every bag sold helps feed a child in need. Text <span data-rv-rep>me</span> back right now and ask about giving it a try!</p>
+    <a class="rv-btn" href="/m-gut-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-gut-message" data-label="Text me: I'd like to try it">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for thinking of someone<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>It's an easy one to start: a scoop in water morning and night. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/m-gut-refer" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-gut-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Myself and someone I know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may want to give it a try!</p>
+    <a class="rv-btn" href="/m-gut-both" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-gut-message" data-label="Text me: I'd like to try it, and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No One" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

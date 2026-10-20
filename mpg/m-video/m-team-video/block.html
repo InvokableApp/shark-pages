@@ -1,0 +1,101 @@
+<!--
+  mpg/m-video/m-team-video: MPG's OPPORTUNITY VIDEO page for NETWORKERS (people who know network marketing), a reel the rep
+  sends one to one as a personal link (Jeff, 2026-10-20: "opportunity script for people familiar with mlms (networkers...
+  were building a team heres the opportunity, its unline anything else, we feed kids etc angle)", then "lets build out the
+  sendable links with plaeholders"). The everyday opportunity page (m-opportunity-video), the same flow and sheet: the
+  headline, swipe to the video, swipe to "Who comes to mind?", Joe's four cards, each with a pop-up. Platform only.
+
+  ⚠️ THE MEALS LEAD (Jeff, scripts review page: "we need to really push the angle here about the meals for kids like 'its a
+     different type of opportunity because...'"), with no quantity ("helps feed a child in need"), and they belong to the
+     "main product" (VeraCell; brain/mpg.md, MPGSHARK/MISSION.md). No company or product name: never for networkers either.
+  ⚠️ THE VIDEO'S ASK (REEL-PAGE-SOP §A video page): the approved script (MPGSHARK/sendable-links/scripts-draft-4.json, opp_net),
+     not the render, which isn't in yet: "is that you? Or does someone you know come to mind who'd want to build something
+     that feeds kids? Just reply to the friend who sent this". Joe's four cards fit. Check them against the render.
+  ⚠️ NOT JOE'S, waiting on Jeff's review: the cover's headline and line (from the video's opening), and the pop-ups' middle
+     sentence (the meals, where Joe's says "a really cool opportunity"). The cards and the question are Joe's.
+  THE VIDEO is a content value, mpg_team_video, with mpg_team_video_poster, the same for every rep. ⚠️ PLACEHOLDER until
+  Jeff's HeyGen render ("coming soon": the player says "Video coming soon", watch.js). Never empty (0047).
+  THE FINE PRINT names no company, so it is not mpg_income_disclaimer (which says "MPG").
+
+  The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
+  told). ⚠️ "We've let {rep} know" is only true for a personal link. TEXT buttons are redirect steps (/m-team-try, -refer,
+  -both) to the rep's texting number (mpg_rep_sms); with none, their Messenger (/m-team-message).
+-->
+<div class="rl rl-pf rl-look-calm rv bv mv mv-opp mv-team" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="A different type of opportunity">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="A different type of opportunity">A different type of opportunity, because <span class="rl-hl">it helps feed kids.</span> 🙏</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">Every bag of the main product sold helps feed a child in need. After watching this video, see if anyone comes to mind!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.mpg_team_video}}" data-poster="{{custom_values.mpg_team_video_poster}}" data-name="the opportunity video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <p class="bv-time" data-in aria-hidden="true"><span data-bv-at>0:00</span><span data-bv-len></span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (Joe's cards, verbatim) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who comes to mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
+              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>I'd be interested in learning more about this. Tell me more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'm interested + may know someone</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Not interested / don't know anyone</b><small>Not really sure I can help you out here&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">Results vary, and what you earn depends on the work you put in. Nothing here is a guarantee of income. Ask for the income disclosure before making any decision.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="I'm interested myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>You know how this industry works, and this one is different: every bag of the main product sold helps feed a child in need. Text <span data-rv-rep>me</span> back right now and ask how it works and how you'd get paid!</p>
+    <a class="rv-btn" href="/m-team-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-team-message" data-label="Text me: tell me how it works">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="I may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a different type of opportunity, for anyone who wants to build something that feeds kids. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/m-team-refer" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-team-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'm interested and may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a different type of opportunity, for anyone who wants to build something that feeds kids. Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may be interested in learning more!</p>
+    <a class="rv-btn" href="/m-team-both" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-team-message" data-label="Text me: I'm interested and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Not interested" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
