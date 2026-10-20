@@ -6,15 +6,17 @@
   ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: "Yeah... Send me product info!" (GHL's said "& Sample Info"; Beneve has no sample offer, so Jeff took it off, 2026-10-15), which goes to the
      funnel's DM Redirect step, /b-dm-glp-food-guide-redirect (the rep's Messenger, beneve_rep_messenger), so the
      Messenger hand-off, the tag and the rep alert happen. A rep with no Messenger: the button and the dock go to a text
-     to beneve_rep_phone instead ([data-needs] + data-alt-href, reel.js). The page gives the lead no words to send, so
-     there is no copy-the-message card (data-pf-say).
+     to beneve_rep_phone instead ([data-needs] + data-alt-href, reel.js).
+  ⚠️ EVERY ASK OPENS THE COPY-THE-MESSAGE CARD (data-pf-say "PRODUCT INFO", [data-pf-ask]; Joe, 2026-10-20: no buffer
+     popup, the buttons "just immediately route folks to FB messenger"): copy PRODUCT INFO, then Message on Facebook or
+     Send a text (the hidden [data-pf-text-link]). A rep with no Messenger gets the text only (funnel-native.js sayCard).
   ⚠️ EVERY WORD IS THE PAGE'S, verbatim (supabase/masters/steps.json, /b-glp-food-guide-confirmation), in sentence case,
      plus the visitor's first name in the headline (PAGE-COPY-SOP §5c). "Access The Free Guide Now" still opens the
      guide online (/b-glp-food-guide-read). No product is named or pictured: the page names none.
   The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it). The plate is the guide's own
   "GLP plate" divider (beneve-glp-food-guide-read/assets/divider-plate.jpg, as webp in the opt-in's assets).
 -->
-<div class="rl rl-look-soft rl-bf rlc" data-pf-native data-pf-message="for product info" data-pf-arrive="#F4EEE6">
+<div class="rl rl-look-soft rl-bf rlc" data-pf-native data-pf-message="for product info" data-pf-say="PRODUCT INFO" data-pf-arrive="#F4EEE6">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -38,7 +40,7 @@
           <span class="rl-eyebrow" data-in>While you wait</span>
           <h2 data-in style="--d:.1s">If you want an easy way to quiet food cravings and support your weight, tap the <em>"Send Me Product Info"</em> button below.</h2>
           <p data-in style="--d:.25s">These products could be a perfect fit.</p>
-          <div class="rl-btns" data-in style="--d:.35s"><a class="rl-btn rlc-go" href="/b-dm-glp-food-guide-redirect"
+          <div class="rl-btns" data-in style="--d:.35s"><a class="rl-btn rlc-go" data-pf-ask href="/b-dm-glp-food-guide-redirect"
              data-needs="{{custom_values.beneve_rep_messenger}}" data-alt-href="sms:{{custom_values.beneve_rep_phone}}">Yeah... Send me product info!</a></div>
         </div>
       </section>
@@ -52,8 +54,9 @@
             wellness community. Tap below.</p>
           <p class="rlc-small" data-in style="--d:.28s">These products are formulated to support your body's natural pathways linked to appetite and mood.</p>
           <div class="rl-btns" data-in style="--d:.36s">
-            <a class="rl-btn" data-pf-message-link href="/b-dm-glp-food-guide-redirect"
-               data-needs="{{custom_values.beneve_rep_messenger}}" data-alt-href="sms:{{custom_values.beneve_rep_phone}}">Yeah... Send me product info!</a>
+            <a class="rl-btn" data-pf-message-link data-pf-ask href="/b-dm-glp-food-guide-redirect"
+               data-needs="{{custom_values.beneve_rep_messenger}}">Yeah... Send me product info!</a>
+            <a hidden data-pf-text-link data-pf-message-link data-needs="{{custom_values.beneve_rep_phone}}" href="sms:{{custom_values.beneve_rep_phone}}?&body=PRODUCT%20INFO"></a>
           </div>
         </div>
       </section>
@@ -73,8 +76,8 @@
 
     <nav class="rl-dots" aria-label="Screens"></nav>
     <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: a text. -->
-    <a class="rl-cta" data-rep-cta="Message {first} for product info" data-needs="{{custom_values.beneve_rep_messenger}}"
-       data-alt-href="sms:{{custom_values.beneve_rep_phone}}" href="/b-dm-glp-food-guide-redirect">Yeah... Send me product info!</a>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for product info" data-needs="{{custom_values.beneve_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.beneve_rep_phone}}?&body=PRODUCT%20INFO" href="/b-dm-glp-food-guide-redirect">Yeah... Send me product info!</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

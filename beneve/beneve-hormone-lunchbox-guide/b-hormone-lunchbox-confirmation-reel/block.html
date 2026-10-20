@@ -7,8 +7,10 @@
   ⚠️ THE ONE THING THIS PAGE ASKS FOR is the page's own: join the private support group. Every button that asks goes
      to the funnel's own steps, so the visit is recorded: JOIN goes to /b-hormone-group-join-redirect, the rep's own
      group (beneve_hormone_group, asked at setup, optional), or to /b-hormone-group-message, the rep's Messenger, when
-     they left it blank (0306; Jeff, 2026-10-15). The "Swipe up to message {rep}" dock is on every screen and always
-     goes to Messenger: it says "message". The headline names the guide "Hormone Lunchbox", as the opt-in does (Jeff,
+     they left it blank (0306; Jeff, 2026-10-15). With no group link, JOIN opens the copy-the-message card instead of
+     jumping to Messenger (data-alt-ask, reel.js; Joe, 2026-10-20: "we need to get a popup there that tells them to
+     message a trusted partner to get added"): copy GROUP, then Message on Facebook or Send a text. The "Swipe up to
+     message {rep}" dock is on every screen and opens the same card (data-pf-say). The headline names the guide "Hormone Lunchbox", as the opt-in does (Jeff,
      2026-10-15; the GHL page says "Hormone Support Recipe Guide").
   ⚠️ NO "nothing is for sale in there", NO "free to join", NO outcome or count in the drawn group feed, never sell the
      group by downgrading the guide. "Hormone support", never "hormone balancing". No product is named, so no FDA line;
@@ -17,7 +19,7 @@
      read right without it. The drawn feed is the page's own (names, post, replies, caption).
   The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it): G · Editorial serif.
 -->
-<div class="rl rl-look-serif rl-lb rlc" data-pf-native data-pf-message="to join our private group" data-pf-arrive="#F6F1E9">
+<div class="rl rl-look-serif rl-lb rlc" data-pf-native data-pf-message="to join our private group" data-pf-say="GROUP" data-pf-arrive="#F6F1E9">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -70,8 +72,9 @@
           <h2 class="rlc-join" data-in style="--d:.1s">Join Our Free Facebook Support Group.</h2>
           <p class="rlc-say" data-in style="--d:.2s">Where we support each other in our holistic approach to navigating our hormonal struggles. <u>Click below and we will add you...</u></p>
           <div class="rl-btns" data-in style="--d:.3s">
-            <a class="rl-btn" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" href="/b-hormone-group-join-redirect">JOIN OUR PRIVATE GROUP</a>
+            <a class="rl-btn" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" data-alt-ask href="/b-hormone-group-join-redirect">JOIN OUR PRIVATE GROUP</a>
             <a hidden data-pf-message-link data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-hormone-group-message"></a>
+            <a hidden data-pf-text-link data-pf-message-link data-needs="{{custom_values.beneve_rep_phone}}" href="sms:{{custom_values.beneve_rep_phone}}?&body=GROUP"></a>
           </div>
         </div>
       </section>
@@ -105,8 +108,8 @@
 
     <nav class="rl-dots" aria-label="Screens"></nav>
     <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). -->
-    <a class="rl-cta" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" href="/b-hormone-group-join-redirect">Join our private group</a>
+    <a class="rl-cta" data-needs="{{custom_values.beneve_hormone_group}}" data-alt-href="/b-hormone-group-message" data-alt-ask href="/b-hormone-group-join-redirect">Join our private group</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

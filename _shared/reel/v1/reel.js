@@ -10,6 +10,7 @@
  *   .rl-cta[data-rep-cta="Message {first} for the companion guide"]   a computer's button with the rep in it
  *   [data-needs]        hidden when the value it names came through empty (an unfilled custom value), or sent to its
  *                       data-alt-href instead when it has one (the computer's button: no Messenger, the text page)
+ *                       or, with data-alt-ask, opens the copy-the-message card (data-pf-say) instead
  */
 (function () {
   var root = document.querySelector(".rl");
@@ -25,6 +26,10 @@
   [].forEach.call(root.querySelectorAll("[data-needs]"), function (el) {
     var v = String(el.getAttribute("data-needs") || "").trim();
     if (v && !/\{\{|^https?:\/\/$/.test(v)) return;
+    // data-alt-ask: on the alt path the button opens the copy-the-message card instead (funnel-native.js [data-pf-ask],
+    // which runs after this). Beneve's Hormone Lunchbox: a rep with a group link sends them straight in; without one they
+    // message the rep to be added (Joe, 2026-10-20).
+    if (el.hasAttribute("data-alt-ask")) { el.setAttribute("data-pf-ask", ""); return; }
     if (el.hasAttribute("data-alt-href")) { el.setAttribute("href", el.getAttribute("data-alt-href")); return; }
     el.hidden = true; el.removeAttribute("data-pf-message-link");
   });
