@@ -11,6 +11,10 @@
 .rlr .rlr-big b{ font-weight:600; color:var(--alert); }
 .rlr p b{ color:var(--ink); font-weight:650; }
 
+.rlr .rlr-sms{ margin-top:22px; padding:16px 18px; border-radius:16px; background:var(--tint); }
+.rlr-num{ font-weight:700; color:var(--alert); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
+.rlr-num-plain{ text-decoration:none; color:var(--ink); }
+
 @media (max-width:700px) and (max-height:620px){
   .rlr .rl-in{ padding-top:32px; } .rlr .rlr-big{ font-size:22px; } .rlr p{ font-size:15px; }
 }

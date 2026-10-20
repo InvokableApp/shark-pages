@@ -49,6 +49,38 @@
 .rlt-ask .rl-btn{ display:inline-block; margin-top:24px; padding:15px 24px; background:var(--teal); border:1.5px solid var(--teal); color:var(--night);
   font:800 16px var(--sans); cursor:pointer; }
 
+/* the claim card (Joe, 2026-10-20): his popup, over the reel. A sheet from the bottom on a phone, a card in the middle of
+   a computer. It sits inside .rl (a fixed box), so it hides the platform's dock itself while open (block.js). */
+.rlt-claim{ position:fixed; inset:0; z-index:50; display:flex; align-items:flex-end; justify-content:center;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px)); background:rgba(16,42,42,0); transition:background-color .3s; }
+.rlt-claim[hidden]{ display:none; }
+.rlt-claim.is-open{ background:rgba(16,42,42,.55); }
+.rlt-claim-card{ position:relative; width:100%; max-width:460px; max-height:calc(100svh - 24px); overflow-y:auto; border-radius:26px;
+  padding:28px 22px 18px; background:var(--paper); color:var(--ink); box-shadow:0 24px 60px -12px rgba(0,0,0,.5);
+  transform:translateY(110%); transition:transform .4s cubic-bezier(.2,.8,.2,1); }
+.rlt-claim.is-open .rlt-claim-card{ transform:none; }
+.rlt-claim .rlt-pill{ margin-bottom:14px; }
+.rlt-claim p{ margin:14px 0 0; font-size:16.5px; line-height:1.5; color:var(--body); }
+.rlt-claim p b{ color:var(--ink); }
+.rlt-claim .rlt-claim-big{ margin:0; font-family:var(--head); font-weight:700; font-size:clamp(21px,5.8vw,25px); line-height:1.25; letter-spacing:-.02em; color:var(--ink); }
+.rlt-claim .rlt-claim-big b{ font-weight:900; color:var(--teal-d); }
+.rlt-claim-sms{ padding:14px 16px; border-radius:16px; background:var(--tint); }
+.rlt-claim-num{ font-weight:800; color:var(--teal-d); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
+.rlt-claim-num-plain{ text-decoration:none; color:var(--ink); }
+.rlt-claim-x{ position:absolute; top:12px; right:12px; width:36px; height:36px; display:grid; place-items:center; border:0; border-radius:50%;
+  background:var(--tint); color:var(--ink); cursor:pointer; }
+.rlt-claim-x svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; }
+.rlt-claim .rlt-claim-ok{ display:block; width:100%; margin-top:18px; padding:15px 24px; background:var(--teal); border:1.5px solid var(--teal);
+  color:var(--night); font:800 16px var(--sans); text-align:center; cursor:pointer; }
+@media (min-width:701px){
+  .rlt-claim{ align-items:center; }
+  .rlt-claim-card{ max-width:520px; padding:36px 34px 26px; transform:translateY(24px); opacity:0; transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s; }
+  .rlt-claim.is-open .rlt-claim-card{ opacity:1; }
+  .rlt-claim .rlt-claim-big{ font-size:28px; }
+  .rlt-claim p{ font-size:17.5px; }
+}
+@media (prefers-reduced-motion:reduce){ .rlt-claim-card{ transition:none; } }
+
 /* 6. the disclaimer */
 .rlt-fine .rl-fine{ font-size:12.5px !important; }
 .rlt-fine .rl-fine:first-child{ margin-top:0 !important; }

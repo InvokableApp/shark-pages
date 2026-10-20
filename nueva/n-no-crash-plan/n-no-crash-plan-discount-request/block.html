@@ -1,11 +1,15 @@
 <!--
   nueva/n-no-crash-plan/n-no-crash-plan-discount-request
-  The page a lead lands on after tapping "Get the supplement guide + a discount" on the confirmation reel (Jeff, 2026-10-20, from
-  Joe's Nueva call doc): a Nueva Beyond discount code.
+  The page a lead lands on after tapping "Get the supplement guide" on the confirmation reel (Jeff, 2026-10-20, from
+  Joe's Nueva call doc): the supplement guide, by text from the rep.
   Platform only. ⚠️ ITS VIEW IS THE ALERT: the step /n-no-crash-plan-discount-request starts "Nueva - The No Crash Plan
   - Discount Request" (migration 0427), which tags the lead, marks them hot, and texts and emails the rep to text
-  the code. Known leads only (the opt-in's cookie); once per lead.
-  ⚠️ THE WORDS ARE JOE'S POPUP COPY as Jeff set them (2026-10-20): the rep texts the code; nothing for the lead to do.
+  the lead. Known leads only (the opt-in's cookie); once per lead.
+  ⚠️ THE WORDS ARE JOE'S (2026-10-20, second pass): the supplement guide comes by text, check Unknown Senders, and text
+  SUPPLEMENTS to the rep so it doesn't land there. "skip the code from potentially landing" is "keep it from potentially
+  landing" for the grammar (it is a guide, not a code), and the second "unknown senders" is capitalised like the first.
+  The number is the rep's own phone (nueva_rep_phone): block.js makes it tap-to-text with SUPPLEMENTS filled in on a
+  phone, plain words on a computer, and takes that last paragraph out when no number is set.
   The look is the confirmation reel's (one screen of it); the page fades up out of its own paper (data-pf-arrive).
 -->
 <div class="rl rlr rlr-ncp" data-pf-native data-pf-arrive="#faf9f5">
@@ -14,8 +18,9 @@
       <section class="rl-p rl-paper rl-wide is-on">
         <div class="rl-in">
           <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
-          <p class="rlr-big" data-in style="--d:.1s">I'll text you a <b>special discount code within 24 hours</b> (usually much sooner!).</p>
+          <p class="rlr-big" data-in style="--d:.1s">We'll send you the supplement guide <b>via text message within 24 hours</b> (usually much sooner!).</p>
           <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          <p class="rlr-sms" data-in data-rlr-sms style="--d:.3s"><b>Want to make sure you receive it with no issues?</b> Simply text <b>“SUPPLEMENTS”</b> to <a class="rlr-num" data-rlr-num data-word="SUPPLEMENTS" href="sms:{{custom_values.nueva_rep_phone}}?&amp;body=SUPPLEMENTS">{{custom_values.nueva_rep_phone}}</a> to keep it from potentially landing in your “Unknown Senders” folder.</p>
         </div>
       </section>
     </div>

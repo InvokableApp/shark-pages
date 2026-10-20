@@ -1,6 +1,6 @@
 /* nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel — the confirmation reel (platform only; see block.html).
  * The reel's moves are _shared/reel/v1/reel.js (block.html loads it); this adds the typed headline, the rep's picture on
- * the ask screen and the computer's button, and the dock's way to the request step (the last part, shared with the Tone and
+ * the ask screen and the computer's button, and the dock's way to the request step (the last part, once shared with the Tone and
  * Tighten confirmation reel). (A newer reel uses reel.js's own versions of the first ones: h1.rl-type, .rl-who, .rl-gift-word.) */
 
 /* THE REP'S PICTURE, big, with the check: the same picture the dock shows (src/lib/funnel-native.mjs puts it in
@@ -12,7 +12,7 @@
   if (!d.rep || !d.rep.pic) return;
   box.querySelector(".rlc-pic").innerHTML = d.rep.pic;   // made on the server (rep-avatar.mjs pictureHtml), escaped there
   box.hidden = false;
-  // A computer's floating button carries the rep too: their picture, the check, then "Get a discount code".
+  // A computer's floating button carries the rep too: their picture, the check, then "Get the supplement guide".
   var cta = document.querySelector(".rlc .rl-cta");
   if (cta) {
     var name = document.createElement("span"); name.textContent = cta.textContent.trim();
@@ -63,7 +63,8 @@
  * no form: its tap, its swipe (which clicks it) and a flick past the last screen (reel.js clicks it) go to the request
  * step named in data-rl-next instead, where the rep is alerted (migration 0427). The ask's button and the computer's
  * .rl-cta are plain links to the same step.
- * ⚠️ The same code is in nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-guide-confirmation-reel/block.js: change both. */
+ * The Tone and Tighten confirmation reel did the same until 2026-10-20; it now opens a claim card on its own page instead
+ * (Joe: "dont need the other page"), so the two no longer share this code. */
 (function () {
   var root = document.querySelector("[data-rl-next]");
   if (!root) return;
