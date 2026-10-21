@@ -20,3 +20,11 @@
   background:linear-gradient(105deg,transparent 35%,rgba(234,242,255,.16) 50%,transparent 65%); animation:qab-sheen-loop 6s ease-in-out 1.5s infinite; }
 @keyframes qab-sheen-loop{ 0%{ transform:translateX(-100%); } 30%,100%{ transform:translateX(100%); } }
 @media (prefers-reduced-motion:reduce){ .qab-bonus::after{ animation:none; display:none; } }
+/* the hard ask, last (2026-10-21): the big line, the sub line in the green, the button (opens the invitation card) */
+.qab-ask-sub{ font-weight:700 !important; color:var(--sig-green) !important; margin-top:12px !important; }
+.qab-ask .rl-btn{ margin-top:20px; }
+/* Screen 1 (Jeff, 2026-10-21: "under that animated arrow put swipe for bonus, take the swipe for free access"): the arrow
+ * says where the bonus is, and the dock waits for screen 2, where the bonus starts. */
+.qab-hint span{ margin-top:8px; font:700 12px "JetBrains Mono",monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--sig-green); }
+body:has(.qab-conf .rl-p:first-child.is-on) .pfn-dock{ opacity:0; pointer-events:none; transform:translateY(20px); }
+body:has(.qab-conf) .pfn-dock{ transition:opacity .4s,transform .4s; }

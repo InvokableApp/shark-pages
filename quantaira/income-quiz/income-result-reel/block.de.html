@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="zu Quantaira" data-pf-say="Hey {first}, ich hab das Einkommens-Quiz gemacht. Kannst du mir mehr über Quantaira erzählen?" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Sofort Zugang erhalten" data-pf-message-title="Wisch nach oben für mehr Infos" data-pf-invite="/income-invite" data-pf-invite-title="Deine persönliche Einladung" data-pf-invite-line="Tipp unten, und wir schicken dir den Link per SMS und E-Mail." data-pf-invite-button="Schick mir die Einladung" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">Der Weg oben tauscht deine Stunden gegen Geld. <em>Willst du einen sehen, der das nicht tut?</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Sichere dir kostenlos Zugang zu einem KI-Marktbot, dessen Training <mark>40 Millionen $ und ein Jahrzehnt</mark> gekostet hat</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Schreib mir zu Quantaira</a> <a data-pf-message-link data-pf-text-link href="/income-text">Schick mir stattdessen eine SMS</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">Trading ist mit Risiko verbunden, auch mit Verlustmonaten. Setz nur Geld ein, dessen Verlust du dir leisten kannst.</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Abb. 1</span><span>Stunden vs. Geld</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="Deine Einladung">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Für den Start diese Woche</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">Willst du loslegen? Probier diese Suche auf YouTube, um ein paar gute Creator zu finden.</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Kopiert" data-selected="Ausgewählt">Kopieren</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">Jeder Weg oben tauscht deine Stunden gegen Geld. <em>Einer nicht.</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">Eine KI, deren Entwicklung über zehn Jahre und 40 Millionen $ gekostet hat, tradet für dich</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Schreib mir zu Quantaira</a>
-          <p class="pq-alt" data-in style="--d:.35s">Lieber per SMS? <a data-pf-message-link data-pf-text-link href="/income-text">Schick mir stattdessen eine SMS</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">Trading ist mit Risiko verbunden, auch mit Verlustmonaten. Setz nur Geld ein, dessen Verlust du dir leisten kannst.</p>
+          <span class="rl-eyebrow" data-in>Deine Einladung</span>
+          <h2 data-in style="--d:.1s">Tipp unten und sichere dir <mark>kostenlos Zugang</mark> zum KI-Trading-Bot, der die Krypto-Welt im Sturm erobert</h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">Und werde dafür bezahlt, ihn weiterzuempfehlen.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">Schick mir die Einladung</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Vorheriger Screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Nächster Screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"KI-Dienstleistungen","h":"am besten passt zu dir, lokalen Firmen KI-Hilfe zu verkaufen","p":"Du würdest lokalen Firmen KI-Hilfe verkaufen: einen Chatbot für eine Zahnarztpraxis, Automationen für einen Installateur. Das ist der schnellste KI-Weg zum ersten Gehaltsscheck, weil Firmen für Ergebnisse zahlen. Es ist aber auch ein Vertriebsjob: Du findest die Kunden und du hältst sie.","real":"„Das ist Arbitrage, kein passives Einkommen. Du musst trotzdem Kunden finden, den Freelancer managen und die Qualität kontrollieren.“ (r/passive_income)","start":"Such dir eine Branche aus, die du schon kennst. Biete dein erstes Projekt günstig an, im Tausch gegen eine Bewertung und eine Empfehlung.","search":"KI Agentur gründen für lokale Unternehmen","side":true,"values":["5 bis 10 (ca.)","Hoch: Du findest und hältst Kunden","50 $ bis 200 $ für Tools (ca.)","1 bis 2 Monate (ca.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter oder Website","h":"am besten passt zu dir ein Newsletter oder eine Website, die du mit KI betreibst","p":"Du würdest eine Website oder einen Newsletter zu einem Thema betreiben, das du kennst, und die KI übernimmt Recherche und erste Entwürfe. Wenn es funktioniert, wächst es immer weiter, aber es geht langsam, und die KI-Antworten von Google schnappen inzwischen viele Klicks weg.","real":"„Der Traffic steigt überall, aber die Klicks liegen fast bei null.“ (r/SEO, 2026)","start":"Such dir ein enges Thema aus, über das du ein Jahr lang schreiben könntest, und veröffentliche eine nützliche Seite pro Woche, bevor du einen Dollar ausgibst.","search":"Newsletter starten mit beehiiv","side":true,"values":["5 bis 10 (ca.)","Mittel bis hoch","100 $ bis 300 $ (ca.)","3 bis 12 Monate"],"scale":[72,68,45,82]},"creator":{"name":"Faceless-Videos","h":"am besten passt zu dir ein Faceless-Videokanal","p":"Du würdest einen Faceless-Videokanal oder eine TikTok-Shop-Seite betreiben, und die KI hilft bei Skripten und Stimme. Wenn es zündet, ist es groß. Die meisten Kanäle brauchen aber lange bis dahin: YouTube zahlt erst ab 1.000 Abonnenten und 4.000 Stunden Wiedergabezeit, und TikTok Shop braucht 1.000 Follower.","real":"„Die Leute nennen Faceless-Kanäle ‚passives Einkommen‘, aber Skripte, Schnitt, Thumbnails, Recherche und regelmäßiges Posten fühlen sich eher wie ein zweiter Job an.“ (r/passive_income)","start":"Such dir ein Thema aus und poste 90 Tage lang dreimal pro Woche die gleiche Art Video, bevor du urteilst.","search":"Faceless YouTube Kanal starten","side":true,"values":["5 bis 15 (ca.)","Hoch: ständig posten","0 $ bis 200 $ (ca.)","6 Monate bis über 3 Jahre"],"scale":[85,85,30,95]},"maker":{"name":"Digitale Produkte","h":"am besten passt zu dir der Verkauf digitaler Produkte","p":"Du würdest digitale Produkte wie Vorlagen, Planer und Prompts oder Print-on-Demand-Designs erstellen und auf Etsy oder Gumroad verkaufen. Das ist der günstigste Einstieg, und du machst jedes Produkt nur einmal. Der Haken: Sie müssen auch gesehen werden.","real":"„Mit POD Erfolg zu haben, braucht sehr viele Verkäufe. Die Druckerei steckt bei jedem Artikel den Löwenanteil vom Gewinn ein.“ (r/EtsySellers)","start":"Mach ein Produkt für ein Problem, das du selbst hattest, und schau, ob 10 Fremde es kaufen, bevor du zehn weitere machst.","search":"digitale Produkte auf Etsy verkaufen für Anfänger","side":true,"values":["3 bis 8 (ca.)","Mittel: Du musst es trotzdem vermarkten","0 $ bis 100 $ (ca.)","1 bis 3 Monate (ca.)"],"scale":[55,60,20,45]},"allocator":{"name":"Eine KI, die für dich tradet","h":"dein Geld macht die Arbeit, nicht deine Stunden","p":"Du willst etwas, das du einmal einrichtest und kaum noch anfasst, und Schwankungen sind für dich okay. Das können dir die meisten Nebenjobs nicht bieten. Eine KI, die für dich tradet, schon.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Teilen, was du magst","h":"am besten passt zu dir, dafür bezahlt zu werden, etwas Gutes weiterzuempfehlen","p":"Du bist die Person, die andere um Rat fragen. Wenn du etwas Gutes findest, erzählst du es weiter. Bei den meisten Nebenjobs musst du dir erst ein Publikum aufbauen. Du hast schon eins: die Leute, die auf dich hören.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Stunden pro Woche","Aufwand","Startkosten","Zeit bis zum ersten Dollar"],"quantaira":{"values":["Minuten, nach der Einrichtung","Gering","Keine Vorabgebühr","Hängt vom Markt ab"],"scale":[3,10,2,28],"note":"Keine Vorabgebühr: Das Geld, mit dem gehandelt wird, bleibt auf deinem eigenen Konto, und Trading ist mit Risiko verbunden."},"pitch_p":"Sie tradet von deinem eigenen Coin-Zoom-Konto aus, dein Geld verlässt es also nie, und du kannst sie jederzeit ausschalten. Keine Vorabgebühr, nur eine kleine Erfolgsgebühr, und nichts einzurichten. Du kannst auch Geld verdienen, wenn du sie weiterempfiehlst.","connector_p":"Empfiehl Quantaira den Leuten, die es haben wollen, und werde dafür bezahlt. Es ist eine KI, die von ihrem eigenen Coin-Zoom-Konto aus tradet, ohne Vorabgebühr und ohne etwas einzurichten. Ich zeige dir, wie das Weiterempfehlen funktioniert."}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"KI-Dienstleistungen","h":"am besten passt zu dir, lokalen Firmen KI-Hilfe zu verkaufen","h_mark":"lokalen Firmen KI-Hilfe zu verkaufen","p":"Du würdest lokalen Firmen KI-Hilfe verkaufen: einen Chatbot für eine Zahnarztpraxis, Automationen für einen Installateur. Das ist der schnellste KI-Weg zum ersten Gehaltsscheck, weil Firmen für Ergebnisse zahlen. Es ist aber auch ein Vertriebsjob: Du findest die Kunden und du hältst sie.","real":"„Das ist Arbitrage, kein passives Einkommen. Du musst trotzdem Kunden finden, den Freelancer managen und die Qualität kontrollieren.“ (r/passive_income)","start":"Such dir eine Branche aus, die du schon kennst. Biete dein erstes Projekt günstig an, im Tausch gegen eine Bewertung und eine Empfehlung.","search":"KI Agentur gründen für lokale Unternehmen","side":true,"values":["5 bis 10 (ca.)","Hoch: Du findest und hältst Kunden","50 $ bis 200 $ für Tools (ca.)","1 bis 2 Monate (ca.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter oder Website","h":"am besten passt zu dir ein Newsletter oder eine Website, die du mit KI betreibst","h_mark":"ein Newsletter oder eine Website, die du mit KI betreibst","p":"Du würdest eine Website oder einen Newsletter zu einem Thema betreiben, das du kennst, und die KI übernimmt Recherche und erste Entwürfe. Wenn es funktioniert, wächst es immer weiter, aber es geht langsam, und die KI-Antworten von Google schnappen inzwischen viele Klicks weg.","real":"„Der Traffic steigt überall, aber die Klicks liegen fast bei null.“ (r/SEO, 2026)","start":"Such dir ein enges Thema aus, über das du ein Jahr lang schreiben könntest, und veröffentliche eine nützliche Seite pro Woche, bevor du einen Dollar ausgibst.","search":"Newsletter starten mit beehiiv","side":true,"values":["5 bis 10 (ca.)","Mittel bis hoch","100 $ bis 300 $ (ca.)","3 bis 12 Monate"],"scale":[72,68,45,82]},"creator":{"name":"Faceless-Videos","h":"am besten passt zu dir ein Faceless-Videokanal","h_mark":"ein Faceless-Videokanal","p":"Du würdest einen Faceless-Videokanal oder eine TikTok-Shop-Seite betreiben, und die KI hilft bei Skripten und Stimme. Wenn es zündet, ist es groß. Die meisten Kanäle brauchen aber lange bis dahin: YouTube zahlt erst ab 1.000 Abonnenten und 4.000 Stunden Wiedergabezeit, und TikTok Shop braucht 1.000 Follower.","real":"„Die Leute nennen Faceless-Kanäle ‚passives Einkommen‘, aber Skripte, Schnitt, Thumbnails, Recherche und regelmäßiges Posten fühlen sich eher wie ein zweiter Job an.“ (r/passive_income)","start":"Such dir ein Thema aus und poste 90 Tage lang dreimal pro Woche die gleiche Art Video, bevor du urteilst.","search":"Faceless YouTube Kanal starten","side":true,"values":["5 bis 15 (ca.)","Hoch: ständig posten","0 $ bis 200 $ (ca.)","6 Monate bis über 3 Jahre"],"scale":[85,85,30,95]},"maker":{"name":"Digitale Produkte","h":"am besten passt zu dir der Verkauf digitaler Produkte","h_mark":"der Verkauf digitaler Produkte","p":"Du würdest digitale Produkte wie Vorlagen, Planer und Prompts oder Print-on-Demand-Designs erstellen und auf Etsy oder Gumroad verkaufen. Das ist der günstigste Einstieg, und du machst jedes Produkt nur einmal. Der Haken: Sie müssen auch gesehen werden.","real":"„Mit POD Erfolg zu haben, braucht sehr viele Verkäufe. Die Druckerei steckt bei jedem Artikel den Löwenanteil vom Gewinn ein.“ (r/EtsySellers)","start":"Mach ein Produkt für ein Problem, das du selbst hattest, und schau, ob 10 Fremde es kaufen, bevor du zehn weitere machst.","search":"digitale Produkte auf Etsy verkaufen für Anfänger","side":true,"values":["3 bis 8 (ca.)","Mittel: Du musst es trotzdem vermarkten","0 $ bis 100 $ (ca.)","1 bis 3 Monate (ca.)"],"scale":[55,60,20,45]},"allocator":{"name":"Eine KI, die für dich tradet","h":"dein Geld macht die Arbeit, nicht deine Stunden","h_mark":"dein Geld macht die Arbeit","p":"Du willst etwas, das du einmal einrichtest und kaum noch anfasst, und Schwankungen sind für dich okay. Das können dir die meisten Nebenjobs nicht bieten. Eine KI, die für dich tradet, schon.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Teilen, was du magst","h":"am besten passt zu dir, dafür bezahlt zu werden, etwas Gutes weiterzuempfehlen","h_mark":"dafür bezahlt zu werden, etwas Gutes weiterzuempfehlen","p":"Du bist die Person, die andere um Rat fragen. Wenn du etwas Gutes findest, erzählst du es weiter. Bei den meisten Nebenjobs musst du dir erst ein Publikum aufbauen. Du hast schon eins: die Leute, die auf dich hören.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Stunden pro Woche","Aufwand","Startkosten","Zeit bis zum ersten Dollar"],"quantaira":{"values":["Minuten, nach der Einrichtung","Gering","Keine Vorabgebühr","Hängt vom Markt ab"],"scale":[3,10,2,28],"note":"Keine Vorabgebühr: Das Geld, mit dem gehandelt wird, bleibt auf deinem eigenen Konto, und Trading ist mit Risiko verbunden."},"pitch_p":"Sie tradet von deinem eigenen Coin-Zoom-Konto aus, dein Geld verlässt es also nie, und du kannst sie jederzeit ausschalten. Keine Vorabgebühr, nur eine kleine Erfolgsgebühr, und nichts einzurichten. Du kannst auch Geld verdienen, wenn du sie weiterempfiehlst.","connector_p":"Empfiehl Quantaira den Leuten, die es haben wollen, und werde dafür bezahlt. Es ist eine KI, die von ihrem eigenen Coin-Zoom-Konto aus tradet, ohne Vorabgebühr und ohne etwas einzurichten. Ich zeige dir, wie das Weiterempfehlen funktioniert.","pitch_p_mark":"Geld verdienen, wenn du sie weiterempfiehlst","connector_p_mark":"werde dafür bezahlt","peek":"Etwas Passiveres ansehen"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

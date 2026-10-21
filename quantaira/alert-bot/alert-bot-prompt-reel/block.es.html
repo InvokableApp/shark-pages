@@ -14,7 +14,7 @@
   Quantaira's AI (Jeremy, 27:00: "This is a true artificial intelligence system"). The risk line stays.
   ⚠️ The ask is a message to the rep: Messenger, or a text when the rep has no Messenger link ([data-needs]).
 -->
-<div class="rl rl-look-signal" data-pf-native data-pf-message="para tener acceso a la IA de Quantaira" data-pf-say="Hola {first}, recibí el prompt del bot de alertas. ¿Cómo tengo acceso a la IA de Quantaira?" data-pf-arrive="#050b16">
+<div class="rl rl-look-signal qab-conf" data-pf-native data-pf-message="al bot de trading con IA de Quantaira" data-pf-message-title="Toca aquí para pedir la invitación" data-pf-invite="/alert-bot-invite" data-pf-invite-title="Tu invitación privada" data-pf-invite-line="Te enviamos por texto y por email el enlace al bot de trading con IA de Quantaira. El acceso es gratis." data-pf-invite-button="Envíame la invitación" data-pf-say="Hola {first}, recibí el prompt del bot de alertas. ¿Cómo tengo acceso a la IA de Quantaira?" data-pf-arrive="#050b16">
   <div class="rl-frame">
     <!-- The bonus bar, pinned to the top of every screen (Jeff, 2026-10-15, on the review page: "lets make it clear on
          the confirmation page ... maybe a banner sticking to top of page"). A tap goes to the pitch, the last screen.
@@ -22,117 +22,62 @@
     <a class="qab-bonus" href="#qab-pitch" data-qab-bonus><span class="qab-bonus-tag">Bono</span><span class="qab-bonus-txt">Accede a la IA de trading avanzada de Quantaira</span><span aria-hidden="true">&rsaquo;</span></a>
     <div class="rl-track">
 
-      <!-- 1. PLAIN: here's your prompt, by name -->
+      <!-- 1. PLAIN: the prompt and the setup guide are in their email (Jeff, 2026-10-21: "we just put the prompt in the
+           email ... your prompt is in your email"), by name -->
       <section class="rl-p rl-paper">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Ya estás dentro</span>
           <!-- The name is filled from the opt-in and the span drops when it isn't known (render.mjs fillLeadName). -->
-          <h1 class="rl-type">Aquí está tu prompt<span data-if-name>, {{contact.first_name}}</span>.</h1>
-          <p data-in style="--d:.3s">Cópialo en la siguiente pantalla, o abre en tu computadora el email que te acabamos de mandar. También
-            está ahí, con la guía de configuración.</p>
-          <div class="rl-btns" data-in style="--d:.45s">
-            <a class="rl-btn" href="/alert-bot-guide">Abre la guía de configuración</a>
-          </div>
-          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <h1 class="rl-type">Tu prompt está en tu email<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Ábrelo en tu computadora y pégalo en ChatGPT o Claude. La guía de configuración también está ahí, para que veas cada paso antes de empezar.</p>
+          <p class="rl-fine" data-in style="--d:.4s">¿No lo ves? Revisa Promociones o spam.</p>
+          <div class="rl-hint qab-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg><span>Desliza para tu bono</span></div>
         </div>
       </section>
 
-      <!-- 2. DARK: the prompt itself, scrolls inside the screen -->
-      <section class="rl-p rl-night">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>El prompt</span>
-          <h2 data-in style="--d:.1s">Pégalo en <em>ChatGPT o Claude</em></h2>
-          <div class="qab-prompt rl-art" data-in style="--d:.2s">
-            <pre id="qab-prompt" tabindex="0">Eres mi coach de configuración, con mucha paciencia. Guíame para armar mi propio bot de alertas cripto para Telegram, un paso a la vez. No soy programador y nunca he usado GitHub ni un servidor. Todo pasa en mi navegador web y en la app de Telegram: nunca me pidas abrir una terminal ni una línea de comandos, ni instalar nada. Explica cada paso con palabras sencillas, dime exactamente dónde hacer clic y espera a que te diga "listo" antes de seguir. Los sitios web cambian sus botones, así que si lo que veo no coincide con lo que describiste, pídeme que te diga qué hay en mi pantalla y trabaja a partir de eso.
-
-QUÉ HACE EL BOT
-Cada 5 minutos revisa el precio de la moneda que yo elija (Bitcoin, a menos que diga otra cosa; también sirven Ethereum, Solana u oro a través de PAXG). Cuando se mueve 2% o más en una hora, me manda un mensaje de Telegram, escrito en español, con:
-1. Cuánto se movió y el precio actual.
-2. Los 3 titulares principales sobre esa moneda de las últimas dos horas, con enlaces.
-3. Una línea de una IA, escrita en español, sobre cuál titular probablemente explica el movimiento, o que ninguno lo explica.
-4. Qué pasó antes: en los últimos 12 meses, cuántas horas tuvieron un movimiento así de grande en la misma dirección, y cuántas veces estaba arriba o abajo 24 horas después.
-Nunca opera. Solo lee precios y noticias, y nunca tiene una clave de una cuenta de exchange.
-
-CÓMO ARMARLO (para ti, el coach)
-- Python 3, solo la biblioteca estándar, un solo archivo llamado bot.py.
-- Precios: los datos de precios públicos y gratuitos de Coinbase (velas de api.exchange.coinbase.com para la configuración COIN, por ejemplo BTC-USD). No necesita clave. Usa velas de 5 minutos para la última hora y velas de 1 hora para el historial de 12 meses (300 por solicitud, así que ve paginando hacia atrás).
-- Cuenta un movimiento grande como una sola muestra: después de una coincidencia, salta 24 horas hacia adelante.
-- Noticias: estos feeds gratuitos, sin clave. Quédate con las noticias de las últimas dos horas cuyo título mencione la configuración NEWS_WORD (por ejemplo bitcoin), y quita las repetidas. En el feed de Google News, busca el NEWS_WORD en lugar de bitcoin.
-  https://www.coindesk.com/arc/outboundfeeds/rss/
-  https://cointelegraph.com/rss
-  https://decrypt.co/feed
-  https://news.google.com/rss/search?q=bitcoin+when:2h&amp;hl=en-US&amp;gl=US&amp;ceid=US:en
-- La línea de la IA: usa la clave que yo tenga, OpenAI o Anthropic. Dile que escriba en español, que no prediga precios y que no diga comprar ni vender. Si la llamada a la IA falla, manda la alerta sin esa línea.
-- Todo el texto de las alertas va en español (los titulares se quedan en su idioma original).
-- Solo una alerta por dirección cada dos horas, para que un movimiento grande no mande doce mensajes.
-- Si un feed o la revisión de precio falla, sáltalo e inténtalo la próxima vez. Nunca debe caerse.
-- Termina cada alerta con: "Esto es historia, no una predicción."
-- Corre para siempre, revisa cada 5 minutos e imprime una línea en el registro en cada revisión.
-- Cuando la configuración SEND_TEST_ON_START es "yes", manda una alerta en cuanto arranca, sea cual sea el movimiento, para que yo vea que funciona.
-- La configuración viene solo de variables de entorno: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (por defecto BTC-USD), NEWS_WORD (por defecto bitcoin), MOVE_PCT (por defecto 2), SEND_TEST_ON_START, y OPENAI_API_KEY o ANTHROPIC_API_KEY. Nada secreto se escribe nunca en el código.
-- Dame el archivo completo en un solo bloque de código, listo para pegar.
-
-CLAVES Y SEGURIDAD (sigue esto durante todo el proceso)
-- Nunca me pidas pegar una clave o un token en este chat, y nunca pongas uno en el código. Cada clave va en un solo lugar: la pantalla Variables de Railway. Mientras tanto, la guardo en la app de notas de mi celular o de mi computadora.
-- Mi repositorio de GitHub tiene que ser privado.
-- Haz que active la verificación en dos pasos en GitHub, Railway, Telegram y la cuenta de la IA.
-- Para cada servicio, dime cómo cancelar una clave y crear una nueva si alguna vez se filtra.
-
-LOS PASOS, EN ESTE ORDEN
-1. Telegram: abro @BotFather, mando /newbot, elijo un nombre y guardo en mis notas el token que me da.
-2. Mi chat id: abro mi bot nuevo y toco Iniciar. Luego abro esta dirección en mi navegador, con mi token en lugar de TOKEN: https://api.telegram.org/botTOKEN/getUpdates y tú me muestras cuál número es mi chat id. Recuérdame que esta dirección contiene mi token, así que no debo compartirla ni compartir una captura de pantalla de ella.
-3. La clave de IA: ayúdame a conseguir una clave de OpenAI o de Anthropic, a ponerle un límite de gasto mensual pequeño y a guardarla en mis notas.
-4. GitHub: pregúntame qué moneda quiero seguir, luego crea una cuenta gratuita y activa la verificación en dos pasos. Crea un repositorio nuevo PRIVADO llamado btc-alert-bot.
-5. El código: en el repositorio, Add file, Create new file, nómbralo bot.py, pega el código que escribas para mí y haz commit. Luego crea un segundo archivo llamado Procfile (sin extensión) con esta única línea: worker: python3 bot.py
-6. Railway: me registro con mi cuenta de GitHub. Antes de agregar nada, abre conmigo la página de precios de Railway y dime con palabras sencillas cuánto me va a costar hoy y cada mes. Luego New Project, Deploy from GitHub repo, y deja que Railway vea mi repositorio btc-alert-bot cuando lo pida.
-7. Mis claves: en la pantalla Variables del servicio, agrega TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, COIN (BTC-USD, o la moneda que elegí), NEWS_WORD (bitcoin, o el nombre de mi moneda), MOVE_PCT (2), ANTHROPIC_API_KEY u OPENAI_API_KEY, y SEND_TEST_ON_START (yes). Luego borra las claves de mi app de notas.
-8. La prueba: cuando termine el deploy, debería llegar una alerta de prueba a Telegram. Muéstrame dónde están los registros (logs) de Railway y que aparece una línea de revisión de precio cada 5 minutos. Luego cambia SEND_TEST_ON_START a no.
-9. Dame una lista corta de todo lo que configuré, dónde vive cada clave y cómo pausar el bot (quitarlo en Railway) si algún día quiero.
-
-Empieza diciéndome, en tres líneas, qué vamos a armar, más o menos cuánto tarda y cuánto podría costar. Luego empieza el paso 1.</pre>
-          </div>
-          <button type="button" class="rl-btn qab-copy" data-qab-copy data-in style="--d:.3s">Copia el prompt</button>
-          <span class="qab-copied" data-qab-copied>Copiado. Pégalo en un chat nuevo.</span>
-        </div>
-      </section>
-
-      <!-- 3. PLAIN: what you'll need -->
-      <section class="rl-p rl-paper qab-scan">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Antes de empezar</span>
-          <h2 data-in style="--d:.1s">Cuatro cuentas, <em>todas creadas en tu navegador</em></h2>
-          <ol class="lk-steps rl-art">
-            <li data-in style="--d:.2s"><b>Telegram</b>En tu celular. Gratis.</li>
-            <li data-in style="--d:.3s"><b>OpenAI o Anthropic</b>Para la línea de la IA. Centavos al mes, con un límite de gasto que tú pones.</li>
-            <li data-in style="--d:.4s"><b>GitHub</b>Guarda el código de tu bot. Gratis.</li>
-            <li data-in style="--d:.5s"><b>Railway</b>Lo mantiene funcionando. Unos $5 al mes después de un crédito de prueba que se da una sola vez.</li>
-          </ol>
-          <div class="rl-btns" data-in style="--d:.6s"><a class="rl-btn rl-btn-2" href="/alert-bot-guide">Abre la guía de configuración</a></div>
-        </div>
-      </section>
-
-      <!-- 4. DARK: the pitch, the gap made plain, and the ask -->
+      <!-- 2. DARK: the pivot (Jeff, 2026-10-21: "want to gain free access to our 40 million dollar trading bot?"), the gap made plain, and the ask -->
       <section class="rl-p rl-night rl-wide qab-pitch" id="qab-pitch">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>¿Quieres que las operaciones se hagan por ti?</span>
-          <h2 data-in style="--d:.1s">Acabas de recibir unas 300 líneas de código. <em>La IA de Quantaira tomó más de una década</em> y $40 millones construir.</h2>
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">¿Quieres acceso gratis a nuestro <em>bot de trading con IA de $40 millones</em>?</h2>
           <div class="qab-vs" data-in style="--d:.2s">
             <div><b>~300 líneas</b><small>Tu bot de alertas. Te avisa que algo se movió.</small></div>
             <div class="big"><b>10+ años</b><small>La IA de Quantaira. Lee las noticias y los gráficos y hace las operaciones.</small></div>
           </div>
           <p data-in style="--d:.3s">Opera desde tu propia cuenta de Coin Zoom, así que tu dinero nunca sale de ahí, y la puedes
             apagar cuando quieras. Sin cuota inicial, solo una pequeña comisión por resultados, y nada que configurar.</p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Escríbeme para tener acceso</a>
-          <p class="qab-alt" data-in style="--d:.45s">¿Prefieres escribir por mensaje de texto? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Mándame un mensaje de texto</a></p>
-          <p class="rl-fine" data-in style="--d:.5s">El trading tiene riesgo, incluso meses con pérdidas. Usa solo dinero que puedas darte el lujo de perder.</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: how it works -->
+      <section class="rl-p rl-tint qab-scan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Cómo funciona</span>
+          <h2 data-in style="--d:.1s">Tu dinero se queda en <em>tu propia cuenta</em></h2>
+          <ol class="lk-steps rl-art">
+            <li data-in style="--d:.2s"><b>Tu propia cuenta</b>Opera desde tu propia cuenta de Coin Zoom. Tu dinero nunca sale de ahí.</li>
+            <li data-in style="--d:.3s"><b>Cada operación, en tu app</b>Ves cada operación que hace en tu app de Coin Zoom.</li>
+            <li data-in style="--d:.4s"><b>Se paga solo de las ganancias</b>Sin cuota inicial. Se paga solo de las ganancias.</li>
+            <li data-in style="--d:.5s"><b>Lo apagas cuando quieras</b>Apágalo cuando quieras. Nada que configurar.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the hard ask; the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide qab-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tu invitación</span>
+          <h2 data-in style="--d:.1s">Toca abajo para <em>acceder gratis</em> al bot de trading con IA que está arrasando en el mundo cripto</h2>
+          <p class="qab-ask-sub" data-in style="--d:.2s">Y gana dinero por compartirlo.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/alert-bot-invite">Envíame la invitación</a>
+          <p class="rl-fine" data-in style="--d:.4s">El trading tiene riesgo, incluso meses con pérdidas. Usa solo dinero que puedas darte el lujo de perder.</p>
         </div>
       </section>
 
     </div>
     <nav class="rl-dots" aria-label="Pantallas"></nav>
     <!-- A computer has no dock: the ask floats in the window, with the rep (reel.js). No Messenger: the text page. -->
-    <a class="rl-cta" data-pf-ask data-rep-cta="Escríbele a {first} para tener acceso" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Escríbeme para tener acceso</a>
+    <a class="rl-cta" data-pf-ask href="/alert-bot-invite">Envíame la invitación</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

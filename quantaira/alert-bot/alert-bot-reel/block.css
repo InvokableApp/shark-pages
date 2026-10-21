@@ -6,7 +6,6 @@
 
 /* the cover: words up top, the terminal panel and the candles under them */
 .qab-cover .rl-in{ padding-top:64px; }
-.qab-cover .qab-chart{ position:absolute; right:24px; top:54px; width:118px; height:auto; }
 .qab-cover .lk-code{ margin-top:28px; }
 
 /* the alert screen: the card is the picture */
@@ -16,12 +15,11 @@
 .qab-parts .lk-steps li{ padding-top:12px; padding-bottom:12px; }
 
 /* the giant figure on the cost screen */
-.qab-cost .lk-big{ margin:6px 0 4px; }
-.qab-cost .lk-big small{ font:400 .28em var(--head); -webkit-text-fill-color:var(--grey); margin-left:6px; }
 
 /* the confirmation's prompt box: scrolls inside its screen, keeps the line breaks */
+/* the prompt box: a short window onto it, the Copy button does the work (Jeff, 2026-10-21: "we dont need the prompt to fill up so much space") */
 .qab-prompt{ position:relative; margin-top:14px; }
-.qab-prompt pre{ max-height:min(46vh,380px); overflow:auto; white-space:pre-wrap; word-break:break-word; margin:0;
+.qab-prompt pre{ max-height:min(26vh,220px); overflow:auto; white-space:pre-wrap; word-break:break-word; margin:0;
   font:500 12px/1.55 "JetBrains Mono",monospace; color:#b9cde6; background:rgba(8,18,34,.92);
   border:1px solid var(--sig-line); border-radius:14px; padding:14px 14px 18px; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
 .qab-copy{ margin-top:12px; width:100%; }
@@ -47,15 +45,13 @@
 .qab-alt a{ color:#5cc8ff; }
 
 @media (max-height:700px){
-  .qab-cover .qab-chart{ display:none; }
   .qab-cover .rl-in{ padding-top:40px; }
   .qab-pitch .rl-who{ display:none; }
   .rl-look-signal h1{ font-size:clamp(22px,6.8vw,28px); }
-  .qab-prompt pre{ max-height:34vh; }
+  .qab-prompt pre{ max-height:20vh; }
 }
 @media (min-width:701px){
-  .qab-cover .qab-chart{ top:auto; right:12%; bottom:22%; }
-  .qab-prompt pre{ max-height:52vh; font-size:13px; }
+  .qab-prompt pre{ max-height:30vh; font-size:13px; }
   .qab-pitch .rl-who{ display:none; }
 }
 @media (max-width:700px) and (max-height:700px){
@@ -72,20 +68,8 @@
 /* ── MOTION (Jeff, 2026-10-15: "lets add some svg animations into these screens ... more refined / dynamic").
  * Every piece plays when its screen comes on (reel.js puts .is-on on the screen) and sits still, finished, under
  * prefers-reduced-motion. Decoration only: each SVG is aria-hidden and the words carry the meaning. */
-.qab-chart .qab-candles rect{ fill:url(#qabG1); opacity:.55; transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0);
-  transition:transform .7s cubic-bezier(.2,.8,.2,1); }
-.qab-chart .qab-candles rect:nth-child(1){ transition-delay:.15s } .qab-chart .qab-candles rect:nth-child(2){ transition-delay:.25s }
-.qab-chart .qab-candles rect:nth-child(3){ transition-delay:.35s } .qab-chart .qab-candles rect:nth-child(4){ transition-delay:.45s }
-.qab-chart .qab-candles rect:nth-child(5){ transition-delay:.55s } .qab-chart .qab-candles rect:nth-child(6){ transition-delay:.65s }
-.qab-chart .qab-candles rect:nth-child(7){ transition-delay:.75s }
-.is-on .qab-chart .qab-candles rect{ transform:none; }
 .qab-line{ fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1; }
-.qab-chart .qab-line{ stroke:#eaf2ff; filter:drop-shadow(0 0 4px rgba(62,230,168,.7)); transition:stroke-dashoffset 1.4s ease-in-out .7s; }
-.qab-chart .qab-tip{ fill:#3ee6a8; opacity:0; transition:opacity .3s 2s; }
-.qab-chart .qab-tip-ring, .qab-missed .qab-ring{ fill:none; stroke:#3ee6a8; stroke-width:1.5; opacity:0; transform-box:fill-box; transform-origin:center; }
-.is-on .qab-chart .qab-line{ stroke-dashoffset:0; }
-.is-on .qab-chart .qab-tip{ opacity:1; }
-.is-on .qab-chart .qab-tip-ring{ animation:qab-ring 2s ease-out 2.1s infinite; }
+.qab-missed .qab-ring{ fill:none; stroke:#3ee6a8; stroke-width:1.5; opacity:0; transform-box:fill-box; transform-origin:center; }
 
 /* the moves you missed: the line draws across, each move lights up as the line reaches it */
 .qab-missed{ display:block; width:100%; max-width:440px; height:auto; margin-top:30px; overflow:visible; }
@@ -132,8 +116,6 @@
 .qab-cover.is-on .qab-type > :last-child::after{ animation-delay:1.8s; }
 
 /* the price: the gradient drifts through it */
-.qab-cost .lk-big{ background-size:220% 100%; }
-.qab-cost.is-on .lk-big{ animation:qab-drift 6s ease-in-out infinite alternate; }
 
 /* the close: the lock opens */
 .qab-lock{ display:block; width:46px; height:auto; margin-bottom:16px; overflow:visible; }
@@ -149,15 +131,13 @@
 @keyframes qab-sheen{ from{ transform:translateX(-100%); } to{ transform:translateX(100%); } }
 @keyframes qab-type{ from{ clip-path:inset(0 100% 0 0); } to{ clip-path:inset(0 0 0 0); } }
 @keyframes qab-caret{ 0%{ opacity:1; } 50%{ opacity:0; } }
-@keyframes qab-drift{ from{ background-position:0% 50%; } to{ background-position:100% 50%; } }
 
 @media (max-height:700px){ .qab-missed{ margin-top:16px; max-height:120px; } .qab-lock{ width:36px; margin-bottom:10px; } }
-@media (min-width:701px){ .qab-cover .qab-chart{ width:220px; top:auto; right:12%; bottom:20%; } .qab-missed{ min-width:400px; max-width:520px; } }
+@media (min-width:701px){ .qab-missed{ min-width:400px; max-width:520px; } }
 @media (prefers-reduced-motion:reduce){
-  .qab-chart .qab-candles rect,.qab-line,.qab-missed .qab-mark,.qab-chart .qab-tip,.qab-lock .qab-shackle{ transition:none !important; }
-  .qab-chart .qab-candles rect{ transform:none; } .qab-line{ stroke-dashoffset:0; } .qab-missed .qab-mark,.qab-chart .qab-tip{ opacity:1; transform:none; }
+  .qab-missed .qab-line,.qab-missed .qab-mark,.qab-lock .qab-shackle{ transition:none !important; }
+  .qab-missed .qab-line{ stroke-dashoffset:0; } .qab-missed .qab-mark{ opacity:1; transform:none; }
   .qab-type i,.qab-type span{ clip-path:none; animation:none !important; }
-  .qab-chart .qab-tip-ring,.qab-ring,.lk-bot i::before,.lk-bot i::after,.lk-alert::after,.lk-steps li::after,.qab-type > :last-child::after,.lk-big{ animation:none !important; }
 }
 
 /* the close, on a computer only: a phone with alerts landing, newest on top (Jeff, 2026-10-15: "on desktop, we can put

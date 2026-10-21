@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="à propos de Quantaira" data-pf-say="Salut {first}, j'ai fait le quiz sur les revenus. Tu peux m'en dire plus sur Quantaira ?" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Accès immédiat" data-pf-message-title="Glisse vers le haut pour en savoir plus" data-pf-invite="/income-invite" data-pf-invite-title="Ton invitation privée" data-pf-invite-line="Appuie ci-dessous et on t'envoie le lien par texto et par e-mail." data-pf-invite-button="Envoyez-moi l'invitation" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">La voie ci-dessus échange tes heures contre de l'argent. <em>Tu veux en voir une qui ne le fait pas ?</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Accède gratuitement à un bot de marché IA dont l'entraînement a demandé <mark>40 millions $ et dix ans</mark></h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Écris-moi à propos de Quantaira</a> <a data-pf-message-link data-pf-text-link href="/income-text">Envoie-moi plutôt un SMS</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">Le trading comporte des risques, y compris des mois de pertes. N'utilise que de l'argent que tu peux te permettre de perdre.</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Fig. 1</span><span>Heures contre argent</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="Ton invitation">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Pour commencer cette semaine</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">Envie de te lancer ? Tape cette recherche sur YouTube pour trouver de bons créateurs.</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Copié" data-selected="Sélectionné">Copier</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">Toutes les voies ci-dessus échangent tes heures contre de l'argent. <em>Une seule, non.</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">Une IA qui a demandé plus de dix ans et 40 millions $ de développement, et qui trade pour toi</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Écris-moi à propos de Quantaira</a>
-          <p class="pq-alt" data-in style="--d:.35s">Tu préfères les SMS ? <a data-pf-message-link data-pf-text-link href="/income-text">Envoie-moi plutôt un SMS</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">Le trading comporte des risques, y compris des mois de pertes. N'utilise que de l'argent que tu peux te permettre de perdre.</p>
+          <span class="rl-eyebrow" data-in>Ton invitation</span>
+          <h2 data-in style="--d:.1s">Appuie ci-dessous pour <mark>accéder gratuitement</mark> au bot de trading IA qui fait sensation dans le monde de la crypto</h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">Et sois payé pour le partager.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">Envoyez-moi l'invitation</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Écran précédent"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Écran suivant"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Services IA","h":"ce qui te va le mieux, c'est de vendre de l'aide IA aux entreprises locales","p":"Tu vendrais de l'aide IA aux entreprises de ton coin : un chatbot pour un dentiste, des automatisations pour un plombier. C'est la voie IA la plus rapide vers un premier revenu, parce que les entreprises paient pour des résultats. Mais c'est aussi un job de vente : c'est toi qui trouves les clients et qui les gardes.","real":"« Ça, c'est de l'arbitrage, pas du revenu passif. Tu dois quand même trouver des clients, gérer le freelance, contrôler la qualité. » (r/passive_income)","start":"Choisis un type d'entreprise que tu connais déjà. Propose ta première réalisation à petit prix, en échange d'un témoignage et d'une recommandation.","search":"créer une agence IA pour les entreprises locales","side":true,"values":["5 à 10 (estim.)","Élevé : tu trouves et gardes tes clients","50 $ à 200 $ d'outils (estim.)","1 à 2 mois (estim.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter ou site","h":"ce qui te va le mieux, c'est une newsletter ou un site géré avec l'IA","p":"Tu gérerais un site ou une newsletter sur un sujet que tu connais, avec l'IA qui fait les recherches et les premiers jets. Si ça marche, ça continue de grandir, mais c'est lent, et les réponses IA de Google prennent maintenant une grosse partie des clics.","real":"« Le trafic est en hausse partout, mais les clics sont quasiment à zéro. » (r/SEO, 2026)","start":"Choisis un sujet précis sur lequel tu pourrais écrire pendant un an, et publie une page utile par semaine avant de dépenser le moindre dollar.","search":"lancer une newsletter avec beehiiv","side":true,"values":["5 à 10 (estim.)","Moyen à élevé","100 $ à 300 $ (estim.)","3 à 12 mois"],"scale":[72,68,45,82]},"creator":{"name":"Vidéos sans visage","h":"ce qui te va le mieux, c'est une chaîne vidéo sans visage","p":"Tu gérerais une chaîne vidéo sans visage ou une page TikTok Shop, avec l'IA qui t'aide pour les scripts et la voix. Quand ça décolle, ça décolle fort. Mais la plupart des chaînes mettent longtemps à y arriver : YouTube ne paie qu'après 1 000 abonnés et 4 000 heures de visionnage, et TikTok Shop demande 1 000 abonnés.","real":"« Les gens appellent les chaînes sans visage du “revenu passif”, mais écrire les scripts, monter, faire les miniatures, chercher et publier régulièrement, ça ressemble plutôt à un deuxième job. » (r/passive_income)","start":"Choisis un sujet et publie le même type de vidéo trois fois par semaine pendant 90 jours avant de juger.","search":"créer une chaîne YouTube sans montrer son visage","side":true,"values":["5 à 15 (estim.)","Élevé : publier tout le temps","0 $ à 200 $ (estim.)","6 mois à plus de 3 ans"],"scale":[85,85,30,95]},"maker":{"name":"Produits numériques","h":"ce qui te va le mieux, c'est de vendre des produits numériques","p":"Tu créerais des produits numériques comme des modèles, des agendas et des prompts, ou des designs en impression à la demande, et tu les vendrais sur Etsy ou Gumroad. C'est le moins cher pour démarrer et tu ne crées chaque produit qu'une fois. Le piège, c'est de les faire voir.","real":"« Pour réussir en POD, il faut un très gros volume de ventes. L'imprimeur empoche la plus grosse part du bénéfice sur chaque article. » (r/EtsySellers)","start":"Crée un produit pour un problème que tu as eu toi-même, et vois si 10 inconnus l'achètent avant d'en faire dix de plus.","search":"vendre des produits numériques sur Etsy débutant","side":true,"values":["3 à 8 (estim.)","Moyen : tu dois quand même en faire la promo","0 $ à 100 $ (estim.)","1 à 3 mois (estim.)"],"scale":[55,60,20,45]},"allocator":{"name":"Une IA qui trade pour toi","h":"c'est ton argent qui travaille, pas tes heures","p":"Tu veux quelque chose que tu mets en place une fois et que tu ne touches presque plus, et les hauts et les bas ne te font pas peur. La plupart des business à côté ne peuvent pas t'offrir ça. Une IA qui trade pour toi, si.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Partager ce que tu aimes","h":"ce qui te va le mieux, c'est d'être payé pour partager quelque chose de bien","p":"C'est à toi que les gens demandent conseil. Quand tu trouves quelque chose de bien, tu en parles autour de toi. La plupart des business à côté t'obligent d'abord à te construire une audience. Toi, tu en as déjà une : les gens qui t'écoutent.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Heures par semaine","Effort","Coût de départ","Délai avant le premier dollar"],"quantaira":{"values":["Quelques minutes, une fois en place","Faible","Aucuns frais de départ","Dépend du marché"],"scale":[3,10,2,28],"note":"Aucuns frais de départ : l'argent qu'elle trade reste sur ton propre compte, et le trading comporte des risques."},"pitch_p":"Elle trade depuis ton propre compte Coin Zoom, donc ton argent ne le quitte jamais, et tu peux la couper quand tu veux. Aucuns frais de départ, juste une petite commission sur les performances, et rien à configurer. Tu peux aussi être payé pour la partager.","connector_p":"Partage Quantaira avec les gens que ça intéresserait, et sois payé pour ça. C'est une IA qui trade depuis leur propre compte Coin Zoom, sans frais de départ et sans rien à configurer. Je te montre comment fonctionne le partage."}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Services IA","h":"ce qui te va le mieux, c'est de vendre de l'aide IA aux entreprises locales","h_mark":"vendre de l'aide IA aux entreprises locales","p":"Tu vendrais de l'aide IA aux entreprises de ton coin : un chatbot pour un dentiste, des automatisations pour un plombier. C'est la voie IA la plus rapide vers un premier revenu, parce que les entreprises paient pour des résultats. Mais c'est aussi un job de vente : c'est toi qui trouves les clients et qui les gardes.","real":"« Ça, c'est de l'arbitrage, pas du revenu passif. Tu dois quand même trouver des clients, gérer le freelance, contrôler la qualité. » (r/passive_income)","start":"Choisis un type d'entreprise que tu connais déjà. Propose ta première réalisation à petit prix, en échange d'un témoignage et d'une recommandation.","search":"créer une agence IA pour les entreprises locales","side":true,"values":["5 à 10 (estim.)","Élevé : tu trouves et gardes tes clients","50 $ à 200 $ d'outils (estim.)","1 à 2 mois (estim.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter ou site","h":"ce qui te va le mieux, c'est une newsletter ou un site géré avec l'IA","h_mark":"une newsletter ou un site géré avec l'IA","p":"Tu gérerais un site ou une newsletter sur un sujet que tu connais, avec l'IA qui fait les recherches et les premiers jets. Si ça marche, ça continue de grandir, mais c'est lent, et les réponses IA de Google prennent maintenant une grosse partie des clics.","real":"« Le trafic est en hausse partout, mais les clics sont quasiment à zéro. » (r/SEO, 2026)","start":"Choisis un sujet précis sur lequel tu pourrais écrire pendant un an, et publie une page utile par semaine avant de dépenser le moindre dollar.","search":"lancer une newsletter avec beehiiv","side":true,"values":["5 à 10 (estim.)","Moyen à élevé","100 $ à 300 $ (estim.)","3 à 12 mois"],"scale":[72,68,45,82]},"creator":{"name":"Vidéos sans visage","h":"ce qui te va le mieux, c'est une chaîne vidéo sans visage","h_mark":"une chaîne vidéo sans visage","p":"Tu gérerais une chaîne vidéo sans visage ou une page TikTok Shop, avec l'IA qui t'aide pour les scripts et la voix. Quand ça décolle, ça décolle fort. Mais la plupart des chaînes mettent longtemps à y arriver : YouTube ne paie qu'après 1 000 abonnés et 4 000 heures de visionnage, et TikTok Shop demande 1 000 abonnés.","real":"« Les gens appellent les chaînes sans visage du “revenu passif”, mais écrire les scripts, monter, faire les miniatures, chercher et publier régulièrement, ça ressemble plutôt à un deuxième job. » (r/passive_income)","start":"Choisis un sujet et publie le même type de vidéo trois fois par semaine pendant 90 jours avant de juger.","search":"créer une chaîne YouTube sans montrer son visage","side":true,"values":["5 à 15 (estim.)","Élevé : publier tout le temps","0 $ à 200 $ (estim.)","6 mois à plus de 3 ans"],"scale":[85,85,30,95]},"maker":{"name":"Produits numériques","h":"ce qui te va le mieux, c'est de vendre des produits numériques","h_mark":"vendre des produits numériques","p":"Tu créerais des produits numériques comme des modèles, des agendas et des prompts, ou des designs en impression à la demande, et tu les vendrais sur Etsy ou Gumroad. C'est le moins cher pour démarrer et tu ne crées chaque produit qu'une fois. Le piège, c'est de les faire voir.","real":"« Pour réussir en POD, il faut un très gros volume de ventes. L'imprimeur empoche la plus grosse part du bénéfice sur chaque article. » (r/EtsySellers)","start":"Crée un produit pour un problème que tu as eu toi-même, et vois si 10 inconnus l'achètent avant d'en faire dix de plus.","search":"vendre des produits numériques sur Etsy débutant","side":true,"values":["3 à 8 (estim.)","Moyen : tu dois quand même en faire la promo","0 $ à 100 $ (estim.)","1 à 3 mois (estim.)"],"scale":[55,60,20,45]},"allocator":{"name":"Une IA qui trade pour toi","h":"c'est ton argent qui travaille, pas tes heures","h_mark":"ton argent qui travaille","p":"Tu veux quelque chose que tu mets en place une fois et que tu ne touches presque plus, et les hauts et les bas ne te font pas peur. La plupart des business à côté ne peuvent pas t'offrir ça. Une IA qui trade pour toi, si.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Partager ce que tu aimes","h":"ce qui te va le mieux, c'est d'être payé pour partager quelque chose de bien","h_mark":"être payé pour partager quelque chose de bien","p":"C'est à toi que les gens demandent conseil. Quand tu trouves quelque chose de bien, tu en parles autour de toi. La plupart des business à côté t'obligent d'abord à te construire une audience. Toi, tu en as déjà une : les gens qui t'écoutent.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Heures par semaine","Effort","Coût de départ","Délai avant le premier dollar"],"quantaira":{"values":["Quelques minutes, une fois en place","Faible","Aucuns frais de départ","Dépend du marché"],"scale":[3,10,2,28],"note":"Aucuns frais de départ : l'argent qu'elle trade reste sur ton propre compte, et le trading comporte des risques."},"pitch_p":"Elle trade depuis ton propre compte Coin Zoom, donc ton argent ne le quitte jamais, et tu peux la couper quand tu veux. Aucuns frais de départ, juste une petite commission sur les performances, et rien à configurer. Tu peux aussi être payé pour la partager.","connector_p":"Partage Quantaira avec les gens que ça intéresserait, et sois payé pour ça. C'est une IA qui trade depuis leur propre compte Coin Zoom, sans frais de départ et sans rien à configurer. Je te montre comment fonctionne le partage.","pitch_p_mark":"être payé pour la partager","connector_p_mark":"sois payé pour ça","peek":"Voir quelque chose de plus passif"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -11,7 +11,7 @@
   has the AI check Railway's pricing page with them, because the terms move.
   ⚠️ The last screen is the same pitch as the confirmation's: the gap made plain (see that block's header).
 -->
-<div class="rl rl-look-signal" data-pf-native data-pf-message="a Quantaira AI-jához való hozzáférésért" data-pf-say="Szia {first}, most állítom be a riasztó botot. Hogyan kaphatok hozzáférést a Quantaira AI-jához?" data-pf-arrive="#050b16">
+<div class="rl rl-look-signal" data-pf-native data-pf-message="a Quantaira AI kereskedő botjához" data-pf-message-title="Koppints ide a meghívó kéréséhez" data-pf-invite="/alert-bot-invite" data-pf-invite-title="A személyes meghívód" data-pf-invite-line="SMS-ben és e-mailben elküldjük a linket a Quantaira AI kereskedő botjához. A hozzáférés ingyenes." data-pf-invite-button="Kérem a meghívót" data-pf-say="Szia {first}, most állítom be a riasztó botot. Hogyan kaphatok hozzáférést a Quantaira AI-jához?" data-pf-arrive="#050b16">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -135,15 +135,14 @@
           <p data-in style="--d:.3s">A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor
             kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod.</p>
           <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.4s" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
-          <p class="qab-alt" data-in style="--d:.45s">Inkább SMS-t írnál? <a data-pf-message-link data-pf-text-link href="/alert-bot-text">Küldj inkább egy SMS-t</a></p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.4s" href="/alert-bot-invite">Kérem a meghívót</a>
           <p class="rl-fine" data-in style="--d:.5s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
         </div>
       </section>
 
     </div>
     <nav class="rl-dots" aria-label="Képernyők"></nav>
-    <a class="rl-cta" data-pf-ask data-rep-cta="Írj {first} részére a hozzáférésért" data-needs="{{custom_values.your_facebook_messenger_link}}" data-alt-href="/alert-bot-text" href="/alert-bot-message">Írj nekem a hozzáférésért</a>
+    <a class="rl-cta" data-pf-ask href="/alert-bot-invite">Kérem a meghívót</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Előző képernyő"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Következő képernyő"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>

@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Quantairaについて" data-pf-say="{first}さん、副収入の診断をやってみました。Quantairaについてもっと教えてもらえますか？" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="今すぐアクセス" data-pf-message-title="上にスワイプして詳しく知る" data-pf-invite="/income-invite" data-pf-invite-title="あなた専用の招待" data-pf-invite-line="下をタップすると、リンクをSMSとメールでお送りします。" data-pf-invite-button="招待を送ってください" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">上の道は、あなたの時間をお金に換えるものです。<em>そうではない道を見てみませんか？</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s"><mark>4,000万ドルと10年</mark>をかけて訓練されたAIマーケットボットに、無料でアクセスできます</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Quantairaについてメッセージする</a> <a data-pf-message-link data-pf-text-link href="/income-text">代わりにSMSを送ってください</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">トレードにはリスクがあり、損失が出る月もあります。失っても困らないお金だけを使ってください。</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>図1</span><span>時間とお金</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="あなたへの招待">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>今週から始めるなら</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">始めてみたいですか？YouTubeでこう検索すると、参考になるクリエイターが見つかります。</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="コピーしました" data-selected="選択済み">コピー</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">上のどの道も、あなたの時間をお金に換えるものです。<em>ひとつだけ違います。</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">10年以上と4,000万ドルをかけて開発されたAIが、あなたの代わりにトレードします</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Quantairaについてメッセージする</a>
-          <p class="pq-alt" data-in style="--d:.35s">テキストメッセージのほうがいいですか？ <a data-pf-message-link data-pf-text-link href="/income-text">代わりにSMSを送ってください</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">トレードにはリスクがあり、損失が出る月もあります。失っても困らないお金だけを使ってください。</p>
+          <span class="rl-eyebrow" data-in>あなたへの招待</span>
+          <h2 data-in style="--d:.1s">下をタップして、暗号資産の世界を席巻しているAIトレーディングボットに<mark>無料でアクセス</mark></h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">そして、シェアして報酬を得ましょう。</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">招待を送ってください</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="前の画面"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="次の画面"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"AIサービス","h":"一番合うのは、地元の会社にAIのサポートを売ることです","p":"地元の会社にAIのサポートを売ります。たとえば歯医者さんのチャットボットや、水道屋さんの業務自動化です。会社は成果にお金を払うので、AIで最初の収入を得る一番早い道です。ただし営業の仕事でもあります。顧客を見つけるのも、つなぎとめるのもあなたです。","real":"「それは不労所得じゃなくて、ただの転売みたいなもの。結局、顧客を探して、外注先を管理して、品質チェックもしないといけない」(r/passive_income)","start":"すでによく知っている業種を1つ選びましょう。最初の1件は安く引き受けて、その代わりに推薦の言葉と紹介をお願いしましょう。","search":"AI 集客代行 始め方 個人","side":true,"values":["5〜10時間（推定）","多い：顧客を見つけて維持する","ツール代50〜200ドル（推定）","1〜2か月（推定）"],"scale":[72,85,35,40]},"publisher":{"name":"ニュースレターやサイト","h":"一番合うのは、AIで運営するニュースレターやウェブサイトです","p":"詳しいテーマでウェブサイトやニュースレターを運営し、リサーチや下書きはAIに任せます。うまくいけば伸び続けますが、時間がかかります。それに今はGoogleのAI回答にクリックの多くを取られています。","real":"「アクセスはどこも増えてるのに、クリックはほぼゼロ」(r/SEO、2026年)","start":"1年間書き続けられる狭いテーマを1つ選びましょう。お金を使う前に、役に立つページを週1本公開しましょう。","search":"ニュースレター 始め方 beehiiv","side":true,"values":["5〜10時間（推定）","中〜多い","100〜300ドル（推定）","3〜12か月"],"scale":[72,68,45,82]},"creator":{"name":"顔出しなしの動画","h":"一番合うのは、顔出しなしの動画チャンネルです","p":"顔出しなしの動画チャンネルやTikTok Shopのページを運営し、台本や音声はAIに手伝ってもらいます。当たれば大きいです。ただ、ほとんどのチャンネルはそこまでに長い時間がかかります。YouTubeは登録者1,000人と総再生時間4,000時間を超えるまで収益が出ず、TikTok Shopにはフォロワー1,000人が必要です。","real":"「顔出しなしのチャンネルを『不労所得』って言う人がいるけど、台本、編集、サムネ、リサーチ、毎回の投稿を続けるのは、もう第二の仕事みたいなもの」(r/passive_income)","start":"テーマを1つに決めて、同じタイプの動画を週3本、90日間投稿してから判断しましょう。","search":"顔出しなし YouTube 始め方","side":true,"values":["5〜15時間（推定）","多い：ずっと投稿し続ける","0〜200ドル（推定）","6か月〜3年以上"],"scale":[85,85,30,95]},"maker":{"name":"デジタル商品","h":"一番合うのは、デジタル商品を売ることです","p":"テンプレート、プランナー、プロンプトなどのデジタル商品や、プリントオンデマンドのデザインを作り、EtsyやGumroadで売ります。始めるのに一番お金がかからず、1つ作れば何度も売れます。難しいのは、見つけてもらうことです。","real":"「プリントオンデマンドで成功するには、ものすごい数を売らないといけない。1つ売れるたびに、利益のほとんどは印刷会社が持っていく」(r/EtsySellers)","start":"自分が困ったことを解決する商品を1つ作りましょう。さらに10個作る前に、知らない人10人が買ってくれるか試しましょう。","search":"デジタル商品 販売 初心者 Etsy","side":true,"values":["3〜8時間（推定）","中：販売の宣伝は必要","0〜100ドル（推定）","1〜3か月（推定）"],"scale":[55,60,20,45]},"allocator":{"name":"あなたの代わりにトレードするAI","h":"働くのはあなたの時間ではなく、あなたのお金です","p":"一度設定したらほとんど触らなくていいものが欲しくて、お金の増減も受け入れられる。ほとんどの副業では、それはかないません。あなたの代わりにトレードするAIなら、それができます。","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"気に入ったものをシェアする","h":"一番合うのは、いいものをシェアして報酬を得ることです","p":"あなたは周りから相談される人です。いいものを見つけたら、人に伝えます。ほとんどの副業は、まずファンを集めるところから始まります。あなたにはもういます。あなたの話を聞いてくれる人たちです。","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["週の時間","手間","初期費用","最初の収入まで"],"quantaira":{"values":["設定後は数分","少ない","初期費用なし","相場次第"],"scale":[3,10,2,28],"note":"初期費用はありません。運用するお金はあなた自身の口座に入ったままです。トレードにはリスクがあります。"},"pitch_p":"トレードはあなた自身のCoin Zoom口座から行うので、お金が口座の外に出ることはありません。いつでも止められます。初期費用はなく、少額の成功報酬だけ。設定も必要ありません。シェアして報酬を得ることもできます。","connector_p":"Quantairaを欲しがりそうな人にシェアして、報酬を得ましょう。その人自身のCoin Zoom口座からトレードするAIで、初期費用も設定も必要ありません。シェアのしくみは私がお教えします。"}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"AIサービス","h":"一番合うのは、地元の会社にAIのサポートを売ることです","h_mark":"地元の会社にAIのサポートを売ること","p":"地元の会社にAIのサポートを売ります。たとえば歯医者さんのチャットボットや、水道屋さんの業務自動化です。会社は成果にお金を払うので、AIで最初の収入を得る一番早い道です。ただし営業の仕事でもあります。顧客を見つけるのも、つなぎとめるのもあなたです。","real":"「それは不労所得じゃなくて、ただの転売みたいなもの。結局、顧客を探して、外注先を管理して、品質チェックもしないといけない」(r/passive_income)","start":"すでによく知っている業種を1つ選びましょう。最初の1件は安く引き受けて、その代わりに推薦の言葉と紹介をお願いしましょう。","search":"AI 集客代行 始め方 個人","side":true,"values":["5〜10時間（推定）","多い：顧客を見つけて維持する","ツール代50〜200ドル（推定）","1〜2か月（推定）"],"scale":[72,85,35,40]},"publisher":{"name":"ニュースレターやサイト","h":"一番合うのは、AIで運営するニュースレターやウェブサイトです","h_mark":"AIで運営するニュースレターやウェブサイト","p":"詳しいテーマでウェブサイトやニュースレターを運営し、リサーチや下書きはAIに任せます。うまくいけば伸び続けますが、時間がかかります。それに今はGoogleのAI回答にクリックの多くを取られています。","real":"「アクセスはどこも増えてるのに、クリックはほぼゼロ」(r/SEO、2026年)","start":"1年間書き続けられる狭いテーマを1つ選びましょう。お金を使う前に、役に立つページを週1本公開しましょう。","search":"ニュースレター 始め方 beehiiv","side":true,"values":["5〜10時間（推定）","中〜多い","100〜300ドル（推定）","3〜12か月"],"scale":[72,68,45,82]},"creator":{"name":"顔出しなしの動画","h":"一番合うのは、顔出しなしの動画チャンネルです","h_mark":"顔出しなしの動画チャンネル","p":"顔出しなしの動画チャンネルやTikTok Shopのページを運営し、台本や音声はAIに手伝ってもらいます。当たれば大きいです。ただ、ほとんどのチャンネルはそこまでに長い時間がかかります。YouTubeは登録者1,000人と総再生時間4,000時間を超えるまで収益が出ず、TikTok Shopにはフォロワー1,000人が必要です。","real":"「顔出しなしのチャンネルを『不労所得』って言う人がいるけど、台本、編集、サムネ、リサーチ、毎回の投稿を続けるのは、もう第二の仕事みたいなもの」(r/passive_income)","start":"テーマを1つに決めて、同じタイプの動画を週3本、90日間投稿してから判断しましょう。","search":"顔出しなし YouTube 始め方","side":true,"values":["5〜15時間（推定）","多い：ずっと投稿し続ける","0〜200ドル（推定）","6か月〜3年以上"],"scale":[85,85,30,95]},"maker":{"name":"デジタル商品","h":"一番合うのは、デジタル商品を売ることです","h_mark":"デジタル商品を売ること","p":"テンプレート、プランナー、プロンプトなどのデジタル商品や、プリントオンデマンドのデザインを作り、EtsyやGumroadで売ります。始めるのに一番お金がかからず、1つ作れば何度も売れます。難しいのは、見つけてもらうことです。","real":"「プリントオンデマンドで成功するには、ものすごい数を売らないといけない。1つ売れるたびに、利益のほとんどは印刷会社が持っていく」(r/EtsySellers)","start":"自分が困ったことを解決する商品を1つ作りましょう。さらに10個作る前に、知らない人10人が買ってくれるか試しましょう。","search":"デジタル商品 販売 初心者 Etsy","side":true,"values":["3〜8時間（推定）","中：販売の宣伝は必要","0〜100ドル（推定）","1〜3か月（推定）"],"scale":[55,60,20,45]},"allocator":{"name":"あなたの代わりにトレードするAI","h":"働くのはあなたの時間ではなく、あなたのお金です","h_mark":"あなたのお金","p":"一度設定したらほとんど触らなくていいものが欲しくて、お金の増減も受け入れられる。ほとんどの副業では、それはかないません。あなたの代わりにトレードするAIなら、それができます。","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"気に入ったものをシェアする","h":"一番合うのは、いいものをシェアして報酬を得ることです","h_mark":"いいものをシェアして報酬を得ること","p":"あなたは周りから相談される人です。いいものを見つけたら、人に伝えます。ほとんどの副業は、まずファンを集めるところから始まります。あなたにはもういます。あなたの話を聞いてくれる人たちです。","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["週の時間","手間","初期費用","最初の収入まで"],"quantaira":{"values":["設定後は数分","少ない","初期費用なし","相場次第"],"scale":[3,10,2,28],"note":"初期費用はありません。運用するお金はあなた自身の口座に入ったままです。トレードにはリスクがあります。"},"pitch_p":"トレードはあなた自身のCoin Zoom口座から行うので、お金が口座の外に出ることはありません。いつでも止められます。初期費用はなく、少額の成功報酬だけ。設定も必要ありません。シェアして報酬を得ることもできます。","connector_p":"Quantairaを欲しがりそうな人にシェアして、報酬を得ましょう。その人自身のCoin Zoom口座からトレードするAIで、初期費用も設定も必要ありません。シェアのしくみは私がお教えします。","pitch_p_mark":"シェアして報酬を得る","connector_p_mark":"報酬を得ましょう","peek":"もっと不労所得に近いものを見る"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

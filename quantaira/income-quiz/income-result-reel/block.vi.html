@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="về Quantaira" data-pf-say="Chào {first}, mình vừa làm quiz về thu nhập. Bạn kể thêm cho mình về Quantaira được không?" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Truy cập ngay" data-pf-message-title="Vuốt lên để biết thêm thông tin" data-pf-invite="/income-invite" data-pf-invite-title="Lời mời riêng của bạn" data-pf-invite-line="Chạm bên dưới và chúng tôi sẽ nhắn tin và email đường link cho bạn." data-pf-invite-button="Gửi lời mời cho tôi" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">Con đường ở trên đổi giờ của bạn lấy tiền. <em>Muốn xem một con đường không như vậy?</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Tiếp cận miễn phí một bot thị trường AI mất <mark>$40 triệu và mười năm</mark> để huấn luyện</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Nhắn cho mình về Quantaira</a> <a data-pf-message-link data-pf-text-link href="/income-text">Nhắn SMS cho mình nhé</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">Giao dịch luôn có rủi ro, kể cả những tháng bị lỗ. Chỉ dùng số tiền bạn có thể chấp nhận mất.</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Hình 1</span><span>Giờ làm và tiền kiếm</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="Lời mời của bạn">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Để bắt đầu ngay tuần này</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">Muốn bắt đầu? Thử gõ từ khóa này trên YouTube để tìm vài người làm nội dung hay.</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Đã sao chép" data-selected="Đã chọn">Sao chép</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">Mọi con đường ở trên đều đổi giờ của bạn lấy tiền. <em>Có một con đường thì không.</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">Một AI mất hơn mười năm và $40 triệu để xây dựng, giao dịch thay bạn</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Nhắn cho mình về Quantaira</a>
-          <p class="pq-alt" data-in style="--d:.35s">Thích nhắn SMS hơn? <a data-pf-message-link data-pf-text-link href="/income-text">Nhắn SMS cho mình nhé</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">Giao dịch luôn có rủi ro, kể cả những tháng bị lỗ. Chỉ dùng số tiền bạn có thể chấp nhận mất.</p>
+          <span class="rl-eyebrow" data-in>Lời mời của bạn</span>
+          <h2 data-in style="--d:.1s">Chạm bên dưới để <mark>truy cập miễn phí</mark> bot giao dịch AI đang làm mưa làm gió trong giới crypto</h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">Và được trả tiền khi chia sẻ nó.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">Gửi lời mời cho tôi</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Màn hình trước"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Màn hình tiếp"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Dịch vụ AI","h":"hướng hợp với bạn nhất là bán giải pháp AI cho doanh nghiệp địa phương","p":"Bạn sẽ bán giải pháp AI cho các doanh nghiệp quanh mình: một chatbot cho phòng khám nha, vài quy trình tự động cho thợ sửa ống nước. Đây là con đường AI nhanh nhất để có khoản tiền đầu tiên, vì doanh nghiệp trả tiền cho kết quả. Nhưng nó cũng là việc bán hàng: bạn phải tự tìm khách và giữ khách.","real":"\"Đó là ăn chênh lệch, không phải thu nhập thụ động. Bạn vẫn phải tìm khách, quản lý người làm freelance, rồi kiểm tra chất lượng.\" (r/passive_income)","start":"Chọn một ngành bạn đã quen. Làm sản phẩm đầu tiên với giá rẻ, đổi lại một lời nhận xét và một lần giới thiệu khách.","search":"cách mở agency AI cho doanh nghiệp nhỏ","side":true,"values":["5 đến 10 (ước tính)","Cao: bạn phải tự tìm và giữ khách","$50 đến $200 tiền công cụ (ước tính)","1 đến 2 tháng (ước tính)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter hoặc website","h":"hướng hợp với bạn nhất là một newsletter hoặc website chạy bằng AI","p":"Bạn sẽ làm một website hoặc newsletter về chủ đề mình rành, để AI lo phần tìm hiểu và viết bản nháp đầu. Nếu thành công, nó sẽ cứ lớn dần, nhưng rất chậm, và giờ các câu trả lời AI của Google đang lấy mất rất nhiều lượt click.","real":"\"Lượt hiển thị tăng ở mọi nơi, nhưng lượt click gần như bằng không.\" (r/SEO, 2026)","start":"Chọn một chủ đề hẹp mà bạn có thể viết suốt một năm, và đăng một trang hữu ích mỗi tuần trước khi bỏ ra đồng nào.","search":"cách làm newsletter kiếm tiền với beehiiv","side":true,"values":["5 đến 10 (ước tính)","Trung bình đến cao","$100 đến $300 (ước tính)","3 đến 12 tháng"],"scale":[72,68,45,82]},"creator":{"name":"Video không lộ mặt","h":"hướng hợp với bạn nhất là một kênh video không lộ mặt","p":"Bạn sẽ làm một kênh video không lộ mặt hoặc một trang TikTok Shop, có AI hỗ trợ viết kịch bản và lồng tiếng. Khi trúng thì trúng lớn. Nhưng phần lớn các kênh phải mất rất lâu mới tới được đó: YouTube chỉ trả tiền khi có 1,000 người đăng ký và 4,000 giờ xem, còn TikTok Shop cần 1,000 người theo dõi.","real":"\"Ai cũng gọi kênh không lộ mặt là 'thu nhập thụ động', nhưng viết kịch bản, dựng video, làm thumbnail, tìm hiểu nội dung và đăng đều đặn thì giống một công việc thứ hai hơn.\" (r/passive_income)","start":"Chọn một chủ đề và đăng cùng một kiểu video ba lần mỗi tuần trong 90 ngày rồi mới đánh giá.","search":"cách làm kênh YouTube không lộ mặt","side":true,"values":["5 đến 15 (ước tính)","Cao: phải đăng bài liên tục","$0 đến $200 (ước tính)","6 tháng đến hơn 3 năm"],"scale":[85,85,30,95]},"maker":{"name":"Sản phẩm số","h":"hướng hợp với bạn nhất là bán sản phẩm số","p":"Bạn sẽ làm sản phẩm số như template, sổ kế hoạch, prompt, hoặc thiết kế in theo yêu cầu, rồi bán trên Etsy hoặc Gumroad. Đây là cách rẻ nhất để bắt đầu và mỗi sản phẩm bạn chỉ làm một lần. Cái khó là làm sao để người ta thấy nó.","real":"\"Muốn thành công với POD thì phải bán số lượng rất lớn. Bên in ăn phần lớn lợi nhuận của mỗi món hàng.\" (r/EtsySellers)","start":"Làm một sản phẩm giải quyết vấn đề chính bạn từng gặp, và xem có 10 người lạ chịu mua không trước khi làm thêm mười cái nữa.","search":"cách bán sản phẩm số trên Etsy cho người mới","side":true,"values":["3 đến 8 (ước tính)","Trung bình: bạn vẫn phải tự quảng bá","$0 đến $100 (ước tính)","1 đến 3 tháng (ước tính)"],"scale":[55,60,20,45]},"allocator":{"name":"Một AI giao dịch thay bạn","h":"tiền của bạn làm việc, chứ không phải giờ của bạn","p":"Bạn muốn một thứ thiết lập một lần rồi gần như không phải đụng tới, và bạn chấp nhận chuyện lên xuống. Phần lớn việc làm thêm không cho bạn được điều đó. Một AI giao dịch thay bạn thì có thể.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Chia sẻ thứ bạn thích","h":"hướng hợp với bạn nhất là được trả tiền khi chia sẻ một thứ tốt","p":"Bạn là người mà mọi người hay hỏi ý kiến. Khi thấy thứ gì hay, bạn kể cho người khác nghe. Phần lớn việc làm thêm bắt bạn phải xây dựng người theo dõi trước. Bạn thì đã có sẵn rồi: những người vẫn nghe bạn nói.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Giờ mỗi tuần","Công sức","Chi phí ban đầu","Thời gian đến đồng đầu tiên"],"quantaira":{"values":["Vài phút, sau khi thiết lập","Thấp","Không tốn phí ban đầu","Tùy thị trường"],"scale":[3,10,2,28],"note":"Không tốn phí ban đầu: số tiền được giao dịch vẫn nằm trong tài khoản của chính bạn, và giao dịch luôn có rủi ro."},"pitch_p":"Nó giao dịch ngay từ tài khoản Coin Zoom của chính bạn, nên tiền của bạn không bao giờ rời khỏi đó, và bạn có thể tắt nó bất cứ lúc nào. Không tốn phí ban đầu, chỉ một khoản phí nhỏ theo hiệu quả, và không phải thiết lập gì. Bạn còn có thể được trả tiền khi chia sẻ nó.","connector_p":"Chia sẻ Quantaira với những người sẽ cần nó, và được trả tiền cho việc đó. Đây là một AI giao dịch ngay từ tài khoản Coin Zoom của chính họ, không tốn phí ban đầu và không phải thiết lập gì. Mình sẽ chỉ bạn cách chia sẻ hoạt động thế nào."}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Dịch vụ AI","h":"hướng hợp với bạn nhất là bán giải pháp AI cho doanh nghiệp địa phương","h_mark":"bán giải pháp AI cho doanh nghiệp địa phương","p":"Bạn sẽ bán giải pháp AI cho các doanh nghiệp quanh mình: một chatbot cho phòng khám nha, vài quy trình tự động cho thợ sửa ống nước. Đây là con đường AI nhanh nhất để có khoản tiền đầu tiên, vì doanh nghiệp trả tiền cho kết quả. Nhưng nó cũng là việc bán hàng: bạn phải tự tìm khách và giữ khách.","real":"\"Đó là ăn chênh lệch, không phải thu nhập thụ động. Bạn vẫn phải tìm khách, quản lý người làm freelance, rồi kiểm tra chất lượng.\" (r/passive_income)","start":"Chọn một ngành bạn đã quen. Làm sản phẩm đầu tiên với giá rẻ, đổi lại một lời nhận xét và một lần giới thiệu khách.","search":"cách mở agency AI cho doanh nghiệp nhỏ","side":true,"values":["5 đến 10 (ước tính)","Cao: bạn phải tự tìm và giữ khách","$50 đến $200 tiền công cụ (ước tính)","1 đến 2 tháng (ước tính)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter hoặc website","h":"hướng hợp với bạn nhất là một newsletter hoặc website chạy bằng AI","h_mark":"một newsletter hoặc website chạy bằng AI","p":"Bạn sẽ làm một website hoặc newsletter về chủ đề mình rành, để AI lo phần tìm hiểu và viết bản nháp đầu. Nếu thành công, nó sẽ cứ lớn dần, nhưng rất chậm, và giờ các câu trả lời AI của Google đang lấy mất rất nhiều lượt click.","real":"\"Lượt hiển thị tăng ở mọi nơi, nhưng lượt click gần như bằng không.\" (r/SEO, 2026)","start":"Chọn một chủ đề hẹp mà bạn có thể viết suốt một năm, và đăng một trang hữu ích mỗi tuần trước khi bỏ ra đồng nào.","search":"cách làm newsletter kiếm tiền với beehiiv","side":true,"values":["5 đến 10 (ước tính)","Trung bình đến cao","$100 đến $300 (ước tính)","3 đến 12 tháng"],"scale":[72,68,45,82]},"creator":{"name":"Video không lộ mặt","h":"hướng hợp với bạn nhất là một kênh video không lộ mặt","h_mark":"một kênh video không lộ mặt","p":"Bạn sẽ làm một kênh video không lộ mặt hoặc một trang TikTok Shop, có AI hỗ trợ viết kịch bản và lồng tiếng. Khi trúng thì trúng lớn. Nhưng phần lớn các kênh phải mất rất lâu mới tới được đó: YouTube chỉ trả tiền khi có 1,000 người đăng ký và 4,000 giờ xem, còn TikTok Shop cần 1,000 người theo dõi.","real":"\"Ai cũng gọi kênh không lộ mặt là 'thu nhập thụ động', nhưng viết kịch bản, dựng video, làm thumbnail, tìm hiểu nội dung và đăng đều đặn thì giống một công việc thứ hai hơn.\" (r/passive_income)","start":"Chọn một chủ đề và đăng cùng một kiểu video ba lần mỗi tuần trong 90 ngày rồi mới đánh giá.","search":"cách làm kênh YouTube không lộ mặt","side":true,"values":["5 đến 15 (ước tính)","Cao: phải đăng bài liên tục","$0 đến $200 (ước tính)","6 tháng đến hơn 3 năm"],"scale":[85,85,30,95]},"maker":{"name":"Sản phẩm số","h":"hướng hợp với bạn nhất là bán sản phẩm số","h_mark":"bán sản phẩm số","p":"Bạn sẽ làm sản phẩm số như template, sổ kế hoạch, prompt, hoặc thiết kế in theo yêu cầu, rồi bán trên Etsy hoặc Gumroad. Đây là cách rẻ nhất để bắt đầu và mỗi sản phẩm bạn chỉ làm một lần. Cái khó là làm sao để người ta thấy nó.","real":"\"Muốn thành công với POD thì phải bán số lượng rất lớn. Bên in ăn phần lớn lợi nhuận của mỗi món hàng.\" (r/EtsySellers)","start":"Làm một sản phẩm giải quyết vấn đề chính bạn từng gặp, và xem có 10 người lạ chịu mua không trước khi làm thêm mười cái nữa.","search":"cách bán sản phẩm số trên Etsy cho người mới","side":true,"values":["3 đến 8 (ước tính)","Trung bình: bạn vẫn phải tự quảng bá","$0 đến $100 (ước tính)","1 đến 3 tháng (ước tính)"],"scale":[55,60,20,45]},"allocator":{"name":"Một AI giao dịch thay bạn","h":"tiền của bạn làm việc, chứ không phải giờ của bạn","h_mark":"tiền của bạn làm việc","p":"Bạn muốn một thứ thiết lập một lần rồi gần như không phải đụng tới, và bạn chấp nhận chuyện lên xuống. Phần lớn việc làm thêm không cho bạn được điều đó. Một AI giao dịch thay bạn thì có thể.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Chia sẻ thứ bạn thích","h":"hướng hợp với bạn nhất là được trả tiền khi chia sẻ một thứ tốt","h_mark":"được trả tiền khi chia sẻ một thứ tốt","p":"Bạn là người mà mọi người hay hỏi ý kiến. Khi thấy thứ gì hay, bạn kể cho người khác nghe. Phần lớn việc làm thêm bắt bạn phải xây dựng người theo dõi trước. Bạn thì đã có sẵn rồi: những người vẫn nghe bạn nói.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Giờ mỗi tuần","Công sức","Chi phí ban đầu","Thời gian đến đồng đầu tiên"],"quantaira":{"values":["Vài phút, sau khi thiết lập","Thấp","Không tốn phí ban đầu","Tùy thị trường"],"scale":[3,10,2,28],"note":"Không tốn phí ban đầu: số tiền được giao dịch vẫn nằm trong tài khoản của chính bạn, và giao dịch luôn có rủi ro."},"pitch_p":"Nó giao dịch ngay từ tài khoản Coin Zoom của chính bạn, nên tiền của bạn không bao giờ rời khỏi đó, và bạn có thể tắt nó bất cứ lúc nào. Không tốn phí ban đầu, chỉ một khoản phí nhỏ theo hiệu quả, và không phải thiết lập gì. Bạn còn có thể được trả tiền khi chia sẻ nó.","connector_p":"Chia sẻ Quantaira với những người sẽ cần nó, và được trả tiền cho việc đó. Đây là một AI giao dịch ngay từ tài khoản Coin Zoom của chính họ, không tốn phí ban đầu và không phải thiết lập gì. Mình sẽ chỉ bạn cách chia sẻ hoạt động thế nào.","pitch_p_mark":"được trả tiền khi chia sẻ nó","connector_p_mark":"được trả tiền cho việc đó","peek":"Xem một hướng thụ động hơn"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,24 @@
+<!--
+  quantaira/income-quiz/income-invite-reel (fr: quiz.fr.json, a translation; the English is block.html)
+  After the private invitation (step /income-invite, migration 0445): the result reel's dock card sent the lead here;
+  opening this step runs the Invitation Request follow-up (0446), which texts and emails them the rep's Quantaira link and
+  alerts the rep. One screen, no dock.
+  ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
+  the script; never edit this file by hand.
+  Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
+  ("i also like the wheels").
+-->
+<div class="rl rl-look-print rl-pi" data-pf-native data-pf-arrive="#0e0e0f">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-night rl-wide">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Envoyé</span>
+          <h1 data-in style="--d:.1s">Regarde tes textos<span data-if-name>, {{contact.first_name}}</span></h1>
+          <p data-in style="--d:.25s">Ton invitation privée arrive par texto et par e-mail. Ouvre le lien, télécharge l'appli et inscris-toi. {{custom_values.rep_first_name}} te contactera aussi.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,6 @@
+/* quantaira/income-quiz/income-invite-reel — "your invitation is on its way" (see block.html), in Tech print. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/tech-print.css");
+
+.rl-pi h1{ font-size:clamp(32px,9.6vw,44px); }
+.rl-pi .rl-p{ padding-bottom:0; }

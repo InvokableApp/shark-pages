@@ -1,7 +1,7 @@
 <!--
   quantaira/income-quiz/income-quiz-reel
   The PASSIVE INCOME QUIZ, Quantaira's second opt-in (platform only; step /income-quiz, migration 0318). A cover,
-  the truth about passive income, 8 questions, then the form (the dock: name and email). quiz.js adds up the answers
+  8 questions (the "truth about passive income" screen between them was cut; Jeff, 2026-10-21: "can just remove this slide"), then the form (the dock: name and email). quiz.js adds up the answers
   into one of six results and sends it with the form as pq_result (the plain name) and pq_result_key; the result reel reads
   it back from this browser (sessionStorage "quantaira-pq") or from ?r= in an email's link.
   ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
@@ -18,21 +18,10 @@
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Hours vs. money</span><span>8 questions</span></div>
           <span class="rl-eyebrow" data-in style="--d:.05s">Free · 2 minutes</span>
-          <h1 data-in style="--d:.1s">Find the AI income that fits your life, with the real hours and costs</h1>
+          <h1 data-in style="--d:.1s">Find the <mark>AI income</mark> that fits your life, with the real hours and costs</h1>
           <p data-in style="--d:.25s">Eight quick questions about your time, your money and how hands-off you want it. You get your match, with the hours, cost and wait behind it.</p>
           <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Start the quiz</button></div>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
-        </div>
-      </section>
-
-      <!-- the truth about passive income -->
-      <section class="rl-p rl-night rl-wide pq-truth">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>The truth about passive income</span>
-          <h2 data-in style="--d:.1s">Most side hustles are a second job with a new name</h2>
-          <div class="pq-stat" data-in style="--d:.2s" aria-hidden="true"><div><b>$200</b><small>a month, typical</small></div><div><b>~20</b><small>hours a month</small></div></div>
-          <p data-in style="--d:.3s">The typical side hustle pays about $200 a month for close to 20 hours of work. Faceless channels, SEO sites, print on demand: most of them are hours, not passive. This quiz shows you the real numbers for each kind of AI income, so you pick the one that fits.</p>
-          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Start the questions</button></div>
         </div>
       </section>
 
@@ -40,7 +29,7 @@
       <section class="rl-p rl-paper rl-wide" data-qz="pq_hours">
         <div class="rl-in">
           <div class="tp-mh"><span data-qz-count>Question 1 of 8</span><span>Hours vs. money</span></div>
-          <h2 class="qz-h" data-in style="--d:.1s">How many hours a week could you really give it?</h2>
+          <h2 class="qz-h" data-in style="--d:.1s">How many hours a week could you give it?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
             <button type="button" data-a="0">Under 2</button>
             <button type="button" data-a="1">2 to 5</button>
@@ -54,7 +43,7 @@
       <section class="rl-p rl-tint rl-wide" data-qz="pq_passive">
         <div class="rl-in">
           <div class="tp-mh"><span data-qz-count>Question 2 of 8</span><span>Hours vs. money</span></div>
-          <h2 class="qz-h" data-in style="--d:.1s">What does &quot;passive&quot; mean to you?</h2>
+          <h2 class="qz-h" data-in style="--d:.1s">What does passive mean to you?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
             <button type="button" data-a="0">Set it up once and barely touch it</button>
             <button type="button" data-a="1">Build something once and sell it again and again</button>
@@ -110,11 +99,11 @@
           <div class="tp-mh"><span data-qz-count>Question 6 of 8</span><span>Hours vs. money</span></div>
           <h2 class="qz-h" data-in style="--d:.1s">Which sounds most like you?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
-            <button type="button" data-a="0">I like making things: templates, designs, planners</button>
-            <button type="button" data-a="1">I'd post videos or talk on camera</button>
-            <button type="button" data-a="2">I'd rather sell a service to businesses</button>
-            <button type="button" data-a="3">I'd rather my money did the work</button>
-            <button type="button" data-a="4">I'm always telling people about things I like</button>
+            <button type="button" data-a="0">Creative. I'm happiest making something from scratch</button>
+            <button type="button" data-a="1">Outgoing. I don't mind being the face of it</button>
+            <button type="button" data-a="2">A closer. I'm good at getting people to a yes</button>
+            <button type="button" data-a="3">Patient. I'd rather set it up and let it run</button>
+            <button type="button" data-a="4">Social. I'm the one people ask for recommendations</button>
           </div>
         </div>
       </section>

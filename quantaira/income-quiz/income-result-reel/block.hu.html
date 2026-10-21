@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="a Quantairáról" data-pf-say="Szia {first}, kitöltöttem a jövedelem-kvízt. Mesélnél többet a Quantairáról?" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Azonnali hozzáférés" data-pf-message-title="Húzd fel további infóért" data-pf-invite="/income-invite" data-pf-invite-title="A személyes meghívód" data-pf-invite-line="Koppints lent, és SMS-ben meg e-mailben elküldjük a linket." data-pf-invite-button="Kérem a meghívót" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">A fenti út az órákat váltja pénzre. <em>Akarsz látni egyet, amelyik nem?</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Férj hozzá ingyen egy AI piaci bothoz, amelynek betanítása <mark>40 millió dollárba és egy évtizedbe</mark> került</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Írj nekem a Quantairáról</a> <a data-pf-message-link data-pf-text-link href="/income-text">Küldj inkább egy SMS-t</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>1. ábra</span><span>Órák vs. pénz</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="A meghívód">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Hogy már a héten elkezdd</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">Szeretnél belevágni? Írd be ezt a YouTube keresőbe, és találsz pár jó alkotót.</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Kimásolva" data-selected="Kiválasztva">Másolás</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">Minden fenti út az órákat váltja pénzre. <em>Egy nem.</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">Egy AI, amit több mint egy évtizedig és 40 millió dollárból építettek, és helyetted kereskedik</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Írj nekem a Quantairáról</a>
-          <p class="pq-alt" data-in style="--d:.35s">Inkább SMS-t írnál? <a data-pf-message-link data-pf-text-link href="/income-text">Küldj inkább egy SMS-t</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.</p>
+          <span class="rl-eyebrow" data-in>A meghívód</span>
+          <h2 data-in style="--d:.1s">Koppints lent, és férj hozzá <mark>ingyen</mark> az AI kereskedő bothoz, amely meghódítja a kriptovilágot</h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">És kapj pénzt azért, hogy megosztod.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">Kérem a meghívót</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Előző képernyő"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Következő képernyő"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"AI-szolgáltatások","h":"neked az illik a legjobban, ha AI-segítséget adsz el helyi cégeknek","p":"AI-segítséget adnál el helyi vállalkozásoknak: egy chatbotot egy fogorvosnak, automatizálást egy vízszerelőnek. Ez a leggyorsabb AI-út az első fizetésig, mert a cégek az eredményért fizetnek. Viszont ez értékesítői munka: te keresed meg az ügyfeleket, és te tartod meg őket.","real":"\"Ez arbitrázs, nem passzív jövedelem. Ugyanúgy neked kell ügyfelet találni, a szabadúszót irányítani, a minőséget ellenőrizni.\" (r/passive_income)","start":"Válassz egy olyan vállalkozástípust, amit már ismersz. Az első munkát add olcsón, cserébe egy pozitív véleményért és egy ajánlásért.","search":"AI ügynökség indítása kisvállalkozásoknak","side":true,"values":["5-10 (becs.)","Magas: te szerzed és tartod meg az ügyfeleket","$50-$200 eszközökre (becs.)","1-2 hónap (becs.)"],"scale":[72,85,35,40]},"publisher":{"name":"Hírlevél vagy weboldal","h":"neked egy AI-jal működtetett hírlevél vagy weboldal illik a legjobban","p":"Egy olyan témáról vinnél weboldalt vagy hírlevelet, amihez értesz, és az AI csinálná a kutatást meg az első vázlatokat. Ha beindul, folyamatosan nő, de lassú, és a Google AI-válaszai ma már elviszik a kattintások nagy részét.","real":"\"A forgalom mindenhol nő, de a kattintás szinte nulla.\" (r/SEO, 2026)","start":"Válassz egy szűk témát, amiről egy évig tudnál írni, és hetente tegyél ki egy hasznos oldalt, mielőtt egy fillért is költenél.","search":"hírlevél indítása beehiiv","side":true,"values":["5-10 (becs.)","Közepes vagy magas","$100-$300 (becs.)","3-12 hónap"],"scale":[72,68,45,82]},"creator":{"name":"Arc nélküli videók","h":"neked egy arc nélküli videós csatorna illik a legjobban","p":"Arc nélküli videós csatornát vagy TikTok Shop oldalt vinnél, és az AI segítene a forgatókönyvben és a hangban. Ha betalál, nagyot szól. A legtöbb csatornának viszont sokáig tart eljutni idáig: a YouTube csak 1000 feliratkozó és 4000 megtekintési óra után fizet, a TikTok Shophoz pedig 1000 követő kell.","real":"\"Az emberek 'passzív jövedelemnek' hívják az arc nélküli csatornákat, de a forgatókönyv, a vágás, a bélyegképek, a kutatás és a rendszeres posztolás inkább egy második munkának tűnik.\" (r/passive_income)","start":"Válassz egy témát, és 90 napig posztolj hetente háromszor ugyanolyan típusú videót, mielőtt ítélkeznél.","search":"arc nélküli youtube csatorna indítása","side":true,"values":["5-15 (becs.)","Magas: folyamatos posztolás","$0-$200 (becs.)","6 hónap és 3+ év között"],"scale":[85,85,30,95]},"maker":{"name":"Digitális termékek","h":"neked a digitális termékek eladása illik a legjobban","p":"Digitális termékeket készítenél, például sablonokat, tervezőket és promptokat, vagy print-on-demand dizájnokat, és eladnád őket Etsyn vagy Gumroadon. Ezzel a legolcsóbb elindulni, és mindegyiket csak egyszer kell elkészítened. A nehéz rész az, hogy észrevegyék őket.","real":"\"A POD-dal csak nagyon nagy eladási volumennel lehet sikeres lenni. Minden terméknél a nyomda viszi el a haszon oroszlánrészét.\" (r/EtsySellers)","start":"Készíts egy terméket egy olyan problémára, ami neked is volt, és nézd meg, vesz-e belőle 10 idegen, mielőtt még tízet csinálnál.","search":"digitális termékek eladása Etsyn kezdőknek","side":true,"values":["3-8 (becs.)","Közepes: a marketing rád marad","$0-$100 (becs.)","1-3 hónap (becs.)"],"scale":[55,60,20,45]},"allocator":{"name":"Egy AI, ami helyetted kereskedik","h":"nálad a pénzed dolgozik, nem az óráid","p":"Olyasmit szeretnél, amit egyszer beállítasz és alig kell hozzányúlnod, és nem zavar a hullámzás. A legtöbb mellékállás ezt nem tudja megadni. Egy AI, ami helyetted kereskedik, igen.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Megosztani, ami tetszik","h":"neked az illik a legjobban, ha fizetnek azért, hogy megossz valami jót","p":"Téged kérdeznek meg az emberek. Ha találsz valami jót, elmondod másoknak. A legtöbb mellékállásnál előbb közönséget kell építeni. Neked már van: azok, akik hallgatnak rád.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Óra hetente","Erőfeszítés","Kezdő költség","Idő az első dollárig"],"quantaira":{"values":["Pár perc, a beállítás után","Alacsony","Nincs előzetes díj","A piactól függ"],"scale":[3,10,2,28],"note":"Nincs előzetes díj: a pénz, amivel kereskedik, a saját számládon marad, és a kereskedés kockázattal jár."},"pitch_p":"A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod. Azért is kaphatsz pénzt, ha megosztod.","connector_p":"Oszd meg a Quantairát azokkal, akiknek kellene, és kapj érte pénzt. Ez egy AI, ami az ő saját Coin Zoom számlájukról kereskedik, előzetes díj nélkül, és semmit nem kell beállítani. Megmutatom, hogyan működik a megosztás."}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"AI-szolgáltatások","h":"neked az illik a legjobban, ha AI-segítséget adsz el helyi cégeknek","h_mark":"AI-segítséget adsz el helyi cégeknek","p":"AI-segítséget adnál el helyi vállalkozásoknak: egy chatbotot egy fogorvosnak, automatizálást egy vízszerelőnek. Ez a leggyorsabb AI-út az első fizetésig, mert a cégek az eredményért fizetnek. Viszont ez értékesítői munka: te keresed meg az ügyfeleket, és te tartod meg őket.","real":"\"Ez arbitrázs, nem passzív jövedelem. Ugyanúgy neked kell ügyfelet találni, a szabadúszót irányítani, a minőséget ellenőrizni.\" (r/passive_income)","start":"Válassz egy olyan vállalkozástípust, amit már ismersz. Az első munkát add olcsón, cserébe egy pozitív véleményért és egy ajánlásért.","search":"AI ügynökség indítása kisvállalkozásoknak","side":true,"values":["5-10 (becs.)","Magas: te szerzed és tartod meg az ügyfeleket","$50-$200 eszközökre (becs.)","1-2 hónap (becs.)"],"scale":[72,85,35,40]},"publisher":{"name":"Hírlevél vagy weboldal","h":"neked egy AI-jal működtetett hírlevél vagy weboldal illik a legjobban","h_mark":"egy AI-jal működtetett hírlevél vagy weboldal","p":"Egy olyan témáról vinnél weboldalt vagy hírlevelet, amihez értesz, és az AI csinálná a kutatást meg az első vázlatokat. Ha beindul, folyamatosan nő, de lassú, és a Google AI-válaszai ma már elviszik a kattintások nagy részét.","real":"\"A forgalom mindenhol nő, de a kattintás szinte nulla.\" (r/SEO, 2026)","start":"Válassz egy szűk témát, amiről egy évig tudnál írni, és hetente tegyél ki egy hasznos oldalt, mielőtt egy fillért is költenél.","search":"hírlevél indítása beehiiv","side":true,"values":["5-10 (becs.)","Közepes vagy magas","$100-$300 (becs.)","3-12 hónap"],"scale":[72,68,45,82]},"creator":{"name":"Arc nélküli videók","h":"neked egy arc nélküli videós csatorna illik a legjobban","h_mark":"egy arc nélküli videós csatorna","p":"Arc nélküli videós csatornát vagy TikTok Shop oldalt vinnél, és az AI segítene a forgatókönyvben és a hangban. Ha betalál, nagyot szól. A legtöbb csatornának viszont sokáig tart eljutni idáig: a YouTube csak 1000 feliratkozó és 4000 megtekintési óra után fizet, a TikTok Shophoz pedig 1000 követő kell.","real":"\"Az emberek 'passzív jövedelemnek' hívják az arc nélküli csatornákat, de a forgatókönyv, a vágás, a bélyegképek, a kutatás és a rendszeres posztolás inkább egy második munkának tűnik.\" (r/passive_income)","start":"Válassz egy témát, és 90 napig posztolj hetente háromszor ugyanolyan típusú videót, mielőtt ítélkeznél.","search":"arc nélküli youtube csatorna indítása","side":true,"values":["5-15 (becs.)","Magas: folyamatos posztolás","$0-$200 (becs.)","6 hónap és 3+ év között"],"scale":[85,85,30,95]},"maker":{"name":"Digitális termékek","h":"neked a digitális termékek eladása illik a legjobban","h_mark":"a digitális termékek eladása","p":"Digitális termékeket készítenél, például sablonokat, tervezőket és promptokat, vagy print-on-demand dizájnokat, és eladnád őket Etsyn vagy Gumroadon. Ezzel a legolcsóbb elindulni, és mindegyiket csak egyszer kell elkészítened. A nehéz rész az, hogy észrevegyék őket.","real":"\"A POD-dal csak nagyon nagy eladási volumennel lehet sikeres lenni. Minden terméknél a nyomda viszi el a haszon oroszlánrészét.\" (r/EtsySellers)","start":"Készíts egy terméket egy olyan problémára, ami neked is volt, és nézd meg, vesz-e belőle 10 idegen, mielőtt még tízet csinálnál.","search":"digitális termékek eladása Etsyn kezdőknek","side":true,"values":["3-8 (becs.)","Közepes: a marketing rád marad","$0-$100 (becs.)","1-3 hónap (becs.)"],"scale":[55,60,20,45]},"allocator":{"name":"Egy AI, ami helyetted kereskedik","h":"nálad a pénzed dolgozik, nem az óráid","h_mark":"a pénzed dolgozik","p":"Olyasmit szeretnél, amit egyszer beállítasz és alig kell hozzányúlnod, és nem zavar a hullámzás. A legtöbb mellékállás ezt nem tudja megadni. Egy AI, ami helyetted kereskedik, igen.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Megosztani, ami tetszik","h":"neked az illik a legjobban, ha fizetnek azért, hogy megossz valami jót","h_mark":"fizetnek azért, hogy megossz valami jót","p":"Téged kérdeznek meg az emberek. Ha találsz valami jót, elmondod másoknak. A legtöbb mellékállásnál előbb közönséget kell építeni. Neked már van: azok, akik hallgatnak rád.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Óra hetente","Erőfeszítés","Kezdő költség","Idő az első dollárig"],"quantaira":{"values":["Pár perc, a beállítás után","Alacsony","Nincs előzetes díj","A piactól függ"],"scale":[3,10,2,28],"note":"Nincs előzetes díj: a pénz, amivel kereskedik, a saját számládon marad, és a kereskedés kockázattal jár."},"pitch_p":"A saját Coin Zoom számládról kereskedik, így a pénzed soha nem hagyja el, és bármikor kikapcsolhatod. Nincs előzetes díj, csak egy kis teljesítménydíj, és semmit nem kell beállítanod. Azért is kaphatsz pénzt, ha megosztod.","connector_p":"Oszd meg a Quantairát azokkal, akiknek kellene, és kapj érte pénzt. Ez egy AI, ami az ő saját Coin Zoom számlájukról kereskedik, előzetes díj nélkül, és semmit nem kell beállítani. Megmutatom, hogyan működik a megosztás.","pitch_p_mark":"kaphatsz pénzt, ha megosztod","connector_p_mark":"kapj érte pénzt","peek":"Mutatunk valami passzívabbat"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

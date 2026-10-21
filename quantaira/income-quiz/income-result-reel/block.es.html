@@ -11,7 +11,7 @@
   Look: "Tech print" (_shared/reel/looks/tech-print.css; Jeff, 2026-10-15: "yea, tech print"), the chart as wheels
   ("i also like the wheels").
 -->
-<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="sobre Quantaira" data-pf-say="Hola {first}, hice el quiz de ingresos. ¿Me cuentas más sobre Quantaira?" data-pf-arrive="#f3f1ec">
+<div class="rl rl-look-print rl-pr" data-pf-native data-pf-message="Accede al instante" data-pf-message-title="Desliza hacia arriba para más información" data-pf-invite="/income-invite" data-pf-invite-title="Tu invitación privada" data-pf-invite-line="Toca abajo y te enviamos el enlace por texto y por email." data-pf-invite-button="Envíame la invitación" data-pf-arrive="#f3f1ec">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -26,7 +26,43 @@
         </div>
       </section>
 
-      <!-- 2. the numbers, as wheels (not on the two Quantaira results) -->
+      <!-- 2. the turn -->
+      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
+        <div class="rl-in">
+          <h2 data-in style="--d:.1s">El camino de arriba cambia tus horas por dinero. <em>¿Quieres ver uno que no?</em></h2>
+        </div>
+      </section>
+
+      <!-- 3. Quantaira -->
+      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quantaira</span>
+          <h2 data-in style="--d:.1s">Accede gratis a un bot de mercado con IA que tomó <mark>$40 millones y una década</mark> entrenar</h2>
+          <p data-in style="--d:.2s" data-pr="pitch"></p>
+          <!-- The ask is the dock (Jeff, 2026-10-21: "the button group under is convoluted, take that out"). The two links
+               stay, hidden, because the platform's message card (funnel-native.js sayCard) takes its Message on Facebook and
+               Send a text from them. -->
+          <div hidden><a data-pf-message-link data-needs="{{custom_values.your_facebook_messenger_link}}" href="/income-message">Escríbeme sobre Quantaira</a> <a data-pf-message-link data-pf-text-link href="/income-text">Mándame un mensaje de texto</a></div>
+          <p class="rl-fine" data-in style="--d:.4s">El trading tiene riesgo, incluso meses con pérdidas. Usa solo dinero que puedas darte el lujo de perder.</p>
+        </div>
+      </section>
+
+      <!-- 4. how it works (DRAFT, Jeff 2026-10-21) -->
+      <section class="rl-p rl-night rl-wide pq-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Your money stays in your own account</h2>
+          <ul class="pq-points" data-in style="--d:.2s">
+            <li>It trades from your own Coin Zoom account. Your money never leaves it.</li>
+            <li>You see every trade it makes, in your Coin Zoom app.</li>
+            <li>No upfront fee. It is paid only from profits.</li>
+            <li>Switch it off any time. Nothing to set up.</li>
+          </ul>
+          <p data-in style="--d:.3s">Message me and I'll walk you through it.</p>
+        </div>
+      </section>
+
+      <!-- 5. the numbers, as wheels, last (not on the two Quantaira results; Jeff, 2026-10-21: "take this slide out, or move to end of deck") -->
       <section class="rl-p rl-paper pq-nums" data-pr-side>
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Fig. 1</span><span>Horas vs. dinero</span></div>
@@ -37,33 +73,13 @@
         </div>
       </section>
 
-      <!-- 3. a first step, and a YouTube search to copy -->
-      <section class="rl-p rl-tint rl-wide" data-pr-side>
+      <!-- 6. the hard ask (Jeff, 2026-10-21): the button opens the private invitation card -->
+      <section class="rl-p rl-night rl-wide pq-cta" aria-label="Tu invitación">
         <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Para empezar esta semana</span>
-          <p class="pq-start" data-in style="--d:.1s" data-pr="start"></p>
-          <h3 data-in style="--d:.2s">¿Quieres empezar? Prueba esta búsqueda en YouTube para encontrar buenos creadores.</h3>
-          <div class="pq-ys" data-in style="--d:.3s"><span class="pq-yi" aria-hidden="true"></span><span class="pq-yq" data-pr="search"></span><button type="button" class="pq-yc" data-pq-copy data-copied="Copiado" data-selected="Seleccionado">Copiar</button></div>
-        </div>
-      </section>
-
-      <!-- 4. the turn -->
-      <section class="rl-p rl-night rl-wide pq-turn" data-pr-side>
-        <div class="rl-in">
-          <h2 data-in style="--d:.1s">Cada camino de arriba cambia tus horas por dinero. <em>Uno no.</em></h2>
-        </div>
-      </section>
-
-      <!-- 5. Quantaira -->
-      <section class="rl-p rl-night rl-wide pq-pitch" id="pq-pitch">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Quantaira</span>
-          <h2 data-in style="--d:.1s">Una IA que tomó más de una década y $40 millones construir, operando por ti</h2>
-          <p data-in style="--d:.2s" data-pr="pitch"></p>
-          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-          <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}" data-in style="--d:.3s" href="/income-message">Escríbeme sobre Quantaira</a>
-          <p class="pq-alt" data-in style="--d:.35s">¿Prefieres escribir por mensaje de texto? <a data-pf-message-link data-pf-text-link href="/income-text">Mándame un mensaje de texto</a></p>
-          <p class="rl-fine" data-in style="--d:.4s">El trading tiene riesgo, incluso meses con pérdidas. Usa solo dinero que puedas darte el lujo de perder.</p>
+          <span class="rl-eyebrow" data-in>Tu invitación</span>
+          <h2 data-in style="--d:.1s">Toca abajo para <mark>acceder gratis</mark> al bot de trading con IA que está arrasando en el mundo cripto</h2>
+          <p class="pq-cta-sub" data-in style="--d:.2s">Y gana dinero por compartirlo.</p>
+          <a class="rl-btn" data-pf-ask data-in style="--d:.3s" href="/income-invite">Envíame la invitación</a>
         </div>
       </section>
 
@@ -73,7 +89,7 @@
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
-<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Servicios con IA","h":"lo tuyo es venderles ayuda con IA a negocios locales","p":"Les venderías ayuda con IA a negocios locales: un chatbot para un dentista, automatizaciones para un plomero. Es el camino con IA más rápido a un primer pago, porque los negocios pagan por resultados. También es un trabajo de ventas: tú consigues a los clientes y tú los mantienes.","real":"\"Eso es arbitraje, no ingreso pasivo. Igual tienes que conseguir clientes, coordinar al freelancer y cuidar la calidad.\" (r/passive_income)","start":"Elige un tipo de negocio que ya conozcas. Ofrece tu primer proyecto barato, a cambio de un testimonio y una recomendación.","search":"cómo crear una agencia de IA para negocios locales","side":true,"values":["5 a 10 (aprox.)","Alto: tú consigues y mantienes a los clientes","$50 a $200 en herramientas (aprox.)","1 a 2 meses (aprox.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter o sitio web","h":"lo tuyo es un newsletter o un sitio web manejado con IA","p":"Tendrías un sitio web o un newsletter sobre un tema que conoces, con la IA haciendo la investigación y los primeros borradores. Si funciona, sigue creciendo, pero es lento, y ahora las respuestas con IA de Google se llevan muchos de los clics.","real":"\"El tráfico sube en todos lados, pero los clics están casi en cero.\" (r/SEO, 2026)","start":"Elige un tema específico sobre el que podrías escribir durante un año, y publica una página útil por semana antes de gastar un dólar.","search":"cómo crear un newsletter con beehiiv","side":true,"values":["5 a 10 (aprox.)","Medio a alto","$100 a $300 (aprox.)","3 a 12 meses"],"scale":[72,68,45,82]},"creator":{"name":"Videos sin mostrar la cara","h":"lo tuyo es un canal de videos sin mostrar la cara","p":"Tendrías un canal de videos sin mostrar la cara o una página de TikTok Shop, con la IA ayudándote con los guiones y la voz. Cuando pega, pega fuerte. La mayoría de los canales tardan mucho en llegar ahí: YouTube paga solo después de 1,000 suscriptores y 4,000 horas de reproducción, y TikTok Shop pide 1,000 seguidores.","real":"\"La gente dice que los canales sin cara son 'ingreso pasivo', pero escribir guiones, editar, hacer miniaturas, investigar y publicar con constancia se siente más como un segundo trabajo.\" (r/passive_income)","start":"Elige un tema y publica el mismo tipo de video tres veces por semana durante 90 días antes de juzgarlo.","search":"cómo hacer un canal de YouTube sin mostrar la cara","side":true,"values":["5 a 15 (aprox.)","Alto: publicar todo el tiempo","$0 a $200 (aprox.)","De 6 meses a más de 3 años"],"scale":[85,85,30,95]},"maker":{"name":"Productos digitales","h":"lo tuyo es vender productos digitales","p":"Harías productos digitales como plantillas, agendas y prompts, o diseños de impresión bajo demanda, y los venderías en Etsy o Gumroad. Es lo más barato para empezar y cada producto lo haces una sola vez. Lo difícil es que la gente los vea.","real":"\"Para que te vaya bien con la impresión bajo demanda necesitas vender muchísimo. El que imprime se queda con la mayor parte de la ganancia de cada producto.\" (r/EtsySellers)","start":"Haz un producto para un problema que tú mismo hayas tenido, y mira si 10 desconocidos lo compran antes de hacer diez más.","search":"cómo vender productos digitales en Etsy para principiantes","side":true,"values":["3 a 8 (aprox.)","Medio: igual tienes que promocionarlo","$0 a $100 (aprox.)","1 a 3 meses (aprox.)"],"scale":[55,60,20,45]},"allocator":{"name":"Una IA que opera por ti","h":"tu dinero hace el trabajo, no tus horas","p":"Quieres algo que configuras una vez y casi no tocas, y aceptas las subidas y bajadas. La mayoría de los negocios extra no te pueden dar eso. Una IA que opera por ti, sí.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Compartir lo que te gusta","h":"lo tuyo es ganar dinero por compartir algo bueno","p":"Tú eres a quien la gente le pregunta. Cuando encuentras algo bueno, se lo cuentas a los demás. La mayoría de los negocios extra te obligan a crear una audiencia primero. Tú ya tienes una: la gente que te escucha.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Horas a la semana","Esfuerzo","Costo inicial","Tiempo al primer dólar"],"quantaira":{"values":["Minutos, después de configurarlo","Bajo","Sin cuota inicial","Depende del mercado"],"scale":[3,10,2,28],"note":"Sin cuota inicial: el dinero con el que opera se queda en tu propia cuenta, y el trading tiene riesgo."},"pitch_p":"Opera desde tu propia cuenta de Coin Zoom, así que tu dinero nunca sale de ahí, y la puedes apagar cuando quieras. Sin cuota inicial, solo una pequeña comisión por resultados, y nada que configurar. También puedes ganar dinero por compartirla.","connector_p":"Comparte Quantaira con la gente a la que le interesaría, y gana dinero por hacerlo. Es una IA que opera desde la propia cuenta de Coin Zoom de cada persona, sin cuota inicial y sin nada que configurar. Te muestro cómo funciona compartirla."}</script>
+<script type="application/json" id="pr-data">{"results":{"builder":{"name":"Servicios con IA","h":"lo tuyo es venderles ayuda con IA a negocios locales","h_mark":"venderles ayuda con IA a negocios locales","p":"Les venderías ayuda con IA a negocios locales: un chatbot para un dentista, automatizaciones para un plomero. Es el camino con IA más rápido a un primer pago, porque los negocios pagan por resultados. También es un trabajo de ventas: tú consigues a los clientes y tú los mantienes.","real":"\"Eso es arbitraje, no ingreso pasivo. Igual tienes que conseguir clientes, coordinar al freelancer y cuidar la calidad.\" (r/passive_income)","start":"Elige un tipo de negocio que ya conozcas. Ofrece tu primer proyecto barato, a cambio de un testimonio y una recomendación.","search":"cómo crear una agencia de IA para negocios locales","side":true,"values":["5 a 10 (aprox.)","Alto: tú consigues y mantienes a los clientes","$50 a $200 en herramientas (aprox.)","1 a 2 meses (aprox.)"],"scale":[72,85,35,40]},"publisher":{"name":"Newsletter o sitio web","h":"lo tuyo es un newsletter o un sitio web manejado con IA","h_mark":"un newsletter o un sitio web manejado con IA","p":"Tendrías un sitio web o un newsletter sobre un tema que conoces, con la IA haciendo la investigación y los primeros borradores. Si funciona, sigue creciendo, pero es lento, y ahora las respuestas con IA de Google se llevan muchos de los clics.","real":"\"El tráfico sube en todos lados, pero los clics están casi en cero.\" (r/SEO, 2026)","start":"Elige un tema específico sobre el que podrías escribir durante un año, y publica una página útil por semana antes de gastar un dólar.","search":"cómo crear un newsletter con beehiiv","side":true,"values":["5 a 10 (aprox.)","Medio a alto","$100 a $300 (aprox.)","3 a 12 meses"],"scale":[72,68,45,82]},"creator":{"name":"Videos sin mostrar la cara","h":"lo tuyo es un canal de videos sin mostrar la cara","h_mark":"un canal de videos sin mostrar la cara","p":"Tendrías un canal de videos sin mostrar la cara o una página de TikTok Shop, con la IA ayudándote con los guiones y la voz. Cuando pega, pega fuerte. La mayoría de los canales tardan mucho en llegar ahí: YouTube paga solo después de 1,000 suscriptores y 4,000 horas de reproducción, y TikTok Shop pide 1,000 seguidores.","real":"\"La gente dice que los canales sin cara son 'ingreso pasivo', pero escribir guiones, editar, hacer miniaturas, investigar y publicar con constancia se siente más como un segundo trabajo.\" (r/passive_income)","start":"Elige un tema y publica el mismo tipo de video tres veces por semana durante 90 días antes de juzgarlo.","search":"cómo hacer un canal de YouTube sin mostrar la cara","side":true,"values":["5 a 15 (aprox.)","Alto: publicar todo el tiempo","$0 a $200 (aprox.)","De 6 meses a más de 3 años"],"scale":[85,85,30,95]},"maker":{"name":"Productos digitales","h":"lo tuyo es vender productos digitales","h_mark":"vender productos digitales","p":"Harías productos digitales como plantillas, agendas y prompts, o diseños de impresión bajo demanda, y los venderías en Etsy o Gumroad. Es lo más barato para empezar y cada producto lo haces una sola vez. Lo difícil es que la gente los vea.","real":"\"Para que te vaya bien con la impresión bajo demanda necesitas vender muchísimo. El que imprime se queda con la mayor parte de la ganancia de cada producto.\" (r/EtsySellers)","start":"Haz un producto para un problema que tú mismo hayas tenido, y mira si 10 desconocidos lo compran antes de hacer diez más.","search":"cómo vender productos digitales en Etsy para principiantes","side":true,"values":["3 a 8 (aprox.)","Medio: igual tienes que promocionarlo","$0 a $100 (aprox.)","1 a 3 meses (aprox.)"],"scale":[55,60,20,45]},"allocator":{"name":"Una IA que opera por ti","h":"tu dinero hace el trabajo, no tus horas","h_mark":"tu dinero hace el trabajo","p":"Quieres algo que configuras una vez y casi no tocas, y aceptas las subidas y bajadas. La mayoría de los negocios extra no te pueden dar eso. Una IA que opera por ti, sí.","real":"","start":"","search":"","side":false,"values":null,"scale":null},"connector":{"name":"Compartir lo que te gusta","h":"lo tuyo es ganar dinero por compartir algo bueno","h_mark":"ganar dinero por compartir algo bueno","p":"Tú eres a quien la gente le pregunta. Cuando encuentras algo bueno, se lo cuentas a los demás. La mayoría de los negocios extra te obligan a crear una audiencia primero. Tú ya tienes una: la gente que te escucha.","real":"","start":"","search":"","side":false,"values":null,"scale":null}},"rows":["Horas a la semana","Esfuerzo","Costo inicial","Tiempo al primer dólar"],"quantaira":{"values":["Minutos, después de configurarlo","Bajo","Sin cuota inicial","Depende del mercado"],"scale":[3,10,2,28],"note":"Sin cuota inicial: el dinero con el que opera se queda en tu propia cuenta, y el trading tiene riesgo."},"pitch_p":"Opera desde tu propia cuenta de Coin Zoom, así que tu dinero nunca sale de ahí, y la puedes apagar cuando quieras. Sin cuota inicial, solo una pequeña comisión por resultados, y nada que configurar. También puedes ganar dinero por compartirla.","connector_p":"Comparte Quantaira con la gente a la que le interesaría, y gana dinero por hacerlo. Es una IA que opera desde la propia cuenta de Coin Zoom de cada persona, sin cuota inicial y sin nada que configurar. Te muestro cómo funciona compartirla.","pitch_p_mark":"ganar dinero por compartirla","connector_p_mark":"gana dinero por hacerlo","peek":"Ver algo más pasivo"}</script>
 <!-- result.js, not block.js: the platform adds a block.js itself, deferred, which would run after reel.js counted the screens. -->
 <script src="/_p/quantaira/income-quiz/income-result-reel/result.js?v=1"></script>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

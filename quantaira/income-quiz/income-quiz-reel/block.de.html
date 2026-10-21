@@ -1,7 +1,7 @@
 <!--
   quantaira/income-quiz/income-quiz-reel (de: quiz.de.json, a translation; the English is block.html)
   The PASSIVE INCOME QUIZ, Quantaira's second opt-in (platform only; step /income-quiz, migration 0318). A cover,
-  the truth about passive income, 8 questions, then the form (the dock: name and email). quiz.js adds up the answers
+  8 questions (the "truth about passive income" screen between them was cut; Jeff, 2026-10-21: "can just remove this slide"), then the form (the dock: name and email). quiz.js adds up the answers
   into one of six results and sends it with the form as pq_result (the plain name) and pq_result_key; the result reel reads
   it back from this browser (sessionStorage "quantaira-pq") or from ?r= in an email's link.
   ⚠️ WRITTEN BY QUANTAIRASHARK/lead-magnets/passive-income-quiz/build-pages.mjs FROM quiz.json. Edit quiz.json and run
@@ -18,21 +18,10 @@
         <div class="rl-in">
           <div class="tp-mh" data-in><span>Stunden vs. Geld</span><span>8 Fragen</span></div>
           <span class="rl-eyebrow" data-in style="--d:.05s">Kostenlos · 2 Minuten</span>
-          <h1 data-in style="--d:.1s">Finde das KI-Einkommen, das zu deinem Leben passt, mit den echten Stunden und Kosten</h1>
+          <h1 data-in style="--d:.1s">Finde das <mark>KI-Einkommen</mark>, das zu deinem Leben passt, mit den echten Stunden und Kosten</h1>
           <p data-in style="--d:.25s">Acht kurze Fragen zu deiner Zeit, deinem Geld und wie wenig Aufwand du willst. Du bekommst deinen Treffer, mit den Stunden, Kosten und der Wartezeit dahinter.</p>
           <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Quiz starten</button></div>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
-        </div>
-      </section>
-
-      <!-- the truth about passive income -->
-      <section class="rl-p rl-night rl-wide pq-truth">
-        <div class="rl-in">
-          <span class="rl-eyebrow" data-in>Die Wahrheit über passives Einkommen</span>
-          <h2 data-in style="--d:.1s">Die meisten Nebenjobs sind ein zweiter Job mit neuem Namen</h2>
-          <div class="pq-stat" data-in style="--d:.2s" aria-hidden="true"><div><b>$200</b><small>im Monat, typisch</small></div><div><b>~20</b><small>Stunden im Monat</small></div></div>
-          <p data-in style="--d:.3s">Ein typischer Nebenverdienst bringt etwa 200 $ im Monat für fast 20 Stunden Arbeit. Faceless-Kanäle, SEO-Seiten, Print on Demand: Das meiste davon kostet Stunden und ist nicht passiv. Dieses Quiz zeigt dir die echten Zahlen für jede Art von KI-Einkommen, damit du das wählst, was zu dir passt.</p>
-          <div class="qz-go" data-in style="--d:.4s"><button type="button" class="rl-btn" data-qz-next>Zu den Fragen</button></div>
         </div>
       </section>
 
@@ -40,7 +29,7 @@
       <section class="rl-p rl-paper rl-wide" data-qz="pq_hours">
         <div class="rl-in">
           <div class="tp-mh"><span data-qz-count>Frage 1 von 8</span><span>Stunden vs. Geld</span></div>
-          <h2 class="qz-h" data-in style="--d:.1s">Wie viele Stunden pro Woche könntest du wirklich investieren?</h2>
+          <h2 class="qz-h" data-in style="--d:.1s">Wie viele Stunden pro Woche könntest du investieren?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
             <button type="button" data-a="0">Unter 2</button>
             <button type="button" data-a="1">2 bis 5</button>
@@ -54,7 +43,7 @@
       <section class="rl-p rl-tint rl-wide" data-qz="pq_passive">
         <div class="rl-in">
           <div class="tp-mh"><span data-qz-count>Frage 2 von 8</span><span>Stunden vs. Geld</span></div>
-          <h2 class="qz-h" data-in style="--d:.1s">Was bedeutet „passiv“ für dich?</h2>
+          <h2 class="qz-h" data-in style="--d:.1s">Was bedeutet passiv für dich?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
             <button type="button" data-a="0">Einmal einrichten und kaum noch anfassen</button>
             <button type="button" data-a="1">Einmal etwas bauen und es immer wieder verkaufen</button>
@@ -110,11 +99,11 @@
           <div class="tp-mh"><span data-qz-count>Frage 6 von 8</span><span>Stunden vs. Geld</span></div>
           <h2 class="qz-h" data-in style="--d:.1s">Was passt am ehesten zu dir?</h2>
           <div class="qz-opts" data-in style="--d:.25s">
-            <button type="button" data-a="0">Ich mache gern Sachen: Vorlagen, Designs, Planer</button>
-            <button type="button" data-a="1">Ich würde Videos posten oder vor der Kamera reden</button>
-            <button type="button" data-a="2">Ich verkaufe lieber eine Dienstleistung an Firmen</button>
-            <button type="button" data-a="3">Mir ist lieber, mein Geld arbeitet für mich</button>
-            <button type="button" data-a="4">Ich erzähle ständig anderen von Sachen, die ich mag</button>
+            <button type="button" data-a="0">Kreativ. Am liebsten mache ich etwas von Grund auf neu</button>
+            <button type="button" data-a="1">Offen. Ich habe nichts dagegen, das Gesicht dafür zu sein</button>
+            <button type="button" data-a="2">Ein Abschließer. Ich bringe Leute gut zu einem Ja</button>
+            <button type="button" data-a="3">Geduldig. Ich richte es lieber ein und lasse es laufen</button>
+            <button type="button" data-a="4">Gesellig. Mich fragen die Leute nach Empfehlungen</button>
           </div>
         </div>
       </section>
