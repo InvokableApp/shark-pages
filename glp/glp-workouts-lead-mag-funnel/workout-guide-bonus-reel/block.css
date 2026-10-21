@@ -1,0 +1,17 @@
+/* glp/glp-workouts-lead-mag-funnel/workout-guide-bonus-reel: the GLP Workout Guide thank-you page as the "swipe up for a
+ * bonus" reel, look "Gym poster" (platform only; see block.html). Screen 1 and the look come from the old thank-you reel's
+ * sheet (which imports the opt-in's); screens 2 and 3 and the popup are _shared/reel-bonus/v1. This sets the bonus
+ * colours: lime on black, black words on the bone paper. */
+@import url("../workout-guide-confirmation-reel/block.css");
+@import url("../../../_shared/reel-bonus/v1/bonus.css");
+
+.rl.rlb-root{ --bx:var(--lime); --bx-d:var(--black); --bx-ink:var(--black); --bx-w:900; --bx-scrim:11,11,11; }
+.rlb-root .rlb-pill{ background:var(--lime); color:var(--black); }
+.rlb-root .rlb-h,.rlb-root .rlb-rec-h{ font-stretch:75%; text-transform:uppercase; }
+.rlb-root .rlb-btn{ border-radius:4px; text-transform:uppercase; font-stretch:110%; letter-spacing:.04em; }
+.rlb-root .rlb-claim-ok{ border-radius:4px; }
+.rlb-root .rlb-coupon{ border-radius:6px; }
+.rlb-root .rlb-ad h2{ font-size:clamp(32px,9vw,40px); }
+/* on the bone paper the lime is for the button only: the coupon's rule and the product card go black and white */
+.rlb-root .rlb-coupon{ outline-color:var(--black); }
+.rlb-root .rlb-rec{ background:#fff; border:2px solid var(--black); border-radius:6px; }

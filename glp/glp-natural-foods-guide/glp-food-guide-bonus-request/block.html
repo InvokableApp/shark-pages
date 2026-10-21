@@ -1,0 +1,22 @@
+<!--
+  glp/glp-natural-foods-guide/glp-food-guide-bonus-request
+  The page a lead lands on after tapping "Yes, text me the workout guide + product info" on the bonus reel with no
+  script running (with it, the reel fetches this step in the background and shows the same words in its popup).
+  Platform only. ⚠️ ITS VIEW IS THE ALERT: the step /glp-food-guide-bonus-request starts "Natural GLP Foods Guide - Bonus
+  Request" (migration 0453), which tags the lead, marks them hot, and texts and emails the rep with the text ready to
+  send. Known leads only (the opt-in's cookie); once per lead.
+  The words are the reel's popup.
+-->
+<div class="rl rl-nf rlb-root rlr" data-pf-native data-pf-arrive="#f6f3ec">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <span class="rlb-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlb-claim-big" data-in style="--d:.1s">We'll send you the <b>workout guide</b> AND <b>product info via text message within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -35,6 +35,7 @@ confirmation page" are the same action, and nothing tells you which one you did.
 
 | Component | Scope class | What it is |
 |---|---|---|
+| `reel-bonus/` | `.rlb-*` | the "swipe up for a bonus" confirmation frame for a reel (REEL-PAGE-SOP §2b): the video screen with the BONUS coupon and the claim button, the what's-inside screen with the product card, the claim popup and its one background request to the funnel's request step (bonus.js). GLP's two lead magnets (2026-10-21); Nueva's two still carry the same code in their own blocks. |
 | `brief/` | `.sk-brf` | private-briefing opt-in page: an opportunity/recruiting lander with a
 video briefing instead of a downloadable magnet, so it carries editorial serif type and hairline
 rules rather than product imagery. Form lives in the page popup. |

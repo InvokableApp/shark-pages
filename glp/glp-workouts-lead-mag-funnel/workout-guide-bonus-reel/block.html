@@ -1,0 +1,118 @@
+<!--
+  glp/glp-workouts-lead-mag-funnel/workout-guide-bonus-reel
+  The GLP Workout Guide thank-you page as the "SWIPE UP FOR A BONUS" reel (Jeff, 2026-10-21: "yep, go for it", the
+  pattern Nueva's Tone and Tighten confirmation got on 2026-10-20), look "Gym poster" like its opt-in. PLATFORM ONLY: the
+  platform's /thank-you step on this funnel points here (migration 0453). GHL keeps serving the native page, and the
+  three-screen reel next door (workout-guide-confirmation-reel) is left as it was, so pushing this folder changes nothing
+  until the step is switched.
+  ⚠️ THREE SCREENS (REEL-PAGE-SOP §2b):
+    1. you're in: the old reel's words unchanged, plus the name; the dock says "Swipe up for a bonus 🎁" and moves to 2
+    2. the bonus: Joe's video on top (muted, a tap for sound), the FREE BONUS coupon card (the recipe guide's cover), the
+       claim button "Yes, text me the recipe guide + product info"
+    3. what's in the recipe guide (three bullets from the guide's own pages: the recipe guide reel and the native
+       workout thank-you page, "21 easy, GLP optimized, family friendly breakfasts, lunches, and dinners, plus protein
+       packed desserts and a done for you grocery shopping list!"), the same button, an info-only "Recommended
+       supplement" card (triGLP and IGNYT, the quiz result's own words), and the small print
+  THE VIDEO (watched 2026-10-21, Vimeo 1238091639, 1:04, 9:16; media/glp/glp-workout-guide-bonus-video.mp4). Its ask, in
+  Joe's words: "When your appetite is low, getting enough protein can feel like a chore. So we made a free high-protein
+  recipe guide with meals that are quick to make, family approved, and easy to get down even when you're not that hungry
+  ... We can also send you info on a product we really like. It's an all-natural triple pathway supplement designed to
+  support your body's natural GLP-1. If you've been curious about a natural option, it's worth a look."
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup and, on the first
+  open, fetch /workout-guide-bonus-request in the background (_shared/reel-bonus/v1/bonus.js): that step's view is the
+  rep's alert (migration 0453), for a lead the opt-in's cookie names. The hrefs stay on the buttons.
+  The voice is the company's, never the rep's: no rep name or picture anywhere (Joe, 2026-10-21, on Nueva's).
+  The look is the opt-in reel's (workout-guide-reel, via the old thank-you reel's sheet) with _shared/reel-bonus/v1.
+-->
+<div class="rl rl-look-poster rlw rlwc rlb-root" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/workout-guide-bonus-request" data-pf-arrive="#0B0B0B">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: it's on its way (the old reel's words) -->
+      <section class="rl-p rl-night rl-plain rlwc-top">
+        <div class="rl-in">
+          <svg class="rlwc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">✅ You're in</span>
+          <h1 data-in style="--d:.1s">Hey<span data-if-name> {{contact.first_name}}</span>! Your guide is <em>on its way.</em></h1>
+          <p data-in style="--d:.25s">Arriving in two minutes. But wait: want another awesome free resource to help you on your GLP journey?</p>
+          <div class="rlwc-gift"><span>Swipe for one more free guide</span><span class="rlwc-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the bonus. Joe's video on top (muted, a tap for sound), the coupon card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlb-vid" aria-label="Your bonus">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlb-video">
+              <video src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/glp-workout-guide-bonus-video.mp4"
+                     poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/glp-workout-guide-bonus-video-poster.jpg"
+                     playsinline muted loop preload="metadata" aria-label="Your free bonus recipe guide"></video>
+              <button type="button" class="rlb-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlb-x" d="m16 9 5 6m0-6-5 6"/><path class="rlb-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Free bonus</span>
+            <img class="rlb-cover" src="/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/book.webp"
+                 width="760" height="1111" alt="The High Protein Recipe Guide's cover">
+            <div class="rlb-copy">
+              <p class="rlb-h">Free high protein recipe guide</p>
+              <p class="rlb-plus">+ info on a product we really like</p>
+              <p class="rlb-by">Both sent to you by text</p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/workout-guide-bonus-request">Yes, text me the recipe guide + product info</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what's in the recipe guide, the button again, the recommended supplement (information only), the small print. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="The free recipe guide">
+        <div class="rl-in">
+          <span class="rlb-eyebrow" data-in>The free recipe guide</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <img class="rlb-adcover" src="/_p/glp/orygn-free-protein-packed-recipe-guide/recipe-guide-reel/assets/book.webp"
+                 width="760" height="1111" alt="The cover of the High Protein Recipe Guide">
+            <h2>Inside the guide</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">21 high protein breakfasts, lunches and dinners</li>
+            <li data-in style="--d:.3s">4 protein packed desserts</li>
+            <li data-in style="--d:.4s">A done for you grocery list</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/workout-guide-bonus-request">Yes, text me the recipe guide + product info</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img" src="/_p/glp/glp-natural-foods-guide/glp-food-guide-reel/assets/products.webp" width="1566" height="1676" alt="The IGNYT pouch with a stick and the triGLP dropper bottle">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">Recommended supplement</span>
+              <p class="rlb-rec-h">ORYGN triGLP™ (liquid) or IGNYT (powder)</p>
+              <p>Four all natural ingredients, designed to support your body's natural GLP-1.</p>
+            </div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">The information in this guide is for educational and informational purposes only and is not medical, nutritional, diagnostic, or treatment advice.</p>
+            <p class="rl-fine">Consult your physician or a qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an existing medical condition. Results vary from person to person.</p>
+            <p class="rl-fine">DISCLAIMER: These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: Nueva's popup (Joe's words, 2026-10-20) for this bonus, in the company's voice. -->
+  <div class="rlb-claim" data-rlb-claim role="dialog" aria-modal="true" aria-labelledby="rlb-claim-h" hidden>
+    <div class="rlb-claim-card">
+      <button type="button" class="rlb-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlb-pill">✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlb-claim-big" id="rlb-claim-h">We'll send you the <b>recipe guide</b> AND <b>product info via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p class="rlb-claim-sms" data-claim-sms><b>Want to make sure it reaches you with no issues?</b> Simply text <b>“RECIPE”</b> to <a class="rlb-claim-num" data-claim-num data-word="RECIPE" href="sms:{{custom_values.rep_phone}}?&amp;body=RECIPE">{{custom_values.rep_phone}}</a> to keep it from potentially landing in your “Unknown Senders” folder.</p>
+      <button type="button" class="rl-btn rlb-claim-ok" data-claim-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
+<script src="/_p/_shared/reel-bonus/v1/bonus.js?v=1" defer></script>

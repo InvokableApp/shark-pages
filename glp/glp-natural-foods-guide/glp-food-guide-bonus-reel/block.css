@@ -1,0 +1,8 @@
+/* glp/glp-natural-foods-guide/glp-food-guide-bonus-reel: the Natural GLP Foods Guide confirmation as the "swipe up for a
+ * bonus" reel (platform only; see block.html). Screen 1 and the look come from the old confirmation reel's sheet (which
+ * imports the opt-in's); screens 2 and 3 and the popup are _shared/reel-bonus/v1. This sets the bonus colours. */
+@import url("../glp-food-guide-confirmation-reel/block.css");
+@import url("../../../_shared/reel-bonus/v1/bonus.css");
+
+.rl.rlb-root{ --bx:var(--green-ink); --bx-d:var(--green-ink); --bx-ink:#fff; --bx-w:600; --bx-scrim:34,56,43; }
+.rlb-root .rl-gift-word{ color:var(--green-ink); }
