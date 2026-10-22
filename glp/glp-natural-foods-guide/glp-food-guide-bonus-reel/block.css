@@ -6,3 +6,10 @@
 
 .rl.rlb-root{ --bx:var(--green-ink); --bx-d:var(--green-ink); --bx-ink:#fff; --bx-w:600; --bx-scrim:34,56,43; }
 .rlb-root .rl-gift-word{ color:var(--green-ink); }
+
+/* The IGNYT bag and the triGLP drops, small, on the corner of the guide's cover in the bonus box, so the lead sees the
+   guide AND the product info (Joe, 2026-10-22). The image is the "Recommended supplement" card's own. The cover stays
+   the main thing. Same rules on the Free Workout Guide's bonus reel. */
+.rlb-root .glpb-cover{ position:relative; display:block; min-width:0; }
+.rlb-root .glpb-prods{ position:absolute; right:-14%; bottom:-6%; width:56%; height:auto; display:block;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.35)); pointer-events:none; }

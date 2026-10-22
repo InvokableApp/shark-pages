@@ -15,3 +15,17 @@
 /* on the bone paper the lime is for the button only: the coupon's rule and the product card go black and white */
 .rlb-root .rlb-coupon{ outline-color:var(--black); }
 .rlb-root .rlb-rec{ background:#fff; border:2px solid var(--black); border-radius:6px; }
+
+/* The IGNYT bag and the triGLP drops, small, on the corner of the recipe guide's cover in the bonus box, so the lead sees
+   the guide AND the product info (Joe, 2026-10-22). The image is the "Recommended supplement" card's own. The cover
+   stays the main thing. Same rules on the Natural GLP Foods Guide's bonus reel. */
+.rlb-root .glpb-cover{ position:relative; display:block; min-width:0; }
+.rlb-root .glpb-prods{ position:absolute; right:-14%; bottom:-6%; width:56%; height:auto; display:block;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.35)); pointer-events:none; }
+
+/* The bonus box's button breathes in and out, softly, so it reads as a button (Joe, 2026-10-22: "a subtle pulse
+   animation that gently scales the button in and out on a loop"). It animates `scale`, not `transform`, so the screen's
+   slide-in (reel.css [data-in]) still runs; it starts once the screen is in view. Still for reduced motion. */
+.rl-p.is-on .rlb-btn.glpb-pulse{ animation:glpb-pulse 2.4s ease-in-out .9s infinite; }
+@keyframes glpb-pulse{ 0%,100%{ scale:1; } 50%{ scale:1.035; } }
+@media (prefers-reduced-motion:reduce){ .rl-p.is-on .rlb-btn.glpb-pulse{ animation:none; } }

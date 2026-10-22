@@ -134,3 +134,22 @@
 @media (prefers-reduced-motion:reduce){ .rv-swipe .rv-next{ animation:none; } }
 /* the line under the opportunity headline, in the "wanted you to see this" font (Joe, 2026-10-16) */
 .rv-from.rv-after{ margin:18px 0 0 !important; }
+
+/* Joe's GLP funnel edits (2026-10-22), all three video pages (this sheet is imported by the opportunity and IGNYT pages):
+   1. The prompt under the video is longer ("After watching this video, swipe up and let us know who comes to mind",
+      three or four lines on a phone), so it gets more room under the player (video-watch.css sizes the player from it).
+   2. "After seeing this video..." sat under the "Sent to you by Joe" banner on phones between about 741 and 900 tall
+      (a Facebook or Instagram in-app browser): the screen is a flex column centred on its content, so content taller than
+      the screen spilled off the top too. Auto margins centre it when it fits and start it under the banner when it
+      doesn't; the four cards also tighten on those phones so they fit. */
+.rl.rv .rv-watch{ --rv-onward:124px; }
+.rl .rv-ask{ justify-content:flex-start; }
+.rl .rv-ask > .rl-in{ margin-top:auto; margin-bottom:auto; }
+@media (max-width:700px) and (min-height:741px) and (max-height:900px){
+  .rl .rv-ask:has(.rv-card:nth-child(4)) h2{ font-size:clamp(28px,8.2vw,34px); margin:8px 0 14px; }
+  .rl .rv-cards:has(.rv-card:nth-child(4)){ gap:9px; }
+  .rl .rv-cards:has(.rv-card:nth-child(4)) .rv-card{ padding:12px 16px; }
+  .rl .rv-cards:has(.rv-card:nth-child(4)) .rv-t b{ font-size:19px; }
+  .rl .rv-cards:has(.rv-card:nth-child(4)) .rv-t small{ font-size:13.5px; }
+  .rl .rv-ask:has(.rv-card:nth-child(4)) .rv-fine{ margin-top:10px; }
+}
