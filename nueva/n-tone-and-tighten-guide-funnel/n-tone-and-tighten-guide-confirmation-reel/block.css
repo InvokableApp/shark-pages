@@ -43,10 +43,12 @@
 .rlb-tag{ position:absolute; top:-11px; left:20px; padding:4px 12px; border-radius:999px; background:var(--bx); color:var(--bx-ink);
   font:800 11.5px/1.2 var(--sans); letter-spacing:.14em; text-transform:uppercase; }
 .rlb-cover{ width:100%; height:auto; display:block; border-radius:4px; transform:rotate(-3deg); box-shadow:0 10px 22px -8px rgba(0,0,0,.45); }
-/* the product sticker on the cover's bottom right corner (Joe, 2026-10-22): small, so the cover stays the focus */
+/* The product sits on the cover's bottom right corner, on top of it, about a third of the cover's width, with a soft
+   shadow, so the cover stays the focus and the box keeps the cover's height (Joe, 2026-10-22). The image is a cut-out
+   (transparent background), so the shadow follows the bottles, not a white square. */
 .rlb-coverwrap{ position:relative; display:block; min-width:0; }
-.rlb-sticker{ position:absolute; right:-16%; bottom:-12%; width:36%; height:auto; display:block; padding:3px; border-radius:8px;
-  background:#fff; transform:rotate(5deg); box-shadow:0 6px 14px -4px rgba(0,0,0,.4); }
+.rlb-sticker{ position:absolute; right:-8%; bottom:-5%; width:33%; height:auto; display:block; pointer-events:none;
+  filter:drop-shadow(0 5px 7px rgba(0,0,0,.32)); }
 .rlb-copy{ min-width:0; display:flex; flex-direction:column; gap:4px; }
 .rl .rlb-copy p{ margin:0; }
 .rl .rlb-h{ font-family:var(--head); font-weight:var(--bx-w); font-size:19px; line-height:1.2; color:var(--ink); }
