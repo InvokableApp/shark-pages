@@ -126,3 +126,7 @@
 @media (prefers-reduced-motion:reduce){ .rv-swipe .rv-next{ animation:none; } }
 /* the line under the opportunity headline, in the "wanted you to see this" font (Joe, 2026-10-16) */
 .rv-from.rv-after{ margin:18px 0 0 !important; }
+
+/* Joe's longer line under the video (2026-10-22) wraps to three lines on a small phone: room for them, so the video
+ * shrinks a little rather than the words running off the bottom (the shared video-watch.css keeps 86px for the rest). */
+.rl .rv-watch{ --rv-onward:112px; }

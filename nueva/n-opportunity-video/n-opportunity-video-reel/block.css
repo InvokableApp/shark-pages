@@ -6,3 +6,7 @@
 .rv-cover.rl-night h1{ color:var(--on-dark); }
 .rv-join{ margin:16px 0 0; text-align:center; font:600 15px/1.3 var(--sans); }
 .rv-join a{ color:var(--teal-d); text-decoration:underline; text-underline-offset:3px; }
+
+/* Joe's longer line under the video (2026-10-22) wraps to three lines on a small phone: room for them, so the video
+ * shrinks a little rather than the words running off the bottom (the shared video-watch.css keeps 86px for the rest). */
+.rl .rv-watch{ --rv-onward:112px; }
