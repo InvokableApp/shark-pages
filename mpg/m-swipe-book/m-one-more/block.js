@@ -1,5 +1,8 @@
 /* mpg/m-swipe-book/m-one-more: the swipe book's own moves, on top of reel.js (which marks the screen in view .is-on).
  *   - the rep's name and picture (the banner, "tell me", "let them know"), from the platform's #pfn-data
+ *   - "Learn more about ..." under each screen's words opens one more paragraph in a pop-up
+ *   - a "Swipe up" hint at the foot of every screen but the last
+ *   - [data-type] paragraphs type themselves out, letter by letter, the first time their screen comes on
  *   - [data-mask] headlines: each word slides up out of its own mask, one after another (the words stay one text for a
  *     screen reader: the heading keeps an aria-label of its own text)
  *   - screen 5's count runs up to its number, and its 90 dots are drawn (one per country)
@@ -19,6 +22,20 @@
     if (d.rep.pic) banner.querySelector(".sb-banner-pic").innerHTML = d.rep.pic; else banner.querySelector(".sb-banner-pic").remove();
     banner.hidden = false; root.classList.add("sb-has-banner");
   }
+
+  var reduceType = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // THE SWIPE HINT at the foot of every screen but the last (Jeff, 2026-10-23: "i need an animated swipe at the bottom of
+  // each screen too"): a finger slides up a short track, with "Swipe up" (a computer reads "Scroll"). Tapping it moves on.
+  var touchy = window.matchMedia("(pointer: coarse)").matches;
+  var screensAll = [].slice.call(root.querySelectorAll(".rl-p"));
+  screensAll.slice(0, -1).forEach(function (sc) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "sb-swipe"; b.setAttribute("aria-label", "Next screen");
+    b.innerHTML = '<span class="sb-swipe-track" aria-hidden="true"><i></i></span><span class="sb-swipe-word" aria-hidden="true">' + (touchy ? "Swipe up" : "Scroll") + "</span>";
+    b.addEventListener("click", function () { var t = root.querySelector(".rl-track"), n = sc.nextElementSibling; if (t && n) t.scrollTo({ top: n.offsetTop, behavior: "smooth" }); });
+    sc.appendChild(b);
+  });
 
   // Masked words. Text nodes are split; an <em> (or any element) keeps its tag and its words are split inside it.
   var i = 0;
@@ -40,6 +57,58 @@
   [].forEach.call(root.querySelectorAll("[data-mask]"), function (h) {
     h.setAttribute("aria-label", h.textContent.replace(/\s+/g, " ").trim());
     i = 0; split(h); h.classList.add("sb-masked");
+  });
+
+  // TYPED PARAGRAPHS (Jeff, 2026-10-23: "have the text type out as it comes into frame"): a [data-type] paragraph is split
+  // into letters that stay in place (no reflow), hidden, and shown one by one once its screen is on and the headline has
+  // risen. The first time only: swiping back finds it written. Reduced motion shows it whole. A screen reader reads the
+  // paragraph's own words (its aria-label), not the letters.
+  var typed = [].slice.call(root.querySelectorAll("[data-type]"));
+  typed.forEach(function (p) {
+    p.setAttribute("aria-label", p.textContent.replace(/\s+/g, " ").trim());
+    var chars = [];
+    (function walk(node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 1) { walk(n); return; }
+        if (n.nodeType !== 3) return;
+        var frag = document.createDocumentFragment();
+        n.nodeValue.replace(/\s+/g, " ").split(/(\s)/).forEach(function (w) {
+          if (!w) return;
+          if (w === " ") { var sp = document.createTextNode(" "); frag.appendChild(sp); return; }
+          var word = document.createElement("span"); word.className = "sb-tw"; word.setAttribute("aria-hidden", "true");
+          for (var i = 0; i < w.length; i++) { var c = document.createElement("span"); c.className = "sb-tc"; c.textContent = w[i]; word.appendChild(c); chars.push(c); }
+          frag.appendChild(word);
+        });
+        node.replaceChild(frag, n);
+      });
+    })(p);
+    p._chars = chars; p.classList.add("sb-typing");
+    if (reduceType) { chars.forEach(function (c) { c.classList.add("on"); }); [].forEach.call(p.querySelectorAll("mark"), function (m) { m.classList.add("sb-om-on"); }); p.classList.add("sb-typed"); return; }
+    var screen = p.closest(".rl-p"), started = false;
+    function run() {
+      if (started || !screen.classList.contains("is-on")) return;
+      started = true;
+      var i = 0, step = Math.max(14, Math.min(32, 1800 / chars.length));
+      setTimeout(function next() {
+        if (i > 0) chars[i - 1].classList.remove("cur");
+        if (i >= chars.length) { p.classList.add("sb-typed"); return; }
+        chars[i].classList.add("on", "cur");
+        // "one more" lights up the moment its last letter is typed
+        var m = chars[i].closest("mark");
+        if (m && !m.querySelector(".sb-tc:not(.on)")) m.classList.add("sb-om-on");
+        i++;
+        setTimeout(next, chars[i - 1].textContent.match(/[.,?!]/) ? step * 6 : step);
+      }, 650);
+    }
+    new MutationObserver(run).observe(screen, { attributes: true, attributeFilter: ["class"] });
+    run();
+  });
+
+  // THE INFO DOT (Jeff, 2026-10-23: "maybe these are just little info taps rather than buttons ... its too disctracting
+  // like this"): each screen's Learn more sits at the end of its paragraph as a small "i", shown once the words finish.
+  [].forEach.call(root.querySelectorAll(".sb-more"), function (b) {
+    var p = b.previousElementSibling;
+    if (p && p.hasAttribute("data-type")) { p.appendChild(document.createTextNode(" ")); p.appendChild(b); }
   });
 
   // 90 dots inside a circle, a loose globe (one per country, said in the words; the dots are decoration).
@@ -145,7 +214,8 @@
       }
       var words = root.querySelector(".sb-add-words");
       if (words) {
-        words.textContent = others >= 10 ? "You and " + others.toLocaleString("en-US") + " others have added one more." : "You're one of the first to add one more.";
+        words.innerHTML = (others >= 10 ? "You and " + Number(others).toLocaleString("en-US") + " others have added " : "You're one of the first to add ") +
+          '<mark class="sb-om sb-om-on">one more</mark>.';
         words.hidden = false;
       }
     });
@@ -163,6 +233,23 @@
       }, 900);
     });
   });
+
+  // LEARN MORE: the screen's paragraph in a pop-up, filled from its <template> (the rep's name put in after).
+  var more = root.querySelector("[data-sb-more-pop]");
+  root.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-sb-more]");
+    if (b && more) {
+      var t = root.querySelector('[data-sb-more-for="' + b.getAttribute("data-sb-more") + '"]'), body = more.querySelector("[data-sb-more-body]");
+      if (!t || !body) return;
+      body.innerHTML = ""; body.appendChild(t.content.cloneNode(true));
+      var h = body.querySelector(".sb-more-h"); if (h) h.id = "sb-more-h";
+      if (first) [].forEach.call(body.querySelectorAll("[data-sb-rep]"), function (s) { s.textContent = first; });
+      more.hidden = false; buzz(12);
+      return;
+    }
+    if (more && !more.hidden && (e.target === more || (e.target.closest && e.target.closest("[data-sb-x]")))) more.hidden = true;
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && more) more.hidden = true; });
 
   // THE LAST SCREEN'S CARDS: each opens the thank-you pop-up, showing only what fits that card. "We've sent your response"
   // only for someone who came by the rep's personal link (watch.js data-known="1": only then is the tap reported); anyone

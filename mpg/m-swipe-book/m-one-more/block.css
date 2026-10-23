@@ -338,3 +338,83 @@
 .sb-thx-btns .sb-off,.sb-thx-btns [hidden]{ display:none; }
 @media (prefers-reduced-motion:reduce){ .sb-thx-tick path{ stroke-dashoffset:0; } }
 .sb-unknown .sb-thx-btns [data-sb-text]{ order:-1; }
+
+/* ── BODY WORDS, BIGGER AND TYPED (Jeff, 2026-10-23: "make the paragraph font bigger, and have the text type out as it comes
+ * into frame"; block.js [data-type]). The letters hold their places from the start, so nothing jumps as it types; a caret
+ * follows the last letter shown, and leaves when it's done. ── */
+.sb .sb-body{ font-size:clamp(20px,5.6vw,23px); line-height:1.4; font-weight:500; letter-spacing:-.01em; color:var(--ink); margin-top:18px; }
+.sb .rl-night .sb-body,.sb .rl-photo .sb-body{ color:var(--cream); }
+.sb .sb-tw{ display:inline-block; white-space:nowrap; }
+.sb .sb-typing .sb-tc{ opacity:0; transition:opacity .08s linear; }
+.sb .sb-typing .sb-tc.on{ opacity:1; }
+.sb .sb-tc.cur{ box-shadow:2px 0 0 0 var(--terra); }
+@media (min-width:701px){ .sb .sb-body{ font-size:clamp(22px,1.7vw,26px); max-width:30em; } }
+@media (max-width:700px) and (max-height:620px){ .sb .sb-body{ font-size:17px; } }
+
+/* ── "ONE MORE", HIGHLIGHTED EVERY TIME (Jeff, 2026-10-23: "every time one more shows highlight it"). A marker stroke
+ * sweeps in behind the words once their screen is on (after the headline rises and the words type); terracotta on the
+ * dark screens, a pale terracotta on the light ones. ── */
+.sb mark.sb-om{ color:inherit; padding:0 .08em; margin:0 -.04em; border-radius:.18em; -webkit-box-decoration-break:clone; box-decoration-break:clone;
+  background:linear-gradient(transparent 12%,#F5CDB8 12%,#F5CDB8 92%,transparent 92%) no-repeat 0 0 / 0% 100%;
+  transition:background-size .6s cubic-bezier(.6,0,.2,1) 1.4s; }
+.sb .rl-night mark.sb-om,.sb .rl-photo mark.sb-om{ background-image:linear-gradient(transparent 12%,rgba(181,96,60,.85) 12%,rgba(181,96,60,.85) 92%,transparent 92%); }
+.sb .sb-body mark.sb-om{ transition-delay:.05s; }
+.sb .rl-p.is-on .sb-body mark.sb-om:not(.sb-om-on){ background-size:0% 100%; }
+.sb .rl-p.is-on mark.sb-om,.sb mark.sb-om.sb-om-on,.sb .sb-pop mark.sb-om{ background-size:100% 100%; }
+.sb .rl-night h1 mark.sb-om em,.sb .rl-night h1 em mark.sb-om{ color:var(--cream); }
+.sb-full .sb-pour-hint mark.sb-om{ background-size:100% 100%; transition-delay:.2s; }
+@media (prefers-reduced-motion:reduce){ .sb mark.sb-om{ background-size:100% 100% !important; } }
+.sb .rl-night mark.sb-om,.sb .rl-night mark.sb-om em,.sb .rl-photo mark.sb-om,.sb .rl-photo mark.sb-om em{ color:var(--cream) !important; }
+
+/* ── THE SWIPE HINT (block.js): bottom centre of every screen but the last; a finger slides up its track and fades,
+ * over and over, once the screen's words are in. ── */
+.sb-swipe{ position:absolute; left:50%; bottom:calc(14px + env(safe-area-inset-bottom,0px)); z-index:4; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:6px; padding:4px 10px; border:0; background:none; cursor:pointer;
+  color:var(--aloe); opacity:0; transition:opacity .6s ease 1.6s; -webkit-tap-highlight-color:transparent; }
+.rl-night .sb-swipe,.rl-photo .sb-swipe{ color:var(--cream); }
+.rl-p.is-on .sb-swipe{ opacity:1; }
+.sb-swipe-track{ position:relative; width:26px; height:40px; border-radius:13px; border:2px solid currentColor; opacity:.9; }
+.sb-swipe-track i{ position:absolute; left:50%; bottom:5px; width:10px; height:10px; margin-left:-5px; border-radius:50%; background:currentColor; }
+.rl-p.is-on .sb-swipe-track i{ animation:sb-swipe-up 1.7s cubic-bezier(.4,0,.2,1) 1.8s infinite; }
+@keyframes sb-swipe-up{ 0%{ transform:translateY(0); opacity:0; } 15%{ opacity:1; } 65%{ transform:translateY(-18px); opacity:1; } 100%{ transform:translateY(-20px); opacity:0; } }
+.sb-swipe-word{ font:700 11px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; }
+@media (max-width:700px) and (max-height:700px){ .sb-swipe{ bottom:8px; gap:4px; } .sb-swipe-track{ height:32px; width:22px; } }
+@media (min-width:701px){ .sb-swipe{ bottom:26px; } }
+@media (prefers-reduced-motion:reduce){ .sb-swipe{ opacity:1; } .sb-swipe-track i{ animation:none !important; transform:translateY(-10px); } }
+/* room for the swipe hint under the words */
+.sb .sb-cover .rl-in{ padding-bottom:calc(var(--dock-room) + 16px); }
+@media (max-width:700px) and (max-height:700px){
+  .sb .sb-cover .rl-in{ padding-bottom:calc(var(--dock-room) + 4px); }
+  .sb .sb-mission .sb-pour .sb-milk{ max-width:210px; }
+  .sb .sb-mission .sb-body{ font-size:18px; margin-top:12px; }
+  .sb .sb-mission .rl-btns{ margin-top:14px; }
+}
+
+/* ── LEARN MORE (block.html templates, block.js): a small line under the words, and its paragraph in a pop-up ── */
+.sb-more{ display:inline-flex; align-items:center; gap:9px; margin-top:14px; padding:0; border:0; background:none; cursor:pointer;
+  font:700 15px/1.2 var(--sans); color:var(--aloe); text-align:left; }
+.sb-more i{ display:grid; place-items:center; width:24px; height:24px; flex:0 0 auto; border-radius:50%; background:currentColor; font-style:normal; }
+.sb-more i::before{ content:"+"; color:var(--cream); font:800 16px/1 var(--sans); }
+.sb-more i{ font-size:0; }
+.sb-more span{ text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:3px; }
+.rl-night .sb-more,.rl-photo .sb-more{ color:var(--cream); }
+.rl-night .sb-more i::before,.rl-photo .sb-more i::before{ color:var(--ink-deep); }
+.rl-p.is-on .sb-more i{ animation:sb-beat 1.8s ease-in-out 3.2s 2; }
+.sb-more-card{ text-align:left; max-height:min(80svh,640px); overflow:auto; }
+.sb-more-h{ margin:0 0 4px !important; font:800 26px/1.1 var(--head) !important; letter-spacing:-.03em; color:var(--ink) !important; padding-right:36px; }
+.sb-more-card p:not(.sb-more-h){ font-size:18px; line-height:1.5; color:var(--ink); }
+.sb .sb-mission .rl-btns{ margin-top:16px; }
+@media (max-width:700px) and (max-height:700px){ .sb-more{ margin-top:10px; font-size:14px; } }
+
+/* ── LEARN MORE AS AN INFO DOT (supersedes the line above): a small "i" at the end of the paragraph, faded in after the
+ * typing, quiet until tapped. ── */
+.sb .sb-more{ display:inline-grid; place-items:center; width:22px; height:22px; margin:0 0 0 2px; padding:0; vertical-align:2px;
+  border-radius:50%; border:1.5px solid currentColor; background:none; color:var(--taupe); opacity:0; transform:scale(.6);
+  transition:opacity .35s, transform .45s cubic-bezier(.2,1.6,.4,1); position:relative; }
+.sb .sb-more::after{ content:""; position:absolute; inset:-11px; }   /* a 44px tap target around a 22px dot */
+.sb .sb-more i{ width:auto; height:auto; background:none; font:italic 700 13px/1 Georgia,serif; font-size:13px; color:currentColor; }
+.sb .sb-more i::before{ content:none; }
+.sb .rl-night .sb-more,.sb .rl-photo .sb-more{ color:rgba(244,238,226,.7); }
+.sb .sb-typed .sb-more,.sb .rl-p.is-on .sb-body:not(.sb-typing) .sb-more{ opacity:1; transform:none; }
+.sb .sb-more:hover,.sb .sb-more:focus-visible{ color:var(--terra); }
+.rl-p.is-on .sb-typed .sb-more i{ animation:none; }
