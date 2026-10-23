@@ -1,0 +1,232 @@
+<!--
+  mpg/m-swipe-book/m-one-more: the ONE MORE SWIPE BOOK, the team's page as a 60-second reel a rep sends one to one as a
+  personal link (Jeff, 2026-10-23: "we break everything down into a swipable story/ reels format ... we distill the whole
+  thing into a consumable chunk that someone can swipe through in 60 seconds. we call it a swipe book ... headline, two
+  sentences. what were building, who we are, our mission, our impact"; "itll be the teams page"). Distilled from Beal's
+  Lovable team page (teamonemore.lovable.app/team). Platform only.
+
+  ⚠️ MOTION ON EVERY SCREEN (Jeff: "with a LOT of animated svgs and movement on each screen, its should feel a lot like
+     swiping through reels.... we can slide background shapes, mask text and really go wild"). Each piece starts on
+     .rl-p.is-on (reel.js), is aria-hidden, and the words carry the meaning without it; reduced motion shows it finished.
+  ⚠️ NO COMPANY OR PRODUCT NAME (brain/mpg.md, sendable links): "our aloe powder", "a tasteless, stimulant-free drop".
+  ⚠️ THE MEALS (MPGSHARK/MISSION.md): VeraCell only, so "every bag of our aloe powder"; no quantity ("helps feed a child in
+     need", never "30 days" or "a month") until MPG confirms its terms in writing.
+  ⚠️ THE NUMBER on screen 5 is MannaRelief's own homepage (250 million servings, 90 countries), not Sam's stage figure (300
+     million). Re-check it there before a change.
+  ⚠️ THE MISSION VIDEO is MPG's own "Non-profit Helping to Save Children" (share.mpg.plus/vqXCs8Jk8, on the One More board),
+     linked, not copied; chosen over Sam Caster's convention talk (his public record, MPGSHARK/MISSION.md).
+  ⚠️ THE PHOTOS on screen 3 are Michael Beal's own, from his Mexico trip (his Lovable page: "Mexico, from my own photo album").
+
+  The rep hears who opened it and which card they tapped (watch.js; data-label is what the rep is told). A card opens the
+  thank-you pop-up (after the dots); its Text buttons are redirect steps (/m-one-more-try, -refer, -both) to the rep's
+  texting number (mpg_rep_sms); with none, their Messenger (/m-one-more-message). Migration 0501.
+-->
+<div class="rl rl-look-serif sb" data-pf-native>
+  <div class="sb-banner" hidden><span class="sb-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-sb-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. ALOE NIGHT: the cover. Shapes slide in, the plant draws itself, "+1"s rise like live reactions. -->
+      <section class="rl-p rl-night rl-plain sb-cover rl-wide" aria-label="One more person. One more child fed.">
+        <div class="sb-fx" aria-hidden="true">
+          <i class="sb-blob sb-blob-a"></i><i class="sb-blob sb-blob-b"></i><i class="sb-ring"></i>
+          <svg class="sb-aloe" viewBox="0 0 240 260">
+            <g class="sb-leaves">
+              <path pathLength="1" style="--d:.2s" d="M120 250 C112 190 96 120 120 18 C140 120 130 190 124 250 Z"/>
+              <path pathLength="1" style="--d:.35s" d="M114 250 C96 200 58 150 22 104 C80 128 112 180 122 250 Z"/>
+              <path pathLength="1" style="--d:.5s" d="M126 250 C144 200 182 150 218 104 C160 128 128 180 118 250 Z"/>
+              <path pathLength="1" style="--d:.65s" d="M112 252 C88 226 52 214 8 210 C56 196 98 214 120 252 Z"/>
+              <path pathLength="1" style="--d:.8s" d="M128 252 C152 226 188 214 232 210 C184 196 142 214 120 252 Z"/>
+            </g>
+          </svg>
+          <span class="sb-plus" style="--x:64%;--t:0s">+1</span><span class="sb-plus" style="--x:76%;--t:1.3s">♥</span>
+          <span class="sb-plus" style="--x:82%;--t:.6s">+1</span><span class="sb-plus" style="--x:58%;--t:2.1s">♥</span>
+          <span class="sb-plus" style="--x:70%;--t:2.9s">+1</span>
+        </div>
+        <div class="rl-in">
+          <p class="sb-mark" data-in>One <em>More</em>.</p>
+          <p class="sb-hey" data-in style="--d:.05s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-sb-rep>I</span> wanted you to see this.</p>
+          <h1 data-mask data-label="One more person. One more child fed.">One more person. <em>One more child fed.</em></h1>
+          <p data-in style="--d:.7s">We're One More, a team built around two plant-based products and a promise to kids who need it.
+            Every bag of our aloe powder sold helps feed a child in need.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. CREAM: what we're building. A band sweeps across, two plants pop, the chain of people lights up one by one. -->
+      <section class="rl-p rl-paper sb-build" aria-label="What we're building">
+        <div class="sb-fx" aria-hidden="true"><i class="sb-band"></i><i class="sb-dot-a"></i></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What we're building</span>
+          <h2 data-mask>Something simple enough to <em>pass on.</em></h2>
+          <p data-in style="--d:.6s">We share two products with people we already know: a daily gut and immune support powder made
+            from aloe, and a tasteless, stimulant-free drop. Then we show the next person how to do the same.</p>
+          <div class="sb-chain rl-art" aria-hidden="true">
+            <div class="sb-plants">
+              <svg class="sb-chip sb-chip-a" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/><path d="M32 52 C28 40 24 26 32 12 C40 26 36 40 32 52Z M30 52 C24 44 16 38 10 34 C22 36 28 42 33 52Z M34 52 C40 44 48 38 54 34 C42 36 36 42 31 52Z"/></svg>
+              <svg class="sb-chip sb-chip-b" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/><path d="M32 12 C40 18 42 26 40 32 C46 36 44 46 38 50 C36 54 28 54 26 50 C20 46 18 36 24 32 C22 26 24 18 32 12Z M32 8 v6"/><path class="sb-vein" d="M26 32 h12 M25 41 h14"/></svg>
+            </div>
+            <svg class="sb-people" viewBox="0 0 330 70">
+              <path class="sb-thread" pathLength="1" d="M28 40 C60 10 84 10 102 40 S150 70 176 40 S226 10 250 40 S290 66 304 40"/>
+              <g class="sb-person" style="--k:0"><circle cx="28" cy="30" r="9"/><path d="M12 58 C12 44 44 44 44 58Z"/></g>
+              <g class="sb-person" style="--k:1"><circle cx="102" cy="30" r="9"/><path d="M86 58 C86 44 118 44 118 58Z"/></g>
+              <g class="sb-person" style="--k:2"><circle cx="176" cy="30" r="9"/><path d="M160 58 C160 44 192 44 192 58Z"/></g>
+              <g class="sb-person" style="--k:3"><circle cx="250" cy="30" r="9"/><path d="M234 58 C234 44 266 44 266 58Z"/></g>
+              <g class="sb-person sb-next" style="--k:4"><circle cx="304" cy="30" r="9"/><path d="M288 58 C288 44 320 44 320 58Z"/><text x="304" y="12">+1</text></g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PHOTO: who we are. Beal's own photos fly in like polaroids and fan out over the room. -->
+      <section class="rl-p rl-photo sb-who" aria-label="Who we are">
+        <div class="rl-bg" style="background-image:url('assets/room.jpg')"></div>
+        <div class="sb-fx" aria-hidden="true"><i class="sb-wipe"></i></div>
+        <div class="rl-in">
+          <div class="sb-pola rl-art" aria-hidden="true">
+            <figure style="--r:-9deg;--x:-58%;--d:.25s"><img src="assets/selfie-1.jpg" alt="" loading="lazy"></figure>
+            <figure style="--r:7deg;--x:58%;--d:.45s"><img src="assets/selfie-3.jpg" alt="" loading="lazy"></figure>
+            <figure style="--r:-2deg;--x:0%;--d:.65s"><img src="assets/selfie-2.jpg" alt="" loading="lazy"><figcaption>Mexico</figcaption></figure>
+          </div>
+          <span class="rl-eyebrow" data-in>Who we are</span>
+          <h2 data-mask>Led by someone who's <em>fed these kids before.</em></h2>
+          <p data-in style="--d:.6s">Years ago Michael Beal helped feed children in orphanages in Mexico, and he never forgot them.
+            One More is his way back to that work, with anyone who wants to come along.</p>
+          <p class="rl-note sb-credit" data-in style="--d:.8s">From Michael's own photo album.</p>
+        </div>
+      </section>
+
+      <!-- 4. SAGE: our mission. A bag tips and a dotted path draws to an empty glass; THEY fill it (Jeff, 2026-10-23: "have
+           them drag something across the screen to like, fill up a cup"): press and hold the glass, the bag pours, the milk
+           rises, a heart pops at the top and the rep is told (the hidden "Filled the cup" button, which watch.js reports). -->
+      <section class="rl-p rl-tint sb-mission" aria-label="Our mission">
+        <div class="sb-fx" aria-hidden="true"><i class="sb-blob sb-blob-c"></i><i class="sb-blob sb-blob-d"></i></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Our mission</span>
+          <h2 data-mask>Every bag helps feed <em>a child in need.</em></h2>
+          <div class="sb-pour rl-art" data-sb-pour role="button" tabindex="0" aria-label="Press and hold to fill the glass">
+            <svg class="sb-milk" viewBox="0 0 320 170" aria-hidden="true">
+              <defs><clipPath id="sbGlass"><path d="M222 46 L290 46 L282 156 L230 156 Z"/></clipPath></defs>
+              <g class="sb-bag"><path d="M34 54 C34 46 40 42 48 42 L96 42 C104 42 110 46 110 54 L116 150 C116 156 112 160 106 160 L38 160 C32 160 28 156 28 150 Z"/>
+                <path class="sb-bag-top" d="M40 42 L44 30 L100 30 L104 42"/>
+                <path class="sb-bag-leaf" d="M72 124 C66 112 62 98 72 80 C82 98 78 112 72 124Z"/></g>
+              <path class="sb-path" pathLength="1" d="M124 96 C150 60 182 60 210 92"/>
+              <path class="sb-arrow" d="M200 82 L212 94 L196 98"/>
+              <rect class="sb-stream" x="252" y="22" width="8" height="134" rx="4"/>
+              <g clip-path="url(#sbGlass)"><g class="sb-fill"><path class="sb-wave" d="M190 0 q16 -8 32 0 t32 0 t32 0 t32 0 t32 0 V140 H190 Z"/></g></g>
+              <path class="sb-glass" d="M222 46 L290 46 L282 156 L230 156 Z"/>
+              <path class="sb-heart" d="M256 36 C250 26 236 28 236 40 C236 50 256 60 256 60 C256 60 276 50 276 40 C276 28 262 26 256 36Z"/>
+            </svg>
+            <span class="sb-pour-hint" data-in style="--d:1.6s"><i aria-hidden="true"></i><b>Press and hold to fill the glass</b><b hidden>That's one more. Every bag does that.</b></span>
+            <button type="button" class="sb-tell" data-label="Filled the cup" hidden tabindex="-1"></button>
+          </div>
+          <p data-in style="--d:.6s">For every bag of our aloe powder sold, a gift goes to MannaRelief, a charity that sends fortified
+            milk to children who need it. It comes off the top, not out of profit, so the gift is made in a slow month too.</p>
+          <div class="rl-btns" data-in style="--d:.8s">
+            <button type="button" class="rl-btn rl-btn-2 sb-play" data-sb-play data-label="Opened the mission video"><span aria-hidden="true">▶</span> Watch the story</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. INK: our impact. The count runs up, 90 dots light up around the world, and THEY add a dot: "+1 Add yours to the
+           map" lights one more, and says how many have (the platform's /_tally: everyone who tapped it on any MPG rep's
+           link, counted from the taps watch.js already reports; no new table). Under 10, it says they're one of the first. -->
+      <section class="rl-p rl-night rl-plain sb-impact" aria-label="Our impact">
+        <div class="sb-fx" aria-hidden="true">
+          <svg class="sb-world" viewBox="0 0 300 300"></svg>
+          <i class="sb-sweep"></i>
+        </div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Our impact</span>
+          <p class="sb-count" data-in style="--d:.1s" aria-hidden="true"><span data-count="250000000">0</span><b>+</b></p>
+          <h2 data-mask>More than 250 million servings, <em>and counting.</em></h2>
+          <p data-in style="--d:.6s">MannaRelief has sent more than 250 million servings to children in 90 countries since 1999.
+            Every bag our team sells adds one more child to that count.</p>
+          <div class="sb-add" data-in style="--d:.8s">
+            <button type="button" class="sb-add-btn" data-sb-add data-label="+1 Added one more"><b>+1</b> Add yours to the map</button>
+            <p class="sb-add-words" role="status" hidden></p>
+          </div>
+          <p class="rl-fine" data-in style="--d:.9s">MannaRelief's own figures.</p>
+        </div>
+      </section>
+
+      <!-- 6. CREAM: what matters most to them (Jeff, 2026-10-23: "more data, or more engaging"). One tap; the rep is told
+           which ("Picked: Helping kids", watch.js), so their first text back fits the person. MPG's own culture document
+           backs asking: "We don't replace someone's why with ours" (brain/mpg.md). It moves on by itself after a tap. -->
+      <section class="rl-p rl-paper sb-why" aria-label="What matters most to you">
+        <div class="sb-fx" aria-hidden="true"><i class="sb-why-a"></i><i class="sb-why-b"></i></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Your turn</span>
+          <h2 data-mask>What matters most to you <em>right now?</em></h2>
+          <p data-in style="--d:.5s">Tap one. It helps <span data-sb-rep>me</span> know what to share with you.</p>
+          <div class="sb-picks">
+            <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Helping kids" style="--d:.6s"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40 C10 30 6 22 6 16 A9 9 0 0 1 24 12 A9 9 0 0 1 42 16 C42 22 38 30 24 40Z"/></svg><span>Helping kids</span></button>
+            <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Extra income" style="--d:.68s"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="14" width="36" height="22" rx="4"/><circle cx="24" cy="25" r="5"/><path d="M12 20v10 M36 20v10"/></svg><span>Extra income</span></button>
+            <button type="button" class="sb-pick" data-sb-pick data-label="Picked: My health" style="--d:.76s"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42 C14 34 12 24 24 6 C36 24 34 34 24 42Z"/><path d="M24 40 V20"/></svg><span>My health</span></button>
+            <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Time with family" style="--d:.84s"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="15" r="5"/><circle cx="32" cy="15" r="5"/><circle cx="24" cy="27" r="4"/><path d="M6 40 C6 28 26 28 26 40 M22 40 C22 28 42 28 42 40"/></svg><span>Time with family</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. CREAM + TERRACOTTA: your next step. Rings ripple out from "one more", the four cards slide in. -->
+      <section class="rl-p rl-paper sb-next-step" aria-label="Your next step">
+        <div class="sb-fx" aria-hidden="true"><i class="sb-ripple" style="--t:0s"></i><i class="sb-ripple" style="--t:1.2s"></i><i class="sb-ripple" style="--t:2.4s"></i></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Your next step</span>
+          <h2 data-mask>Until everyone has enough, there's always <em>one more.</em></h2>
+          <p data-in style="--d:.5s">There's room on this team for one more person. Tap below and tell <span data-sb-rep>me</span> if that's you, or if someone comes to mind.</p>
+          <div class="sb-cards">
+            <button type="button" class="sb-card" data-sb-card="me" data-label="I'd like to hear more" style="--d:.6s">
+              <b>01</b><span>I'd like to hear more</span><i aria-hidden="true">&rarr;</i></button>
+            <button type="button" class="sb-card" data-sb-card="them" data-label="Someone comes to mind" style="--d:.7s">
+              <b>02</b><span>Someone comes to mind</span><i aria-hidden="true">&rarr;</i></button>
+            <button type="button" class="sb-card" data-sb-card="both" data-label="I'd like to hear more and someone comes to mind" style="--d:.8s">
+              <b>03</b><span>Both of those</span><i aria-hidden="true">&rarr;</i></button>
+            <button type="button" class="sb-card" data-sb-card="no" data-label="Not for them right now" style="--d:.9s">
+              <b>04</b><span>Not for me right now</span><i aria-hidden="true">&rarr;</i></button>
+          </div>
+          <p class="rl-fine" data-in style="--d:1s">Results vary, and what you earn depends on the work you put in. Nothing here is a guarantee of income. Ask for the income disclosure before making any decision.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- THE MISSION VIDEO, played here, never on another site (Jeff, 2026-10-23: "i just want the videos here on this swipe
+         thing to not click off the domain"). MPG's own "Non-profit Helping to Save Children", streamed from the Mux file
+         behind its share page (share.mpg.plus/vqXCs8Jk8, which is ANOTHER rep's personal share link: never link it). The
+         same for every rep, so it lives here, not in a value. watch.js plays it and tells the rep how much was watched.
+         ⚠️ If MPG re-uploads or locks the video, this player shows nothing: find the new playback id on the share page. -->
+    <!-- THE THANK YOU (Jeff, 2026-10-23: "tapping on a button on the last screen, lets show a popup 'thanks, we've sent your
+         response to _____' ... a button there for a replicated link if theyre interested"). The card's tap is what tells the
+         rep (watch.js), and that only happens for someone who came by the rep's own personal link (watch.js data-known), so
+         "We've sent your response" shows only then; anyone else is asked to text the rep instead (block.js). The join button is
+         the rep's own join page (mpg_opportunity_url) and leaves the page when they don't have one ([data-needs], reel.js). -->
+    <div class="sb-pop sb-thx" data-sb-thx role="dialog" aria-labelledby="sb-thx-h" hidden>
+      <div class="sb-thx-card">
+        <button type="button" class="sb-pop-x" data-sb-x aria-label="Close">&times;</button>
+        <svg class="sb-thx-tick" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27 l7 7 l15 -16"/></svg>
+        <p class="sb-thx-h" id="sb-thx-h">Thanks<span data-if-name>, {{contact.first_name}}</span>!</p>
+        <p data-sb-known>We've sent your response to <b data-sb-rep>them</b>.</p>
+        <p data-sb-known data-for="me both">They'll reach out soon. Want to look around first?</p>
+        <p data-sb-known data-for="them">They'll ask who came to mind, or you can text them the name now.</p>
+        <p data-sb-known data-any data-for="no">Thanks for taking a look.</p>
+        <p data-sb-unknown hidden>Let <b data-sb-rep>them</b> know with a quick text.</p>
+        <div class="sb-thx-btns">
+          <a class="rl-btn" data-for="me both" href="{{custom_values.mpg_opportunity_url}}" data-needs="{{custom_values.mpg_opportunity_url}}" target="_blank" rel="noopener" data-label="Opened the join page">See how to join</a>
+          <a class="rl-btn rl-btn-2" data-for="me" data-sb-text href="/m-one-more-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-one-more-message" data-label="Text me: I'd like to hear more">Text <span data-sb-rep>them</span> now</a>
+          <a class="rl-btn rl-btn-2" data-for="them" data-sb-text href="/m-one-more-refer" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-one-more-message" data-label="Text me: someone came to mind">Text <span data-sb-rep>them</span> now</a>
+          <a class="rl-btn rl-btn-2" data-for="both" data-sb-text href="/m-one-more-both" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-one-more-message" data-label="Text me: I'd like to hear more and someone came to mind">Text <span data-sb-rep>them</span> now</a>
+        </div>
+      </div>
+    </div>
+    <div class="sb-pop" data-sb-pop role="dialog" aria-label="The story" hidden>
+      <div class="sb-pop-card">
+        <button type="button" class="sb-pop-x" data-sb-x aria-label="Close">&times;</button>
+        <div class="qv sb-vid" data-video="https://stream.mux.com/fzU4P2ta01X015Tp7b2oYFMCKldCLU54NqN019w029YPQFc" data-poster="https://image.mux.com/fzU4P2ta01X015Tp7b2oYFMCKldCLU54NqN019w029YPQFc/thumbnail.jpg?time=8&amp;width=960" data-name="the mission video"></div>
+      </div>
+    </div>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
