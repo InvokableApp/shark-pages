@@ -146,16 +146,19 @@
   });
 
   // The mission video's pop-up: opens and plays on "Watch the story", stops when closed (tap the shade, the x, or Escape).
-  var pop = root.querySelector("[data-sb-pop]");
-  function vid() { return pop && pop.querySelector("video"); }
-  function shut() { if (!pop || pop.hidden) return; pop.hidden = true; var v = vid(); if (v) v.pause(); }
+  // Each video pop-up is named by its button: data-sb-play="ben" opens [data-sb-pop="ben"], an empty name the mission video.
+  var openPop = null;
+  function shut() { if (!openPop) return; openPop.hidden = true; var v = openPop.querySelector("video"); if (v) v.pause(); openPop = null; }
   root.addEventListener("click", function (e) {
-    if (e.target.closest && e.target.closest("[data-sb-play]")) {
+    var b = e.target.closest && e.target.closest("[data-sb-play]");
+    if (b) {
+      var pop = root.querySelector('[data-sb-pop="' + b.getAttribute("data-sb-play") + '"]');
       if (!pop) return;
-      pop.hidden = false; var v = vid(); if (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      shut(); openPop = pop; pop.hidden = false;
+      var v = pop.querySelector("video"); if (v) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
       return;
     }
-    if (pop && !pop.hidden && (e.target === pop || (e.target.closest && e.target.closest("[data-sb-x]")))) shut();
+    if (openPop && (e.target === openPop || (e.target.closest && e.target.closest("[data-sb-x]") && openPop.contains(e.target)))) shut();
   });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 
