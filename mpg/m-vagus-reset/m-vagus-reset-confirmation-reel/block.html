@@ -1,0 +1,98 @@
+<!--
+  mpg/m-vagus-reset/m-vagus-reset-confirmation-reel
+  The Vagus Nerve Reset's confirmation as a REEL (MPGSHARK/campaigns/vagus-reset/README.md), Nueva's order (Jeff,
+  2026-10-23: "modeled after nueva snow slim structure, delivery> video> bonus offer"):
+    1. delivery: read it online (/m-vagus-reset-read) or download the PDF (mpg_vagus_reset_pdf_url), "Swipe for a bonus";
+       the cover's two plates very faint behind it (Jeff: "just trying to get some like... interest")
+    2. navy: the video spot, the BONUS OFFER card (the companion guide with the drop on its corner) and the claim button
+    3. what's inside the companion guide, the button again, the drop as an information-only card, the small print
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-cf-claim-open]) open the Done popup and, on the
+  first open, fetch /m-vagus-reset-bonus in the background (block.js): that step's view is the rep's alert (tag, hot,
+  text and email the rep), once per lead. The dock only moves them to the bonus. With no script a tap lands on the page.
+  ⚠️ No coupon, no price, no free shipping (MPG P&P §9.5.A). The drop's words are MPG's own (the flyer); the FDA line is in
+  the small print. The bag photo is MPG's (its product page), cropped above its free shipping line; Beal approves before
+  launch (Jeff, 2026-10-23). The rep is "I" ("the hops drop I use"): MPG's rule is the rep speaks, never the company.
+  Built from Jeff's local mockup (MPGSHARK/concepts/mockup/confirm.html, 2026-10-23).
+-->
+<div class="rl rl-vagus" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-cf-claim-url="/m-vagus-reset-bonus" data-pf-arrive="#FBF7EE">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. delivery: the cover's two plates, very faint behind it -->
+      <section class="rl-p rl-tint cf-deliver">
+        <div class="rl-in">
+          <span class="cf-pill" data-in>✅ You're in. Your guide is on its way.</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 data-in style="--d:.1s">Hi<span data-if-name> {{contact.first_name}}</span>, Your Vagus Nerve Reset Guide Is Being Sent In 2 Minutes.</h1>
+          <p data-in style="--d:.2s">Check your email. If you don't see it there, check your <strong>SPAM</strong> folder.</p>
+          <p class="rl-note" data-in style="--d:.3s">Or skip the wait and open it right now. Both are the same guide.</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn" href="https://{{custom_values.mpg_main_url}}/m-vagus-reset-read">Read it online</a><a class="rl-btn rl-btn-2" href="https://{{custom_values.mpg_vagus_reset_pdf_url}}" target="_blank" rel="noopener">Download the PDF</a></div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a bonus</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. navy: the video, the bonus card, the claim -->
+      <section class="rl-p rl-night rl-plain" aria-label="Your bonus">
+        <div class="rl-in">
+          <!-- THE VIDEO SPOT: a still and "Video coming soon" until someone records the video; put its address in data-video-src
+               (and a still in data-video-poster) and block.js plays it, muted, with a tap for sound. -->
+          <div class="cf-video" data-in data-video-src="" data-video-poster="">
+            <img src="/_p/mpg/m-vagus-reset/m-vagus-reset-reel/assets/week-3.jpg" alt="">
+            <span class="cf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="cf-soon">Video coming soon</span>
+            <span class="cf-sound">🔇 Tap for sound</span>
+          </div>
+          <div class="cf-coupon" data-in style="--d:.15s">
+            <span class="cf-tag">Bonus offer</span>
+            <span class="cf-coverwrap"><img class="cf-cover" src="/_p/mpg/m-vagus-reset/m-vagus-reset-reel/assets/companion-cover.jpg" alt="The supplement companion guide"><img class="cf-sticker" src="/_p/mpg/m-vagus-reset/m-vagus-reset-reel/assets/phix-bag-cut.png" alt="A bag of the hops drop"></span>
+            <div class="cf-copy">
+              <p class="cf-h">Free supplement companion guide</p>
+              <p class="cf-plus">+ info on the hops drop I use</p>
+              <p class="cf-by">Both sent to you by text</p>
+            </div>
+          </div>
+          <a class="cf-btn" data-cf-claim-open data-in style="--d:.25s" href="/m-vagus-reset-bonus">🎁 YES! Text me the guide + product info</a>
+        </div>
+      </section>
+
+      <!-- 3. the companion guide, the drop (information only), the small print -->
+      <section class="rl-p rl-paper" aria-label="The supplement companion guide">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The supplement companion guide</span>
+          <div class="cf-ad" data-in style="--d:.1s"><img src="/_p/mpg/m-vagus-reset/m-vagus-reset-reel/assets/companion-cover.jpg" alt="The cover of the supplement companion guide"><h2>Inside the additional guide...</h2></div>
+          <ul class="rl-list">
+            <li data-in style="--d:.2s"><strong>The sleep and stress supplements, graded</strong>Magnesium, melatonin, valerian, chamomile, ashwagandha and hops: what each one is, and what the research says.</li>
+            <li data-in style="--d:.3s"><strong>Which ones are worth your money</strong>And what to check on a label before you buy.</li>
+            <li data-in style="--d:.4s"><strong>The hops drop I add to my evening drink</strong>What it is, how to take it, and where to get it.</li>
+          </ul>
+          <a class="cf-btn cf-btn-light" data-cf-claim-open data-in style="--d:.45s" href="/m-vagus-reset-bonus">🎁 YES! Text me the guide + product info</a>
+          <div class="cf-rec" data-in style="--d:.5s">
+            <img src="/_p/mpg/m-vagus-reset/m-vagus-reset-reel/assets/phix-bag-cut.png" alt="A bag of the hops drop">
+            <div><span class="cf-rec-k">The drop I use</span><p class="cf-rec-h">Matured hops extract</p><p>A tasteless, stimulant-free drop you add to any drink.</p></div>
+          </div>
+          <div class="cf-fine">
+            <p class="rl-fine">This guide is general wellness information for educational purposes only and is not medical, diagnostic or treatment advice. Individual results vary.</p>
+            <p class="rl-fine">Talk to your doctor before taking any supplement, especially if you are pregnant, nursing, take medication or have a medical condition.</p>
+            <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE DONE POPUP: Tone and Tighten's words with the code taken out. Opened only by the two claim buttons. -->
+  <div class="cf-claim" data-cf-claim role="dialog" aria-modal="true" aria-labelledby="cf-claim-h" hidden>
+    <div class="cf-claim-card">
+      <button type="button" class="cf-x" data-cf-close aria-label="Close">×</button>
+      <span class="cf-pill">✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="cf-claim-big" id="cf-claim-h">We'll send you the <b>supplement companion guide</b> AND <b>info on the hops drop via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p data-cf-sms><b>Want to make sure it gets to you?</b> Simply text <b>“HOPS”</b> to <a data-cf-num data-word="HOPS" href="sms:{{custom_values.mpg_rep_phone}}?&amp;body=HOPS">{{custom_values.mpg_rep_phone}}</a> so it doesn't land in your “Unknown Senders” folder.</p>
+      <button type="button" class="rl-btn cf-ok" data-cf-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

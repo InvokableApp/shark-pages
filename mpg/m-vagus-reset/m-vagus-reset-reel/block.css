@@ -1,0 +1,179 @@
+/* mpg/m-vagus-reset/m-vagus-reset-reel: the Vagus Nerve Reset's look, over _shared/reel/v1/reel.css. White and cream
+ * with deep navy text (Jeff, 2026-10-22), Caslon headings to match the cover, the cover's gold as the one accent.
+ * The confirmation and the bonus page import this sheet. From MPGSHARK/concepts/mockup/look.css (2026-10-23). */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+
+.rl.rl-vagus{
+  --navy:#1B2A4A; --navy-d:#121C33; --cream:#FBF7EE; --white:#FFFFFF; --gold:#A8843F; --gold-l:#D9BC7E; --line:#E4DCCB;
+  --paper:var(--white); --tint:var(--cream); --night:var(--navy-d);
+  --ink:var(--navy); --body:#3E4A63; --grey:#6E7891; --on-dark:#F6F1E6;
+  --head:"Libre Caslon Display",Georgia,serif; --head-w:400; --sans:"Source Sans 3",system-ui,sans-serif;
+  --eyebrow:var(--gold); --eyebrow-dark:var(--gold-l); --cta:var(--navy); --cta-ink:#fff; --mark:var(--gold); --shade:18,28,51;
+}
+.rl-vagus h1,.rl-vagus h2,.rl-vagus h3{ letter-spacing:0; }
+.rl-vagus h1{ font-size:clamp(30px,8.4vw,40px); line-height:1.1; }
+.rl-vagus h3.rl-h-lg{ font-size:clamp(30px,8.4vw,40px); line-height:1.1; }
+.rl-vagus p{ font-size:17px; line-height:1.55; color:var(--body); }
+.rl-vagus .rl-night p{ color:#D5DAE6; }
+.rl-vagus p strong{ color:var(--ink); font-weight:700; }
+.rl-vagus .rl-night p strong{ color:#fff; }
+.rl-vagus .rl-eyebrow{ font-weight:700; letter-spacing:.2em; border-top:1px solid currentColor; padding-top:10px; width:fit-content; }
+.rl-vagus .rl-pills li{ border-color:var(--line); color:var(--navy); background:var(--cream); }
+.rl-vagus .rl-btn,.rl-vagus .rl-cta,.pfn-dock{ border-radius:3px; letter-spacing:.06em; }
+.rl-hist{ display:block; margin-top:14px; padding-top:12px; border-top:1px solid var(--line); font:italic 400 15px/1.5 "Libre Caslon Text",Georgia,serif; color:var(--gold); }
+.rl-night .rl-hist{ border-color:rgba(255,255,255,.15); color:var(--gold-l); }
+
+/* 1. the cover: the book, then the words */
+.rl-vagus .rl-cover .rl-in{ padding-top:34px; }
+.rl-vagus .rl-book{ display:block; width:min(56%,230px); height:auto; margin:4px 0 20px; border-radius:2px;
+  box-shadow:0 2px 0 rgba(0,0,0,.08),0 22px 40px rgba(18,28,51,.28); }
+
+/* 2. a clock that keeps going at night */
+.rl-clock{ width:96px; height:96px; margin:6px 0 24px; }
+.rl-clock circle{ fill:none; stroke:var(--navy); stroke-width:3; }
+.rl-clock line{ stroke:var(--navy); stroke-width:3; stroke-linecap:round; transform-origin:50px 50px; }
+.rl-clock .m{ transition:transform 2.4s cubic-bezier(.3,.7,.3,1) .2s; transform:rotate(0deg); }
+.rl-clock .h{ transition:transform 2.4s cubic-bezier(.3,.7,.3,1) .2s; transform:rotate(60deg); }
+.rl-p.is-on .rl-clock .m{ transform:rotate(1020deg); }
+.rl-p.is-on .rl-clock .h{ transform:rotate(150deg); }
+
+/* 3. the wandering nerve draws itself */
+.rl-nerve{ width:120px; height:150px; margin:0 0 18px; }
+.rl-nerve path{ fill:none; stroke:var(--gold-l); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:420; stroke-dashoffset:420; transition:stroke-dashoffset 2.2s ease .2s; }
+.rl-nerve circle{ fill:var(--gold-l); opacity:0; transition:opacity .4s; }
+.rl-p.is-on .rl-nerve path{ stroke-dashoffset:0; }
+.rl-p.is-on .rl-nerve circle{ opacity:1; transition-delay:1.6s; }
+
+/* 4. habits stack onto the day */
+.rl-stack{ display:grid; gap:6px; width:min(240px,70%); margin:6px 0 24px; }
+.rl-stack span{ display:flex; justify-content:space-between; padding:9px 12px; border:1px solid var(--line); background:#fff; font-size:13px; color:var(--navy);
+  opacity:0; transform:translateY(-14px); transition:opacity .4s,transform .45s cubic-bezier(.2,.8,.2,1); }
+.rl-stack span b{ color:var(--gold); font-weight:700; }
+.rl-p.is-on .rl-stack span{ opacity:1; transform:none; }
+.rl-p.is-on .rl-stack span:nth-child(1){ transition-delay:.15s; } .rl-p.is-on .rl-stack span:nth-child(2){ transition-delay:.45s; }
+.rl-p.is-on .rl-stack span:nth-child(3){ transition-delay:.75s; } .rl-p.is-on .rl-stack span:nth-child(4){ transition-delay:1.05s; }
+
+/* 5. the weeks: engraved plates in a sideways row */
+.rl-weeks > div{ background:#fff; border:1px solid var(--line); border-radius:3px; padding:0 0 18px; overflow:hidden; }
+.rl-weeks img{ display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border-bottom:1px solid var(--line); }
+.rl-weeks .wk{ display:block; margin:16px 18px 4px; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+.rl-weeks h3{ margin:0 18px; font-size:22px; color:var(--navy); }
+.rl-weeks p{ margin:8px 18px 0; font-size:15px; }
+.rl-weeks .rl-hist{ margin:12px 18px 0; font-size:14px; }
+
+/* the confirmation */
+.rl-vagus .rl-gift-card{ background:#fff; border:1px solid var(--line); border-radius:3px; padding:20px; margin:16px 0 18px; }
+.rl-vagus .rl-gift-card img{ display:block; width:100%; aspect-ratio:1; object-fit:cover; margin-bottom:14px; }
+.rl-vagus .rl-list{ list-style:none; padding:0; margin:14px 0 20px; }
+.rl-vagus .rl-list li{ padding:12px 0 12px 30px; border-top:1px solid var(--line); position:relative; font-size:16px; line-height:1.45; color:var(--body); }
+.rl-vagus .rl-list li::before{ content:""; position:absolute; left:4px; top:19px; width:10px; height:10px; border:2px solid var(--gold); border-radius:50%; }
+.rl-vagus .rl-list li strong{ display:block; color:var(--navy); }
+.rl-vagus .rl-fine{ font-size:11.5px; line-height:1.5; }
+
+/* fixes from the first screenshot pass (2026-10-23) */
+.rl-vagus .rl-night .rl-in::before{ display:none; }            /* the eyebrow's own rule is the look's mark; no second rule */
+.rl-vagus .rl-book{ width:min(38%,170px); }
+@media (min-width:701px){ .rl-vagus .rl-book{ width:min(34%,250px); } }
+.rl-vagus .rl-gift-card{ display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center; }
+.rl-vagus .rl-gift-card img{ margin:0; }
+
+/* the platform's dock (funnel-native.js) in navy; on a navy screen it and the computer's .rl-cta turn the cover's gold,
+   navy words on it (Jeff, 2026-10-23: white on this gold is too faint) */
+.rl-vagus{ --pfn-accent:#1B2A4A; }
+.pfn-dock,.rl-vagus .rl-cta{ transition:background-color .35s,color .35s; }
+body:has(.rl-vagus .rl-night.is-on) .pfn-dock,.rl-vagus:has(.rl-night.is-on) .rl-cta{ background:#C9A45C !important; color:#121C33 !important; }
+
+/* the confirmation (Tone and Tighten's three screens: delivery, video and bonus, the companion guide) */
+.cf-pill{ display:inline-block; margin-bottom:16px; padding:7px 12px; border-radius:999px; background:#fff; border:1px solid var(--line); font-size:13px; font-weight:700; color:var(--navy); }
+.rl-vagus .rl-btn-2{ background:#fff; color:var(--navy); box-shadow:inset 0 0 0 1.5px var(--navy); }
+.cf-video{ position:relative; width:min(62%,250px); aspect-ratio:9/16; max-height:42vh; margin:0 auto 18px; border-radius:6px; overflow:hidden; background:#0c1426; box-shadow:0 18px 40px rgba(0,0,0,.35); }
+.cf-video img{ width:100%; height:100%; object-fit:cover; opacity:.35; filter:grayscale(.2); }
+.cf-play{ position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); width:58px; height:58px; border-radius:50%; background:rgba(255,255,255,.92); display:grid; place-items:center; }
+.cf-play svg{ width:24px; height:24px; fill:var(--navy); margin-left:3px; }
+.cf-soon{ position:absolute; left:0; right:0; top:calc(46% + 44px); text-align:center; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#fff; font-weight:700; }
+.cf-sound{ position:absolute; left:10px; bottom:10px; padding:5px 10px; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:12px; }
+.cf-coupon{ position:relative; display:grid; grid-template-columns:88px 1fr; gap:16px; align-items:center; padding:18px 16px 16px; border:1.5px dashed var(--gold-l); border-radius:6px; background:rgba(255,255,255,.04); margin-bottom:16px; }
+.cf-tag{ position:absolute; top:-10px; left:14px; padding:2px 8px; background:var(--gold); color:var(--navy-d); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.cf-cover{ width:88px; height:auto; border-radius:2px; box-shadow:0 8px 18px rgba(0,0,0,.4); }
+.cf-copy p{ margin:0; color:#fff; }
+.cf-h{ font:400 21px/1.2 var(--head); }
+.cf-plus{ margin-top:4px !important; font-size:15px; color:var(--gold-l) !important; font-weight:700; }
+.cf-by{ margin-top:8px !important; font-size:13px; color:#B9C1D3 !important; }
+.cf-btn{ display:block; width:100%; min-height:56px; padding:12px 16px; border:0; border-radius:3px; background:#C9A45C; color:var(--navy-d); font:700 15px/1.3 var(--sans); cursor:pointer; text-align:center; }
+.cf-btn-light{ background:var(--navy); color:#fff; margin:6px 0 18px; }
+.cf-ad{ display:grid; grid-template-columns:84px 1fr; gap:16px; align-items:center; margin:4px 0 4px; }
+.cf-ad img{ width:84px; height:auto; border-radius:2px; box-shadow:0 8px 18px rgba(18,28,51,.25); }
+.cf-ad h2{ font-size:clamp(26px,7.4vw,32px); }
+.cf-rec{ display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center; padding:14px; border:1px solid var(--line); border-radius:3px; background:var(--cream); }
+.cf-rec img{ width:64px; height:64px; object-fit:cover; border-radius:2px; }
+.cf-rec p{ margin:0; font-size:14px; line-height:1.4; }
+.cf-rec-k{ font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+.cf-rec-h{ font:400 19px/1.2 var(--head) !important; color:var(--navy) !important; margin:2px 0 !important; }
+.cf-fine{ margin-top:14px; } .cf-fine .rl-fine{ margin:0 0 6px; }
+.cf-claim{ position:fixed; inset:0; z-index:60; display:grid; place-items:center; padding:20px; background:rgba(18,28,51,.6); }
+.cf-claim[hidden]{ display:none; }
+.cf-claim-card{ position:relative; max-width:420px; background:#fff; border-radius:6px; padding:28px 24px 22px; color:var(--navy); }
+.cf-claim-card p{ font-size:15.5px; line-height:1.5; color:var(--body); }
+.cf-claim-big{ font-size:18px !important; color:var(--navy) !important; }
+.cf-claim-card a{ color:var(--navy); font-weight:700; }
+.cf-claim-card .rl-btn{ width:100%; margin-top:8px; }
+.cf-x{ position:absolute; top:10px; right:12px; border:0; background:none; font-size:28px; color:var(--grey); cursor:pointer; }
+/* screen 3 on a phone ran past the top (2026-10-23 check): tighter */
+@media (max-width:700px){
+  .rl-vagus .cf-ad{ grid-template-columns:60px 1fr; gap:12px; } .rl-vagus .cf-ad img{ width:60px; }
+  .rl-vagus .cf-ad h2{ font-size:25px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-in{ padding-top:28px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-list{ margin:8px 0 10px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-list li{ padding:8px 0 8px 28px; font-size:14.5px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-list li::before{ top:14px; }
+  .rl-vagus .cf-btn-light{ margin:4px 0 10px; min-height:50px; }
+  .rl-vagus .cf-rec{ padding:10px; grid-template-columns:48px 1fr; } .rl-vagus .cf-rec img{ width:48px; height:48px; }
+  .rl-vagus .cf-fine .rl-fine{ font-size:10px; line-height:1.4; margin-bottom:4px; }
+}
+@media (max-width:700px){ .rl-vagus [aria-label="The supplement companion guide"] .rl-in{ padding-bottom:24px; } }   /* no dock on this screen */
+@media (max-width:700px) and (max-height:760px){   /* short phones (SE): the drop's card and the list's lines go; the buttons and the small print stay */
+  .rl-vagus .cf-rec{ display:none; } .rl-vagus [aria-label="The supplement companion guide"] .rl-list li{ font-size:0; padding:6px 0 6px 26px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-list li strong{ font-size:14.5px; } .rl-vagus [aria-label="The supplement companion guide"] .rl-list li::before{ top:10px; }
+}
+@media (max-width:700px){ .rl-vagus [aria-label="Your bonus"] .rl-in{ padding-bottom:24px; padding-top:32px; } }
+@media (max-width:700px) and (max-height:760px){ .rl-vagus .cf-video{ max-height:36vh; } }
+@media (max-width:700px) and (max-height:760px){   /* the opt-in on short phones */
+  .rl-vagus .rl-cover .rl-in{ padding-top:52px; }
+  .rl-vagus .rl-book{ width:min(24%,96px); margin:0 0 12px; }
+  .rl-vagus .rl-cover h1{ font-size:26px; }
+  .rl-vagus .rl-cover p{ font-size:15px; margin:10px 0; }
+  .rl-vagus .rl-pills li:nth-child(3){ display:none; }
+  .rl-vagus .rl-weeks img{ aspect-ratio:16/7; }
+  .rl-vagus .rl-weeks p{ font-size:14px; }
+}
+@media (max-width:700px){ .rl-vagus .rl-cover .rl-in{ padding-top:46px; } .rl-vagus .rl-book{ margin-bottom:14px; } }
+@media (min-width:701px){ .rl-vagus [aria-label="The supplement companion guide"] .rl-in{ padding-top:28px; padding-bottom:28px; }
+  .rl-vagus [aria-label="The supplement companion guide"] .rl-list li{ padding:8px 0 8px 28px; } .rl-vagus [aria-label="The supplement companion guide"] .rl-list li::before{ top:14px; }
+  .rl-vagus .cf-fine .rl-fine{ font-size:10.5px; margin-bottom:4px; } }
+@media (min-width:701px) and (max-height:780px){   /* short laptops */
+  .rl-vagus .cf-video{ max-height:34vh; } .rl-vagus [aria-label="Your bonus"] .rl-in{ padding-top:24px; padding-bottom:24px; }
+  .rl-vagus .cf-rec{ display:none; } .rl-vagus .cf-ad img{ width:64px; }
+  .rl-vagus .rl-weeks img{ aspect-ratio:16/7; }
+}
+@media (min-width:701px) and (max-height:780px){ .rl-vagus [aria-label="The supplement companion guide"] .rl-in{ padding-top:14px; padding-bottom:14px; } .rl-vagus .cf-btn-light{ margin:2px 0 8px; } }
+
+/* Joe's product-on-the-cover (REEL-PAGE-SOP 2b): the drop on the companion cover's bottom right corner, the cover
+   still the main thing. */
+.cf-coverwrap{ position:relative; display:block; width:88px; }
+.cf-sticker{ position:absolute; right:-14px; bottom:-10px; width:46px; height:46px; object-fit:cover; background:#fff; border-radius:4px; padding:2px;
+  box-shadow:0 4px 10px rgba(0,0,0,.35); }
+.cf-coupon{ grid-template-columns:100px 1fr; }
+
+/* the delivery screen: the cover's hop and nerve plates (cropped, no title), very faint, below and behind the words */
+.cf-deliver::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:url("assets/cover-plates-ink.png") center bottom 90px/112% auto no-repeat; opacity:.13;
+  -webkit-mask-image:linear-gradient(180deg,transparent 30%,#000 70%); mask-image:linear-gradient(180deg,transparent 30%,#000 70%); }
+@media (min-width:701px){ .cf-deliver::before{ background:url("assets/cover-plates-ink.png") right 6% center/auto 86% no-repeat; opacity:.14;
+  -webkit-mask-image:linear-gradient(90deg,transparent 45%,#000 75%); mask-image:linear-gradient(90deg,transparent 45%,#000 75%); } }
+/* the product shot is MPG's own (their product page's front-of-bag image, cropped above its free shipping line,
+   which reps may not offer, P&P 9.5.A); Beal approves before launch (Jeff, 2026-10-23) */
+/* cut out of its white square, so it sits on the cover like a bag set down on the book */
+.cf-sticker{ object-fit:contain; width:66px; height:66px; right:-22px; bottom:-14px; background:none; padding:0; border-radius:0;
+  box-shadow:none; filter:drop-shadow(0 4px 6px rgba(0,0,0,.4)); }
+.rl-vagus .cf-rec img{ object-fit:contain; background:none; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18)); }

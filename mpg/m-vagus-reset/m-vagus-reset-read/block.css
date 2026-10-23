@@ -1,0 +1,118 @@
+/* mpg/m-vagus-reset/m-vagus-reset-read: the Vagus Nerve Reset, read online. By hand (block.html is generated).
+   The reels' look: navy ink on white and cream, gold rules, Libre Caslon Display for headings, Source Sans 3 for text.
+   Everything is scoped to .vr-read. */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Source+Sans+3:wght@400;600;700&display=swap");
+
+.vr-read{ --navy:#1B2A4A; --navy-deep:#121C33; --ink:#33405a; --soft:#6E7891; --cream:#FBF7EE; --cream-2:#F3ECDD;
+  --line:#E4DCCB; --gold:#A8843F; --gold-lt:#C9A45C; --known:#F3F5F9; --known-line:#7f8db0;
+  font:400 17px/1.62 "Source Sans 3",system-ui,sans-serif; color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; }
+.vr-read *{ box-sizing:border-box; }
+.vr-read img{ max-width:100%; }
+.vr-read a{ color:var(--navy); }
+
+/* ---- the menu: sticky, its links scroll sideways inside it on a phone (never the page) ---- */
+.vrnav{ position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:14px; padding:10px 16px;
+  background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.vrnav-brand{ flex:0 0 auto; font:400 17px/1 "Libre Caslon Display",Georgia,serif; color:var(--navy) !important; text-decoration:none; }
+.vrnav-links{ flex:1 1 auto; min-width:0; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(90deg,#000 88%,transparent); }
+.vrnav-links::-webkit-scrollbar{ display:none; }
+.vrnav-links a{ flex:0 0 auto; padding:6px 10px; border-radius:99px; font:600 13.5px/1 "Source Sans 3",sans-serif; color:var(--soft); text-decoration:none; white-space:nowrap; }
+.vrnav-links a.on{ background:var(--cream-2); color:var(--navy); }
+.vrnav-cta{ flex:0 0 auto; padding:8px 12px; border-radius:3px; background:var(--gold-lt); color:var(--navy-deep) !important; font:700 13.5px/1 "Source Sans 3",sans-serif; text-decoration:none; }
+.vrnav-bar{ position:absolute; left:0; right:0; bottom:-1px; height:2px; }
+.vrnav-bar i{ display:block; height:100%; width:0; background:var(--gold); }
+@media (max-width:640px){ .vrnav-brand{ display:none; } .vrnav-cta{ padding:8px 10px; } }
+
+/* ---- the hero: the book on cream ---- */
+.vrhero{ background:var(--cream); border-bottom:1px solid var(--line); }
+.vrhero-in{ max-width:1040px; margin:0 auto; padding:56px 24px 60px; display:grid; grid-template-columns:1.25fr .75fr; gap:48px; align-items:center; }
+.vr-eyebrow{ font:700 12.5px/1 "Source Sans 3",sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.vrhero h1{ font:400 clamp(34px,5vw,54px)/1.08 "Libre Caslon Display",Georgia,serif; color:var(--navy); margin:0 0 16px; }
+.vrhero-sub{ font-size:19px; margin:0 0 26px; max-width:30em; }
+.vrhero-btns{ display:flex; flex-wrap:wrap; gap:10px; }
+.vr-btn{ display:inline-block; padding:14px 22px; border-radius:3px; background:var(--navy); color:#fff !important; font:700 16px/1 "Source Sans 3",sans-serif; text-decoration:none; }
+.vr-btn-ghost{ background:transparent; color:var(--navy) !important; box-shadow:inset 0 0 0 1.5px var(--navy); }
+.vr-read .vrhero-book{ width:100%; max-width:280px; justify-self:center; border-radius:2px 5px 5px 2px; box-shadow:0 22px 40px -14px rgba(18,28,51,.55), 0 2px 6px rgba(18,28,51,.2); transform:rotate(1.5deg); }
+@media (max-width:760px){
+  .vrhero-in{ grid-template-columns:1fr; gap:28px; padding:36px 16px 40px; }
+  .vr-read .vrhero-book{ order:-1; max-width:170px; }
+  .vrhero-btns .vr-btn{ flex:1 1 auto; text-align:center; }
+}
+
+/* ---- the pages, one card each ---- */
+.vrbody{ max-width:720px; margin:0 auto; padding:12px 16px 72px; }
+.vr-read .card{ padding:44px 0 36px; border-bottom:1px solid var(--line); scroll-margin-top:64px; }
+.vr-read .card:last-child{ border-bottom:0; }
+.vr-read .card h1{ font:400 clamp(30px,4.4vw,40px)/1.12 "Libre Caslon Display",Georgia,serif; color:var(--navy); margin:0 0 18px; padding-top:14px; border-top:2px solid var(--gold); display:inline-block; }
+.vr-read .card h2{ font:400 25px/1.2 "Libre Caslon Display",Georgia,serif; color:var(--navy); margin:30px 0 10px; }
+.vr-read .card h3.label{ font:700 12.5px/1.3 "Source Sans 3",sans-serif; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:24px 0 8px; }
+.vr-read .card p{ margin:0 0 14px; }
+.vr-read strong{ color:var(--navy); }
+.vr-read .card ul,.vr-read .card ol{ margin:0 0 16px; padding-left:22px; }
+.vr-read .card li{ margin-bottom:6px; }
+.vr-read .card ol li::marker{ color:var(--gold); font-weight:700; }
+.vr-read .plate{ display:block; width:min(300px,70%); margin:6px auto 22px; mix-blend-mode:multiply; border-radius:2px; }
+
+/* the anchor sentence: the thing to say out loud */
+.vr-read .callout{ background:var(--cream-2); border-left:3px solid var(--gold); border-radius:0 3px 3px 0; padding:14px 18px; margin:14px 0 18px; color:var(--navy); font:400 20px/1.4 "Libre Caslon Display",Georgia,serif; }
+/* a long one (the tea's safety note) reads in the body face */
+.vr-read .callout.long{ font:400 16.5px/1.55 "Source Sans 3",sans-serif; color:var(--ink); }
+/* the history and what's-known notes: upright text, label above (leadmag-pdf-pipeline: italic serif is for a line) */
+.vr-read .note{ font-size:16px; line-height:1.55; margin:12px 0 14px; padding:12px 16px 13px; border-left:3px solid var(--gold-lt); background:#FAF6EC; border-radius:0 3px 3px 0; }
+.vr-read .note b{ display:block; font:700 11.5px/1.2 "Source Sans 3",sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+.vr-read .n-known{ border-color:var(--known-line); background:var(--known); }
+.vr-read .n-known b{ color:#56648a; }
+.vr-read .fine{ font-size:13.5px; line-height:1.5; color:var(--soft); margin-bottom:8px; }
+.vr-read .k-week h2{ border-top:1px solid var(--line); padding-top:26px; }
+.vr-read .k-week .block:first-of-type h2,.vr-read .k-week h1 + .plate + p + .block h2{ border-top:0; padding-top:0; }
+
+/* the fridge-door table becomes cards on a phone */
+.vr-read table{ width:100%; border-collapse:collapse; font-size:15.5px; margin:8px 0 14px; }
+.vr-read th{ text-align:left; font:700 11.5px "Source Sans 3",sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); border-bottom:1.5px solid var(--navy); padding:8px 8px; }
+.vr-read td{ border-bottom:1px solid var(--line); padding:10px 8px; vertical-align:top; }
+.vr-read td:first-child{ color:var(--gold); font-weight:700; white-space:nowrap; }
+@media (max-width:560px){
+  .vr-read thead{ display:none; }
+  .vr-read tr{ display:grid; grid-template-columns:auto 1fr; column-gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
+  .vr-read td{ border:0; padding:0; }
+  .vr-read td:first-child{ grid-row:span 2; font:400 22px/1 "Libre Caslon Display",serif; min-width:26px; }
+  .vr-read td:nth-child(2){ color:var(--soft); font-size:14px; }
+  .vr-read td:nth-child(3){ color:var(--navy); font-weight:600; }
+}
+
+/* ---- the diary: 30 nights you can fill in ---- */
+.vr-read .diary{ display:grid; gap:8px; margin:18px 0 10px; }
+.vr-read .night{ border:1px solid var(--line); border-radius:4px; background:#fff; }
+.vr-read .night summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:12px 14px; }
+.vr-read .night summary::-webkit-details-marker{ display:none; }
+.vr-read .night summary b{ font:400 22px/1 "Libre Caslon Display",serif; color:var(--gold); min-width:28px; }
+.vr-read .night summary span{ flex:1; color:var(--soft); font-size:15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.vr-read .night summary span.done{ color:var(--navy); }
+.vr-read .night summary::after{ content:"+"; color:var(--gold); font-size:22px; line-height:1; }
+.vr-read .night[open] summary::after{ content:"–"; }
+.vr-read .night-in{ padding:0 14px 14px 56px; display:grid; gap:10px; }
+.vr-read .night-in label{ display:grid; gap:4px; font:600 13px/1.3 "Source Sans 3",sans-serif; color:var(--soft); }
+.vr-read .night-in input{ font:400 16px/1.3 "Source Sans 3",sans-serif; color:var(--navy); padding:9px 10px; border:1px solid var(--line); border-radius:3px; background:var(--cream); width:100%; }
+.vr-read .night-in input:focus{ outline:2px solid var(--gold-lt); outline-offset:0; border-color:transparent; }
+.vr-read .diary-more{ justify-self:start; background:none; border:0; padding:6px 0; font:600 15px "Source Sans 3",sans-serif; color:var(--navy); text-decoration:underline; cursor:pointer; }
+.vr-read .diary-keep{ font-size:14px; color:var(--soft); }
+@media (max-width:480px){ .vr-read .night-in{ padding-left:14px; } }
+
+/* ---- what's next: the confirmation's bonus card ---- */
+.vr-read .offer{ display:grid; grid-template-columns:150px 1fr; gap:26px; align-items:center; margin:22px 0 26px; padding:26px 26px 24px;
+  background:var(--navy); color:#d6dcea; border-radius:4px; box-shadow:0 18px 40px -20px rgba(18,28,51,.6); }
+.vr-read .offer-cover{ position:relative; display:block; }
+.vr-read .offer-cover img:first-child{ display:block; width:100%; border-radius:2px 4px 4px 2px; box-shadow:0 10px 22px rgba(0,0,0,.45); }
+.vr-read .offer-bag{ position:absolute; right:-22px; bottom:-14px; width:62px; filter:drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
+.vr-read .offer-tag{ display:inline-block; padding:4px 9px; background:var(--gold-lt); color:var(--navy-deep); font:700 11.5px/1 "Source Sans 3",sans-serif; letter-spacing:.18em; text-transform:uppercase; border-radius:2px; margin-bottom:12px; }
+.vr-read .offer-h{ font:400 25px/1.2 "Libre Caslon Display",Georgia,serif; color:#fff !important; margin:0 0 4px !important; }
+.vr-read .offer-plus{ font-weight:700; color:#D9BC7E; margin:0 0 16px !important; }
+.vr-read .offer-btn{ display:block; text-align:center; padding:15px 16px; border-radius:3px; background:var(--gold-lt); color:var(--navy-deep) !important; font:700 16.5px/1.2 "Source Sans 3",sans-serif; text-decoration:none; }
+.vr-read .offer-small{ font-size:14px; color:#aab4cc; margin:10px 0 0 !important; text-align:center; }
+@media (max-width:560px){
+  .vr-read .offer{ grid-template-columns:1fr; gap:22px; padding:24px 18px 20px; }
+  .vr-read .offer-cover{ width:140px; margin:0 auto; }
+  .vr-read .offer-words{ text-align:center; }
+}
+
+@media print{ .vrnav,.vrhero-btns,.offer,.diary,.diary-keep{ display:none !important; } }

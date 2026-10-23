@@ -1,0 +1,6 @@
+/* mpg/m-vagus-reset/m-vagus-reset-bonus: one screen of the confirmation's look (see block.html). */
+@import url("../m-vagus-reset-reel/block.css");
+.cf-bonus .cf-claim-big{ font-size:21px !important; line-height:1.45; color:var(--navy) !important; }
+.cf-bonus .rl-in a.cf-num{ color:var(--navy); font-weight:700; }
+.cf-bonus .cf-num-plain{ text-decoration:none; }
+.cf-bonus .cf-pill{ width:fit-content; }
