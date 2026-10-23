@@ -1,0 +1,26 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/b-hormone-supplement-request
+  The page a lead lands on after tapping "YES! Text me the free bonuses" on the Hormone Lunchbox confirmation reel (or the
+  "Send me the supplement guide" button in a Lunchbox email): the supplement guide and the product info, by text.
+  Platform only, built on Nueva's discount request pages (Jeff, 2026-10-23: "more like the nueva no crash plan").
+  ⚠️ ITS VIEW IS THE ALERT: the step /b-hormone-supplement-request starts "Beneve - Hormone Lunchbox - Supplement Guide
+  Request" (migration 0478), which tags the lead, marks them hot, and texts and emails the rep with the text ready to send.
+  Known leads only (the opt-in's cookie or a tracked email link); once per lead.
+  The words are the confirmation reel's popup. The look is the confirmation reel's (one screen of it).
+-->
+<div class="rl rl-look-serif rl-lb rlr" data-pf-native data-pf-arrive="#F6F1E9">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Your supplement guide and product info are coming by text</h1>
+          <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlr-big" data-in style="--d:.1s">We'll send you the supplement guide AND <b>the product info via text message within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          <p class="rlr-back" data-in style="--d:.3s"><a href="/b-hormone-lunchbox-read">Open your Hormone Lunchbox guide</a></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

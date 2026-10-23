@@ -1,0 +1,32 @@
+/* beneve/beneve-hormone-lunchbox-guide/b-hormone-glutathione — Glutathione+ info (platform only; see block.html). Two
+ * screens in the Lunchbox reels' look: the opt-in reel's sheet gives the colours and the type. */
+@import url("../b-hormone-lunchbox-reel/block.css");
+
+.rlp .rl-p{ overflow-y:auto; }
+.rlp-bottle{ display:block; width:62%; max-width:280px; height:auto; margin:14px auto 6px; filter:drop-shadow(0 18px 22px rgba(42,26,23,.22)); }
+.rl-look-serif .rlp-top h1{ font-size:clamp(40px,12vw,54px); }
+.rlp-top h1 em{ font-style:normal; color:var(--oxblood); }
+.rl .rlp-claim{ font-family:var(--head); font-size:clamp(19px,5.4vw,22px) !important; line-height:1.35 !important; color:var(--ink) !important; }
+.rlp-top .rl-hint{ color:var(--oxblood); }
+.rl .rlp-tags{ margin-top:16px; font-size:13.5px !important; letter-spacing:.04em; color:var(--body) !important; }
+.rl .rlp-ask{ margin-top:16px; font-size:15px !important; color:var(--ink) !important; }
+.rlp-fine{ margin-top:18px; padding-top:12px; border-top:1px solid var(--line); }
+.rl .rlp-fine .rl-fine{ font-size:11px !important; line-height:1.45 !important; color:var(--grey) !important; margin:8px 0 0 !important; }
+
+@media (max-width:700px) and (max-height:760px){
+  .rlp-bottle{ width:44%; margin-top:8px; }
+  .rl-look-serif .rlp-top h1{ font-size:38px; }
+  .rl .rlp-claim{ font-size:18px !important; }
+  .rl-look-serif .lk-list > div{ padding:9px 0; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rlp-bottle{ width:30%; }
+  .rl-look-serif .rlp-top h1{ font-size:32px; }
+  .rl .rlp-claim{ font-size:16.5px !important; }
+}
+@media (min-width:701px){
+  .rlp-bottle{ width:min(420px,30vw); max-width:none; margin:0; }
+  .rl-look-serif .rlp-top h1{ font-size:clamp(56px,5vw,72px); }
+  .rl .rlp-claim{ font-size:clamp(22px,1.9vw,26px) !important; max-width:24em !important; }
+  .rlp-in .rl-in{ max-width:760px; }
+}

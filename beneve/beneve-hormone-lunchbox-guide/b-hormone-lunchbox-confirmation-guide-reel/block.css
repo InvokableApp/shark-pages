@@ -1,0 +1,198 @@
+/* beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel — the Hormone Lunchbox confirmation with
+ * the supplement guide bonus (platform only; see block.html). The reel and the look (G · Editorial serif) come from the
+ * opt-in reel's sheet; this adds screen 1, the video, the bonus frame (screens 2 and 3) and the claim popup, the last
+ * three copied from the Nueva confirmation reels with the serif look's colours. */
+@import url("../b-hormone-lunchbox-reel/block.css");
+
+/* GHL never fills the name; the span stays hidden there (the platform drops it whole when the name is unknown). */
+[data-if-name]{ display:none; }
+
+.rlg{ --bx:var(--oxblood); --bx-d:var(--oxblood); --bx-ink:var(--cream); --bx-w:400; }
+.rl-look-serif .rlb-btn{ font-family:var(--sans); font-weight:700; letter-spacing:.01em; border-radius:2px; }
+.rl-look-serif .rlb-coupon{ border-radius:2px; }
+
+/* 1. on the way */
+.rlg-env{ width:44px; height:44px; fill:none; stroke:var(--oxblood); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-bottom:16px; }
+.rl-look-serif .rlg-top h1{ font-size:clamp(32px,9vw,42px); }
+.rlg-top .rl-type em{ font-style:italic; color:var(--oxblood); }
+.rlg-top p b{ color:var(--ink); }
+.rlg-top .rl-btns{ margin-top:22px; }
+.rlg-top .rl-hint{ color:var(--oxblood); }
+.rlt-pill{ display:inline-block; font-size:13.5px; font-weight:700; padding:8px 14px; border-radius:999px; background:var(--tint); color:var(--oxblood); margin-bottom:18px; }
+
+/* the video (screen 2): Joe's, phone shaped; its size comes from the bonus frame below */
+.rlt-video{ position:relative; aspect-ratio:9/16; border-radius:22px; overflow:hidden; background:#000; box-shadow:0 24px 60px -18px rgba(0,0,0,.7); }
+.rlt-video video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+.rlt-sound{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(42,26,23,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; bottom:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
+
+/* ---------- the bonus frame (Jeff, 2026-10-20): screens 2 and 3 ----------
+ * Tokens set on the root above: --bx (the accent), --bx-d (accent words on paper), --bx-ink (words on the accent),
+ * --bx-w (the headings' weight). Copied from the Nueva confirmation reels (2026-10-23), colours mapped to the serif look. */
+.pfn-dock.pfn-optin small{ display:none; }   /* the dock's words are the whole line: "Swipe up for a bonus 🎁" */
+.rlb .rl-in{ padding:28px 22px calc(22px + env(safe-area-inset-bottom,0px)); }   /* no dock on these screens */
+
+/* 2. the bonus: the video (if any) takes the room the card and the button leave */
+.rlb-bonus .rl-in{ height:100%; display:flex; flex-direction:column; justify-content:center; gap:16px; }
+.rlb-vidbox{ flex:1 1 0; min-height:0; container-type:size; display:flex; justify-content:center; align-items:flex-end; }
+.rlb-vidbox .rlt-video{ width:min(100cqw, calc(100cqh * 9 / 16)); max-width:300px; margin:0; }
+.rlb-badge{ align-self:flex-start; font:700 13px var(--sans); padding:7px 13px; border-radius:999px; background:rgba(255,255,255,.1); color:var(--on-dark); }
+
+/* the coupon: a ticket, notched at the sides in the screen's own colour, a dashed rule inside */
+.rlb-coupon{ position:relative; flex:0 0 auto; display:grid; grid-template-columns:30% minmax(0,1fr); gap:16px; align-items:center;
+  padding:22px 18px 16px; border-radius:18px; background:var(--paper); color:var(--ink); outline:2px dashed var(--bx); outline-offset:-8px; }
+.rlb-coupon::before,.rlb-coupon::after{ content:""; position:absolute; top:50%; width:22px; height:22px; margin-top:-11px; border-radius:50%; background:var(--night); }
+.rlb-coupon::before{ left:-11px; } .rlb-coupon::after{ right:-11px; }
+.rlb-tag{ position:absolute; top:-11px; left:20px; padding:4px 12px; border-radius:999px; background:var(--bx); color:var(--bx-ink);
+  font:800 11.5px/1.2 var(--sans); letter-spacing:.14em; text-transform:uppercase; }
+.rlb-cover{ width:100%; height:auto; display:block; border-radius:4px; transform:rotate(-3deg); box-shadow:0 10px 22px -8px rgba(0,0,0,.45); }
+/* The product sits on the cover's bottom right corner, on top of it, about a third of the cover's width, with a soft
+   shadow, so the cover stays the focus and the box keeps the cover's height (Joe, 2026-10-22). The image is a cut-out
+   (transparent background), so the shadow follows the bottles, not a white square. */
+.rlb-coverwrap{ position:relative; display:block; min-width:0; }
+.rlb-sticker{ position:absolute; right:-8%; bottom:-5%; width:33%; height:auto; display:block; pointer-events:none;
+  filter:drop-shadow(0 5px 7px rgba(0,0,0,.32)); }
+.rlb-copy{ min-width:0; display:flex; flex-direction:column; gap:4px; }
+.rl .rlb-copy p{ margin:0; }
+.rl .rlb-h{ font-family:var(--head); font-weight:var(--bx-w); font-size:19px; line-height:1.2; color:var(--ink); }
+.rl .rlb-plus{ font-weight:700; font-size:16px; line-height:1.3; color:var(--bx-d); }
+.rl .rlb-by{ display:flex; align-items:center; gap:8px; margin-top:6px; font-size:13.5px; line-height:1.3; color:var(--body); }
+.rlb-pic{ flex:0 0 auto; width:28px; height:28px; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:var(--bx); color:var(--bx-ink); font:700 12px var(--sans); }
+.rlb-pic[hidden]{ display:none; }
+.rlb-pic img,.rlb-pic svg{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* the claim button: long words on purpose, set as two balanced lines on a phone */
+.rlb-btn{ display:block; flex:0 0 auto; text-align:center; text-decoration:none; padding:14px 22px; border-radius:16px; background:var(--bx); color:var(--bx-ink);
+  font:800 16px/1.3 var(--sans); text-wrap:balance; cursor:pointer; box-shadow:0 14px 30px -14px rgba(0,0,0,.5); }
+
+/* 3. the guide "ad", the button again, the recommended supplement, the small print. It scrolls inside itself. */
+.rlb-guide{ overflow-y:auto; justify-content:flex-start; }
+.rlb-guide .rl-in{ padding-top:32px; display:flex; flex-direction:column; }
+.rlb-eyebrow{ align-self:flex-start; font:700 12px/1.2 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--bx-d); }
+.rlb-ad{ display:grid; grid-template-columns:26% minmax(0,1fr); gap:16px; align-items:center; margin-top:12px; }
+.rlb-adcover{ width:100%; height:auto; display:block; border-radius:4px; transform:rotate(-3deg); box-shadow:0 12px 26px -10px rgba(0,0,0,.4); }
+.rl .rlb-ad h2{ font-size:clamp(22px,6vw,26px); line-height:1.15; color:var(--ink); }
+.rlb-gets{ list-style:none; padding:0; margin:16px 0 0; display:flex; flex-direction:column; gap:9px; }
+.rlb-gets li{ position:relative; padding-left:30px; font-size:16.5px; font-weight:600; line-height:1.35; color:var(--ink); }
+.rlb-gets li::before{ content:""; position:absolute; left:0; top:2px; width:19px; height:19px; border-radius:50%; background:var(--bx); }
+.rlb-gets li::after{ content:""; position:absolute; left:7px; top:6px; width:5px; height:8px; border:solid var(--bx-ink); border-width:0 2.2px 2.2px 0; transform:rotate(45deg); }
+.rlb-gets b{ color:var(--ink); }
+.rlb-guide .rlb-btn{ margin-top:18px; }
+.rlb-rec{ margin-top:14px; display:grid; grid-template-columns:72px minmax(0,1fr); gap:14px; align-items:center; padding:10px 14px 10px 10px; border-radius:16px; background:var(--tint); border:1px solid color-mix(in srgb,var(--ink) 10%,transparent); }
+.rlb-rec-k{ font:700 11.5px/1.2 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--body); }
+.rlb-rec-img{ width:72px; height:72px; object-fit:contain; border-radius:12px; background:#fff; display:block; }
+.rlb-rec-t{ min-width:0; }
+.rl .rlb-rec p{ margin:2px 0 0; font-size:14.5px; line-height:1.4; color:var(--body); }
+.rl .rlb-rec .rlb-rec-h{ font-family:var(--head); font-weight:var(--bx-w); font-size:18px; line-height:1.2; color:var(--ink); margin-top:2px; }
+.rlb-fine{ margin-top:18px; padding-top:12px; border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent); }
+.rl .rlb-fine .rl-fine{ font-size:11px !important; line-height:1.45 !important; color:var(--grey) !important; margin:8px 0 0 !important; }
+.rl .rlb-fine .rl-fine:first-child{ margin-top:0 !important; }
+
+@media (max-width:700px) and (max-height:700px){
+  .rlb .rl-in{ padding-top:20px; }
+  .rlb-bonus .rl-in{ gap:12px; }
+  .rlb-coupon{ padding:18px 14px 12px; gap:12px; grid-template-columns:26% minmax(0,1fr); }
+  .rl .rlb-h{ font-size:17px; } .rl .rlb-plus{ font-size:14.5px; } .rl .rlb-by{ font-size:12.5px; margin-top:4px; }
+  .rlb-btn{ font-size:15px; padding:12px 18px; }
+}
+
+/* a computer: screen 2 puts the video on the right; screen 3 is one column of words */
+@media (min-width:701px){
+  .rlb .rl-in{ padding:56px 96px 64px; }
+  .rlb-bonus .rl-in{ display:grid; grid-template-columns:minmax(0,560px) auto; justify-content:center; align-content:center; gap:22px 72px; height:auto; }
+  .rlb-bonus .rl-in > *{ grid-column:1; }
+  .rlb-bonus .rl-in{ grid-template-rows:1fr auto auto auto 1fr; }
+  .rlb-bonus .rl-in > .rlb-badge{ grid-row:2; } .rlb-bonus .rl-in > .rlb-coupon{ grid-row:3; } .rlb-bonus .rl-in > .rlb-btn{ grid-row:4; }
+  .rlb-bonus .rl-in > .rlb-vidbox{ grid-column:2; grid-row:1 / span 5; height:min(640px, calc(100vh - 140px)); width:auto; aspect-ratio:9/16; container-type:normal; }
+  .rlb-bonus .rlb-vidbox .rlt-video{ width:100%; height:100%; max-width:none; }
+  .rlb-coupon{ padding:28px 26px 22px; gap:24px; }
+  .rl .rlb-h{ font-size:24px; } .rl .rlb-plus{ font-size:19px; } .rl .rlb-by{ font-size:15px; }
+  .rlb-btn{ justify-self:start; font-size:17px; padding:16px 30px; }
+  .rlb-guide .rl-in{ max-width:820px; display:flex; align-items:stretch; }
+  .rlb-guide .rlb-btn{ align-self:flex-start; }
+  .rlb-ad{ grid-template-columns:150px minmax(0,1fr); gap:32px; }
+  .rl .rlb-ad h2{ font-size:clamp(32px,3.2vw,42px); }
+  .rlb-gets li{ font-size:18px; }
+  .rlb-rec{ grid-template-columns:96px minmax(0,1fr); max-width:560px; } .rlb-rec-img{ width:96px; height:96px; }
+  .rl .rlb-rec p{ font-size:16.5px; max-width:none; }
+  .rl .rlb-fine .rl-fine{ font-size:12px !important; max-width:none; }
+}
+
+/* the claim card (Joe, 2026-10-20): his popup, over the reel. A sheet from the bottom on a phone, a card in the middle of
+   a computer. It sits inside .rl (a fixed box), so it hides the platform's dock itself while open (block.js). */
+.rlt-claim{ position:fixed; inset:0; z-index:50; display:flex; align-items:flex-end; justify-content:center;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px)); background:rgba(42,26,23,0); transition:background-color .3s; }
+.rlt-claim[hidden]{ display:none; }
+.rlt-claim.is-open{ background:rgba(42,26,23,.55); }
+.rlt-claim-card{ position:relative; width:100%; max-width:460px; max-height:calc(100svh - 24px); overflow-y:auto; border-radius:26px;
+  padding:28px 22px 18px; background:var(--paper); color:var(--ink); box-shadow:0 24px 60px -12px rgba(0,0,0,.5);
+  transform:translateY(110%); transition:transform .4s cubic-bezier(.2,.8,.2,1); }
+.rlt-claim.is-open .rlt-claim-card{ transform:none; }
+.rlt-claim .rlt-pill{ margin-bottom:14px; }
+.rlt-claim p{ margin:14px 0 0; font-size:16.5px; line-height:1.5; color:var(--body); }
+.rlt-claim p b{ color:var(--ink); }
+.rlt-claim .rlt-claim-big{ margin:0; font-family:var(--head); font-weight:700; font-size:clamp(21px,5.8vw,25px); line-height:1.25; letter-spacing:-.02em; color:var(--ink); }
+.rlt-claim .rlt-claim-big b{ font-weight:900; color:var(--oxblood); }
+.rlt-claim-sms{ padding:14px 16px; border-radius:16px; background:var(--tint); }
+.rlt-claim-num{ font-weight:800; color:var(--oxblood); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
+.rlt-claim-num-plain{ text-decoration:none; color:var(--ink); }
+.rlt-claim-x{ position:absolute; top:12px; right:12px; width:36px; height:36px; display:grid; place-items:center; border:0; border-radius:50%;
+  background:var(--tint); color:var(--ink); cursor:pointer; }
+.rlt-claim-x svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; }
+.rlt-claim .rlt-claim-ok{ display:block; width:100%; margin-top:18px; padding:15px 24px; background:var(--oxblood); border:1.5px solid var(--oxblood);
+  color:var(--cream); font:800 16px var(--sans); text-align:center; cursor:pointer; }
+@media (min-width:701px){
+  .rlt-claim{ align-items:center; }
+  .rlt-claim-card{ max-width:520px; padding:36px 34px 26px; transform:translateY(24px); opacity:0; transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s; }
+  .rlt-claim.is-open .rlt-claim-card{ opacity:1; }
+  .rlt-claim .rlt-claim-big{ font-size:28px; }
+  .rlt-claim p{ font-size:17.5px; }
+}
+@media (prefers-reduced-motion:reduce){ .rlt-claim-card{ transition:none; } }
+
+
+/* Screen 3 fits whole, small print included (launch audit, 2026-10-22: at 375x667 half the disclaimer was below the fold
+ * and at 1280x800 the last FDA sentence ran off; a screen that scrolls inside a reel reads as cut off). The words never
+ * change; the cover, the supplement card, the gaps and the small print shrink on shorter screens. Measured with the
+ * last .rl-fine's bottom inside the screen at 390x844, 375x667 and 1280x800. (Copied from the Nueva reels.) */
+@media (max-width:700px) and (max-height:760px){
+  .rlb-guide .rl-in{ padding-top:16px; padding-bottom:calc(14px + env(safe-area-inset-bottom,0px)); }
+  .rlb-ad{ grid-template-columns:64px minmax(0,1fr); gap:14px; margin-top:8px; }
+  .rl .rlb-ad h2{ font-size:20px; }
+  .rlb-gets{ margin-top:10px; gap:5px; }
+  .rlb-gets li{ font-size:15px; padding-left:27px; }
+  .rlb-gets li::before{ width:17px; height:17px; top:1px; } .rlb-gets li::after{ left:6px; top:4px; }
+  .rlb-guide .rlb-btn{ margin-top:12px; padding:10px 16px; font-size:14.5px; }
+  .rlb-rec{ margin-top:10px; grid-template-columns:46px minmax(0,1fr); gap:10px; padding:7px 12px 7px 7px; }
+  .rlb-rec-img{ width:46px; height:46px; border-radius:9px; }
+  .rlb-rec-k{ font-size:10px; }
+  .rl .rlb-rec .rlb-rec-h{ font-size:15.5px; margin-top:1px; }
+  .rl .rlb-rec p{ font-size:13px; line-height:1.3; margin-top:1px; }
+  .rlb-fine{ margin-top:10px; padding-top:8px; }
+  .rl .rlb-fine .rl-fine{ font-size:10.5px !important; line-height:1.4 !important; margin-top:6px !important; }
+}
+@media (min-width:701px) and (max-height:900px){
+  .rlb-guide .rl-in{ padding-top:36px; padding-bottom:28px; }
+  .rlb-ad{ grid-template-columns:120px minmax(0,1fr); margin-top:8px; }
+  .rl .rlb-ad h2{ font-size:34px; }
+  .rlb-gets{ margin-top:12px; gap:6px; }
+  .rlb-gets li{ font-size:17px; }
+  .rlb-guide .rlb-btn{ margin-top:14px; padding:13px 26px; }
+  .rlb-rec{ margin-top:12px; grid-template-columns:64px minmax(0,1fr); } .rlb-rec-img{ width:64px; height:64px; }
+  .rlb-fine{ margin-top:12px; padding-top:10px; }
+  .rl .rlb-fine .rl-fine{ font-size:11.5px !important; margin-top:5px !important; }
+}
+
+@media (max-width:700px) and (max-height:760px){ .rl-look-serif .rlg-top h1{ font-size:29px; } .rlg-env{ width:36px; height:36px; margin-bottom:10px; } }
+@media (max-width:700px) and (max-height:620px){ .rl-look-serif .rlg-top h1{ font-size:25px; } .rlg-env{ display:none; } }
+@media (min-width:701px){
+  .rlg-top .rl-in{ grid-template-columns:minmax(0,1fr); max-width:940px; }
+  .rl-look-serif .rlg-top h1{ font-size:clamp(44px,4.4vw,60px); }
+}
