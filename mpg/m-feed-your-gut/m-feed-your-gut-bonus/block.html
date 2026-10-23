@@ -1,0 +1,28 @@
+<!--
+  mpg/m-feed-your-gut/m-feed-your-gut-bonus
+  The page a lead lands on after tapping "🎁 YES! Text me the guide + product info" with no script running (the
+  confirmation's block.js normally fetches this step in the background and shows the same words in a popup).
+  ⚠️ ITS VIEW IS THE ALERT: the step /m-feed-your-gut-bonus starts the campaign's bonus automation (0482), which tags the
+  lead, marks them hot, and alerts the rep to text the Fermented Foods Starter Guide and the powder's info. Known leads
+  only (the opt-in's cookie); once per lead. The number is the rep's own phone (mpg_rep_phone): block.js makes it
+  tap-to-text with GUT filled in on a phone, plain words on a computer, and takes the paragraph out when no number is set.
+-->
+<div class="rl rl-farm fy-confirm cf-bonus" data-pf-native data-pf-arrive="#0B2D66">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-night fy-farm rl-wide is-on">
+        <div class="rl-in">
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Your fermented foods guide is coming by text</h1>
+          <div class="fy-sign cf-claim-card" data-in>
+            <span class="rl-eyebrow">Done<span data-if-name>, {{contact.first_name}}</span></span>
+            <p class="cf-claim-big">I'll send you the <b>Fermented Foods Starter Guide</b> AND <b>info on the gut powder by text within 24 hours</b> (usually much sooner!).</p>
+            <p>Check your texts, including your <b>“Unknown Senders” folder</b>, so you don't miss it.</p>
+            <p data-cf-sms><b>Want to make sure it gets to you?</b> Text <b>“GUT”</b> to <a class="cf-num" data-cf-num data-word="GUT" href="sms:{{custom_values.mpg_rep_phone}}?&amp;body=GUT">{{custom_values.mpg_rep_phone}}</a> so it doesn't land in “Unknown Senders”.</p>
+            <a class="rl-btn rl-btn-2" href="https://{{custom_values.mpg_main_url}}/m-feed-your-gut-read">Back to your recipes</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

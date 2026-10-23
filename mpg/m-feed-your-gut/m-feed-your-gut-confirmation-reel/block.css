@@ -1,0 +1,13 @@
+/* mpg/m-feed-your-gut/m-feed-your-gut-confirmation-reel: the confirmation (see block.html). Everything is the opt-in
+ * reel's sheet, which carries the confirmation's pieces too; this adds the playing video and the popup's motion. */
+@import url("../m-feed-your-gut-reel/block.css");
+
+.cf-video video{ width:100%; height:100%; object-fit:cover; display:block; }
+.cf-video.is-playing img,.cf-video.is-playing .cf-play,.cf-video.is-playing .cf-soon{ display:none; }
+.cf-sound{ border:0; cursor:pointer; font:inherit; }
+.rl-farm a.cf-btn{ text-decoration:none; display:flex; align-items:center; justify-content:center; }
+.cf-claim{ opacity:0; transition:opacity .25s; }
+.cf-claim.is-open{ opacity:1; }
+.cf-claim-card{ transform:translateY(14px); transition:transform .3s cubic-bezier(.2,.8,.2,1); }
+.cf-claim.is-open .cf-claim-card{ transform:none; }
+.cf-num-plain{ text-decoration:none; color:var(--indigo); }
