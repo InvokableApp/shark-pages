@@ -1,0 +1,34 @@
+<!--
+  mpg/m-feed-your-gut/m-feed-your-gut-text-me
+  Where the "text me for the guide" button in this campaign's emails goes (Jeff, 2026-10-24: "make the button prefill a
+  sms ... or take them to a page where they can choose to fb message or sms the rep with a prefilled message"). The
+  lead's message is written for them ("hey, i downloaded the ____ guide, can you send me the companion guide and more
+  info on the product?"): one tap texts it to the rep, or it goes by Messenger through the copy-the-message card.
+  _shared/text-me/v1 does the work; references/REEL-PAGE-SOP.md §The email's text me page.
+  ⚠️ ITS VIEW IS AN ALERT: the step /m-feed-your-gut-text-me starts "MPG - Feed Your Gut - Text Me (0507)", which tags the lead, marks them hot, and
+  tells the rep to look for their text, with the reply ready. Known leads only (the email link names them); once per
+  lead. The thank-you page's own ask (/m-feed-your-gut-bonus) is unchanged. The look is that request page's.
+-->
+<div class="rl rl-farm fy-confirm cf-bonus" data-pf-native data-tm data-pf-arrive="#0B2D66"
+  data-pf-say="Hey {first}, I downloaded the Feed Your Gut recipes, can you send me the Fermented Foods Starter Guide and more info on the product?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-night fy-farm rl-wide is-on">
+        <div class="rl-in">
+          <div class="fy-sign cf-claim-card" data-in>
+            <h1 class="cf-claim-big" >Text me<span data-if-name>, {{contact.first_name}},</span> and I'll send you the <b>Fermented Foods Starter Guide</b> and the <b>product info</b>.</h1>
+            <p data-in style="--d:.1s">The message is written for you. Tap send and it comes straight to me.</p>
+            <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+            <div class="rl-btns" data-in style="--d:.3s">
+              <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.mpg_rep_phone}}" href="sms:{{custom_values.mpg_rep_phone}}">💬 Send it as a text</a>
+              <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.mpg_rep_messenger}}" href="https://{{custom_values.mpg_rep_messenger}}">Message me on Facebook</a>
+            </div>
+            <p class="tm-desk" data-tm-desk hidden>Or text it to <b data-tm-num>{{custom_values.mpg_rep_phone}}</b> from your phone.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

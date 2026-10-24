@@ -1,0 +1,13 @@
+/* _shared/text-me/v1/text-me.css — the message bubble and the computer's number line on an email's "text me" page
+ * (text-me.js). The page's own look (its campaign's request page CSS) gives the type, the colours and the buttons. */
+[data-tm] .tm-bubble{ display:block; margin:22px 0 0; max-width:30em; padding:13px 16px; border-radius:20px 20px 6px 20px;
+  background:#E9E9EB; color:#111; font-size:16px; line-height:1.45; text-align:left; white-space:pre-line; }
+[data-tm] .tm-label{ display:block; margin:22px 0 0; font-size:13px; font-weight:650; letter-spacing:.06em; text-transform:uppercase; opacity:.7; }
+[data-tm] .tm-label + .tm-bubble{ margin-top:8px; }
+[data-tm] .tm-desk{ margin:14px 0 0; font-size:15px; }
+[data-tm] .tm-desk b{ white-space:nowrap; }
+[data-tm] .rl-btns{ margin-top:22px; }
+[data-tm] [hidden]{ display:none !important; }
+@media (min-width:701px){
+  [data-tm] .rl-btns{ max-width:30em; }
+}

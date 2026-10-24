@@ -1,0 +1,4 @@
+/* mpg/m-feed-your-gut/m-feed-your-gut-text-me: the request page's look (see block.html), with the shared text me pieces. */
+@import url("../m-feed-your-gut-bonus/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
