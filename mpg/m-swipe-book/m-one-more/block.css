@@ -455,3 +455,16 @@
 .sb .sb-why.is-on .sb-pick.sb-picked{ transform:scale(1.03); }
 .sb .sb-picks-next{ margin-top:16px; width:100%; border-radius:999px; text-transform:none; letter-spacing:0; font-weight:700; animation:sb-pop-up .4s cubic-bezier(.2,1.2,.4,1) both; }
 .sb .sb-picks-next[hidden]{ display:none; }
+
+/* 2026-10-24 (Jeff, on his phone: "too much highlighting on the hero. can we just highlight the one mores in the paragraphs?
+ * then the info circles .... not really showing well on mobile"): "one more" is marked in the paragraphs only (block.html),
+ * and the info dot is a filled terracotta circle with a white "i", a size up. */
+.sb .sb-more{ width:26px; height:26px; border:0; background:var(--terra); color:#fff; vertical-align:1px; margin-left:4px;
+  box-shadow:0 0 0 3px rgba(181,96,60,.18); }
+.sb .sb-more i{ font:italic 700 15px/1 Georgia,serif; color:#fff; }
+.sb .rl-night .sb-more,.sb .rl-photo .sb-more{ background:#E9B79F; color:var(--ink-deep); box-shadow:0 0 0 3px rgba(233,183,159,.22); }
+.sb .rl-night .sb-more i,.sb .rl-photo .sb-more i{ color:var(--ink-deep); }
+.sb .sb-more:hover,.sb .sb-more:focus-visible{ color:#fff; filter:brightness(1.08); }
+.sb .sb-typed .sb-more{ animation:sb-dot-hello 1.6s ease-in-out .4s 2; }
+@keyframes sb-dot-hello{ 50%{ box-shadow:0 0 0 7px rgba(181,96,60,.12); } }
+@media (prefers-reduced-motion:reduce){ .sb .sb-typed .sb-more{ animation:none; } }
