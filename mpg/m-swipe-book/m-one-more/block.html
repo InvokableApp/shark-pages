@@ -174,21 +174,23 @@
         </div>
       </section>
 
-      <!-- 6. CREAM: what matters most to them (Jeff, 2026-10-23: "more data, or more engaging"). One tap; the rep is told
-           which ("Picked: Helping kids", watch.js), so their first text back fits the person. MPG's own culture document
-           backs asking: "We don't replace someone's why with ours" (brain/mpg.md). It moves on by itself after a tap. -->
+      <!-- 6. CREAM: what matters most to them (Jeff, 2026-10-23: "more data, or more engaging"; then "tap the ones that matter
+           most to you... or all"). Any number of taps, each one on or off; the rep is told each ("Picked: Helping kids",
+           "Unpicked: ..." when taken back, watch.js), so their first text back fits the person. MPG's own culture document
+           backs asking: "We don't replace someone's why with ours" (brain/mpg.md). Next appears after the first pick. -->
       <section class="rl-p rl-paper sb-why" aria-label="What matters most to you">
         <div class="sb-fx" aria-hidden="true"><i class="sb-why-a"></i><i class="sb-why-b"></i></div>
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Your turn</span>
           <h2 data-mask>What matters most to you <em>right now?</em></h2>
-          <p class="sb-body" data-type>Tap one. It helps <span data-sb-rep>me</span> know what to share.</p>
+          <p class="sb-body" data-type>Tap the ones that matter most to you, or all of them.</p>
           <div class="sb-picks">
             <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Helping kids" style="--d:.6s"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40 C10 30 6 22 6 16 A9 9 0 0 1 24 12 A9 9 0 0 1 42 16 C42 22 38 30 24 40Z"/></svg><span>Helping kids</span></button>
             <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Extra income" style="--d:.68s"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="14" width="36" height="22" rx="4"/><circle cx="24" cy="25" r="5"/><path d="M12 20v10 M36 20v10"/></svg><span>Extra income</span></button>
             <button type="button" class="sb-pick" data-sb-pick data-label="Picked: My health" style="--d:.76s"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42 C14 34 12 24 24 6 C36 24 34 34 24 42Z"/><path d="M24 40 V20"/></svg><span>My health</span></button>
             <button type="button" class="sb-pick" data-sb-pick data-label="Picked: Time with family" style="--d:.84s"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="15" r="5"/><circle cx="32" cy="15" r="5"/><circle cx="24" cy="27" r="4"/><path d="M6 40 C6 28 26 28 26 40 M22 40 C22 28 42 28 42 40"/></svg><span>Time with family</span></button>
           </div>
+          <button type="button" class="rl-btn sb-picks-next" data-sb-picks-next hidden>Next &rarr;</button>
         </div>
       </section>
 

@@ -224,17 +224,25 @@
     });
   }
 
-  // SCREEN 6, WHAT MATTERS MOST: one tap picks (the rep is told by watch.js), the others step back, and it moves on.
+  // SCREEN 6, WHAT MATTERS MOST (Jeff, 2026-10-23: "tap the ones that matter most to you... or all"): each tile is on or
+  // off; the rep is told each tap ("Picked: ..." or "Unpicked: ...", the label swapped before watch.js reads the click,
+  // which listens in the capture phase, so the label is set on pointerdown). Next appears once one is picked.
+  var picksNext = root.querySelector("[data-sb-picks-next]");
   [].forEach.call(root.querySelectorAll("[data-sb-pick]"), function (b) {
+    var name = b.getAttribute("data-label").replace(/^Picked: /, "");
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("pointerdown", function () { b.setAttribute("data-label", (b.classList.contains("sb-picked") ? "Unpicked: " : "Picked: ") + name); });
     b.addEventListener("click", function () {
-      var all = root.querySelectorAll("[data-sb-pick]");
-      [].forEach.call(all, function (o) { o.classList.toggle("sb-picked", o === b); o.classList.toggle("sb-unpicked", o !== b); });
-      buzz(20);
-      setTimeout(function () {
-        var next = b.closest(".rl-p").nextElementSibling, track = root.querySelector(".rl-track");
-        if (next && track) track.scrollTo({ top: next.offsetTop, behavior: "smooth" });
-      }, 900);
+      var on = !b.classList.contains("sb-picked");
+      b.classList.toggle("sb-picked", on); b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.setAttribute("data-label", (on ? "Unpicked: " : "Picked: ") + name);
+      buzz(on ? 20 : 8);
+      if (picksNext) picksNext.hidden = !root.querySelector(".sb-pick.sb-picked");
     });
+  });
+  if (picksNext) picksNext.addEventListener("click", function () {
+    var next = picksNext.closest(".rl-p").nextElementSibling, track = root.querySelector(".rl-track");
+    if (next && track) track.scrollTo({ top: next.offsetTop, behavior: "smooth" });
   });
 
   // LEARN MORE: the screen's paragraph in a pop-up, filled from its <template> (the rep's name put in after).
