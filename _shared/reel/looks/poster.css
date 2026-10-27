@@ -15,7 +15,7 @@
   --head:"Archivo",system-ui,sans-serif; --head-w:900; --sans:"Archivo",system-ui,sans-serif;
   --eyebrow:var(--black); --eyebrow-dark:var(--lime);
   --cta:var(--lime); --cta-ink:var(--black); --mark:var(--lime); --shade:11,11,11;
-  --sk-accent:var(--lime); --pfn-accent:var(--lime); --pfn-ink:var(--black);
+  --sk-accent:var(--lime); --pfn-accent:var(--lime); --pfn-ink:var(--black); --dock-flip:var(--lime); --dock-flip-ink:var(--black);
 }
 /* headings: condensed, heavy, upper case, tight */
 .rl-look-poster h1,.rl-look-poster h2,.rl-look-poster h3{ font-stretch:62%; text-transform:uppercase; letter-spacing:0; line-height:.9; }

@@ -214,3 +214,7 @@
 .pfn-dock.rl-pulse{ animation:rl-pulse 1.9s ease-in-out infinite; }
 @keyframes rl-pulse{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); box-shadow:0 0 0 7px rgba(255,255,255,.28),0 18px 36px -10px rgba(0,0,0,.5); } }
 @media (prefers-reduced-motion:reduce){ .pfn-dock.rl-pulse{ animation:none; } }
+/* A dark or photo screen flips the dock light (reel.js mark(); REEL-PAGE-SOP §The dock pops). */
+.pfn-dock{ transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s,background-color .3s,color .3s; }
+.pfn-dock.rl-dock-flip{ box-shadow:0 14px 34px -10px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.5); }
+.pfn-dock.rl-dock-flip .pfn-up{ background:color-mix(in srgb,currentColor 12%,transparent); }

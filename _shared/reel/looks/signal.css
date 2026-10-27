@@ -18,7 +18,7 @@
   --head:"Michroma",system-ui,sans-serif; --head-w:400; --sans:"Inter",system-ui,sans-serif;
   --eyebrow:var(--sig-green); --eyebrow-dark:var(--sig-green);
   --cta:var(--sig-blue); --cta-ink:#04101f; --mark:var(--sig-green); --shade:5,11,22;
-  --sk-accent:var(--sig-blue); --pfn-accent:var(--sig-blue); --pfn-ink:#04101f;
+  --sk-accent:var(--sig-blue); --pfn-accent:var(--sig-blue); --pfn-ink:#04101f; --dock-flip:var(--sig-blue); --dock-flip-ink:#04101f;
   color:var(--ink);
 }
 /* the glow and the grid, on every plain screen */

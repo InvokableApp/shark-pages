@@ -86,6 +86,17 @@
     root.classList.toggle("rl-last", i === screens.length - 1);
     var d = document.querySelector(".pfn-dock");
     if (d) d.classList.toggle("rl-pulse", i === screens.length - 1);
+    // The dock never sinks into the screen behind it (Jeff, 2026-10-27: "that bottom button should pop on whatever page
+    // its on"): on a dark or photo screen it turns light, in the look's --dock-flip / --dock-flip-ink (else its paper
+    // and ink); on a light screen it keeps the look's button colour.
+    if (d) {
+      var flip = !LIGHT.test(screens[i].className), cs = getComputedStyle(root);
+      d.classList.toggle("rl-dock-flip", flip);
+      if (flip) {
+        d.style.setProperty("--pfn-accent", (cs.getPropertyValue("--dock-flip") || cs.getPropertyValue("--paper") || "#fff").trim());
+        d.style.setProperty("--pfn-ink", (cs.getPropertyValue("--dock-flip-ink") || cs.getPropertyValue("--ink") || "#111").trim());
+      } else { d.style.removeProperty("--pfn-accent"); d.style.removeProperty("--pfn-ink"); }
+    }
   }
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) mark(screens.indexOf(e.target)); });
