@@ -1,0 +1,98 @@
+<!-- GLP webinar opt-in (glpshark.com/zoom), dressed like the GLP sales page (marketingshark.app/glp).
+     The words, date and hosts come from the socket's data-wb-* attributes (_shared/webinar/v1/webinar.js); the phone
+     and its floating cards are the sales page's, with its own lines. Register opens the page's GHL popup form. -->
+<div class="sk-wb">
+  <div class="wb-spot" aria-hidden="true"></div>
+  <div class="wb-floor" aria-hidden="true"></div>
+
+  <header class="wb-top">
+    <img class="wb-logo" src="assets/logo-white.svg" alt="GLP Shark">
+    <span class="wb-live"><i></i><span data-wb-status>Live on Zoom</span></span>
+  </header>
+
+  <section class="wb-hero">
+    <div class="wb-hero-copy">
+      <p class="wb-eyebrow" data-wb-has="eyebrow"><i></i><span data-wb="eyebrow"></span></p>
+      <h1 class="wb-title" data-wb="title"></h1>
+      <p class="wb-blurb" data-wb="blurb"></p>
+
+      <div class="wb-when">
+        <div class="wb-cal" aria-hidden="true">
+          <span class="wb-cal-m" data-wb-date="month"></span>
+          <span class="wb-cal-d" data-wb-date="day"></span>
+          <span class="wb-cal-w" data-wb-date="weekday"></span>
+        </div>
+        <div class="wb-times">
+          <p class="wb-zones" data-wb-zones></p>
+          <p class="wb-local" data-wb-local></p>
+        </div>
+      </div>
+
+      <div class="wb-count" data-wb-count>
+        <div><b data-u="d">00</b><span>days</span></div>
+        <div><b data-u="h">00</b><span>hours</span></div>
+        <div><b data-u="m">00</b><span>min</span></div>
+        <div><b data-u="s">00</b><span>sec</span></div>
+      </div>
+
+      <button type="button" class="wb-cta" data-wb-register><span data-wb="cta"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+
+    <!-- The app in a hand, as on the sales page: real screens sliding, the day's moments floating round it. -->
+    <div class="wb-stage" aria-hidden="true">
+      <div class="wb-hand">
+        <img class="wb-hand-img" src="assets/hand.webp" alt="">
+        <div class="wb-screen">
+          <div class="wb-status"><b>9:41</b><span></span><i></i></div>
+          <div class="wb-shots" data-wb-shots><img src="assets/app-1.webp" alt=""><img src="assets/app-2.webp" alt=""><img src="assets/app-3.webp" alt=""><img src="assets/app-4.webp" alt=""><img src="assets/app-5.webp" alt=""></div>
+        </div>
+      </div>
+
+      <div class="wb-float wb-f1">
+        <span class="wb-ico wb-ico-green"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+        <div><b>New lead</b><span>Dana R. asked to test drive IGNYT</span></div>
+      </div>
+      <div class="wb-float wb-f2">
+        <span class="wb-ico"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+        <div><b>Follow-up sent</b><span>Day 1 email went to Jess L.</span></div>
+      </div>
+      <div class="wb-float wb-f3">
+        <img class="wb-post" src="assets/post.webp" alt="">
+        <div><b>Today's post is ready</b><span class="wb-accent">Copy the caption</span></div>
+      </div>
+    </div>
+  </section>
+
+  <ul class="wb-chips">
+    <li><i></i>Nothing to build</li>
+    <li><i></i>Lead alerts on your phone</li>
+    <li><i></i>Automatic follow-ups</li>
+    <li><i></i>Trackable links</li>
+  </ul>
+
+  <section class="wb-points" data-wb-has="points">
+    <p class="wb-kicker">On the call</p>
+    <h2 class="wb-h2" data-wb="points-title"></h2>
+    <ol class="wb-list" data-wb-points></ol>
+  </section>
+
+  <section class="wb-hosts" data-wb-has="host1">
+    <p class="wb-kicker">Hosted by</p>
+    <div class="wb-host-row" data-wb-hosts></div>
+  </section>
+
+  <section class="wb-close">
+    <h2 class="wb-close-title" data-wb="title"></h2>
+    <p class="wb-close-when" data-wb-short></p>
+    <button type="button" class="wb-cta" data-wb-register><span data-wb="cta"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <div class="wb-share">
+      <span>Share it with your team</span>
+      <button type="button" class="wb-copy" data-wb-copy><span data-wb-share-url></span><em>Copy</em></button>
+    </div>
+  </section>
+
+  <div class="wb-dock" data-wb-dock hidden>
+    <span class="wb-dock-name"><b data-wb="title"></b><span class="wb-dock-when" data-wb-short></span></span>
+    <button type="button" class="wb-dock-btn" data-wb-register>Register</button>
+  </div>
+</div>

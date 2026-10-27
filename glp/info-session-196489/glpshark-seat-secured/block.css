@@ -1,0 +1,20 @@
+/* GLP webinar confirmation: GLP's sales-page palette on the shared webinar template (same tokens as ../zoom). */
+@import url("../../../_shared/webinar/v1/webinar.css");
+
+.sk-wb {
+  --wb-brand: #EC5E2A;
+  --wb-brand-hi: #F7895B;
+  --wb-deep: #B3421A;
+  --wb-brand-rgb: 236, 94, 42;
+  --wb-glow-rgb: 242, 167, 140;
+  --wb-accent: #FFA47D;
+  --wb-accent-pale: #F7D6C9;
+  --wb-ink: #120A07;
+  --wb-ink-2: #1D100C;
+  --wb-card: #271711;
+  --wb-glass-rgb: 44, 24, 17;
+  --wb-text: #FAF6F4;
+  --wb-text-2: #EAE0DC;
+  --wb-soft: #BFB0AB;
+  --wb-faint: #97847D;
+}

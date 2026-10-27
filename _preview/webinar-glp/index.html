@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLP Shark 2.0 Reveal (local preview)</title>
+<style>
+  html, body { margin: 0; background: #120A07; }
+  /* Stand-in for the page's GHL popup form, only so Register can be tried locally. */
+  .fake-pop { position: fixed; inset: 0; background: rgba(10,10,14,.55); display: none; align-items: center; justify-content: center; z-index: 100; font-family: Inter, Arial, sans-serif; }
+  .fake-pop.on { display: flex; }
+  .fake-pop div { background: #fff; border-radius: 16px; padding: 28px; width: min(420px, 92vw); }
+  .fake-pop h3 { margin: 0 0 6px; font-size: 20px; }
+  .fake-pop p { margin: 0 0 16px; color: #666; font-size: 14px; }
+  .fake-pop input { display: block; width: 100%; box-sizing: border-box; margin: 0 0 10px; padding: 13px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; }
+  .fake-pop button { width: 100%; padding: 14px; border: 0; border-radius: 10px; background: #EC5E2A; color: #fff; font-weight: 700; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<!-- This is the socket as it will sit in GHL's custom code element. -->
+<div data-shark-block="glp/info-session-196489/zoom"
+     data-wb-start="2026-10-29T21:00:00-04:00"
+     data-wb-minutes="75"
+     data-wb-eyebrow="Free live training on Zoom"
+     data-wb-title="GLP Shark 2.0 Reveal"
+     data-wb-blurb="Join us live as we unveil the next generation of the GLP Shark AI marketing system, built to help you generate more leads and grow your ORYGN business."
+     data-wb-cta="Register for the reveal"
+     data-wb-points-title="The app that shows you exactly what to do every day"
+     data-wb-points="Your daily action items::Two new people a day, follow-ups, a post and a conversation to join.|Swipe funnels::Funnels your leads swipe through like a story, then they message you.|Lead alerts and automatic follow-ups::Your phone buzzes the moment a lead comes in, and their emails go out from you without you lifting a finger.|Trackable links::Know when they open it, watch the video and for how long."
+     data-wb-host1="Joe Dickinson|Online Marketing Expert|https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a20551408c28ee98568a525.png"
+     data-wb-host2="Dr. Jeremy Thornton|Top ORYGN Leader|https://assets.cdn.filesafe.space/k5tyIG2Q85sUQ1RlSxBo/media/6a3434556dd61c546a2eae9c.jpg"
+     data-wb-share="https://glpshark.com/zoom"></div>
+
+<div class="fake-pop" id="fakePop"><div>
+  <h3>Save your seat</h3>
+  <p>(Stand-in for the GHL popup form already on the page.)</p>
+  <input placeholder="First name"><input placeholder="Email"><input placeholder="Phone">
+  <button type="button" onclick="document.getElementById('fakePop').classList.remove('on')">Register</button>
+</div></div>
+
+<script>
+  // Local stand-in for _loader/shark-embed.js: same steps, read from this folder instead of GitHub Pages.
+  window.__wbLocal = "../../";
+  window.addEventListener("customWidgetOpenPopup", function () { document.getElementById("fakePop").classList.add("on"); });
+  document.getElementById("fakePop").addEventListener("click", function (e) { if (e.target === this) this.classList.remove("on"); });
+  (function () {
+    var el = document.querySelector("[data-shark-block]"), dir = "../../" + el.getAttribute("data-shark-block") + "/";
+    var l = document.createElement("link"); l.rel = "stylesheet"; l.href = dir + "block.css"; document.head.appendChild(l);
+    fetch(dir + "block.html", { cache: "no-cache" }).then(function (r) { return r.text(); }).then(function (h) {
+      el.innerHTML = h.replace(/<!--[\s\S]*?-->/g, "").replace(/(\s(?:src|href)=["'])assets\//g, "$1" + dir + "assets/");
+      var s = document.createElement("script"); s.src = dir + "block.js"; document.body.appendChild(s);
+    });
+  })();
+</script>
+</body>
+</html>

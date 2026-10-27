@@ -1,0 +1,58 @@
+<!-- GLP webinar confirmation (glpshark.com/glpshark-seat-secured), the opt-in's look (../zoom).
+     The title, date, video and share link come from the socket's data-wb-* attributes (_shared/webinar/v1/webinar.js).
+     The four steps are the page's own, in its order: watch, email, calendar, share. -->
+<div class="sk-wb">
+  <div class="wb-spot" aria-hidden="true"></div>
+  <div class="wb-floor" aria-hidden="true"></div>
+
+  <header class="wb-top">
+    <img class="wb-logo" src="assets/logo-white.svg" alt="GLP Shark">
+    <span class="wb-live"><i></i><span data-wb-status>Seat confirmed</span></span>
+  </header>
+
+  <section class="wb-ok">
+    <p class="wb-eyebrow wb-eyebrow-ok"><i></i><span>Your seat is saved</span></p>
+    <h1 class="wb-title" data-wb-greet="You're in"></h1>
+    <p class="wb-ok-what"><b data-wb="title"></b><span data-wb-short></span></p>
+    <div class="wb-count" data-wb-count>
+      <div><b data-u="d">00</b><span>days</span></div>
+      <div><b data-u="h">00</b><span>hours</span></div>
+      <div><b data-u="m">00</b><span>min</span></div>
+      <div><b data-u="s">00</b><span>sec</span></div>
+    </div>
+  </section>
+
+  <section class="wb-steps">
+    <article class="wb-step wb-step-video" data-wb-has-video>
+      <p class="wb-step-n">Step 1</p>
+      <h2 class="wb-step-h">Watch this first</h2>
+      <div class="wb-player" data-wb-player></div>
+    </article>
+
+    <div class="wb-step-col">
+      <article class="wb-step">
+        <p class="wb-step-n">Step 2</p>
+        <h2 class="wb-step-h">Check your email</h2>
+        <p class="wb-step-p">We just emailed you the Zoom link. Save that email so it's easy to find. Nothing there? Check spam and promotions.</p>
+      </article>
+
+      <article class="wb-step">
+        <p class="wb-step-n">Step 3</p>
+        <h2 class="wb-step-h">Put it on your calendar</h2>
+        <p class="wb-step-p wb-zones" data-wb-zones></p>
+        <div class="wb-cal-row" data-wb-cal-row>
+          <a class="wb-pill" data-wb-cal="google" href="#">Google</a>
+          <a class="wb-pill" data-wb-cal="ics" href="#">Apple</a>
+          <a class="wb-pill" data-wb-cal="ics" href="#">Outlook</a>
+        </div>
+      </article>
+
+      <article class="wb-step">
+        <p class="wb-step-n">Step 4</p>
+        <h2 class="wb-step-h">Bring your team</h2>
+        <p class="wb-step-p">Send them this link so they can save a seat too.</p>
+        <button type="button" class="wb-copy" data-wb-copy><span data-wb-share-url></span><em>Copy</em></button>
+      </article>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLP Shark 2.0 Reveal confirmation (local preview)</title>
+<style>
+  html, body { margin: 0; background: #120A07; }
+  /* Stand-in for the page's GHL popup form, only so Register can be tried locally. */
+  .fake-pop { position: fixed; inset: 0; background: rgba(10,10,14,.55); display: none; align-items: center; justify-content: center; z-index: 100; font-family: Inter, Arial, sans-serif; }
+  .fake-pop.on { display: flex; }
+  .fake-pop div { background: #fff; border-radius: 16px; padding: 28px; width: min(420px, 92vw); }
+  .fake-pop h3 { margin: 0 0 6px; font-size: 20px; }
+  .fake-pop p { margin: 0 0 16px; color: #666; font-size: 14px; }
+  .fake-pop input { display: block; width: 100%; box-sizing: border-box; margin: 0 0 10px; padding: 13px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; }
+  .fake-pop button { width: 100%; padding: 14px; border: 0; border-radius: 10px; background: #EC5E2A; color: #fff; font-weight: 700; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<!-- This is the socket as it will sit in GHL's custom code element. -->
+<div data-shark-block="glp/info-session-196489/glpshark-seat-secured"
+     data-wb-start="2026-10-29T21:00:00-04:00"
+     data-wb-minutes="75"
+     data-wb-title="GLP Shark 2.0 Reveal"
+     data-wb-name="sarah"
+     data-wb-video="https://vimeo.com/1239908793"
+     data-wb-share="https://glpshark.com/zoom"></div>
+
+<div class="fake-pop" id="fakePop"><div>
+  <h3>Save your seat</h3>
+  <p>(Stand-in for the GHL popup form already on the page.)</p>
+  <input placeholder="First name"><input placeholder="Email"><input placeholder="Phone">
+  <button type="button" onclick="document.getElementById('fakePop').classList.remove('on')">Register</button>
+</div></div>
+
+<script>
+  // Local stand-in for _loader/shark-embed.js: same steps, read from this folder instead of GitHub Pages.
+  window.__wbLocal = "../../";
+  window.addEventListener("customWidgetOpenPopup", function () { document.getElementById("fakePop").classList.add("on"); });
+  document.getElementById("fakePop").addEventListener("click", function (e) { if (e.target === this) this.classList.remove("on"); });
+  (function () {
+    var el = document.querySelector("[data-shark-block]"), dir = "../../" + el.getAttribute("data-shark-block") + "/";
+    var l = document.createElement("link"); l.rel = "stylesheet"; l.href = dir + "block.css"; document.head.appendChild(l);
+    fetch(dir + "block.html", { cache: "no-cache" }).then(function (r) { return r.text(); }).then(function (h) {
+      el.innerHTML = h.replace(/<!--[\s\S]*?-->/g, "").replace(/(\s(?:src|href)=["'])assets\//g, "$1" + dir + "assets/");
+      var s = document.createElement("script"); s.src = dir + "block.js"; document.body.appendChild(s);
+    });
+  })();
+</script>
+</body>
+</html>
