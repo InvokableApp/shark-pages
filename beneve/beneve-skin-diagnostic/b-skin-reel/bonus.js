@@ -39,7 +39,19 @@
   }
   function dock() { return document.querySelector(".pfn-dock"); }
   // The dock steps aside on the bonus screens, where the claim buttons are.
-  function sync() { var dk = dock(), s = screens[here()]; var on = !!(s && s.classList.contains("rlb")); root.classList.toggle("on-bonus", on); if (dk && !card.classList.contains("is-open")) dk.classList.toggle("pfn-gone", on); }
+  // After the bonus (the close), the dock asks for the guide itself, and a tap claims it like the YES button (Jeff,
+  // 2026-10-27: "Swipe up for a bonus" read wrong once the bonus was behind them).
+  var bonusAt = -1; screens.forEach(function (s, i) { if (s.classList.contains("rlb")) bonusAt = i; });
+  var before = null, AFTER = "Text me the free guide 🎁";
+  function sync() {
+    var dk = dock(), i = here(), s = screens[i]; var on = !!(s && s.classList.contains("rlb")); root.classList.toggle("on-bonus", on);
+    if (!dk) return;
+    if (!card.classList.contains("is-open")) dk.classList.toggle("pfn-gone", on);
+    var b = dk.querySelector(".pfn-txt b"), after = bonusAt >= 0 && i > bonusAt;
+    if (b && before === null) before = b.textContent;
+    if (b) b.textContent = after ? AFTER : before;
+    dk.classList.toggle("rl-dock-claim", after);
+  }
   if (track) track.addEventListener("scroll", sync, { passive: true });
   setTimeout(sync, 500);
   function open(e) {
@@ -65,6 +77,11 @@
     if (t.closest("[data-rl-claim-open]")) return open(e);
     if (t === card || t.closest("[data-claim-close]")) shut();
   });
+  // result.js takes every dock tap to the bonus (document, capture); this one listens on window so it runs first.
+  window.addEventListener("click", function (e) {
+    var dk = e.target && e.target.closest && e.target.closest(".pfn-dock");
+    if (dk && dk.classList.contains("rl-dock-claim")) { e.stopImmediatePropagation(); open(e); }
+  }, true);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 })();
 
