@@ -1,0 +1,198 @@
+<!--
+  mpg/m-team-page/m-team: the ONE MORE TEAM PAGE, Michael Beal's team page (teamonemore.lovable.app/team, read
+  2026-10-27) as a page every One More rep sends as their own link (Jeff, 2026-10-27, after a call with Mike: "we want to
+  make the onemore team page a replicated link ... 'share your ONE MORE team page'"). Platform only. Migration 0523.
+
+  ⚠️ MIKE'S WORDS, AS ON HIS PAGE. Two kinds of change only:
+     1. His em-dashes became commas, colons or full stops (no em-dashes in shipped copy, CLAUDE.md).
+     2. The rep is the person who shared it: "Get in touch" and "Get back to the person that shared this page with you"
+        name them (#pfn-data, block.js) and carry their Text, Call and Messenger buttons; the product buttons go to the
+        rep's own MPG shop (mpg_buy_link). His counter with no number is left out.
+  ⚠️ NOT LIKE THE SWIPE BOOK: this page NAMES the products, MannaRelief and Sam Caster, and says "every product sold helps
+     feed a child", because Mike's page does (Jeff kept his page as it is, 2026-10-27). brain/mpg.md's sendable-link rules
+     (no company or product name, VeraCell only for the meals) are flagged to Jeff, not applied here. The slug names
+     neither (P&P §9.4.A).
+  THE VIDEOS: Dr. Ben's three clips (our storage, media/mpg/team-page, from Beal's staging site), the full interview
+  (Vimeo) and Sam's overview (Mux), all as watch.js boxes, so the rep hears who watched. Michael's own film is "Film coming
+  soon" on his page too.
+  THE PHOTOS are Mike's (his Mexico visit), the product shots and MannaRelief's two images as on his page (assets/).
+  TEXT buttons are redirect steps (/m-team-text: a text to the rep, the message written; /m-team-message: their Messenger).
+-->
+<div class="om" data-pf-native>
+  <header class="om-top">
+    <a class="om-mark" href="#top">One <em>More</em></a>
+    <a class="om-pill" href="#next">Get in touch</a>
+  </header>
+
+  <section class="om-hero" id="top">
+    <div class="om-hero-bg" aria-hidden="true"></div>
+    <div class="om-wrap">
+      <p class="om-eye">A movement built one person at a time</p>
+      <h1 class="om-h1">One More<i>.</i></h1>
+      <p class="om-lede">Two plants. Endless possibilities.</p>
+      <a class="om-play-row" href="#film"><span class="om-play" aria-hidden="true"></span>Watch Michael's message</a>
+      <p class="om-quote">Every product sold helps feed a child in need.</p>
+    </div>
+  </section>
+
+  <div class="om-marquee" aria-hidden="true"><div class="om-marquee-in">
+    <span>pHix</span><b>Aloe + hops flower</b><i>✦</i><span>VeraCell</span><i>✦</i><b>One more child fed</b><i>✦</i><b>Built together</b><i>✦</i><b>Shared simply</b><i>✦</i>
+    <span>pHix</span><b>Aloe + hops flower</b><i>✦</i><span>VeraCell</span><i>✦</i><b>One more child fed</b><i>✦</i><b>Built together</b><i>✦</i><b>Shared simply</b><i>✦</i>
+  </div></div>
+
+  <section class="om-sec" id="film">
+    <div class="om-wrap">
+      <p class="om-num"><span>00</span> A message</p>
+      <h2 class="om-h2">Here's why I'm <em>getting started.</em></h2>
+      <p class="om-sign">Michael Beal</p>
+      <div class="om-film">
+        <img src="assets/mexico-5.jpg" alt="" loading="lazy">
+        <div class="om-film-t"><span class="om-play om-play-lg" aria-hidden="true"></span><span><b>A message from Michael</b><small>Film coming soon</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-sec om-paper" id="products">
+    <div class="om-wrap">
+      <p class="om-num"><span>01</span> The products</p>
+      <h2 class="om-h2">Two plants. <em>Two products.</em></h2>
+      <p class="om-p">Aloe and the hops flower, captured in pHix and VeraCell. Take your time. Ask questions.</p>
+      <p class="om-quote">Every product sold helps feed a child in need.</p>
+      <div class="om-prods">
+        <article class="om-prod">
+          <p class="om-tag"><span>No. 01</span> Hops flower · Bottle + 6 Snaps</p>
+          <div class="om-prod-img"><img src="assets/phix.webp" alt="pHix" loading="lazy"></div>
+          <h3>pHix</h3>
+          <p>Concentrated from the hops flower. Explore the product, its ingredients and the details behind it.</p>
+          <a class="om-cta" href="{{custom_values.mpg_buy_link}}" data-label="Science & info: pHix">Science &amp; info <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="om-prod">
+          <p class="om-tag"><span>No. 02</span> Aloe · 60-serving bag</p>
+          <div class="om-prod-img"><img src="assets/veracell.webp" alt="VeraCell" loading="lazy"></div>
+          <h3>VeraCell</h3>
+          <p>An aloe-based prebiotic powder supporting gut health and healthy immune function.</p>
+          <a class="om-cta" href="{{custom_values.mpg_buy_link}}" data-label="Explore product: VeraCell">Explore product <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-sec" id="conversation">
+    <div class="om-wrap">
+      <p class="om-eye">The conversation</p>
+      <h2 class="om-h2">Hear it from <em>Dr. Ben.</em></h2>
+      <p class="om-p om-small">Three short excerpts from the full interview. Tap a title to play.</p>
+      <div class="om-clips">
+        <div class="om-clip"><span class="om-clip-n">01</span><div class="om-clip-t"><b>Dr. Ben discusses pHix and VeraCell</b><small>1:11</small></div>
+          <div class="qv om-vid" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/team-page/ben-combination.mp4" data-name="Dr. Ben on pHix and VeraCell"></div></div>
+        <div class="om-clip"><span class="om-clip-n">02</span><div class="om-clip-t"><b>Why Dr. Ben got involved</b><small>His personal perspective on choosing this work. 0:46</small></div>
+          <div class="qv om-vid" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/team-page/ben-why-business.mp4" data-name="Why Dr. Ben got involved"></div></div>
+        <div class="om-clip"><span class="om-clip-n">03</span><div class="om-clip-t"><b>Sharing products without a medical background</b><small>Another question from the conversation. 0:59</small></div>
+          <div class="qv om-vid" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/team-page/ben-sharing-background.mp4" data-name="Dr. Ben on sharing without a medical background"></div></div>
+      </div>
+      <details class="om-full">
+        <summary><span class="om-play" aria-hidden="true"></span><span><b>Watch the full interview</b><small>The complete conversation with Dr. Ben Bowers.</small></span></summary>
+        <div class="qv om-vid" data-video="https://player.vimeo.com/video/1180645453/73c97cb5ef" data-name="the full interview with Dr. Ben"></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="om-sec om-paper">
+    <div class="om-wrap">
+      <div class="om-gallery">
+        <img src="assets/mexico-1.jpg" alt="" loading="lazy"><img src="assets/mexico-2.jpg" alt="" loading="lazy">
+        <img src="assets/mexico-3.jpg" alt="" loading="lazy"><img src="assets/mexico-4.jpg" alt="" loading="lazy">
+      </div>
+      <p class="om-cap">Mexico · Moments from a community visit<br>Photos shared by Michael Beal</p>
+    </div>
+  </section>
+
+  <section class="om-sec" id="why">
+    <div class="om-wrap">
+      <p class="om-num"><span>02</span> Our mission</p>
+      <h2 class="om-h2">Grow together. <em class="om-terra">Give more.</em></h2>
+      <p class="om-big">A healthier life should be more than a possibility for the people who can afford it.</p>
+      <p class="om-p">We're One More, a community inspired by the science and research behind aloe vera and the hops flower, and united by a mission to help malnourished children around the world.</p>
+      <p class="om-p">The products start a conversation. Giving back gives that conversation a purpose. We're here to build something that matters beyond ourselves: one more person, one more connection, one more chance to make a difference.</p>
+      <p class="om-quote">Every product sold helps feed a child in need.</p>
+      <figure class="om-fig"><img src="assets/mannarelief-kids.jpg" alt="" loading="lazy"><figcaption>Children reached through MannaRelief's giving program</figcaption></figure>
+      <p class="om-eye om-terra">The story behind MannaRelief</p>
+      <h3 class="om-h3">Romania, 1999.</h3>
+      <p class="om-big">A belief that nourishment should reach further.</p>
+      <p class="om-p">MannaRelief's story began in 1999, when Sam and Linda Caster brought an aloe-derived nutritional extract to an orphanage organization in Romania. Their work grew around a purpose: bringing nutritional support to vulnerable children.</p>
+      <p class="om-p">For One More, that belief is an inspiration: that what we build together can mean more than what we achieve alone. Our shared why is simple: one more child fed, one more family impacted, one more reason to keep giving.</p>
+      <figure class="om-fig om-fig-sm"><img src="assets/hope-boost.webp" alt="MannaRelief Hope Boost" loading="lazy"><figcaption>MannaRelief Hope Boost: the nutritional support sent to children in need</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="om-sec om-paper" id="talk">
+    <div class="om-wrap">
+      <p class="om-eye om-terra">Our purpose, in his words</p>
+      <h2 class="om-h2">The story behind <em>our why.</em></h2>
+      <p class="om-who"><b>Sam Caster</b><small>Founder of MannaRelief</small></p>
+      <p class="om-p"><b>Two plants. A bigger purpose.</b> Hear Sam connect the science behind VeraCell with the mission to nourish children around the world, and explain what sets it apart from acemannan alone.</p>
+      <p class="om-quote om-small">The full story · Company convention</p>
+      <div class="qv om-vid om-vid-poster" data-video="https://stream.mux.com/bWRcKp5qxzrS1ky8F1LN01xkSo6Zux9wQ8fCxbX9e51Y" data-poster="/_p/mpg/m-team-page/m-team/assets/sam-overview-poster.webp" data-name="Sam's full overview"></div>
+    </div>
+  </section>
+
+  <section class="om-sec om-sage">
+    <div class="om-wrap">
+      <p class="om-num"><span>04</span> The meaning of One More</p>
+      <h2 class="om-h1 om-h1-sm">One More<i>.</i></h2>
+      <p class="om-p">Until everyone has enough, there's always One More.</p>
+      <ul class="om-ones">
+        <li>One more person healthier.</li><li>One more child fed.</li><li>One more family impacted.</li><li>One more opportunity created.</li><li>One more life changed.</li>
+      </ul>
+      <p class="om-big om-green"><em>Because changing the world has always started with one.</em></p>
+      <p class="om-fine">Our purpose and aspirations, not measured product or program outcomes.</p>
+    </div>
+  </section>
+
+  <section class="om-sec" id="opportunity">
+    <div class="om-wrap">
+      <p class="om-num"><span>03</span> The opportunity</p>
+      <h2 class="om-h2">Start with one. <em>Show the next.</em></h2>
+      <p class="om-p">The idea is simple enough to repeat: experience the products, share what you learn, help one more person, then show them how to do the same.</p>
+      <ol class="om-steps"><li><i>1</i>Try it</li><li><i>2</i>Share it</li><li><i>3</i>Help one more</li><li><i>4</i>Teach them</li></ol>
+      <p class="om-fine">No hype. No pressure. Understand the products, the work, the costs and the responsibilities before deciding what fits.</p>
+      <p class="om-big">Not sure where to start? <em>Dr. Ben answered the same questions.</em></p>
+      <a class="om-cta" href="#conversation">Watch the three excerpts <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="om-sec om-sage">
+    <div class="om-wrap">
+      <span class="om-soon">Coming soon</span>
+      <p class="om-eye">Dreams On Target: planned guidance for builders</p>
+      <h2 class="om-h2">A simpler way to help <em>one more.</em></h2>
+      <p class="om-p">DOT is being planned to give every builder clearer next steps, personalized support and a more repeatable path, while keeping real human leadership at the center.</p>
+      <div class="om-dot">
+        <div><i>I</i><small>Before you join</small><b>A path that fits you.</b><p>Product customer, new builder or experienced leader: relevant information for your interests.</p></div>
+        <div><i>II</i><small>As you get started</small><b>Your why. Your pace.</b><p>Personalized onboarding, product education and first actions built around your goals and available time.</p></div>
+        <div><i>III</i><small>As you grow</small><b>Know where to focus.</b><p>Planned follow-up guidance, rank and team insights, and accountability connected to why you started.</p></div>
+      </div>
+      <p class="om-fine">DOT is planned, not available through this page today. Features and release timing remain unconfirmed.</p>
+    </div>
+  </section>
+
+  <section class="om-sec om-next" id="next">
+    <div class="om-wrap">
+      <p class="om-eye om-terra">Your next step</p>
+      <h2 class="om-h2 om-center">Get back to the <em>person</em> that shared this page with you.</h2>
+      <p class="om-rep" data-om-rep hidden><span class="om-rep-pic" aria-hidden="true"></span><span>That's <b data-om-first>me</b>.</span></p>
+      <p class="om-p om-center">They sent you this link for a reason. Reply to the message, text them, or give them a call. Ask about the products, the mission, or what building with One More could look like for you.</p>
+      <div class="om-btns">
+        <a class="om-btn" href="/m-team-text" data-label="Text me" data-needs="{{custom_values.mpg_rep_sms}}">Text <span data-om-first>me</span></a>
+        <a class="om-btn om-btn-line" href="tel:{{custom_values.mpg_rep_phone}}" data-label="Call me" data-needs="{{custom_values.mpg_rep_phone}}">Call <span data-om-first>me</span></a>
+        <a class="om-btn om-btn-line" href="/m-team-message" data-label="Message me on Facebook" data-needs="{{custom_values.mpg_rep_messenger}}">Message on Facebook</a>
+      </div>
+      <a class="om-cta om-center-b" href="{{custom_values.mpg_buy_link}}" data-label="Start with the products">Start with the products <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <footer class="om-foot">
+    <p class="om-mark om-mark-lg">One <em>More</em></p>
+    <p>Grow together. Give more. Our products. Our mission. Our team. · OneMoreImpact.com</p>
+  </footer>
+</div>
