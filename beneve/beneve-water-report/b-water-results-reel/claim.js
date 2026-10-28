@@ -3,8 +3,9 @@
  * except the dock: it says "Click here to request the FREE 3-Day Reset" and scrolls to the Reset screen (.wrr-blurb), whose
  * own button opens the popup. The dock is on every screen without a button of its own and off the two with one (the Reset
  * screen, the last), so there are never two asks at once (Jeff, 2026-10-28: "any screen that doesnt have a button should, as
- * long as its not redundant"). Once the Reset screen has been seen, the dock opens the popup itself instead of scrolling
- * back to it. A computer's floating button scrolls there too.
+ * long as its not redundant"). The dock ALWAYS goes to the Reset screen and never opens the popup itself, so nobody asks
+ * for the Reset off a water screen thinking it is a water reset (Joe, 2026-10-28: "thinking this is like a 3 day water
+ * reset"). A computer's floating button scrolls there too.
  * THE CLAIM IS A TAP, NEVER A SWIPE PAST THE END. reel.js clicks the dock for a flick past the last screen; that click is
  * not the person's (isTrusted false) and opens nothing, so scrolling to the end never alerts the rep.
  * The first open fetches the step named in data-rl-claim (/b-water-reset-request) with the page's cookie and query; the
@@ -53,10 +54,9 @@
   var blurb = document.querySelector(".wrr-blurb");
   function toReset() { if (blurb) blurb.scrollIntoView({ behavior: "smooth", block: "start" }); }
   // reel.js marks the screen in view with is-on. The screens with a button of their own put the dock away.
-  var own = [].slice.call(document.querySelectorAll(".wrr-blurb, .wrr-ask")), reached = false;
+  var own = [].slice.call(document.querySelectorAll(".wrr-blurb, .wrr-ask"));
   function ownOn() { return own.some(function (s) { return s.classList.contains("is-on"); }); }
   function sync() {
-    if (blurb && blurb.classList.contains("is-on")) reached = true;
     var dk = dock(); if (dk && card.hidden) dk.classList.toggle("pfn-gone", ownOn());
   }
   if (window.MutationObserver) own.forEach(function (s) { new MutationObserver(sync).observe(s, { attributes: true, attributeFilter: ["class"] }); });
@@ -66,7 +66,7 @@
     if (!t) return;
     if (t.closest(".pfn-dock")) {
       e.preventDefault(); e.stopImmediatePropagation();
-      if (e.isTrusted) { if (reached) open(e); else toReset(); }
+      if (e.isTrusted) toReset();
       return;
     }
     if (t.closest("[data-rl-goto-reset]")) { e.preventDefault(); e.stopImmediatePropagation(); return toReset(); }
