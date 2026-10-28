@@ -151,3 +151,10 @@
   .rv-guide h2{ font-size:clamp(40px,4vw,54px); }
   .rv-guide-list li{ padding:18px 22px; font-size:20px; }
 }
+
+/* THE COVER'S PHOTO, very faded behind the words, fading out toward the swipe (Jeff, 2026-10-28). Each page sets
+   --rv-hero to its own assets/hero.jpg (make-three-videos.mjs). */
+.rv-hero{ position:relative; isolation:isolate; }
+.rv-hero::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:var(--rv-hero) 50% 30% / cover no-repeat;
+  opacity:.16; filter:saturate(.7);
+  -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); mask-image:linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%); }
