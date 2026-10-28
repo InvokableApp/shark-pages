@@ -1,0 +1,107 @@
+<!--
+  mpg/m-video/m-product-video: MPG's PRODUCT VIDEO page, the two products in one (the aloe powder and the drop): 80% the products, 10% the
+  kids, 10% the opportunity (THREE-VIDEOS.md, video 3). Joe's product cards word for word (0370; the gut page's). Claims
+  only in MPG's own words (the VeraCell sheet, the pHix flyer). ⚠️ NOT JOE'S, waiting on Jeff's review: the cover and the
+  first lines of the Myself and Someone I Know pop-ups.
+  Written by MPGSHARK/_build/make-three-videos.mjs; edit that, not this.
+
+  THE VIDEO is a content value, mpg_product_video, with mpg_product_video_poster as its still, the same for every rep. "coming soon"
+  until the HeyGen render lands (the player says "Video coming soon", watch.js); staging holds a placeholder video.
+  The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
+  told). ⚠️ "We've let {rep} know" (the last card) is only true for a personal link. TEXT buttons are redirect steps
+  (/m-product-try, -refer, -both) to the rep's texting number (mpg_rep_sms); with none, their Messenger (/m-product-message).
+-->
+<div class="rl rl-pf rl-look-calm rv bv mv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="A daily gut powder and a tasteless drop">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="A daily gut powder and a tasteless drop">A scoop for your gut, <span class="rl-hl">a drop for your sleep</span>. 🌿</h1>
+          <p class="bv-lede" data-in style="--d:.25s">A daily gut and immune support powder made from aloe, and a tasteless, stimulant-free drop made to support restful sleep.* And every bag of the powder helps feed a child in need.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.mpg_product_video}}" data-poster="{{custom_values.mpg_product_video_poster}}" data-name="the product video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Swipe up to see how we help</span><span class="rv-on-computer">See how we help</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. TINT: and we guide you (new, 2026-10-28) -->
+      <section class="rl-p rl-tint rv-guide" aria-label="And we guide you every step of the way.">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>You're never on your own</span>
+          <h2 data-in style="--d:.1s" data-label="And we guide you every step of the way">And we guide you every step of the way.</h2>
+          <ul class="rv-guide-list">
+            <li data-in style="--d:0.15s"><span class="rv-gi" aria-hidden="true">📱</span><b>An app that tells you who to reach out to</b></li>
+            <li data-in style="--d:0.22s"><span class="rv-gi" aria-hidden="true">🔗</span><b>Your own pages and sales funnels</b></li>
+            <li data-in style="--d:0.29s"><span class="rv-gi" aria-hidden="true">🎬</span><b>Videos like this one, ready to send</b></li>
+            <li data-in style="--d:0.36s"><span class="rv-gi" aria-hidden="true">🤝</span><b>Help selling the products and building your team</b></li>
+            <li data-in style="--d:0.43s"><span class="rv-gi" aria-hidden="true">💛</span><b>A real team behind you, every step</b></li>
+          </ul>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Swipe up to tell <span data-rv-rep>me</span> what you think</span><span class="rv-on-computer">Tell <span data-rv-rep>me</span> what you think</span></span></button>
+        </div>
+      </section>
+
+      <!-- 4. TINT: who comes to mind -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who Comes To Mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:0.20s" data-label="Myself: I'd like to try it">
+              <b class="rv-n">01</b><span class="rv-t"><b>Myself</b><small>I'd like to give it a try&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:0.28s" data-label="Someone I Know: they'd like to try it">
+              <b class="rv-n">02</b><span class="rv-t"><b>Someone I Know</b><small>I think they'd like to try this&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:0.36s" data-label="Myself and someone I know">
+              <b class="rv-n">03</b><span class="rv-t"><b>Myself + Someone I Know</b><small>Honestly I'd like to try it + know someone else who might too.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:0.44s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>No One</b><small>Not interested / don't know anyone</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. The drop is not for children, or for anyone pregnant or nursing. Results vary.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Start with one or try both, and every bag of the powder helps feed a child in need. Text <span data-rv-rep>me</span> back right now and ask about giving them a try!</p>
+    <a class="rv-btn" href="/m-product-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-product-message" data-label="Text me: I'd like to try it">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for thinking of someone<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>They're easy ones to start: a scoop of the powder in water, or the drop in any drink. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/m-product-refer" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-product-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Myself + Someone I Know" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may want to give it a try!</p>
+    <a class="rv-btn" href="/m-product-both" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-product-message" data-label="Text me: I'd like to try it, and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Not interested" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -23,7 +23,7 @@
   });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 
-  /* The bar, the time, and on to the cards at the end. watch.js builds the player after this runs, so wait for it. */
+  /* The bar, the time, and on to the next screen at the end. watch.js builds the player after this runs, so wait for it. */
   var box = root.querySelector(".rv-video"), bar = root.querySelector(".bv-bar"), atEl = root.querySelector("[data-bv-at]"),
       lenEl = root.querySelector("[data-bv-len]"), tries = 0;
   function clock(s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2); }
@@ -33,7 +33,8 @@
     if (atEl) atEl.textContent = clock(at);
     if (lenEl) lenEl.textContent = clock(len);
   }
-  function done() { var ask = root.querySelector(".rv-ask"); if (ask) ask.scrollIntoView({ behavior: "smooth" }); }
+  // At the end, on to the next screen: the guide screen where there is one (2026-10-28), else the cards.
+  function done() { var next = root.querySelector(".rv-guide") || root.querySelector(".rv-ask"); if (next) next.scrollIntoView({ behavior: "smooth" }); }
   (function hook() {
     var v = box && box.querySelector("video"), f = box && box.querySelector("iframe");
     if (!v && !f) { if (box && tries++ < 40) setTimeout(hook, 250); return; }
