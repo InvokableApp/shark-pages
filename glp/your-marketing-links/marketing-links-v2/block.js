@@ -130,9 +130,12 @@ var SYS = {
         print: 'https://canva.link/q84wz59vwmx3oi1',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_food_guide_pdf_url' }],
         desc: 'A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product.' },
-      /* The recipe guide, platform only (Jeff, 2026-10-14: "add the card", so its campaign posts have a home on My
-         funnels). platformOnly: the GHL copy of this page leaves it out, so the GHL hub is unchanged. */
-      { cv: 'protein_recipe_guide_funnel_link', icon: 'guide', name: 'High Protein Recipe Guide', platformOnly: true,
+      /* The recipe guide. Platform since 2026-10-14 (Jeff: "add the card"); back on the GHL hub 2026-10-28 (Jeff:
+         "any account that has a protein recipe funnel should have it on their links"), since the GLP Account Updates
+         snapshot installs the funnel. The card shows only where protein_recipe_guide_funnel_link is filled, so an
+         account whose recipe funnel was deleted MUST have that value emptied, or the card lands on its home page.
+         The 7 that were stale were emptied the same day (.audit/recipe-card-2026-10-28/before.json). */
+      { cv: 'protein_recipe_guide_funnel_link', icon: 'guide', name: 'High Protein Recipe Guide',
         tease: 'Free recipes and grocery list',
         howtoSlug: 'orygn-recipe-guide-how-to',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
