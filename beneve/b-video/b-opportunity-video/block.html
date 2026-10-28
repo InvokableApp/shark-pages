@@ -25,7 +25,8 @@
   ⚠️ "We've let {rep} know" (Not interested) is only true for a personal link: a stranger's tap reports to no one.
   TEXT ME buttons are redirect steps to a text with the message written (/b-opportunity-try, /b-opportunity-refer) to the
   rep's phone (beneve_rep_phone); with no phone they go to the rep's Messenger instead ([data-needs], reel.js).
-  THE PHOTO is the opportunity page's own (b-what-is-beneve-overview/b-opportunity-more-info/assets/laptop.webp).
+  THE PHOTO is Joe's (his Beneve edits, 2026-10-28: a woman at a laptop with a mug, assets/laptop-mug.jpg), cropped by
+  background-position to keep her face and the laptop; it was the opportunity page's own laptop.webp.
 
   2026-10-16, Joe's "Trackable link funnel edits" doc (Nueva's opportunity page, "this same copy will translate in all of the
   opportunity funnels"): the cover reads "Here's how this opportunity works. Does anyone come to mind?" with no line under
@@ -43,11 +44,11 @@
       <!-- 1. PAPER: the headline under a photo card -->
       <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Here's how this opportunity works">
         <div class="rl-in">
-          <div class="lk-photo bv-photo" data-in style="background-image:url('/_p/beneve/b-what-is-beneve-overview/b-opportunity-more-info/assets/laptop.webp')"></div>
+          <div class="lk-photo bv-photo" data-in style="background-image:url('/_p/beneve/b-video/b-opportunity-video/assets/laptop-mug.jpg');background-position:58% 38%"></div>
           <span class="lk-tag" data-in style="--d:.05s">Short video</span>
           <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
           <h1 data-in style="--d:.15s" data-label="Here's how this opportunity works">Here's how this opportunity works. 💸</h1>
-          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, see if anyone comes to mind!</p>
+          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, let us know who comes to mind...</p>
         </div>
         <div class="rv-swipe">
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
@@ -60,7 +61,7 @@
         <div class="rl-in">
           <div class="qv rv-video" data-in data-video="{{custom_values.beneve_opportunity_video}}" data-poster="{{custom_values.beneve_opportunity_video_poster}}" data-name="the opportunity video"></div>
           <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
-          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Swipe up to tell <span data-rv-rep>me</span> what you think</span><span class="rv-on-computer">Tell <span data-rv-rep>me</span> what you think</span></span></button>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">After watching this video, swipe up and let us know who comes to mind</span><span class="rv-on-computer">After watching this video, let us know who comes to mind</span></span></button>
         </div>
       </section>
 

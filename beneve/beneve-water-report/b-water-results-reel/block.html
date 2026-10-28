@@ -10,17 +10,19 @@
      "Your water report".
   WARNING: THE PAGE NEVER INTERPRETS (GHL rule). The utility's number beside the federal limit, nothing more. The meaning
      lives in the guide, which is the one ask.
-  WARNING: ONE ACTION AND IT IS THE MESSAGE (Jeff, 2026-09-09). The dock, the blurb's button, the last screen's button and
-     a computer's button all open the platform's message card (data-pf-say): the word WATER, tap to copy, then Message on
-     Facebook through the funnel's own /b-water-dm-redirect step, so the hand-off, the tag and the rep alert happen as on
-     GHL, where the button copied WATER and went to the same step. No Messenger link: the buttons leave ([data-needs])
-     and there is no PDF fallback, ever (GHL rule).
+  WARNING: ONE ACTION AND IT IS THE CLAIM (Joe's Beneve edits, 2026-10-28; Jeff: "same mechanism as other funnels weve
+     done, where a rep gets a notification that someone is requesting it and they copy/paste a message to the lead").
+     The dock ("What can I do about it?"), the blurb's button, the last screen's button and a computer's button all open
+     the 3-Day Reset popup (claim.js), whose first open fetches /b-water-reset-request: that view is the rep's 🎁 alert
+     with the text ready (migration 0529). Until then (2026-09-09 to 10-28) they opened the message card, the word WATER;
+     /b-water-dm-redirect and its alert stay for links already out. No PDF on the page, ever (GHL rule).
   WHERE THE ADDRESS COMES FROM: ?address= (GHL's way, and a shared link), else what the opt-in reel left in this tab
   (sessionStorage), else the page asks for a ZIP code itself (the GHL page's askForAddress()).
-  Screens: 1 the report's cover, 2 the two numbers, 3 every compound (hidden when none), 4 not sure what these are,
-  5 the 3 Day Reset, 6 which filter takes out what, 7 the ask.
+  Screens: 1 the report's cover, 2 the two numbers, 3 every compound (hidden when none), 4 what the research says
+  (forever chemicals and hormones, everyone), 5 not sure what these are, 6 the 3 Day Reset, 7 which filter takes out
+  what, 8 the ask. NOTE: the GHL page has no screen 4 and no popup; this reel no longer matches it word for word.
 -->
-<div class="rl rl-look-calm wr wrr" data-pf-native data-pf-message="for the free 3 Day Reset" data-pf-say="WATER" data-pf-arrive="#F7FAFC"
+<div class="rl rl-look-calm wr wrr rlb-root" data-pf-native data-pf-dock="What can I do about it?" data-rl-claim="/b-water-reset-request" data-pf-arrive="#F7FAFC"
      data-api="https://water-api-production-c8d2.up.railway.app">
   <div class="rl-frame">
     <div class="rl-track">
@@ -53,7 +55,38 @@
         <div class="rl-in"></div>
       </section>
 
-      <!-- 4. NIGHT: the blurb. Static, so the offer is there on the day the lookup is not (GHL rule). -->
+      <!-- 4. TINT: what the research says (Joe's Beneve edits, 2026-10-28; Jeff: shown to everyone). Every line names its
+           source; Vibrant Wellness (a testing company's blog) is left out, so the metabolism line says what the Endocrine
+           Society page does, and the thyroid line what the Endocrine Society and the PMC study do ("function and transport",
+           not "production"). -->
+      <section class="rl-p rl-tint wrr-edc" aria-label="Forever chemicals and your hormones">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>What the research says</span>
+          <h2 data-in style="--d:.08s">Forever chemicals can mess with your hormones</h2>
+          <p class="wrr-edc-sub" data-in style="--d:.14s">PFOA and PFOS, two PFAS found in some tap water, are classified as
+            endocrine-disrupting chemicals. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a> <a class="wrr-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">[2]</a></p>
+          <ul class="wrr-edc-cards" data-in style="--d:.2s">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M8 5c-3 2-4 5-4 8a8 8 0 0 0 16 0c0-3-1-6-4-8"/><path d="M9 13c1 1 2 1.5 3 1.5s2-.5 3-1.5"/></svg>
+              <div><b>Thyroid</b><span>Can interfere with thyroid hormone function and transport. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a> <a class="wrr-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">[2]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M12 14v7M9 18h6"/></svg>
+              <div><b>Reproductive hormones</b><span>Linked to shifts in estrogen, progesterone and testosterone. <a class="wrr-ref" href="https://www.sciencedirect.com/science/article/abs/pii/S0013935123023575" target="_blank" rel="noopener noreferrer">[3]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+              <div><b>Cycles and ovaries</b><span>Research links exposure to irregular cycles and faster ovarian aging. <a class="wrr-ref" href="https://pubmed.ncbi.nlm.nih.gov/28982594/" target="_blank" rel="noopener noreferrer">[4]</a> <a class="wrr-ref" href="https://academic.oup.com/humupd/article/26/5/724/5848465" target="_blank" rel="noopener noreferrer">[5]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+              <div><b>Metabolism</b><span>Can mimic the fatty acids your body uses to build and store fat. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a></span></div></li>
+          </ul>
+          <p class="wrr-edc-src" data-in style="--d:.28s">Sources:
+            <a href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">1 Endocrine Society</a>,
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">2 JAMA Network Open (PMC)</a>,
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0013935123023575" target="_blank" rel="noopener noreferrer">3 Environmental Research</a>,
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28982594/" target="_blank" rel="noopener noreferrer">4 PubMed</a>,
+            <a href="https://academic.oup.com/humupd/article/26/5/724/5848465" target="_blank" rel="noopener noreferrer">5 Human Reproduction Update</a>.
+            For educational purposes only, not medical advice.</p>
+        </div>
+      </section>
+
+      <!-- 5. NIGHT: the blurb. Static, so the offer is there on the day the lookup is not (GHL rule). The button opens the
+           3-Day Reset popup (claim.js), which is the rep's alert. -->
       <section class="rl-p rl-night wrr-blurb">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Free PDF</span>
@@ -63,11 +96,11 @@
           <p data-in style="--d:.3s">Page 8 of the 3 Day Reset is how to read a report like this one:
             what the lead figure means, what the PFAS count means, and which filter standard takes out
             what. It is free and I will send it over.</p>
-          <a class="rl-btn wrr-msg" data-in style="--d:.4s" data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
+          <a class="rl-btn wrr-msg" data-in style="--d:.4s" data-rl-claim-open href="/b-water-reset-request">Send me the 3-Day Reset</a>
         </div>
       </section>
 
-      <!-- 5. PAPER: the 3 Day Reset, its three days (a sideways row of cards on a phone) with two of each day's three swaps faded (GHL: "if you want to know,
+      <!-- 6. PAPER: the 3 Day Reset, its three days (a sideways row of cards on a phone) with two of each day's three swaps faded (GHL: "if you want to know,
            dm me"). The faded ones are aria-hidden, so a screen reader does not hand over what the fade withholds. -->
       <section class="rl-p rl-paper wrr-reset">
         <div class="rl-in">
@@ -88,7 +121,7 @@
         </div>
       </section>
 
-      <!-- 6. TINT: which filter takes out what -->
+      <!-- 7. TINT: which filter takes out what -->
       <section class="rl-p rl-tint wrr-filters">
         <div class="rl-in">
           <span class="lk-tag" data-in>The 3 Day Reset</span>
@@ -103,14 +136,13 @@
         </div>
       </section>
 
-      <!-- 7. PAPER: the ask, built from her own numbers (block.js askCopy), then the button, the rep, the sources -->
+      <!-- 8. PAPER: the ask, built from her own numbers (block.js askCopy), then the button, the rep, the sources -->
       <section class="rl-p rl-paper wrr-ask">
         <div class="rl-in">
           <h2 data-in>Want to know what these things mean?</h2>
           <p class="wrr-ask-p" data-in style="--d:.1s">The 3 Day Reset names which filter standard takes out lead, which one addresses PFAS, and 26 other swaps. It is free.</p>
-          <a class="rl-btn wrr-msg" data-in style="--d:.2s" data-pf-message-link data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
-          <p class="wrr-how" data-in style="--d:.28s">Tap the button and we will copy the word WATER for you. Paste it
-            and send, and I will send the guide straight over.</p>
+          <a class="rl-btn wrr-msg" data-in style="--d:.2s" data-rl-claim-open href="/b-water-reset-request">Send me the 3-Day Reset</a>
+          <p class="wrr-how" data-in style="--d:.28s">Tap the button and I will send the guide straight over.</p>
           <p class="wrr-sign" data-in style="--d:.32s">{{custom_values.beneve_rep_full_name}}</p>
           <div class="wrr-src" data-in style="--d:.4s">
             <p class="wrr-src-h">Where these numbers come from</p>
@@ -127,9 +159,24 @@
 
     <nav class="rl-dots" aria-label="Screens"></nav>
     <!-- A computer has no dock: the ask and the arrows live in the frame. -->
-    <a class="rl-cta" data-pf-ask data-needs="{{custom_values.beneve_rep_messenger}}" href="/b-water-dm-redirect">Message Me The Word WATER</a>
+    <a class="rl-cta" data-rl-claim-open href="/b-water-reset-request">What can I do about it?</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
+
+  <!-- THE 3-DAY RESET POPUP (Joe's Beneve edits, 2026-10-28), built like Nueva's and GLP's claim popup. Opening it fetches
+       /b-water-reset-request, whose view is the rep's 🎁 alert with the text ready to copy (migration 0529); nothing is
+       texted to the lead by us. The "Text RESET" box leaves when the rep has no number (claim.js). -->
+  <div class="rlb-claim wrr-claim" data-rlb-claim role="dialog" aria-modal="true" aria-labelledby="wrr-claim-h" hidden>
+    <div class="rlb-claim-card">
+      <button type="button" class="rlb-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlb-pill">✅ Good news<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlb-claim-big" id="wrr-claim-h">📲 We'll send you the <b>3-Day Reset</b>, a simple plan to <b>cut down what's in your water</b> and <b>swap out the everyday household products</b> that add to your exposure.</p>
+      <p>Watch your texts/DMs, including your <b>“Unknown Senders”</b> folder, so you don't miss it.</p>
+      <p class="rlb-claim-sms" data-claim-sms><b>Want to make sure it reaches you?</b> Text <b>“RESET”</b> to <a class="rlb-claim-num" data-claim-num data-word="RESET" href="sms:{{custom_values.beneve_rep_phone}}?&amp;body=RESET">{{custom_values.beneve_rep_phone}}</a> so it doesn't land in your “Unknown Senders” folder.</p>
+      <button type="button" class="rl-btn rlb-claim-ok" data-claim-close>Got it</button>
+    </div>
+  </div>
 </div>
-<!-- The reel's moves. This folder's block.js (the report) is added after it by the platform, so runs second. -->
+<!-- The reel's moves. This folder's block.js (the report) is added after it by the platform, so runs second; claim.js last. -->
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/beneve/beneve-water-report/b-water-results-reel/claim.js?v=1" defer></script>

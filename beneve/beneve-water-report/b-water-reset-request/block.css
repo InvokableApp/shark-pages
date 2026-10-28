@@ -1,0 +1,14 @@
+/* beneve/beneve-water-report/b-water-reset-request: the 3-Day Reset request (platform only; see block.html). One screen
+ * in the water reels' look. Built on the skin guide request page. */
+@import url("../b-water-report-reel/block.css");
+
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rlr .rl-p{ overflow-y:auto; justify-content:safe center; }
+.rlr .rl-in{ padding-bottom:48px; }
+.rlr-pill{ display:inline-block; font-size:14px; font-weight:700; padding:8px 14px; border-radius:999px; background:var(--teal-soft); color:var(--teal); margin-bottom:18px; }
+.rlr .rlr-big{ font-family:var(--head); font-weight:700; font-size:clamp(25px,7vw,31px); line-height:1.22; letter-spacing:-.02em; color:var(--ink); margin:0; }
+.rlr .rlr-big b{ font-weight:800; color:var(--teal); }
+.rlr p b{ color:var(--ink); }
+.rlr .rlr-back a{ color:var(--teal); font-weight:700; text-underline-offset:3px; }
+@media (max-width:700px) and (max-height:620px){ .rlr .rl-in{ padding-top:32px; } .rlr .rlr-big{ font-size:23px; } .rlr p{ font-size:15px; } }
+@media (min-width:701px){ .rlr .rl-in{ padding-bottom:72px; } .rlr-pill{ justify-self:start; } .rlr .rlr-big{ font-size:clamp(34px,3.2vw,44px); max-width:22em; } }

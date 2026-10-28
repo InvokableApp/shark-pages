@@ -2,6 +2,7 @@
  * reel's sheet (the reel kit, Clinical calm in Beneve's teal, the ZIP box), then the report's own pieces: the figures,
  * the record, the compound rows, the PDF, the faded swaps, the filter list, the ask. */
 @import url("../b-water-report-reel/block.css");
+@import url("../../../_shared/reel-bonus/v1/bonus.css");
 [data-if-name]{ display:none; }
 .wrr .lk-tag{ margin-bottom:14px; }
 
@@ -138,4 +139,38 @@
   .wrr-nsf{ grid-template-columns:1fr 1fr; } .wrr-nsf span{ font-size:17px; }
   .wrr-how{ font-size:15px !important; } .wrr-src a{ font-size:14px; }
   .wrr-ask .wrr-msg{ display:none; }   /* the floating button is the same ask */
+}
+
+/* ---------- 4. what the research says (Joe's Beneve edits, 2026-10-28) ---------- */
+.wrr-edc h2{ font-size:clamp(24px,6.8vw,31px); }
+.wrr-edc-sub{ font-size:15px !important; line-height:1.45 !important; margin-top:8px !important; }
+.wrr-ref{ font:600 .78em var(--mono); color:var(--teal); text-decoration:none; white-space:nowrap; }
+.wrr-edc-cards{ list-style:none; margin:14px 0 0; padding:0; display:grid; gap:8px; }
+.wrr-edc-cards li{ display:grid; grid-template-columns:34px minmax(0,1fr); gap:10px; align-items:start; padding:10px 12px; border-radius:14px;
+  background:var(--paper); border:1px solid color-mix(in srgb,var(--ink) 9%,transparent); }
+.wrr-edc-cards svg{ width:34px; height:34px; padding:7px; border-radius:10px; background:var(--teal-soft); fill:none; stroke:var(--teal);
+  stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; box-sizing:border-box; }
+.wrr-edc-cards b{ display:block; font:700 15px/1.25 var(--sans); color:var(--ink); }
+.wrr-edc-cards span{ display:block; margin-top:2px; font-size:13.5px; line-height:1.4; color:var(--body); }
+.wrr-edc-src{ margin-top:12px !important; font-size:11px !important; line-height:1.5 !important; color:var(--grey) !important; }
+.wrr-edc-src a{ color:var(--grey); }
+
+/* ---------- the 3-Day Reset popup: _shared/reel-bonus/v1 in this funnel's teal ---------- */
+.wrr.rlb-root{ --bx:var(--teal); --bx-d:var(--teal); --bx-ink:#fff; --bx-scrim:20,52,52; }
+.pfn-dock.pfn-optin small{ display:block; }   /* bonus.css hides it; Joe's edits keep "Swipe up" over "What can I do about it?" */
+.wrr-claim .rlb-pill{ background:var(--teal-soft); color:var(--teal); }
+.wrr-claim .rlb-claim-big{ font-size:clamp(21px,5.6vw,25px); }
+
+@media (max-height:700px) and (max-width:700px){
+  .wrr-edc h2{ font-size:22px; } .wrr-edc-sub{ font-size:13.5px !important; margin-top:4px !important; }
+  .wrr-edc-cards{ margin-top:8px; gap:6px; } .wrr-edc-cards li{ padding:7px 10px; grid-template-columns:28px minmax(0,1fr); gap:8px; }
+  .wrr-edc-cards svg{ width:28px; height:28px; padding:5px; } .wrr-edc-cards b{ font-size:14px; } .wrr-edc-cards span{ font-size:12.5px; }
+  .wrr-edc-src{ margin-top:6px !important; font-size:10px !important; }
+  .wrr-claim .rlb-claim-card{ padding:22px 18px 14px; } .wrr-claim .rlb-claim-big{ font-size:19px; } .wrr-claim p{ font-size:14.5px; margin-top:10px; }
+}
+@media (min-width:701px){
+  .wrr-edc .rl-in{ grid-template-columns:minmax(0,1fr); max-width:860px; }
+  .wrr-edc h2{ font-size:clamp(36px,3.4vw,46px); } .wrr-edc-sub{ font-size:18px !important; }
+  .wrr-edc-cards{ grid-template-columns:1fr 1fr; gap:12px; } .wrr-edc-cards b{ font-size:17px; } .wrr-edc-cards span{ font-size:15px; }
+  .wrr-edc-src{ font-size:12.5px !important; }
 }

@@ -128,3 +128,6 @@
 @media (prefers-reduced-motion:reduce){ .rv-swipe .rv-next{ animation:none; } }
 /* the line under the opportunity headline, in the "wanted you to see this" font (Joe, 2026-10-16) */
 .rv-from.rv-after{ margin:18px 0 0 !important; }
+
+/* Joe's prompt under the video (2026-10-28) runs to three lines on a small phone: its room, for this page only. */
+.rl .rv-watch{ --rv-onward:112px; }

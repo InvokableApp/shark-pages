@@ -121,7 +121,7 @@
           '<p class="wr-gate-p" data-in style="--d:.12s">That usually means a private well, or a system too small to ' +
           'report. The 3 Day Reset still applies, and it covers what to do when nobody publishes ' +
           'a number for you.</p>') +
-      '<p class="wr-ask" data-in style="--d:.34s">Tell me where to send it and the report opens next.</p>' +
+      '<p class="wr-ask" data-in style="--d:.34s">Where are we sending your water report?</p>' +
       (REP ? '<p class="wr-sign" data-in style="--d:.4s">' + esc(REP) + '</p>' : "")
     );
     window.__pfExtra = extra(d);
@@ -170,7 +170,7 @@
   }
 
   // ---------- the dock and the computer's button ----------
-  var TOOL = root.getAttribute("data-pf-dock") || "Check My Water", OPEN = "Show my water report";
+  var TOOL = root.getAttribute("data-pf-dock") || "Check My Water", OPEN = "Show me what's in my water 💧";
   function dockSays(ready) {
     var t = ready ? OPEN : TOOL;
     root.setAttribute("data-pf-dock", t);
