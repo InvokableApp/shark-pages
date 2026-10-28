@@ -12,18 +12,22 @@
      lives in the guide, which is the one ask.
   WARNING: ONE ACTION AND IT IS THE CLAIM (Joe's Beneve edits, 2026-10-28; Jeff: "same mechanism as other funnels weve
      done, where a rep gets a notification that someone is requesting it and they copy/paste a message to the lead").
-     The dock ("What can I do about it?"), the blurb's button, the last screen's button and a computer's button all open
+     The dock ("Send me the free 3-Day Reset"), the blurb's button, the last screen's button and a computer's button all open
      the 3-Day Reset popup (claim.js), whose first open fetches /b-water-reset-request: that view is the rep's 🎁 alert
      with the text ready (migration 0529). Until then (2026-09-09 to 10-28) they opened the message card, the word WATER;
      /b-water-dm-redirect and its alert stay for links already out. No PDF on the page, ever (GHL rule).
   WHERE THE ADDRESS COMES FROM: ?address= (GHL's way, and a shared link), else what the opt-in reel left in this tab
   (sessionStorage), else the page asks for a ZIP code itself (the GHL page's askForAddress()).
   Screens: 1 the report's cover, 2 the two numbers, 3 every compound (hidden when none), 4 what the research says
-  (forever chemicals and hormones, everyone), 5 not sure what these are, 6 the 3 Day Reset, 7 which filter takes out
+  (forever chemicals and hormones, everyone), 5 your water is one piece of your toxic load, 6 the 3 Day Reset, 7 which filter takes out
   what, 8 the ask. NOTE: the GHL page has no screen 4 and no popup; this reel no longer matches it word for word.
 -->
-<div class="rl rl-look-calm wr wrr rlb-root" data-pf-native data-pf-dock="What can I do about it?" data-rl-claim="/b-water-reset-request" data-pf-arrive="#F7FAFC"
+<div class="rl rl-look-calm wr wrr rlb-root" data-pf-native data-pf-dock="Click here to request the FREE 3‑Day Reset" data-rl-claim="/b-water-reset-request" data-pf-arrive="#F7FAFC"
      data-api="https://water-api-production-c8d2.up.railway.app">
+  <!-- The swipe hint says what is below (Jeff, 2026-10-28: "let them know to swipe for more of the report", then "the continuity
+       of the prompts to swipe and the buttons"): the report screens say "your report", the screens from the Reset say "the
+       3-Day Reset", and the two screens with their own sage button (the Reset screen, the last) show none. Phone only. -->
+  <p class="wrr-more" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><span class="wrr-more-r">Swipe up for more of your report</span><span class="wrr-more-x">Swipe up for more from the 3-Day Reset</span></p>
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -87,15 +91,15 @@
 
       <!-- 5. NIGHT: the blurb. Static, so the offer is there on the day the lookup is not (GHL rule). The button opens the
            3-Day Reset popup (claim.js), which is the rep's alert. -->
-      <section class="rl-p rl-night wrr-blurb">
+      <section class="rl-p rl-night wrr-blurb" id="reset">
         <div class="rl-in">
           <span class="rl-eyebrow" data-in>Free PDF</span>
           <img class="wrr-shot rl-art" data-in style="--d:.1s" src="/_p/beneve/beneve-water-report/b-water-results-reel/assets/reset-cover.webp"
                width="1028" height="1200" alt="The 3 Day Reset, a free PDF">
-          <h2 data-in style="--d:.2s">Not sure what any of these are?</h2>
-          <p data-in style="--d:.3s">Page 8 of the 3 Day Reset is how to read a report like this one:
-            what the lead figure means, what the PFAS count means, and which filter standard takes out
-            what. It is free and I will send it over.</p>
+          <h2 data-in style="--d:.2s">Your water is only one piece of your toxic load</h2>
+          <p data-in style="--d:.3s">Plastics, fragrance, receipts and nonstick pans all add endocrine
+            disruptors too. The 3 Day Reset is 27 swaps over three days to bring that load down, plus a page
+            on reading this report. It is free and I will send it over.</p>
           <a class="rl-btn wrr-msg" data-in style="--d:.4s" data-rl-claim-open href="/b-water-reset-request">Send me the 3-Day Reset</a>
         </div>
       </section>
@@ -106,8 +110,8 @@
         <div class="rl-in">
           <span class="lk-tag" data-in>Your next step</span>
           <h2 data-in style="--d:.08s">The 3 Day Reset</h2>
-          <p class="wrr-lede" data-in style="--d:.16s">27 swaps over 3 days, 9 a day. Day one
-            costs nothing. It also has a page on reading a water report like this one.</p>
+          <p class="wrr-lede" data-in style="--d:.16s">27 swaps over 3 days, 9 a day, to lower
+            your EDC load. Day one costs nothing.</p>
           <ul class="wrr-pills" data-in style="--d:.22s"><li>27 swaps</li><li>3 days</li><li>A source on every claim</li><li>Free</li></ul>
           <ul class="wrr-days rl-cards" data-in style="--d:.3s">
             <li><span class="wrr-d">Day 1</span><div><h3>Nothing to buy</h3>
@@ -159,7 +163,7 @@
 
     <nav class="rl-dots" aria-label="Screens"></nav>
     <!-- A computer has no dock: the ask and the arrows live in the frame. -->
-    <a class="rl-cta" data-rl-claim-open href="/b-water-reset-request">What can I do about it?</a>
+    <a class="rl-cta" data-rl-goto-reset href="#reset">Click here to request the FREE 3-Day Reset</a>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 
@@ -170,7 +174,7 @@
     <div class="rlb-claim-card">
       <button type="button" class="rlb-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       <span class="rlb-pill">✅ Good news<span data-if-name>, {{contact.first_name}}</span>.</span>
-      <p class="rlb-claim-big" id="wrr-claim-h">📲 We'll send you the <b>3-Day Reset</b>, a simple plan to <b>cut down what's in your water</b> and <b>swap out the everyday household products</b> that add to your exposure.</p>
+      <p class="rlb-claim-big" id="wrr-claim-h">📲 We'll send you the <b>3-Day Reset</b>, <b>27 simple swaps</b> to <b>lower your toxic load</b> and cut the <b>endocrine disruptors</b> in your everyday products, easiest first.</p>
       <p>Watch your texts/DMs, including your <b>“Unknown Senders”</b> folder, so you don't miss it.</p>
       <p class="rlb-claim-sms" data-claim-sms><b>Want to make sure it reaches you?</b> Text <b>“RESET”</b> to <a class="rlb-claim-num" data-claim-num data-word="RESET" href="sms:{{custom_values.beneve_rep_phone}}?&amp;body=RESET">{{custom_values.beneve_rep_phone}}</a> so it doesn't land in your “Unknown Senders” folder.</p>
       <button type="button" class="rl-btn rlb-claim-ok" data-claim-close>Got it</button>
@@ -179,4 +183,4 @@
 </div>
 <!-- The reel's moves. This folder's block.js (the report) is added after it by the platform, so runs second; claim.js last. -->
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
-<script src="/_p/beneve/beneve-water-report/b-water-results-reel/claim.js?v=1" defer></script>
+<script src="/_p/beneve/beneve-water-report/b-water-results-reel/claim.js?v=4" defer></script>

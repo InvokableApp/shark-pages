@@ -157,7 +157,25 @@
 
 /* ---------- the 3-Day Reset popup: _shared/reel-bonus/v1 in this funnel's teal ---------- */
 .wrr.rlb-root{ --bx:var(--teal); --bx-d:var(--teal); --bx-ink:#fff; --bx-scrim:20,52,52; }
-.pfn-dock.pfn-optin small{ display:block; }   /* bonus.css hides it; Joe's edits keep "Swipe up" over "What can I do about it?" */
+/* The dock is only the Reset now; the swipe hint is .wrr-more above it (2026-10-28). bonus.css hides the dock's "Swipe up". */
+.wrr-more{ display:none; }
+@media (max-width:700px){
+  /* "Click here to request the FREE 3-Day Reset" is Jeff's wording, longer than the dock's one line: it wraps, never cut off. */
+  .wrr ~ .pfn-dock .pfn-txt b, body:has(.wrr) .pfn-dock .pfn-txt b{ white-space:normal; text-overflow:clip; line-height:1.25; }
+  .wrr .wrr-more{ display:flex; white-space:nowrap; align-items:center; justify-content:center; gap:6px; position:fixed; left:12px; right:12px; margin:0;
+    bottom:calc(88px + env(safe-area-inset-bottom, 0px)); z-index:2147479000; pointer-events:none;
+    font:650 11px/1 var(--sans) !important; letter-spacing:.14em; padding:0; text-transform:uppercase; color:var(--teal); transition:opacity .3s; }
+  .wrr-more svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+    animation:wrr-more 1.6s ease-in-out infinite; }
+  .wrr:has(.rl-night.is-on) .wrr-more{ color:#9fd3cf; }   /* the dark screen */
+  .wrr .wrr-more-x{ display:none; }
+  .wrr:has(.wrr-reset.is-on, .wrr-filters.is-on) .wrr-more-r{ display:none; }
+  .wrr:has(.wrr-reset.is-on, .wrr-filters.is-on) .wrr-more-x{ display:inline; }
+  /* not on the last screen, the Reset screen (each has its own button) or under the popup */
+  .wrr.rl-last .wrr-more, .wrr:has(.wrr-blurb.is-on) .wrr-more, body:has(.rlb-claim.is-open) .wrr .wrr-more{ opacity:0; }
+}
+@keyframes wrr-more{ 0%,100%{ transform:translateY(3px); opacity:.4; } 50%{ transform:translateY(-3px); opacity:1; } }
+@media (prefers-reduced-motion:reduce){ .wrr-more svg{ animation:none; } }
 .wrr-claim .rlb-pill{ background:var(--teal-soft); color:var(--teal); }
 .wrr-claim .rlb-claim-big{ font-size:clamp(21px,5.6vw,25px); }
 
@@ -174,3 +192,8 @@
   .wrr-edc-cards{ grid-template-columns:1fr 1fr; gap:12px; } .wrr-edc-cards b{ font-size:17px; } .wrr-edc-cards span{ font-size:15px; }
   .wrr-edc-src{ font-size:12.5px !important; }
 }
+
+/* The Reset screen's button in sage, its one ask once the dock has gone (Jeff, 2026-10-28: "can we make that button like... a sage green?"). */
+/* The last screen's button too, so both asks match. */
+.wrr .wrr-blurb .wrr-msg, .wrr .wrr-ask .wrr-msg{ background:#9CAF88; color:#17261C; border-color:#9CAF88; }
+.wrr .wrr-blurb .wrr-msg:hover, .wrr .wrr-ask .wrr-msg:hover{ background:#AEBF9B; }
