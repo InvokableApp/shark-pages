@@ -78,3 +78,6 @@ body{min-height:100vh;margin:0;color:var(--qta-text);font:16px/1.6 var(--qta-san
    letters apart and crowds Japanese and Chinese, so those set at their natural spacing. */
 :lang(ar) .qp h1,:lang(he) .qp h1,:lang(ja) .qp h1,:lang(zh) .qp h1,:lang(ko) .qp h1{letter-spacing:0;line-height:1.2}
 :lang(ar) .qp-btn,:lang(ja) .qp-btn,:lang(zh) .qp-btn,:lang(ko) .qp-btn{letter-spacing:0}
+/* THE RISK LINE (2026-11-02, the EU pass): Quantaira sells AI trading, so every page that asks people to sign up or
+   download says trading carries risk, in the words already approved on the alert bot and the quiz (words.risk). */
+.qp-risk{margin:0 auto;max-width:420px;text-align:center;font:400 12.5px/1.45 var(--qta-sans);color:var(--qta-text);opacity:.55}
