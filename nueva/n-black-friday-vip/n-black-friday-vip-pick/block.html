@@ -1,0 +1,40 @@
+<!--
+  nueva/n-black-friday-vip/n-black-friday-vip-pick
+  The page every pick on the VIP thank-you page opens: /n-bf-vip-energy, -immunity, -weight, -skin, -gifts, -unsure, and
+  -customer (the Fast Five screen). One block, seven steps (migration 0558): the first script picks the lead's message
+  by the address, then _shared/text-me/v1 offers it as a text or through Messenger (references/REEL-PAGE-SOP.md §The
+  email's text me page). ⚠️ ITS VIEW IS THE REP'S ALERT: each step tags the lead with their pick and tells the rep, once,
+  with the reply ready. Words: NUEVASHARK/campaigns/black-friday-vip/vip.json (thanks.say, picks).
+-->
+<div class="rl rl-vip vipk" data-pf-native data-tm data-pf-arrive="#08090B"
+  data-pf-say="Hey {first}! I just joined your Black Friday VIP list 🎁">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-wide is-on">
+        <div class="rl-in">
+          <h1 data-in>Send it <span class="g">to me</span><span data-if-name>, {{contact.first_name}}</span></h1>
+          <p data-in style="--d:.1s">The message is written for you. Tap send and it comes straight to me, and on the 12th I'll point you to the special that fits.</p>
+          <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.nueva_rep_phone}}" href="sms:{{custom_values.nueva_rep_phone}}">💬 Send it as a text</a>
+            <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.nueva_rep_messenger}}" href="https://{{custom_values.nueva_rep_messenger}}">Message me on Facebook</a>
+          </div>
+          <p class="tm-desk" data-tm-desk hidden>Or text it to <b data-tm-num>{{custom_values.nueva_rep_phone}}</b> from your phone.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script>
+/* The lead's words, by the pick in the address; runs before text-me.js reads data-pf-say. */
+(function () {
+  var root = document.querySelector(".vipk"); if (!root) return;
+  var k = (location.pathname.match(/n-bf-vip-([a-z]+)/) || [])[1];
+  var say = { energy: "energy", immunity: "immunity for winter", weight: "my weight goals", skin: "skin and collagen", gifts: "gifts" }[k];
+  var base = "Hey {first}! I just joined your Black Friday VIP list 🎁 ";
+  root.setAttribute("data-pf-say", k === "customer" ? base + "I already order Nueva. What's the one thing I should do before November 5?"
+    : k === "unsure" ? base + "I'm not sure yet, can you help me pick?" : say ? base + "I'm mostly shopping for " + say + "." : base);
+})();
+</script>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

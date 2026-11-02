@@ -1,0 +1,19 @@
+/* nueva/n-black-friday-vip/n-black-friday-vip-confirmation-reel: the thank-you reel (see block.html). The look is the
+ * opt-in reel's sheet; this adds the pass, the six picks and the customer screen. */
+@import url("../n-black-friday-vip-reel/block.css");
+[data-if-name]{ display:none; }
+.vip-pill{ display:inline-flex; align-items:center; gap:8px; font:700 12px/1 "JetBrains Mono",monospace; letter-spacing:.14em; color:#140F05; background:var(--gold); border-radius:99px; padding:8px 12px; margin-bottom:18px; }
+.vip-pass{ border:2px solid #C99A2E; border-radius:16px; background:#0F1417; padding:18px 18px 16px; margin:18px 0 6px; }
+.vip-pass .row{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; border-top:1px dashed #3A4A52; margin-top:12px; padding-top:12px; }
+.vip-pass small{ display:block; font:700 9.5px/1.2 "JetBrains Mono",monospace; letter-spacing:.14em; color:var(--grey); }
+.vip-pass b{ display:block; font:700 14px/1.3 Figtree,sans-serif; color:var(--gold); margin-top:5px; }
+.vip-pass .top{ display:flex; justify-content:space-between; align-items:center; font:700 10.5px/1 "JetBrains Mono",monospace; letter-spacing:.2em; color:var(--blue); }
+.vip-pass .chipv{ font:800 10px/1 Archivo,sans-serif; letter-spacing:.14em; color:#1A1204; padding:5px 7px 5px 8px; border-radius:5px; background:linear-gradient(100deg,#B8892B 0%,#F6DA8B 30%,#C69A3A 50%,#FFF1C4 64%,#B8892B 86%); }
+/* the six picks: same height, the emoji in its own column (Jeff, 2026-11-02: "lets get these lined up") */
+.vip-picks{ display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:10px; margin:18px 0 8px; }
+.vip-picks a{ display:flex; align-items:center; gap:10px; min-height:58px; padding:10px 12px; border:1.5px solid rgba(227,190,99,.55); border-radius:14px; background:rgba(255,255,255,.03);
+  color:#fff; font:700 15px/1.2 Figtree,sans-serif; text-decoration:none; text-align:left; transition:background-color .2s,transform .15s; }
+.vip-picks a:active{ transform:scale(.97); background:var(--gold); color:#140F05; }
+.vip-picks .e{ flex:none; width:22px; text-align:center; font-size:18px; }
+.vip-picks a:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+@media (max-height:700px){ .vip-picks a{ min-height:48px; font-size:14px; } .vip-pass{ margin-top:10px; } }

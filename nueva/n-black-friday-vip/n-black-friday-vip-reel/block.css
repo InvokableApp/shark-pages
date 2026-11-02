@@ -1,0 +1,65 @@
+/* nueva/n-black-friday-vip/n-black-friday-vip-reel — the Black Friday VIP list opt-in as a reel (platform only; see
+ * block.html). Look B (Jeff, 2026-11-02): black, gold foil, a thin Nueva blue glow. Every screen is dark, so the dock
+ * keeps the gold (--dock-flip). The confirmation reel imports this sheet for the look. Words: ../../../../NUEVASHARK/
+ * campaigns/black-friday-vip/vip.json. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap");
+
+.rl.rl-vip{
+  --paper:#0B0D10; --tint:#0F1A1F; --night:#08090B; --ink:#F6EFDF; --body:#C9D3D8; --grey:#8E9BA2; --on-dark:#F6EFDF;
+  --head:Archivo,Impact,sans-serif; --head-w:900; --sans:Figtree,system-ui,sans-serif;
+  --eyebrow:#3FD0F0; --eyebrow-dark:#3FD0F0; --cta:#E3BE63; --cta-ink:#140F05; --mark:#E3BE63; --shade:8,9,11;
+  --gold:#E3BE63; --blue:#3FD0F0;
+  --foil:linear-gradient(100deg,#9C7420 0%,#F6DA8B 28%,#B98A2A 46%,#FFF0BF 60%,#A97B1F 80%);
+  --sk-accent:#E3BE63; --pfn-accent:#E3BE63; --pfn-ink:#140F05; --dock-flip:#E3BE63; --dock-flip-ink:#140F05;
+  background:#08090B;
+}
+.rl-vip .rl-p{ background:radial-gradient(120% 70% at 50% 0%,#11262E 0%,#0A0F12 55%,#08090B 80%); color:var(--on-dark); }
+.rl-vip .rl-p.rl-night{ background:radial-gradient(120% 70% at 50% 100%,#1C1810 0%,#0B0A08 60%); }
+.rl-vip .rl-night .rl-in::before{ display:none; }
+.rl-vip h1,.rl-vip h2,.rl-vip h3{ font-family:var(--head); font-weight:900; font-stretch:115%; text-transform:uppercase; letter-spacing:-.005em; line-height:.98; color:#fff; }
+.rl-vip h1{ font-size:clamp(34px,10vw,46px); margin:0 0 16px; text-wrap:balance; }
+.rl-vip h2{ font-size:clamp(30px,8.6vw,40px); margin:0 0 16px; }
+.rl-vip p{ color:var(--body); font-size:17px; line-height:1.55; }
+.rl-vip p strong{ color:#fff; }
+.rl-vip .rl-eyebrow{ font-family:"JetBrains Mono",monospace; font-weight:700; letter-spacing:.24em; color:var(--blue); }
+.rl-vip .rl-note{ color:var(--grey) !important; }
+/* the gold foil words, swept once when the screen arrives */
+.rl-vip .g{ background:var(--foil); background-size:220% 100%; background-position:100% 0; -webkit-background-clip:text; background-clip:text; color:transparent; }
+.rl-vip .rl-p.is-on .g{ animation:vipFoil 2.4s ease-in-out .5s both; }
+@keyframes vipFoil{ from{ background-position:100% 0 } to{ background-position:0 0 } }
+
+/* the box: the lid peeks, light leaks out, the tag swings, a few sparkles */
+.vip-box{ position:relative; width:min(230px,58%); margin:6px 0 22px; }
+.vip-box svg{ display:block; width:100%; height:auto; overflow:visible; }
+.vip-box .leak{ position:absolute; left:12%; right:12%; top:30%; height:16%; border-radius:50%; background:radial-gradient(closest-side,var(--blue),transparent); opacity:0; filter:blur(3px); }
+.rl-p.is-on .vip-box .leak{ animation:vipLeak 2.6s ease-in-out 1s both; }
+.rl-p.is-on .vip-box .lid{ animation:vipPeek 2.6s ease-in-out 1s both; }
+.rl-p.is-on .vip-box .ntag{ transform-origin:62px 30px; animation:vipSwing 2.2s ease-in-out .6s both; }
+@keyframes vipLeak{ 0%,30%{opacity:0} 45%{opacity:.95} 62%,100%{opacity:.25} }
+@keyframes vipPeek{ 0%,30%{transform:none} 45%{transform:translateY(-6px) rotate(-3deg)} 60%,100%{transform:none} }
+@keyframes vipSwing{ 0%{transform:rotate(-14deg)} 35%{transform:rotate(9deg)} 65%{transform:rotate(-4deg)} 100%{transform:rotate(0)} }
+.vip-spark{ position:absolute; width:14px; height:14px; opacity:0; pointer-events:none;
+  background:radial-gradient(circle,#FFF6D6 0 12%,transparent 13%),conic-gradient(from 45deg,transparent 0 11%,#FFE8A3 12% 13%,transparent 14% 36%,#FFE8A3 37% 38%,transparent 39% 61%,#FFE8A3 62% 63%,transparent 64% 86%,#FFE8A3 87% 88%,transparent 89%);
+  -webkit-mask:radial-gradient(circle,#000 0 20%,transparent 62%); mask:radial-gradient(circle,#000 0 20%,transparent 62%); filter:drop-shadow(0 0 4px #FFD978); }
+.rl-p.is-on .vip-spark{ animation:vipTwinkle 1.6s ease-in-out var(--d,1s) 3 both; }
+@keyframes vipTwinkle{ 0%,100%{opacity:0;transform:scale(.3) rotate(0)} 50%{opacity:1;transform:scale(1.15) rotate(40deg)} }
+
+/* 2. the hourglass of "some of it won't last" */
+.vip-glass{ width:86px; height:auto; margin:6px 0 24px; }
+.vip-glass .sand-top{ transform-origin:50% 100%; transition:transform 2.6s ease-in .4s; }
+.vip-glass .sand-bot{ transform-origin:50% 100%; transform:scaleY(.15); transition:transform 2.6s ease-in .4s; }
+.rl-p.is-on .vip-glass .sand-top{ transform:scaleY(.2); }
+.rl-p.is-on .vip-glass .sand-bot{ transform:scaleY(1); }
+
+/* 3. how it works: three numbered rows */
+.vip-steps{ list-style:none; padding:0; margin:8px 0 22px; display:grid; gap:12px; }
+.vip-steps li{ display:flex; gap:14px; align-items:flex-start; padding:14px 16px; border:1px solid rgba(227,190,99,.35); border-radius:14px; background:rgba(255,255,255,.03); font-size:16.5px; line-height:1.45; color:#fff; }
+.vip-steps b{ flex:none; display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--gold); color:#140F05; font:800 14px/1 Figtree,sans-serif; }
+.vip-dates{ display:flex; gap:10px; flex-wrap:wrap; margin-top:4px; }
+.vip-dates span{ font:700 12px/1 "JetBrains Mono",monospace; letter-spacing:.12em; color:var(--gold); border:1px solid rgba(227,190,99,.45); border-radius:99px; padding:8px 12px; }
+
+/* the phases: block.html's first script keeps only today's screens */
+.rl-vip [data-phase]{ }
+@media (prefers-reduced-motion:reduce){ .rl-vip *{ animation:none !important; transition:none !important; } .vip-spark,.vip-box .leak{ display:none; } }
+@media (max-height:700px){ .vip-box{ width:min(180px,46%); margin-bottom:14px; } .rl-vip h1{ font-size:clamp(30px,9vw,38px); } }

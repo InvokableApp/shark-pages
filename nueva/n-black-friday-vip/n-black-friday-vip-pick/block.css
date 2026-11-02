@@ -1,0 +1,7 @@
+/* nueva/n-black-friday-vip/n-black-friday-vip-pick: the page each pick opens (see block.html), in the VIP look with the
+ * shared text me pieces. */
+@import url("../n-black-friday-vip-reel/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }
+.rl-vip .tm-bubble{ background:#16232A; color:#fff; border-radius:16px 16px 16px 4px; padding:14px 16px; font:500 17px/1.45 Figtree,sans-serif; display:block; margin:18px 0 6px; }
+.rl-vip .tm-desk{ color:var(--body); }
