@@ -1,0 +1,133 @@
+<!--
+  beneve/beneve-menopause-blueprint/b-menopause-reel
+  The Menopause Blueprint opt-in as a REEL (references/REEL-PAGE-SOP.md). Six screens, PLATFORM ONLY: the platform's
+  /b-menopause step on Beneve's master copy and every Beneve account points here. The guide is Maria Fox Giambrone's
+  (BENEVESHARK/campaigns/menopause-blueprint/README.md).
+  LOOK: M · Blueprint (_shared/reel/looks/blueprint.css), the guide's own print look, so the page and the PDF match.
+  ⚠️ THE WORDS ARE THE GUIDE'S (guide/blueprint.json), cut down, plus the lead's own words from the README's Depth (3am,
+     "normal" bloodwork). Change a fact here only if the guide says it.
+  ⚠️ HER CHOICE (brain/beneve.md): she wants a natural route. Nothing here knocks HRT or says to avoid a medication.
+     "Hormone support" or "hormone health", never "hormone balance". No product is named on this page.
+  ⚠️ The self-check counts with CSS (counter on :checked); block.js hands what she ticked to the opt-in form
+     (window.__pfExtra, platform form.js), so the rep's lead page shows it under "Here's what they told you".
+  PAPER, PHOTO, TINT, DARK, PAPER, PHOTO.
+  The form is the platform's own (Beneve - Menopause Blueprint - Opt-In Form), opened by the dock as a sheet.
+-->
+<div class="rl rl-look-blueprint rl-mb" data-pf-native data-pf-dock="Get the free Blueprint" data-pf-handoff="#F7F1EA">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the cover. A smiling woman very faded behind (Jeff, 2026-10-31), the guide large with the free seal
+           turning on its corner, a hand-drawn line under "Like Yourself Again" that draws itself in. -->
+      <section class="rl-p rl-paper rl-cover mb-hero" aria-label="The free Menopause Blueprint">
+        <div class="mb-hero-bg" aria-hidden="true"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The Menopause Blueprint</span>
+          <h1 data-in style="--d:.1s">A Free Root-Cause Guide To Feeling <span class="mb-mark">Like Yourself Again<svg class="mb-scribble" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 13 C 52 5, 104 17, 156 10 S 252 6, 296 12"/></svg></span> in Menopause</h1>
+          <div class="mb-hero-art rl-art" data-in style="--d:.3s">
+            <img class="mb-book" src="/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/cover.webp" width="900" height="1165" alt="The Menopause Blueprint cover">
+            <svg class="mb-seal" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="mb-seal-path" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="58"/>
+              <g class="mb-seal-spin"><text><textPath href="#mb-seal-path">FREE GUIDE · FREE GUIDE · FREE GUIDE ·</textPath></text></g>
+              <text class="mb-seal-mid" x="60" y="67" text-anchor="middle">100%</text>
+            </svg>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PHOTO: 3am -->
+      <section class="rl-p rl-photo mb-3am">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/3am.webp')"></div>
+        <div class="rl-in">
+          <div class="mb-3am-head rl-art" data-in aria-hidden="true">
+            <svg class="mb-clock" viewBox="0 0 64 64"><circle class="mb-clock-face" pathLength="1" cx="32" cy="32" r="29"/>
+              <g class="mb-clock-ticks"><path d="M32 6v5M58 32h-5M32 58v-5M6 32h5"/></g>
+              <line class="mb-clock-m" x1="32" y1="32" x2="32" y2="11"/><line class="mb-clock-h" x1="32" y1="32" x2="32" y2="18"/><circle cx="32" cy="32" r="2.6"/></svg>
+            <div class="lk-big mb-big">3am</div>
+          </div>
+          <p class="mb-lede" data-in style="--d:.2s">You wake up tired and go to bed wired. You're up at 3am. The weight won't move no
+            matter what you try. And your bloodwork comes back normal.</p>
+          <p class="mb-sub" data-in style="--d:.35s">This is perimenopause. This is menopause. And nobody has sat down with you and
+            explained what your body is asking for.</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the self-check, from the guide's own. Tap to tick; the count is CSS. -->
+      <section class="rl-p rl-tint mb-check">
+        <div class="rl-in">
+          <span class="lk-rule" data-in>The self-check</span>
+          <h2 data-in style="--d:.1s">How many of these sound like you?</h2>
+          <div class="mb-boxes" data-in style="--d:.2s">
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I wake up tired and go to bed wired.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I wake up at 2 to 3am and cannot fall back asleep.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I crave sugar, carbs, or salty snacks constantly.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I get night sweats, hot flashes, or chills.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I am constantly puffy or constipated.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I feel emotionally fragile or mentally foggy.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>I cannot lose weight no matter what I do.</label>
+            <!-- What it says follows her count (block.js); Maria's own line, "If more than two hit, your body has something
+                 to tell you", shows once more than two are ticked. This is the no-script wording. -->
+            <p class="mb-count" aria-live="polite">Check the ones that sound like you. Be honest.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the six shifts, a sideways row -->
+      <section class="rl-p rl-night rl-wide mb-shifts">
+        <div class="rl-in">
+          <svg class="mb-waves" data-in viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true">
+            <path class="mb-w1" pathLength="1" d="M0 35 C 50 5, 100 5, 150 35 S 250 65, 300 35 S 400 5, 450 35 S 550 65, 600 35"/>
+            <path class="mb-w2" pathLength="1" d="M0 50 C 60 40, 110 15, 170 22 S 270 62, 330 52 S 430 12, 490 20 S 580 50, 600 46"/>
+          </svg>
+          <span class="lk-rule" data-in>Inside the guide</span>
+          <h2 data-in style="--d:.05s">What is actually happening in your body</h2>
+          <div class="rl-cards mb-cards" data-in style="--d:.15s">
+            <div><b class="mb-n6">1</b><h3>Estrogen and Progesterone Shifts</h3><p>Mood swings, irregular cycles, irritability, hot flashes.</p></div>
+            <div><b class="mb-n6">2</b><h3>Cortisol Dysregulation</h3><p>Exhaustion, stubborn belly weight, 2 to 3am wake-ups, no energy for workouts.</p></div>
+            <div><b class="mb-n6">3</b><h3>Blood Sugar Instability</h3><p>Cravings, brain fog, afternoon slumps, irritable when hungry.</p></div>
+            <div><b class="mb-n6">4</b><h3>Gut and Liver Sluggishness</h3><p>Puffiness, constipation, skin issues, sluggish digestion.</p></div>
+            <div><b class="mb-n6">5</b><h3>Thyroid and Nutrient Depletion</h3><p>Cold hands and feet, thinning hair, fatigue. Even with normal labs.</p></div>
+            <div><b class="mb-n6">6</b><h3>Muscle Loss and Metabolic Slowdown</h3><p>Weakness, weight gain, joint pain, and it speeds up in menopause.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. PAPER: what is inside -->
+      <section class="rl-p rl-paper mb-inside">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What is inside</span>
+          <img class="mb-stack rl-art" data-in style="--d:.1s" src="/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/stack.webp"
+               width="1400" height="1050" alt="The Menopause Blueprint, cover and inside pages">
+          <ul class="mb-list" data-in style="--d:.2s">
+            <li>The symptom self-check</li>
+            <li>The 6 internal shifts, and the clues for each</li>
+            <li>A simple daily protocol: morning, midday, evening</li>
+            <li>7 lifestyle habits that make the rest work</li>
+          </ul>
+          <p class="mb-plain" data-in style="--d:.3s">You do not need a restrictive diet, obsessive tracking, or a crazy gym schedule.</p>
+        </div>
+      </section>
+
+      <!-- 6. PHOTO: the close -->
+      <section class="rl-p rl-photo rl-wide mb-close">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/window.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free download</span>
+          <h2 data-in style="--d:.1s">Stop calling it getting older.</h2>
+          <p data-in style="--d:.25s">Get the free Menopause Blueprint and start with what your body is asking for first.</p>
+          <p class="rl-fine" data-in style="--d:.4s">This guide is for education and is not medical advice. Individual needs vary. If you are
+            pregnant, nursing, take medication or have a medical condition, talk to your healthcare provider before making changes.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Get the free Blueprint</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

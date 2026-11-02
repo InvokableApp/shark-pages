@@ -1,0 +1,25 @@
+<!--
+  beneve/beneve-menopause-blueprint/b-menopause-supplement-request
+  The page a lead lands on after tapping "YES! Text me the free bonuses" on the Menopause Blueprint confirmation reel: the
+  Menopause Supplement Guide and the product info, by text. Copied from the Hormone Lunchbox's request page.
+  ⚠️ ITS VIEW IS THE ALERT: the step /b-menopause-supplement-request starts "Beneve - Menopause Blueprint - Supplement
+  Guide Request", which tags the lead, marks them hot, and texts and emails the rep with the text ready to send.
+  Known leads only (the opt-in's cookie or a tracked email link); once per lead.
+  The words are the confirmation reel's popup. The look is the confirmation reel's (one screen of it).
+-->
+<div class="rl rl-look-blueprint rl-mb rlr" data-pf-native data-pf-arrive="#F7F1EA">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Your Menopause Supplement Guide and product info are coming by text</h1>
+          <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlr-big" data-in style="--d:.1s">We'll send you the supplement guide AND <b>the product info via text message within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          <p class="rlr-back" data-in style="--d:.3s" data-needs="{{custom_values.beneve_menopause_blueprint_pdf_url}}"><a href="https://{{custom_values.beneve_menopause_blueprint_pdf_url}}" target="_blank" rel="noopener">Open your Menopause Blueprint</a></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

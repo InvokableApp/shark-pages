@@ -63,7 +63,19 @@ var SYS = {
           canva: "https://canva.link/c2s35l1i69u68vp",
           guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_glp_foods_guide_pdf_url' }],
           tease: "Foods that support GLP naturally",
-          desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." }
+          desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." },
+        /* Platform only (2026-11-02): the funnel exists only on the platform, so a Beneve GHL account showing this
+           menu leaves it out (links-hub platformOnly). No howtoSlug: the kit's walkthrough is its training. The
+           second label is the kit's gated.label word for word (campaign-kits/beneve/b-menopause.json): Generate
+           leads finds the bonus link by it. */
+        { icon: "leaf", name: "Menopause Blueprint", platformOnly: true,
+          slug: "b-menopause",
+          guides: [
+            { label: 'Access / Print / Share The Guide', cv: 'beneve_menopause_blueprint_pdf_url' },
+            { label: "The link for the Menopause Supplement Guide, the bonus you text on request", cv: 'beneve_menopause_supplement_guide_pdf_url' }
+          ],
+          tease: "Free guide to feeling like yourself again",
+          desc: "Maria's free guide to perimenopause and menopause: a quick self-check, what is changing in the body, and a simple daily plan for food, movement and sleep. Afterwards they can tap for a free supplement guide, which leads into Glutathione+." }
       ]
     },
     {
