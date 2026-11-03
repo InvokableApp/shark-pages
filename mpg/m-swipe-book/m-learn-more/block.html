@@ -70,8 +70,12 @@
       <h2 class="rv d1">Where the giving goes: <em>MannaRelief.</em></h2>
       <figure class="vfig rv d2">
         <div class="qv vbox" id="v-sam" data-video="https://stream.mux.com/bWRcKp5qxzrS1ky8F1LN01xkSo6Zux9wQ8fCxbX9e51Y" data-poster="https://image.mux.com/bWRcKp5qxzrS1ky8F1LN01xkSo6Zux9wQ8fCxbX9e51Y/thumbnail.jpg?time=8&amp;width=960" data-name="The Story, The Cause"></div>
-        <figcaption>The Story, The Cause: The Beginning of Something Special · Sam Caster</figcaption>
+        <figcaption>The Story, The Cause: The Beginning of Something Special · Sam Caster · 41 minutes</figcaption>
       </figure>
+      <!-- WATCH IT LATER (Jeff, 2026-11-03: "the manna relief video is 45 minutes long lmao ... click here to set a reminder"):
+           the phone's own calendar gets an event tomorrow at 7pm with a link back to this screen (block.js). The tap tells
+           the rep (watch.js, data-label). -->
+      <button class="btn ghost later rv d3" type="button" id="watch-later" data-label="Saved the MannaRelief video for later">Watch it later 📅</button>
       <p class="copy rv d3">In 1999, Sam and Linda Caster brought an aloe-based nutritional extract to an orphanage in Romania. That became MannaRelief, which now sends its Hope Boost supplement to children in need. Product sales start the conversation, and giving back gives it a purpose.</p>
     </div>
   </section>
@@ -201,28 +205,20 @@
   <section class="slide dark" id="tools" data-sec="tools" aria-label="Business building tools">
     <div class="inner split">
       <div>
-        <span class="eyebrow rv">Business tools <span class="step">1/3</span></span>
+        <span class="eyebrow rv">Business tools <span class="step">1/2</span></span>
         <h2 class="rv d1">An app that tells you <em>what to do today.</em></h2>
-        <p class="copy rv d2">Marketing Shark tells you what to post, who to talk to and what to say. Every day you get five simple actions with the messages already written. Try checking them off.</p>
+        <p class="copy rv d2">Marketing Shark tells you what to post, who to talk to and what to say. Every day you get five simple actions with the messages already written.</p>
         <p class="fine rv d3">Finish all five and the bar turns gold.</p>
       </div>
-      <div class="phone rv d3" aria-label="Daily to-do list demo">
-        <div class="ph-top"><span>Today</span><span id="todo-count">0 of 5</span></div>
-        <div class="bar"><i id="todo-bar"></i></div>
-        <ul class="todo" id="todo">
-          <li><button type="button" id="todo-1" aria-pressed="false"><span class="box"></span>Reach out to 2 new people</button></li>
-          <li><button type="button" id="todo-2" aria-pressed="false"><span class="box"></span>Follow up with your leads</button></li>
-          <li><button type="button" id="todo-3" aria-pressed="false"><span class="box"></span>Post a story to Facebook</button></li>
-          <li><button type="button" id="todo-4" aria-pressed="false"><span class="box"></span>Post a story to Instagram</button></li>
-          <li><button type="button" id="todo-5" aria-pressed="false"><span class="box"></span>Post once to your feed</button></li>
-        </ul>
-      </div>
+      <!-- the real app (Jeff, 2026-11-03: "can we find a way to work a more real app screenshot here?"): MPG's Home, the daily
+           actions, shot off the staging test rep at 390 wide (Joe's tap-through drawing was here) -->
+      <figure class="appshot rv d3"><img src="/_p/mpg/m-swipe-book/m-learn-more/assets/app-today.jpg" alt="The Marketing Shark app's daily actions: 0 of 5 complete for today, a hot action to post today's ready-made post, and action item 1, reach out to at least 2 new people today" width="600" height="992"></figure>
     </div>
   </section>
 
   <section class="slide light" id="tools-leads" data-sec="tools" aria-label="Leads and follow-up">
     <div class="inner">
-      <span class="eyebrow rv">Business tools <span class="step">2/3</span></span>
+      <span class="eyebrow rv">Business tools <span class="step">2/2</span></span>
       <h2 class="rv d1">Funnels built. Follow-ups <em>sent for you.</em></h2>
       <p class="copy rv d2">Nothing to build. Your funnels and emails are set up with your name and link the day your account opens.</p>
       <div class="feats">
@@ -232,31 +228,6 @@
         <div class="feat rv d4"><span class="fi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></span><b>Trackable links</b><span>See when someone opens what you sent and how long they watch.</span></div>
         <div class="feat rv d4"><span class="fi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-5 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><b>Conversations picked for you</b><span>Each morning, five threads on Reddit and Quora where you can help.</span></div>
         <div class="feat rv d5"><span class="fi" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><b>Posts in your voice</b><span>A daily image and caption, rewritten to sound like you.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide dark" id="tools-start" data-sec="tools" aria-label="Getting set up">
-    <div class="inner split">
-      <div>
-        <span class="eyebrow rv">Business tools <span class="step">3/3</span></span>
-        <h2 class="rv d1">Set up in <em>three steps.</em></h2>
-        <ol class="three rv d2">
-          <li><b>Pick your package</b><span>PRO, month to month</span></li>
-          <li><b>Answer a few questions</b><span>Your name, contact details and link</span></li>
-          <li><b>Share your first link</b><span>Follow-ups start when a lead comes in</span></li>
-        </ol>
-        <p class="fine rv d3">PRO is $47/month, cancel anytime. Refer three people on a paid plan and yours is free for as long as they stay. Works on iPhone and Android.</p>
-        <div class="nextup rv d4">
-          <button class="btn primary" type="button" id="t-start" data-to="start">Get started →</button>
-          <a class="btn ghost" id="t-app" href="https://marketingshark.app/mpg" target="_blank" rel="noopener">See the app</a>
-        </div>
-      </div>
-      <div class="video rv d3" role="img" aria-label="Fast Start Guide video, coming soon">
-        <span class="soon">Video coming soon</span>
-        <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M7 4.5v13l11-6.5z" fill="currentColor"/></svg></span>
-        <span class="vt">Fast Start Guide</span>
-        <span class="vm">How it all works, in about a minute</span>
       </div>
     </div>
   </section>

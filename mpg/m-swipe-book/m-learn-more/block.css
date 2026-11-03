@@ -338,3 +338,13 @@ html,body{background:#263a26;color:#f2ede2;font-family:"Archivo",system-ui,sans-
   .lm .btn{padding:12px 18px;font-size:16px}
   .lm .three{gap:6px}
 }
+
+/* the tools screen's real app screenshot (in place of Joe's tap-through drawing) */
+.lm .appshot{margin:0;justify-self:center;align-self:center;width:100%;max-width:340px;border-radius:30px;overflow:hidden;
+  border:7px solid #141f14;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.65)}
+.lm .appshot img{display:block;width:100%;height:auto}
+@media (max-width:760px){ .lm .appshot{max-width:none;max-height:44vh} }
+@media (max-height:760px){ .lm .appshot{max-height:40vh} }
+
+/* Watch it later, under the 41-minute MannaRelief video */
+.lm .btn.later{font-size:16px;padding:12px 18px}
