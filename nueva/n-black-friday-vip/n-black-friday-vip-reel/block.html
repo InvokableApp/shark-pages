@@ -10,6 +10,7 @@
   still works: someone who joins late gets the open email straight away). After Nov 20, "it's done". ?phase=before|open|over
   shows a phase for a check.
   ⚠️ The country buttons wait for Nueva's three catalogs; until then the open screen has one shop button (the rep's shop).
+  PRESENTED BY (Jeff, 2026-11-02): the rep's full name on the cover, as on What Is Nueva; gone when the value is empty.
   The reel is _shared/reel/v1 (references/REEL-PAGE-SOP.md); this block is the look and its own screens.
 -->
 <div class="rl rl-vip" data-pf-native data-pf-dock="🎁 Put me on the VIP list" data-pf-handoff="#08090B">
@@ -19,6 +20,7 @@
       <!-- BEFORE 1. the cover: the box with the NO PEEKING tag -->
       <section class="rl-p rl-cover" data-phase="before" aria-label="The Black Friday VIP list">
         <div class="rl-in">
+          <p class="vip-by" data-in data-needs="{{custom_values.nueva_rep_full_name}}">Presented by <b>{{custom_values.nueva_rep_full_name}}</b></p>
           <span class="rl-eyebrow" data-in>Black Friday VIP list</span>
           <h1 data-in style="--d:.1s">Get the Black Friday <span class="g">specials first</span></h1>
           <div class="vip-box rl-art" data-in style="--d:.25s" aria-hidden="true">
@@ -72,6 +74,7 @@
       <!-- OPEN (Nov 12 to 20): the same link, the box open -->
       <section class="rl-p rl-cover" data-phase="open" aria-label="The Black Friday specials are open">
         <div class="rl-in">
+          <p class="vip-by" data-in data-needs="{{custom_values.nueva_rep_full_name}}">Presented by <b>{{custom_values.nueva_rep_full_name}}</b></p>
           <span class="rl-eyebrow" data-in>Black Friday · Nov 12 to 20</span>
           <h1 data-in style="--d:.1s">The Black Friday specials <span class="g">are open</span></h1>
           <p data-in style="--d:.25s">Until November 20. Leave your name and I'll send you this year's packs, or message me and I'll help you choose.</p>
