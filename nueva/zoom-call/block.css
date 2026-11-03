@@ -1,0 +1,21 @@
+/* Nueva's live Zoom call: Nueva's sales-page palette (platform src/sales-pages/nueva.html, its :root line) on the shared
+ * webinar template. */
+@import url("../../_shared/webinar/v1/webinar.css");
+
+.sk-wb {
+  --wb-brand: #0ABAB5;
+  --wb-brand-hi: #3FD9D3;
+  --wb-deep: #087F7B;
+  --wb-brand-rgb: 10, 186, 181;
+  --wb-glow-rgb: 140, 240, 235;
+  --wb-accent: #6FE3DE;
+  --wb-accent-pale: #C9F5F2;
+  --wb-ink: #061113;
+  --wb-ink-2: #0A1A1C;
+  --wb-card: #0F2324;
+  --wb-glass-rgb: 14, 38, 40;
+  --wb-text: #F1FAF9;
+  --wb-text-2: #DDEDEC;
+  --wb-soft: #A7BCBD;
+  --wb-faint: #7C9496;
+}
