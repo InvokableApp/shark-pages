@@ -47,10 +47,24 @@
 
 /* 2. the hourglass of "some of it won't last" */
 .vip-glass{ width:86px; height:auto; margin:6px 0 24px; }
-.vip-glass .sand-top{ transform-origin:50% 100%; transition:transform 2.6s ease-in .4s; }
-.vip-glass .sand-bot{ transform-origin:50% 100%; transform:scaleY(.15); transition:transform 2.6s ease-in .4s; }
-.rl-p.is-on .vip-glass .sand-top{ transform:scaleY(.2); }
-.rl-p.is-on .vip-glass .sand-bot{ transform:scaleY(1); }
+/* Drains, flips, drains again, for as long as the screen is up (Jeff, 2026-11-02: "does the hourglass move?"). Each
+   pile grows from its own base (fill-box; without it the sand slid down through the glass). The flip turns
+   the glass a half turn just as the top empties, which looks exactly like the start, so the loop has no jump. */
+.vip-glass .hg{ transform-box:view-box; transform-origin:30px 45px; }
+.vip-glass{ overflow:visible; }
+/* the top empties from its surface down (its clip slides down), the pile grows from its base */
+.vip-glass .sand-bot{ transform-box:fill-box; transform-origin:50% 100%; }
+.vip-glass .sand-bot{ transform:scaleY(.12); }
+.vip-glass .stream{ opacity:0; }
+.rl-p.is-on .vip-glass .hg{ animation:vipFlip 6s ease-in-out .4s infinite; }
+.rl-p.is-on .vip-glass .drain{ animation:vipTop 6s linear .4s infinite; }
+.rl-p.is-on .vip-glass .sand-bot{ animation:vipBot 6s linear .4s infinite; }
+.rl-p.is-on .vip-glass .stream{ animation:vipStream 6s linear .4s infinite, vipFall .5s linear infinite; }
+@keyframes vipTop{ 0%{ transform:translateY(0) } 80%,100%{ transform:translateY(31px) } }
+@keyframes vipBot{ 0%{ transform:scaleY(.12) } 80%,100%{ transform:scaleY(1) } }
+@keyframes vipStream{ 0%,78%{ opacity:1 } 80%,100%{ opacity:0 } }
+@keyframes vipFall{ to{ stroke-dashoffset:-5 } }
+@keyframes vipFlip{ 0%,84%{ transform:rotate(0) } 100%{ transform:rotate(180deg) } }
 
 /* 3. how it works: three numbered rows */
 .vip-steps{ list-style:none; padding:0; margin:8px 0 22px; display:grid; gap:12px; }
