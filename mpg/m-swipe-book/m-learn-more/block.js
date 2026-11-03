@@ -118,7 +118,7 @@
   addEventListener('keydown',e=>{ if(e.key==='Escape' && !sheet.hidden) closeSheet(); });
 
   // WATCH IT LATER: an event tomorrow at 7pm, linking back to the MannaRelief screen. Android gets Google Calendar's
-  // filled-in add-event page; an iPhone or a computer gets a calendar file, which opens the phone's own "Add to calendar".
+  // filled-in add-event page; an iPhone or a computer gets the server's calendar file (/_cal, platform server.mjs).
   const later=document.getElementById('watch-later');
   if(later) later.addEventListener('click',()=>{
     const at=new Date(); at.setDate(at.getDate()+1); at.setHours(19,0,0,0);
@@ -131,13 +131,9 @@
       location.href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+z(at)+'/'+z(end)+'&details='+encodeURIComponent(note);
       return;
     }
-    const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Marketing Shark//One More//EN','BEGIN:VEVENT',
-      'UID:'+Date.now()+'@onemore','DTSTAMP:'+z(new Date()),'DTSTART:'+z(at),'DTEND:'+z(end),
-      'SUMMARY:'+title,'DESCRIPTION:'+note.replace(/[,;]/g,m=>'\\'+m),'URL:'+back,
-      'BEGIN:VALARM','TRIGGER:-PT0M','ACTION:DISPLAY','DESCRIPTION:'+title,'END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
-    const a=document.createElement('a');
-    a.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics); a.download='watch-the-mannarelief-story.ics';
-    document.body.appendChild(a); a.click(); a.remove();
+    // an iPhone or a computer: the server's calendar file (/_cal), which an iPhone opens as Apple's "Add to Calendar"
+    // (a file built here only downloaded, Jeff 2026-11-03)
+    location.href='/_cal?t='+encodeURIComponent(title)+'&s='+z(at)+'&m=45&p='+encodeURIComponent(location.pathname+'#manna')+'&n='+encodeURIComponent('The full story of how the giving started, from '+(first||'the person who shared it with you')+'.');
   });
 
   // Tools to-do demo
