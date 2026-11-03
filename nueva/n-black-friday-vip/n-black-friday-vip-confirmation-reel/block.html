@@ -6,8 +6,8 @@
     2. What are you shopping for? Six picks, lined up. ⚠️ Jeff's "reason to reach out to the rep": each pick is its own
        step (/n-bf-vip-energy ...), whose page writes the lead's message to the rep and whose view alerts the rep once,
        with the pick and a ready reply (migration 0558). A tap is the only way in: nothing here fires on a swipe.
-    3. Until November 5 only (block.js drops it after): "Already order Nueva?", the Fast Five nudge, unnamed. Open question
-       for Jeff whether this stays.
+    The "Already order Nueva?" screen (the Fast Five nudge, until Nov 5) is gone: Jeff, 2026-11-03, "do c", nothing about
+    BF50 before Nov 12. Its step /n-bf-vip-customer still answers if someone has the link; nothing here points to it.
   Nothing here names a pack, price, code or free gift before Nov 12 (Nueva's rule).
 -->
 <div class="rl rl-vip vipc" data-pf-native data-pf-dock="🛍️ Tell me what you're shopping for" data-pf-arrive="#08090B">
@@ -42,21 +42,13 @@
         </div>
       </section>
 
-      <section class="rl-p" data-until="2026-11-05" aria-label="Already order Nueva?">
-        <div class="rl-in">
-          <h2 data-in>Already order <span class="g">Nueva?</span></h2>
-          <p data-in style="--d:.1s">Message me before November 5. There's one thing to do this week that saves you more on Black Friday.</p>
-          <div class="rl-btns" data-in style="--d:.2s"><a class="rl-btn" href="/n-bf-vip-customer">💬 Ask me what it is</a></div>
-        </div>
-      </section>
-
     </div>
     <nav class="rl-dots" aria-label="Screens"></nav>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>
 </div>
 <script>
-/* The customer screen shows only until its date (the visitor's own), before reel.js counts the screens. */
+/* A screen with data-until shows only until its date (the visitor's own), before reel.js counts the screens. None today. */
 (function () {
   var d = new Date(), ymd = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
   document.querySelectorAll(".vipc [data-until]").forEach(function (s) { if (ymd > +s.getAttribute("data-until").replace(/-/g, "")) s.remove(); });
