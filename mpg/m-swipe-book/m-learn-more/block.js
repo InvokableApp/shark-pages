@@ -129,7 +129,8 @@
   function fromHash(){
     const id=location.hash.slice(1);
     const i=slides.findIndex(s=>s.id===id);
-    if(i>0){ slides[i].scrollIntoView({behavior:'auto'}); setActive(i); }
+    // straight there, not the deck's smooth scroll (a link to #start opened on the cover: the smooth scroll was cut off on load)
+    if(i>0){ deck.style.scrollBehavior='auto'; deck.scrollTop=slides[i].offsetTop; deck.style.scrollBehavior=''; setActive(i); }
   }
   addEventListener('hashchange',fromHash);
   setActive(0);
