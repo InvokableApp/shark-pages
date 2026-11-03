@@ -124,7 +124,9 @@
     const at=new Date(); at.setDate(at.getDate()+1); at.setHours(19,0,0,0);
     const end=new Date(at.getTime()+45*60000);
     const z=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
-    const back=location.origin+location.pathname+'#manna';
+    // the step's own slug answers on every rep address; the page may have been opened as /{funnel}/{step} (Jeff's phone,
+    // 2026-11-03: "not found": /_cal takes one path segment)
+    const back=location.origin+'/'+location.pathname.split('/').filter(Boolean).pop()+'#manna';
     const title='Watch the MannaRelief story';
     const note='The full story of how the giving started, from '+(first||'the person who shared it with you')+'. Open: '+back;
     if(/Android/i.test(navigator.userAgent)){
@@ -133,7 +135,7 @@
     }
     // an iPhone or a computer: the server's calendar file (/_cal), which an iPhone opens as Apple's "Add to Calendar"
     // (a file built here only downloaded, Jeff 2026-11-03)
-    location.href='/_cal?t='+encodeURIComponent(title)+'&s='+z(at)+'&m=45&p='+encodeURIComponent(location.pathname+'#manna')+'&n='+encodeURIComponent('The full story of how the giving started, from '+(first||'the person who shared it with you')+'.');
+    location.href='/_cal?t='+encodeURIComponent(title)+'&s='+z(at)+'&m=45&p='+encodeURIComponent('/'+location.pathname.split('/').filter(Boolean).pop()+'#manna')+'&n='+encodeURIComponent('The full story of how the giving started, from '+(first||'the person who shared it with you')+'.');
   });
 
   // Tools to-do demo
