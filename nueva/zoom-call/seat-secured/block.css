@@ -19,3 +19,10 @@
   --wb-soft: #A7BCBD;
   --wb-faint: #7C9496;
 }
+
+/* Jeff, 2026-11-03: "center the confirmation page". With no video (data-wb-has-video hidden) the steps are one
+ * column in the middle, and they count from 1: a hidden step doesn't count. */
+.sk-wb .wb-steps { counter-reset: wb-step; }
+.sk-wb .wb-step:not([hidden]) { counter-increment: wb-step; }
+.sk-wb .wb-step-n::before { content: "Step " counter(wb-step); }
+.sk-wb .wb-steps:has(> .wb-step-video[hidden]) { grid-template-columns: minmax(0, 620px); justify-content: center; }

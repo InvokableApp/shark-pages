@@ -1,8 +1,8 @@
 <!-- Nueva's live Zoom call, "your seat is saved" (marketingshark.app/nueva/zoom/seat-secured, platform src/zoom.mjs),
      the GLP webinar confirmation's look (../../../glp/info-session-196489/glpshark-seat-secured) in Nueva's palette.
      The title, date, video and share link come from the socket's data-wb-* attributes (_shared/webinar/v1/webinar.js);
-     the platform fills data-wb-cal-links with the registrant's own calendar links (they carry the Zoom link).
-     The four steps are the GLP page's, in its order: watch, email, calendar, share. -->
+     The four steps are the GLP page's, in its order: watch, email, calendar, share. Their numbers come from block.css,
+     so a call with no video starts at Step 1, and the steps sit centred in one column. -->
 <div class="sk-wb">
   <div class="wb-spot" aria-hidden="true"></div>
   <div class="wb-floor" aria-hidden="true"></div>
@@ -26,20 +26,20 @@
 
   <section class="wb-steps">
     <article class="wb-step wb-step-video" data-wb-has-video>
-      <p class="wb-step-n">Step 1</p>
+      <p class="wb-step-n"></p>
       <h2 class="wb-step-h">Watch this first</h2>
       <div class="wb-player" data-wb-player></div>
     </article>
 
     <div class="wb-step-col">
       <article class="wb-step">
-        <p class="wb-step-n">Step 2</p>
+        <p class="wb-step-n"></p>
         <h2 class="wb-step-h">Check your email</h2>
         <p class="wb-step-p">We just emailed you the Zoom link. Save that email so it's easy to find. Nothing there? Check spam and promotions.</p>
       </article>
 
       <article class="wb-step">
-        <p class="wb-step-n">Step 3</p>
+        <p class="wb-step-n"></p>
         <h2 class="wb-step-h">Put it on your calendar</h2>
         <p class="wb-step-p wb-zones" data-wb-zones></p>
         <div class="wb-cal-row" data-wb-cal-row>
@@ -50,7 +50,7 @@
       </article>
 
       <article class="wb-step">
-        <p class="wb-step-n">Step 4</p>
+        <p class="wb-step-n"></p>
         <h2 class="wb-step-h">Bring your team</h2>
         <p class="wb-step-p">Send them this link so they can save a seat too.</p>
         <button type="button" class="wb-copy" data-wb-copy><span data-wb-share-url></span><em>Copy</em></button>
