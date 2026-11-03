@@ -126,8 +126,10 @@
     bar.parentElement.classList.toggle('gold', n===5);
   }));
 
-  function fromHash(){
-    const id=location.hash.slice(1);
+  // the screen the link asked for, read before setActive(0) below writes #welcome over it
+  const asked=location.hash.slice(1);
+  function fromHash(e){
+    const id=e?location.hash.slice(1):asked;
     const i=slides.findIndex(s=>s.id===id);
     // straight there, not the deck's smooth scroll (a link to #start opened on the cover: the smooth scroll was cut off on load)
     if(i>0){ deck.style.scrollBehavior='auto'; deck.scrollTop=slides[i].offsetTop; deck.style.scrollBehavior=''; setActive(i); }
