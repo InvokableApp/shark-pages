@@ -1,0 +1,93 @@
+<!--
+  mpg/m-video/m-side-work-video: MPG's OPPORTUNITY VIDEO page for NON-NETWORKERS (people with no network marketing
+  background, "mission driven side work / a side hustle"), the second of Joe's two sendable videos (Joe, 2026-11-03, his
+  Beal Scripts doc: a script for networkers and one for non-networkers, each with its own 60-second video; Jeff: "one for
+  networkers, one for not networkers"). The networker one is m-team-video. A copy of that page: Joe's words verbatim (the
+  cover, the question, the four cards, the pop-ups; REEL-PAGE-SOP §A video page rule 0).
+
+  THE VIDEO is a content value, mpg_side_work_video, with mpg_side_work_video_poster, the same for every rep. "coming soon"
+  until Joe's render lands (the player says "Video coming soon", watch.js).
+  After it: the person taps they're interested, and the rep sends the One More Learn More deck (/m-learn-more), Joe's flow.
+
+  The rep hears who opened it, how much they watched and which card they tapped (watch.js; data-label is what the rep is
+  told). ⚠️ "We've let {rep} know" is only true for a personal link. TEXT buttons are redirect steps (/m-side-work-try,
+  -refer, -both) to the rep's texting number (mpg_rep_sms); with none, their Messenger (/m-side-work-message). Migration 0568.
+-->
+<div class="rl rl-pf rl-look-calm rv bv mv mv-opp mv-team mv-side-work" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Here's how this opportunity works">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Short video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="Here's how this opportunity works">Here's how this opportunity works. 💸</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, see if anyone comes to mind!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.mpg_side_work_video}}" data-poster="{{custom_values.mpg_side_work_video_poster}}" data-name="the opportunity video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Swipe up to tell <span data-rv-rep>me</span> what you think</span><span class="rv-on-computer">Tell <span data-rv-rep>me</span> what you think</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. TINT: who comes to mind (Joe's cards, verbatim) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who comes to mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
+              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>I'd be interested in learning more about this. Tell me more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'm interested + may know someone</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Not interested / don't know anyone</b><small>Not really sure I can help you out here&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">Results vary, and what you earn depends on the work you put in. Nothing here is a guarantee of income. Ask for the income disclosure before making any decision.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="I'm interested myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity that folks all around the world are starting to take advantage of. Text <span data-rv-rep>me</span> back right now and request to see the compensation plan so you can see how you'd get paid!</p>
+    <a class="rv-btn" href="/m-side-work-try" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-side-work-message" data-label="Text me: show me the compensation plan">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="I may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity built for anyone who is looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/m-side-work-refer" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-side-work-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'm interested and may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity built for anyone who is looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may be interested in learning more!</p>
+    <a class="rv-btn" href="/m-side-work-both" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-side-work-message" data-label="Text me: I'm interested and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Not interested" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
