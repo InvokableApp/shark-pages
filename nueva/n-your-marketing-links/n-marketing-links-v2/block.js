@@ -74,8 +74,14 @@ var SYS = {
          (Jeff, 2026-10-13). */
       { slug:"n-opportunity-video", icon:"play", platformOnly:true, personal:true,
         name:"Opportunity Sizzle Video",
-        tease:"Three minutes, then sign up under you",
-        desc:"John Melton's three minute video on the Nueva opportunity. Under it, one button to sign up through your opportunity link, and a link to message you. Send it to someone who already asked what you do. Sent as a personal link, you see when they open it and how much they watch." } ]},
+        tease:"One minute, then who comes to mind",
+        desc:"A one minute video on the opportunity, then four choices: they're interested, they know someone, both, or neither. Each one texts you or tells you so. Sent as a personal link, you see when they open it, how much they watch and what they pick." },
+      /* Platform only (Joe's "NUEVA" doc, 2026-11-03): John Melton's three minute video, moved here from the Opportunity
+         funnel when that one got the one minute video. */
+      { slug:"n-business-overview", icon:"play", platformOnly:true, personal:true,
+        name:"3 Minute Business Overview",
+        tease:"Three minutes, then their next move",
+        desc:"John Melton's three minute video on the opportunity, then four choices: be a customer, build the business, ask you some questions, or not interested. Each one gives them a message to send you, and tells you what they picked with your reply ready. Sent as a personal link, you see when they open it and how much they watch." } ]},
 
     { label:"\"What I do\" funnel", items:[
       { slug:"n-what-is-nueva", howtoSlug:"n-what-is-nueva-how-to", icon:"info",
