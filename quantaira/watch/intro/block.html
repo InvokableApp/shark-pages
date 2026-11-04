@@ -1,0 +1,19 @@
+<!--
+  quantaira/watch/intro: the 3 minute video on its own page (/intro), a trackable link of its own on Send a message
+  (0591). Joe, 2026-11-04, on Roma's plan: "headline video and then two buttons, create a free account now or watch
+  the ... eight minute", the 8 minute one opening its own page (/learn-more). The headline and pill are the reel's
+  first screen's (watch_*); /sign-up and /get-the-app are redirect steps to the rep's own link.
+  WORDS (0126): every word a person reads comes from words/{language}.json next to these pages; en.json fills any gap.
+  data-label is the English the rep is told ("John tapped Create a free account now"), whatever language the page is in.
+-->
+<main class="qp">
+  <span class="qp-pill">{{words.watch_pill}}</span>
+  <h1 data-label="Watch this short overview">{{words.watch_h1_a}} <span class="qp-grad" data-fit>{{words.watch_h1_b}}</span></h1>
+  <div class="qv" data-video="{{custom_values.quantaira_video_watch}}" data-name="the short overview" data-soon="{{words.video_soon}}"></div>
+  <div class="qp-acts col">
+    <a class="qp-btn" href="/sign-up" data-label="Create a free account now">{{words.intro_signup}}</a>
+    <a class="qp-btn grad" href="/learn-more" data-label="Watch the 8 minute video">{{words.intro_next}}</a>
+  </div>
+  <p class="qp-risk">{{words.risk}}</p>
+  <p class="qp-ask"><a href="/message-me" data-label="Questions? Ask me about this"><span aria-hidden="true">💬</span> {{words.ask}}</a></p>
+</main>
