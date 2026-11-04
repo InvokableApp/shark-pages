@@ -27,5 +27,11 @@
   "reel_learn_next": "Húzd fel a bemutató webinárért",
   "risk": "A kereskedés kockázattal jár, akár veszteséges hónapokkal is. Csak olyan pénzt használj, aminek az elvesztését megengedheted magadnak.",
   "intro_signup": "Hozz létre most ingyenes fiókot",
-  "intro_next": "Nézd meg a 8 perces videót"
+  "intro_next": "Nézd meg a 8 perces videót",
+  "later_btn": "Megnézem később 📅",
+  "later_h": "Mikor szeretnéd megnézni?",
+  "later_add": "Hozzáadás a naptáramhoz",
+  "later_close": "Bezárás",
+  "later_title": "A Quantaira indulási webinárjának megnézése",
+  "later_note": "A Quantaira teljes indulási webinárja."
 }

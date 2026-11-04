@@ -46,6 +46,8 @@
           <span class="qp-pill" data-in>{{words.webinar_pill}}</span>
           <h2 class="qr-h" data-in style="--d:.08s">{{words.webinar_h1_a}} <span class="qp-grad" data-fit>{{words.webinar_h1_b}}</span></h2>
           <div class="qv" data-in style="--d:.16s" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar" data-soon="{{words.video_soon}}"></div>
+          <!-- WATCH IT LATER, as on /webinar (block.js) -->
+          <div class="qp-acts col" data-in style="--d:.2s"><button type="button" class="qp-btn grad" data-later-open data-pf-quiet>{{words.later_btn}}</button></div>
         </div>
         <div class="qr-next" aria-hidden="true"><div class="rl-hint"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div></div>
       </section>
@@ -65,6 +67,14 @@
       </section>
 
     </div>
+    <dialog class="qp-later" data-later data-title="{{words.later_title}}" data-note="{{words.later_note}}">
+      <form method="dialog">
+        <button class="qp-later-x" value="x" data-pf-quiet aria-label="{{words.later_close}}">&times;</button>
+        <h3>{{words.later_h}}</h3>
+        <input type="datetime-local" class="qp-later-at" aria-label="{{words.later_h}}">
+        <button type="button" class="qp-btn qp-later-add" data-label="Saved the launch webinar for later">{{words.later_add}}</button>
+      </form>
+    </dialog>
     <nav class="rl-dots" aria-label="Screens"></nav>
     <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   </div>

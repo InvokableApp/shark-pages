@@ -27,5 +27,11 @@
   "reel_learn_next": "Swipe to watch the launch webinar",
   "risk": "Trading carries risk, including losing months. Use only money you can afford to lose.",
   "intro_signup": "Create a free account now",
-  "intro_next": "Watch the 8 minute video"
+  "intro_next": "Watch the 8 minute video",
+  "later_btn": "Watch it later 📅",
+  "later_h": "When do you want to watch it?",
+  "later_add": "Add to my calendar",
+  "later_close": "Close",
+  "later_title": "Watch the Quantaira launch webinar",
+  "later_note": "The full Quantaira launch webinar."
 }

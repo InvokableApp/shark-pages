@@ -12,7 +12,17 @@
   <div class="qv" data-video="{{custom_values.quantaira_video_webinar}}" data-name="the launch webinar" data-soon="{{words.video_soon}}"></div>
   <div class="qp-acts col">
     <a class="qp-btn" href="/sign-up" data-label="Sign up">{{words.webinar_signup}}</a>
+    <!-- WATCH IT LATER (Jeff, 2026-11-04, MPG's button "on that longer webinar vid", the lead picking when): block.js -->
+    <button type="button" class="qp-btn grad" data-later-open data-pf-quiet>{{words.later_btn}}</button>
   </div>
   <p class="qp-risk">{{words.risk}}</p>
   <p class="qp-ask"><a href="/message-me" data-label="Questions? Ask me about this"><span aria-hidden="true">💬</span> {{words.ask}}</a></p>
+  <dialog class="qp-later" data-later data-title="{{words.later_title}}" data-note="{{words.later_note}}">
+    <form method="dialog">
+      <button class="qp-later-x" value="x" data-pf-quiet aria-label="{{words.later_close}}">&times;</button>
+      <h3>{{words.later_h}}</h3>
+      <input type="datetime-local" class="qp-later-at" aria-label="{{words.later_h}}">
+      <button type="button" class="qp-btn qp-later-add" data-label="Saved the launch webinar for later">{{words.later_add}}</button>
+    </form>
+  </dialog>
 </main>

@@ -81,3 +81,11 @@ body{min-height:100vh;margin:0;color:var(--qta-text);font:16px/1.6 var(--qta-san
 /* THE RISK LINE (2026-11-02, the EU pass): Quantaira sells AI trading, so every page that asks people to sign up or
    download says trading carries risk, in the words already approved on the alert bot and the quiz (words.risk). */
 .qp-risk{margin:0 auto;max-width:420px;text-align:center;font:400 12.5px/1.45 var(--qta-sans);color:var(--qta-text);opacity:.55}
+
+/* WATCH IT LATER's picker (webinar/ and watch-reel/ block.js): the lead picks when */
+.qp-later{border:1px solid rgba(238,242,255,.14);border-radius:20px;background:#070a14;color:var(--qta-text);padding:26px 22px 22px;width:min(92vw,420px);box-sizing:border-box}
+.qp-later::backdrop{background:rgba(0,0,0,.7)}
+.qp-later form{display:grid;gap:16px;margin:0}
+.qp-later h3{margin:0 28px 0 0;font-size:20px;line-height:1.3}
+.qp-later-x{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--qta-text);font-size:28px;line-height:1;cursor:pointer;padding:4px 8px}
+.qp-later-at{font:inherit;font-size:17px;color:var(--qta-text);background:rgba(238,242,255,.04);border:1px solid rgba(238,242,255,.2);border-radius:12px;padding:12px 14px;width:100%;box-sizing:border-box;color-scheme:dark}

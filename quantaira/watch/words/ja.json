@@ -27,5 +27,11 @@
   "reel_learn_next": "スワイプしてローンチウェビナーを見る",
   "risk": "トレードにはリスクがあり、損失が出る月もあります。失っても困らないお金だけを使ってください。",
   "intro_signup": "今すぐ無料アカウントを作成",
-  "intro_next": "8分の動画を見る"
+  "intro_next": "8分の動画を見る",
+  "later_btn": "あとで見る 📅",
+  "later_h": "いつ見ますか？",
+  "later_add": "カレンダーに追加",
+  "later_close": "閉じる",
+  "later_title": "Quantairaローンチウェビナーを見る",
+  "later_note": "Quantairaローンチウェビナーの全編。"
 }

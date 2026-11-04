@@ -27,5 +27,11 @@
   "reel_learn_next": "Faites glisser pour voir le webinaire de lancement",
   "risk": "Le trading comporte des risques, y compris des mois de pertes. N'utilise que de l'argent que tu peux te permettre de perdre.",
   "intro_signup": "Créer un compte gratuit maintenant",
-  "intro_next": "Voir la vidéo de 8 minutes"
+  "intro_next": "Voir la vidéo de 8 minutes",
+  "later_btn": "Regarder plus tard 📅",
+  "later_h": "Quand veux-tu le regarder ?",
+  "later_add": "Ajouter à mon agenda",
+  "later_close": "Fermer",
+  "later_title": "Regarder le webinaire de lancement de Quantaira",
+  "later_note": "Le webinaire de lancement complet de Quantaira."
 }
