@@ -346,5 +346,12 @@ html,body{background:#263a26;color:#f2ede2;font-family:"Archivo",system-ui,sans-
 @media (max-width:760px){ .lm .appshot{max-width:none;max-height:44vh} }
 @media (max-height:760px){ .lm .appshot{max-height:40vh} }
 
+/* Joe's app walkthrough beside the tools copy (the split's second column), centred there */
+.lm .split .vfig.sysvid{justify-self:center;align-self:center}
+.lm .vfig.sysvid .vbox{aspect-ratio:884/1918}
+.lm .vfig.sysvid{width:calc(var(--h) * 884 / 1918)}
+.lm .vfig.sysvid figcaption{white-space:nowrap;text-align:center}
+@media (min-width:761px) and (min-height:761px){ .lm .vfig.sysvid{--h:min(62vh,560px)} }
+
 /* Watch it later, under the 41-minute MannaRelief video */
 .lm .btn.later{font-size:16px;padding:12px 18px}
