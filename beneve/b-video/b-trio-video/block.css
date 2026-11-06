@@ -2,6 +2,5 @@
  * imported (see block.html). */
 @import url("../b-opportunity-video/block.css");
 
-/* this page's video is wide (16:9): the opportunity page's frame is tall since 2026-10-16 */
-.rv-video{ width:min(100cqw, calc((100cqh - 22px - var(--rv-onward)) * 16 / 9)); aspect-ratio:16/9; }  /* fits the room it has, as the tall one does */
-.rv-watch .bv-bar,.rv-watch .bv-time{ width:min(100cqw, calc((100cqh - 22px - var(--rv-onward)) * 16 / 9)); }
+/* The video frame is the opportunity page's tall one: Joe's TRIO video is a phone video (2026-11-06, "its not formatted
+ * right"). Until then this page held the wide Beneve Vision placeholder and set the frame to 16:9 here. */
