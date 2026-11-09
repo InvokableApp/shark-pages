@@ -1,0 +1,31 @@
+/* GLP's live Zoom call: GLP's sales-page palette (platform src/sales-pages/glp.html, its :root line) on the shared
+ * webinar template. */
+@import url("../../../_shared/webinar/v1/webinar.css");
+
+.sk-wb {
+  --wb-brand: #EC5E2A;
+  --wb-brand-hi: #F7895B;
+  --wb-deep: #B3421A;
+  --wb-brand-rgb: 236,94,42;
+  --wb-glow-rgb: 242,167,140;
+  --wb-accent: #FFA47D;
+  --wb-accent-pale: #F7D6C9;
+  --wb-ink: #120A07;
+  --wb-ink-2: #1D100C;
+  --wb-card: #271711;
+  --wb-glass-rgb: 44,24,17;
+  --wb-text: #FAF6F4;
+  --wb-text-2: #EAE0DC;
+  --wb-soft: #BFB0AB;
+  --wb-faint: #97847D;
+}
+
+/* The replay page: the recording wide (16:9, not the confirmation page's phone-shaped player), the buttons under it. */
+.sk-wb .wb-rp { padding-bottom: 20px; }
+.sk-wb .wb-rp-soon { font-size: 18px; color: var(--wb-soft); margin-top: 6px; }
+.sk-wb .wb-rp-video { max-width: 980px; margin: 0 auto; padding: 8px 24px 0; }
+.sk-wb .wb-rp-player { aspect-ratio: 16 / 9; }
+.sk-wb .wb-rp-go { display: grid; justify-items: center; gap: 14px; padding: 32px 24px 0; }
+.sk-wb .wb-rp-go .wb-cta { text-decoration: none; }
+.sk-wb .wb-rp-end { height: 88px; }
+@media (max-width: 720px) { .sk-wb .wb-rp-video { padding: 4px 12px 0; } .sk-wb .wb-rp-go { padding: 24px 16px 0; } .sk-wb .wb-rp-end { height: 56px; } }

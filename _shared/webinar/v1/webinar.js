@@ -13,7 +13,10 @@
  *        data-wb-flyer="https://...png"               only where the block has an <img data-wb-src="flyer">
  *        data-wb-points-title="What you'll see"
  *        data-wb-points="Title::one line|Title::one line|Title::one line"
- *        data-wb-host1="Name|Role|photo url"  data-wb-host2="..."  (up to 4)
+ *        data-wb-host1="Name|Role|photo url|what they cover"  data-wb-host2="..."  (up to 4; the 4th part is optional,
+ *                                                      **bold** allowed, and shows only where the block has [data-wb-speakers])
+ *        data-wb-title-em="TITANS"                     optional: that word of the title in the brand colour (an <em>)
+ *        data-wb-points-sub="..."                      optional: a line under the list's heading ([data-wb="points-sub"])
  *        data-wb-share="https://glpshark.com/zoom"     optional, defaults to this page's address
  *        data-wb-replay="https://..."                  optional: after it ends, the button goes here
  *   ></div>
@@ -59,6 +62,47 @@
     if (bits[1]) li.appendChild(el("span", "", bits[1].trim()));
     list.appendChild(li);
   });
+
+  // **bold** in a line, as text nodes (never innerHTML: the words come from a page attribute).
+  function rich(node, text) {
+    String(text).split("**").forEach(function (bit, j) { if (bit) node.appendChild(j % 2 ? el("b", "", bit) : document.createTextNode(bit)); });
+    return node;
+  }
+
+  // The title's lit word (data-wb-title-em): the first match, in the title's own spelling, wrapped in <em>.
+  var em = val("title-em");
+  if (em) all('[data-wb="title"]').forEach(function (n) {
+    var t = n.textContent, at = t.toLowerCase().indexOf(em.toLowerCase());
+    if (at < 0) return;
+    n.textContent = "";
+    if (at) n.appendChild(document.createTextNode(t.slice(0, at)));
+    n.appendChild(el("em", "", em));
+    if (at + em.length < t.length) n.appendChild(document.createTextNode(t.slice(at + em.length)));
+  });
+
+  // Faces ([data-wb-faces]): each host with a photo, big, name and role over it. Speakers ([data-wb-speakers]): a card
+  // per host with what they cover.
+  var faces = root.querySelector("[data-wb-faces]"), spk = root.querySelector("[data-wb-speakers]");
+  for (var k = 1; k <= 4 && (faces || spk); k++) {
+    var hv = val("host" + k);
+    if (!hv) continue;
+    var hb = hv.split("|").map(function (x) { return x.trim(); });
+    if (faces && hb[2]) {
+      var fig = el("figure", "wb-face"), fi = el("img"); fi.src = hb[2]; fi.alt = hb[0]; fi.loading = "eager";
+      var cap = el("figcaption", "", hb[0]); if (hb[1]) cap.appendChild(el("span", "", hb[1]));
+      fig.appendChild(fi); fig.appendChild(cap); faces.appendChild(fig);
+    }
+    if (spk) {
+      var li = el("li", "wb-spk");
+      if (hb[2]) { var si = el("img"); si.src = hb[2]; si.alt = hb[0]; si.loading = "lazy"; li.appendChild(si); }
+      var sd = el("div"); sd.appendChild(el("h3", "", hb[0]));
+      if (hb[1]) sd.appendChild(el("span", "wb-role", hb[1]));
+      if (hb[3]) sd.appendChild(rich(el("p"), hb[3]));
+      li.appendChild(sd); spk.appendChild(li);
+    }
+  }
+  if (faces && !faces.children.length) faces.hidden = true;
+  if (spk && !spk.children.length) (spk.closest("[data-wb-has-speakers]") || spk).hidden = true;
 
   // Hosts: "Name|Role|photo".
   var hosts = root.querySelector("[data-wb-hosts]");

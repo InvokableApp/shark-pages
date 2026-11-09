@@ -1,0 +1,85 @@
+<!-- GLP's live Zoom call sign-up (marketingshark.app/glp/zoom, platform src/zoom.mjs), Jeff's "Training With The Titans"
+     design (2026-11-09): the hosts' faces in the hero, a card per speaker with what they cover, then the app in a hand.
+     The words, date and hosts come from the call (Admin > Zoom calls) through the socket's data-wb-* attributes
+     (_shared/webinar/v1/webinar.js): host lines are "Name, role, photo | what they cover", the lit title word is
+     "A word in the title to light up". Register opens the platform's own sign-up form. -->
+<div class="sk-wb tt">
+  <div class="tt-spot" aria-hidden="true"></div>
+  <div class="tt-grid" aria-hidden="true"></div>
+
+  <div class="tt-wrap">
+    <header class="tt-top">
+      <img src="/_pf/sales/glp/logo-white.svg" alt="GLP Shark">
+      <span class="tt-pill"><i></i><span data-wb-status>Free live training on Zoom</span></span>
+    </header>
+
+    <section class="tt-hero">
+      <div>
+        <p class="tt-eyebrow" data-wb-has="eyebrow"><i></i><span data-wb="eyebrow"></span></p>
+        <h1 class="tt-title" data-wb="title"></h1>
+        <p class="tt-powered">Powered by <img src="/_pf/sales/glp/logo-white.svg" alt="GLP Shark"></p>
+        <p class="tt-blurb" data-wb="blurb"></p>
+
+        <div class="tt-when">
+          <div class="tt-cal" aria-hidden="true">
+            <span class="tt-cal-m" data-wb-date="month"></span><span class="tt-cal-d" data-wb-date="day"></span><span class="tt-cal-w" data-wb-date="weekday"></span>
+          </div>
+          <div>
+            <p class="tt-zones" data-wb-zones></p>
+            <p class="tt-local" data-wb-local></p>
+          </div>
+        </div>
+
+        <div class="tt-count" data-wb-count>
+          <div><b data-u="d">00</b><span>days</span></div>
+          <div><b data-u="h">00</b><span>hours</span></div>
+          <div><b data-u="m">00</b><span>min</span></div>
+          <div><b data-u="s">00</b><span>sec</span></div>
+        </div>
+
+        <button type="button" class="tt-cta" data-wb-register><span data-wb="cta"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+
+      <div class="tt-stage" data-wb-faces aria-label="Your trainers"></div>
+    </section>
+
+    <section class="tt-sec" data-wb-has-speakers>
+      <p class="tt-kicker">On this call</p>
+      <h2 class="tt-h2">You're going to get trained by</h2>
+      <ul class="tt-speakers" data-wb-speakers></ul>
+    </section>
+
+    <section class="tt-sec" data-wb-has="points">
+      <h2 class="tt-h2 tt-h2-wide" data-wb="points-title"></h2>
+      <p class="tt-sub" data-wb="points-sub"></p>
+      <div class="tt-app">
+        <div class="tt-phone" aria-hidden="true">
+          <div class="tt-hand">
+            <img class="tt-hand-img" src="/_pf/sales/hand.webp" alt="">
+            <div class="tt-screen"><div class="tt-shots" data-wb-shots><img src="/_pf/sales/glp/app-1.webp" alt=""><img src="/_pf/sales/glp/app-2.webp" alt=""><img src="/_pf/sales/glp/app-3.webp" alt=""><img src="/_pf/sales/glp/app-4.webp" alt=""><img src="/_pf/sales/glp/app-5.webp" alt=""></div></div>
+          </div>
+          <div class="tt-float tt-f1"><span class="tt-ico tt-ico-green"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><div><b>New lead</b><span>Dana R. asked to test drive IGNYT</span></div></div>
+          <div class="tt-float tt-f2"><span class="tt-ico"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span><div><b>Follow-up sent</b><span>Day 1 email went to Jess L.</span></div></div>
+          <div class="tt-float tt-f3"><img class="tt-post" src="/_pf/sales/glp/post.webp" alt=""><div><b>Today's post is ready</b><span class="tt-acc">Copy the caption</span></div></div>
+        </div>
+        <ol class="tt-list" data-wb-points></ol>
+      </div>
+    </section>
+
+    <section class="tt-close">
+      <h2 class="tt-title" data-wb="title"></h2>
+      <p class="tt-powered">Powered by <img src="/_pf/sales/glp/logo-white.svg" alt="GLP Shark"></p>
+      <p class="tt-close-when" data-wb-short></p>
+      <button type="button" class="tt-cta" data-wb-register><span data-wb="cta"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div class="tt-share">
+        <span>Share it with your team</span>
+        <button type="button" class="tt-copy" data-wb-copy><span data-wb-share-url></span><em>Copy</em></button>
+      </div>
+    </section>
+  </div>
+
+  <div class="tt-dock" data-wb-dock hidden>
+    <span><b data-wb="title"></b><small data-wb-short></small></span>
+    <button type="button" data-wb-register>Register</button>
+  </div>
+</div>

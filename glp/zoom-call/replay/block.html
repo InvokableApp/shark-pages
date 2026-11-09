@@ -1,0 +1,35 @@
+<!-- GLP's live call replay (marketingshark.app/glp/zoom/replay/{date}, platform src/zoom.mjs replayDoc), the webinar
+     look (../ and _shared/webinar/v1) in GLP's palette. One page per call, kept for good. The title, hosts and video
+     come from the call through the socket's data-wb-* attributes; the platform fills the button (the call's replay_cta,
+     else the sales page), turns a recording a page can't play (a Zoom share link) into the Watch button, and shows the
+     "coming soon" line until the recording is added. -->
+<div class="sk-wb">
+  <div class="wb-spot" aria-hidden="true"></div>
+  <div class="wb-floor" aria-hidden="true"></div>
+
+  <header class="wb-top">
+    <img class="wb-logo" src="/_pf/sales/glp/logo-white.svg" alt="GLP Shark">
+    <span class="wb-live"><i></i><span>Replay</span></span>
+  </header>
+
+  <section class="wb-ok wb-rp">
+    <p class="wb-eyebrow"><i></i><span data-wb="eyebrow"></span></p>
+    <h1 class="wb-title" data-wb="title"></h1>
+    <p class="wb-rp-soon" data-wb-soon hidden>Joe is putting the recording up now. Check back soon!</p>
+  </section>
+
+  <section class="wb-rp-video" data-wb-has-video>
+    <div class="wb-player wb-rp-player" data-wb-player></div>
+  </section>
+
+  <section class="wb-rp-go">
+    <a class="wb-cta wb-rp-watch" data-wb-watch hidden><span>Watch the replay</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="wb-cta" data-wb-replay-cta-href><span data-wb-replay-cta-label>See the system</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </section>
+
+  <section class="wb-hosts" data-wb-has="host1">
+    <p class="wb-kicker">Hosted by</p>
+    <div class="wb-host-row" data-wb-hosts></div>
+  </section>
+  <div class="wb-rp-end" aria-hidden="true"></div>
+</div>
