@@ -1,0 +1,21 @@
+/* nueva/n-what-is-nueva-overview/n-what-is-nueva-thanks
+ * The What Is page's look (its palette and the shared product component, through its block.css), plus the few rules
+ * this short page needs. */
+@import url("https://invokableapp.github.io/shark-pages/_shared/product/v1/product.css");
+@import url("../n-what-is-nueva/block.css");
+
+/* The visitor's first name: the platform fills <span data-if-name> (as .pf-lead-name) or drops it; anything that
+   never fills it (GHL) keeps it hidden. */
+[data-if-name]{ display:none; }
+
+.sk-prod-nva-what.sk-nva-thanks .sk-nva-thanks-hero{ min-height:auto; padding:clamp(4rem,12vw,8rem) 0 clamp(4rem,10vw,7rem); }
+.sk-prod-nva-what .sk-nva-thanks-in{ position:relative; max-width:720px; text-align:center; }
+.sk-prod-nva-what .sk-nva-thanks-in .sk-prod-lede{ margin-left:auto; margin-right:auto; }
+.sk-prod-nva-what .sk-nva-thanks-in .sk-prod-cta-row{ justify-content:center; }
+.sk-prod-nva-what .sk-nva-thanks-sign{
+  margin:1.4rem 0 1.8rem; font-family:var(--sk-sans); font-weight:700; color:var(--sk-sage,#087f7b);
+}
+/* The page is short: it fills the screen in its own colour, never the shell's black under it. */
+.sk-prod-nva-what.sk-nva-thanks{ min-height:100vh; min-height:100svh; display:flex; flex-direction:column; background:var(--sk-cream,#fcfeff); }
+.sk-prod-nva-what.sk-nva-thanks .sk-nva-thanks-hero{ flex:1; display:flex; align-items:center; }
+.sk-prod-nva-what .sk-nva-thanks-in .sk-prod-h1{ margin-bottom:1rem; }

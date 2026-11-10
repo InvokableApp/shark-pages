@@ -185,6 +185,22 @@
     </div>
   </section>
 
+  <!-- WANT TO KNOW MORE (2026-11-09, the texting registration). The page's one opt-in: name, mobile and an optional,
+       unticked texting box, drawn by the platform's form.js into [data-pf-slot] when the step names a form. Jess's
+       approved GHL reps showed the carriers exactly this on their business page, and nothing else on the page may
+       collect a phone number. Hidden until the form is in (block.css, data-pf-ready), so GHL and an account without
+       the form show nothing. -->
+  <section class="sk-nva-more" id="sk-nva-more" data-pf-inline>
+    <div class="sk-prod-wrap sk-nva-more-in">
+      <div class="sk-nva-more-copy">
+        <p class="sk-prod-kicker">Questions?</p>
+        <h2 class="sk-prod-h2">Want to know more?</h2>
+        <p class="sk-prod-lede">Leave your name and number and I'll get back to you about the products.</p>
+      </div>
+      <div class="sk-nva-more-form" data-pf-slot></div>
+    </div>
+  </section>
+
   <section class="sk-prod-close sk-nva-close">
     <div class="sk-nva-close-bg" aria-hidden="true"></div>
     <div class="sk-prod-wrap">

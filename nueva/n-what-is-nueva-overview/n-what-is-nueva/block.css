@@ -286,3 +286,26 @@
   .sk-prod-nva-what .sk-nva-ask-scrim,
   .sk-prod-nva-what .sk-nva-ask-card{ animation:none; }
 }
+
+/* ---------- Want to know more: the page's one opt-in (block.html, 2026-11-09) ----------
+   form.js draws the form into [data-pf-slot] and marks the section data-pf-ready. Until then it stays hidden, so GHL
+   (which never runs form.js) and an account whose step names no form show nothing. The form's button takes the page's
+   teal through --pf-accent. */
+.sk-prod-nva-what .sk-nva-more{ display:none; }
+.sk-prod-nva-what .sk-nva-more[data-pf-ready]{
+  display:block; padding:clamp(3rem,7vw,5.5rem) 0; background:var(--sk-cream,#fcfeff);
+  border-top:1px solid var(--sk-line,#d5dfe1);
+  --pf-accent:var(--sk-teal-d,#087F7B); --pf-accent-ink:#ffffff;
+}
+.sk-prod-nva-what .sk-nva-more-in{
+  display:grid; grid-template-columns:1fr minmax(0,460px); gap:clamp(1.5rem,4vw,3.5rem); align-items:center;
+}
+.sk-prod-nva-what .sk-nva-more-copy{ min-width:0; }
+.sk-prod-nva-what .sk-nva-more-copy .sk-prod-lede{ margin-bottom:0; }
+.sk-prod-nva-what .sk-nva-more .pf-card{
+  font-family:var(--sk-sans); border:1px solid var(--sk-line,#d5dfe1); border-radius:18px; max-width:none;
+}
+.sk-prod-nva-what .sk-nva-more .pf-go{ border-radius:999px; font-family:var(--sk-sans); letter-spacing:.01em; }
+@media (max-width:860px){
+  .sk-prod-nva-what .sk-nva-more-in{ grid-template-columns:1fr; }
+}

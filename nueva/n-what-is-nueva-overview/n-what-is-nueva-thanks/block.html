@@ -1,0 +1,28 @@
+<!--
+  NUEVA / n-what-is-nueva-overview / n-what-is-nueva-thanks
+  Where the What Is page's "Want to know more?" form lands (2026-11-09, the texting registration). A plain thank-you
+  from the rep: no lead magnet, nothing to download. Greets the person by the name they typed (PAGE-COPY-SOP 5c); the
+  headline reads right without it. Wears the What Is page's look (block.css imports it).
+-->
+<div class="sk-prod sk-prod-nva-what sk-nva-thanks">
+
+  <div class="sk-nva-present">
+    <div class="sk-nva-present-in">
+      <p class="sk-nva-present-by">Presented by <b>{{custom_values.nueva_rep_full_name}}</b></p>
+    </div>
+  </div>
+
+  <section class="sk-prod-hero sk-nva-thanks-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+    <div class="sk-prod-wrap sk-nva-thanks-in">
+      <p class="sk-prod-eyebrow">Got it</p>
+      <h1 class="sk-prod-h1">Thanks<span data-if-name>, {{contact.first_name}}</span>. I'll be in touch.</h1>
+      <p class="sk-prod-lede">I've got your name and number, and I'll get back to you soon about the products.</p>
+      <p class="sk-nva-thanks-sign">{{custom_values.nueva_rep_full_name}}</p>
+      <div class="sk-prod-cta-row">
+        <a class="sk-prod-btn-ghost" href="/n-what-is-nueva#sk-nva-products">Back to the products</a>
+      </div>
+    </div>
+  </section>
+</div>
