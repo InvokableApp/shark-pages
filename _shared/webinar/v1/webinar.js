@@ -13,7 +13,7 @@
  *        data-wb-flyer="https://...png"               only where the block has an <img data-wb-src="flyer">
  *        data-wb-points-title="What you'll see"
  *        data-wb-points="Title::one line|Title::one line|Title::one line"
- *        data-wb-host1="Name|Role|photo url|what they cover"  data-wb-host2="..."  (up to 4; the 4th part is optional,
+ *        data-wb-host1="Name|Role|photo url|what they cover"  data-wb-host2="..."  (up to 6; the 4th part is optional,
  *                                                      **bold** allowed, and shows only where the block has [data-wb-speakers])
  *        data-wb-title-em="TITANS"                     optional: that word of the title in the brand colour (an <em>)
  *        data-wb-points-sub="..."                      optional: a line under the list's heading ([data-wb="points-sub"])
@@ -83,7 +83,7 @@
   // Faces ([data-wb-faces]): each host with a photo, big, name and role over it. Speakers ([data-wb-speakers]): a card
   // per host with what they cover.
   var faces = root.querySelector("[data-wb-faces]"), spk = root.querySelector("[data-wb-speakers]");
-  for (var k = 1; k <= 4 && (faces || spk); k++) {
+  for (var k = 1; k <= 6 && (faces || spk); k++) {
     var hv = val("host" + k);
     if (!hv) continue;
     var hb = hv.split("|").map(function (x) { return x.trim(); });
@@ -106,7 +106,7 @@
 
   // Hosts: "Name|Role|photo".
   var hosts = root.querySelector("[data-wb-hosts]");
-  for (var i = 1; i <= 4 && hosts; i++) {
+  for (var i = 1; i <= 6 && hosts; i++) {
     var h = val("host" + i);
     if (!h) continue;
     var b = h.split("|"), card = el("div", "wb-host");
