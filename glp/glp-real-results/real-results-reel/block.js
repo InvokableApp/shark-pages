@@ -4,7 +4,7 @@
  *    bottom of the pages"; phone only, a computer has the arrows);
  *  - MOTION (Jeff, 2026-11-11: "this is feeling ... like a powerpoint more than a interactive experience ... make it
  *    more flowing"): each screen's progress through the swipe as --p (-1 above, 0 in place, 1 below) and --a (|p|), so
- *    block.css can drift the words, the pictures and the background at different speeds as a finger drags; and the
+ *    block.css can fade the screen being left (nothing moves with the finger: Jeff, "the shake feels like somethings wrong"); and the
  *    small SVGs each screen draws when it comes on (.rl-p.is-on, set by reel.js). Every piece added here is aria-hidden;
  *    the words carry the meaning without it. prefers-reduced-motion: no drift, and block.css shows each piece finished. */
 (function () {
@@ -79,22 +79,7 @@
   for (var k = 0; k < 9; k++) sparks += "<i></i>";
   add(close, '<div class="rr-sparks" aria-hidden="true">' + sparks + "</div>", "afterbegin");
 
-  // One-time moves when a screen first comes on: the gallery nudges sideways once to show it swipes
-  var nudged = false;
-  var people = root.querySelector(".rr-people");
-  if (people && row && !still && "MutationObserver" in window) {
-    new MutationObserver(function () {
-      if (nudged || !people.classList.contains("is-on")) return;
-      nudged = true;
-      setTimeout(function () {
-        if (row.scrollLeft > 4) return;   // they already swiped
-        row.scrollTo({ left: 40, behavior: "smooth" });
-        setTimeout(function () { if (row.scrollLeft <= 44) row.scrollTo({ left: 0, behavior: "smooth" }); }, 650);
-      }, 1300);
-    }).observe(people, { attributes: true, attributeFilter: ["class"] });
-  }
-
-  // THE DRIFT: each screen's place in the swipe, as a finger drags
+  // THE FADE: each screen's place in the swipe as a finger drags (--a); the CSS fades with it, nothing moves with it
   var track = root.querySelector(".rl-track");
   if (!track || still) return;
   var queued = false;

@@ -110,13 +110,10 @@
  * aria-hidden, shows finished and still under prefers-reduced-motion, and nothing loops louder than a slow drift.
  * ============================================================================================================ */
 
-/* THE DRIFT. --p is this screen's place in the swipe (-1 gone above, 0 here, 1 waiting below), --a its distance; block.js
- * sets both as a finger drags. The words drift, the pictures drift further (they feel nearer), the background barely
- * moves and runs the other way, and the screen being left fades. `translate` is its own property, so it adds to the
- * entrances' `transform` rather than replacing it. */
-.rr .rl-p > .rl-in{ translate:0 calc(var(--p,0) * 38px); opacity:calc(1 - var(--a,0) * .6); }
-.rr .rl-p .rl-art{ translate:0 calc(var(--p,0) * 28px); }
-.rr .rl-p > .rl-bg{ translate:0 calc(var(--p,0) * -6%); }
+/* THE FADE. --a is this screen's distance from the middle of the window (block.js, as a finger drags): the screen being
+ * left fades as the next comes in. Nothing moves with the finger: that drift fought the snap at the end of a swipe and
+ * read as a shake (Jeff, 2026-11-11: "the shake feels like somethings wrong"). */
+.rr .rl-p > .rl-in{ opacity:calc(1 - var(--a,0) * .6); }
 .rr .rl-p > .rr-swipe{ opacity:calc(1 - var(--a,0) * 2); }
 
 /* A screen dragged half in (.rr-in, block.js) shows what reel.js shows once it settles (.is-on) */
@@ -125,7 +122,7 @@
 .rr .rl-p.rr-in .rli-embers{ transform:scale(1.18) translateY(-2%); transition-duration:9s; }
 
 /* Entrances: from the side for things in a row, a little blur so they arrive rather than appear */
-.rr [data-in]{ filter:blur(2.5px); transition:opacity .7s ease-out,transform .8s cubic-bezier(.2,.8,.2,1),filter .7s ease-out; transition-delay:var(--d,0s); }
+.rr [data-in]{ transform:translateY(14px); filter:blur(2.5px); transition:opacity .7s ease-out,transform .8s cubic-bezier(.22,1,.36,1),filter .7s ease-out; transition-delay:var(--d,0s); }
 .rr .rl-p:is(.is-on,.rr-in) [data-in]{ filter:none; }
 
 /* The ember wave: two lines drifting sideways along the bottom of the cover and the close */
@@ -136,7 +133,7 @@
 @keyframes rr-drift{ to{ transform:translateX(-50%); } }
 
 /* 1. the cover: the faces pop in one by one */
-.rr-faces img{ transform:scale(.7); opacity:0; transition:transform .5s cubic-bezier(.3,1.25,.5,1),opacity .3s; }
+.rr-faces img{ transform:translateY(6px); opacity:0; transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .4s; }
 .rl-p:is(.is-on,.rr-in) .rr-faces img{ transform:none; opacity:1; }
 .rl-p:is(.is-on,.rr-in) .rr-faces img:nth-child(1){ transition-delay:.75s; } .rl-p:is(.is-on,.rr-in) .rr-faces img:nth-child(2){ transition-delay:.85s; }
 .rl-p:is(.is-on,.rr-in) .rr-faces img:nth-child(3){ transition-delay:.95s; } .rl-p:is(.is-on,.rr-in) .rr-faces img:nth-child(4){ transition-delay:1.05s; }
@@ -167,7 +164,7 @@
 
 /* 4. ingredients: each one pops in after the last */
 .rr-labels li{ opacity:0; transform:translateX(18px); transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1); }
-.rr-labels img{ transform:scale(.8); transition:transform .6s cubic-bezier(.3,1.2,.5,1); transition-delay:inherit; }
+.rr-labels img{ transition:none; transition-delay:inherit; }
 .rl-p:is(.is-on,.rr-in) .rr-labels li{ opacity:1; transform:none; }
 .rl-p:is(.is-on,.rr-in) .rr-labels img{ transform:none; }
 .rl-p:is(.is-on,.rr-in) .rr-labels li:nth-child(1){ transition-delay:.45s; } .rl-p:is(.is-on,.rr-in) .rr-labels li:nth-child(2){ transition-delay:.6s; }
@@ -199,15 +196,15 @@
 .rl-p:is(.is-on,.rr-in) .rr-ticks::before{ transform:none; }
 .rr-ticks li{ z-index:1; }
 .rr-chk{ position:absolute; left:13px; top:50%; width:22px; height:22px; margin-top:-11px; }
-.rr-chk circle{ fill:var(--ember); transform:scale(0); transform-origin:center; transform-box:fill-box; transition:transform .45s cubic-bezier(.3,1.25,.5,1); transition-delay:calc(var(--d,0s) + .15s); }
+.rr-chk circle{ fill:var(--ember); transform:scale(0); transform-origin:center; transform-box:fill-box; transition:transform .45s cubic-bezier(.22,1,.36,1); transition-delay:calc(var(--d,0s) + .15s); }
 .rr-chk path{ fill:none; stroke:#fff; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1;
   transition:stroke-dashoffset .45s ease; transition-delay:calc(var(--d,0s) + .45s); }
 .rl-p:is(.is-on,.rr-in) .rr-chk circle{ transform:none; }
 .rl-p:is(.is-on,.rr-in) .rr-chk path{ stroke-dashoffset:0; }
 
-/* 8. the routine: the three tiles flip up, Both glows once */
+/* 8. the routine: the three tiles slide up, Both glows once */
 .rr-plans{ perspective:700px; }
-.rr-plans > div[data-in]{ transform:rotateX(-45deg); transform-origin:50% 0; }
+.rr-plans > div[data-in]{ transform:translateY(14px); transform-origin:50% 0; }
 .rl-p:is(.is-on,.rr-in) .rr-plans > div[data-in]{ transform:none; }
 .rl-p:is(.is-on,.rr-in) .rr-plans .is-both{ animation:rr-glow 1.6s ease 1.3s 1; }
 @keyframes rr-glow{ 40%{ box-shadow:0 0 0 8px rgba(250,67,0,.25),0 0 36px rgba(250,67,0,.55); } }
@@ -242,7 +239,7 @@
 
 /* STILL, for anyone who asked their phone for less motion: everything in its finished place */
 @media (prefers-reduced-motion:reduce){
-  .rr .rl-p > .rl-in,.rr .rl-p .rl-art,.rr .rl-p > .rl-bg{ translate:none; opacity:1; }
+  .rr .rl-p > .rl-in{ opacity:1; }
   .rr [data-in],.rr-faces img,.rr-ways > div[data-in],.rr-labels li,.rr-labels img,.rr-pillars > div,.rr-gallery > figure,.rr-shot img,
   .rr-plans > div[data-in],.rr-certs li{ opacity:1 !important; transform:none !important; filter:none !important; transition:none !important; }
   .rr-ring circle,.rr-more .rli-ico svg *,.rr-chk path,.rr-shield path,.rr-swirl path{ stroke-dashoffset:0 !important; transition:none !important; animation:none !important; }
