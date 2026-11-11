@@ -61,6 +61,15 @@ var SYS = {
           { label:"The link for this season's drop, the bonus you send on request", cv:"nueva_recovery_bar_drop_url" }
         ],
         desc:"A free guide of fifteen whole-fruit electrolyte drinks for women who already train: spritzers, coolers and smoothies, with the potassium, sodium and magnesium counted in every glass. It ships under Everyday Well, with no Nueva mark on it. The bonus is a new set of drinks every season, sent by you, and the people who ask for it hear about Revive." },
+      /* Platform only (NUEVASHARK/campaigns/greens-breakfast, 0641): shows only to an account that has the funnel. */
+      { slug:"n-greens-breakfast", icon:"leaf", platformOnly:true,
+        name:"Greens at Breakfast",
+        tease:"12 breakfast recipes with greens cooked in, free",
+        guides:[
+          { label:"Read / print / share the guide", cv:"nueva_greens_breakfast_guide_pdf_url" },
+          { label:"The link for \"My Morning Supplement List\", the bonus you text on request", cv:"nueva_greens_breakfast_supplement_pdf_url" }
+        ],
+        desc:"A free recipe guide of twelve breakfasts with the greens cooked in: eggs, oats, toast, muffins and pancakes, five ready in fifteen minutes and five to make ahead, with amounts for 2, 4 or 6 and a shopping list for each. The bonus is your morning supplement list, sent by you, and the people who ask for it hear about Alive." },
       /* Platform only, sent one to one (Jeff, 2026-10-13): the page after Joe's Hydrate script in Send a message. */
       { slug:"n-revive-video", icon:"play", platformOnly:true, personal:true,
         name:"Revive Video",
