@@ -88,8 +88,8 @@
       nudged = true;
       setTimeout(function () {
         if (row.scrollLeft > 4) return;   // they already swiped
-        row.scrollTo({ left: 70, behavior: "smooth" });
-        setTimeout(function () { if (row.scrollLeft <= 74) row.scrollTo({ left: 0, behavior: "smooth" }); }, 650);
+        row.scrollTo({ left: 40, behavior: "smooth" });
+        setTimeout(function () { if (row.scrollLeft <= 44) row.scrollTo({ left: 0, behavior: "smooth" }); }, 650);
       }, 1300);
     }).observe(people, { attributes: true, attributeFilter: ["class"] });
   }
