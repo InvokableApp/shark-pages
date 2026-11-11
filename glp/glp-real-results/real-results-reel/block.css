@@ -110,6 +110,9 @@
  * aria-hidden, shows finished and still under prefers-reduced-motion, and nothing loops louder than a slow drift.
  * ============================================================================================================ */
 
+/* The "1 of 8" arrows sit still: the shared reel nudges them sideways forever, which read as a jitter here */
+.rr .rl-cards-cue svg{ animation:none; }
+
 /* THE FADE. --a is this screen's distance from the middle of the window (block.js, as a finger drags): the screen being
  * left fades as the next comes in. Nothing moves with the finger: that drift fought the snap at the end of a swipe and
  * read as a shake (Jeff, 2026-11-11: "the shake feels like somethings wrong"). */
@@ -124,6 +127,7 @@
 /* Entrances: from the side for things in a row, a little blur so they arrive rather than appear */
 .rr [data-in]{ transform:translateY(14px); filter:blur(2.5px); transition:opacity .7s ease-out,transform .8s cubic-bezier(.22,1,.36,1),filter .7s ease-out; transition-delay:var(--d,0s); }
 .rr .rl-p:is(.is-on,.rr-in) [data-in]{ filter:none; }
+.rr .rl-cards[data-in]{ filter:none; }   /* no blur on a row that swipes sideways: heavy on an iPhone, and it smeared the swipe */
 
 /* The ember wave: two lines drifting sideways along the bottom of the cover and the close */
 .rr-wave{ position:absolute; left:0; bottom:0; width:200%; height:110px; z-index:0; pointer-events:none; opacity:0; transition:opacity 1.2s ease .4s; }
@@ -163,7 +167,7 @@
 .rl-p:is(.is-on,.rr-in) li:nth-child(3) .rr-ring circle{ transition-delay:1.2s; }
 
 /* 4. ingredients: each one pops in after the last */
-.rr-labels li{ opacity:0; transform:translateX(18px); transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1); }
+.rr-labels li{ opacity:0; transform:translateY(8px); transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1); }
 .rr-labels img{ transition:none; transition-delay:inherit; }
 .rl-p:is(.is-on,.rr-in) .rr-labels li{ opacity:1; transform:none; }
 .rl-p:is(.is-on,.rr-in) .rr-labels img{ transform:none; }
@@ -171,20 +175,20 @@
 .rl-p:is(.is-on,.rr-in) .rr-labels li:nth-child(3){ transition-delay:.75s; } .rl-p:is(.is-on,.rr-in) .rr-labels li:nth-child(4){ transition-delay:.9s; }
 
 /* 5. whole body: the cards slide in from the right, each icon draws itself */
-.rr-pillars > div{ opacity:0; transform:translateX(22px); transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1); }
-.rl-p:is(.is-on,.rr-in) .rr-pillars > div{ opacity:1; transform:none; }
+.rr-pillars > div{ opacity:0; transition:opacity .7s ease; }
+.rl-p:is(.is-on,.rr-in) .rr-pillars > div{ opacity:1; }
 .rl-p:is(.is-on,.rr-in) .rr-pillars > div:nth-child(1){ transition-delay:.35s; } .rl-p:is(.is-on,.rr-in) .rr-pillars > div:nth-child(2){ transition-delay:.5s; }
 .rl-p:is(.is-on,.rr-in) .rr-pillars > div:nth-child(n+3){ transition-delay:.65s; }
 .rr-more .rli-ico svg *{ stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1.3s ease .9s; }
 .rr-more:is(.is-on,.rr-in) .rli-ico svg *{ stroke-dashoffset:0; }
 
 /* 6. the people: cards slide in from the right; a line under them fills as you swipe */
-.rr-gallery > figure{ opacity:0; transform:translateX(26px); transition:opacity .6s ease,transform .9s cubic-bezier(.2,.8,.2,1); }
-.rl-p:is(.is-on,.rr-in) .rr-gallery > figure{ opacity:1; transform:none; }
+/* fade only: anything moving inside a row that itself swipes sideways makes the phone re-snap the row, which jitters
+ * (Jeff, 2026-11-11: "its still happening for me on the testimonial page specifically") */
+.rr-gallery > figure{ opacity:0; transition:opacity .7s ease; }
+.rl-p:is(.is-on,.rr-in) .rr-gallery > figure{ opacity:1; }
 .rl-p:is(.is-on,.rr-in) .rr-gallery > figure:nth-child(1){ transition-delay:.3s; } .rl-p:is(.is-on,.rr-in) .rr-gallery > figure:nth-child(2){ transition-delay:.45s; }
 .rl-p:is(.is-on,.rr-in) .rr-gallery > figure:nth-child(n+3){ transition-delay:.6s; }
-.rr-shot img{ transform:scale(1.04); transition:transform 2.4s cubic-bezier(.2,.8,.2,1) .3s; }
-.rl-p:is(.is-on,.rr-in) .rr-shot img{ transform:none; }
 .rr-progress{ height:3px; margin-top:14px; border-radius:2px; background:rgba(255,255,255,.12); overflow:hidden; max-width:220px; }
 .rr-progress i{ display:block; height:100%; background:linear-gradient(90deg,var(--ember),var(--spark)); transform:scaleX(.125); transform-origin:left;
   transition:transform .25s ease-out; }
