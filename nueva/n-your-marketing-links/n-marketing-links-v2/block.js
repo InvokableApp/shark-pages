@@ -88,9 +88,9 @@ var SYS = {
       /* Platform only (Joe's "NUEVA" doc, 2026-11-03): John Melton's three minute video, moved here from the Opportunity
          funnel when that one got the one minute video. */
       { slug:"n-business-overview", icon:"play", platformOnly:true, personal:true,
-        name:"3 Minute Business Overview",
+        name:"Opportunity 3 Minute Overview",
         tease:"Three minutes, then their next move",
-        desc:"John Melton's three minute video on the opportunity, then four choices: be a customer, build the business, ask you some questions, or not interested. Each one gives them a message to send you, and tells you what they picked with your reply ready. Sent as a personal link, you see when they open it and how much they watch." },
+        desc:"John Melton's three minute video on the opportunity, then four choices: be a customer, build the business, do both, or ask you some questions first. Each one gives them a message to send you, and tells you what they picked with your reply ready. Sent as a personal link, you see when they open it and how much they watch." },
       /* Platform only (Jeff, 2026-11-06: "a public facing funnel ... kinda near the 'what is nueva' funnel"; platform 0613):
          the Opportunity Sizzle Video for anyone, with a sign-up form first. Last here, so it sits just above What Is Nueva. */
       { slug:"n-opportunity-public", icon:"play", platformOnly:true,
