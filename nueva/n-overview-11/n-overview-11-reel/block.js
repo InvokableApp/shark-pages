@@ -61,4 +61,23 @@
     ["timeupdate", "seeked", "loadedmetadata", "pause"].forEach(function (ev) { v.addEventListener(ev, prog); });
     v.addEventListener("ended", function () { var ask = root.querySelector(".rv-ask"); if (ask) ask.scrollIntoView({ behavior: "smooth" }); });
   })();
+  /* WATCH IT LATER (MPG's, mpg/m-swipe-book/m-learn-more block.js): an event tomorrow at 7pm, linking back to this page.
+   * Android gets Google Calendar's filled-in add-event page; an iPhone or a computer gets the server's calendar file
+   * (/_cal, platform server.mjs), which an iPhone opens as Apple's "Add to Calendar". */
+  var later = document.getElementById("watch-later");
+  if (later) later.addEventListener("click", function () {
+    var at = new Date(); at.setDate(at.getDate() + 1); at.setHours(19, 0, 0, 0);
+    var end = new Date(at.getTime() + 15 * 60000);
+    var z = function (x) { return x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
+    // the step's own slug answers on every rep address (the page may have been opened as /{funnel}/{step})
+    var path = "/" + location.pathname.split("/").filter(Boolean).pop();
+    var title = "Watch the 11 minute opportunity overview";
+    var note = "The 11 minute overview, from " + (first || "the person who shared it with you") + ".";
+    if (/Android/i.test(navigator.userAgent)) {
+      location.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) + "&dates=" + z(at) + "/" + z(end) +
+        "&details=" + encodeURIComponent(note + " Open: " + location.origin + path);
+      return;
+    }
+    location.href = "/_cal?t=" + encodeURIComponent(title) + "&s=" + z(at) + "&m=15&p=" + encodeURIComponent(path) + "&n=" + encodeURIComponent(note);
+  });
 })();
