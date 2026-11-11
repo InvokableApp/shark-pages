@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;600;700&display=swap");
+/* nueva/n-recovery-bar/n-recovery-bar-read: The Recovery Bar, read online. By hand (block.html is generated).
+ * The look is Fruit tint (references/REEL-LOOKS.md, O; replaced Juice bar 2026-11-09, which read as a fast-food menu):
+ * warm off-white paper, deep green ink, berry for the one marked phrase, and each drink's own tint (--fruit, set on its
+ * card) behind its photo and its numbers. Bricolage Grotesque 700 for headings, Public Sans for reading. The drop pages @import this file.
+ * Layout: one column on a phone; from 900px each drink card puts its photo left and its words right. */
+.rb-read{
+  --deep:#1F3D2B; --berry:#B4313B; --leaf:#CFE3B0; --ink:#1F3D2B; --cream:#F3ECE0; --paper:#FBF7F0; --soft:#5f6b62;
+  --rule:#E6DED0; --fruit:#EEE6D8; --head:"Bricolage Grotesque",system-ui,sans-serif; --sans:"Public Sans",system-ui,sans-serif;
+  background:var(--paper); color:var(--ink); font:17px/1.6 var(--sans); -webkit-font-smoothing:antialiased;
+}
+.rb-read *{ box-sizing:border-box; }
+.rb-read img{ max-width:100%; height:auto; display:block; }
+.rb-read a{ color:inherit; }
+.rb-read h1,.rb-read h2,.rb-read h3{ font-family:var(--head); font-weight:700; letter-spacing:-.03em; line-height:1.02; margin:0; text-wrap:balance; }
+.rb-read h4{ font:700 12px/1.2 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin:0 0 8px; }
+.rb-read p{ margin:0 0 12px; }
+/* the visitor's first name: the platform swaps <span data-if-name> for its own span or drops it; hidden if unfilled */
+[data-if-name]{ display:none; }
+
+/* ---------------------------------------------------------------- nav */
+.rb-nav{ position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:14px; padding:10px 16px; background:var(--deep); color:var(--paper); }
+.rb-brand{ font:700 17px/1 var(--head); letter-spacing:-.02em; text-decoration:none; color:var(--paper) !important; white-space:nowrap; }
+.rb-links{ display:flex; gap:16px; overflow-x:auto; scrollbar-width:none; flex:1; }
+.rb-links::-webkit-scrollbar{ display:none; }
+.rb-links a{ font:600 14px/1 var(--sans); text-decoration:none; color:#fff; opacity:.85; white-space:nowrap; padding:6px 0; }
+.rb-links a:hover{ opacity:1; }
+.rb-navcta{ background:var(--paper); color:var(--deep) !important; font:700 13px/1 var(--sans); padding:9px 14px; border-radius:999px; text-decoration:none; white-space:nowrap; }
+.rb-bar{ position:absolute; left:0; right:0; bottom:0; height:3px; }
+.rb-bar i{ display:block; height:100%; width:0; background:var(--leaf); }
+@media (max-width:700px){ .rb-links{ display:none; } .rb-nav{ justify-content:space-between; } }
+
+/* ---------------------------------------------------------------- hero */
+.rb-hero{ background:var(--paper); padding:36px 16px 0; overflow:hidden; }
+.rb-hero-in{ max-width:1080px; margin:0 auto; display:grid; gap:24px; }
+.rb-eyebrow{ font:700 13px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--berry); margin:0 0 12px; }
+.rb-hero h1{ font-size:clamp(40px,11vw,76px); }
+.rb-sub{ font-size:18px; color:var(--soft); margin:16px 0 18px; max-width:34ch; }
+.rb-pills{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; }
+.rb-pills span{ border:1.5px solid var(--deep); color:var(--deep); font:600 13px/1 var(--sans); padding:7px 12px; border-radius:999px; }
+.rb-btns{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
+.rb-btn{ display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:14px 22px; border-radius:16px; background:var(--deep); color:var(--paper) !important; font:700 16px/1.2 var(--sans); text-decoration:none; text-align:center; }
+.rb-ghost{ background:transparent; color:var(--ink) !important; box-shadow:inset 0 0 0 2px var(--ink); }
+.rb-hero-pic{ margin:0 auto; width:min(78vw,380px); align-self:end; }
+.rb-hero-pic{ background:var(--fruit); border-radius:22px 22px 0 0; overflow:hidden; } .rb-hero-pic img{ border-radius:22px 22px 0 0; aspect-ratio:2/3; object-fit:cover; width:100%; }
+@media (min-width:900px){
+  .rb-hero{ padding:56px 32px 0; }
+  .rb-hero-in{ grid-template-columns:1.15fr .85fr; align-items:center; gap:48px; }
+  .rb-hero-words{ padding-bottom:48px; }
+  .rb-hero-pic{ width:100%; max-width:400px; }
+}
+
+/* ---------------------------------------------------------------- body + panels */
+.rb-body{ max-width:1080px; margin:0 auto; padding:28px 16px 64px; }
+.rb-panel{ background:#fff; border-radius:24px; box-shadow:0 18px 40px -28px rgba(31,61,43,.35); padding:24px 20px; margin:0 0 24px; }
+.rb-panel h2{ font-size:clamp(30px,7vw,44px); margin-bottom:14px; }
+.rb-panel h3{ font-size:24px; margin-bottom:8px; }
+.rb-intro p{ max-width:62ch; }
+.rb-how ul{ padding-left:20px; margin:0 0 18px; } .rb-how li{ margin:6px 0; }
+.rb-salt{ background:var(--cream); border-radius:16px; padding:18px; margin:0 0 14px; }
+.rb-tip{ font-weight:600; }
+.rb-note{ border-left:4px solid var(--berry); padding:4px 0 4px 14px; }
+.rb-note p{ margin:0; color:var(--soft); }
+@media (min-width:900px){ .rb-panel{ padding:36px 40px; } }
+
+/* the menu board: dotted leaders, the potassium where a price would be */
+.rb-board{ background:var(--deep); color:var(--paper); border-radius:18px; padding:20px 18px 14px; margin-top:20px; }
+.rb-board-h{ font:700 22px/1 var(--head); color:var(--paper); margin:0 0 12px; letter-spacing:-.02em; }
+.rb-board a{ display:flex; align-items:baseline; gap:8px; text-decoration:none; padding:7px 0; font-size:16px; }
+.rb-board a:hover span{ color:var(--leaf); }
+.rb-board i{ flex:1; border-bottom:2px dotted rgba(255,255,255,.35); transform:translateY(-4px); }
+.rb-board b{ font:700 18px/1 var(--head); color:var(--leaf); }
+.rb-board-k{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); text-align:right; margin:8px 0 0; }
+
+/* ---------------------------------------------------------------- the drink cards */
+.rb-sec{ font-size:clamp(34px,9vw,56px); margin:40px 0 18px; }
+.rb-sec::after{ content:""; display:block; width:48px; height:5px; background:var(--berry); border-radius:4px; margin-top:12px; }
+.rb-card{ background:#fff; border-radius:24px; box-shadow:0 18px 40px -28px rgba(31,61,43,.35); overflow:hidden; margin:0 0 24px; display:grid; scroll-margin-top:70px; }
+.rb-photo{ margin:0; background:var(--fruit); }
+.rb-photo img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+.rb-words{ padding:20px 18px 22px; }
+.rb-type{ font:700 12px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--berry); margin:0 0 8px; }
+.rb-card h3{ font-size:clamp(28px,7.5vw,38px); margin-bottom:10px; }
+.rb-line{ font-size:18px; color:var(--soft); }
+.rb-nums{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:16px 0 8px; }
+.rb-nums div{ background:color-mix(in srgb,var(--fruit) 70%,#fff); border-radius:14px; padding:12px 8px; text-align:center; }
+.rb-nums b{ display:block; font:700 clamp(26px,7vw,34px)/1 var(--head); color:var(--deep); letter-spacing:-.03em; }
+.rb-nums span{ display:block; font:600 12px/1.2 var(--sans); margin-top:4px; color:var(--soft); }
+.rb-rim{ font-weight:700; font-size:15px; margin:0 0 4px; }
+.rb-cols{ display:grid; gap:18px; margin:18px 0; }
+.rb-ing,.rb-steps{ margin:0; padding-left:20px; }
+.rb-ing li,.rb-steps li{ margin:5px 0; }
+.rb-ing .rb-rimi,.rb-ing .rb-gar{ color:var(--soft); }
+.rb-steps li::marker{ font-weight:700; color:var(--berry); }
+.rb-good{ background:color-mix(in srgb,var(--fruit) 45%,#fff); border-radius:14px; padding:14px 16px; font-weight:600; }
+.rb-easy{ font-size:15px; color:var(--soft); }
+.rb-work summary{ cursor:pointer; font:700 14px/1.4 var(--sans); color:var(--soft); padding:6px 0; }
+.rb-work table{ width:100%; border-collapse:collapse; font-size:13px; margin:8px 0; }
+.rb-work th,.rb-work td{ text-align:right; padding:6px 4px; border-bottom:1px solid var(--rule); }
+.rb-work th:first-child,.rb-work td:first-child{ text-align:left; }
+.rb-work p{ font-size:13px; color:var(--soft); }
+@media (min-width:900px){
+  .rb-card{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }
+  .rb-photo img{ height:100%; aspect-ratio:auto; min-height:560px; }
+  .rb-words{ padding:32px 36px; }
+  .rb-cols{ grid-template-columns:1fr 1.3fr; }
+}
+
+/* ---------------------------------------------------------------- shopping list, the close, the footer */
+.rb-aisles{ display:grid; gap:18px; margin-top:8px; }
+.rb-aisles ul{ list-style:none; margin:0; padding:0; }
+.rb-aisles li{ border-bottom:1px solid var(--rule); }
+.rb-aisles label{ display:flex; gap:10px; align-items:center; padding:9px 0; cursor:pointer; }
+.rb-aisles input{ width:20px; height:20px; accent-color:var(--deep); flex:none; }
+.rb-aisles input:checked + span{ text-decoration:line-through; color:var(--soft); }
+.rb-keep{ font-size:13px; color:var(--soft); margin-top:12px; }
+@media (min-width:700px){ .rb-aisles{ grid-template-columns:repeat(3,1fr); } }
+.rb-close,.rb-revive{ background:var(--cream); text-align:center; }
+.rb-close p,.rb-revive p{ max-width:52ch; margin-left:auto; margin-right:auto; }
+.rb-close ul{ display:inline-block; text-align:left; margin:4px auto 14px; padding-left:20px; }
+.rb-close ul li{ margin:4px 0; }
+.rb-pack{ margin:6px auto 14px; max-width:280px; } .rb-pack img{ border-radius:16px; }
+.rb-note p + p{ margin-top:10px; }
+.rb-big{ width:100%; max-width:520px; font-size:17px; margin-top:6px; }
+.rb-small{ font-size:13px; color:var(--soft); margin-top:12px; }
+.rb-foot{ text-align:center; font-size:13px; color:var(--soft); padding-top:12px; }
+.rb-foot p{ margin:0 0 4px; }
+
+/* the numbers count up as a card comes on screen (block.js); finished and still under reduced motion */
+.rb-card .rb-photo img{ transition:transform .6s ease; }
+@media (prefers-reduced-motion:reduce){ .rb-card .rb-photo img{ transition:none; } }

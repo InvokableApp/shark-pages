@@ -52,6 +52,15 @@ var SYS = {
           { label:"Which One Is Right, print ready in Canva", url:"https://canva.link/97sdbxn2w14y0w9" }
         ],
         desc:"A free workout and food guide for women who already train and want the work to show: eight twenty minute sessions and twelve high protein recipes. The ones who ask for the companion guide, the one that says which supplements are worth the money, are the ones ready to talk." },
+      /* Platform only (NUEVASHARK/campaigns/recovery-bar, 0643): shows only to an account that has the funnel. */
+      { slug:"n-recovery-bar", icon:"leaf", platformOnly:true,
+        name:"The Recovery Bar",
+        tease:"15 whole-fruit electrolyte drinks, free",
+        guides:[
+          { label:"Read / print / share the guide", cv:"nueva_recovery_bar_pdf_url" },
+          { label:"The link for this season's drop, the bonus you send on request", cv:"nueva_recovery_bar_drop_url" }
+        ],
+        desc:"A free guide of fifteen whole-fruit electrolyte drinks for women who already train: spritzers, coolers and smoothies, with the potassium, sodium and magnesium counted in every glass. It ships under Everyday Well, with no Nueva mark on it. The bonus is a new set of drinks every season, sent by you, and the people who ask for it hear about Revive." },
       /* Platform only, sent one to one (Jeff, 2026-10-13): the page after Joe's Hydrate script in Send a message. */
       { slug:"n-revive-video", icon:"play", platformOnly:true, personal:true,
         name:"Revive Video",

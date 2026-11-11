@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600;700;800&display=swap");
+/* _shared/reel/looks/fruit-tint.css — LOOK "Fruit tint" (references/REEL-LOOKS.md, O; picked by Jeff 2026-11-09 for Nueva's
+ * Recovery Bar: "fruit tint, much better", after Juice bar's yellow and red read as "a mcdonalds menu"). A cold-press bar:
+ * warm off-white paper, deep green ink, the headline phrase in berry, and the colour comes from the fruit. Each drink is
+ * photographed on its own soft tint, and the screen or card that shows it takes that tint (set --fruit on it).
+ * Bricolage Grotesque 700 for headings (never 800: calm, not shouting), Public Sans for reading.
+ * Use: @import after reel.css, <div class="rl rl-look-fruit">.
+ * Helpers:
+ *   h1 em / h2 em      the phrase in berry, no block behind it; one per screen at most
+ *   style="--fruit:#E3EDD3" on a screen or card: its tint (the photo's backdrop colour)
+ *   .lk-board          a deep green menu board: <div><span>name</span><i></i><b>number</b></div> rows, dotted leaders
+ *   .lk-nums           three number tiles in the tint: <div><b>840</b><span>mg potassium</span></div> x3
+ *   .lk-photo          a rounded drink photo
+ *   .lk-card           a white card, no border (the paper and the tint frame it) */
+.rl.rl-look-fruit{
+  --deep:#1F3D2B; --berry:#B4313B; --leaf:#4F7A2E; --cream:#FBF7F0; --fruit:#EEE6D8;
+  --paper:var(--cream); --tint:#F3ECE0; --night:var(--deep);
+  --ink:var(--deep); --body:#4a5a4e; --grey:#77806f; --on-dark:#FBF7F0;
+  --head:"Bricolage Grotesque",system-ui,sans-serif; --head-w:700; --sans:"Public Sans",system-ui,sans-serif;
+  --eyebrow:var(--berry); --eyebrow-dark:#F2C9C4;
+  --cta:var(--deep); --cta-ink:var(--cream); --mark:var(--berry); --shade:31,61,43;
+  --sk-accent:var(--deep); --pfn-accent:var(--deep); --pfn-ink:var(--cream);
+  --dock-flip:var(--cream); --dock-flip-ink:var(--deep);
+}
+.rl-look-fruit h1,.rl-look-fruit h2,.rl-look-fruit h3{ letter-spacing:-.03em; line-height:1.04; }
+.rl-look-fruit h1{ font-size:clamp(33px,9.6vw,44px); }
+.rl-look-fruit h1 em,.rl-look-fruit h2 em{ font-style:normal; color:var(--berry); }
+.rl-look-fruit .rl-night h1 em,.rl-look-fruit .rl-night h2 em{ color:var(--eyebrow-dark); }
+.rl-look-fruit .rl-eyebrow{ font-weight:700; letter-spacing:.16em; }
+.rl-look-fruit .rl-btn,.rl-look-fruit .rl-cta,.rl-look-fruit .pfn-dock{ border-radius:16px; font-weight:700; }
+.rl-look-fruit .rl-pills li{ background:transparent; color:var(--deep); border:1.5px solid var(--deep); font-weight:600; }
+.rl-look-fruit .rl-night .rl-pills li{ color:var(--cream); border-color:rgba(251,247,240,.6); }
+.rl-look-fruit p b,.rl-look-fruit p strong{ color:var(--ink); }
+.rl-look-fruit .rl-night p b,.rl-look-fruit .rl-night p strong{ color:var(--cream); }
+
+.rl-look-fruit .lk-card{ background:#fff; border-radius:22px; padding:18px 18px 16px; color:var(--body); box-shadow:0 1px 0 rgba(31,61,43,.06),0 18px 40px -26px rgba(31,61,43,.35); }
+.rl-look-fruit .lk-card h2,.rl-look-fruit .lk-card h3{ color:var(--ink); }
+
+.rl-look-fruit .lk-board{ background:var(--deep); color:var(--cream); border-radius:20px; padding:16px 16px 10px; }
+.rl-look-fruit .lk-board > a,.rl-look-fruit .lk-board > div{ display:flex; align-items:baseline; gap:8px; padding:6px 0; color:var(--cream); text-decoration:none; font-size:15px; }
+.rl-look-fruit .lk-board i{ flex:1; border-bottom:2px dotted rgba(251,247,240,.3); transform:translateY(-4px); }
+.rl-look-fruit .lk-board b{ font:700 17px/1 var(--head); color:#CFE3B0; }
+.rl-look-fruit .lk-board-h{ font:700 20px/1 var(--head); color:var(--cream); margin:0 0 8px; letter-spacing:-.02em; }
+.rl-look-fruit .lk-board-k{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(251,247,240,.6); text-align:right; margin:6px 0 0; }
+
+.rl-look-fruit .lk-nums{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.rl-look-fruit .lk-nums > div{ background:color-mix(in srgb,var(--fruit) 70%,#fff); border-radius:14px; padding:10px 6px; text-align:center; }
+.rl-look-fruit .lk-nums b{ display:block; font:700 clamp(24px,7vw,30px)/1 var(--head); letter-spacing:-.03em; color:var(--deep); }
+.rl-look-fruit .lk-nums span{ display:block; font:600 11px/1.2 var(--sans); margin-top:4px; color:var(--body); }
+.rl-look-fruit .rl-night .lk-nums b{ color:var(--deep); }
+
+.rl-look-fruit .lk-photo{ display:block; width:100%; height:auto; border-radius:20px; object-fit:cover; }

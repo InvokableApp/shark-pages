@@ -1,0 +1,78 @@
+/* nueva/n-recovery-bar/n-recovery-bar-reel — The Recovery Bar opt-in as a reel (platform only; see block.html). The reel is
+ * _shared/reel/v1/reel.css; the look is Fruit tint (_shared/reel/looks/fruit-tint.css; it replaced Juice bar 2026-11-09). This adds the screens' own pieces:
+ * the glass rising from the cover's bottom edge, one glass's numbers, three drinks in a row, the menu board, one recipe
+ * card, the cards row, the close. The confirmation reel and the request page import this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/fruit-tint.css");
+
+/* the season: each season's words are printed four times; the root's rb-s-<season> shows one (block.js sets it) */
+.rl-rb [data-season]{ display:none !important; }
+.rl-rb.rb-s-winter [data-season="winter"],.rl-rb.rb-s-spring [data-season="spring"],
+.rl-rb.rb-s-summer [data-season="summer"],.rl-rb.rb-s-fall [data-season="fall"]{ display:revert !important; }
+
+/* reel.js hides a button whose value is empty ([data-needs] -> hidden); .rl-btn sets display, so say it outright */
+.rl-rb [hidden]{ display:none !important; }
+
+.rl-rb .rl-in > p{ font-size:16px; line-height:1.55; color:var(--body); margin-top:12px; }
+.rl-rb .rl-night .rl-in > p{ color:rgba(255,255,255,.82); }
+
+/* 1. the cover: words up top, the glass rising from the bottom edge */
+.rl-rb .rb-cover .rl-in{ padding-top:40px; padding-bottom:calc(var(--dock-room) - 6px); height:100%; display:flex; flex-direction:column; }
+.rl-rb .rb-cover h1{ margin-top:2px; }
+.rl-rb .rb-lede{ font-size:15px !important; line-height:1.5 !important; color:var(--body) !important; margin-top:12px; }
+.rl-rb .rb-cover .rl-pills{ margin-top:14px; }
+.rl-rb .rb-cover .rl-pills li{ padding:6px 11px; font-size:12.5px; }
+.rl-rb .rb-glass{ background:var(--fruit); display:block; width:min(58vw,250px); height:auto; margin:auto auto 0; border-radius:22px;
+  aspect-ratio:3/4; object-fit:cover; object-position:50% 40%; flex:0 1 auto; min-height:0; }
+.rl-rb .rb-cover .rl-hint{ display:none; }   /* the dock already says Swipe up; the glass needs the room */
+
+/* 2. one glass and its numbers */
+.rl-rb .rb-one{ margin-top:18px; }
+.rl-rb .rb-one .lk-photo{ width:100%; aspect-ratio:16/10; object-position:50% 45%; }
+.rl-rb .rb-one-h{ font:700 13px/1.2 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--eyebrow-dark); margin:14px 0 8px; }
+.rl-rb .rb-one .lk-nums b[data-to]{ font-variant-numeric:tabular-nums; }
+
+/* 3. three drinks she'd order */
+.rl-rb .rb-three{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; }
+.rl-rb .rb-three figure{ margin:0; }
+.rl-rb .rb-three img{ width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:16px; display:block; }
+.rl-rb .rb-three figcaption{ font:700 12px/1.25 var(--sans); color:var(--ink); margin-top:6px; }
+
+/* 4. the menu board */
+.rl-rb .rb-fam .lk-board{ margin-top:18px; }
+
+/* 5. one recipe card */
+.rl-rb .rb-recipe{ background:var(--fruit); }   /* the screen takes the drink's tint (Fruit tint) */
+.rl-rb .rb-rc{ max-width:440px; margin:0 auto; overflow:hidden; padding-top:0; }
+.rl-rb .rb-rc-ph{ display:block; width:calc(100% + 36px); max-width:none; margin:0 -18px 14px; height:clamp(140px,26vh,230px); object-fit:cover; object-position:50% 55%; }
+.rl-rb .rb-rc h2{ font-size:clamp(26px,7.4vw,32px); margin:0 0 12px; }
+.rl-rb .rb-rc .rl-eyebrow{ margin-bottom:6px; }
+.rl-rb .rb-rc-ing{ margin:12px 0 0; padding-left:18px; font-size:14px; line-height:1.45; color:var(--body); }
+
+/* 6. what's in it */
+.rl-rb .rb-inside .rl-cards{ align-items:stretch; }
+.rl-rb .rb-inside .lk-card h3{ font-size:22px; }
+.rl-rb .rb-inside .lk-card p{ font-size:15px; line-height:1.5; margin-top:8px; color:var(--body); }
+
+/* 7. the close */
+.rl-rb .rb-close .rb-glass{ width:min(44vw,190px); margin:18px auto 0; border-radius:18px; }
+
+/* a short phone: everything a little smaller so the cover's glass still shows */
+@media (max-width:700px) and (max-height:700px){
+  .rl-rb .rb-cover h1{ font-size:29px; }
+  .rl-rb .rb-lede{ font-size:13.5px !important; }
+  .rl-rb .rb-cover .rl-pills li{ font-size:11.5px; padding:5px 9px; }
+  .rl-rb .rb-one .lk-photo{ aspect-ratio:2/1; }
+  .rl-rb .rb-three img{ aspect-ratio:3/4; }
+  .rl-rb .rb-close .rb-glass{ width:min(36vw,150px); }
+}
+
+/* a computer: words left, the picture right (reel.css puts .rl-art in the right column) */
+@media (min-width:701px){
+  .rl-rb .rb-cover .rl-in{ padding-bottom:var(--dock-room); height:auto; display:grid; }
+  .rl-rb .rb-glass{ width:min(30vw,380px); margin:0; border-radius:22px; aspect-ratio:2/3; }
+  .rl-rb .rb-cover .rl-hint{ position:static; }
+  .rl-rb .rb-one,.rl-rb .rb-three{ width:min(40vw,520px); margin-top:0; }
+  .rl-rb .rb-fam .rl-art .lk-board{ width:min(40vw,520px); margin-top:0; }
+  .rl-rb .rb-close .rb-glass{ width:min(26vw,320px); margin:0; }
+}

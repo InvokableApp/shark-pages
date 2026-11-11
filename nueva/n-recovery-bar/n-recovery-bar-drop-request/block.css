@@ -1,0 +1,6 @@
+/* nueva/n-recovery-bar/n-recovery-bar-drop-request: one screen in the confirmation reel's look. */
+@import url("../n-recovery-bar-confirmation-reel/block.css");
+.rlr .rb-vh{ position:absolute; width:1px; height:1px; margin:0; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
+.rlr .rlr-big{ font:700 clamp(24px,6.6vw,30px)/1.2 var(--head); letter-spacing:-.02em; color:var(--deep); margin:0 0 12px; }
+.rlr .rlr-big b{ color:var(--berry); }
+.rlr .lk-card p{ font-size:16px; line-height:1.5; color:var(--body); }

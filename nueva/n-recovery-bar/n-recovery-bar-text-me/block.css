@@ -1,0 +1,8 @@
+/* nueva/n-recovery-bar/n-recovery-bar-text-me: the drop request page's look (see block.html), with the shared text me pieces. By hand. */
+@import url("../n-recovery-bar-drop-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rlr .rl-paper{ background:var(--fruit); }
+.rlr .rl-btn{ background:var(--deep); color:#fff; border:0; }
+.rlr .rl-btn-2{ background:#fff; color:var(--deep); border:1.5px solid var(--deep); box-shadow:none; }
+[data-tm] .tm-bubble{ font-family:system-ui,-apple-system,sans-serif; }
