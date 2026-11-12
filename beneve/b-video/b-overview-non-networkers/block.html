@@ -1,0 +1,101 @@
+<!--
+  beneve/b-video/b-overview-non-networkers: "Business Overview Video - For Non-Networkers" (Joe, 2026-11-12, in Jeff's DM:
+  "Clone out that funnel ... playing this new Vimeo video"). A clone of beneve/b-video/b-business-overview (now named
+  "Business Overview Video - For Networkers"; read its header for how the reel, the four choices, the alerts and the
+  Text me buttons work), changed in three places only:
+    1. the video is beneve_business_overview_non_networker_video (Joe's "Ben Opp Video - Non Networker", Vimeo
+       1246244129, 2:51, vertical; platform migration 0746);
+    2. every step it opens is its own: /b-overview-non-networkers-customer, -build, -both, -questions, -message and the
+       four -text redirects (step slugs are unique per account, so they can't share the networker page's);
+    3. the cover picture is the networker page's file (same wordmark), not a copy.
+  Its look and script are the networker page's: block.css imports that sheet, block.js is the same file.
+  ⚠️ The four cards follow the networker video's closing ask; Joe asked for a straight clone, so they stay.
+-->
+<div class="rl rl-pf rl-look-calm rv bv bo" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under a photo card -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="The Beneve Opportunity Explained">
+        <div class="rl-in">
+          <img class="lk-photo bv-photo bo-photo bo-wordmark" data-in src="/_p/beneve/b-video/b-business-overview/assets/cover-wordmark.jpg" alt="The Beneve Influencer Opportunity">
+          <span class="lk-tag" data-in style="--d:.05s">3 minute video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="The Beneve Opportunity Explained">The Beneve Opportunity Explained</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, choose your next move.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.beneve_business_overview_non_networker_video}}" data-name="the Beneve overview video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">After watching this video, swipe up and choose your next move</span><span class="rv-on-computer">After watching this video, choose your next move</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the video's four choices -->
+      <section class="rl-p rl-tint rv-ask" aria-label="What's your next move?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">What's your next move?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="customer" data-rv-step="/b-overview-non-networkers-customer" data-pf-quiet data-in style="--d:.2s">
+              <b class="rv-n">01</b><span class="rv-t"><b>I'd like to be a customer</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="build" data-rv-step="/b-overview-non-networkers-build" data-pf-quiet data-in style="--d:.28s">
+              <b class="rv-n">02</b><span class="rv-t"><b>I'd like to build the business</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-rv-step="/b-overview-non-networkers-both" data-pf-quiet data-in style="--d:.36s">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'd like to do both</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="questions" data-rv-step="/b-overview-non-networkers-questions" data-pf-quiet data-in style="--d:.44s">
+              <b class="rv-n">04</b><span class="rv-t"><b>I have a few questions first</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.55s">Results vary. The income results described are not typical and are not a guarantee of your results. <a href="/income-disclosure" style="color:inherit;text-decoration:underline">Income disclosure</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="customer" role="dialog" aria-label="I'd like to be a customer" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>These products are incredible. Text or message <span data-rv-rep>them</span> back now and tell them you'd like to try the products<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested in trying the products. Can you send me the link where I can view the products and purchase?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/b-overview-non-networkers-customer-text" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-overview-non-networkers-message" data-label="Text me: I'd like to be a customer">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="build" role="dialog" aria-label="I'd like to build the business" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This opportunity is amazing for the average person looking to build something real, with an awesome group of people. Text or message <span data-rv-rep>them</span> back now and tell them you're interested in signing up for the business<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested in signing up for the business. Can you send me the link?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/b-overview-non-networkers-build-text" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-overview-non-networkers-message" data-label="Text me: I'd like to build the business">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'd like to do both" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Trying the products and building the business at the same time is a great way to start. Text or message <span data-rv-rep>them</span> back now and tell them you'd like to do both<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'd like to try the products and sign up for the business. Can you send me the links?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/b-overview-non-networkers-both-text" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-overview-non-networkers-message" data-label="Text me: I'd like to do both">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="questions" role="dialog" aria-label="I have a few questions" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Sounds great on having some questions, it's time to ask! Text or message <span data-rv-rep>them</span> back now and tell them you've got some questions<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested, but I have some questions!</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/b-overview-non-networkers-questions-text" data-needs="{{custom_values.beneve_rep_phone}}" data-alt-href="/b-overview-non-networkers-message" data-label="Text me: I have some questions">Text <span data-rv-rep>me</span></a>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
