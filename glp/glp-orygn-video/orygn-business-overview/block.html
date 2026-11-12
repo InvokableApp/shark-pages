@@ -1,0 +1,115 @@
+<!--
+  glp/glp-orygn-video/orygn-business-overview: GLP's BUSINESS OVERVIEW VIDEO - 3 MIN (Joe, 2026-11-12, in Jeff's DM; Jeff:
+  "just do what joe needs"). "Clone the opportunity funnel" (glp/glp-orygn-video/orygn-opportunity-video, left untouched),
+  with Joe's changes:
+    the cover        his "The ORYGN Business Opportunity" picture at the top (like Beneve's Business Overview,
+                     beneve/b-video/b-business-overview), "The ORYGN Opportunity Explained" (was "Here's how this
+                     opportunity works"), "After watching this video, choose your next move." (was "...see if anyone comes
+                     to mind!")
+    the video        https://vimeo.com/1246342884 ("O 3 min opp video", 3:11, vertical), from glp_business_overview_video
+                     (platform migration 0749), on Vimeo as Joe gave it
+    the end screen   Nueva's 3 minute Business Overview (nueva/n-business-overview/n-business-overview-reel-v2): "What's your
+                     next move?" and its four choices, each with its pop-up, the message to copy and Text me. The pop-ups
+                     are Nueva's words (they name no company or product).
+    the look         "a spruced up design ... clean white / silver with the orange and black accents" instead of GLP's green:
+                     this page's own sheet (block.css), white to silver screens, black type and buttons, ORYGN orange.
+
+  EACH CHOICE IS THE REP'S ALERT (0749, as Nueva's 0572 and Beneve's 0721): the tap opens the pop-up and quietly opens the
+  choice's step (/orygn-business-overview-customer, -build, -both, -questions; block.js), and a known lead's view of that
+  step runs its automation: the alert on the rep's phone and email, and on the app's "what to do" screen the message to
+  paste back. The cards are data-pf-quiet so watch.js doesn't also send its own "tapped a button" alert.
+  TEXT ME buttons are redirect steps to a text with the message written, to rep_phone; with no phone they go to the rep's
+  Messenger (/orygn-business-overview-message; [data-needs], reel.js).
+  THE VIDEO'S END: block.js loads Vimeo's player script, fills the bar under the video as it plays and moves the page on to
+  the choices when it ends, as on Beneve's Vimeo pages.
+  THE COVER is media/glp/orygn-business-overview-cover.jpg (Joe's picture, shown whole); it is also the link preview's
+  picture (the first <img>, and the step's seo.image).
+-->
+<div class="rl rl-pf rl-look-calm rv ob" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. SILVER: Joe's picture, then the headline -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="The ORYGN Opportunity Explained">
+        <div class="rl-in">
+          <img class="ob-photo" data-in src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/orygn-business-overview-cover.jpg" alt="The ORYGN Business Opportunity" width="1671" height="941">
+          <span class="lk-tag" data-in style="--d:.05s">3 minute video</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.15s" data-label="The ORYGN Opportunity Explained">The ORYGN <em>Opportunity</em> Explained</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, choose your next move.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. SILVER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.glp_business_overview_video}}" data-name="the business overview video"></div>
+          <div class="lk-bar ob-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">After watching this video, swipe up and choose your next move</span><span class="rv-on-computer">After watching this video, choose your next move</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. WHITE: Nueva's four choices -->
+      <section class="rl-p rl-tint rv-ask" aria-label="What's your next move?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">What's your next move?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="customer" data-rv-step="/orygn-business-overview-customer" data-pf-quiet data-in style="--d:.2s">
+              <b class="rv-n">01</b><span class="rv-t"><b>I'd like to be a customer</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="build" data-rv-step="/orygn-business-overview-build" data-pf-quiet data-in style="--d:.28s">
+              <b class="rv-n">02</b><span class="rv-t"><b>I'd like to build the business</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-rv-step="/orygn-business-overview-both" data-pf-quiet data-in style="--d:.36s">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'd like to do both</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="questions" data-rv-step="/orygn-business-overview-questions" data-pf-quiet data-in style="--d:.44s">
+              <b class="rv-n">04</b><span class="rv-t"><b>I have a few questions first</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.55s">Results vary. The income results described are not typical and are not a guarantee of your results.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="customer" role="dialog" aria-label="I'd like to be a customer" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>These products are incredible. Text or message <span data-rv-rep>them</span> back now and tell them you'd like to try the products<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested in trying the products. Can you send me the link where I can view the products and purchase?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/orygn-business-overview-customer-text" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-business-overview-message" data-label="Text me: I'd like to be a customer">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="build" role="dialog" aria-label="I'd like to build the business" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This opportunity is amazing for the average person looking to build something real, with an awesome group of people. Text or message <span data-rv-rep>them</span> back now and tell them you're interested in signing up for the business<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested in signing up for the business. Can you send me the link?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/orygn-business-overview-build-text" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-business-overview-message" data-label="Text me: I'd like to build the business">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'd like to do both" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>These products are incredible, and this opportunity is amazing for the average person looking to build something real. Text or message <span data-rv-rep>them</span> back now and tell them you'd like to do both<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'd like to try the products and sign up for the business. Can you send me the links?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/orygn-business-overview-both-text" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-business-overview-message" data-label="Text me: I'd like to do both">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="questions" role="dialog" aria-label="I have some questions" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Sounds great on having some questions, it's time to ask! Text or message <span data-rv-rep>them</span> back now and tell them you've got some questions<span data-if-rep hidden> (they've been alerted too, FYI)</span>. Just copy the text below and send it to them wherever you're talking.</p>
+    <p class="rv-say" data-rv-say>Hey <span data-rv-rep>there</span>! I'm interested, but I have some questions!</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copy the message</button>
+    <a class="rv-btn rv-btn-2" href="/orygn-business-overview-questions-text" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-business-overview-message" data-label="Text me: I have some questions">Text <span data-rv-rep>me</span></a>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
