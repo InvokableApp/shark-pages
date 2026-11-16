@@ -1,12 +1,16 @@
-/* nueva/n-opportunity-public/n-opportunity-public-watch-reel (cloned from the trackable link's, n-opportunity-video-reel): the
- * four cards' pop-ups, the rep's name in them, and the video moving the page on to the cards when it ends (see block.html).
- * A card's tap also opens its step in the background: a known lead's view of it is the rep's alert (0613, as 0572). */
+/* nueva/n-opportunity-public/n-opportunity-public-watch-reel (the four-choice version, 2026-11-16; its js is the overviews',
+ * n-business-overview-reel-v2): the four choices' pop-ups, the rep's name in them, each choice's step opened quietly so the
+ * rep's alert runs (0613, 0766), the message copied, and the video moving the page on to the choices when it ends. */
 (function () {
   var root = document.querySelector(".rv");
   if (!root) return;
   var d = {}; try { d = JSON.parse(document.getElementById("pfn-data").textContent); } catch (e) {}
   var first = d.rep && d.rep.first;
-  if (first) [].forEach.call(root.querySelectorAll("[data-rv-rep]"), function (s) { s.textContent = first; });
+  if (first) {
+    [].forEach.call(root.querySelectorAll("[data-rv-rep]"), function (s) { s.textContent = first; });
+    // "They've been alerted": only true when the page knows whose link this is.
+    [].forEach.call(root.querySelectorAll("[data-if-rep]"), function (s) { s.hidden = false; });
+  }
   // The banner: the rep's picture (made on the server, escaped there: rep-avatar.mjs) and name.
   var banner = root.querySelector(".rv-banner");
   if (banner && first) {
@@ -20,7 +24,7 @@
     var card = e.target.closest && e.target.closest("[data-rv]");
     if (card) {
       shut(); open = root.querySelector('[data-rv-pop="' + card.getAttribute("data-rv") + '"]'); if (open) open.hidden = false;
-      // Once per page; the automation is once anyway.
+      // The choice's step: a known lead's view of it is the rep's alert (0572). Once per page, the automation is once anyway.
       var step = card.getAttribute("data-rv-step");
       if (step && !told[step]) {
         told[step] = 1;
@@ -28,11 +32,21 @@
       }
       return;
     }
+    var copy = e.target.closest && e.target.closest("[data-rv-copy]");
+    if (copy) {
+      var say = copy.parentNode.querySelector("[data-rv-say]"), text = say ? say.textContent.replace(/\s+/g, " ").trim() : "";
+      var done = function () { copy.textContent = "Copied! Now paste it to " + (first || "them"); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { pick(say); });
+      else pick(say);
+      return;
+    }
     if (open && (e.target === open || e.target.closest(".rv-x"))) shut();
   });
+  // No clipboard (an old phone or an in-app browser): select the words so the phone's own Copy shows.
+  function pick(el) { try { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); } catch (x) {} }
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 
-  /* The video ends: on to the cards. watch.js makes the <video> after this runs, so wait for it. */
+  /* The video ends: on to the choices. watch.js makes the <video> after this runs, so wait for it. */
   var box = root.querySelector(".rv-video"), tries = 0;
   (function hook() {
     var v = box && box.querySelector("video");
