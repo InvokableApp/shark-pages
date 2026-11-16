@@ -1,0 +1,94 @@
+/* mlm/mlm-greens-breakfast/mlm-greens-breakfast-reel (Marketing Shark | MLM). Built from the Greens at Breakfast reel pages. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/recipe-tin.css");
+
+.rl-gb h3{ font-family:var(--head); font-weight:700; color:var(--ink-blue); letter-spacing:0; line-height:1.05; }
+.rl-gb .rl-night h3{ color:var(--ink-blue); }   
+.rl-gb .lk-card p{ font-size:15px; line-height:1.55; margin-top:10px; }
+.rl-gb .lk-card .rl-eyebrow{ margin-bottom:8px; }
+.rl-gb .lk-card h1,.rl-gb .lk-card h2{ margin-top:0; }
+.rl-gb p b{ color:var(--ink); }
+
+.rl-gb .rl-paper .rl-pills li{ background:var(--card); color:var(--gingham-d); border:1.5px dashed var(--gingham); }
+
+
+.rl-gb .rl-cover .rl-in{ padding-top:34px; }
+.rl-gb .gb-cover-snap{ width:min(46vw,200px); margin:0 auto -14px; }
+.rl-gb .rl-cover h1{ font-size:clamp(33px,9.4vw,42px); }
+.rl-gb .gb-lede{ font-size:14px !important; line-height:1.5 !important; }
+.rl-gb .rl-cover .rl-pills{ margin-top:16px; }
+.rl-gb .rl-cover .rl-pills li{ padding:6px 10px; }
+
+
+.rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(62vw,250px); margin-bottom:-10px; }
+
+
+.rl-gb .gb-rc{ max-width:440px; margin:0 auto; }
+.rl-gb .gb-rc h2{ font-size:clamp(30px,8.4vw,38px); }
+.rl-gb .gb-rc .lk-card-ph{ height:clamp(120px,24vh,200px); max-width:none; margin:-14px -16px 12px; }   
+.rl-gb .gb-rc .lk-tbl th{ white-space:nowrap; }
+.rl-gb .gb-rc .lk-tbl{ font-size:13px; }
+.rl-gb .gb-rc .lk-tbl th{ font-size:10.5px; }
+.rl-gb .gb-good{ font-size:14px !important; }
+
+
+.rl-gb .gb-inside h2{ margin-top:2px; }
+.rl-gb .gb-inlist{ margin-top:18px; align-items:stretch; }
+.rl-gb .gb-inlist > .lk-card{ padding:16px 18px 18px; background-position:0 50px; }
+.rl-gb .gb-inlist h3{ font-size:30px; }
+.rl-gb .gb-inlist p{ color:var(--body); font-size:15px; }
+
+@media (max-width:700px) and (max-height:900px){ .rl-gb .gb-cover-snap{ width:min(38vw,160px); margin-top:10px; } }
+
+@media (max-width:700px) and (max-height:760px){
+  .rl-gb .rl-cover .rl-in{ padding-top:22px; }
+  .rl-gb .gb-cover-snap{ width:min(26vw,104px); padding:5px 5px 14px; margin-top:12px; }
+  .rl-gb .rl-cover h1{ font-size:31px; }
+  .rl-gb .gb-lede{ font-size:13px !important; }
+  .rl-gb .rl-cover .rl-pills{ margin-top:12px; } .rl-gb .rl-cover .rl-pills li{ font-size:11px; padding:5px 8px; }
+  .rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(50vw,200px); }
+  .rl-gb .rl-p h2{ font-size:33px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:96px; }
+  .rl-gb .gb-rc h2{ font-size:29px; }
+  .rl-gb .gb-inlist p{ font-size:14px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-gb .rl-cover .rl-in{ padding-top:14px; }
+  .rl-gb .gb-cover-snap{ display:none; }
+  .rl-gb .rl-cover h1{ font-size:28px; }
+  .rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(40vw,150px); padding:6px 6px 16px; }
+  .rl-gb .rl-p h2{ font-size:29px; }
+  .rl-gb .lk-card p{ font-size:14px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:84px; }
+  .rl-gb .gb-rc h2{ font-size:26px; }
+  .rl-gb .gb-rc .lk-tbl{ font-size:12px; } .rl-gb .gb-rc .lk-tbl td{ padding:2px 0 2px 6px; }
+  .rl-gb .gb-good{ font-size:12.5px !important; margin-top:6px !important; }
+  .rl-gb .gb-inlist h3{ font-size:26px; } .rl-gb .gb-inlist p{ font-size:13px; }
+}
+
+
+@media (min-width:701px){
+  .rl-gb .lk-card p{ font-size:18px; }
+  .rl-gb .rl-in > .lk-snap.rl-art{ width:min(420px,30vw); margin:0; }
+  .rl-gb .gb-cover-snap{ margin:0; }
+  .rl-gb .rl-cover h1{ font-size:clamp(44px,4vw,58px); }
+  .rl-gb .rl-cover .lk-card{ padding:22px 26px 24px; }
+  .rl-gb .gb-lede{ font-size:16px !important; }
+  
+  .rl-gb .gb-recipe .rl-in{ grid-template-columns:minmax(0,1fr); max-width:620px; }
+  .rl-gb .gb-recipe .rl-in > .rl-art{ grid-column:1; }
+  .rl-gb .gb-rc{ max-width:520px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:min(220px,24vh); }
+  .rl-gb .gb-rc .lk-tbl{ font-size:15px; } .rl-gb .gb-rc .lk-tbl th{ font-size:12px; }
+  .rl-gb .gb-good{ font-size:16px !important; }
+  .rl-gb .gb-inlist > *{ flex-basis:31%; }
+  .rl-gb .gb-inlist h3{ font-size:34px; }
+  .rl-gb .gb-inlist p{ font-size:16px; }
+}
+@media (min-width:701px) and (max-height:900px){
+  .rl-gb .rl-in > .lk-snap.rl-art{ width:min(360px,28vw); }
+  .rl-gb .gb-rc .lk-card-ph{ height:150px; }
+}
+
+/* the independence line under the close */
+.rl-gb .mlm-ind{ font-size:11.5px !important; line-height:1.45 !important; margin-top:12px !important; opacity:.8; }

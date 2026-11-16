@@ -1,0 +1,203 @@
+<!--
+  mlm/mlm-swap-quiz/mlm-swap-reel
+  The quiz reel: the lander's screens, the six questions (THE LAST QUESTION'S WORDS ARE THE ROUTING: the form's three
+  endings in 0702 match them word for word, one result each, as the source quiz did), the loader; the dock opens the
+  contact form. Also holds the funnel's shared CSS and JS.
+  Marketing Shark | MLM (company-neutral): "One Swap Per Room" (a 6 question quiz plus a room by room checklist).
+  Built from a home swaps quiz and its 27 swap guide (named in migration 0702). No company, product or brand name
+  anywhere, in the page or in these notes; no "toxic" scare line, no germ-kill number, no disease claim about a
+  chemical. Platform only: migrations 0702 (pages) and 0703 (follow-ups).
+  ⚠️ What came out of the source: the symptom question (tired, mood, weight, cycle), the hormone testing question,
+  "endocrine disruptor" and "working against your hormones" as the hook, and the food resets (a body-clearing claim).
+-->
+<div class="rl rl-look-soft rl-skin rl-skq rl-swq" data-pf-native data-pf-dock="Take The 1 Minute Quiz" data-pf-handoff="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover -->
+      <section class="rl-p rl-photo rl-cover rl-wide" aria-label="One Swap Per Room">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-swap-quiz/_img/hero.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>One Swap Per Room</span>
+          <h1 data-in style="--d:.1s">Take the 1 minute quiz and get <em>your first 3 swaps</em> for a lower-tox home</h1>
+          <p data-in style="--d:.25s">6 quick questions about your kitchen, your laundry and your water. You get your three top swaps, with what to do and when, and a free room by room checklist. Most of it costs nothing.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>About a minute</li><li>6 questions</li><li>Free</li></ul>
+          <p class="rl-note" data-in style="--d:.5s">Your swaps show as soon as you finish.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: what this is about (the source's teaching section, with the hormone framing out) -->
+      <section class="rl-p rl-paper rl-wide skq-pain">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Why small swaps</span>
+          <h2 data-in style="--d:.1s">It's small daily contact you never think about</h2>
+          <p data-in style="--d:.2s">The plastic you reheat lunch in. The coating on a receipt. The word "fragrance" on a label. The dust off your own furniture. Almost none of it is one big exposure.</p>
+          <div class="rl-cards skn-cards" data-in style="--d:.3s">
+            <div class="skn-card"><span class="skn-n">1</span><h3>Heat</h3><p>Warming plastic loosens what's in it, and oily food pulls across more than water does. That's the microwave, the dishwasher and the bottle in a hot car.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>Time on your skin</h3><p>A detergent stays in the fabric against you all day. The hand soap you use twelve times a day adds up to more than the perfume you wear once a month.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>Dust and water</h3><p>What furniture and electronics shed collects in dust. And a hot shower turns some of what's in your water into steam you breathe.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="skq-ask" data-in style="--d:.45s"><strong>You don't have to throw anything out or buy a cabinet full of replacements.</strong> <span class="rl-note">You just need to know which ones to do first.</span></p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: how it works, the source's three lanes with their own pictures -->
+      <section class="rl-p rl-tint rl-wide skq-lanes">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">Answer six questions, get three swaps</h2>
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-swap-quiz/_img/lane-1.jpg" width="1200" height="800" alt="Water poured into a plain glass beside a sprig of rosemary" loading="lazy"><span aria-hidden="true">01</span></figure>
+              <span class="skq-tag">6 questions</span>
+              <h3>What's in your routine</h3>
+              <p>Your kitchen, your laundry, your water, and what you've already changed.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-swap-quiz/_img/lane-2.jpg" width="1200" height="800" alt="Glass storage jars and a potted herb on a simple wooden shelf" loading="lazy"><span aria-hidden="true">02</span></figure>
+              <span class="skq-tag">Your result</span>
+              <h3>Where you are</h3>
+              <p>Just starting, partway, or well on your way.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-swap-quiz/_img/lane-3.jpg" width="1200" height="800" alt="Folded unbleached linen beside a glass bottle of water" loading="lazy"><span aria-hidden="true">03</span></figure>
+              <span class="skq-tag">Your next steps</span>
+              <h3>Three swaps</h3>
+              <p>With what to do and when. Some take a minute.</p>
+            </article>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: the bonus checklist, a card per room -->
+      <section class="rl-p rl-paper rl-wide skq-get">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Free with your result</span>
+          <h2 data-in style="--d:.1s">One swap per room, the free ones first</h2>
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <div class="skn-card"><span class="skn-n">1</span><h3>The kitchen</h3><p>Plate first, container after it cools. Then the pan, the storage and the water.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>The laundry and the bathroom</h3><p>Unscented detergent when it runs out, and the fan on while you shower.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>The living room and the bedroom</h3><p>Shoes off at the door, a damp cloth for the dust, plain cotton on the bed.</p></div>
+            <div class="skn-card"><span class="skn-n">4</span><h3>The car</h3><p>Windows down for a minute before you drive, and the water bottle comes inside.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="rl-note" data-in style="--d:.45s">29 swaps, room by room. Free, and there's no account to make.</p>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: the close, and the note -->
+      <section class="rl-p rl-photo rl-wide skq-close">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-swap-quiz/_img/hero.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>6 questions, about a minute</span>
+          <h2 data-in style="--d:.1s">Answer 6 questions. Get your swaps.</h2>
+          <p data-in style="--d:.2s">It's free, there's no account, and your first swap costs nothing.</p>
+          <p class="rl-note" data-in style="--d:.3s">Your swaps show as soon as you finish.</p>
+          <p class="rl-fine" data-in style="--d:.4s">This quiz is general information about everyday products and habits at home. It is not medical advice and none of it is a diagnosis.</p>
+          <p class="rl-fine mlm-ind" data-in style="--d:.45s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+      <section class="rl-p rl-paper rl-wide" data-qz="mlm_swap_leftovers">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Where do leftovers go at your house?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Plastic tubs, and into the microwave in them"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Plastic tubs, and into the microwave in them</span></button>
+            <button type="button" data-v="Plastic tubs, but I heat them on a plate"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Plastic tubs, but I heat them on a plate</span></button>
+            <button type="button" data-v="Glass or steel"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Glass or steel</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-tint rl-wide" data-qz="mlm_swap_scent">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How many scented things are in your home?</h2>
+          <p data-in style="--d:.18s">Candles, plug-ins, air freshener, dryer sheets.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Most of those"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Most of those</span></button>
+            <button type="button" data-v="One or two"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>One or two</span></button>
+            <button type="button" data-v="None, I went unscented"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>None, I went unscented</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-night rl-wide" data-qz="mlm_swap_laundry">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What do you wash your clothes in?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="A scented detergent, plus dryer sheets"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>A scented detergent, plus dryer sheets</span></button>
+            <button type="button" data-v="A scented detergent"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>A scented detergent</span></button>
+            <button type="button" data-v="Unscented, and no dryer sheets"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Unscented, and no dryer sheets</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-paper rl-wide" data-qz="mlm_swap_water">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What's your drinking water?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Straight from the tap"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Straight from the tap</span></button>
+            <button type="button" data-v="A basic pitcher filter"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>A basic pitcher filter</span></button>
+            <button type="button" data-v="A certified or under-sink filter"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>A certified or under-sink filter</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-tint rl-wide" data-qz="mlm_swap_changed">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What have you already changed?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Nothing yet, I'm just starting to look into this"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Nothing yet, I'm just starting to look into this</span></button>
+            <button type="button" data-v="Some of my food or personal care products"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Some of my food or personal care products</span></button>
+            <button type="button" data-v="A lot, I've been at this a while"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>A lot, I've been at this a while</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-night rl-wide" data-qz="mlm_swap_start">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What would help you most right now?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Show me where to start. I'm not overhauling my whole life."><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Show me where to start. I'm not overhauling my whole life.</span></button>
+            <button type="button" data-v="I've started, but I don't know what matters most."><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>I've started, but I don't know what matters most.</span></button>
+            <button type="button" data-v="I've done a lot. Tell me what most people miss."><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>I've done a lot. Tell me what most people miss.</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- the loader, then the contact slide heading; the dock opens the form -->
+      <section class="rl-p rl-night rl-plain rl-wide qz-proc" data-qz-ready aria-label="Your swaps are ready">
+        <div class="rl-in">
+          <div class="qz-orb" aria-hidden="true"><i></i></div>
+          <div class="qz-stage">
+            <div class="qz-load">
+              <ul class="qz-msgs">
+                <li><b>Reading your answers...</b><span>Sorting the daily ones from the occasional ones</span></li>
+                <li><b>Building your list...</b><span>Putting the free ones first</span></li>
+              </ul>
+              <div class="qz-bar" aria-hidden="true"><i></i></div>
+            </div>
+            <div class="qz-ready">
+              <h2>Your swaps are ready</h2>
+              <p>Enter your details to see your swaps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Take The 1 Minute Quiz</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- THE ROUTING, the same three rules as the form's endings (migration 0702): quiz.js reads it because the page is not
+     sent the form's endings. Change both together. -->
+<script type="application/json" id="mlm-swap-endings">[{"to": "/mlm-swap-starting-result", "when": [{"op": "eq", "field": "mlm_swap_start", "value": "Show me where to start. I'm not overhauling my whole life."}]}, {"to": "/mlm-swap-partway-result", "when": [{"op": "eq", "field": "mlm_swap_start", "value": "I've started, but I don't know what matters most."}]}, {"to": "/mlm-swap-advanced-result", "when": [{"op": "eq", "field": "mlm_swap_start", "value": "I've done a lot. Tell me what most people miss."}]}]</script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/mlm/mlm-swap-quiz/mlm-swap-reel/quiz.js?v=1" defer></script>

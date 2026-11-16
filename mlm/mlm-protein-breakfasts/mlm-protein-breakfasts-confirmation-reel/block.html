@@ -1,0 +1,93 @@
+<!--
+  mlm/mlm-protein-breakfasts/mlm-protein-breakfasts-confirmation-reel
+  The 30g Protein Breakfasts confirmation as a REEL, after its opt-in reel. Four screens, platform only: the step
+  /mlm-protein-breakfasts-confirmation points here (platform migration 0672).
+  ⚠️ EVERY WORD IS THE APPROVED DRAFT'S `after` (MLMSHARK/wave1/nutrition-a.json, pro-conf-*) with Jeff's 2026-11-10
+     decisions: the product step names the thing plainly ("the protein I recommend"), never a brand or an offer
+     (brain/mlm.md, PAGE-COPY-SOP rule 14); "what I use" is "what I recommend".
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "PRODUCT INFO" to the rep, on Facebook or by text, for more info.
+     data-pf-say is the message the lead sends; the dock and every [data-pf-ask] open the card. Facebook goes through the
+     /mlm-protein-breakfasts-redirect-dm step (its view is the rep's alert, 0673); the text is an sms: link with the words in it.
+  ⚠️ THE SHOP LINK SHOWS ONLY WHEN THE REP SET ONE (decision dec-product-step): [data-needs] on mlm_buy_link hides it
+     otherwise. It goes through /mlm-protein-breakfasts-redirect (its view is the fire alert, 0673).
+  No product picture: a breakfast photo sits where the old page showed products.
+-->
+<div class="rl rl-pf rlc" data-pf-native data-pf-message="for more info" data-pf-say="PRODUCT INFO" data-pf-arrive="#f6f2ea">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: check your inbox. The page rises out of the cream the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Check your inbox</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your recipe guide is being emailed to you. Give it 2 minutes 📬</h1>
+          <p data-in style="--d:.3s">We've sent the 30g Protein Breakfasts guide to your email. It should arrive within the next two minutes.
+            If you don't see it, please check your Promotions, Updates, or Spam folder as it could be there!</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/mlm-protein-breakfasts-read">Access the free guide now</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for more info from {{custom_values.mlm_rep_first_name}}</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: by the way. A breakfast for a busy morning. -->
+      <section class="rl-p rl-night rlc-products">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>By the way</span>
+          <img class="rlc-pack rl-art" data-in style="--d:.1s" src="/_p/mlm/mlm-protein-breakfasts/mlm-protein-breakfasts-reel/assets/oats.webp"
+               width="1100" height="733" alt="Peanut butter protein overnight oats in a jar" loading="lazy">
+          <h2 data-in style="--d:.25s">Looking for an easy way to hit your protein on busy mornings?</h2>
+          <p data-in style="--d:.35s">Eating enough protein while living a busy life isn't always easy. 😞 I can send you more info on the protein I recommend for the mornings there's no time to cook.</p>
+          <a class="rl-btn rlc-go" data-in style="--d:.45s" data-pf-ask href="/mlm-protein-breakfasts-redirect-dm">Yeah... send me more info! 👀</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: want more info? The rep's own picture, big, with the check, and the ask. -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want more info on the protein I recommend? ✅</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} on Facebook now!</h2>
+          <p data-in style="--d:.3s">I'll send you more information and answer any questions you have.</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-protein-breakfasts-redirect-dm">💬 Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-protein-breakfasts-redirect">🛒 Visit my shop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: something to do today, from the guide -->
+      <section class="rl-p rl-photo rl-wide rlc-today">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-protein-breakfasts/mlm-protein-breakfasts-reel/assets/flatlay.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Start today</span>
+          <h2 data-in style="--d:.1s">Three quick habits that make this work</h2>
+          <ol class="rlc-habits">
+            <li data-in style="--d:.25s"><span>1</span><div>Anchor every meal with a protein you can see (chicken, eggs, fish, beef, beans, Greek yogurt).</div></li>
+            <li data-in style="--d:.4s"><span>2</span><div>Aim for a palm to a palm and a half of protein per person, per meal.</div></li>
+            <li data-in style="--d:.55s"><span>3</span><div>Drink water with every meal. A quiet appetite can also be a quiet thirst.</div></li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.7s">The information in this guide is for educational and informational purposes only and is not medical,
+            nutritional, diagnostic, or treatment advice. We are not physicians, medical professionals, registered dietitians, or
+            licensed healthcare providers. This content is not a substitute for professional advice. Consult your physician or a
+            qualified healthcare provider before beginning any nutrition, diet, or wellness program, especially if you have an
+            existing medical condition. These are general recipe suggestions. Results vary from person to person. We make no
+            guarantees regarding weight loss, muscle retention, or any other outcome.</p>
+          <p class="rl-fine" data-in style="--d:.75s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window with the rep (reel.js). -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for more info" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-protein-breakfasts-redirect-dm">Message me for more info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

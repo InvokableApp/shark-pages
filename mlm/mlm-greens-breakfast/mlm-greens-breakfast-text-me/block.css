@@ -1,0 +1,7 @@
+/* mlm/mlm-greens-breakfast/mlm-greens-breakfast-text-me (Marketing Shark | MLM). Built from the Greens at Breakfast reel pages. */
+@import url("../mlm-greens-breakfast-list-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   
+.rlr .rl-btn{ background:var(--redline); color:#fff; border:0; }
+.rlr .rl-btn-2{ background:var(--card); color:var(--redline-d); border:1.5px solid var(--redline); box-shadow:none; }
+[data-tm] .tm-bubble{ font-family:system-ui,-apple-system,sans-serif; }

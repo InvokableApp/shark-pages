@@ -1,0 +1,5 @@
+/* mlm/mlm-feed-your-gut/mlm-feed-your-gut-fermented: the Fermented Foods Starter Guide read online, in the read page's look. */
+@import url("../mlm-feed-your-gut-read/block.css");
+.ff-list h3{ font:400 21px/1.25 "Zilla Slab",Georgia,serif; color:var(--navy); margin:22px 0 6px; }
+.ff-list h3 span{ display:inline-block; margin-left:8px; padding:3px 8px; border:1.5px solid var(--gold); color:var(--gold); font:700 11px/1.2 "Libre Franklin",sans-serif; letter-spacing:.08em; text-transform:uppercase; vertical-align:3px; }
+.ff-more{ display:inline-block; margin-top:6px; padding:15px 22px; border-radius:3px; background:var(--gold-lt); color:var(--navy-deep) !important; font:700 16.5px/1.2 "Libre Franklin",sans-serif; text-decoration:none; }

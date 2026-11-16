@@ -1,0 +1,207 @@
+<!--
+  mlm/mlm-midlife-check/mlm-midlife-reel
+  The quiz reel: the lander's screens, the six questions (THE OPTION WORDS ARE THE ROUTING: the form's endings in 0700
+  match them word for word), the loader; the dock opens the contact form. Also holds the funnel's shared CSS and JS.
+  Marketing Shark | MLM (company-neutral): "The Midlife Energy Check" (a 6 question quiz). Built from a midlife guide
+  (its self-check, daily routine and habits) and a lunch guide (its 10 lunches); the sources are named in migration 0700.
+  No company or product name anywhere, in the page or in these notes. Platform only: migrations 0700 and 0701.
+  ⚠️ What came out of the sources: the hormone "shifts" page, the self-check's symptom and weight lines, the testimonials
+  (a weight number, a before and after), the author and her links, and every product. The questions ask about her week
+  in plain words; no answer is treated as a symptom, and no result names a condition.
+-->
+<div class="rl rl-look-soft rl-skin rl-skq rl-midq" data-pf-native data-pf-dock="Take The Energy Check" data-pf-handoff="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover -->
+      <section class="rl-p rl-photo rl-cover rl-wide" aria-label="The Midlife Energy Check">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-midlife-check/_img/hero-woman-wide.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The Midlife Energy Check</span>
+          <h1 data-in style="--d:.1s">Sleep, energy, strength or skin: <em>find out which to work on first</em></h1>
+          <p data-in style="--d:.25s">6 questions about your nights, your mornings and your afternoons, and you get a free plan built around your answers: where to start, five habits in the order to do them, and a bonus guide of 10 packable lunches. Most of it costs nothing.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>About a minute</li><li>6 questions</li><li>Free, no account</li></ul>
+          <p class="rl-note" data-in style="--d:.5s">Your plan shows as soon as you finish.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: sound familiar, from the guide's "Sound familiar?" and the lunch guide's 3pm crash -->
+      <section class="rl-p rl-paper rl-wide skq-pain">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Sound familiar?</span>
+          <h2 data-in style="--d:.1s">Stop calling it getting older</h2>
+          <p data-in style="--d:.2s">A lot of how you feel after 40 comes down to a few everyday habits, and they can change. The check shows you which one to start with.</p>
+          <div class="rl-cards skn-cards" data-in style="--d:.3s">
+            <div class="skn-card"><span class="skn-n">1</span><h3>Tired in the morning, wired at night</h3><p>You wake up tired and go to bed wired. You're up at 3am, and the day starts before you've slept.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>The 3pm crash</h3><p>A lunch that is mostly carbs lifts you and drops you an hour later, and then the cravings start.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>Doing what used to work</h3><p>Same food, same walks, and your body doesn't answer the way it did five years ago.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 3. TINT: what the check looks at, four lanes with their own pictures -->
+      <section class="rl-p rl-tint rl-wide skq-lanes">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What the check looks at</span>
+          <h2 data-in style="--d:.1s">Four things, and you only start with one</h2>
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-midlife-check/_img/3am.webp" width="799" height="1200" alt="A woman sitting on the edge of her bed at night, looking out of the window" loading="lazy"><span aria-hidden="true">01</span></figure>
+              <span class="skq-tag">Your nights</span>
+              <h3>Sleep</h3>
+              <p>When you fall asleep, when you wake, and what the last hour of your evening looks like.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-midlife-check/_img/lunch-1.webp" width="900" height="600" alt="A packed lunch of chicken, red cabbage, kale and almonds in a glass container" loading="lazy"><span aria-hidden="true">02</span></figure>
+              <span class="skq-tag">Your afternoons</span>
+              <h3>Energy</h3>
+              <p>The 3pm dip, the cravings, and the meals you skip without noticing.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-midlife-check/_img/window.webp" width="1200" height="800" alt="A woman holding a mug at a sunny kitchen window in the morning" loading="lazy"><span aria-hidden="true">03</span></figure>
+              <span class="skq-tag">Your mornings</span>
+              <h3>Protein and strength</h3>
+              <p>What breakfast is, and how strong you feel. If you aren't building muscle, you're slowly losing it.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/mlm/mlm-midlife-check/_img/lane-surface.webp" width="1000" height="1000" alt="Beads of water on a matte cream ceramic surface in warm light" loading="lazy"><span aria-hidden="true">04</span></figure>
+              <span class="skq-tag">Your mirror</span>
+              <h3>Skin</h3>
+              <p>Whether it looks tired, even after a good night's sleep.</p>
+            </article>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="skq-ask" data-in style="--d:.45s"><strong>So which one comes first for you?</strong> <span class="rl-note">The check works it out in about a minute.</span></p>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: what you get at the end -->
+      <section class="rl-p rl-paper rl-wide skq-get">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What you get at the end</span>
+          <h2 data-in style="--d:.1s">A plan, in the order to do it</h2>
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <div class="skn-card"><span class="skn-n">1</span><h3>Where to start</h3><p>The one area your answers point at, and what else plays a part.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>Five habits, all free</h3><p>From ten minutes of morning daylight to protein at breakfast. One at a time, so you can tell what each one did.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>10 packable lunches</h3><p>A free bonus guide of lunches built on protein and fiber, packed the night before.</p></div>
+            <div class="skn-card"><span class="skn-n">4</span><h3>Where a product fits in</h3><p>Products come last, after the free plan. They're optional, and the plan works without them.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 of 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="rl-note" data-in style="--d:.45s">All of it as soon as you finish. Free, and there's no account to make.</p>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: the close, and the disclaimer -->
+      <section class="rl-p rl-photo rl-wide skq-close">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-midlife-check/_img/window.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>6 questions, about a minute</span>
+          <h2 data-in style="--d:.1s">Answer 6 questions. Get your plan.</h2>
+          <p data-in style="--d:.2s">It's free, there's no account, and you can start tomorrow morning without buying a thing.</p>
+          <p class="rl-note" data-in style="--d:.3s">Your plan shows as soon as you finish.</p>
+          <p class="rl-fine" data-in style="--d:.4s">This check is for educational and informational purposes only. It is not medical advice and it is not a diagnosis. If you are pregnant, nursing, taking medication or have a medical condition, talk to your healthcare provider before changing your routine or adding a supplement.</p>
+          <p class="rl-fine mlm-ind" data-in style="--d:.45s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+      <section class="rl-p rl-paper rl-wide" data-qz="mlm_midlife_nights">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How are your nights?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="I wake at 2 or 3am and can't get back to sleep"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>I wake at 2 or 3am and can't get back to sleep</span></button>
+            <button type="button" data-v="I'm wired at bedtime and tired when I wake up"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>I'm wired at bedtime and tired when I wake up</span></button>
+            <button type="button" data-v="I sleep well most nights"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>I sleep well most nights</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-tint rl-wide" data-qz="mlm_midlife_mornings">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What's breakfast, most days?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Coffee, or nothing"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Coffee, or nothing</span></button>
+            <button type="button" data-v="Toast, cereal or a bar"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Toast, cereal or a bar</span></button>
+            <button type="button" data-v="Eggs, yogurt or something with protein"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Eggs, yogurt or something with protein</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-night rl-wide" data-qz="mlm_midlife_afternoons">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What happens around 3pm?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="I crash, and want something sweet"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>I crash, and want something sweet</span></button>
+            <button type="button" data-v="I dip a little"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>I dip a little</span></button>
+            <button type="button" data-v="I'm fine"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>I'm fine</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-paper rl-wide" data-qz="mlm_midlife_strength">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How does your body feel carrying groceries or taking the stairs?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Weaker or stiffer than it used to"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Weaker or stiffer than it used to</span></button>
+            <button type="button" data-v="About the same as ever"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>About the same as ever</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-tint rl-wide" data-qz="mlm_midlife_skin">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">When you look in the mirror, your skin looks...</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Tired, even after a good night"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Tired, even after a good night</span></button>
+            <button type="button" data-v="Drier than it used to"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Drier than it used to</span></button>
+            <button type="button" data-v="About the same as ever"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>About the same as ever</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="rl-p rl-night rl-wide" data-qz="mlm_midlife_first">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">If one thing got better this month, which would you pick?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="My sleep"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>My sleep</span></button>
+            <button type="button" data-v="My energy"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>My energy</span></button>
+            <button type="button" data-v="Feeling strong"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Feeling strong</span></button>
+            <button type="button" data-v="My skin"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.3L12 3z"/></svg><span>My skin</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- the loader, then the contact slide heading; the dock opens the form -->
+      <section class="rl-p rl-night rl-plain rl-wide qz-proc" data-qz-ready aria-label="Your plan is ready">
+        <div class="rl-in">
+          <div class="qz-orb" aria-hidden="true"><i></i></div>
+          <div class="qz-stage">
+            <div class="qz-load">
+              <ul class="qz-msgs">
+                <li><b>Reading your answers...</b><span>Your nights, your mornings and your afternoons</span></li>
+                <li><b>Building your plan...</b><span>Putting the free habits first</span></li>
+              </ul>
+              <div class="qz-bar" aria-hidden="true"><i></i></div>
+            </div>
+            <div class="qz-ready">
+              <h2>Your plan is ready</h2>
+              <p>Enter your details to see your plan.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Take The Energy Check</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- THE ROUTING LADDER, the same ten rules as the form's endings (migration 0700): quiz.js reads it because the page is
+     not sent the form's endings. Change both together. -->
+<script type="application/json" id="mlm-midlife-endings">[{"to": "/mlm-midlife-sleep-result", "when": [{"op": "eq", "field": "mlm_midlife_nights", "value": "I wake at 2 or 3am and can't get back to sleep"}]}, {"to": "/mlm-midlife-sleep-result", "when": [{"op": "eq", "field": "mlm_midlife_nights", "value": "I'm wired at bedtime and tired when I wake up"}, {"op": "eq", "field": "mlm_midlife_first", "value": "My sleep"}]}, {"to": "/mlm-midlife-energy-result", "when": [{"op": "eq", "field": "mlm_midlife_afternoons", "value": "I crash, and want something sweet"}, {"op": "eq", "field": "mlm_midlife_mornings", "value": "Coffee, or nothing"}]}, {"to": "/mlm-midlife-protein-result", "when": [{"op": "eq", "field": "mlm_midlife_strength", "value": "Weaker or stiffer than it used to"}, {"op": "eq", "field": "mlm_midlife_first", "value": "Feeling strong"}]}, {"to": "/mlm-midlife-skin-result", "when": [{"op": "eq", "field": "mlm_midlife_first", "value": "My skin"}]}, {"to": "/mlm-midlife-energy-result", "when": [{"op": "eq", "field": "mlm_midlife_afternoons", "value": "I crash, and want something sweet"}]}, {"to": "/mlm-midlife-protein-result", "when": [{"op": "eq", "field": "mlm_midlife_strength", "value": "Weaker or stiffer than it used to"}]}, {"to": "/mlm-midlife-sleep-result", "when": [{"op": "eq", "field": "mlm_midlife_first", "value": "My sleep"}]}, {"to": "/mlm-midlife-energy-result", "when": [{"op": "eq", "field": "mlm_midlife_first", "value": "My energy"}]}, {"to": "/mlm-midlife-protein-result", "when": [{"op": "eq", "field": "mlm_midlife_first", "value": "Feeling strong"}]}]</script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/mlm/mlm-midlife-check/mlm-midlife-reel/quiz.js?v=1" defer></script>

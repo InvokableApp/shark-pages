@@ -1,0 +1,82 @@
+/* mlm/mlm-caffeine-curve/mlm-caffeine-curve-result (Marketing Shark | MLM): the result. The funnel's look is the reel's sheet. */
+@import url("../mlm-caffeine-curve-reel/block.css");
+
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rl-ccr [hidden]{ display:none !important; }
+.rl-ccr .ccr-big{ display:flex; align-items:baseline; gap:8px; }
+.rl-ccr .ccr-big small{ font:500 14px "JetBrains Mono",monospace; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); }
+.rl-ccr .ccr-unit{ font-size:15px !important; margin-top:6px !important; }
+.ccr-chart{ position:relative; margin:16px 0 0; height:110px; }
+.ccr-chart svg{ width:100%; height:100%; display:block; overflow:visible; }
+.ccr-chart .ax{ stroke:var(--ink); stroke-width:1.5; opacity:.35; vector-effect:non-scaling-stroke; }
+.ccr-chart .bed{ stroke:var(--orange); stroke-width:1.5; stroke-dasharray:4 4; vector-effect:non-scaling-stroke; }
+.ccr-chart .ln{ fill:none; stroke:var(--ink); stroke-width:3; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+.ccr-chart .alt{ fill:none; stroke:var(--orange); stroke-width:2.2; stroke-dasharray:6 5; vector-effect:non-scaling-stroke; }
+.ccr-bedlab{ position:absolute; top:-6px; transform:translateX(-104%); font:500 10.5px "JetBrains Mono",monospace; color:var(--orange); white-space:nowrap; }
+.ccr-key{ display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px !important; margin-top:8px !important; color:var(--grey) !important; }
+.ccr-k{ display:inline-block; width:16px; height:0; border-top:3px solid var(--ink); margin-right:6px; vertical-align:3px; }
+.ccr-k-alt{ border-top:2px dashed var(--orange); }
+.ccr-facts{ margin-top:14px; }
+.ccr-facts div{ font-size:19px; }
+.rl-ccr .ccr-band{ font-size:clamp(22px,6.2vw,27px); margin-top:18px; line-height:1.05; }
+.rl-ccr .ccr-body{ font-size:14.5px !important; margin-top:8px !important; }
+.ccr-clock{ margin-top:6px; }
+.rl-ccr .ccr-warn{ margin-top:16px !important; padding:13px 15px; border-radius:6px; background:rgba(255,255,255,.12); font-size:14.5px !important; }
+.ccr-shot{ margin:0 0 16px; width:96px; height:96px; border-radius:6px; overflow:hidden; }
+.ccr-shot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.ccr-btns{ display:flex; flex-direction:column; gap:10px; margin-top:22px; }
+.rl-ccr .rl-btn{ display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:6px; background:var(--ink); color:#fff; border:0; }
+.rl-ccr .ccr-ask .rl-btn{ background:var(--orange); color:#fff; }
+.rl-ccr .ccr-ask .rl-btn-2{ background:transparent; color:var(--on-dark); border:1.5px solid rgba(243,241,236,.45); }
+.rl-ccr .rl-paper .rl-btn-2{ background:#fff; color:var(--ink); border:1.5px solid var(--ink); }
+.rl-ccr .ccr-by{ font-size:13px !important; color:rgba(243,241,236,.6) !important; margin-top:12px !important; }
+.rl-ccr .lk-list{ margin-top:16px; }
+.rl-ccr .ccr-method .rl-in{ padding-top:40px; }
+.rl-ccr .ccr-method .rl-fine{ margin-top:16px !important; font-size:11px !important; line-height:1.45 !important; color:var(--grey) !important; }
+.ccr-again{ margin-top:16px; }
+
+/* THE CLAIM POPUP (the wave 1 confirmation reels'), in the log look */
+.rlt-pill{ display:inline-block; font:700 13.5px var(--sans); padding:8px 14px; border-radius:4px; background:var(--tint); color:var(--ink); }
+.rlt-claim{ position:fixed; inset:0; z-index:50; display:flex; align-items:flex-end; justify-content:center;
+  padding:12px 12px calc(12px + env(safe-area-inset-bottom,0px)); background:rgba(18,18,18,0); transition:background-color .3s; }
+.rlt-claim[hidden]{ display:none; }
+.rlt-claim.is-open{ background:rgba(18,18,18,.6); }
+.rlt-claim-card{ position:relative; width:100%; max-width:460px; max-height:calc(100svh - 24px); overflow-y:auto; border-radius:10px;
+  padding:28px 22px 18px; background:var(--bone); color:var(--ink); box-shadow:0 24px 60px -12px rgba(0,0,0,.5);
+  transform:translateY(110%); transition:transform .4s cubic-bezier(.2,.8,.2,1); font-family:var(--sans); }
+.rlt-claim.is-open .rlt-claim-card{ transform:none; }
+.rlt-claim .rlt-pill{ margin-bottom:14px; }
+.rlt-claim p{ margin:14px 0 0; font-size:16.5px; line-height:1.5; color:var(--body); }
+.rlt-claim p b{ color:var(--ink); }
+.rlt-claim .rlt-claim-big{ margin:0; font-family:var(--head); font-weight:800; font-size:clamp(21px,5.8vw,25px); line-height:1.2; letter-spacing:-.02em; color:var(--ink); }
+.rlt-claim .rlt-claim-big b{ color:var(--orange); }
+.rlt-claim-sms{ padding:14px 16px; border-radius:6px; background:var(--tint); }
+.rlt-claim-num{ font-weight:700; color:var(--orange); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
+.rlt-claim-num-plain{ text-decoration:none; color:var(--ink); }
+.rlt-claim-x{ position:absolute; top:12px; right:12px; width:36px; height:36px; display:grid; place-items:center; border:0; border-radius:50%; background:var(--tint); color:var(--ink); cursor:pointer; }
+.rlt-claim-x svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; }
+.rlt-claim .rlt-claim-ok{ display:block; width:100%; margin-top:18px; padding:15px 24px; background:var(--ink); border:0; border-radius:6px; color:#fff; font:700 16px var(--sans); text-align:center; cursor:pointer; }
+
+@media (max-width:700px) and (max-height:760px){
+  .rl-ccr .ccr-big{ font-size:76px; } .ccr-chart{ height:84px; margin-top:12px; } .ccr-facts div{ font-size:17px; }
+  .rl-ccr .ccr-band{ margin-top:12px; font-size:21px; } .rl-ccr .ccr-body{ font-size:13.5px !important; }
+  .rl-ccr .lk-list > div{ padding:8px 0; font-size:13.5px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-ccr .ccr-big{ font-size:60px; } .ccr-chart{ height:64px; } .ccr-key{ display:none; } .ccr-shot{ display:none; }
+  .rl-ccr .ccr-body{ font-size:12.5px !important; } .ccr-facts div{ font-size:15px; } .ccr-facts{ margin-top:10px; }
+  .rl-ccr .ccr-method .rl-in{ padding-top:20px; } .rl-ccr .lk-list > div{ font-size:12.5px; padding:6px 0; }
+}
+@media (min-width:701px){
+  .ccr-chart{ height:170px; max-width:720px; } .ccr-key,.ccr-facts{ max-width:720px; }
+  .rl-ccr .ccr-body{ font-size:18px !important; max-width:40em; }
+  .ccr-btns{ flex-direction:row; max-width:720px; } .ccr-btns .rl-btn{ flex:1; }
+  .ccr-shot{ width:120px; height:120px; }
+  .rlt-claim{ align-items:center; }
+  .rlt-claim-card{ max-width:520px; padding:36px 34px 26px; transform:translateY(24px); opacity:0; transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s; }
+  .rlt-claim.is-open .rlt-claim-card{ opacity:1; }
+  .rlt-claim .rlt-claim-big{ font-size:28px; }
+}
+@media (prefers-reduced-motion:reduce){ .rlt-claim-card{ transition:none; } }
+.rl-ccr .ccr-facts{ column-gap:14px; }
+.rl-ccr .ccr-facts small{ line-height:1.3; }

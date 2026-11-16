@@ -1,0 +1,34 @@
+<!--
+  mlm/mlm-no-crash-plan/mlm-no-crash-plan-text-me
+  Where the "text me" buttons in this campaign's emails and on the read-online guide go (REEL-PAGE-SOP §The email's text
+  me page). The lead's message is written for them; one tap texts it to the rep, or it goes by Messenger through the
+  copy-the-message card. _shared/text-me/v1 does the work. Marketing Shark | MLM (company-neutral). Converted from the No
+  Crash Plan text me page: the supplement guide and discount code are gone, the ask is more info on the energy supplement
+  the rep recommends.
+  ⚠️ ITS VIEW IS AN ALERT: the step /mlm-no-crash-plan-text-me starts "MLM - The No Crash Plan - Text Me" (migration 0683),
+  which tags the lead hot and tells the rep to look for their text, with the reply ready. Platform only. No company or
+  product name anywhere.
+-->
+<div class="rl rlr rlr-ncp" data-pf-native data-tm data-pf-arrive="#faf9f5"
+  data-pf-say="Hey {first}, I downloaded the No Crash Plan, can you send me more info on the energy supplement you recommend?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <h1 class="rlr-big" data-in>Text me<span data-if-name>, {{contact.first_name}},</span> and I'll send you <b>more info on the energy supplement I recommend</b>.</h1>
+          <p data-in style="--d:.1s">The message is written for you. Tap send and it comes straight to me.</p>
+          <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}">💬 Send it as a text</a>
+            <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.mlm_rep_messenger}}" href="https://{{custom_values.mlm_rep_messenger}}">Message me on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-no-crash-plan-shop">See it in my shop</a>
+          </div>
+          <p class="tm-desk" data-tm-desk hidden>Or text it to <b data-tm-num>{{custom_values.mlm_rep_sms}}</b> from your phone.</p>
+          <p class="rl-fine mlm-ind">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

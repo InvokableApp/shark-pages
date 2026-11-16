@@ -1,0 +1,91 @@
+<!--
+  mlm/mlm-business-works/mlm-business-works-reel: HOW THIS KIND OF BUSINESS WORKS, the opportunity video as a reel, for
+  Marketing Shark | MLM (Jeff, 2026-11-10). PLATFORM ONLY: the platform's /mlm-business-works step points here (platform
+  migration 0670). Copied from nueva/n-opportunity-video/n-opportunity-video-reel: Joe's cover, his four "who comes to
+  mind" cards and pop-ups, with the words from MLMSHARK/wave1/opportunity.json (`after`). No company or product name.
+  THE VIDEO is mlm_opportunity_video (and its still, mlm_opportunity_video_poster), both EMPTY until Joe records his
+  company-neutral video (Jeff, 2026-11-10). While it is empty watch.js shows "Video coming soon" in the frame and the
+  page still works: the cards and their texts don't need the video. No other system's video is used here.
+  The pill says "1 minute video": change it to the real length when the video lands.
+  TEXT ME buttons are redirect steps to a text with the message written (/mlm-business-works-try, -refer, -both); with no
+  texting number they go to the rep's Messenger (/mlm-business-works-message).
+  The rep sends it as a personal link and hears who opened it, how much they watched and which card they tapped (watch.js).
+  ⚠️ "We've let {rep} know" is only true for a personal link: a stranger's tap reports to no one.
+-->
+<div class="rl rl-mlmv rv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: the headline -->
+      <section class="rl-p rl-night rl-cover rv-cover" aria-label="Here's how this opportunity works">
+        <div class="rl-in">
+          <span class="rv-pill" data-in>1 minute video</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
+          <h1 data-in style="--d:.1s" data-label="Here's how this opportunity works">Here's how this opportunity works.</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">After watching this video, see if anyone comes to mind!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe up to watch the video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video (empty until Joe's company-neutral video lands) -->
+      <section class="rl-p rl-night rv-watch" aria-label="The video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.mlm_opportunity_video}}" data-poster="{{custom_values.mlm_opportunity_video_poster}}" data-name="the opportunity video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">After watching this video, swipe up and let us know who comes to mind</span><span class="rv-on-computer">After watching this video, let us know who comes to mind</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: who comes to mind (Joe's four buttons, his Trackable link funnel edits doc, 2026-10-16) -->
+      <section class="rl-p rl-paper rv-ask" aria-label="Who comes to mind?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>After seeing this video&hellip;</span>
+          <h2 data-in style="--d:.1s">Who comes to mind?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
+              <b class="rv-n">01</b><span class="rv-t"><b>I'm interested myself</b><small>I'd be interested in learning more about this. Tell me more&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>I may know someone</b><small>Someone comes to mind that might be interested&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>I'm interested + may know someone</b><small>I'm open to hearing more about this + may know someone&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Not interested / don't know anyone</b><small>Not really sure I can help you out here&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.55s">{{custom_values.mlm_independence_line}} {{custom_values.mlm_income_disclaimer}} <a href="https://{{custom_values.mlm_income_disclosure_url}}" style="color:inherit;text-decoration:underline">Income disclosure</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="I'm interested myself" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity. Text <span data-rv-rep>me</span> back right now and ask for the details so you can see exactly how it works!</p>
+    <a class="rv-btn" href="/mlm-business-works-try" data-needs="{{custom_values.mlm_rep_sms}}" data-alt-href="/mlm-business-works-message" data-label="Text me: tell me how it works">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="I know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity for someone who's looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know who comes to mind!</p>
+    <a class="rv-btn" href="/mlm-business-works-refer" data-needs="{{custom_values.mlm_rep_sms}}" data-alt-href="/mlm-business-works-message" data-label="Text me: someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="I'm interested and may know someone" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">That's awesome<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>This is a really cool opportunity for someone who's looking for a great side hustle. Text <span data-rv-rep>me</span> back right now and let them know that both you and someone you know may be interested in learning more!</p>
+    <a class="rv-btn" href="/mlm-business-works-both" data-needs="{{custom_values.mlm_rep_sms}}" data-alt-href="/mlm-business-works-message" data-label="Text me: I'm interested and someone came to mind">Text <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Not interested" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Close">&times;</button>
+    <p class="rv-pop-h">Thanks for your time<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>We've let <span data-rv-rep>them</span> know that you're not interested and don't have anyone to refer at this time.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

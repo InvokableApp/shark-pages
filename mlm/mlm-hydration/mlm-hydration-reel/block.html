@@ -1,0 +1,134 @@
+<!--
+  mlm/mlm-hydration/mlm-hydration-reel
+  How Much Should You Drink Today: the calculator's opt-in reel. Look: Clinical calm. Marketing Shark | MLM
+  (company-neutral). Converted from the teen athlete hydration check (a GHL scrolling lander and a 240-rule survey) and
+  rebuilt as a reel for ADULTS: the lead answers four questions on the reel's own screens (weight, how long they sweat,
+  how hot it is, what they drink now), the dock opens the contact form, and the result page shows their number.
+  THE ANSWERS: quiz.js keeps them in window.__pfExtra (they ride along with the form: contacts.custom mlm_hy_*), works the
+  number out with calc.js (the one copy of the arithmetic) and sets the form's next step to the result page with the
+  answers in the address (?w=&s=&h=&d=). The email's "see your number again" link uses the same address
+  ({{contact.mlm_hy_q}}).
+  Every number is framed as an estimate, "not medical advice". No product, no condition named as a claim. The teen
+  photos are not used (this version is for adults): the pictures are the source's kitchen photo and the Recovery Bar's
+  drinks. Platform only: the step points here (migration 0684). No company or product name anywhere.
+-->
+<div class="rl rl-look-calm rl-hyd" data-pf-native data-pf-dock="Start the 4 question check" data-pf-handoff="#F7FAFC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover -->
+      <section class="rl-p rl-photo rl-cover rl-wide" aria-label="How Much Should You Drink Today">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-hydration/_img/kitchen.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How Much Should You Drink Today</span>
+          <h1 data-in style="--d:.1s">Answer 4 questions and see <em>how much</em> you should be drinking today</h1>
+          <p data-in style="--d:.25s">Tell us your size, how long you sweat and how hot it is, and we'll work out the water a day like that uses, and the salt your sweat takes with it.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>4 questions</li><li>About a minute</li><li>Free</li></ul>
+          <p class="rl-note" data-in style="--d:.5s">An estimate, not medical advice. Your number shows as soon as you finish.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: why it's easy to miss (the source's two columns) -->
+      <section class="rl-p rl-paper hy-why">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Why it's easy to miss</span>
+          <h2 data-in style="--d:.1s">Sweat doesn't only take the water out</h2>
+          <p data-in style="--d:.2s">It takes sodium, potassium and magnesium with it, and the hotter the day, the more of them go.</p>
+          <div class="lk-cardrow hy-rows" data-in style="--d:.3s">
+            <div><b>Water puts the volume back</b><span>Drink the bottles and the fluid is replaced. The sodium, potassium and magnesium that left with it aren't in plain water.</span></div>
+            <div><b>An empty bottle looks the same</b><span>Either way it's empty, so there's nothing to notice. Working the number out is the only way to see it.</span></div>
+          </div>
+          <figure class="hy-art rl-art"><img src="/_p/mlm/mlm-hydration/_img/salted-lime-lassi.jpg" width="600" height="900" alt="A tall glass of salted lime lassi next to a dish of salt and a lime" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- 3-6. THE QUESTIONS. The option keys (data-v) are calc.js's; change both together. -->
+      <section class="rl-p rl-tint rl-wide" data-qz="w">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">About how much do you weigh?</h2>
+          <p class="hy-help" data-in style="--d:.15s">It sets the baseline. A rough answer is fine.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="w1"><span>Under 130 lb</span></button>
+            <button type="button" data-v="w2"><span>130 to 160 lb</span></button>
+            <button type="button" data-v="w3"><span>160 to 190 lb</span></button>
+            <button type="button" data-v="w4"><span>190 to 220 lb</span></button>
+            <button type="button" data-v="w5"><span>Over 220 lb</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-paper rl-wide" data-qz="s">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">On a day like today, how long are you working up a sweat?</h2>
+          <p class="hy-help" data-in style="--d:.15s">A workout, a run, a shift on your feet, yard work, anything that gets you sweating.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="s0"><span>Hardly at all</span></button>
+            <button type="button" data-v="s1"><span>About 30 minutes</span></button>
+            <button type="button" data-v="s2"><span>About an hour</span></button>
+            <button type="button" data-v="s3"><span>About 2 hours</span></button>
+            <button type="button" data-v="s4"><span>3 hours or more</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-tint rl-wide" data-qz="h">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How hot is it where you sweat?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="h1"><span>Cool, or indoors</span></button>
+            <button type="button" data-v="h2"><span>Warm</span></button>
+            <button type="button" data-v="h3"><span>Hot, or I come out soaked</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-paper rl-wide" data-qz="d">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How much do you actually drink on a normal day?</h2>
+          <p class="hy-help" data-in style="--d:.15s">Water and anything else, counted in 16 oz bottles. Your best guess is fine.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="d1"><span>2 bottles or less</span></button>
+            <button type="button" data-v="d2"><span>3 to 4 bottles</span></button>
+            <button type="button" data-v="d3"><span>5 to 6 bottles</span></button>
+            <button type="button" data-v="d4"><span>7 bottles or more</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. NIGHT: working it out (true statements about what calc.js does, in order), then ready -->
+      <section class="rl-p rl-night rl-plain rl-wide qz-proc" data-qz-ready aria-label="Your number is ready">
+        <div class="rl-in">
+          <div class="qz-stage">
+            <div class="qz-load">
+              <ul class="qz-msgs">
+                <li><b>Working out your number...</b><span>Starting from the baseline for your size</span></li>
+                <li><b>Adding what the sweat costs...</b><span>The water, and the salt that goes with it</span></li>
+              </ul>
+              <div class="qz-bar" aria-hidden="true"><i></i></div>
+            </div>
+            <div class="qz-ready">
+              <h2>Your number is ready</h2>
+              <p>Enter your details to see it.</p>
+              <p class="rl-fine">An estimate, not medical advice. {{custom_values.mlm_independence_line}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. quiz.js gives it the dock's words and moves. -->
+    <button type="button" class="rl-cta" data-sk-open>Start the 4 question check</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves, the arithmetic, then the questions (all deferred, so in this order, before the platform builds the dock). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>
+<script src="/_p/mlm/mlm-hydration/mlm-hydration-reel/calc.js?v=1" defer></script>
+<script src="/_p/mlm/mlm-hydration/mlm-hydration-reel/quiz.js?v=1" defer></script>

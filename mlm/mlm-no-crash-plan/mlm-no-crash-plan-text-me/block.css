@@ -1,0 +1,4 @@
+/* mlm/mlm-no-crash-plan (Marketing Shark | MLM): converted from the No Crash Plan reel pages, company and product out. */
+@import url("../mlm-no-crash-plan-info-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */

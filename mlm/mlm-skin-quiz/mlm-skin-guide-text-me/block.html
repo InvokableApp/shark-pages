@@ -1,0 +1,29 @@
+<!--
+  mlm/mlm-skin-quiz/mlm-skin-guide-text-me
+  Text me: the lead's message written for them. ITS VIEW IS AN ALERT ('MLM - Skin Quiz - Text Me', 0679).
+  Marketing Shark | MLM (company-neutral): "What's Making Your Skin Look Tired?" (a 45 second quiz). Words: MLMSHARK/wave1/greens-skin.json (after)
+  with the decisions of 2026-11-10 (decisions.json; the zinc tip and the dairy habit cut). Built from the skin quiz reels.
+  No company or product name anywhere. Platform only: the step points here (migration 0678).
+-->
+<div class="rl rl-look-soft rl-skin rlr" data-pf-native data-tm data-pf-arrive="#F4EEE6"
+  data-pf-say="Hey {first}, I took the skin quiz, can you send me the skin guide and more info on the skincare you recommend?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <h1 class="rlr-big" data-in>Text me<span data-if-name>, {{contact.first_name}},</span> and I'll send you the <b>skin guide</b> and <b>more info on the skincare I recommend</b>.</h1>
+          <p data-in style="--d:.1s">The message is written for you. Tap send and it comes straight to me.</p>
+          <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}">💬 Send it as a text</a>
+            <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.mlm_rep_messenger}}" href="https://{{custom_values.mlm_rep_messenger}}">Message me on Facebook</a>
+          </div>
+          <p class="tm-desk" data-tm-desk hidden>Or text it to <b data-tm-num>{{custom_values.mlm_rep_sms}}</b> from your phone.</p>
+          <p class="rl-fine mlm-ind">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

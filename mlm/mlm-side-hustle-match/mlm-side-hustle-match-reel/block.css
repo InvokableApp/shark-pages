@@ -1,0 +1,15 @@
+/* mlm/mlm-side-hustle-match/mlm-side-hustle-match-reel: Side Hustle Match as a reel (see block.html). The quiz is the
+ * lead-gen match quiz's: this sheet imports its look and moves and puts this system's colours on it (the system's
+ * purple, systems.brand for 'mlm': brand #4B3B8F, deep #3A2D70, tint #EEEBF6, ink #17151C), Inter as the lead-gen
+ * sheet sets it. The results page imports this sheet for the same look. */
+@import url("../../../_leadgen/side-hustle-match/side-hustle-match-reel/block.css");
+
+.rl.rl-match.rl-mlmq{
+  --paper:#faf9fc; --tint:#eeebf6; --night:#1d1836; --ink:#17151c; --body:#4d4859; --grey:#6e6880; --on-dark:#faf9fc;
+  --eyebrow:#4b3b8f; --eyebrow-dark:#b9aef0; --cta:#4b3b8f; --cta-ink:#fff; --mark:#7b68d9; --shade:29,24,54;
+}
+.rl-mlmq .qz-opts button{ border-color:#d9d5e3; }
+.rl-mlmq .rl-night .qz-opts button{ border-color:rgba(250,249,252,.18); }
+.rl-mlmq .rl-night .qz-opts button.is-picked{ border-color:#b9aef0; }
+.rl-mlmq .rl-night .rl-btn{ background:#7b68d9; }
+.rl-mlmq .qz-spin{ border-top-color:#b9aef0; }

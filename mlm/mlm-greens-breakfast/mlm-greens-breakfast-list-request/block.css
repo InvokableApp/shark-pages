@@ -1,0 +1,20 @@
+/* mlm/mlm-greens-breakfast/mlm-greens-breakfast-list-request (Marketing Shark | MLM). Built from the Greens at Breakfast reel pages. */
+@import url("../mlm-greens-breakfast-reel/block.css");
+
+[data-if-name]{ display:none; }   
+.rlr .rl-p{ overflow-y:auto; justify-content:safe center; }
+.rlr .rl-in{ padding-bottom:48px; }
+.rlr-pill{ display:inline-block; font:700 13.5px var(--sans); padding:8px 14px; border-radius:999px; background:var(--tint); color:var(--gingham-d); margin-bottom:14px; }
+.rlr .lk-card .rlr-big{ font-family:var(--head); font-weight:700; font-size:clamp(28px,7.6vw,34px); line-height:1.12; color:var(--ink-blue); margin:0; text-wrap:balance; }
+.rlr .lk-card .rlr-big b{ font-weight:700; color:var(--redline); }
+.rlr p b{ color:var(--ink); }
+
+@media (max-width:700px) and (max-height:620px){
+  .rlr .rl-in{ padding-top:32px; } .rlr p{ font-size:14px; } .rlr .lk-card .rlr-big{ font-size:26px; }
+}
+@media (min-width:701px){
+  .rlr .rl-in{ padding-bottom:72px; }
+  .rlr-pill{ justify-self:start; }
+  .rlr .lk-card{ padding:26px 32px 28px; }
+  .rlr .lk-card .rlr-big{ font-size:clamp(40px,3.6vw,52px); max-width:22em; }
+}

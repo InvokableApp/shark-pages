@@ -1,0 +1,92 @@
+<!--
+  mlm/mlm-feed-your-gut/mlm-feed-your-gut-confirmation-reel
+  Feed Your Gut's confirmation as a REEL, blue all the way through so it feels like a new page:
+  1. delivery: read it online (/mlm-feed-your-gut-read; no PDF yet), "Swipe for a bonus";
+  2. the guide's cover where a video would go, the FREE BONUS card (the Fermented Foods Starter Guide) and the claim;
+  3. inside the bonus guide, the claim again, the "more info on the gut health product I recommend" card, the small print.
+  Marketing Shark | MLM (company-neutral), converted in wave 2 (2026-11-10) from a company system's confirmation. Changed
+  (brain/mlm.md): the company's gut powder (its bag photo, its sheet's claim, its FDA line) is now the info step, named
+  plainly, "the gut health product I recommend", with no claim; "I use / I take" is "I recommend"; no PDF button.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-cf-claim-open]) open the Done popup and, on the
+  first open, fetch /mlm-feed-your-gut-bonus in the background (block.js): that step's view is the rep's 🎁 alert (0691),
+  once per lead. With no script a tap lands on the page. Platform only: the step points here (migration 0690).
+-->
+<div class="rl rl-farm fy-confirm" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-cf-claim-url="/mlm-feed-your-gut-bonus" data-pf-arrive="#0B2D66">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. delivery: the book with a postmark landing on it, the farmland faint behind -->
+      <section class="rl-p rl-night fy-farm cf-deliver" aria-label="Your recipes are on the way">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>You're in</span>
+          <div class="fy-bookwrap fy-bookwrap-sm rl-art"><img class="rl-book fy-stamp" style="--d:.1s" src="/_p/mlm/mlm-feed-your-gut/_img/cover.jpg" width="1024" height="1536" alt="The Feed Your Gut recipe guide cover"><span class="fy-post fy-stamp" style="--d:.7s" aria-hidden="true">ON ITS<br>WAY</span></div>
+          <!-- The name is filled from the opt-in; the span drops when it isn't known (render.mjs fillLeadName). -->
+          <h1 data-in style="--d:.2s"><span data-if-name>Hi {{contact.first_name}}, </span>Your Feed Your Gut Recipes Are Being Sent In 2 Minutes.</h1>
+          <p data-in style="--d:.3s">Check your email. If you don't see it there, check your <strong>SPAM</strong> folder.</p>
+          <p class="rl-note" data-in style="--d:.35s">Or skip the wait and open it right now. Both are the same guide.</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn" href="/mlm-feed-your-gut-read">Read it online</a></div>
+          <div class="rl-hint fy-next fy-gift"><span class="rl-gift-word">Swipe for a bonus</span><span class="fy-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. indigo: the bonus card, the claim. No video for this campaign: a recipe print where the video goes. -->
+      <section class="rl-p rl-night fy-deep" aria-label="Your bonus">
+        <div class="rl-in">
+          <div class="cf-video mlm-still" data-in>
+            <img src="/_p/mlm/mlm-feed-your-gut/_img/spot-stirfry.jpg" alt="A linocut of a skillet of cabbage and sausage">
+          </div>
+          <div class="fy-bonus" data-in style="--d:.15s">
+            <span class="fy-bonus-tag">Free bonus</span>
+            <span class="fy-bonus-cover"><img class="fy-stamp" style="--d:.35s" src="/_p/mlm/mlm-feed-your-gut/_img/bonus-cover.jpg" alt="The Fermented Foods Starter Guide cover"></span>
+            <div>
+              <p class="fy-bonus-h">The Fermented Foods Starter Guide</p>
+              <p class="fy-bonus-plus">+ more info on the gut health product I recommend</p>
+              <p class="fy-bonus-by">Both sent to you by text</p>
+            </div>
+          </div>
+          <a class="cf-btn fy-claim" data-cf-claim-open data-in style="--d:.25s" href="/mlm-feed-your-gut-bonus">🎁 YES! Text me the guide + product info</a>
+          <div class="rl-hint fy-next" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 3. the bonus guide, the 'more info' card, the small print -->
+      <section class="rl-p rl-night" aria-label="The fermented foods starter guide">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Inside the bonus guide</span>
+          <ul class="fy-ticks">
+            <li data-in style="--d:.15s"><i class="fy-stamp" style="--d:.45s">✓</i><div><strong>What's live and what isn't</strong>The words to look for in the fridge aisle, and why shelf sauerkraut usually isn't.</div></li>
+            <li data-in style="--d:.25s"><i class="fy-stamp" style="--d:.75s">✓</i><div><strong>Start with a teaspoon</strong>A two-week ramp, and easy ways to get used to the taste.</div></li>
+            <li data-in style="--d:.35s"><i class="fy-stamp" style="--d:1.05s">✓</i><div><strong>Two jars at home, no crock</strong>Sauerkraut and carrot sticks, and what's normal while they ferment.</div></li>
+            <li data-in style="--d:.45s"><i class="fy-stamp" style="--d:1.35s">✓</i><div><strong>The gut health product I recommend</strong>Ask me and I'll tell you what it is and how to take it.</div></li>
+          </ul>
+          <a class="cf-btn fy-claim" data-cf-claim-open data-in style="--d:.5s" href="/mlm-feed-your-gut-bonus">🎁 YES! Text me the guide + product info</a>
+          <div class="fy-rec" data-in style="--d:.55s">
+            <img src="/_p/mlm/mlm-feed-your-gut/_img/spot-oats.jpg" alt="A linocut of a jar of overnight oats">
+            <div><span class="fy-rec-k">What I recommend for the days you don't cook</span><p class="fy-rec-h">Ask me what it is</p><p>Tap the button and I'll message you what it is, what's in it and how to take it, along with the guide.</p></div>
+          </div>
+          <div class="cf-fine">
+            <p class="rl-fine">This guide is general wellness information for educational purposes only and is not medical, diagnostic or treatment advice. Individual results vary.</p>
+            <p class="rl-fine">Talk to your doctor before taking any supplement or changing your diet, especially if you are pregnant, nursing, take medication or have a medical condition.</p>
+            <p class="rl-fine mlm-ind">{{custom_values.mlm_independence_line}}</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE DONE POPUP: opened only by the two claim buttons (block.js). -->
+  <div class="cf-claim" data-cf-claim role="dialog" aria-modal="true" aria-labelledby="cf-claim-h" hidden>
+    <div class="cf-claim-card fy-sign">
+      <button type="button" class="cf-x" data-cf-close aria-label="Close">×</button>
+      <span class="rl-eyebrow">Done</span>
+      <p class="cf-claim-big" id="cf-claim-h">I'll send you the <b>Fermented Foods Starter Guide</b> AND <b>more info on the gut health product I recommend by text within 24 hours</b> (usually much sooner!).</p>
+      <p>Check your texts, including your <b>"Unknown Senders" folder</b>, so you don't miss it.</p>
+      <p data-cf-sms><b>Want to make sure it gets to you?</b> Text <b>“GUT”</b> to <a data-cf-num data-word="GUT" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=GUT">{{custom_values.mlm_rep_sms}}</a> so it doesn't land in “Unknown Senders”.</p>
+      <button type="button" class="rl-btn cf-ok" data-cf-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

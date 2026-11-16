@@ -1,0 +1,41 @@
+/* mlm/mlm-clean-iced-coffee/mlm-clean-iced-coffee-confirmation-reel: the Clean Iced Coffee confirmation reel (Marketing
+ * Shark | MLM; see block.html). The look comes from the opt-in reel's sheet; this adds the gift hint, the packet photo,
+ * the rep's ask and the close. */
+@import url("../mlm-clean-iced-coffee-reel/block.css");
+
+/* The platform drops the span whole when the name is unknown. */
+[data-if-name]{ display:none; }
+.icc [hidden]{ display:none !important; }
+
+/* 1. you're all set */
+.icc-top h1{ font-size:clamp(30px,8.4vw,40px); }
+.icc-top p{ margin-top:16px; }
+.icc-top .rl-btns{ margin-top:20px; }
+.rl-gift{ display:flex; align-items:center; gap:10px; }
+.rl-gift-word{ font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--oxblood); }
+.rl-gift-ar{ display:inline-flex; flex-direction:column; }
+.rl-gift-ar svg{ width:18px; height:18px; fill:none; stroke:var(--oxblood); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; margin:-7px 0; }
+
+/* 2. the coffee I recommend */
+.icc-pack{ display:block; width:min(320px,82%); aspect-ratio:3/2; object-fit:cover; border-radius:2px; margin:0 0 16px; box-shadow:0 22px 40px -18px rgba(42,26,23,.55); }
+.icc-ask h2{ font-size:clamp(28px,8vw,38px); }
+.icc-ask .rl-btns{ margin-top:20px; }
+.icc-ask .rl-btn-2{ font-size:13px; }
+
+/* 3. the close */
+.icc-close h2{ font-size:clamp(28px,8vw,38px); }
+.icc-close .ic-start{ margin-top:14px; }
+.icc-close .rl-fine{ margin-top:18px; }
+
+@media (max-width:700px) and (max-height:760px){
+  .icc-top h1{ font-size:28px; } .icc-top p{ font-size:15px; }
+  .icc-pack{ width:56%; } .icc-ask h2{ font-size:26px; } .icc-ask p{ font-size:15px; }
+  .icc-close h2{ font-size:26px; } .icc-close .rl-fine{ font-size:10.5px !important; margin-top:12px; }
+}
+@media (max-width:700px) and (max-height:620px){ .icc-pack{ display:none; } .rl-gift{ display:none; } .icc-close .ic-start{ display:none; } }
+@media (min-width:701px){
+  .icc-top h1{ font-size:clamp(42px,4vw,58px); }
+  .icc-pack{ width:min(460px,32vw); margin:0; }
+  .icc-ask h2,.icc-close h2{ font-size:clamp(34px,3.2vw,46px); }
+  .icc-ask .rl-btns{ flex-direction:column; align-items:stretch; max-width:520px; } .icc-ask .rl-btn{ white-space:normal; }
+}

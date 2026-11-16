@@ -1,0 +1,31 @@
+<!--
+  mlm/mlm-skin-quiz/mlm-skin-info
+  THE 'MORE INFO FROM YOUR REP' STEP, in place of the company's product pages (decisions.json dec-product-step; Jeff,
+  2026-11-10: names the thing plainly, never a brand; the shop button shows only when the rep set a shop link).
+  ITS VIEW IS THE HOT LEAD ALERT (0679). Message goes through /mlm-skin-redirect-dm (the DM alert), the shop button
+  through /mlm-skin-shop (the fire lead alert).
+  Marketing Shark | MLM (company-neutral): "What's Making Your Skin Look Tired?" (a 45 second quiz). Words: MLMSHARK/wave1/greens-skin.json (after)
+  with the decisions of 2026-11-10 (decisions.json; the zinc tip and the dairy habit cut). Built from the skin quiz reels.
+  No company or product name anywhere. Platform only: the step points here (migration 0678).
+-->
+<div class="rl rl-look-soft rl-skin rlr mlm-info" data-pf-native data-pf-arrive="#F4EEE6"
+  data-pf-say="Hey {first}, I took the skin quiz, can you send me more info on the skincare you recommend?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What I recommend</span>
+          <h1 class="rlr-big" data-in style="--d:.05s">Want more info on the skincare I recommend?</h1>
+          <p data-in style="--d:.1s">Message me and I'll tell you what it is and why I picked it. No pressure either way.</p>
+          <div class="rl-btns" data-in style="--d:.2s">
+            <a class="rl-btn" data-pf-ask data-pf-message-link data-needs="{{custom_values.mlm_rep_messenger}}" href="/mlm-skin-redirect-dm">Message {{custom_values.mlm_rep_first_name}}</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=Hey%2C%20I%20took%20the%20skin%20quiz%2C%20can%20you%20send%20me%20more%20info%20on%20the%20skincare%20you%20recommend%3F">Text me instead</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-skin-shop">See it in my shop</a>
+          </div>
+          <p class="rl-fine mlm-ind" data-in style="--d:.3s">These statements have not been evaluated by the Food and Drug Administration. Nothing here is intended to diagnose, treat, cure or prevent any disease. {{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

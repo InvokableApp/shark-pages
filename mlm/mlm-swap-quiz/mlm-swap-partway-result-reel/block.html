@@ -1,0 +1,147 @@
+<!--
+  mlm/mlm-swap-quiz/mlm-swap-partway-result-reel
+  The result reel: the name, what your answers point at, the free habits (a card opens its how-to), the bonus (a tap
+  claims it: /mlm-swap-checklist-request is the rep's alert), what is in the bonus, the close.
+  Marketing Shark | MLM (company-neutral): "One Swap Per Room" (a 6 question quiz plus a room by room checklist).
+  Built from a home swaps quiz and its 27 swap guide (named in migration 0702). No company, product or brand name
+  anywhere, in the page or in these notes; no "toxic" scare line, no germ-kill number, no disease claim about a
+  chemical. Platform only: migrations 0702 (pages) and 0703 (follow-ups).
+-->
+<div class="rl rl-look-soft rl-skin rl-skr mlm-swr" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/mlm-swap-checklist-request" data-pf-arrive="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the result, with the visitor's name -->
+      <section class="rl-p rl-paper rl-wide skr-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Partway</span>
+          <h1 class="rl-type">You're Already Doing a Great Job<span data-if-name>, {{contact.first_name}}</span></h1>
+          <p data-in style="--d:.3s">You've swapped food or products, so the obvious ones are handled. The ones left are the ones nobody mentions.</p>
+          <div class="rl-hint rl-gift skr-hint"><span class="rl-gift-word">Swipe for your plan</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: why, the main thing first -->
+      <section class="rl-p rl-tint rl-wide skr-why">
+        <div class="rl-in">
+          <h2 data-in>Why these three</h2>
+          <div class="skr-why-main" data-in style="--d:.1s">
+            <span class="skr-why-k">#1 for you</span>
+            <h3>The ones that slip past</h3>
+            <p>Each one cuts something you're in contact with every day. Daily beats occasional, so these come first. These three are easy to miss because they don't look like a product decision.</p>
+          </div>
+          <span class="skr-why-also" data-in style="--d:.2s">Next, in your checklist</span>
+          <ul class="skr-why-list" data-in style="--d:.25s">
+            <li><b>Room by room.</b> One swap per room, in your bonus checklist, so you can see what's left.</li>
+            <li><b>Buy once.</b> The few things worth buying, and the order to buy them in.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: the free habits, a sideways row; a card opens its how-to (result.js) -->
+      <section class="rl-p rl-paper rl-wide skr-plan">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Your three top swaps</span>
+          <h2 data-in style="--d:.05s">Start with these three</h2>
+          <div class="rl-cards skn-cards skr-habits" data-in style="--d:.1s">
+            <article class="skr-habit" tabindex="0">
+              <span class="skr-when">At the register</span>
+              <h3>Receipts</h3>
+              <p>Thermal paper is usually coated with BPA or BPS and it comes off on your fingers. Skip the printed copy where you can, and wash your hands when you can't.</p>
+              <ul class="skr-how"><li><strong>Handle them all day at work?</strong> This one's bigger for you than for most people.</li><li><strong>Source:</strong> NIEHS, Bisphenol A.</li></ul>
+              <button type="button" class="skr-more" aria-label="Receipts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+            </article>
+            <article class="skr-habit" tabindex="0">
+              <span class="skr-when">When you restock</span>
+              <h3>Laundry</h3>
+              <p>Detergent and dryer sheets sit against your skin for the next sixteen hours and go into the air of your whole house. If you swapped your shampoo and not your detergent, you swapped the smaller one.</p>
+              <ul class="skr-how"><li><strong>The swap.</strong> Unscented detergent, and wool dryer balls instead of sheets.</li><li><strong>Source:</strong> EPA, Phthalates.</li></ul>
+              <button type="button" class="skr-more" aria-label="Laundry"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+            </article>
+            <article class="skr-habit" tabindex="0">
+              <span class="skr-when">Weekly</span>
+              <h3>Dust</h3>
+              <p>Household dust is where the plasticizers and flame retardants from your furniture and electronics end up. Use a damp cloth and a vacuum with a real HEPA filter. Dry dusting moves it around.</p>
+              <ul class="skr-how"><li><strong>Shoes off at the door</strong> means less to dust in the first place.</li><li><strong>Source:</strong> NIEHS, Flame Retardants.</li></ul>
+              <button type="button" class="skr-more" aria-label="Dust"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+            </article>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.2s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-night rl-wide rlb rlb-bonus" id="sk-stack" aria-label="Your free bonus">
+        <div class="rl-in">
+          <span class="rlb-eb-night" data-in>Free bonus</span>
+          <h2 class="rlb-h1" data-in style="--d:.05s">Your room by room checklist: 29 simple swaps, free ones first</h2>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Bonus offer</span>
+            <span class="rlb-coverwrap"><span class="rlb-cover mlm-gcover" role="img" aria-label="One Swap Per Room: 29 Simple Swaps, Room by Room, Free Ones First"><span class="mlm-gc-k">Everyday Well</span><span class="mlm-gc-t">One Swap Per Room</span><span class="mlm-gc-n">29</span><span class="mlm-gc-h">Simple Swaps, Room by Room, Free Ones First</span><span class="mlm-gc-ph" style="background-image:url('/_p/mlm/mlm-swap-quiz/mlm-swap-checklist/assets/page-shelf.jpg')"></span></span></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">The checklist + more info on the products I recommend for the home</p>
+              <p class="rlb-by"><span>Both sent to you by text</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/mlm-swap-checklist-request">🎁 YES! Text me the free checklist + product info</a>
+        </div>
+      </section>
+
+      <!-- What is in the bonus guide, the button again, what the rep recommends, the small print. -->
+      <section class="rl-p rl-paper rl-wide rlb rlb-guide" aria-label="One Swap Per Room: 29 Simple Swaps, Room by Room, Free Ones First">
+        <div class="rl-in">
+          <span class="rlb-eyebrow" data-in>One Swap Per Room</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <span class="rlb-adcover mlm-gcover" role="img" aria-label="One Swap Per Room: 29 Simple Swaps, Room by Room, Free Ones First"><span class="mlm-gc-k">Everyday Well</span><span class="mlm-gc-t">One Swap Per Room</span><span class="mlm-gc-n">29</span><span class="mlm-gc-h">Simple Swaps, Room by Room, Free Ones First</span><span class="mlm-gc-ph" style="background-image:url('/_p/mlm/mlm-swap-quiz/mlm-swap-checklist/assets/page-shelf.jpg')"></span></span>
+            <h2>Inside the bonus guide...</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">29 swaps, room by room, with a box to tick for each</li>
+            <li data-in style="--d:.3s">Which ones are free, which to replace as they run out, which to buy once</li>
+            <li data-in style="--d:.4s">How each swap works, and the government source behind it</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/mlm-swap-checklist-request">🎁 YES! Text me the free checklist + product info</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img mlm-rec-ph" src="/_p/mlm/mlm-swap-quiz/_img/lane-2.jpg" width="1200" height="800" alt="Glass storage jars and a potted herb on a simple wooden shelf">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">What I recommend</span>
+              <p class="rlb-rec-h">Ask me what it is</p>
+              <p>Tap the button and I'll message you the products I recommend for the home and why I picked them, along with the checklist.</p>
+            </div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">This is general information about everyday products and habits at home. It is not medical advice, and none of it is a diagnosis.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. PHOTO: the close, and the disclaimer -->
+      <section class="rl-p rl-photo rl-wide skr-close">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-swap-quiz/_img/hero.jpg')"></div>
+        <div class="rl-in">
+          <h2 data-in>Do the free ones first</h2>
+          <p data-in style="--d:.1s">Most of what helps costs nothing. Let things run out instead of throwing them away, and replace them with the better version when you shop.</p>
+          <p class="rl-fine" data-in style="--d:.2s">This is general information about everyday products and habits at home, not medical advice. The research is still developing, and honest people disagree about how much any single exposure matters. {{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" href="#sk-stack" data-skr-stack>Get the free bonus 🎁</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <div class="skr-pop" role="dialog" aria-modal="true" hidden><div class="skr-pop-card"><button type="button" class="skr-pop-x" aria-label="Close">&times;</button><div class="skr-pop-body"></div></div></div>
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Done.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>room by room checklist</b> AND <b>the product info via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure it reaches you with no issues?</b> Simply text <b>“SWAP”</b> to <a class="rlt-claim-num" data-claim-num data-word="SWAP" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=SWAP">{{custom_values.mlm_rep_sms}}</a> to keep it from potentially landing in your “Unknown Senders” folder.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/mlm/mlm-swap-quiz/mlm-swap-reel/result.js?v=1" defer></script>
+<script src="/_p/mlm/mlm-swap-quiz/mlm-swap-reel/bonus.js?v=1" defer></script>

@@ -1,0 +1,67 @@
+<!--
+  mlm/mlm-calm-reset/mlm-calm-reset-confirmation-reel
+  The Calm Reset's confirmation as a REEL, after its opt-in reel. Three screens: delivery (read online; no PDF yet), the
+  rep's ask, the first habit. Marketing Shark | MLM (company-neutral), converted in wave 2 (2026-11-10) from a company
+  system's confirmation, whose bonus was a supplement grading guide plus the company's hops drop. Both are gone (practices
+  only; a company product never shows): the ask is the info step, named plainly, "what I recommend for winding down".
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "PRODUCT INFO" to the rep, on Facebook or by text. data-pf-say is the
+     message the lead sends; the dock and every [data-pf-ask] open the card. Facebook goes through
+     /mlm-calm-reset-redirect-dm (its view is the rep's alert, 0693); the text is an sms: link with the words in it.
+  ⚠️ THE SHOP LINK SHOWS ONLY WHEN THE REP SET ONE: [data-needs] on mlm_buy_link. It goes through /mlm-calm-reset-shop
+     (its view is the fire alert, 0693). Platform only: the step points here (migration 0692).
+-->
+<div class="rl rl-calm crc" data-pf-native data-pf-message="for more info" data-pf-say="PRODUCT INFO" data-pf-arrive="#FBF7EE">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. delivery: the cover's engraving very faint behind it -->
+      <section class="rl-p rl-tint cf-deliver">
+        <div class="rl-in">
+          <span class="cf-pill" data-in>✅ You're in. Your guide is on its way.</span>
+          <h1 data-in style="--d:.1s"><span data-if-name>Hi {{contact.first_name}}, </span>Your Calm Reset Guide Is Being Sent In 2 Minutes.</h1>
+          <p data-in style="--d:.2s">Check your email. If you don't see it there, check your <strong>SPAM</strong> folder.</p>
+          <p class="rl-note" data-in style="--d:.3s">Or skip the wait and open it right now. Both are the same guide.</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn" href="/mlm-calm-reset-read">Read it online</a></div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for more info from {{custom_values.mlm_rep_first_name}}</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. navy: what I recommend for winding down, and the ask -->
+      <section class="rl-p rl-night rl-plain crc-ask" aria-label="More info">
+        <div class="rl-in">
+          <img class="crc-pic rl-art" data-in src="/_p/mlm/mlm-calm-reset/_img/week-4.jpg" width="900" height="900" alt="An engraving of two rocking chairs on a porch" loading="lazy">
+          <span class="rl-eyebrow" data-in style="--d:.05s">For your evenings</span>
+          <h2 data-in style="--d:.1s">Want more info on what I recommend for winding down?</h2>
+          <p data-in style="--d:.2s">The habits come first. If you'd also like to know what I recommend for your evenings, message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} and I'll tell you what it is and how people use it. No pressure either way.</p>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-calm-reset-redirect-dm">💬 Message "PRODUCT INFO" on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-calm-reset-shop">🛒 Visit my shop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. paper: day one, and the fine print -->
+      <section class="rl-p rl-paper crc-today">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Day one starts tomorrow</span>
+          <h2 data-in style="--d:.1s">If you only do one thing, make it tomorrow morning</h2>
+          <div class="callout" data-in style="--d:.2s">After I turn off my alarm, I'll take five slow breaths before I pick up my phone.</div>
+          <p data-in style="--d:.3s">In for four, out for six, five times, then reach for the phone.</p>
+          <p class="rl-fine" data-in style="--d:.4s">This guide is general wellness information for educational purposes only and is not medical, diagnostic or
+            treatment advice. Individual results vary. Consult your physician or a qualified healthcare provider before starting
+            any new routine, especially if you are pregnant, nursing, have a medical condition, or take medication.
+            {{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for more info" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-calm-reset-redirect-dm">Message me for more info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

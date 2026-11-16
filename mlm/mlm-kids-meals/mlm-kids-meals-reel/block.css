@@ -1,0 +1,151 @@
+/* mlm/mlm-kids-meals/mlm-kids-meals-reel: 12 Meals Kids Love, the opt-in as a reel (platform only; see block.html).
+ * The wave 1 MLM reel's sheet (mlm-protein-breakfasts-reel) copied, with its weight pieces left out and a kids' palette:
+ * deep grape, sunny yellow, cream, Fredoka over Inter. The confirmation reel imports this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+.rl.rl-pf{
+  --forest:#3b2266; --forest-deep:#29174a; --leaf:#ffb020; --leaf-ink:#7a3fd6; --cream:#fbf6ee;
+  --paper:var(--cream); --tint:#f1eafb; --night:var(--forest); --ink:#1c2420; --body:#3b463f; --grey:#6c766f; --on-dark:#f6f2ea;
+  --head:"Fredoka",system-ui,sans-serif; --head-w:600; --sans:Inter,system-ui,-apple-system,sans-serif;
+  --eyebrow:var(--leaf-ink); --eyebrow-dark:#ffd27a; --cta:#7a3fd6; --cta-ink:#fff; --mark:var(--leaf); --shade:35,20,62;
+}
+.rl-pf h1 em,.rl-pf h2 em{ font-style:italic; color:var(--leaf); }
+.rl-pf .rl-paper h2 em,.rl-pf .rl-tint h2 em{ color:var(--leaf-ink); }
+.rlp-green{ color:var(--leaf); }
+.rl-pf .rl-btn{ border-radius:999px; font-weight:600; }
+
+/* 1. the cover: the family table shot, the book tilted over its lower half */
+.rl-cover .rl-bg{ background-position:38% 20%; }
+/* Every photo screen fades its picture hard, so the words come first (Jeff, 2026-10-14: "the bg darker", "darker still",
+   "these screens with bg images need to really fade the image a lot more so the text is legible"). The photo is mood. */
+.rl-pf .rl-photo::after{ background:linear-gradient(180deg,rgba(var(--shade),.86) 0%,rgba(var(--shade),.8) 40%,rgba(var(--shade),.96) 100%); }
+.rl-pf .rl-photo .rl-bg{ filter:saturate(.85); }
+.rl-pf .rl-cover h1{ font-size:clamp(42px,12vw,56px); line-height:1; }
+
+/* 2. the quarter: a fraction drawn big, the bar strikes through */
+.rlp-big{ display:inline-flex; align-items:center; gap:10px; margin:8px 0 18px; font-family:var(--head); font-weight:500;
+  font-size:clamp(84px,24vw,112px); line-height:.9; color:var(--forest); letter-spacing:-.04em; }
+.rlp-quarter h2{ font-size:clamp(26px,7.4vw,32px); }
+
+/* 3. the fix: two bars. The fat drains to a third while the muscle holds, then a tick lands on the muscle. */
+.rlp-say{ font-size:clamp(30px,8.6vw,40px) !important; line-height:1.1 !important; }
+
+/* 4. the three struggles: cream cards on the tint, a leaf icon each */
+.rlp-cards > div{ background:var(--cream); border:1px solid rgba(28,36,32,.08); border-radius:20px; padding:22px 20px 20px;
+  box-shadow:0 10px 26px -16px rgba(41,23,74,.35); }
+.rlp-ico{ display:grid; place-items:center; width:46px; height:46px; border-radius:14px; margin-bottom:16px; background:#efe4fd; color:var(--leaf-ink); }
+.rlp-ico svg{ width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.rlp-cards h3{ font-size:22px; color:var(--ink); }
+.rlp-cards p{ font-size:15.5px; margin-top:10px; }
+
+/* 5. what's inside: the four counts */
+.rlp-inside .rl-bg{ background-position:center 70%; }
+.rlp-inside h2{ font-size:clamp(26px,7.4vw,32px); }
+.rlp-counts{ display:grid; grid-template-columns:1fr 1fr; gap:16px 18px; margin-top:22px; }
+.rlp-counts b{ display:block; font:600 clamp(44px,12vw,56px)/.9 var(--head); color:var(--leaf); letter-spacing:-.02em; }
+.rlp-counts span{ display:block; margin-top:6px; font-size:13.5px; line-height:1.35; color:rgba(255,255,255,.82); }
+
+/* 6. the extras: the tablet and the grocery list side by side on the forest, then two lines */
+.rlp-shelf{ display:flex; align-items:flex-end; gap:16px; margin:0 0 12px; }
+.rlp-list{ display:block; width:min(190px,48%); height:auto; overflow:visible; }
+.rlp-list-card{ fill:var(--cream); stroke:rgba(28,36,32,.1); }
+.rlp-list-title{ font:600 13px var(--head); fill:var(--ink); }
+.rlp-list-row text{ font:500 12px var(--sans); fill:var(--body); }
+.rlp-box{ fill:#fff; stroke:rgba(28,36,32,.3); stroke-width:1.2; transition:fill .3s calc(.6s + var(--n) * .35s),stroke .3s calc(.6s + var(--n) * .35s); }
+.rlp-check{ fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:14; stroke-dashoffset:14; transition:stroke-dashoffset .35s ease-out calc(.75s + var(--n) * .35s); }
+.rl-p.is-on .rlp-box{ fill:var(--leaf-ink); stroke:var(--leaf-ink); }
+.rl-p.is-on .rlp-check{ stroke-dashoffset:0; }
+.rlp-extra{ list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:14px; }
+.rlp-extra li{ border-left:3px solid var(--leaf); padding-left:14px; }
+.rlp-extra h3{ color:var(--on-dark); font-size:19px; margin:0; }
+.rlp-extra p{ font-size:15px !important; margin-top:4px !important; line-height:1.45 !important; }
+
+/* 7. the close */
+.rlp-close .rl-bg{ background-position:center 30%; }
+.rlp-close h2{ font-size:clamp(30px,8.6vw,40px); }
+.rlp-close .rl-fine{ margin-top:18px !important; }
+
+/* most phones: the cover's book stays small enough that the cover fits above the dock */
+@media (max-width:700px) and (max-height:900px){ .rlp-book{ width:52%; } .rlp-tablet{ width:34%; } }
+/* shorter phones */
+@media (max-width:700px) and (max-height:760px){
+  .rl-pf .rl-cover .rl-in{ padding-top:28px; }
+  .rl-pf .rl-cover h1{ font-size:36px; }
+  .rl-pf .rl-cover .rl-pills{ margin-top:14px; } .rl-pf .rl-cover .rl-pills li{ padding:6px 10px; font-size:12px; }
+  .rl-pf .rl-cover .rl-note{ margin-top:10px; }
+  .rlp-say{ font-size:27px !important; }
+  .rlp-cards h3{ font-size:19px; } .rlp-cards p{ font-size:14px; }
+  .rlp-inside h2{ font-size:24px; } .rlp-counts{ margin-top:16px; gap:12px 14px; } .rlp-counts b{ font-size:40px; } .rlp-counts span{ font-size:12.5px; }
+  .rlp-close h2{ font-size:28px; } .rlp-close .rl-fine{ font-size:10.5px !important; margin-top:12px !important; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-pf .rl-cover h1{ font-size:30px; }
+  .rlp-quarter p{ font-size:14px; }
+  .rlp-counts span{ font-size:11.5px; } .rlp-counts b{ font-size:34px; }
+  .rlp-close .rl-fine{ font-size:9.5px !important; line-height:1.4 !important; }
+}
+
+/* a computer */
+@media (min-width:701px){
+  .rl-pf .rl-cover h1{ font-size:clamp(52px,4.6vw,72px); }
+  .rlp-say{ font-size:clamp(38px,3.4vw,50px) !important; }
+  .rlp-cards > *{ flex-basis:31%; }
+  .rlp-counts{ grid-template-columns:repeat(4,1fr); } .rlp-counts b{ font-size:clamp(60px,5.6vw,84px); } .rlp-counts span{ font-size:15px; }
+  .rlp-extra h3{ font-size:23px; } .rlp-extra p{ font-size:17px !important; }
+  .rlp-close h2{ font-size:clamp(40px,3.6vw,56px); }
+}
+@media (prefers-reduced-motion:reduce){ .rlp-big i,.rlp-bar-fat,.rlp-bar-tick,.rlp-box,.rlp-check{ transition:none !important; } }
+
+/* ---------- MLM additions ---------- */
+[data-if-name]{ display:none; }
+/* the guide's cover, drawn in the page so its words are the guide's own (the old cover art said "fat-burning") */
+.mlp-book{ position:relative; display:block; width:60%; max-width:270px; aspect-ratio:760/1111; margin-top:18px; border-radius:6px; overflow:hidden;
+  background:#f6f2ea url('/_p/mlm/mlm-kids-meals/mlm-kids-meals-reel/assets/family-table.webp') center bottom/cover no-repeat;
+  transform:rotate(-4deg); box-shadow:0 30px 50px -16px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.12); container-type:inline-size; }
+.mlp-book::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(251,246,238,.96) 0%,rgba(251,246,238,.82) 34%,rgba(251,246,238,0) 58%); }
+.mlp-book > span{ position:absolute; left:8%; right:8%; }
+.mlp-book-k{ top:7%; font:600 4.2cqw/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--forest); opacity:.8; }
+.mlp-book-h{ top:13%; font:700 12.5cqw/.98 var(--head); color:var(--forest); letter-spacing:-.01em; }
+.mlp-book-h em{ font-style:normal; color:var(--leaf-ink); }
+.mlp-book-s{ top:41%; font:italic 500 4.6cqw/1.3 var(--head); color:var(--ink); }
+.mlp-book-sm{ width:40%; max-width:190px; margin:0; transform:none; flex:0 0 auto; border-radius:10px; }
+/* 2. the giant 6g */
+.mlp-big{ display:block; margin:6px 0 16px; font:500 clamp(96px,28vw,132px)/.9 var(--head); color:var(--forest); letter-spacing:-.04em; }
+.mlp-big small{ font-size:.42em; color:var(--leaf-ink); margin-left:.04em; letter-spacing:0; }
+.rlp-quarter p{ margin-top:12px; }
+/* 3. the breakfast photo */
+.mlp-photo{ display:block; width:min(300px,80%); height:auto; aspect-ratio:3/2; object-fit:cover; border-radius:18px; margin:4px 0 20px; box-shadow:0 22px 40px -18px rgba(0,0,0,.6); }
+/* 5. the breakfasts, by name, across both columns */
+.rlp-counts .mlp-wide{ grid-column:1/-1; }
+.rl-pf .rl-cover h1{ font-size:clamp(28px,7.6vw,36px); line-height:1.08; }
+.rl-pf .rl-fine + .rl-fine{ margin-top:8px !important; }
+@media (max-width:700px) and (max-height:900px){ .mlp-book{ width:48%; } .mlp-book-sm{ width:32%; } }
+@media (max-width:700px) and (max-height:760px){
+  .rl-pf .rl-cover h1{ font-size:26px; } .mlp-book{ width:36%; margin-top:12px; }
+  .mlp-big{ font-size:84px; margin:2px 0 10px; } .mlp-photo{ width:62%; margin-bottom:12px; }
+  .mlp-book-sm{ width:26%; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-pf .rl-cover h1{ font-size:23px; } .mlp-book{ width:26%; margin-top:8px; }
+  .mlp-big{ font-size:64px; } .mlp-photo{ display:none; } .mlp-book-sm{ display:none; }
+}
+@media (min-width:701px){
+  .rl-pf .rl-cover h1{ font-size:clamp(40px,3.6vw,56px); }
+  .mlp-book{ width:min(400px,28vw); max-width:none; margin:0; }
+  .mlp-book-sm{ width:min(260px,18vw); }
+  .mlp-big{ font-size:clamp(150px,14vw,220px); }
+  .mlp-photo{ width:min(460px,32vw); margin:0; }
+  .rlp-counts{ grid-template-columns:repeat(3,1fr); } .rlp-counts .mlp-wide{ grid-column:1/-1; }
+}
+
+/* ---------- 12 Meals Kids Love additions ---------- */
+.rl-pf h1,.rl-pf h2,.rl-pf h3{ font-weight:600; }
+.rlk-drill h2{ font-size:clamp(34px,9.6vw,46px); line-height:1.08; }
+.rlk-drill p{ margin-top:16px; font-size:17px; }
+.mlp-book-h{ font-weight:700; }
+.rlp-extras .mlp-photo{ width:min(240px,62%); }
+.rlp-extras > .rl-in > p{ margin-bottom:8px; }
+@media (max-width:700px) and (max-height:760px){ .rlk-drill h2{ font-size:32px; } .rlp-extras .mlp-photo{ width:48%; } }
+@media (max-width:700px) and (max-height:620px){ .rlp-extras .mlp-photo{ display:none; } }
+@media (min-width:701px){ .rlk-drill h2{ font-size:clamp(48px,4.4vw,68px); max-width:16em; } .rlp-extras .mlp-photo{ width:min(340px,24vw); } }

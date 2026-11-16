@@ -1,0 +1,26 @@
+/* mlm/mlm-keep-the-muscle/mlm-keep-the-muscle-confirmation-reel: the confirmation as a reel, look "Gym poster" via the
+ * opt-in's sheet. Adds the envelope, the swipe hint, the info step and the rep's ask, and three rules from the guide. */
+@import url("../mlm-keep-the-muscle-reel/block.css");
+
+.rlwc-env{ display:block; width:48px; height:48px; fill:none; stroke:var(--lime); stroke-width:2.4; stroke-linejoin:round; margin-bottom:16px; }
+.rlwc-top h1{ font-size:clamp(44px,13vw,60px); }
+.rlwc-top .rl-btn{ background:var(--lime); color:var(--black); }
+.rlwc-gift{ display:flex; flex-direction:row; align-items:center; gap:10px; margin-top:30px; color:var(--lime); }
+.rlwc-gift > span:first-child{ font:800 13px var(--head); font-stretch:110%; letter-spacing:.1em; text-transform:uppercase; }
+.rlwc-ar{ display:inline-flex; flex-direction:column; }
+.rlwc-ar svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.6; margin:-7px 0; }
+.rlwc-info img{ display:block; width:min(320px,86%); height:auto; aspect-ratio:1400/771; object-fit:cover; margin:0 0 16px; filter:grayscale(1) contrast(1.1); }
+.rlwc-info h2{ font-size:clamp(34px,10vw,46px); }
+.rlwc-info p{ font-size:15px; }
+.rlwc-go{ margin-top:16px; background:var(--black); color:var(--lime); }
+.rlwc-ask .rl-btn{ background:var(--black); color:var(--lime); }
+.rlwc-ask .rl-btn-2{ background:transparent; color:var(--black); border:2.5px solid var(--black); }
+.rlwc-rules{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:10px; }
+.rlwc-rules li{ border-left:4px solid var(--lime); padding-left:12px; color:rgba(255,255,255,.88); font-size:15px; line-height:1.4; }
+.rlwc-rules b{ display:block; color:#fff; font:900 20px/1 var(--head); font-stretch:62%; text-transform:uppercase; margin-bottom:3px; }
+@media (min-width:701px){
+  .rlwc-top h1{ font-size:clamp(60px,6vw,92px); }
+  .rlwc-ask h2{ font-size:clamp(40px,3.8vw,58px); }
+  .rlwc-ask .rl-btns{ flex-direction:row; flex-wrap:wrap; max-width:720px; }
+  .rlwc-info img{ width:min(460px,32vw); }
+}

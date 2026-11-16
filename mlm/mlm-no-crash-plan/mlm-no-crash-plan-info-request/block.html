@@ -1,0 +1,28 @@
+<!--
+  mlm/mlm-no-crash-plan/mlm-no-crash-plan-info-request
+  The page a lead lands on after tapping "YES! Text me more info on the energy supplement" on the confirmation reel (or
+  the page the claim fetches in the background). Marketing Shark | MLM (company-neutral). Converted from the No Crash
+  Plan's discount request page: the guide and the discount code are gone, the ask is "more info on the energy supplement
+  I recommend" (brain/mlm.md, settled 2026-11-10).
+  ⚠️ ITS VIEW IS THE ALERT: the step /mlm-no-crash-plan-info-request starts "MLM - The No Crash Plan - Info Request"
+  (migration 0683), which tags the lead hot and texts and emails the rep the reply to send. Known leads only (the
+  opt-in's cookie); once per lead. block.js makes the rep's number tap-to-text with ENERGY filled in on a phone, and takes
+  that paragraph out when no number is set. Platform only. No company or product name anywhere.
+-->
+<div class="rl rlr rlr-ncp" data-pf-native data-pf-arrive="#faf9f5">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">More info on the energy supplement is coming by text</h1>
+          <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlr-big" data-in style="--d:.1s">We'll send you more info on the energy supplement <b>via text message within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          <p class="rlr-sms" data-in data-rlr-sms style="--d:.3s"><b>Want to make sure it reaches you?</b> Text <b>“ENERGY”</b> to <a class="rlr-num" data-rlr-num data-word="ENERGY" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=ENERGY">{{custom_values.mlm_rep_sms}}</a> so it doesn't land in your “Unknown Senders” folder.</p>
+          <p class="rl-fine mlm-ind">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

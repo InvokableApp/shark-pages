@@ -1,0 +1,7 @@
+/* mlm/mlm-feed-your-gut/mlm-feed-your-gut-info: the 'more info from your rep' step, in the bonus request page's look. */
+@import url("../mlm-feed-your-gut-bonus/block.css");
+.mlm-info [hidden]{ display:none !important; }
+.mlm-info .rl-btns{ margin-top:18px; display:flex; flex-direction:column; gap:10px; }
+.mlm-info .mlm-ind{ margin-top:16px !important; font-size:11.5px !important; line-height:1.45 !important; }
+.mlm-info .mlm-info-pic{ display:block; width:96px; height:96px; object-fit:cover; border-radius:50%; margin:0 auto 12px; border:1.5px solid #0B2D66; }
+@media (min-width:701px){ .mlm-info .rl-btns{ flex-direction:row; flex-wrap:wrap; justify-content:center; } }

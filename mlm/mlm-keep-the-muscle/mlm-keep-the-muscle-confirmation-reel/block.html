@@ -1,0 +1,81 @@
+<!--
+  mlm/mlm-keep-the-muscle/mlm-keep-the-muscle-confirmation-reel
+  The Lose the Fat, Keep the Muscle confirmation as a REEL, look "Gym poster" like its opt-in. Four screens, platform only:
+  the step /mlm-keep-the-muscle-confirmation points here (platform migration 0696).
+  ⚠️ The source's thank-you sold a second guide and a supplement "designed to support your body's natural GLP-1" (banned
+     outright: brain/mlm.md). Here the one ask is the MLM info step: "Want more info on the protein I recommend?
+     Message me." It names the thing plainly, never a brand or an offer (PAGE-COPY-SOP rule 14).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "PRODUCT INFO" to the rep, on Facebook or by text. Facebook goes through
+     /mlm-keep-the-muscle-redirect-dm (its view is the rep's alert, 0697); the text is an sms: link with the words in it.
+  ⚠️ THE SHOP LINK SHOWS ONLY WHEN THE REP SET ONE: [data-needs] on mlm_buy_link hides it otherwise. It goes through
+     /mlm-keep-the-muscle-redirect (its view is the fire alert, 0697).
+-->
+<div class="rl rl-look-poster rlw rlwc" data-pf-native data-pf-message="for more info" data-pf-say="PRODUCT INFO" data-pf-arrive="#0B0B0B">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: it's on its way -->
+      <section class="rl-p rl-night rl-plain rlwc-top">
+        <div class="rl-in">
+          <svg class="rlwc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">✅ You're in</span>
+          <h1 data-in style="--d:.1s">Hey<span data-if-name> {{contact.first_name}}</span>! Your guide is <em>on its way.</em></h1>
+          <p data-in style="--d:.25s">Arriving in your inbox in two minutes. If you don't see it there, check your spam or promotions folder.</p>
+          <div class="rl-btns" data-in style="--d:.35s"><a class="rl-btn" href="/mlm-keep-the-muscle-read">Read the guide online now</a></div>
+          <div class="rlwc-gift"><span>Swipe for more info from {{custom_values.mlm_rep_first_name}}</span><span class="rlwc-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: by the way, the info step -->
+      <section class="rl-p rl-paper rlwc-info">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>By the way</span>
+          <img class="rl-art" data-in style="--d:.1s" src="/_p/mlm/mlm-keep-the-muscle/mlm-keep-the-muscle-reel/assets/pulldown.webp"
+               width="1400" height="771" alt="A man at a lat pulldown machine in a bright gym" loading="lazy">
+          <h2 data-in style="--d:.2s">Hitting your protein <em>every day</em> isn't easy.</h2>
+          <p data-in style="--d:.3s">25 to 40g at every meal takes planning, and busy days don't wait for you. I can send you more info on the protein I recommend for the days there's no time to cook.</p>
+          <a class="rl-btn rlwc-go" data-in style="--d:.4s" data-pf-ask href="/mlm-keep-the-muscle-redirect-dm">Yeah... send me more info! 👀</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT (lime): the ask, with the rep -->
+      <section class="rl-p rl-tint rlwc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want more info on the protein I recommend? ✅</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} on Facebook now!</h2>
+          <p data-in style="--d:.3s">I'll send you more information and answer any questions you have.</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-keep-the-muscle-redirect-dm">💬 Message "PRODUCT INFO" on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-keep-the-muscle-redirect">🛒 Visit my shop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. NIGHT: three of the guide's five rules, and the fine print -->
+      <section class="rl-p rl-night rl-plain rlwc-today">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Start this week</span>
+          <h2 data-in style="--d:.1s">Three rules that <em>keep the muscle.</em></h2>
+          <ol class="rlwc-rules">
+            <li data-in style="--d:.2s"><b>Lift weights consistently</b>2 to 5 resistance sessions per week.</li>
+            <li data-in style="--d:.3s"><b>Prioritize protein</b>Hit your protein at every meal first.</li>
+            <li data-in style="--d:.4s"><b>Walk daily</b>Aim for 7,000 to 10,000 steps.</li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.5s">Not medical advice. Talk to your doctor before you start a new exercise program, especially if you take any medication or have a health condition.</p>
+          <p class="rl-fine" data-in style="--d:.55s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for more info" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-keep-the-muscle-redirect-dm">Message me for more info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

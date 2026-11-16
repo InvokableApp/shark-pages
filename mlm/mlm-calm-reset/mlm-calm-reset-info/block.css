@@ -1,0 +1,6 @@
+/* mlm/mlm-calm-reset/mlm-calm-reset-info: the 'more info from your rep' step, in the reel's look. */
+@import url("../mlm-calm-reset-confirmation-reel/block.css");
+.mlm-info .rl-p{ overflow-y:auto; justify-content:safe center; }
+.mlm-info .rl-in{ padding-bottom:48px; }
+.mlm-info .mlm-ind{ margin-top:16px !important; font-size:11.5px !important; line-height:1.45 !important; }
+@media (min-width:701px){ .mlm-info .rl-in{ grid-template-columns:minmax(0,1fr); max-width:860px; padding-bottom:72px; } }

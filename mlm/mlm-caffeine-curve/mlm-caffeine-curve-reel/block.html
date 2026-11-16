@@ -1,0 +1,142 @@
+<!--
+  mlm/mlm-caffeine-curve/mlm-caffeine-curve-reel
+  The Caffeine Curve: the calculator's opt-in reel. Look: Training log. Marketing Shark | MLM (company-neutral).
+  Converted from the Caffeine Curve calculator (a GHL page running the shared calculator, seven questions and a gate) and
+  rebuilt as a reel: the lead answers on the reel's own screens (bedtime, the drink, its size, how many and when, the last
+  one), the dock opens the contact form, the result page shows how much caffeine is still in their system at bedtime.
+  THE ANSWERS: quiz.js keeps them in window.__pfExtra (contacts.custom mlm_cc_*), works the number out with calc.js (the one
+  copy of the arithmetic) and sets the form's next step to the result page with the answers in the address
+  (?b=&k=&z=&m=&n=&a=&l=); the delivery email links to the same address ({{contact.mlm_cc_q}}).
+  The headline's words are the source's ("see how much caffeine is still in your system at bedtime"); the count is now 5
+  questions (the three "how many" questions are one screen). Sleep is framed as habits: no sleep condition is named.
+  No product on this page. Platform only: the step points here (migration 0686). No company or product name anywhere.
+-->
+<div class="rl rl-look-log rl-cc" data-pf-native data-pf-dock="Start the 5 question check" data-pf-handoff="#F3F1EC">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover -->
+      <section class="rl-p rl-photo rl-cover rl-wide" aria-label="The Caffeine Curve">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-caffeine-curve/_img/hero-nightstand.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The Caffeine Curve</span>
+          <h1 data-in style="--d:.1s">Answer 5 questions and see how much caffeine is <em>still in your system</em> at bedtime</h1>
+          <p data-in style="--d:.25s">Most people are still carrying more than they think, and it isn't the morning coffee doing it. Tell us what you drink and when, and we'll work out what's left when your head hits the pillow.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>5 questions</li><li>About a minute</li><li>Free</li></ul>
+          <p class="rl-note" data-in style="--d:.5s">An estimate, not medical advice. Your number shows as soon as you finish.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the premise, the curve drawing itself -->
+      <section class="rl-p rl-paper cc-why">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Why it's hard to feel</span>
+          <h2 data-in style="--d:.1s">Caffeine lasts far longer than it feels like it does</h2>
+          <p data-in style="--d:.2s">On average, half of a cup is still working five hours after you drink it. So the afternoon one is often still around at lights out, and it doesn't feel like anything.</p>
+          <div class="lk-meta" data-in style="--d:.3s"><div>5 hrs<small>to clear half</small></div><div>FDA<small>caffeine figures</small></div><div>1 min<small>to work it out</small></div></div>
+          <svg class="cc-curve rl-art" viewBox="0 0 320 150" aria-hidden="true"><line class="ax" x1="10" y1="130" x2="310" y2="130"/><path class="ln" d="M10 128 C 30 128 34 40 52 40 C 90 40 110 90 140 96 C 160 100 168 52 186 52 C 220 52 250 98 310 112"/><line class="bed" x1="268" y1="20" x2="268" y2="130"/><text x="272" y="30">bed</text></svg>
+        </div>
+      </section>
+
+      <!-- 3-7. THE QUESTIONS. The option keys (data-v) are calc.js's; change both together. -->
+      <section class="rl-p rl-tint rl-wide" data-qz="b">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What time do you usually get into bed?</h2>
+          <div class="qz-opts" data-key="b" data-in style="--d:.25s">
+            <button type="button" data-v="b1">Around 9:30</button>
+            <button type="button" data-v="b2">Around 10:30</button>
+            <button type="button" data-v="b3">Around 11:30</button>
+            <button type="button" data-v="b4">After midnight</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-paper rl-wide" data-qz="k">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Which caffeinated drink do you have most often?</h2>
+          <p class="cc-help" data-in style="--d:.15s">Pick the one you have most days. We use the FDA's published caffeine figure for it.</p>
+          <div class="qz-opts" data-key="k" data-in style="--d:.25s">
+            <button type="button" data-v="brewed">Brewed coffee</button>
+            <button type="button" data-v="energy">An energy drink</button>
+            <button type="button" data-v="blackTea">Black tea</button>
+            <button type="button" data-v="greenTea">Green tea</button>
+            <button type="button" data-v="soda">Soda</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rl-p rl-tint rl-wide" data-qz="z">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">What size is that one, roughly?</h2>
+          <p class="cc-help" data-in style="--d:.15s">The published figures are per 12 oz, so this changes the answer more than anything else.</p>
+          <div class="qz-opts" data-key="z" data-in style="--d:.25s">
+            <button type="button" data-v="small">Small, about 8 oz</button>
+            <button type="button" data-v="regular">Regular, about 12 oz</button>
+            <button type="button" data-v="large">Large, about 16 oz</button>
+            <button type="button" data-v="xl">Extra large, 20 oz or more</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- the three "how many" questions on one screen -->
+      <section class="rl-p rl-paper rl-wide cc-counts" data-qz="counts">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">How many do you have, and when?</h2>
+          <p class="cc-help" data-in style="--d:.15s">Count only the caffeinated ones. Zero is a normal answer.</p>
+          <div class="cc-row" data-in style="--d:.2s"><span>Before 10am</span><div class="qz-opts qz-chips" data-key="m"><button type="button" data-v="c0">0</button><button type="button" data-v="c1">1</button><button type="button" data-v="c2">2</button><button type="button" data-v="c3">3</button><button type="button" data-v="c4">4+</button></div></div>
+          <div class="cc-row" data-in style="--d:.25s"><span>10am to 2pm</span><div class="qz-opts qz-chips" data-key="n"><button type="button" data-v="c0">0</button><button type="button" data-v="c1">1</button><button type="button" data-v="c2">2</button><button type="button" data-v="c3">3</button><button type="button" data-v="c4">4+</button></div></div>
+          <div class="cc-row" data-in style="--d:.3s"><span>After 2pm</span><div class="qz-opts qz-chips" data-key="a"><button type="button" data-v="c0">0</button><button type="button" data-v="c1">1</button><button type="button" data-v="c2">2</button><button type="button" data-v="c3">3</button><button type="button" data-v="c4">4+</button></div></div>
+          <p class="cc-help cc-after" data-in style="--d:.35s">After 2pm is the one that does most of the work in your number.</p>
+        </div>
+      </section>
+
+      <section class="rl-p rl-tint rl-wide" data-qz="l">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">Roughly when is your last caffeinated drink of the day?</h2>
+          <p class="cc-help" data-in style="--d:.15s">If you never have anything after 2pm, pick the first answer.</p>
+          <div class="qz-opts" data-key="l" data-in style="--d:.25s">
+            <button type="button" data-v="l1">1pm or earlier</button>
+            <button type="button" data-v="l2">Around 2 or 3</button>
+            <button type="button" data-v="l3">Around 4 or 5</button>
+            <button type="button" data-v="l4">Around 6 or 7</button>
+            <button type="button" data-v="l5">8pm or later</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. NIGHT: working it out (true statements about what calc.js does), then ready -->
+      <section class="rl-p rl-night rl-plain rl-wide qz-proc" data-qz-ready aria-label="Your number is ready">
+        <div class="rl-in">
+          <div class="qz-stage">
+            <div class="qz-load">
+              <ul class="qz-msgs">
+                <li><b>Adding up your day...</b><span>Each drink at the time you have it</span></li>
+                <li><b>Working out what's left at bedtime...</b><span>At an average clearance rate</span></li>
+              </ul>
+              <div class="qz-bar" aria-hidden="true"><i></i></div>
+            </div>
+            <div class="qz-ready">
+              <h2>Your number is ready</h2>
+              <p>Enter your details to see it, with the hour you're finally clear and your real cutoff time.</p>
+              <p class="rl-fine">An estimate, not medical advice. {{custom_values.mlm_independence_line}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Start the 5 question check</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>
+<script src="/_p/mlm/mlm-caffeine-curve/mlm-caffeine-curve-reel/calc.js?v=1" defer></script>
+<script src="/_p/mlm/mlm-caffeine-curve/mlm-caffeine-curve-reel/quiz.js?v=1" defer></script>

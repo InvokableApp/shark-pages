@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* mlm/mlm-glp1-plan/mlm-glp1-plan-read: Meals and Exercise on a GLP-1, read online. Copied from the source system's web guide
+   (the class renamed); the page background added for the platform, which serves the block on its own.
+   Generated markup, hand-designed CSS. Reading treatment: one long column, wide
+   margins, a sticky jump nav. Same palette and faces as the print guide so the
+   download and the web page are visibly the same document.
+   Every selector is scoped (HOSTED-BLOCKS-SOP §1). */
+
+.mgp-read{
+  --paper:#fbfbf7;
+  --surface:#ffffff;
+  --ink:#1b2113;
+  --muted:#68715c;
+  --lime:#8db53c;
+  --lime-deep:#5a7526;
+  --grape:#7c3aed;
+  --hair:#dfe3d4;
+  --tint:#f2f6e8;
+  --dark:#20281a;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  box-sizing:border-box;
+  max-width:760px;
+  margin:0 auto;
+  padding:0 20px 56px;
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16.5px;
+  line-height:1.72;
+  text-align:left;
+}
+.mgp-read *{box-sizing:border-box;}
+.mgp-read p{margin:0 0 1em;}
+.mgp-read strong{font-weight:650;}
+
+/* ---------- header + nav ---------- */
+.mgp-read .g-top{padding:52px 0 26px;}
+.mgp-read .g-top h1{
+  margin:0 0 12px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(30px,5vw,46px);
+  line-height:1.05;
+  letter-spacing:-.022em;
+  text-wrap:balance;
+}
+.mgp-read .g-eyebrow{
+  margin:0 0 12px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+}
+.mgp-read .g-kicker{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:18px;
+  color:var(--muted);
+}
+
+.mgp-read .g-nav{
+  position:sticky;
+  top:0;
+  z-index:5;
+  display:flex;
+  gap:4px;
+  overflow-x:auto;
+  padding:10px 0;
+  margin-bottom:8px;
+  background:var(--paper);
+  border-bottom:1px solid var(--hair);
+  -webkit-overflow-scrolling:touch;
+}
+.mgp-read .g-nav a{
+  flex:0 0 auto;
+  padding:7px 13px;
+  border-radius:999px;
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--muted);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .15s ease, color .15s ease;
+}
+.mgp-read .g-nav a:hover{background:var(--tint);color:var(--lime-deep);}
+.mgp-read .g-nav a[data-sk-here]{background:var(--dark);color:var(--paper);}
+
+/* ---------- sections ---------- */
+.mgp-read .g-sec{
+  padding:38px 0 6px;
+  border-top:1px solid var(--hair);
+  scroll-margin-top:64px;
+}
+.mgp-read .g-sec:first-of-type{border-top:0;}
+.mgp-read .g-sec h2{
+  margin:0 0 14px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(24px,3.6vw,33px);
+  line-height:1.1;
+  letter-spacing:-.018em;
+  text-wrap:balance;
+}
+.mgp-read .g-sec h3{
+  margin:26px 0 10px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-.012em;
+}
+
+/* ---------- callout ---------- */
+.mgp-read .g-note{
+  border-left:3px solid var(--grape);
+  background:var(--surface);
+  border-radius:0 8px 8px 0;
+  padding:16px 20px;
+  margin:22px 0;
+}
+.mgp-read .g-note p{margin:0;font-size:15.5px;}
+
+/* ---------- plate builder ---------- */
+.mgp-read .g-builder{
+  border:1px solid var(--hair);
+  border-radius:9px;
+  overflow:hidden;
+  margin:18px 0;
+  background:var(--surface);
+}
+.mgp-read .g-builder-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  background:var(--dark);
+  color:var(--paper);
+  padding:12px 18px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.mgp-read .g-builder-head i{font-style:normal;font-size:9.5px;letter-spacing:.11em;color:var(--lime);}
+.mgp-read .g-builder-row{
+  display:grid;
+  grid-template-columns:78px 1fr 30px 1fr;
+  align-items:center;
+  gap:8px;
+  padding:14px 18px;
+  border-top:1px solid var(--hair);
+}
+.mgp-read .g-builder-row:first-of-type{border-top:0;}
+.mgp-read .g-grp{
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+}
+.mgp-read .g-builder-row b{font-size:15px;font-weight:500;}
+.mgp-read .g-builder-row i{
+  font-style:normal;
+  text-align:center;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------- shopping list (real checkboxes) ---------- */
+.mgp-read .g-shop{
+  background:var(--surface);
+  border:1px solid var(--hair);
+  border-radius:9px;
+  padding:20px 22px;
+  margin:18px 0;
+}
+.mgp-read .g-shop-title{
+  margin:0 0 12px;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+}
+.mgp-read .g-aisle{
+  display:grid;
+  grid-template-columns:78px 1fr;
+  gap:12px;
+  padding:11px 0;
+  border-top:1px solid var(--hair);
+}
+.mgp-read .g-aisle:first-of-type{border-top:0;}
+.mgp-read .g-aisle > span{
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:4px;
+}
+.mgp-read .g-aisle > div{display:flex;flex-wrap:wrap;gap:6px 16px;}
+.mgp-read .g-aisle label{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:14.5px;
+  cursor:pointer;
+}
+.mgp-read .g-aisle input{
+  appearance:none;
+  -webkit-appearance:none;
+  width:16px;height:16px;
+  border:1.5px solid var(--hair);
+  border-radius:4px;
+  background:var(--paper);
+  cursor:pointer;
+  flex:0 0 auto;
+  position:relative;
+}
+.mgp-read .g-aisle input:checked{background:var(--lime);border-color:var(--lime);}
+.mgp-read .g-aisle input:checked::after{
+  content:"";
+  position:absolute;
+  left:4.5px; top:1.5px;
+  width:4px; height:8px;
+  border-right:2px solid #fff;
+  border-bottom:2px solid #fff;
+  transform:rotate(42deg);
+}
+.mgp-read .g-aisle input:focus-visible{outline:2px solid var(--grape);outline-offset:2px;}
+.mgp-read .g-aisle input:checked + span{color:var(--muted);text-decoration:line-through;}
+
+/* ---------- workout day ---------- */
+.mgp-read .g-day{
+  border:1px solid var(--hair);
+  border-radius:9px;
+  overflow:hidden;
+  margin:18px 0;
+  background:var(--surface);
+}
+.mgp-read .g-day-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  background:var(--lime-deep);
+  color:var(--paper);
+  padding:12px 18px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.mgp-read .g-day-head i{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:#dcecb6;}
+.mgp-read .g-move{padding:18px;border-top:1px solid var(--hair);}
+.mgp-read .g-move:first-of-type{border-top:0;}
+/* With a diagram the card is figure + body. The figure keeps a fixed square so every
+   card lines up down the page whatever the text length. */
+.mgp-read .g-move-dia{display:grid;grid-template-columns:132px 1fr;gap:18px;align-items:center;}
+.mgp-read .g-move-fig{
+  width:132px;height:132px;
+  object-fit:contain;
+  background:var(--tint);
+  border:1px solid var(--hair);
+  border-radius:6px;
+}
+.mgp-read .g-move-body{min-width:0;}
+.mgp-read .g-move-name{
+  margin:0 0 9px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:18px;
+}
+.mgp-read .g-levels{display:flex;flex-direction:column;gap:7px;}
+.mgp-read .g-levels b{display:inline-block;min-width:64px;}
+.mgp-read .g-levels > div{font-size:13.5px;line-height:1.5;}
+.mgp-read .g-levels b{
+  display:block;
+  font-size:8.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:3px;
+  color:var(--lime-deep);
+}
+.mgp-read .g-levels > div:nth-child(2) b{color:var(--muted);}
+.mgp-read .g-levels > div:nth-child(3) b{color:var(--grape);}
+
+/* ---------- steps band ---------- */
+.mgp-read .g-steps{
+  background:var(--dark);
+  color:var(--paper);
+  border-radius:9px;
+  padding:22px 24px;
+  margin:18px 0;
+}
+.mgp-read .g-steps-label{
+  margin:0 0 6px;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--lime);
+}
+.mgp-read .g-steps-title{
+  margin:0 0 8px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:23px;
+  color:var(--paper);
+  font-variant-numeric:tabular-nums;
+}
+.mgp-read .g-steps p{margin:0;font-size:15px;color:rgba(251,251,247,.82);}
+
+/* ---------- rules ---------- */
+.mgp-read .g-rules{list-style:none;margin:18px 0;padding:0;counter-reset:skr;}
+.mgp-read .g-rules li{
+  counter-increment:skr;
+  position:relative;
+  padding:0 0 16px 42px;
+}
+.mgp-read .g-rules li::before{
+  content:counter(skr,decimal-leading-zero);
+  position:absolute;
+  left:0; top:1px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:16px;
+  color:var(--lime);
+  font-variant-numeric:tabular-nums;
+}
+.mgp-read .g-rules b{display:block;font-size:16px;font-weight:650;}
+.mgp-read .g-rules span{font-size:15px;color:var(--muted);}
+
+/* ---------- timeline ---------- */
+.mgp-read .g-tl{margin:18px 0;}
+.mgp-read .g-tl-i{
+  display:grid;
+  grid-template-columns:104px 1fr;
+  gap:16px;
+  padding:15px 0;
+  border-top:1px solid var(--hair);
+}
+.mgp-read .g-tl-i:first-child{border-top:0;}
+.mgp-read .g-tl-i > span{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--lime-deep);
+  padding-top:5px;
+}
+.mgp-read .g-tl-i p{margin:0;font-size:15.5px;}
+
+/* ---------- offer ---------- */
+.mgp-read .g-offer{
+  background:var(--dark);
+  color:var(--paper);
+  border-radius:14px;
+  padding:40px 32px 38px;
+  margin:38px 0 0;
+  border-top:0;
+  text-align:center;
+}
+.mgp-read .g-offer h2{color:var(--paper);}
+.mgp-read .g-offer p{color:rgba(251,251,247,.8);max-width:52ch;margin-left:auto;margin-right:auto;}
+.mgp-read .g-offer strong{color:var(--lime);}
+.mgp-read .g-cta{
+  display:inline-block;
+  margin-top:12px;
+  border-radius:7px;
+  padding:15px 34px;
+  background:var(--lime);
+  color:#141a0c;
+  font-size:16.5px;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .18s ease, transform .18s ease;
+}
+.mgp-read .g-cta:hover{background:#9bc648;transform:translateY(-1px);}
+.mgp-read .g-cta:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
+
+/* ---------- fine print ---------- */
+.mgp-read .g-fine{margin-top:30px;padding-top:18px;border-top:1px solid var(--hair);}
+.mgp-read .g-fine p{font-size:12.5px;line-height:1.6;color:var(--muted);}
+
+@media (max-width:620px){
+  .mgp-read .g-move-dia{grid-template-columns:1fr;gap:12px;justify-items:start;}
+  .mgp-read{font-size:16px;}
+  .mgp-read .g-builder-row{grid-template-columns:1fr;gap:3px;padding:13px 16px;}
+  .mgp-read .g-builder-row i{text-align:left;}
+  .mgp-read .g-levels{grid-template-columns:1fr;gap:9px;}
+  .mgp-read .g-aisle{grid-template-columns:1fr;gap:6px;}
+  .mgp-read .g-tl-i{grid-template-columns:1fr;gap:4px;}
+  .mgp-read .g-offer{padding:32px 20px 30px;}
+  .mgp-read .g-cta{width:100%;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mgp-read .g-nav a,.mgp-read .g-cta{transition:none;}
+}
+
+/* protein floor table (Part One, "If you want the numbers") */
+.mgp-read .g-nums{ border:1px solid var(--hair); border-radius:6px; overflow:hidden; margin:22px 0; }
+.mgp-read .g-nums-head{ background:var(--dark); color:var(--paper); padding:11px 16px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.mgp-read .g-nums-head span{ font-family:var(--sans); font-size:12px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; }
+.mgp-read .g-nums-head i{ font-style:normal; font-family:var(--sans); font-size:10px;
+  letter-spacing:.08em; text-transform:uppercase; opacity:.72; }
+.mgp-read .g-nums-row{ display:grid; grid-template-columns:1fr 1fr 1.15fr; align-items:center;
+  border-top:1px solid var(--hair); }
+.mgp-read .g-nums-row>*{ padding:11px 16px; font-size:15px; font-variant-numeric:tabular-nums; }
+.mgp-read .g-nums-hdr{ border-top:0; background:var(--tint); }
+.mgp-read .g-nums-hdr>span{ font-family:var(--sans); font-size:10px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.11em; color:var(--muted); }
+.mgp-read .g-nums-row b{ font-family:var(--serif); font-weight:700; }
+@media (max-width:560px){
+  .mgp-read .g-nums-row{ grid-template-columns:1fr 1fr; }
+  .mgp-read .g-nums-row>*:nth-child(3){ grid-column:1 / -1; padding-top:0; color:var(--muted); font-size:14px; }
+}
+
+/* the platform serves this block alone: give the page its paper */
+.mgp-page{ background:#fbfbf7; min-height:100vh; overflow-x:hidden; }
+.mgp-read .g-fine p + p{ margin-top:10px; }
+
+/* The visitor's first name in the headline (PAGE-COPY-SOP §5c, 2026-11-11): a small greeting line above the guide's
+   title, so the title keeps its size. The platform fills the name or drops it; GHL never fills it. */
+[data-if-name]{ display:none; }
+h1 .rd-hi{ display:block; font-size:max(.36em,17px); line-height:1.2; letter-spacing:0; margin:0 0 .4em; text-transform:none; }

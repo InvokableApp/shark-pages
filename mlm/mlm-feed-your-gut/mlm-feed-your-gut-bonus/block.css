@@ -1,0 +1,8 @@
+/* mlm/mlm-feed-your-gut/mlm-feed-your-gut-bonus: one screen of the confirmation's look, the stand sign (see block.html). */
+@import url("../mlm-feed-your-gut-reel/block.css");
+.cf-bonus .cf-claim-card{ margin:0 auto; }
+.cf-bonus .rl-btn-2{ color:var(--indigo) !important; box-shadow:inset 0 0 0 2px var(--indigo) !important; margin-top:8px; display:block; }
+.cf-bonus a.cf-num{ color:var(--tomato); font-weight:700; }
+.cf-bonus .cf-num-plain{ text-decoration:none; }
+.cf-bonus .fy-sign p{ color:#2E3B57; } .cf-bonus .fy-sign p b{ color:var(--indigo); } .cf-bonus .fy-sign .cf-claim-big{ color:var(--indigo); }
+.cf-bonus .fy-sign .rl-fine{ color:#66708A !important; font-size:11px !important; margin-top:14px !important; }

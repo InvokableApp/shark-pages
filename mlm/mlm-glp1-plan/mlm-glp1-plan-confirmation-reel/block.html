@@ -1,0 +1,86 @@
+<!--
+  mlm/mlm-glp1-plan/mlm-glp1-plan-confirmation-reel
+  The Meals and Exercise on a GLP-1 confirmation as a REEL, after its opt-in reel. Four screens, platform only: the step
+  /mlm-glp1-plan-confirmation points here (platform migration 0698).
+  ⚠️ Converted from the source's scrolling thank-you. Its "check your inbox" words are kept. Out: the bonus treat texts (a
+     second consent and a text series nobody has written for this system), and the company's shake. Its product block is now
+     the info step, worded so the shake is only protein on a low-appetite day: never compared to the medication, never said to
+     help with a side effect, never said to change what the medication does (brain/mlm.md, the wave 2 brief).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "PRODUCT INFO" to the rep, on Facebook or by text. Facebook goes through
+     /mlm-glp1-plan-redirect-dm (its view is the rep's alert, 0699); the text is an sms: link with the words in it.
+  ⚠️ THE SHOP LINK SHOWS ONLY WHEN THE REP SET ONE: [data-needs] on mlm_buy_link hides it otherwise (/mlm-glp1-plan-redirect,
+     the fire alert, 0699).
+-->
+<div class="rl rl-pf rlc" data-pf-native data-pf-message="for more info" data-pf-say="PRODUCT INFO" data-pf-arrive="#fbfbf7">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: confirmed, check your inbox -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Confirmed / check your inbox</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your guide is on the way 📬</h1>
+          <p data-in style="--d:.3s">It lands in the next couple of minutes. If it is not there, look in Promotions or Spam and drag it across, so my next emails arrive where you can find them.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/mlm-glp1-plan-read">Read it online now</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for more info from {{custom_values.mlm_rep_first_name}}</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the low-appetite day, and the info step -->
+      <section class="rl-p rl-night rlc-products">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>For the days food is a problem</span>
+          <img class="rlc-pack rl-art" data-in style="--d:.1s" src="/_p/mlm/mlm-glp1-plan/mlm-glp1-plan-reel/assets/pudding.webp"
+               width="520" height="520" alt="A glass of chocolate protein pudding with a spoon" loading="lazy">
+          <h2 data-in style="--d:.25s">Some days nothing sounds good, and protein is the first thing to slip.</h2>
+          <p data-in style="--d:.35s">The guide gives you an override for that day: any meal, any day, a protein shake counts as done. I can send you more info on the protein shake I recommend.</p>
+          <a class="rl-btn rlc-go" data-in style="--d:.45s" data-pf-ask href="/mlm-glp1-plan-redirect-dm">Yeah... send me more info! 👀</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the ask, with the rep -->
+      <section class="rl-p rl-tint rlc-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want more info on the protein shake I recommend? ✅</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} on Facebook now!</h2>
+          <p data-in style="--d:.3s">I'll send you more information and answer any questions you have.</p>
+          <div class="rl-btns" data-in style="--d:.4s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-glp1-plan-redirect-dm">💬 Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-glp1-plan-redirect">🛒 Visit my shop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: three timing habits from the guide, and the prescriber line -->
+      <section class="rl-p rl-photo rl-wide rlc-today">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-glp1-plan/mlm-glp1-plan-reel/assets/flatlay.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tomorrow you start Day A</span>
+          <h2 data-in style="--d:.1s">Three habits from the guide</h2>
+          <ol class="rlc-habits">
+            <li data-in style="--d:.25s"><span>1</span><div>Protein first, every time. If you stop eating early, at least the important part is in.</div></li>
+            <li data-in style="--d:.4s"><span>2</span><div>Small volume beats a big plate. Serve yourself less than you think you want. You can always go back.</div></li>
+            <li data-in style="--d:.55s"><span>3</span><div>Sip water through the day, rather than a big glass with the meal.</div></li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.7s">General wellness information, not medical advice. Talk to your prescriber before changing how you eat or starting to
+            exercise. Nothing here changes how you take your medication.</p>
+          <p class="rl-fine" data-in style="--d:.75s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for more info" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-glp1-plan-redirect-dm">Message me for more info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

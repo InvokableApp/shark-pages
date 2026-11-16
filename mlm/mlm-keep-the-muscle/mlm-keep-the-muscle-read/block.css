@@ -1,0 +1,144 @@
+/* mlm/mlm-keep-the-muscle/mlm-keep-the-muscle-read: Lose the Fat, Keep the Muscle, read online (see block.html).
+ * Copied from the wave 1 protein guide's read page (mlm-protein-breakfasts-read) in the Gym poster colors: black, acid lime, bone, Archivo.
+ * The opt-in reel's look as a reading page: cream, forest, leaf green, Playfair Display over Inter. One column, a sticky
+ * jump nav with a reading bar, a recipe card per recipe (photo, protein first, the serving table, method, shopping list). */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap");
+
+.pb-read{
+  --forest:#0B0B0B; --forest-deep:#000; --leaf:#D4FF3A; --leaf-ink:#4a6600; --cream:#F2F1EC; --card:#fff;
+  --ink:#1c2420; --body:#3b463f; --grey:#6c766f; --hair:#e4ded2; --tint:#eef6cf;
+  --head:"Archivo",system-ui,sans-serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+  background:var(--cream); color:var(--ink); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
+  min-height:100vh; overflow-x:hidden;
+}
+.pb-read *{ box-sizing:border-box; }
+.pb-read h1,.pb-read h2,.pb-read h3,.pb-read h4,.pb-read p,.pb-read ul,.pb-read ol,.pb-read figure{ margin:0; }
+.pb-read b{ color:var(--forest); }
+.pb-read [hidden]{ display:none !important; }
+
+/* the nav */
+.pb-nav{ position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:14px; padding:12px 18px; background:rgba(11,11,11,.97); backdrop-filter:blur(6px); }
+.pb-brand{ font:700 16px var(--head); color:#fff; text-decoration:none; white-space:nowrap; }
+.pb-links{ display:flex; gap:14px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.pb-links::-webkit-scrollbar{ display:none; }
+.pb-links a{ font:600 12px/1 var(--sans); letter-spacing:.05em; text-transform:uppercase; color:#eee; text-decoration:none; white-space:nowrap; opacity:.85; padding:4px 0; }
+.pb-bar{ position:absolute; left:0; right:0; bottom:0; height:3px; background:rgba(255,255,255,.08); }
+.pb-bar i{ display:block; height:100%; width:0; background:var(--leaf); }
+
+/* the cover */
+.pb-hero{ position:relative; min-height:560px; display:flex; align-items:flex-start; overflow:hidden; }
+.pb-hero-bg{ position:absolute; inset:0; background-size:cover; background-position:center bottom; }
+.pb-hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(242,241,236,.97) 0%,rgba(242,241,236,.9) 42%,rgba(242,241,236,.25) 75%,rgba(242,241,236,0) 100%); }
+.pb-hero-in{ position:relative; z-index:1; max-width:760px; width:100%; margin:0 auto; padding:44px 22px 40px; }
+.pb-eyebrow{ font:600 11.5px/1.2 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--leaf-ink); margin-bottom:12px !important; }
+.pb-hero h1{ font:700 clamp(44px,12vw,72px)/1 var(--head); color:var(--forest); letter-spacing:-.01em; }
+.pb-hero h1 em{ font-style:normal; color:var(--leaf-ink); }
+.pb-sub{ font:italic 500 clamp(18px,4.8vw,22px)/1.35 var(--head); color:var(--ink); margin-top:16px !important; max-width:30em; }
+.pb-tag{ font:600 12px/1.3 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--forest); opacity:.75; margin-top:14px !important; }
+.pb-btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.pb-btn{ display:inline-block; background:var(--forest); color:#fff; text-decoration:none; font:600 15px/1 var(--sans); padding:15px 24px; border-radius:999px; }
+
+/* the reading column */
+.pb-body{ max-width:760px; margin:0 auto; padding:10px 16px 60px; }
+.pb-panel{ background:var(--card); border:1px solid var(--hair); border-radius:18px; padding:28px 22px; margin:22px 0; }
+.pb-panel h2{ font:700 clamp(26px,7vw,34px)/1.12 var(--head); color:var(--forest); margin-bottom:14px; }
+.pb-panel h3{ font:700 19px/1.3 var(--head); color:var(--forest); margin:22px 0 8px; }
+.pb-panel p{ font-size:16px; color:var(--body); margin:0 0 12px; }
+.pb-panel ul,.pb-panel ol{ padding-left:22px; margin:0 0 12px; color:var(--body); }
+.pb-panel li{ margin-bottom:6px; font-size:15.5px; }
+.pb-note{ background:var(--tint); border-left:4px solid var(--leaf-ink); border-radius:12px; padding:14px 16px; margin:16px 0; }
+.pb-note p{ font-size:15px; margin:0 0 6px; }
+.pb-note p:last-child{ margin:0; }
+.pb-sent{ background:var(--forest); border-color:var(--forest); }
+.pb-sent h2,.pb-sent h3,.pb-sent b{ color:#fff; }
+.pb-sent p{ color:rgba(255,255,255,.86); }
+.pb-sent .pb-note{ background:rgba(255,255,255,.08); border-left-color:var(--leaf); }
+
+/* a part's banner */
+.pb-divider{ position:relative; min-height:200px; border-radius:18px; overflow:hidden; margin:40px 0 18px; display:flex; align-items:flex-end; scroll-margin-top:56px; }
+.pb-divider-bg{ position:absolute; inset:0; background-size:cover; background-position:center 70%; }
+.pb-divider::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(11,11,11,.9) 0%,rgba(11,11,11,.55) 100%); }
+.pb-divider-in{ position:relative; z-index:1; padding:24px 24px; }
+.pb-divider .pb-eyebrow{ color:#D4FF3A; margin-bottom:6px !important; }
+.pb-divider h2{ font:700 clamp(36px,10vw,48px)/1 var(--head); color:#fff; }
+.pb-divider p{ color:rgba(255,255,255,.88); margin-top:8px; font-size:15px; }
+section[id],article[id]{ scroll-margin-top:60px; }
+
+/* a recipe */
+.pb-card{ background:var(--card); border:1px solid var(--hair); border-radius:18px; overflow:hidden; margin:0 0 18px; box-shadow:0 1px 3px rgba(11,11,11,.05); }
+.pb-photo img{ display:block; width:100%; height:220px; object-fit:cover; }
+.pb-words{ padding:22px 20px 22px; }
+.pb-type{ font:600 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--leaf-ink); }
+.pb-card h3{ font:700 clamp(24px,6.6vw,30px)/1.12 var(--head); color:var(--forest); margin:8px 0 8px; }
+.pb-why{ color:var(--grey); font-size:15px; line-height:1.55; margin-bottom:16px !important; }
+.pb-badges{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.pb-badge{ background:var(--cream); border:1px solid var(--hair); border-radius:12px; padding:10px 4px; text-align:center; }
+.pb-badge b{ display:block; font:700 21px/1.1 var(--head); color:var(--forest); }
+.pb-badge span{ display:block; font:600 9.5px/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--grey); margin-top:3px; }
+.pb-badge.pb-pro{ background:var(--leaf-ink); border-color:var(--leaf-ink); }
+.pb-badge.pb-pro b,.pb-badge.pb-pro span{ color:#fff; }
+.pb-approx{ font:600 10px/1.2 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--grey); opacity:.8; margin:8px 0 16px !important; }
+.pb-tablewrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 18px; }
+.pb-ing{ width:100%; border-collapse:collapse; font-size:14px; }
+.pb-ing th{ font:600 11px/1.3 var(--sans); letter-spacing:.04em; text-transform:uppercase; color:var(--forest); text-align:left; padding:0 6px 8px; border-bottom:2px solid var(--forest); vertical-align:bottom; }
+.pb-ing td{ padding:8px 6px; border-bottom:1px solid var(--hair); vertical-align:top; color:var(--ink); }
+.pb-ing th:not(:first-child),.pb-ing td:not(:first-child){ text-align:right; white-space:nowrap; color:var(--grey); }
+.pb-ing tbody tr:last-child td{ border-bottom:none; }
+.pb-cheat td:not(:first-child){ color:var(--ink); }
+.pb-card h4{ font:700 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--leaf-ink); margin:0 0 10px; }
+.pb-steps{ list-style:none; counter-reset:m; padding:0; margin:0 0 14px; }
+.pb-steps li{ counter-increment:m; position:relative; padding-left:36px; margin-bottom:10px; font-size:15px; line-height:1.55; color:var(--body); }
+.pb-steps li::before{ content:counter(m); position:absolute; left:0; top:0; width:24px; height:24px; border-radius:50%; background:var(--forest); color:#fff; font:700 12px/24px var(--sans); text-align:center; }
+.pb-tip{ background:var(--tint); border-radius:12px; padding:12px 14px; font-size:14.5px; color:var(--body); margin:0 0 14px !important; }
+.pb-shop{ border-top:1px solid var(--hair); padding-top:12px; }
+.pb-shop summary{ cursor:pointer; font:600 14px var(--sans); color:var(--forest); }
+.pb-shop ul{ margin:10px 0 0; padding-left:20px; color:var(--body); font-size:14.5px; }
+.pb-shop li{ margin-bottom:4px; }
+
+/* the foot */
+.pb-foot{ padding:28px 6px 10px; color:var(--grey); font-size:13px; line-height:1.55; }
+.pb-foot h3{ font:700 15px var(--head); color:var(--forest); margin-bottom:8px; }
+.pb-foot p{ margin:0 0 10px; }
+.pb-foot-brand{ font:700 15px var(--head); color:var(--forest); }
+
+/* a computer */
+@media (min-width:760px){
+  .pb-nav{ padding:12px 28px; gap:22px; }
+  .pb-hero{ min-height:620px; }
+  .pb-hero-in{ padding:72px 28px 60px; }
+  .pb-panel{ padding:36px 40px; }
+  .pb-photo img{ height:300px; }
+  .pb-words{ padding:28px 34px 30px; }
+  .pb-divider-in{ padding:30px 36px; }
+}
+
+/* ---------- Lose the Fat, Keep the Muscle additions ---------- */
+.pb-read h1,.pb-read h2,.pb-panel h3,.pb-card h3,.pb-divider h2{ font-stretch:62%; font-weight:900 !important; text-transform:uppercase; letter-spacing:0; }
+.pb-hero h1 em{ background:var(--leaf); color:var(--forest); padding:0 .08em; }
+.pb-btn,.pb-panel,.pb-card,.pb-divider,.pb-note{ border-radius:0 !important; }
+.pb-btn{ background:var(--forest); color:var(--leaf); }
+.pb-photo img{ filter:grayscale(1) contrast(1.1); object-position:center 40%; }
+.pb-grid{ display:grid; grid-template-columns:1fr; gap:10px; margin:14px 0; }
+.pb-mini{ border:2px solid var(--forest); padding:14px 16px; background:#fff; }
+.pb-mini h3{ margin:0 0 6px !important; font-size:20px !important; }
+.pb-mini p{ font-size:15px !important; margin:0 !important; }
+.pb-tags{ font-size:15px; color:var(--body); margin:0 0 14px !important; }
+.pb-x{ list-style:none; padding:0 !important; margin:0 0 14px; }
+.pb-x li{ position:relative; padding-left:22px; margin-bottom:6px; font-size:15px; color:var(--body); }
+.pb-x li::before{ content:"✕"; position:absolute; left:0; color:#c0392b; font-weight:700; }
+.pb-day{ border-top:2px solid var(--forest); margin-top:26px; padding-top:18px; }
+.pb-day h3{ margin-top:6px !important; }
+.pb-track td{ height:34px; min-width:36px; }
+.pb-week td{ font-size:13px; white-space:normal !important; text-align:left !important; color:var(--ink) !important; }
+.pb-sent h2,.pb-sent h3{ color:#fff; } .pb-sent h3{ color:var(--leaf) !important; }
+@media (min-width:760px){ .pb-grid{ grid-template-columns:1fr 1fr; } }
+@media print{ .pb-nav,.pb-hero-bg,.pb-btns{ display:none !important; } .pb-read{ background:#fff; } .pb-card,.pb-panel{ break-inside:avoid; } }
+
+/* the program, rules and tracker tables read left to right (the recipe sheet right-aligned its amount columns) */
+.pb-read .pb-ing th:not(:first-child),.pb-read .pb-ing td:not(:first-child){ text-align:left; white-space:normal; color:var(--ink); }
+.pb-read .pb-cheat td:not(:first-child){ white-space:nowrap; }
+
+/* The visitor's first name in the headline (PAGE-COPY-SOP §5c, 2026-11-11): a small greeting line above the guide's
+   title, so the title keeps its size. The platform fills the name or drops it; GHL never fills it. */
+[data-if-name]{ display:none; }
+h1 .rd-hi{ display:block; font-size:max(.36em,17px); line-height:1.2; letter-spacing:0; margin:0 0 .4em; text-transform:none; }

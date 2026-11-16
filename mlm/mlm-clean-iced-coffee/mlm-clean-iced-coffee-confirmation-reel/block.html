@@ -1,0 +1,71 @@
+<!--
+  mlm/mlm-clean-iced-coffee/mlm-clean-iced-coffee-confirmation-reel
+  The Clean Iced Coffee confirmation as a REEL, after its opt-in reel. Three screens, platform only: the step
+  /mlm-clean-iced-coffee-confirmation points here (migration 0688). Look: the opt-in's (G · Editorial serif).
+  Marketing Shark | MLM (company-neutral). Converted in wave 2 (2026-11-10) from a company system's confirmation, whose
+  one ask was a sample of its branded coffee. Here the ask is the info step (brain/mlm.md, Settled): "Want more info on
+  the coffee I recommend? Message me." No sample, no brand, no product shot (a packet being poured, unbranded).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "PRODUCT INFO" to the rep, on Facebook or by text. data-pf-say is the
+     message the lead sends; the dock and every [data-pf-ask] open the card. Facebook goes through
+     /mlm-clean-iced-coffee-redirect-dm (its view is the rep's alert, 0689); the text is an sms: link with the words in it.
+  ⚠️ THE SHOP LINK SHOWS ONLY WHEN THE REP SET ONE: [data-needs] on mlm_buy_link hides it otherwise. It goes through
+     /mlm-clean-iced-coffee-shop (its view is the fire alert, 0689).
+-->
+<div class="rl rl-look-serif rl-ic icc" data-pf-native data-pf-message="for more info" data-pf-say="PRODUCT INFO" data-pf-arrive="#F6F1E9">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: you're all set -->
+      <section class="rl-p rl-paper icc-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>You're all set</span>
+          <h1 class="rl-type">Your recipe guide is being sent to you in 2 minutes<span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">I've sent the Clean Iced Coffee guide to your email. It should arrive within the next two minutes. If you
+            don't see it, please check your Promotions, Updates, or Spam folder as it could be there!</p>
+          <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn" href="/mlm-clean-iced-coffee-read">Open your recipe guide</a></div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for more info from {{custom_values.mlm_rep_first_name}}</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: the coffee I recommend, and the ask -->
+      <section class="rl-p rl-tint icc-ask">
+        <div class="rl-in">
+          <img class="icc-pack rl-art" data-in src="/_p/mlm/mlm-clean-iced-coffee/_img/r6-functional-hero.webp"
+               width="1400" height="933" alt="A single-serve coffee packet poured into a glass on the beach" loading="lazy">
+          <span class="lk-rule" data-in style="--d:.05s">The one you actually pack</span>
+          <h2 data-in style="--d:.1s">Want more info on <em>the coffee I recommend?</em></h2>
+          <p data-in style="--d:.2s">Recipe 6 is built on a single-serve coffee packet. Message "PRODUCT INFO" to {{custom_values.mlm_rep_first_name}} and I'll tell you which one I recommend, what's in it and how I make it.</p>
+          <div class="rl-btns" data-in style="--d:.3s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-clean-iced-coffee-redirect-dm">💬 Message "PRODUCT INFO" on Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">📲 Rather text? Text "PRODUCT INFO" to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-clean-iced-coffee-shop">🛒 Visit my shop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PHOTO: one to make tonight, and the fine print -->
+      <section class="rl-p rl-photo rl-wide icc-close">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-clean-iced-coffee/_img/r1-cold-brew-coconut.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Start tonight</span>
+          <h2 data-in style="--d:.1s">Not sure where to begin? <em>Start with recipe 1.</em></h2>
+          <p class="ic-start" data-in style="--d:.2s">It takes three things, cold brew, coconut milk and honey, and you can make the cold brew tonight: half a cup of coarse grounds to four cups of water in a jar, strained in the morning.</p>
+          <p class="rl-fine" data-in style="--d:.35s">The information in this guide is for educational and informational purposes only and is not medical,
+            nutritional, diagnostic, or treatment advice. Consult your physician or a qualified healthcare provider before beginning
+            any nutrition or wellness program, especially if you have an existing medical condition. Results vary from person to
+            person. {{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the ask floats in the window with the rep (reel.js). -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for more info" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-clean-iced-coffee-redirect-dm">Message me for more info</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

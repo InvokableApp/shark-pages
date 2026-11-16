@@ -1,0 +1,101 @@
+<!--
+  mlm/mlm-greens-breakfast/mlm-greens-breakfast-confirmation-reel
+  The confirmation reel: you're in, the bonus (the supplement list + the greens info, texted; a tap claims and fetches
+  /mlm-greens-breakfast-list-request, whose view is the rep's alert), the list's three bullets and the 'more info' card.
+  Marketing Shark | MLM (company-neutral). Words: MLMSHARK/wave1/greens-skin.json (after) with the decisions of
+  2026-11-10 (decisions.json). Built from the Greens at Breakfast reel pages. No company or product name anywhere.
+  Platform only: the step points here (migration 0676).
+-->
+<div class="rl rl-look-tin rl-gb rlt" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/mlm-greens-breakfast-list-request" data-pf-arrive="#F7F3E8">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: you are in. The page rises out of the cream the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="lk-card gb-card">
+            <span class="rlt-pill" data-in>✅ You're in. Your recipes are on their way.</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type"><span data-if-name>Hi {{contact.first_name}}, </span>Your Greens at Breakfast Recipe Guide Is Being Sent <em>In 2 Minutes.</em></h1>
+            <p data-in style="--d:.3s">Check your email. If you don't see it there, check your <b>SPAM</b> folder.</p>
+            <p class="rl-note" data-in style="--d:.4s">Or skip the wait and open it right now. Both are the same.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/mlm-greens-breakfast-read">READ IT ONLINE</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a bonus</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK, the bonus. No video for this campaign: the guide's cover photo, as a print, where the video goes. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <figure class="lk-snap gb-vidsnap"><img src="/_p/mlm/mlm-greens-breakfast/_img/cover.jpg" width="1000" height="1000"
+              alt="Broccoli cheddar frittata, smashed pea toast with a soft egg, overnight barley and spinach on a gingham cloth"></figure>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Bonus offer</span>
+            <span class="rlb-coverwrap"><span class="gb-listcard" role="img" aria-label="My Morning Supplement List"><span class="gb-listcard-k">Everyday Well</span><span class="gb-listcard-h">My Morning Supplement List</span></span></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">My Morning Supplement List</p>
+              <p class="rlb-plus">+ more info on the greens I recommend</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Both sent to you by text</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/mlm-greens-breakfast-list-request">🎁 YES! Text me the supplement list + the greens info</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what's in the supplement list, the button again, the product card, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="My Morning Supplement List">
+        <div class="rl-in">
+          <div class="lk-card gb-guidecard">
+            <span class="rlb-eyebrow" data-in>My Morning Supplement List</span>
+            <div class="rlb-ad" data-in style="--d:.1s">
+              <span class="gb-listcard gb-listcard-sm" role="img" aria-label="My Morning Supplement List"><span class="gb-listcard-k">Everyday Well</span><span class="gb-listcard-h">My Morning Supplement List</span></span>
+              <h2>Inside the supplement list...</h2>
+            </div>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Which morning supplements are worth it, and which to skip</li>
+              <li data-in style="--d:.3s">What to take with breakfast and what to keep apart</li>
+              <li data-in style="--d:.4s">How to read a greens powder label in 60 seconds</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/mlm-greens-breakfast-list-request">🎁 YES! Text me the supplement list + the greens info</a>
+            <div class="rlb-rec" data-in style="--d:.6s">
+              <span class="rlb-rec-img gb-rec-ph mlm-rec-ph"><img src="/_p/mlm/mlm-greens-breakfast/_img/cover.jpg" width="1000" height="1000" alt="Greens at breakfast: a frittata, pea toast and a bowl of spinach"></span>
+              <div class="rlb-rec-t">
+                <span class="rlb-rec-k">What I recommend for mornings you don't cook</span>
+                <p class="rlb-rec-h">Ask me what it is</p>
+                <p>Tap the button and I'll message you what it is, what's in it and how to take it, along with the list.</p>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration. {{custom_values.mlm_independence_line}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done, verbatim. The word is GREENS; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Done.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>supplement list</b> AND <b>the greens info via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure it reaches you?</b> Text <b>“GREENS”</b> to <a class="rlt-claim-num" data-claim-num data-word="GREENS" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=GREENS">{{custom_values.mlm_rep_sms}}</a> so it doesn't land in Unknown Senders.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

@@ -1,0 +1,52 @@
+<!--
+  mlm/mlm-glp1-plan/mlm-glp1-plan-confirmation-list-reel
+  The Meals and Exercise on a GLP-1 confirmation as a LIST BUILDER (platform migration 0709; brain/mlm.md, Claude's call
+  under Jeff's "yea you got it", 2026-11-10: "its product step is off"). The confirmation reel next door
+  (mlm-glp1-plan-confirmation-reel) with its two product screens taken out: no protein shake, no "PRODUCT INFO" ask, no
+  Messenger, text or shop button. Two screens: confirmed / check your inbox, then three habits from the guide. The pinned
+  button reads the guide online. Flip back: point /mlm-glp1-plan-confirmation at the other folder (0709's Back line).
+-->
+<div class="rl rlc">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: confirmed, check your inbox -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Confirmed / check your inbox</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! Your guide is on the way 📬</h1>
+          <p data-in style="--d:.3s">It lands in the next couple of minutes. If it is not there, look in Promotions or Spam and drag it across, so my next emails arrive where you can find them.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/mlm-glp1-plan-read">Read it online now</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for three habits from the guide</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+
+      <!-- 2. PHOTO: three timing habits from the guide, and the prescriber line -->
+      <section class="rl-p rl-photo rl-wide rlc-today">
+        <div class="rl-bg" style="background-image:url('/_p/mlm/mlm-glp1-plan/mlm-glp1-plan-reel/assets/flatlay.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tomorrow you start Day A</span>
+          <h2 data-in style="--d:.1s">Three habits from the guide</h2>
+          <ol class="rlc-habits">
+            <li data-in style="--d:.25s"><span>1</span><div>Protein first, every time. If you stop eating early, at least the important part is in.</div></li>
+            <li data-in style="--d:.4s"><span>2</span><div>Small volume beats a big plate. Serve yourself less than you think you want. You can always go back.</div></li>
+            <li data-in style="--d:.55s"><span>3</span><div>Sip water through the day, rather than a big glass with the meal.</div></li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.7s">General wellness information, not medical advice. Talk to your prescriber before changing how you eat or starting to
+            exercise. Nothing here changes how you take your medication.</p>
+          <p class="rl-fine" data-in style="--d:.75s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" href="/mlm-glp1-plan-read">Read your guide online</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

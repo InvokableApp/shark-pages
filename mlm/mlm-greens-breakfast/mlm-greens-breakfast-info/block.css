@@ -1,0 +1,5 @@
+/* mlm/mlm-greens-breakfast/mlm-greens-breakfast-info: the 'more info from your rep' step, in the list request page's look. */
+@import url("../mlm-greens-breakfast-list-request/block.css");
+[data-if-name]{ display:none; }
+.mlm-info .rl-btns{ margin-top:18px; }
+.mlm-info .mlm-ind{ margin-top:16px !important; font-size:11.5px !important; line-height:1.45 !important; }

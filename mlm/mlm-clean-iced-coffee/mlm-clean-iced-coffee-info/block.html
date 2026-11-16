@@ -1,0 +1,31 @@
+<!--
+  mlm/mlm-clean-iced-coffee/mlm-clean-iced-coffee-info
+  THE 'MORE INFO FROM YOUR REP' STEP, in place of the company's product page (brain/mlm.md, Settled: the product step
+  names the thing plainly, "the coffee", never a brand; the shop button shows only when the rep set a shop link).
+  ITS VIEW IS THE HOT LEAD ALERT (0689). The guide's "more info" links and the follow-up emails land here. Message goes
+  through /mlm-clean-iced-coffee-redirect-dm (the DM alert), the shop button through /mlm-clean-iced-coffee-shop (the
+  fire alert). Marketing Shark | MLM (company-neutral). Platform only: the step points here (migration 0688).
+-->
+<div class="rl rl-look-serif rl-ic mlm-info" data-pf-native data-pf-arrive="#F6F1E9"
+  data-pf-say="Hey {first}, can you send me more info on the coffee you recommend?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <img class="icc-pack" data-in src="/_p/mlm/mlm-clean-iced-coffee/_img/r6-functional-hero.webp" width="1400" height="933"
+               alt="A single-serve coffee packet poured into a glass on the beach">
+          <span class="rl-eyebrow" data-in style="--d:.05s">The one you actually pack</span>
+          <h1 data-in style="--d:.1s">Want more info on <em>the coffee I recommend?</em></h1>
+          <p data-in style="--d:.15s">Message me and I'll tell you what it is, what's in it and how I make it into recipe 6. No pressure either way.</p>
+          <div class="rl-btns" data-in style="--d:.2s">
+            <a class="rl-btn" data-pf-ask data-pf-message-link data-needs="{{custom_values.mlm_rep_messenger}}" data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO" href="/mlm-clean-iced-coffee-redirect-dm">Message {{custom_values.mlm_rep_first_name}}</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}?&body=PRODUCT%20INFO">Text me instead</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.mlm_buy_link}}" href="/mlm-clean-iced-coffee-shop">See it in my shop</a>
+          </div>
+          <p class="rl-fine mlm-ind" data-in style="--d:.3s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

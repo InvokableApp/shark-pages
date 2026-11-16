@@ -1,0 +1,16 @@
+/* mlm/mlm-clean-iced-coffee/mlm-clean-iced-coffee-info: the 'more info from your rep' step, in the opt-in reel's look. */
+@import url("../mlm-clean-iced-coffee-reel/block.css");
+[data-if-name]{ display:none; }
+.mlm-info [hidden]{ display:none !important; }
+.mlm-info .rl-p{ overflow-y:auto; justify-content:safe center; }
+.mlm-info .rl-in{ padding-bottom:48px; }
+.mlm-info h1{ font-size:clamp(32px,9vw,44px); }
+.mlm-info .icc-pack{ display:block; width:min(320px,82%); aspect-ratio:3/2; object-fit:cover; border-radius:2px; margin:0 0 16px; box-shadow:0 22px 40px -18px rgba(42,26,23,.55); }
+.mlm-info .rl-btns{ margin-top:20px; }
+.mlm-info .rl-btn-2{ font-size:13px; }
+.mlm-info .mlm-ind{ margin-top:16px !important; font-size:11.5px !important; line-height:1.45 !important; }
+@media (min-width:701px){
+  .mlm-info .rl-in{ grid-template-columns:minmax(0,1fr); max-width:860px; padding-bottom:72px; }
+  .mlm-info h1{ font-size:clamp(40px,3.6vw,54px); }
+  .mlm-info .rl-btns{ flex-direction:column; align-items:stretch; max-width:520px; } .mlm-info .rl-btn{ white-space:normal; }
+}

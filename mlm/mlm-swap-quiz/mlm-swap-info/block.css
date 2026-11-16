@@ -1,0 +1,5 @@
+/* mlm/mlm-swap-quiz/mlm-swap-info: the 'more info from your rep' step, in the request page's look. */
+@import url("../mlm-swap-checklist-request/block.css");
+[data-if-name]{ display:none; }
+.mlm-info .rl-btns{ margin-top:18px; }
+.rlr .mlm-ind{ font-size:11.5px !important; opacity:.75; margin-top:16px !important; }

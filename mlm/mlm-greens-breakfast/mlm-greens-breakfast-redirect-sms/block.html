@@ -1,0 +1,46 @@
+<!--
+  mlm/mlm-greens-breakfast/mlm-greens-breakfast-redirect-sms
+  Text GREENS to the rep. ITS VIEW IS AN ALERT ('MLM - Greens at Breakfast Guide - Text Request', 0677).
+  Marketing Shark | MLM (company-neutral). Words: MLMSHARK/wave1/greens-skin.json (after) with the decisions of
+  2026-11-10 (decisions.json). Built from the Greens at Breakfast reel pages. No company or product name anywhere.
+  Platform only: the step points here (migration 0676).
+-->
+<div class="sk-prod sk-prod-mlm-gbsms" data-sk-requires="mlm_rep_sms">
+
+  <section class="sk-prod-mlm-gbsms-hero">
+    <div class="sk-prod-wrap sk-prod-center">
+
+      <span class="sk-prod-mlm-gbsms-mark">Everyday Well</span>
+
+      <p class="sk-prod-eyebrow">My Morning Supplement List</p>
+      <h1 class="sk-prod-h1">Text <span class="sk-prod-accent">GREENS</span></h1>
+
+      <!-- JS-ONLY, and empty until the hand-off is actually attempted (block.js), because "opening your messaging app" is
+           a lie on a laptop, where nothing opens. aria-live so a screen reader hears the state change. -->
+      <p class="sk-prod-mlm-gbsms-status" data-sms-status role="status" aria-live="polite"></p>
+
+      <!-- The prefill is THE MARKUP, and it works with JS off. `?&body=` is the shape iOS and Android both accept. block.js
+           only normalises the number. -->
+      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-mlm-gbsms-go"
+         data-sms-cta href="sms:{{custom_values.mlm_rep_sms}}?&body=GREENS">
+        <span data-sms-label>Text GREENS to <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <!-- THE FALLBACK: on a desktop this card is the entire page, the number in selectable text and a copy button. -->
+      <div class="sk-prod-mlm-gbsms-card">
+        <p class="sk-prod-mlm-gbsms-k">Text the word GREENS to</p>
+        <p class="sk-prod-mlm-gbsms-n" data-rep-phone-print>{{custom_values.mlm_rep_sms}}</p>
+        <button type="button" class="sk-prod-btn-ghost sk-prod-mlm-gbsms-copy" data-sms-copy hidden>
+          Copy the number
+        </button>
+        <p class="sk-prod-mlm-gbsms-t">
+          If your messaging app did not open, send it yourself. On a computer, text it from your phone.
+        </p>
+      </div>
+      <p class="sk-prod-mlm-gbsms-t mlm-ind">{{custom_values.mlm_independence_line}}</p>
+
+    </div>
+  </section>
+
+</div>

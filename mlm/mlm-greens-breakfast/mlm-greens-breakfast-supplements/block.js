@@ -1,0 +1,36 @@
+/* mlm/mlm-greens-breakfast/mlm-greens-breakfast-supplements (Marketing Shark | MLM). Built from the Greens at Breakfast reel pages. */
+(function () {
+  var root = document.querySelector(".sk-gb");
+  if (!root || root.dataset.skBooted) return;
+  root.dataset.skBooted = "1";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  root.addEventListener("click", function (ev) {
+    var a = ev.target.closest ? ev.target.closest("a[href^='#']") : null;
+    if (!a) return;
+    var dest = root.querySelector(a.getAttribute("href"));
+    if (!dest) return;
+    ev.preventDefault();
+    var nav = root.querySelector(".gb-nav");
+    var top = dest.getBoundingClientRect().top + window.pageYOffset - ((nav && nav.offsetHeight) || 0) - 10;
+    window.scrollTo({ top: top, behavior: reduce ? "auto" : "smooth" });
+  });
+
+  var cards = root.querySelectorAll(".gb-recipe");
+  for (var i = 0; i < cards.length; i++) {
+    (function (card) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "recipe-print";
+      b.textContent = "Print this recipe";
+      b.addEventListener("click", function () {
+        root.setAttribute("data-printing", "1");
+        card.setAttribute("data-print", "1");
+        var done = function () { root.removeAttribute("data-printing"); card.removeAttribute("data-print"); window.removeEventListener("afterprint", done); };
+        window.addEventListener("afterprint", done);
+        window.print();
+      });
+      card.appendChild(b);
+    })(cards[i]);
+  }
+})();

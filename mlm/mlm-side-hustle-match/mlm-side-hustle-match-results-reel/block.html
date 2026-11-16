@@ -1,0 +1,65 @@
+<!--
+  mlm/mlm-side-hustle-match/mlm-side-hustle-match-results-reel
+  SIDE HUSTLE MATCH's results page as a reel, after the quiz reel (Marketing Shark | MLM, Jeff 2026-11-10). Three
+  screens, PLATFORM ONLY: the platform's /mlm-side-hustle-match-results step points here (platform migration 0668).
+  Copied from nueva/n-side-hustle-quiz-funnel/side-hustle-results-reel, words from MLMSHARK/wave1/opportunity.json
+  (`after`) and decisions.json; no rep title, no comp plan talk. Rewritten in the rep's voice as an honest fit check
+ (Jeff, 2026-11-11: "yea"): it was Joe's "Your best fit is a Network Marketing Model!" and "Message us".
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR: message "MORE INFO" to the rep on Messenger (Jeff's decision, 2026-11-10), or text
+  it. The Messenger button goes through the funnel's own hop, /mlm-side-hustle-match-message: that visit fires the rep's
+  Fire Lead alert (0669). The text button is an sms: link with the words in it. If the word changes, change the alert,
+  the dock (data-pf-say) and the sms bodies with it.
+  The look is the quiz reel's sheet (block.css imports it).
+-->
+<div class="rl rl-match rl-mlmq rlr" data-pf-native data-pf-message="to get the details" data-pf-say="MORE INFO" data-pf-arrive="#faf9fc">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: your result -->
+      <section class="rl-p rl-paper rl-wide rlr-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Your result</span>
+          <h1 class="rl-type">Hey<span data-if-name> {{contact.first_name}}</span>! From your answers, a <em>business you run from home</em> could fit your week.</h1>
+          <p data-in style="--d:.3s">You told me how much time you have and what you're after. This is the kind of business I do, and it can run from
+            home around the hours you have.</p>
+          <p data-in style="--d:.4s"><strong>It isn't for everyone, and that's fine. Let me show you how it works, and you decide.</strong></p>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe to see how</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the rep sends the details -->
+      <section class="rl-p rl-night rl-wide rlr-note">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How it works</span>
+          <h2 data-in style="--d:.1s">I'll send you the details myself.</h2>
+          <p data-in style="--d:.25s">What the company is, what the work looks like day to day, and what it takes to start. Ask me anything along the
+            way. No obligation.</p>
+          <a class="rl-btn rlr-go" data-in style="--d:.4s" href="/mlm-side-hustle-match-message">Send {{custom_values.mlm_rep_first_name}} a message</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the rep, and the ask with its words -->
+      <section class="rl-p rl-tint rlr-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Want the details?</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Message "MORE INFO" to {{custom_values.mlm_rep_first_name}} on Messenger.</h2>
+          <div class="rl-btns" data-in style="--d:.35s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.mlm_rep_messenger}}"
+               href="/mlm-side-hustle-match-message">💬 Send {{custom_values.mlm_rep_first_name}} a message</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.mlm_rep_sms}}"
+               href="sms:{{custom_values.mlm_rep_sms}}?&body=MORE%20INFO">📲 Rather text? Text <span data-rep-phone>{{custom_values.mlm_rep_sms}}</span></a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.45s">{{custom_values.mlm_independence_line}} {{custom_values.mlm_income_disclaimer}} <a href="https://{{custom_values.mlm_income_disclosure_url}}" style="color:inherit;text-decoration:underline">Income disclosure</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Message {first} for the details" data-needs="{{custom_values.mlm_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.mlm_rep_sms}}?&body=MORE%20INFO" href="/mlm-side-hustle-match-message">Message {{custom_values.mlm_rep_first_name}} for the details</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
