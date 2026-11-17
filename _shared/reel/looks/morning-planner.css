@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Caveat:wght@700&display=swap");
+/* _shared/reel/looks/morning-planner.css — LOOK "S · Morning planner" (references/REEL-LOOKS.md; first used on Beneve's
+ * 15-Minute Morning, picked by Jeff 2026-11-11). A day-planner page: warm cream paper with a faint dot grid, deep navy
+ * ink, a sunrise in apricot and gold, sage tags, handwriting (Caveat) only where she'd write in the planner.
+ * Brand check (REEL-LOOKS): navy and apricot belong to no wellness or coffee brand in the same aisle.
+ * Use: @import after reel.css, <div class="rl rl-look-planner">.
+ * Helpers: .lk-tag (a sage pill), .lk-hand (handwriting), .lk-ring (the 15-minute ring: three .lk-seg arcs that fill in
+ * turn when the screen comes on), .lk-blocks (the three five-minute rows), .lk-sun (the sunrise and mug). */
+.rl.rl-look-planner{
+  --navy:#22305A; --apricot:#F2A65A; --gold:#F6C46A; --ember:#D9772F; --cream:#FBF6EE; --sand:#F3EBDD; --dot:#E3D8C6;
+  --sage:#E4EBDD; --sage-ink:#3F5636; --sage-mid:#7C8F6E;
+  --accent:var(--ember); --oxblood:var(--ember); --clay:var(--ember); --plum:var(--navy); --blush:var(--sand);
+  --paper:var(--cream); --tint:var(--sand); --night:var(--navy);
+  --ink:var(--navy); --body:#3D466A; --grey:#6E7590; --on-dark:#FBF6EE;
+  --head:"Figtree",system-ui,sans-serif; --head-w:800; --sans:"Figtree",system-ui,sans-serif;
+  --eyebrow:var(--sage-mid); --eyebrow-dark:var(--gold);
+  --cta:var(--navy); --cta-ink:var(--cream); --mark:var(--apricot); --shade:24,32,62;
+  --line:#EADFCB;
+  --sk-accent:var(--navy); --pfn-accent:var(--navy); --pfn-ink:var(--cream);
+  --dock-flip:var(--apricot); --dock-flip-ink:var(--navy);
+}
+.rl-look-planner .rl-paper,.rl-look-planner .rl-tint{ background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px); background-size:18px 18px; }
+.rl-look-planner .rl-tint{ --dot:#DCCFB8; }
+.rl-look-planner h1,.rl-look-planner h2{ letter-spacing:-.015em; line-height:1.08; color:var(--ink); }
+.rl-look-planner h1{ font-size:clamp(30px,8.4vw,40px); }
+.rl-look-planner h1 em,.rl-look-planner h2 em{ font-style:normal; color:var(--ember); }
+.rl-look-planner .rl-night h1,.rl-look-planner .rl-night h2{ color:var(--on-dark); }
+.rl-look-planner .rl-night h1 em,.rl-look-planner .rl-night h2 em{ color:var(--gold); }
+.rl-look-planner .rl-eyebrow{ font-weight:700; letter-spacing:.16em; }
+.rl-look-planner .rl-btn,.rl-look-planner .pfn-dock{ border-radius:14px; font-weight:800; }
+.rl-look-planner .rl-btn{ box-shadow:0 4px 0 var(--apricot); }
+.rl-look-planner .rl-cards > *{ border-radius:16px; }
+@media (min-width:701px){ .rl-look-planner .rl-cta{ border-radius:14px; font-weight:800; box-shadow:0 4px 0 var(--apricot); } }
+
+.rl-look-planner .lk-tag{ display:inline-block; background:var(--sage); color:var(--sage-ink); border-radius:999px; padding:6px 12px; font:700 13px/1.2 var(--sans); }
+.rl-look-planner .lk-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.rl-look-planner .lk-hand{ font:700 1.25em/1.1 "Caveat",cursive; color:var(--navy); }
+
+/* the sunrise and mug: <svg class="lk-sun" viewBox="0 0 200 140"> with .lk-sun-up (sun and rays), .lk-ground, .lk-mug
+ * (the cup, .lk-handle, two .lk-steam) */
+.lk-sun{ display:block; width:clamp(150px,44vw,210px); height:auto; overflow:hidden; }
+.lk-sun .lk-sunc{ fill:var(--gold); } .lk-sun .lk-ray{ stroke:var(--apricot); stroke-width:3; stroke-linecap:round; fill:none; }
+.lk-sun .lk-ground{ fill:var(--cream); }
+.lk-sun .lk-cup{ fill:var(--navy); } .lk-sun .lk-handle,.lk-sun .lk-steam{ fill:none; stroke-width:3; stroke-linecap:round; }
+.lk-sun .lk-handle{ stroke:var(--navy); } .lk-sun .lk-steam{ stroke:#B8C4D9; }
+.lk-sun .lk-sun-up{ transform-box:view-box; transform:translateY(46px); opacity:.2; }
+.lk-sun .lk-mug{ opacity:0; }
+.lk-sun .lk-steam{ stroke-dasharray:60; stroke-dashoffset:60; }
+.is-on .lk-sun .lk-sun-up{ animation:lk-rise 1.1s .15s cubic-bezier(.2,.8,.2,1) forwards; }
+.is-on .lk-sun .lk-mug{ animation:lk-fade .5s .6s ease-out forwards; }
+.is-on .lk-sun .lk-st1{ animation:lk-steam 1.2s 1s ease-out forwards; } .is-on .lk-sun .lk-st2{ animation:lk-steam 1.2s 1.25s ease-out forwards; }
+
+/* the 15-minute ring: <svg class="lk-ring" viewBox="0 0 100 100"> a .lk-track circle, three .lk-seg circles rotated by
+ * thirds, and the number */
+.lk-ring{ display:block; width:clamp(110px,32vw,150px); height:auto; overflow:visible; }
+.lk-ring .lk-track{ fill:none; stroke:#EFE5D3; stroke-width:9; }
+.rl-night .lk-ring .lk-track{ stroke:rgba(251,246,238,.14); }
+.lk-ring .lk-seg{ fill:none; stroke-width:9; stroke-linecap:round; stroke-dasharray:0 252; }
+.lk-ring .lk-g1{ stroke:var(--gold); } .lk-ring .lk-g2{ stroke:var(--apricot); } .lk-ring .lk-g3{ stroke:var(--ember); }
+.lk-ring .lk-n{ font:800 26px var(--sans); text-anchor:middle; fill:var(--ink); }
+.lk-ring .lk-u{ font:700 8px var(--sans); letter-spacing:.16em; text-anchor:middle; fill:var(--sage-mid); }
+.rl-night .lk-ring .lk-n{ fill:var(--on-dark); } .rl-night .lk-ring .lk-u{ fill:var(--gold); }
+.is-on .lk-ring .lk-g1{ animation:lk-fill .55s .3s ease-out forwards; }
+.is-on .lk-ring .lk-g2{ animation:lk-fill .55s .85s ease-out forwards; }
+.is-on .lk-ring .lk-g3{ animation:lk-fill .55s 1.4s ease-out forwards; }
+
+/* the three five-minute rows: <ol class="lk-blocks"><li><b>5:00</b><span><strong>Fuel yourself</strong>line</span></li> */
+.rl-look-planner .lk-blocks{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:10px; }
+.rl-look-planner .lk-blocks li{ display:grid; grid-template-columns:52px 1fr; gap:8px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 14px; font-size:15px; line-height:1.4; color:var(--body); }
+.rl-look-planner .rl-night .lk-blocks li{ background:rgba(251,246,238,.06); border-color:rgba(251,246,238,.16); color:rgba(251,246,238,.82); }
+.rl-look-planner .lk-blocks b{ font:800 17px/1.3 var(--sans); color:var(--ember); }
+.rl-look-planner .rl-night .lk-blocks b{ color:var(--gold); }
+.rl-look-planner .lk-blocks strong{ display:block; color:var(--ink); font-weight:800; }
+.rl-look-planner .rl-night .lk-blocks strong{ color:var(--on-dark); }
+
+@keyframes lk-rise{ to{ transform:none; opacity:1; } }
+@keyframes lk-fade{ to{ opacity:1; } }
+@keyframes lk-steam{ to{ stroke-dashoffset:0; } }
+@keyframes lk-fill{ to{ stroke-dasharray:79 252; } }
+@media (prefers-reduced-motion:reduce){
+  .lk-sun .lk-sun-up{ transform:none !important; opacity:1 !important; animation:none !important; }
+  .lk-sun .lk-mug{ opacity:1 !important; animation:none !important; }
+  .lk-sun .lk-steam{ stroke-dashoffset:0 !important; animation:none !important; }
+  .lk-ring .lk-seg{ stroke-dasharray:79 252 !important; animation:none !important; }
+}
+/* A computer's floating button keeps the look's navy; on a navy last screen it turns apricot so it doesn't sink into it
+ * (the phone's dock does the same through --dock-flip, reel.js). */
+@media (min-width:701px){ .rl-look-planner.rl-last .rl-cta{ background:var(--apricot); color:var(--navy); box-shadow:0 4px 0 var(--ember); } }

@@ -75,7 +75,17 @@ var SYS = {
             { label: "The link for the Menopause Supplement Guide, the bonus you text on request", cv: 'beneve_menopause_supplement_guide_pdf_url' }
           ],
           tease: "Free guide to feeling like yourself again",
-          desc: "Maria's free guide to perimenopause and menopause: a quick self-check, what is changing in the body, and a simple daily plan for food, movement and sleep. Afterwards they can tap for a free supplement guide, which leads into Glutathione+." }
+          desc: "Maria's free guide to perimenopause and menopause: a quick self-check, what is changing in the body, and a simple daily plan for food, movement and sleep. Afterwards they can tap for a free supplement guide, which leads into Glutathione+." },
+        /* Platform only (2026-11-17), like the Blueprint: migrations 0732/0740/0786. The second label is the kit's
+           gated.label word for word (campaign-kits/beneve/b-morning.json). */
+        { icon: "leaf", name: "The 15-Minute Morning", platformOnly: true,
+          slug: "b-morning",
+          guides: [
+            { label: 'Access / Print / Share The Guide', cv: 'beneve_morning_pdf_url' },
+            { label: "The Morning Supplement Guide, the bonus you text on request", cv: 'beneve_morning_supplement_guide_pdf_url' }
+          ],
+          tease: "Free 15-minute morning for busy moms",
+          desc: "A free 30-day guide to a 15-minute morning that puts her health first, so she can put her family first: fuel yourself, get focused, fill your cup. Afterwards they can tap for the Morning Supplement Guide, which leads into Glutathione+, Xcelerate Coffee and Electrolytes." }
       ]
     },
     {

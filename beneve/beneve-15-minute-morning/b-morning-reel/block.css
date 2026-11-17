@@ -1,0 +1,72 @@
+/* beneve/beneve-15-minute-morning/b-morning-reel: the 15-Minute Morning opt-in as a reel (platform only; see block.html).
+ * The reel is _shared/reel/v1/reel.css; the look is S · Morning planner (looks/morning-planner.css). This sheet adds the
+ * screens' own pieces: the cover, the to-do list, the battery, the habit chips, the inside cards. The confirmation reel
+ * and the request pages import this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/morning-planner.css");
+
+/* 1. the cover */
+.m15-cover .rl-in{ padding-top:36px; }
+.m15-sun{ margin:0 0 10px -6px; }
+.rl-look-planner .m15-cover h1{ font-size:clamp(27px,7.4vw,36px); margin-top:6px; }
+.m15-lede{ font-size:15.5px; line-height:1.5; color:var(--body); margin:14px 0 0; }
+.m15-free{ font-size:13px; color:var(--grey); margin:14px 0 0; }
+.rl-night .m15-free{ color:rgba(251,246,238,.7); }
+
+/* 2. the to-do list: a planner card, everyone else's lines tick off in turn, "Me" stays empty and shakes once */
+.m15-todo{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px 18px 10px; margin:4px 0 22px; max-width:300px;
+  box-shadow:0 18px 30px -18px rgba(34,48,90,.35); transform:rotate(-1.5deg); }
+.m15-todo-h{ margin:0 0 6px; font-size:28px; }
+.m15-todo ul{ list-style:none; margin:0; padding:0; }
+.m15-todo li{ display:flex; align-items:center; gap:10px; padding:7px 0; border-top:1px dashed var(--line); font-size:15px; color:var(--body); position:relative; }
+.m15-ck{ flex:0 0 auto; width:18px; height:18px; border:2px solid var(--navy); border-radius:5px; position:relative; }
+.m15-todo li:not(.m15-me) .m15-ck::after{ content:""; position:absolute; left:4px; top:0; width:6px; height:11px; border:solid var(--ember); border-width:0 3px 3px 0; transform:rotate(45deg) scale(0); transform-origin:center; }
+.m15-todo li:not(.m15-me)::after{ content:""; position:absolute; left:28px; top:50%; height:2px; background:var(--ember); width:0; }
+.is-on .m15-todo li:not(.m15-me) .m15-ck::after{ animation:m15-tick .25s calc(.5s + var(--i)*.35s) ease-out forwards; }
+.is-on .m15-todo li:not(.m15-me)::after{ animation:m15-strike .3s calc(.6s + var(--i)*.35s) ease-out forwards; }
+.m15-me{ font:700 24px/1 "Caveat",cursive !important; color:var(--ember) !important; }
+.is-on .m15-me{ animation:m15-shake .5s 2.1s ease-in-out; }
+@keyframes m15-tick{ to{ transform:rotate(45deg) scale(1); } }
+@keyframes m15-strike{ to{ width:calc(100% - 40px); } }
+@keyframes m15-shake{ 25%{ transform:translateX(-4px); } 50%{ transform:translateX(4px); } 75%{ transform:translateX(-2px); } }
+
+/* 3. the battery: full to a sliver, on the navy screen */
+.m15-batt{ display:flex; align-items:center; gap:16px; margin:0 0 24px; }
+.m15-batt svg{ width:150px; height:auto; }
+.m15-b-shell{ fill:none; stroke:var(--on-dark); stroke-width:4; } .m15-b-tip{ fill:var(--on-dark); }
+.m15-b-fill{ fill:var(--gold); transform-box:fill-box; transform-origin:left center; }
+.is-on .m15-b-fill{ animation:m15-drain 1.8s .4s cubic-bezier(.4,0,.2,1) forwards; }
+.m15-time{ font:800 22px/1 var(--sans); color:var(--gold); }
+@keyframes m15-drain{ 60%{ fill:var(--apricot); } to{ transform:scaleX(.1); fill:var(--ember); } }
+
+/* 4. the habit chips: each one lands in turn */
+.m15-chips{ display:flex; flex-direction:column; align-items:flex-start; gap:9px; margin:0 0 24px; }
+.m15-chips span{ background:#fff; border:1px solid var(--line); border-radius:999px; padding:9px 15px; font-weight:600; font-size:15px; color:var(--navy);
+  box-shadow:0 3px 0 var(--sand); opacity:0; transform:translateY(8px); }
+.m15-chips b{ color:var(--ember); padding:0 3px; }
+.m15-chips span:nth-child(even){ margin-left:22px; }
+.is-on .m15-chips span{ animation:m15-in .45s calc(.3s + var(--i)*.22s) ease-out forwards; }
+@keyframes m15-in{ to{ opacity:1; transform:none; } }
+
+/* 5. inside: the ring beside the heading, then the week cards */
+.m15-inside-top{ display:flex; align-items:center; gap:18px; margin-bottom:6px; }
+.m15-inside-top .lk-ring{ flex:0 0 auto; width:clamp(92px,26vw,120px); }
+.rl-look-planner .m15-inside-top h2{ font-size:clamp(24px,6.6vw,32px); }
+.m15-cards > div{ background:#fff; border:1px solid var(--line); }
+.m15-wk{ display:inline-block; font:700 11px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--sage-ink); background:var(--sage); border-radius:999px; padding:6px 10px; margin-bottom:8px; }
+
+@media (prefers-reduced-motion:reduce){
+  .m15-todo li .m15-ck::after{ transform:rotate(45deg) scale(1) !important; animation:none !important; }
+  .m15-todo li:not(.m15-me)::after{ width:calc(100% - 40px) !important; animation:none !important; }
+  .m15-me{ animation:none !important; }
+  .m15-b-fill{ transform:scaleX(.1) !important; fill:var(--ember) !important; animation:none !important; }
+  .m15-chips span{ opacity:1 !important; transform:none !important; animation:none !important; }
+}
+@media (max-width:700px) and (max-height:700px){
+  .m15-sun{ width:130px; } .rl-look-planner .m15-cover h1{ font-size:25px; } .m15-lede{ font-size:14px; margin-top:10px; }
+  .m15-todo{ padding:10px 14px 6px; } .m15-todo li{ padding:5px 0; font-size:14px; }
+}
+@media (min-width:701px){
+  .rl-look-planner .m15-cover h1{ font-size:clamp(38px,3.4vw,54px); max-width:13em; }
+  .m15-sun{ width:300px; } .m15-todo{ max-width:340px; } .m15-batt svg{ width:220px; }
+}

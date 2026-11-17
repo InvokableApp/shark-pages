@@ -1,0 +1,3 @@
+/* beneve/beneve-15-minute-morning/b-morning-supplement-text-me: the request page's look (see block.html), with the shared text me pieces. */@import url("../b-morning-supplement-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
