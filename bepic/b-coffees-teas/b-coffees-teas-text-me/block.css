@@ -1,0 +1,9 @@
+/* bepic/b-coffees-teas/b-coffees-teas-text-me: the list request page's look (see block.html), with the shared text me
+ * pieces. Ported from nueva/n-greens-breakfast/n-greens-breakfast-text-me (2026-11-17). On the kraft: the first button in
+ * espresso ink, the second cream with an ink edge, so each stands off the cream card and the kraft behind it. */
+@import url("../b-coffees-teas-list-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rlr .rl-btn{ background:var(--ink); color:var(--cream); border:0; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); }
+.rlr .rl-btn-2{ background:var(--kraft); color:var(--ink); border:2px solid var(--ink); box-shadow:none; }
+[data-tm] .tm-bubble{ font-family:system-ui,-apple-system,sans-serif; }

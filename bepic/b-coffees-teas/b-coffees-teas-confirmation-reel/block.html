@@ -1,0 +1,125 @@
+<!--
+  bepic/b-coffees-teas/b-coffees-teas-confirmation-reel
+  Metabolism Coffees and Teas, the confirmation as a REEL after its opt-in. Platform only. Ported from
+  nueva/n-greens-breakfast/n-greens-breakfast-confirmation-reel (2026-11-17); the bonus frame is REEL-PAGE-SOP step 2b.
+  ⚠️ EVERY WORD IS BEPICSHARK/campaigns/metabolism-coffees-teas/copy.mjs CONFIRM, verbatim. Change a word there first.
+  ⚠️ THREE SCREENS:
+    1. you are in (CONFIRM.bar "✅ You're in. Swipe up for a bonus 🎁", the headline with the typed first name, spam, skip,
+       the two buttons); the dock says "Swipe up for a bonus 🎁" and takes them to 2 (Jeff, 2026-11-17: "we need to add to
+       scroll to see bonus")
+    2. the bonus: where the video goes (REEL-PAGE-SOP 2b), the cover photo as a print until there is one (.ct-vidsnap);
+       then the BONUS OFFER card (the supplement guide's title on a kraft label as its mockup) and the claim button
+    3. "Inside the supplement guide...", its three bullets, the same button, then the two products given EQUAL space
+       (Jeff, 2026-11-17: "equal, both are popular"), and the FDA line
+  ⚠️ PRODUCT NAMES ARE FINE HERE, never on the opt-in (Jeff, 2026-11-17). NO PACK PHOTOS: Drink2Shrink's pack reads "Detox
+     Tea" (Jeff, 2026-11-16: "think we keep them off"), so both cards show a real drink photo, the same treatment for both.
+  ⚠️ NO COMPANY NAME (brain/bepic.md). No code, no price, no "free sample" (PAGE-COPY-SOP rule 14): "product info".
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup and, on the first
+     open, fetch /b-coffees-teas-list-request in the background (data-rl-claim, block.js); that step's view is the rep's
+     alert. The hrefs stay on the buttons, so with no script a tap still lands on the request page.
+  The card names no rep ("Both sent to you by text"; Joe, 2026-10-21).
+-->
+<div class="rl rl-look-roast rl-ct rlt" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/b-coffees-teas-list-request" data-pf-arrive="#C9A57A">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. KRAFT: you are in. The page rises out of the kraft the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="lk-card ct-card">
+            <span class="rlt-pill" data-in>✅ You're in. Swipe up for a bonus 🎁</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type"><span data-if-name>Hi {{contact.first_name}}, </span>Your Metabolism Coffees and Teas Guide Is Being Sent <em>In 2 Minutes.</em></h1>
+            <p data-in style="--d:.3s">Check your email. If you don't see it there, check your <b>SPAM</b> folder.</p>
+            <p class="rl-note" data-in style="--d:.4s">Or open it right now.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/b-coffees-teas-read">READ IT ONLINE</a>
+              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_coffees_teas_guide_pdf_url}}" href="https://{{custom_values.bepic_coffees_teas_guide_pdf_url}}" target="_blank" rel="noopener">DOWNLOAD THE PDF</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Swipe for a bonus</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. ESPRESSO, the bonus. The video's place on top (none yet: the cover photo as a print), the card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <figure class="lk-snap ct-vidsnap"><img src="/_p/bepic/b-coffees-teas/_img/cover-roaster.jpg" width="666" height="1000"
+              alt="A blended cinnamon coffee and a lemon ginger green tea"></figure>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Bonus offer</span>
+            <span class="rlb-coverwrap"><span class="ct-listcard" role="img" aria-label="What To Add To Your Cup, And What To Skip"><span class="ct-listcard-k">Supplement guide</span><span class="ct-listcard-h">What To Add To Your Cup, And What To Skip</span></span></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">What To Add To Your Cup, And What To Skip</p>
+              <p class="rlb-plus">+ product info</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Both sent to you by text</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-coffees-teas-list-request">🎁 YES! Text me the supplement guide + product info</a>
+        </div>
+      </section>
+
+      <!-- 3. KRAFT: what's in the supplement guide, the button again, the two products side by side, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="What To Add To Your Cup, And What To Skip">
+        <div class="rl-in">
+          <div class="lk-card ct-guidecard">
+            <span class="rlb-eyebrow" data-in>Bonus offer</span>
+            <div class="rlb-ad" data-in style="--d:.1s">
+              <span class="ct-listcard ct-listcard-sm" role="img" aria-label="What To Add To Your Cup, And What To Skip"><span class="ct-listcard-k">Supplement guide</span><span class="ct-listcard-h">What To Add To Your Cup</span></span>
+              <h2>Inside the supplement guide...</h2>
+            </div>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Which metabolism supplements are worth it, and which to skip</li>
+              <li data-in style="--d:.3s">How to read a label in 60 seconds</li>
+              <li data-in style="--d:.4s">The coffee and the tea I drink on the mornings I don't blend</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/b-coffees-teas-list-request">🎁 YES! Text me the supplement guide + product info</a>
+            <div class="ct-recs" data-in style="--d:.6s">
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-coffees-teas/_img/cinnamon-spice.jpg" width="1000" height="1000" alt="A mug of hot coffee with foam">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">For coffee drinkers</span>
+                  <p class="rlb-rec-h">EpicSlim Coffee</p>
+                  <p>Arabica coffee with 10 g of collagen and mushrooms. One stick in hot or cold water.</p>
+                </div>
+              </div>
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-coffees-teas/_img/sg-fine.jpg" width="1000" height="1000" alt="A glass mug of herbal tea with lemon and ginger">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">For tea drinkers</span>
+                  <p class="rlb-rec-h">Drink2Shrink</p>
+                  <p>An organic, caffeine-free herbal tea. Brew a jug and drink it hot or iced.</p>
+                </div>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">These statements have not been evaluated by the Food and Drug Administration.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done, verbatim. The word is BREW; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">We'll send you the <b>supplement guide</b> AND <b>product info via text message within 24 hours</b> (usually much sooner!).</p>
+      <p>Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>Want to make sure it reaches you?</b> Text <b>“BREW”</b> to <a class="rlt-claim-num" data-claim-num data-word="BREW" href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=BREW">{{custom_values.bepic_rep_phone}}</a> so it doesn't land in Unknown Senders.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Got it</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

@@ -1,0 +1,30 @@
+<!--
+  bepic/b-coffees-teas/b-coffees-teas-list-request
+  The page a lead lands on after tapping "🎁 YES! Text me the supplement guide + product info" on the confirmation reel
+  with no script (the reel's block.js opens its popup instead and fetches this step in the background). Ported from
+  nueva/n-greens-breakfast/n-greens-breakfast-list-request (2026-11-17).
+  Platform only. ⚠️ ITS VIEW IS THE ALERT: the step /b-coffees-teas-list-request starts "B-Epic - Metabolism Coffees and
+  Teas - List Request" (BEPICSHARK/campaigns/metabolism-coffees-teas/_build/build-funnel.mjs), which tags the lead, marks
+  them hot, and texts and emails the rep with the reply ready. Known leads only (the opt-in's cookie); once per lead.
+  ⚠️ THE WORDS ARE CONFIRM.done in BEPICSHARK/campaigns/metabolism-coffees-teas/copy.mjs, verbatim (the same as the popup).
+  No company name (brain/bepic.md), no code, no price (PAGE-COPY-SOP rule 14). The look is the confirmation reel's
+  (T · Roaster bag, one kraft screen of it); the page fades up out of its own kraft (data-pf-arrive).
+-->
+<div class="rl rl-look-roast rl-ct rlr" data-pf-native data-pf-arrive="#C9A57A">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">What To Add To Your Cup, And What To Skip</h1>
+          <div class="lk-card">
+            <span class="rlr-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
+            <p class="rlr-big" data-in style="--d:.1s">We'll send you the <b>supplement guide</b> AND <b>product info via text message within 24 hours</b> (usually much sooner!).</p>
+            <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

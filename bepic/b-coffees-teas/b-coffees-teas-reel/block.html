@@ -1,0 +1,102 @@
+<!--
+  bepic/b-coffees-teas/b-coffees-teas-reel
+  Metabolism Coffees and Teas, the opt-in as a REEL (B-Epic's first guide; Jeff, 2026-11-17: "think were good, yea - local
+  first"). Platform only. Shaped on nueva/n-greens-breakfast/n-greens-breakfast-reel with the words, pictures and look
+  swapped.
+  ⚠️ EVERY WORD IS BEPICSHARK/campaigns/metabolism-coffees-teas/copy.mjs (OPTIN, RECIPES "cinnamon-spice"), verbatim.
+     Change a word there first. The counts agree with the guide: 12 recipes, 6 coffees, 6 teas.
+  ⚠️ NO COMPANY NAME AND NO PRODUCT NAME on this page (brain/bepic.md: B-Epic bans its name on reps' pages; Jeff,
+     2026-11-17: product names "we just dont want them on the optin page").
+  ⚠️ REAL PHOTOS ONLY, no product pack (the packs carry health words; Jeff 2026-11-16).
+  The look is T · Roaster bag (_shared/reel/looks/roaster-bag.css, class rl-look-roast). No roast bar on this page (Jeff, 2026-11-17: "take off the roast meter"); the bag's label sits above the
+  photo ("move the free recipe guide / batch 01 element ... above the image"). The reel itself is _shared/reel/v1 (references/REEL-PAGE-SOP.md).
+-->
+<div class="rl rl-look-roast rl-ct" data-pf-native data-pf-dock="Send me the recipes" data-pf-handoff="#C9A57A">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. The cover: the photo print with the stamp, the bag's label, the approved headline -->
+      <section class="rl-p rl-paper rl-cover" aria-label="Metabolism Coffees and Teas">
+        <div class="rl-in">
+          <div class="lk-label" data-in><span>Free recipe guide</span><span>Batch 01</span></div>
+          <div class="rl-art ct-hero">
+            <figure class="lk-snap"><img src="/_p/bepic/b-coffees-teas/_img/cover-roaster.jpg" width="666" height="1000"
+              alt="A blended cinnamon coffee and a lemon ginger green tea on a wooden counter"></figure>
+            <div class="lk-stamp" aria-hidden="true"><b>12</b>Recipes</div>
+          </div>
+          <h1 data-in style="--d:.1s">Free Download: <em>12</em> Homemade Coffees And Teas That Can Give Your Metabolism A Lift</h1>
+          <ul class="rl-pills" data-in style="--d:.25s"><li>6 coffees</li><li>6 teas</li><li>Under 10 minutes</li><li>Free</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. What you get -->
+      <section class="rl-p rl-paper ct-pdf">
+        <div class="rl-in">
+          <div class="lk-label" data-in><span>What you get</span><span>PDF</span></div>
+          <!-- Three real pages of the PDF, taped on (render them again when the PDF changes: build-guides.mjs --pdf) -->
+          <div class="rl-art ct-pages">
+            <figure class="lk-snap ct-p1"><img src="/_p/bepic/b-coffees-teas/_img/pdf-page-2.jpg" width="765" height="990" alt="The guide's intro and contents" loading="lazy"></figure>
+            <figure class="lk-snap r ct-p3"><img src="/_p/bepic/b-coffees-teas/_img/pdf-page-3.jpg" width="765" height="990" alt="A recipe page from the guide: Cinnamon Spice Coffee" loading="lazy"></figure>
+            <figure class="lk-snap ct-p2"><img src="/_p/bepic/b-coffees-teas/_img/pdf-page-1.jpg" width="765" height="990" alt="The guide's cover" loading="lazy"></figure>
+          </div>
+          <h2 data-in style="--d:.1s">12 recipes in one free PDF</h2>
+          <p data-in style="--d:.2s">Each recipe has a photo, the amounts for one mug or two, and how to make it in under 10 minutes. Read it on your phone or print it.</p>
+        </div>
+      </section>
+
+      <!-- 3. One recipe, as it is in the guide: its photo, the amounts typing on, why people make it -->
+      <section class="rl-p rl-paper ct-recipe">
+        <div class="rl-in">
+          <div class="lk-label" data-in><span>Coffee no. 01</span><span>3 min</span></div>
+          <figure class="lk-snap r rl-art ct-wide"><img src="/_p/bepic/b-coffees-teas/_img/cinnamon-spice.jpg" width="1000" height="1000"
+            alt="A mug of cinnamon spice coffee with foam" loading="lazy"></figure>
+          <h2 data-in style="--d:.1s">Cinnamon Spice Coffee</h2>
+          <ul class="lk-am">
+            <li style="--i:0"><b>1 cup</b>hot brewed coffee</li>
+            <li style="--i:1"><b>½ tsp</b>ground cinnamon</li>
+            <li style="--i:2"><b>a pinch</b>ground nutmeg</li>
+            <li style="--i:3"><b>2 tbsp</b>milk of your choice</li>
+          </ul>
+          <p class="ct-why" data-in style="--d:.9s">Cinnamon is a favourite in metabolism drinks, and it brings sweetness without the sugar.</p>
+        </div>
+      </section>
+
+      <!-- 4. Dark roast: what's in it, a sideways row of cards -->
+      <section class="rl-p rl-night rl-plain rl-wide ct-inside">
+        <div class="rl-in">
+          <div class="lk-label" data-in><span>Metabolism Coffees and Teas</span><span>12</span></div>
+          <h2 data-in style="--d:.05s">What's in it</h2>
+          <div class="rl-cards ct-inlist" data-in style="--d:.15s">
+            <div class="lk-card"><h3>6 warm coffees</h3>
+              <p>Cinnamon spice, coconut oil blended, cacao cayenne mocha, ginger vanilla, pumpkin spice and cardamom cinnamon.</p></div>
+            <div class="lk-card"><h3>6 warm teas</h3>
+              <p>Lemon ginger green tea, cinnamon spice chai, coconut matcha latte, orange ginger green tea, hibiscus cinnamon and peppermint green tea.</p></div>
+            <div class="lk-card"><h3>Made with what you have</h3>
+              <p>Your own coffee or tea, plus spices that are probably in your cupboard already. No machine, no special coffee.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. The close -->
+      <section class="rl-p rl-paper ct-close">
+        <div class="rl-in">
+          <div class="lk-label" data-in><span>Free</span><span>Batch 01</span></div>
+          <!-- The guide itself (its cover page from the PDF), as the mockup (Jeff, 2026-11-17: "lets use image of the mockup here") -->
+          <figure class="lk-snap rl-art ct-book"><img src="/_p/bepic/b-coffees-teas/_img/guide-cover.jpg" width="765" height="990"
+            alt="The cover of Metabolism Coffees and Teas" loading="lazy"></figure>
+          <h2 data-in style="--d:.1s">Download Metabolism Coffees and Teas</h2>
+          <p data-in style="--d:.2s">It lands in your inbox in about 2 minutes.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the window. -->
+    <button type="button" class="rl-cta" data-sk-open>Send me the recipes</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

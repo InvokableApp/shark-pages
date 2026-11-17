@@ -1,0 +1,75 @@
+/* bepic/b-coffees-teas/b-coffees-teas-reel: Metabolism Coffees and Teas, the opt-in as a reel (platform only; see
+ * block.html). The reel is _shared/reel/v1/reel.css; the look is T · Roaster bag (_shared/reel/looks/roaster-bag.css). This
+ * adds the guide's own screens. The confirmation reel and the request pages import this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/roaster-bag.css");
+
+.rl-ct .rl-in{ gap:0; }
+.rl-ct .lk-label{ margin:0 0 4px; }
+.rl-ct h1,.rl-ct h2{ margin:10px 0 8px; }
+.rl-ct p{ font-size:15px; line-height:1.5; margin:8px 0 0; }
+
+/* 1. the cover: a landscape crop of the print, the stamp over its bottom right corner */
+.rl-ct .ct-hero{ position:relative; width:min(100%,420px); margin:0 auto 6px; flex:none; }
+.rl-ct .ct-hero .lk-snap{ margin:0; }
+.rl-ct .ct-hero .lk-snap img{ aspect-ratio:4/3; object-position:center 55%; }
+.rl-ct .ct-hero .lk-stamp{ right:-4px; bottom:6px; }
+.rl-ct .rl-cover .rl-pills{ margin-top:6px; }
+
+/* 2. what you get */
+.rl-ct .ct-lede{ font-weight:700; color:var(--ink); }
+
+/* 3 and 5: a wide print above the words */
+.rl-ct .ct-wide{ width:min(100%,420px); }
+.rl-ct .ct-wide img{ aspect-ratio:16/10; object-position:center 40%; }
+.rl-ct .ct-why{ font-size:14px; }
+
+/* 4. the dark screen's cards */
+.rl-ct .ct-inlist .lk-card h3{ margin:0 0 6px; }
+.rl-ct .ct-inlist .lk-card p{ font-size:15px; margin:0; }
+
+/* a short phone: the print gives way first */
+@media (max-height:700px){
+  .rl-ct .ct-hero .lk-snap img{ aspect-ratio:16/9; }
+  .rl-ct .ct-wide img{ aspect-ratio:2/1; }
+  .rl-ct .rl-cover .rl-pills{ display:none; }
+}
+
+/* ---- room to breathe (Jeff, 2026-11-17, on the first cover: "this is feeling claustrophobic") ----
+   The print sits in from the edges, the headline steps down a size with more line space, and every piece gets its own
+   gap, so the cover reads as a few calm things rather than one block. */
+.rl-ct .rl-in{ justify-content:center; }
+.rl-ct .ct-hero{ width:min(80%,360px); margin:0 auto 26px; }
+.rl-ct .ct-hero .lk-snap img{ aspect-ratio:3/2; }
+.rl-ct .ct-hero .lk-stamp{ width:70px; height:70px; right:-18px; bottom:-14px; }
+.rl-ct .ct-hero .lk-stamp b{ font-size:24px; }
+.rl-look-roast.rl-ct h1{ font-size:clamp(26px,7.4vw,32px); line-height:1.12; margin:16px 0 18px; }
+.rl-look-roast.rl-ct h2{ font-size:clamp(25px,7vw,31px); line-height:1.12; margin:16px 0 14px; }
+.rl-look-roast.rl-ct h1 em,.rl-look-roast.rl-ct h2 em{ padding:0 5px; }
+.rl-ct .rl-pills li{ font-size:10.5px; padding:5px 9px; }
+.rl-ct .lk-roast{ margin-top:22px; }
+.rl-ct .ct-wide{ width:min(84%,380px); margin-bottom:22px; }
+.rl-ct .lk-am{ margin:6px 0 4px; }
+.rl-ct p{ max-width:34ch; }
+
+/* ---- label above the photo, a bigger photo, no roast bar (Jeff, 2026-11-17) ---- */
+.rl-ct .lk-label{ margin:0 0 18px; }
+.rl-ct .ct-hero{ width:min(94%,420px); margin:0 auto 24px; }
+.rl-ct .ct-hero .lk-snap img{ aspect-ratio:4/3; }
+.rl-ct .ct-wide{ width:min(94%,420px); margin:0 auto 22px; }
+.rl-ct .ct-wide img{ aspect-ratio:3/2; }
+.rl-look-roast.rl-ct h1,.rl-look-roast.rl-ct h2{ margin-top:4px; }
+@media (max-height:700px){ .rl-ct .ct-hero .lk-snap img{ aspect-ratio:16/10; } .rl-ct .ct-wide img{ aspect-ratio:2/1; } }
+
+/* 2. what you get: three real PDF pages, taped on in a fan, the cover in front */
+.rl-ct .ct-pages{ position:relative; width:min(92%,380px); aspect-ratio:380/300; margin:0 auto 18px; flex:none; }
+.rl-ct .ct-pages .lk-snap{ position:absolute; margin:0; width:46%; padding:5px; }
+.rl-ct .ct-pages .lk-snap img{ aspect-ratio:765/990; }
+.rl-ct .ct-pages .lk-snap::before{ width:52px; height:16px; margin-left:-26px; top:-8px; }
+.rl-ct .ct-p1{ left:0; top:10%; rotate:-6deg; }
+.rl-ct .ct-p2{ left:26%; top:0; width:50% !important; z-index:3; rotate:1deg; }
+.rl-ct .ct-p3{ right:0; top:12%; rotate:6deg; }
+/* 5. the guide's cover as the mockup: a portrait page, not a wide crop */
+.rl-ct .ct-book{ width:min(60%,250px); margin:0 auto 22px; }
+.rl-ct .ct-book img{ aspect-ratio:765/990; }
+@media (max-height:700px){ .rl-ct .ct-pages{ width:min(72%,300px); } .rl-ct .ct-book{ width:min(44%,190px); } }

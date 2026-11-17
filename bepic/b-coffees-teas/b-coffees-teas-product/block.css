@@ -1,0 +1,35 @@
+/* bepic/b-coffees-teas/b-coffees-teas-product: the two products, side by side, each with its own button to the rep's own
+ * B-Epic page (platform only; see block.html). One tall kraft screen in the opt-in reel's look (T · Roaster bag): its sheet
+ * is imported for the colours and the type, as the request pages do. Each product sits on a cream card with its photo
+ * taped on; the buttons are espresso ink with a stamp-red shadow, so they stand off the cream and the kraft. */
+@import url("../b-coffees-teas-reel/block.css");
+
+.rlp .rl-p{ height:auto; min-height:100%; overflow:visible; justify-content:flex-start; }
+.rlp .rl-track{ scroll-snap-type:none; }
+.rlp .rl-in{ padding:44px 22px 56px; max-width:560px; }
+.rlp h1{ margin:14px 0 6px; font-size:clamp(32px,9vw,42px); }
+.rlp-disclose{ display:inline-block; margin:0 0 6px; font:700 12.5px var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--stamp); }
+.rl .rlp-intro{ font-size:15px; line-height:1.5; margin:4px 0 0; }
+
+.rlp-prods{ display:grid; gap:22px; margin-top:22px; }
+.rlp .lk-card{ padding:16px 16px 20px; }
+.rlp-prod .lk-snap{ margin:0 auto 12px; }
+.rlp-prod .lk-snap img{ aspect-ratio:4/3; object-position:center 55%; }
+.rlp-k{ display:block; font:700 11.5px var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--body); }
+.rlp .rlp-prod h2{ font-size:clamp(26px,7.4vw,32px); margin:4px 0 6px; }
+.rl .rlp-prod p{ font-size:15px; line-height:1.5; margin:0; }
+.rlp .rl-btn{ margin-top:16px; background:var(--ink); color:var(--cream); border:0; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); }
+
+.rlp-fine{ margin-top:26px; }
+.rl .rlp-fine p{ font-size:12px; line-height:1.5; color:var(--body); margin:8px 0 0; }
+
+@media (min-width:701px){
+  .rlp .rl-p.rl-wide .rl-in{ display:block; max-width:960px; padding:64px 40px 72px; }
+  .rlp .rl-in > *{ max-width:none; }
+  .rlp-prods{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:stretch; }
+  .rlp-prod{ display:flex; flex-direction:column; } .rlp-prod .rl-btn{ margin-top:auto; }
+  .rlp-prod p{ margin-bottom:16px !important; }
+  .rlp .lk-card{ padding:20px 22px 24px; }
+  .rl .rlp-intro{ font-size:17px; max-width:40em; }
+  .rlp-fine{ max-width:60em; }
+}

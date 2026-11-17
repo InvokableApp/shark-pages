@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
+/* _shared/reel/looks/roaster-bag.css — LOOK "T · Roaster bag" (references/REEL-LOOKS.md; Jeff 2026-11-17, on B-Epic's
+ * Metabolism Coffees and Teas: "bepic is a little more aggressive of a brand ... less clinical, more bulletproof coffee
+ * vibes", then "lets go t"). A small-batch roaster's kraft bag: black stamped capitals (Oswald), typed labels and amounts
+ * (Courier Prime), a red stamp, a REAL photo taped on as a print, and a light-to-dark roast bar that steps one notch
+ * darker per screen.
+ * Use: @import after reel.css, <div class="rl rl-look-roast">. Screens: .rl-paper (kraft) for most, .rl-night (espresso)
+ * for one or two. Helpers:
+ *   .lk-snap     a photo print taped on: <figure class="lk-snap"><img src alt></figure> (.r tilts it the other way)
+ *   .lk-label    the bag's typed label between black rules: <div class="lk-label"><span>LEFT</span><span>RIGHT</span></div>
+ *   .lk-stamp    the round red stamp: <div class="lk-stamp"><b>12</b>RECIPES</div>
+ *   .lk-roast    the roast bar: <div class="lk-roast" style="--at:30%"><span>LIGHT</span><i></i><span>DARK</span></div>;
+ *                give each screen an even step (references/REEL-LOOKS.md: things that travel move in even steps)
+ *   .lk-am       typed amounts: <ul class="lk-am"><li style="--i:0"><b>1 cup</b>hot brewed coffee</li>...</ul>
+ *   .lk-card     a cream card on the kraft for longer words
+ * Motion (once, as the screen arrives; reduced motion shows it finished): the print drops, the stamp lands, the amounts
+ * type on, the roast marker steps to its notch. */
+.rl.rl-look-roast{
+  --kraft:#C9A57A; --kraft-d:#A9845A; --ink:#1A1410; --espresso:#1A1410; --stamp:#B8321F; --cream:#F4EAD8;
+  --paper:var(--kraft); --tint:#D8BC97; --night:var(--espresso);
+  --body:#2a2018; --grey:#5a4a3a; --on-dark:var(--cream);
+  --head:"Oswald",Impact,sans-serif; --head-w:700; --sans:"Courier Prime",ui-monospace,monospace;
+  --eyebrow:var(--ink); --eyebrow-dark:var(--kraft);
+  --cta:var(--ink); --cta-ink:var(--cream); --mark:var(--stamp); --shade:26,20,16;
+  --sk-accent:var(--ink); --pfn-accent:var(--ink); --pfn-ink:var(--cream);
+  --dock-flip:var(--cream); --dock-flip-ink:var(--ink);
+}
+/* kraft paper with a fine grain on every paper screen */
+.rl-look-roast .rl-paper{
+  background-color:var(--kraft);
+  background-image:radial-gradient(rgba(0,0,0,.10) 1px,transparent 1.4px),radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.4px);
+  background-size:7px 7px,11px 11px;
+}
+.rl-look-roast .rl-tint{ background-color:var(--tint); }
+.rl-look-roast .rl-night{ background-color:var(--espresso); }
+.rl-look-roast h1,.rl-look-roast h2,.rl-look-roast h3{ font-family:var(--head); font-weight:700; color:var(--ink); text-transform:uppercase; letter-spacing:0; line-height:1.03; text-wrap:balance; }
+.rl-look-roast h1{ font-size:clamp(30px,8.6vw,40px); }
+.rl-look-roast h2{ font-size:clamp(28px,8vw,38px); }
+.rl-look-roast h3{ font-size:20px; }
+.rl-look-roast h1 em,.rl-look-roast h2 em{ font-style:normal; background:var(--ink); color:var(--kraft); padding:0 6px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.rl-look-roast .rl-night h1,.rl-look-roast .rl-night h2,.rl-look-roast .rl-night h3{ color:var(--cream); }
+.rl-look-roast .rl-night h1 em,.rl-look-roast .rl-night h2 em{ background:var(--stamp); color:var(--cream); }
+.rl-look-roast p,.rl-look-roast li{ font-family:var(--sans); color:var(--body); }
+.rl-look-roast .rl-night p,.rl-look-roast .rl-night li{ color:rgba(244,234,216,.9); }
+.rl-look-roast .rl-eyebrow{ font:700 11px var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--ink); }
+.rl-look-roast .rl-night .rl-eyebrow{ color:var(--kraft); }
+.rl-look-roast .rl-pills li{ border:1.5px solid var(--ink); color:var(--ink); background:transparent; font:700 11.5px var(--sans); border-radius:0; text-transform:uppercase; letter-spacing:.06em; }
+.rl-look-roast .rl-night .rl-pills li{ color:var(--cream); border-color:rgba(244,234,216,.6); }
+.rl-look-roast .rl-btn,.rl-look-roast .pfn-dock{ border-radius:0; font-family:var(--head); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+
+/* the bag's label */
+.rl-look-roast .lk-label{ display:flex; justify-content:space-between; gap:12px; font:700 11px var(--sans); letter-spacing:.1em; text-transform:uppercase;
+  border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:5px 0; color:var(--ink); }
+.rl-look-roast .rl-night .lk-label{ color:var(--kraft); border-color:var(--kraft); }
+
+/* a photo print taped on */
+.rl-look-roast .lk-snap{ position:relative; z-index:2; margin:0 auto 14px; padding:6px; background:var(--cream);
+  box-shadow:0 8px 18px rgba(0,0,0,.28); transform:rotate(-1.4deg); }
+.rl-look-roast .lk-snap img{ display:block; width:100%; object-fit:cover; }
+.rl-look-roast .lk-snap::before{ content:""; position:absolute; top:-10px; left:50%; width:78px; height:22px; margin-left:-39px; background:rgba(244,234,216,.8); transform:rotate(3deg); }
+.rl-look-roast .lk-snap.r{ transform:rotate(1.6deg); }
+
+/* the stamp */
+.rl-look-roast .lk-stamp{ position:absolute; z-index:3; width:84px; height:84px; border:3px solid var(--stamp); border-radius:50%; color:var(--stamp);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; font:700 11px/1.05 var(--head); letter-spacing:.12em;
+  text-transform:uppercase; transform:rotate(-12deg); background:rgba(201,165,122,.82); }
+.rl-look-roast .lk-stamp b{ font:700 30px/1 var(--head); letter-spacing:0; }
+
+/* the roast bar */
+.rl-look-roast .lk-roast{ display:flex; align-items:center; gap:8px; font:700 10px var(--sans); letter-spacing:.1em; color:var(--ink); margin-top:12px; }
+.rl-look-roast .lk-roast i{ flex:1; height:9px; position:relative; border:1.5px solid var(--ink);
+  background:linear-gradient(90deg,#E2C49A,#8A5A33 40%,#3A2416 75%,#140D09); }
+.rl-look-roast .lk-roast i::after{ content:""; position:absolute; top:-6px; left:var(--at,0%); width:3px; height:19px; margin-left:-1.5px; background:var(--stamp); }
+.rl-look-roast .rl-night .lk-roast{ color:var(--kraft); }
+.rl-look-roast .rl-night .lk-roast i{ border-color:var(--kraft); }
+
+/* typed amounts */
+.rl-look-roast .lk-am{ list-style:none; padding:0; margin:8px 0; }
+.rl-look-roast .lk-am li{ display:flex; gap:10px; font:400 14px var(--sans); padding:6px 0; border-bottom:1px dashed rgba(26,20,16,.45); }
+.rl-look-roast .lk-am b{ flex:0 0 64px; font-weight:700; }
+
+/* a cream card for longer words */
+.rl-look-roast .lk-card{ position:relative; background:var(--cream); padding:16px 16px 18px; box-shadow:0 8px 18px rgba(0,0,0,.18); }
+.rl-look-roast .lk-card > :first-child{ margin-top:0; }
+.rl-look-roast .rl-night .lk-card h3{ color:var(--ink); }
+.rl-look-roast .rl-night .lk-card p{ color:var(--body); }
+
+/* motion, once per arrival */
+@media (prefers-reduced-motion:no-preference){
+  .rl-look-roast .is-on .lk-snap{ animation:lkRoastDrop .6s cubic-bezier(.2,.8,.2,1) both; }
+  .rl-look-roast .is-on .lk-snap.r{ animation-name:lkRoastDropR; }
+  .rl-look-roast .is-on .lk-stamp{ animation:lkRoastSlam .4s cubic-bezier(.2,.8,.2,1) .7s both; }
+  .rl-look-roast .is-on .lk-am li{ animation:lkRoastType .35s ease-out both; animation-delay:calc(.5s + var(--i,0) * .16s); }
+  .rl-look-roast .is-on .lk-roast i::after{ animation:lkRoastStep .7s ease-out .4s both; }
+}
+@keyframes lkRoastDrop{ from{ opacity:0; transform:translateY(-26px) rotate(-6deg); } to{ opacity:1; transform:rotate(-1.4deg); } }
+@keyframes lkRoastDropR{ from{ opacity:0; transform:translateY(-26px) rotate(6deg); } to{ opacity:1; transform:rotate(1.6deg); } }
+@keyframes lkRoastSlam{ from{ opacity:0; transform:rotate(-12deg) scale(1.8); } to{ opacity:1; transform:rotate(-12deg) scale(1); } }
+@keyframes lkRoastType{ from{ opacity:0; clip-path:inset(0 100% 0 0); } to{ opacity:1; clip-path:inset(0 0 0 0); } }
+@keyframes lkRoastStep{ from{ left:calc(var(--at,0%) - 14%); opacity:0; } to{ left:var(--at,0%); opacity:1; } }
+
+/* buttons on the espresso screens are stamp red: ink on espresso disappears (Jeff, 2026-11-17, the confirmation's claim
+   button: "blending in to the background") */
+.rl-look-roast .rl-night .rl-btn,.rl-look-roast .rl-night .rlb-btn{ background:var(--stamp); color:var(--cream); box-shadow:0 3px 0 #7E1F12,0 14px 30px -14px rgba(0,0,0,.6); }

@@ -1,0 +1,26 @@
+/* bepic/b-coffees-teas/b-coffees-teas-list-request: the supplement guide request (platform only; see block.html).
+ * One screen in the confirmation reel's look: the opt-in reel's sheet (reel + T · Roaster bag) is imported for the colours
+ * and the type. Ported from nueva/n-greens-breakfast/n-greens-breakfast-list-request (2026-11-17) with the Recipe tin
+ * colours mapped to the roaster bag's: the pill on the bag's tint, the big line in espresso ink with the stamp red on the
+ * words that matter, the card in cream on the kraft. */
+@import url("../b-coffees-teas-reel/block.css");
+
+[data-if-name]{ display:none; }   /* filled on the platform (render.mjs fillLeadName); dropped when the name isn't known */
+.rlr .rl-p{ overflow-y:auto; justify-content:safe center; }
+.rlr .rl-in{ padding-bottom:48px; }
+.rlr .lk-card{ padding:22px 20px 24px; }
+.rlr-pill{ display:inline-block; font:700 13.5px var(--sans); padding:8px 14px; border-radius:999px; background:var(--tint); color:var(--ink); margin-bottom:14px; }
+.rlr .lk-card .rlr-big{ font-family:var(--head); font-weight:700; text-transform:uppercase; font-size:clamp(26px,7.2vw,32px); line-height:1.12; color:var(--ink); margin:0; text-wrap:balance; }
+.rlr .lk-card .rlr-big b{ font-weight:700; color:var(--stamp); }
+.rlr p{ font-size:15px; line-height:1.5; }
+.rlr p b{ color:var(--ink); }
+
+@media (max-width:700px) and (max-height:620px){
+  .rlr .rl-in{ padding-top:32px; } .rlr p{ font-size:14px; } .rlr .lk-card .rlr-big{ font-size:24px; }
+}
+@media (min-width:701px){
+  .rlr .rl-in{ padding-bottom:72px; }
+  .rlr-pill{ justify-self:start; }
+  .rlr .lk-card{ padding:26px 32px 28px; }
+  .rlr .lk-card .rlr-big{ font-size:clamp(36px,3.4vw,48px); max-width:22em; }
+}
