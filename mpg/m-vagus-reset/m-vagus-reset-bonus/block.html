@@ -1,6 +1,6 @@
 <!--
   mpg/m-vagus-reset/m-vagus-reset-bonus
-  The page a lead lands on after tapping "🎁 YES! Text me the guide + product info" with no script running (the
+  The page a lead lands on after tapping "🎁 YES! Message me the guide + product info" with no script running (the
   confirmation's block.js normally fetches this step in the background and shows the same words in a popup).
   ⚠️ ITS VIEW IS THE ALERT: the step /m-vagus-reset-bonus starts the campaign's bonus automation, which tags the lead,
   marks them hot, and texts and emails the rep to text the lead the supplement companion guide and the drop's info
@@ -14,10 +14,10 @@
       <section class="rl-p rl-tint rl-wide cf-deliver is-on">
         <div class="rl-in">
           <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
-          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Your supplement companion guide is coming by text</h1>
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Your supplement companion guide is coming in a message</h1>
           <span class="cf-pill" data-in>✅ Done<span data-if-name>, {{contact.first_name}}</span>.</span>
-          <p class="cf-claim-big" data-in style="--d:.1s">We'll send you the <b>supplement companion guide</b> AND <b>info on the hops drop via text message within 24 hours</b> (usually much sooner!).</p>
-          <p data-in style="--d:.2s">Be sure to check your text messages, including your <b>“Unknown Senders” folder</b>, so you don't miss it!</p>
+          <p class="cf-claim-big" data-in style="--d:.1s">We'll message you the <b>supplement companion guide</b> AND <b>info on the hops drop within 24 hours</b> (usually much sooner!).</p>
+          <p data-in style="--d:.2s">Keep an eye on your texts and Facebook messages, including your <b>“Unknown Senders”</b> and <b>“Message Requests”</b> folders, so you don't miss it!</p>
           <p data-in data-cf-sms style="--d:.3s"><b>Want to make sure it gets to you?</b> Simply text <b>“HOPS”</b> to <a class="cf-num" data-cf-num data-word="HOPS" href="sms:{{custom_values.mpg_rep_phone}}?&amp;body=HOPS">{{custom_values.mpg_rep_phone}}</a> so it doesn't land in your “Unknown Senders” folder.</p>
           <div class="rl-btns" data-in style="--d:.4s"><a class="rl-btn rl-btn-2" href="https://{{custom_values.mpg_main_url}}/m-vagus-reset-read">Back to your guide</a></div>
         </div>

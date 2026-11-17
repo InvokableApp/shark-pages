@@ -9,7 +9,7 @@
   var D = {}; try { D = JSON.parse((document.getElementById("pfn-data") || {}).textContent || "{}"); } catch (e) {}
   var rep = D.rep || {};
   
-  // this feel like it's coming from the company"): it stays "Both sent to you by text".
+  // this feel like it's coming from the company"): it stays "Both sent to you in a message".
 
   // The rep's number.
   var num = card.querySelector("[data-claim-num]"), para = card.querySelector("[data-claim-sms]");

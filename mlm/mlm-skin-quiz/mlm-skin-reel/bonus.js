@@ -9,7 +9,7 @@
   var D = {}; try { D = JSON.parse((document.getElementById("pfn-data") || {}).textContent || "{}"); } catch (e) {}
   var rep = D.rep || {};
   
-  // this feel like it's coming from the company"): it stays "Both sent to you by text".
+  // this feel like it's coming from the company"): it stays "Both sent to you in a message".
 
   // The rep's number.
   var num = card.querySelector("[data-claim-num]"), para = card.querySelector("[data-claim-sms]");
@@ -36,7 +36,7 @@
   // After the bonus (the close), the dock asks for the guide itself, and a tap claims it like the YES button (Jeff,
   // 2026-10-27: "Swipe up for a bonus" read wrong once the bonus was behind them).
   var bonusAt = -1; screens.forEach(function (s, i) { if (s.classList.contains("rlb")) bonusAt = i; });
-  var before = null, AFTER = "Text me the free guide 🎁";
+  var before = null, AFTER = "Message me the free guide 🎁";
   function sync() {
     var dk = dock(), i = here(), s = screens[i]; var on = !!(s && s.classList.contains("rlb")); root.classList.toggle("on-bonus", on);
     if (!dk) return;

@@ -21,7 +21,7 @@
  * THE NUMBER: the rep's own phone (nueva_rep_phone), checked the way the redirect-sms steps check it: anything with a letter
  * in it is the setup sentence, not a number, and then the "text ..." paragraph leaves the popup. A phone gets a tap-to-text
  * link with the word filled in; a computer gets the number as words.
- * THE COMPANY, NOT THE REP: the coupon card says "Both sent to you by text", with no rep name or picture (Joe,
+ * THE COMPANY, NOT THE REP: the coupon card says "Both sent to you in a message", with no rep name or picture (Joe,
  * 2026-10-21: a lead may not want "this person texting me, but like the company's cool"). Every line here is "we". */
 (function () {
   var root = document.querySelector("[data-rl-claim]"), card = document.querySelector("[data-rlt-claim]");
@@ -33,7 +33,7 @@
   var D = {}; try { D = JSON.parse((document.getElementById("pfn-data") || {}).textContent || "{}"); } catch (e) {}
   var rep = D.rep || {};
   // No rep name or picture on the card (Joe, 2026-10-21: "I don't think we should mention the person's names ... make
-  // this feel like it's coming from the company"): it stays "Both sent to you by text".
+  // this feel like it's coming from the company"): it stays "Both sent to you in a message".
 
   // The rep's number.
   var num = card.querySelector("[data-claim-num]"), para = card.querySelector("[data-claim-sms]");
