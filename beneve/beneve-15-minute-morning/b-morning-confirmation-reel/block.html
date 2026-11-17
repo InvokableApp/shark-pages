@@ -9,8 +9,9 @@
   ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE (block.js, copied word for word from the Blueprint's): only the two claim buttons
      open the Done popup and, on the first open, fetch /b-morning-supplement-request in the background. That step's view
      is the rep's 🎁 alert (migration's "Beneve - 15-Minute Morning - Supplement Guide Request"), once per lead.
-  ⚠️ NO VIDEO YET: screen 2 shows the three products where the Blueprint shows its video. When one is recorded, put the
-     Blueprint's .rlb-vidbox markup back here with two new content values.
+  THE VIDEO (screen 2): Brianna holding the guide (style 1, Jeff approved 2026-11-17, "we can use this vid"), from the
+     content values beneve_morning_supplement_video and _poster (platform migration 0796). A new cut = those two values only.
+     Words and files: BENEVESHARK/campaigns/morning-15/videos/.
   The pack shots are Beneve's own (BENEVESHARK/product-pages), cut out; guide-mock.webp (BENEVESHARK/campaigns/morning-15/_build/guide-mock.mjs) stands them in front of the supplement guide's real cover, every name readable.
 -->
 <div class="rl rl-look-planner rl-m15 rlg" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/b-morning-supplement-request" data-pf-arrive="#FBF6EE">
@@ -38,15 +39,21 @@
         </div>
       </section>
 
-      <!-- 2. DARK: the bonus. The guide mockup with the three products (guide-mock.webp, Jeff 2026-11-17: "put the supplement guide mockup on the confirmation page where the supplements are"), the bonus card, the claim. -->
-      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
+      <!-- 2. DARK: the bonus. Brianna's video (the Blueprint's video box), the bonus card with the guide mockup and the three products (guide-mock.webp, Jeff 2026-11-17), the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Your bonus">
         <div class="rl-in">
-          <div class="rlb-vidbox m15c-prodbox">
-            <img class="m15c-three" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/guide-mock.webp" width="680" height="598"
-                 alt="The Morning Supplement Guide, with Xcelerate Original Coffee, Glutathione+ and Electrolytes">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.beneve_morning_supplement_video}}"
+                     poster="{{custom_values.beneve_morning_supplement_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Your 15-Minute Morning is on its way, and a bonus"></video>
+              <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+            </div>
           </div>
-          <div class="rlb-coupon" data-in style="--d:.15s">
+          <div class="rlb-coupon m15c-coupon" data-in style="--d:.15s">
             <span class="rlb-tag">Bonus offer</span>
+            <img class="m15c-mock" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/guide-mock.webp" width="680" height="598"
+                 alt="The Morning Supplement Guide, with Xcelerate Original Coffee, Glutathione+ and Electrolytes">
             <div class="rlb-copy">
               <p class="rlb-h">The Morning Supplement Guide</p>
               <p class="rlb-plus">+ more info on Glutathione+, Xcelerate Coffee and Electrolytes</p>

@@ -217,20 +217,19 @@
   .rl-look-blueprint .rlg-top h1{ font-size:clamp(44px,4.4vw,60px); }
 }
 
-/* ---------- the 15-Minute Morning: the look's touches, and the three products where the Blueprint has its video ---------- */
+/* ---------- the 15-Minute Morning: the look's touches, and the video and the bonus card ---------- */
 .rl-look-planner .rlb-btn{ font-family:var(--sans); font-weight:800; border-radius:14px; }
 .rl-look-planner .rlb-coupon{ border-radius:16px; }
 .rl-look-planner .mbc-env .mbc-body,.rl-look-planner .mbc-env .mbc-fold{ stroke:var(--ember); }
 .rl-look-planner .mbc-env .mbc-flap{ fill:var(--sand); stroke:var(--ember); }
-.m15c-prodbox{ container-type:normal; align-items:flex-end; }
-.m15c-three{ display:block; width:100%; max-width:380px; height:auto; margin:0 auto 14px; filter:drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
 .m15c-recs{ display:grid; gap:8px; }
 .m15c-recs .rlb-rec{ margin-top:0; }
 .rlb-guide h2{ margin:4px 0 6px; }
-@media (min-width:701px){
-  .rlb-bonus .rl-in > .m15c-prodbox{ aspect-ratio:auto; height:auto; align-self:center; }
-  .m15c-three{ max-width:460px; }
-}
-/* the bonus card has no guide cover beside it (the three products sit above it), so its words take the full width */
-.m15c-prodbox ~ .rlb-coupon,.rl-m15 .rlb-coupon{ grid-template-columns:minmax(0,1fr) !important; }
+/* the bonus card: the guide mockup with the three products on the left (it is wider than a bare cover), the words beside it */
+.rl-m15 .rlb-coupon{ grid-template-columns:minmax(0,1fr) !important; }
+.rl-m15 .m15c-coupon{ grid-template-columns:38% minmax(0,1fr) !important; gap:12px; }
+/* Brianna's clip has its captions near the bottom, so "Tap for sound" sits at the top until it's tapped */
+.rl-m15 .rlt-sound{ bottom:auto; top:16px; }
+.rl-m15 .rlt-loud .rlt-sound{ top:auto; bottom:12px; }
+.m15c-mock{ display:block; width:100%; height:auto; filter:drop-shadow(0 8px 12px rgba(0,0,0,.3)); }
 .rl-m15.rlg{ --bx-w:800; }
