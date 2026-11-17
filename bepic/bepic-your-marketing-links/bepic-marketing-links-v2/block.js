@@ -28,6 +28,14 @@ var SYS = {
           { label:"The link for \"What To Take For Steady Energy, And What To Skip\", the supplement guide you send on request", cv:"bepic_crash_plan_supplement_pdf_url" }
         ],
         desc:"A free 14 day plan for the afternoon energy crash: a walk after lunch, ten squats, and protein first at breakfast, about ten minutes a day. The bonus is your supplement guide, sent by you with product info, and the people who ask for it hear about ELEV8 and ELEV8 Drink 2.0." },
+      { slug:"b-greens-breakfast", icon:"leaf", platformOnly:true,
+        name:"The Greens at Breakfast Recipe Guide",
+        tease:"12 breakfast recipes with greens cooked in, free",
+        guides:[
+          { label:"Read / print / share the guide", cv:"bepic_greens_breakfast_guide_pdf_url" },
+          { label:"The link for \"My Morning Supplement List\", the supplement list you send on request", cv:"bepic_greens_breakfast_supplement_pdf_url" }
+        ],
+        desc:"A free recipe guide of twelve breakfasts with the greens cooked in: eggs, oats, toast, muffins and pancakes, five ready in fifteen minutes and five to make ahead, with amounts for 2, 4 or 6 and a shopping list for each. The bonus is your morning supplement list, sent by you with product info, and the people who ask for it hear about ACTIV Greens." },
       { slug:"b-coffee-sample", icon:"send", platformOnly:true,
         name:"Coffee Sample",
         tease:"Someone asks to try your coffee, you sort out how they get it",
