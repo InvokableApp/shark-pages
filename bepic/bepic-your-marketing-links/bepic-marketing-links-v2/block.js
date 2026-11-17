@@ -16,7 +16,7 @@ var SYS = {
         tease:"6 warm coffees and 6 warm teas, made with what you already drink",
         guides:[
           { label:"Read / print / share the guide", cv:"bepic_coffees_teas_guide_pdf_url" },
-          { label:"The link for \"What To Add To Your Cup, And What To Skip\", the bonus you text on request", cv:"bepic_coffees_teas_supplement_pdf_url" }
+          { label:"The link for \"What To Add To Your Cup, And What To Skip\", the supplement guide you send on request", cv:"bepic_coffees_teas_supplement_pdf_url" }
         ],
         desc:"A free recipe guide of 6 warm coffees and 6 warm teas, made with the coffee or tea they already drink. The bonus is your supplement guide, sent by you with product info, and the people who ask for it hear about EpicSlim Coffee and Drink2Shrink." },
       { slug:"b-crash-plan", icon:"chart", platformOnly:true,
