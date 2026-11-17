@@ -223,7 +223,7 @@
 .rl-look-planner .mbc-env .mbc-body,.rl-look-planner .mbc-env .mbc-fold{ stroke:var(--ember); }
 .rl-look-planner .mbc-env .mbc-flap{ fill:var(--sand); stroke:var(--ember); }
 .m15c-prodbox{ container-type:normal; align-items:flex-end; }
-.m15c-three{ display:block; width:100%; max-width:340px; height:auto; margin:0 auto 14px; filter:drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
+.m15c-three{ display:block; width:100%; max-width:380px; height:auto; margin:0 auto 14px; filter:drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
 .m15c-recs{ display:grid; gap:8px; }
 .m15c-recs .rlb-rec{ margin-top:0; }
 .rlb-guide h2{ margin:4px 0 6px; }
