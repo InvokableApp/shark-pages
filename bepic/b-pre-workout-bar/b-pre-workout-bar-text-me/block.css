@@ -1,0 +1,7 @@
+/* bepic/b-pre-workout-bar/b-pre-workout-bar-text-me: the info request page's look with the shared text me pieces (ported
+ * from bepic/b-greens-breakfast/b-greens-breakfast-text-me). */
+@import url("../b-pre-workout-bar-info-request/block.css");
+@import url("../../../_shared/text-me/v1/text-me.css");
+[data-if-name]{ display:none; }
+.rlr h1.rlr-big{ font-size:clamp(26px,7.4vw,32px); }
+[data-tm] .tm-bubble{ font-family:system-ui,-apple-system,sans-serif; }

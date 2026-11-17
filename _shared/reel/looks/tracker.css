@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap");
+/* _shared/reel/looks/tracker.css — LOOK "Y · Tracker" (references/REEL-LOOKS.md; mock references/reel-looks/
+ * mock-bepic-preworkout.html). Jeff, 2026-11-17, for B-Epic's The Pre-Workout Bar: "three new looks that are more modern
+ * and slightly more.... workout oriented. masculine maybe", then "do y".
+ *
+ * A training app's screen: near-black on every screen, rounded stat tiles, a raspberry-to-orange ring and gradient, Sora
+ * for the words and JetBrains Mono for the figures and small labels. Every screen is dark, so --paper and --tint are dark
+ * too (as Signal): the three plain screens differ by their glow. Use it on a reel with:
+ *   block.css   @import url("../../../_shared/reel/v1/reel.css"); @import url("../../../_shared/reel/looks/tracker.css");
+ *   block.html  <div class="rl rl-look-tracker" ...>
+ * Helpers: .tk-top (the status line: label left, a dotted raspberry figure right), .tk-tiles (stat tiles:
+ * <div><b>12</b><span>Drinks</span></div>), .tk-ring (<div class="tk-ring"><div>12<small>Drinks</small></div></div>),
+ * .tk-set (a raspberry chip, "DRINK 02"), .tk-steps (rows numbered in mono: <div><b>01</b>Blend it</div>).
+ * Platform only: GHL never loads it. */
+
+.rl.rl-look-tracker{
+  --tk-bg:#0B0D10; --tk-panel:#161A20; --tk-line:#232831; --tk-text:#C9CFD8; --tk-dim:#8A93A3;
+  --tk-rasp:#E8265E; --tk-rasp-l:#FF3D6E; --tk-orange:#FF8A3D;
+  --tk-grad:linear-gradient(90deg,#E8265E,#FF6A3D);
+  --paper:var(--tk-bg); --tint:#0E1015; --night:#07080B;
+  --ink:#F2F4F7; --body:var(--tk-text); --grey:var(--tk-dim); --on-dark:#F2F4F7;
+  --head:"Sora",system-ui,sans-serif; --head-w:800; --sans:"Sora",system-ui,sans-serif;
+  --eyebrow:var(--tk-rasp-l); --eyebrow-dark:var(--tk-rasp-l);
+  --cta:var(--tk-rasp); --cta-ink:#fff; --mark:var(--tk-rasp-l); --shade:11,13,16;
+  --sk-accent:var(--tk-rasp); --pfn-accent:var(--tk-rasp); --pfn-ink:#fff; --dock-flip:var(--tk-rasp); --dock-flip-ink:#fff;
+  color:var(--ink);
+}
+/* a soft raspberry glow on the plain screens, so paper, tint and night read apart */
+.rl-look-tracker .rl-paper{ background:radial-gradient(110% 60% at 100% 0%,rgba(232,38,94,.16) 0%,rgba(232,38,94,0) 55%),var(--paper); }
+.rl-look-tracker .rl-tint{ background:radial-gradient(100% 60% at 0% 100%,rgba(255,138,61,.12) 0%,rgba(255,138,61,0) 60%),var(--tint); }
+/* headings: tight Sora, the key words in the gradient */
+.rl-look-tracker h1,.rl-look-tracker h2,.rl-look-tracker h3{ letter-spacing:-.035em; color:var(--ink); }
+.rl-look-tracker h1{ font-size:clamp(32px,9vw,42px); line-height:1.04; }
+.rl-look-tracker h2{ font-size:clamp(26px,7.4vw,34px); line-height:1.08; }
+.rl-look-tracker h1 em,.rl-look-tracker h2 em,.rl-look-tracker h3 em{ font-style:normal; background:var(--tk-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.rl-look-tracker p{ color:var(--body); font-size:16px; line-height:1.5; }
+.rl-look-tracker strong{ color:var(--ink); }
+.rl-look-tracker .rl-eyebrow{ font:700 11.5px/1.2 "JetBrains Mono",monospace; letter-spacing:.16em; }
+.rl-look-tracker .rl-night .rl-in::before{ height:4px; background:var(--tk-grad); }
+/* buttons: rounded, the gradient, white words; the outline one in raspberry */
+.rl-look-tracker .rl-btn,.rl-look-tracker .pfn-dock{ border-radius:16px; }
+/* the gradient sits on a solid raspberry, so anything reading the button's colour (scripts/check-buttons.mjs) reads it */
+.rl-look-tracker .rl-btn{ background:var(--tk-rasp) var(--tk-grad); border:0; color:#fff; font-weight:800; }
+.rl.rl-look-tracker .rl-btn.rl-btn-2{ background:transparent; color:#fff; border:2px solid var(--tk-rasp-l); }
+@media (min-width:701px){ .rl-look-tracker .rl-cta{ border-radius:16px; background:var(--tk-rasp) var(--tk-grad); color:#fff; } }
+.rl-look-tracker .rl-pills li{ font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; border-radius:8px;
+  background:var(--tk-panel); border:1px solid var(--tk-line); color:var(--ink); }
+.rl-look-tracker .rl-photo .rl-pills li{ background:rgba(11,13,16,.6); }
+.rl-look-tracker .rl-cards > *{ border-radius:20px; }
+.rl-look-tracker .rl-fine,.rl-look-tracker .rl-note{ font-family:"Sora",sans-serif; }
+
+/* helpers */
+.rl-look-tracker .tk-top{ display:flex; justify-content:space-between; gap:12px; font:700 11px/1.2 "JetBrains Mono",monospace; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--tk-dim); margin:0 0 14px; }
+.rl-look-tracker .tk-top b{ color:var(--tk-rasp-l); font-weight:700; }
+.rl-look-tracker .tk-top b::before{ content:"● "; }
+.rl-look-tracker .tk-tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; }
+.rl-look-tracker .tk-tiles > div{ background:var(--tk-panel); border:1px solid var(--tk-line); border-radius:14px; padding:12px 10px; }
+.rl-look-tracker .tk-tiles b{ display:block; font:800 24px/1 "Sora",sans-serif; color:var(--ink); letter-spacing:-.03em; }
+.rl-look-tracker .tk-tiles span{ display:block; margin-top:6px; font:700 10px/1.25 "JetBrains Mono",monospace; letter-spacing:.08em; color:var(--tk-dim); text-transform:uppercase; }
+.rl-look-tracker .tk-ring{ width:112px; height:112px; border-radius:50%; display:grid; place-items:center;
+  background:conic-gradient(var(--tk-rasp-l) 0 var(--tk-fill,300deg),var(--tk-orange) var(--tk-fill,300deg) calc(var(--tk-fill,300deg) + 30deg),var(--tk-line) calc(var(--tk-fill,300deg) + 30deg)); }
+.rl-look-tracker .tk-ring > div{ width:88px; height:88px; border-radius:50%; background:var(--tk-bg); display:grid; place-content:center; text-align:center;
+  font:800 28px/1 "Sora",sans-serif; color:var(--ink); }
+.rl-look-tracker .tk-ring small{ display:block; margin-top:3px; font:700 9px/1 "JetBrains Mono",monospace; letter-spacing:.14em; color:var(--tk-dim); text-transform:uppercase; }
+.rl-look-tracker .tk-set{ display:inline-block; font:700 11.5px/1 "JetBrains Mono",monospace; letter-spacing:.14em; color:#fff; background:var(--tk-rasp);
+  border-radius:6px; padding:5px 8px; text-transform:uppercase; }
+.rl-look-tracker .tk-steps{ display:grid; gap:8px; margin-top:14px; }
+.rl-look-tracker .tk-steps > div{ display:flex; gap:12px; align-items:baseline; background:var(--tk-panel); border:1px solid var(--tk-line); border-radius:12px;
+  padding:11px 13px; font-size:14px; line-height:1.4; color:var(--tk-text); }
+.rl-look-tracker .tk-steps b{ flex:none; font:700 12px/1.4 "JetBrains Mono",monospace; color:var(--tk-rasp-l); }
+/* motion: the ring fills, the tiles tick in */
+@media (prefers-reduced-motion:no-preference){
+  @property --tk-fill{ syntax:"<angle>"; inherits:false; initial-value:300deg; }
+  .rl-look-tracker .rl-p .tk-ring{ --tk-fill:0deg; transition:--tk-fill 1.2s cubic-bezier(.2,.8,.2,1) .3s; }
+  .rl-look-tracker .rl-p.is-on .tk-ring{ --tk-fill:300deg; }
+  .rl-look-tracker .tk-tiles > div{ opacity:0; transform:translateY(10px); transition:opacity .4s,transform .4s; }
+  .rl-look-tracker .rl-p.is-on .tk-tiles > div{ opacity:1; transform:none; }
+  .rl-look-tracker .rl-p.is-on .tk-tiles > div:nth-child(1){ transition-delay:.45s; }
+  .rl-look-tracker .rl-p.is-on .tk-tiles > div:nth-child(2){ transition-delay:.6s; }
+  .rl-look-tracker .rl-p.is-on .tk-tiles > div:nth-child(3){ transition-delay:.75s; }
+}

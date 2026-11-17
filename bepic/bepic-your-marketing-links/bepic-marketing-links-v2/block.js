@@ -1,8 +1,8 @@
 (function () {
 /* B-Epic's campaign list for the rep app's My funnels screen (platform/src/lib/rep-hub.mjs reads this SYS; it is not a
    page). Without it the system's My funnels screen draws no cards at all. The rep sees these words, never a lead: product
-   names are fine here. Cards: BEPICSHARK/campaigns/metabolism-coffees-teas (migration 0781), BEPICSHARK/campaigns/3pm-crash (0791) and
-   BEPICSHARK/campaigns/coffee-sample (0800). */
+   names are fine here. Cards: BEPICSHARK/campaigns/metabolism-coffees-teas (migration 0781), BEPICSHARK/campaigns/3pm-crash (0791),
+   BEPICSHARK/campaigns/coffee-sample (0800) and BEPICSHARK/campaigns/pre-workout-bar (0806). */
 var SYS = {
   appTitle:   'Marketing Shark',
   themeColor: '#278030',
@@ -41,7 +41,14 @@ var SYS = {
         offSwitch:{ label:"I don't offer free samples, turn this funnel off in my links page", to:"b-coffees-teas" },
         name:"Coffee Sample",
         tease:"Someone asks to try your coffee, you sort out how they get it",
-        desc:"A sample request page for EpicSlim Coffee (the opt-in never names it): what's in the cup, how to take it, and a form for how they'd like it, mailed or handed over. You set the terms: how much, and how it gets to them. The confirmation asks them to text you COFFEE right away, and you get their request with a ready reply." } ]}
+        desc:"A sample request page for EpicSlim Coffee (the opt-in never names it): what's in the cup, how to take it, and a form for how they'd like it, mailed or handed over. You set the terms: how much, and how it gets to them. The confirmation asks them to text you COFFEE right away, and you get their request with a ready reply." },
+      { slug:"b-pre-workout-bar", icon:"chart", platformOnly:true,
+        name:"The Pre-Workout Bar",
+        tease:"12 caffeine-free pre-workout drinks, free",
+        guides:[
+          { label:"Read / print / share the guide", cv:"bepic_pre_workout_bar_guide_pdf_url" }
+        ],
+        desc:"A free guide of twelve drinks to have before you train, made from fruit, vegetables and a few pantry things, with no caffeine in any of them: juices and shots, coolers and spritzers, and three smoothies, each with when to drink it. The bonus is product info, sent by you, and the people who ask for it hear about B-CARDIO, the ready-made one for days they don't make a drink." } ]}
   ]
 };
 })();
