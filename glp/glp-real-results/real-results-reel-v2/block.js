@@ -25,7 +25,7 @@
   var pop = root.querySelector("[data-rr-pop]"), slot = pop && pop.querySelector("[data-rr-slot]");
   var shut = function () { if (!pop) return; pop.hidden = true; slot.innerHTML = ""; };
   document.addEventListener("click", function (e) {
-    var w = e.target.closest && e.target.closest(".rr-watch, [data-rr-youtube]");
+    var w = e.target.closest && e.target.closest(".rr-watch, [data-rr-youtube], [data-rr-vimeo]");
     if (w && pop) {
       e.preventDefault();
       var mp4 = w.getAttribute("data-rr-video"), vim = w.getAttribute("data-rr-vimeo"), yt = w.getAttribute("data-rr-youtube"), t = w.getAttribute("data-rr-title") || "Video";
