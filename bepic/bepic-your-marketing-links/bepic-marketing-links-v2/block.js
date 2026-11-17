@@ -37,6 +37,8 @@ var SYS = {
         ],
         desc:"A free recipe guide of twelve breakfasts with the greens cooked in: eggs, oats, toast, muffins and pancakes, five ready in fifteen minutes and five to make ahead, with amounts for 2, 4 or 6 and a shopping list for each. The bonus is your morning supplement list, sent by you with product info, and the people who ask for it hear about ACTIV Greens." },
       { slug:"b-coffee-sample", icon:"send", platformOnly:true,
+        // Switchable (rep-hub.mjs offSwitch, 0802): a rep who doesn't hand out samples turns it off; its link then goes to their coffee guide.
+        offSwitch:{ label:"I don't offer free samples, turn this funnel off in my links page", to:"b-coffees-teas" },
         name:"Coffee Sample",
         tease:"Someone asks to try your coffee, you sort out how they get it",
         desc:"A sample request page for EpicSlim Coffee (the opt-in never names it): what's in the cup, how to take it, and a form for how they'd like it, mailed or handed over. You set the terms: how much, and how it gets to them. The confirmation asks them to text you COFFEE right away, and you get their request with a ready reply." } ]}
