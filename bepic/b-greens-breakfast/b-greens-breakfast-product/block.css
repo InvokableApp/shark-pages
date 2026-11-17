@@ -1,0 +1,47 @@
+/* bepic/b-greens-breakfast/b-greens-breakfast-product: ACTIV Greens, in the opt-in's look U · Green poster (ported from
+ * bepic/b-crash-plan/b-crash-plan-product: one product, the photo beside its words on a computer). */
+@import url("../b-greens-breakfast-list-request/block.css");
+
+.rlp .rl-p{ height:auto; min-height:100%; overflow:visible; justify-content:flex-start; }
+.rlp .rl-track{ scroll-snap-type:none; }
+.rlp .rl-in{ padding:44px 22px 56px; max-width:560px; }
+.rlp h1{ margin:14px 0 6px; font-size:clamp(32px,9vw,42px); }
+.rlp-disclose{ display:inline-block; margin:0 0 6px; font:700 12.5px var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--stamp); }
+.rl .rlp-intro{ font-size:15px; line-height:1.5; margin:4px 0 0; }
+
+.rlp-prods{ display:grid; gap:22px; margin-top:22px; }
+.rlp .lk-card{ padding:16px 16px 20px; }
+.rlp-prod .lk-snap{ margin:0 auto 12px; }
+.rlp-prod .lk-snap img{ aspect-ratio:4/3; object-position:center 55%; }
+.rlp-k{ display:block; font:700 11.5px var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--body); }
+.rlp .rlp-prod h2{ font-size:clamp(26px,7.4vw,32px); margin:4px 0 6px; }
+.rl .rlp-prod p{ font-size:15px; line-height:1.5; margin:0; }
+.rlp .rl-btn{ margin-top:16px; background:var(--ink); color:var(--cream); border:0; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); text-transform:uppercase; font-weight:900; letter-spacing:.04em; }
+
+.rlp-fine{ margin-top:26px; }
+.rl .rlp-fine p{ font-size:12px; line-height:1.5; color:var(--body); margin:8px 0 0; }
+
+@media (min-width:701px){
+  .rlp .rl-p.rl-wide .rl-in{ display:block; max-width:960px; padding:64px 40px 72px; }
+  .rlp .rl-in > *{ max-width:none; }
+  .rlp-prods{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:stretch; }
+  .rlp-prod{ display:flex; flex-direction:column; } .rlp-prod .rl-btn{ margin-top:auto; }
+  .rlp-prod p{ margin-bottom:16px !important; }
+  .rlp .lk-card{ padding:20px 22px 24px; }
+  .rl .rlp-intro{ font-size:17px; max-width:40em; }
+  .rlp-fine{ max-width:60em; }
+}
+
+/* one product: its facts as a list, the photo beside them on a computer */
+.rlp-list{ margin:12px 0 0; padding-left:1.1em; }
+.rl .rlp-list li{ font-size:14.5px; line-height:1.5; margin:0 0 6px; color:var(--body); }
+.rlp-list li::marker{ color:var(--lime); }
+.rlp-list b{ color:var(--ink); }
+@media (min-width:701px){
+  .rlp-one{ grid-template-columns:minmax(0,1fr); }
+  .rlp-one .rlp-prod{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:28px; align-items:start; }
+  .rlp-one .rlp-prod .lk-snap{ margin:0; }
+  .rlp-one .rlp-prod .lk-snap img{ aspect-ratio:1; }
+  .rlp-one .rl-btn{ margin-top:18px; }
+  .rl .rlp-list li{ font-size:16px; }
+}

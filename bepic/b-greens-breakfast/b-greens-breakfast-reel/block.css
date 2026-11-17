@@ -1,0 +1,123 @@
+/* bepic/b-greens-breakfast/b-greens-breakfast-reel: The Greens at Breakfast Recipe Guide as a reel (see block.html).
+ * The look is U · Green poster (references/REEL-LOOKS.md; mock references/reel-looks/mock-bepic-greens.html): the Gym
+ * poster look (_shared/reel/looks/poster.css) with B-Epic green for its lime, the photos kept in FULL colour (poster.css
+ * turns them black and white), and a yellow stamp. The confirmation and the request pages import this sheet. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/poster.css");
+
+/* the accent: every poster colour that reads --lime turns B-Epic green; the stamp is yellow */
+.rl.rl-look-poster.rl-gp{ --lime:#4FBA46; --gp-yellow:#E8FF3A; --gp-green-d:#278030; }
+/* food in full colour, a little punchier than the photo (the look's point: "the food looks good to eat") */
+.rl-look-poster.rl-gp .rl-photo .rl-bg{ filter:saturate(1.25) contrast(1.08); }
+.rl-look-poster.rl-gp .rl-photo::after{ background:linear-gradient(180deg,rgba(10,10,10,.05) 0%,rgba(10,10,10,.25) 34%,rgba(10,10,10,.94) 66%); }
+/* the cover's headline is longer than the look's usual three words */
+.rl-gp .rl-cover h1{ font-size:clamp(38px,10.6vw,48px); }
+.rl-gp .gp-lede{ font-size:15px; line-height:1.45; color:#d8d8d0; margin-top:12px; }
+
+/* 1. the cover: the stamp thwacks on over the photo */
+.rl-gp .rl-cover .rl-in{ padding-top:44px; }
+.rl-gp .rl-cover .rl-bg{ background-position:center 30%; }
+.rl-gp .gp-stamp{ position:absolute; z-index:3; top:clamp(70px,16vh,150px); right:18px; width:112px; height:112px; border-radius:50%;
+  background:var(--gp-yellow); color:#0A0A0A; display:flex; align-items:center; justify-content:center; text-align:center;
+  font:900 24px/.88 var(--head); font-stretch:68%; text-transform:uppercase; box-shadow:0 8px 22px rgba(0,0,0,.55);
+  transform:rotate(12deg); }
+@media (prefers-reduced-motion:no-preference){
+  .rl-gp .is-on .gp-stamp{ animation:gp-thwack .5s cubic-bezier(.2,1.6,.4,1) .55s both; }
+  @keyframes gp-thwack{ from{ transform:rotate(-14deg) scale(2.4); opacity:0; } to{ transform:rotate(12deg) scale(1); opacity:1; } }
+}
+
+/* 2. what you get: the guide's pages fan out */
+.rl-gp .rl-fan{ position:relative; height:clamp(190px,50vw,250px); margin:6px 0 26px; }
+.rl-gp .rl-fan img{ position:absolute; left:50%; top:0; height:100%; width:auto; box-shadow:0 14px 30px -10px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.08);
+  transform:translateX(-50%) rotate(0) translateY(20px); opacity:0; transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .4s; }
+.rl-gp .rl-p.is-on .rl-fan img{ opacity:1; }
+.rl-gp .rl-p.is-on .rl-fan .f2{ transform:translateX(-50%) translateX(64px) rotate(8deg); transition-delay:.12s; }
+.rl-gp .rl-p.is-on .rl-fan .f1{ transform:translateX(-50%) translateX(26px) rotate(3deg); transition-delay:.06s; }
+.rl-gp .rl-p.is-on .rl-fan .f0{ transform:translateX(-50%) translateX(-40px) rotate(-5deg); }
+
+/* 3. the frittata's card: the photo across the top, the amounts typed on */
+.rl-gp .gp-rc{ background:#fff; color:var(--body); border-top:6px solid var(--lime); max-width:460px; width:100%; margin:0 auto; }
+.rl-gp .gp-rc-ph{ display:block; width:100%; height:clamp(120px,22vh,210px); object-fit:cover; filter:saturate(1.2) contrast(1.05); }
+.rl-gp .gp-rc-body{ padding:14px 16px 16px; }
+.rl-gp .gp-rc .rl-eyebrow{ margin-bottom:10px; background:#0A0A0A; color:var(--lime); }
+.rl-gp .gp-rc h2{ color:#0A0A0A; font-size:clamp(32px,9vw,40px); margin:0 0 10px; }
+.rl-gp .gp-badges{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px; padding:0; list-style:none; }
+.rl-gp .gp-badges li{ background:#0A0A0A; color:#fff; font:800 11px/1.2 var(--sans); letter-spacing:.06em; text-transform:uppercase; padding:5px 8px; }
+.rl-gp .gp-tbl{ width:100%; border-collapse:collapse; font:500 13px/1.3 var(--sans); color:#0A0A0A; }
+.rl-gp .gp-tbl th{ font:800 10.5px/1.2 var(--sans); text-transform:uppercase; letter-spacing:.04em; color:var(--gp-green-d); text-align:right; padding:4px 0 5px 6px; border-bottom:3px solid #0A0A0A; white-space:nowrap; }
+.rl-gp .gp-tbl td{ text-align:right; padding:5px 0 5px 6px; border-bottom:1px solid #e2e2da; }
+.rl-gp .gp-tbl td:first-child,.rl-gp .gp-tbl th:first-child{ text-align:left; padding-left:0; }
+@media (prefers-reduced-motion:no-preference){
+  .rl-gp .gp-tbl tr[style]{ opacity:0; transform:translateX(-10px); transition:opacity .35s,transform .35s; transition-delay:calc(.45s + var(--i) * .14s); }
+  .rl-gp .is-on .gp-tbl tr[style]{ opacity:1; transform:none; }
+}
+.rl-gp .gp-good{ font-size:13.5px !important; line-height:1.45 !important; color:var(--body) !important; margin:10px 0 0 !important; }
+.rl-gp .gp-good b{ color:#0A0A0A; }
+
+/* 4. what's in it: white cards with a photo, a big green number */
+.rl-gp .gp-inside h2{ margin-top:2px; }
+.rl-gp .gp-inlist{ margin-top:18px; align-items:stretch; }
+.rl-gp .gp-icard{ background:#fff; border-top:6px solid var(--lime); display:flex; flex-direction:column; }
+.rl-gp .gp-icard img{ display:block; width:100%; height:130px; object-fit:cover; filter:saturate(1.2); }
+.rl-gp .gp-icard > div{ padding:14px 16px 18px; }
+.rl-gp .gp-icard h3{ color:#0A0A0A; font-size:28px; margin:0 0 8px; }
+.rl-gp .gp-n{ color:var(--gp-green-d); }
+.rl-gp .gp-icard p{ color:var(--body); font-size:14.5px; line-height:1.5; margin:0; }
+
+/* 5. the close */
+.rl-gp .rl-close .rl-bg{ background-position:center 45%; }
+.rl-gp .rl-book{ display:block; box-shadow:0 18px 40px -12px rgba(0,0,0,.7); }
+.rl-gp .rl-book-lg{ width:46%; max-width:210px; margin:0 0 22px; transform:rotate(3deg); }
+.rl-gp .rl-book-lg[data-in]{ transform:translateY(26px) rotate(3deg); }
+.rl-gp .rl-p.is-on .rl-book-lg[data-in]{ transform:rotate(3deg); }
+
+/* shorter phones */
+@media (max-width:700px) and (max-height:760px){
+  .rl-gp .rl-cover .rl-in{ padding-top:26px; }
+  .rl-gp .rl-cover h1{ font-size:36px; }
+  .rl-gp .gp-stamp{ width:92px; height:92px; font-size:20px; top:60px; }
+  .rl-gp .rl-cover .rl-pills{ margin-top:14px; } .rl-gp .rl-cover .rl-pills li{ padding:6px 10px; font-size:11.5px; }
+  .rl-gp .rl-fan{ height:170px; }
+  .rl-gp .gp-rc-ph{ height:100px; }
+  .rl-gp .gp-rc h2{ font-size:30px; }
+  .rl-gp .gp-icard img{ height:96px; }
+  .rl-gp .rl-book-lg{ width:36%; margin-bottom:16px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-gp .rl-cover h1{ font-size:31px; }
+  .rl-gp .gp-lede{ font-size:13.5px; }
+  .rl-gp .gp-stamp{ display:none; }
+  .rl-gp .rl-fan{ height:120px; margin-bottom:16px; }
+  .rl-gp .gp-rc-ph{ height:76px; }
+  .rl-gp .gp-tbl{ font-size:12px; }
+  .rl-gp .gp-good{ font-size:12.5px !important; }
+  .rl-gp .gp-icard img{ height:70px; }
+  .rl-gp .rl-book-lg{ width:26%; }
+}
+/* a phone shows three pills, not four */
+@media (max-width:700px){ .rl-gp .rl-cover .rl-pills .gp-desk{ display:none; } }
+
+/* a computer */
+@media (min-width:701px){
+  .rl-gp .rl-cover h1{ font-size:clamp(50px,5vw,76px); }
+  .rl-gp .gp-lede{ font-size:18px; }
+  .rl-gp .gp-stamp{ width:160px; height:160px; font-size:34px; right:8vw; top:14vh; }
+  .rl-gp .rl-fan{ width:100%; height:clamp(320px,34vw,460px); }
+  .rl-gp .rl-p.is-on .rl-fan .f2{ transform:translateX(-50%) translateX(140px) rotate(8deg); }
+  .rl-gp .rl-p.is-on .rl-fan .f1{ transform:translateX(-50%) translateX(60px) rotate(3deg); }
+  .rl-gp .rl-p.is-on .rl-fan .f0{ transform:translateX(-50%) translateX(-80px) rotate(-5deg); }
+  .rl-gp .gp-recipe .rl-in{ grid-template-columns:minmax(0,1fr); max-width:860px; }
+  .rl-gp .gp-recipe .rl-in > .gp-rc{ grid-column:1; justify-self:stretch; width:100%; }
+  .rl-gp .gp-rc{ max-width:none; display:grid; grid-template-columns:1fr 1.2fr; }
+  .rl-gp .gp-rc-ph{ height:100%; min-height:320px; }
+  .rl-gp .gp-rc-body{ padding:22px 26px 24px; }
+  .rl-gp .gp-tbl{ font-size:15px; } .rl-gp .gp-tbl th{ font-size:12px; }
+  .rl-gp .gp-good{ font-size:15.5px !important; }
+  .rl-gp .gp-inlist > *{ flex-basis:31%; }
+  .rl-gp .gp-icard img{ height:180px; }
+  .rl-gp .gp-icard h3{ font-size:32px; }
+  .rl-gp .gp-icard p{ font-size:15.5px; }
+  .rl-gp .rl-book-lg{ width:min(320px,26vw); max-width:none; }
+}
+@media (min-width:701px) and (max-height:820px){ .rl-gp .rl-fan{ height:300px; } .rl-gp .gp-icard img{ height:130px; } .rl-gp .gp-rc-ph{ min-height:260px; } }
+@media (prefers-reduced-motion:reduce){ .rl-gp .rl-fan img{ transition:none !important; } }
