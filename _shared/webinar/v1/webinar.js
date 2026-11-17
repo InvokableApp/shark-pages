@@ -108,16 +108,17 @@
   if (faces && !faces.children.length) faces.hidden = true;
   if (spk && !spk.children.length) (spk.closest("[data-wb-has-speakers]") || spk).hidden = true;
 
-  // Hosts: "Name|Role|photo".
-  var hosts = root.querySelector("[data-wb-hosts]");
-  for (var i = 1; i <= 6 && hosts; i++) {
-    var h = val("host" + i);
-    if (!h) continue;
-    var b = h.split("|"), card = el("div", "wb-host");
-    if (b[2]) { var img = el("img"); img.src = b[2].trim(); img.alt = b[0].trim();card.appendChild(img); }
-    var t = el("div"); t.appendChild(el("b", "", b[0].trim())); if (b[1]) t.appendChild(el("span", "", b[1].trim()));
-    card.appendChild(t); hosts.appendChild(card);
-  }
+  // Hosts: "Name|Role|photo". Every [data-wb-hosts] on the page gets the cards (Nueva shows them in the hero too).
+  all("[data-wb-hosts]").forEach(function (hosts) {
+    for (var i = 1; i <= 6; i++) {
+      var h = val("host" + i);
+      if (!h) continue;
+      var b = h.split("|"), card = el("div", "wb-host");
+      if (b[2]) { var img = el("img"); img.src = b[2].trim(); img.alt = b[0].trim(); card.appendChild(img); }
+      var t = el("div"); t.appendChild(el("b", "", b[0].trim())); if (b[1]) t.appendChild(el("span", "", b[1].trim()));
+      card.appendChild(t); hosts.appendChild(card);
+    }
+  });
   all("[data-wb-has]").forEach(function (n) { if (!val(n.getAttribute("data-wb-has"))) n.hidden = true; });
 
   // The date and times, worked out from one start time so nobody types four time zones by hand.
