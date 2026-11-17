@@ -46,8 +46,12 @@
 
   // Plain words.
   all("[data-wb]").forEach(function (n) {
-    var v = val(n.getAttribute("data-wb"));
-    if (v) n.textContent = v; else n.hidden = true;
+    var k = n.getAttribute("data-wb"), v = val(k);
+    if (!v) { n.hidden = true; return; }
+    // The blurb can carry **bold** and line breaks (Joe's pitch for the Nueva 11-18 training); the rest stay plain.
+    if (k === "blurb" && /\*\*|\n/.test(v)) {
+      v.split(/\n+/).forEach(function (line, i) { if (i) { n.appendChild(el("br")); n.appendChild(el("br")); } rich(n, line.trim()); });
+    } else n.textContent = v;
   });
   all("[data-wb-src]").forEach(function (n) {
     var v = val(n.getAttribute("data-wb-src"));
