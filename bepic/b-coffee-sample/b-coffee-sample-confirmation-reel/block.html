@@ -1,7 +1,8 @@
 <!--
   bepic/b-coffee-sample/b-coffee-sample-confirmation-reel
   The coffee sample confirmation as a REEL, after its opt-in reel. Platform only. Ripped from GLP's
-  glp/glp-free-ignyt-sample/ignyt-sample-confirmation-reel, in the T · Roaster bag look (the opt-in reel's sheet).
+  glp/glp-free-ignyt-sample/ignyt-sample-confirmation-reel. The look is Conectiv's sample confirmation's
+  (c-sample-confirmation-reel): Soft athletic in B-Epic green, the opt-in reel's sheet (Jeff, 2026-11-17).
   ⚠️ EVERY WORD IS BEPICSHARK/campaigns/coffee-sample/copy.mjs CONFIRM, verbatim. Change a word there first.
   ⚠️ THE ONE THING THIS PAGE ASKS FOR is one message sent now (GLP's mechanic, Joe 2026-09-02): the lead texts COFFEE to
      the rep, which confirms they are a person and starts the conversation about how they get it. TEXT FIRST, Facebook
@@ -12,51 +13,48 @@
   ⚠️ OPTION A: no offer terms, no "free", no "on its way". The product is named here (never on the opt-in), with its
      caffeine and berberine cautions. No pack photo. "More about EpicSlim Coffee" goes to the product page (the hot alert).
 -->
-<div class="rl rl-look-roast rl-cs rlc" data-pf-native data-pf-message="to get your coffee sample" data-pf-arrive="#C9A57A">
+<div class="rl rl-look-soft lk-green rl-cs rlc" data-pf-native data-pf-message="to get your coffee sample" data-pf-arrive="#F4EEE6">
   <div class="rl-frame">
     <div class="rl-track">
 
-      <!-- 1. KRAFT: one more step. The page rises out of the kraft the opt-in's form left on screen. -->
-      <section class="rl-p rl-paper rlc-top">
+      <!-- 1. PAPER: one more step. The page rises out of the sand the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rl-wide rlc-top">
         <div class="rl-in">
-          <div class="lk-card rlc-card">
-            <span class="rlc-pill" data-in><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>One more step</span>
-            <!-- The name is filled on the platform from the opt-in, and the span drops when it isn't known (render.mjs
-                 fillLeadName); reel.js types the headline out when it is. -->
-            <h1 class="rl-type">Got it<span data-if-name>, {{contact.first_name}}</span>. Send me <em>one quick message</em> so I can get it to you.</h1>
-            <p data-in style="--d:.3s">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span> right now. It tells me you're a real person, and we can sort out how you'll get it.</p>
-            <div class="rl-btns" data-in style="--d:.45s">
-              <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm"
-                 href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
-              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_rep_messenger}}" href="/b-coffee-sample-redirect-dm">Message me on Facebook instead</a>
-            </div>
+          <span class="rlc-pill" data-in><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>One more step</span>
+          <!-- The name is filled on the platform from the opt-in, and the span drops when it isn't known (render.mjs
+               fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Got it<span data-if-name>, {{contact.first_name}}</span>. Send me <em>one quick message</em> so I can get it to you.</h1>
+          <p data-in style="--d:.3s">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span> right now. It tells me you're a real person, and we can sort out how you'll get it.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm"
+               href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_rep_messenger}}" href="/b-coffee-sample-redirect-dm">Message me on Facebook instead</a>
           </div>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
         </div>
       </section>
 
-      <!-- 2. KRAFT: what happens next, the three steps they are now inside -->
-      <section class="rl-p rl-paper rlc-next">
+      <!-- 2. TINT: what happens next, the three steps they are now inside -->
+      <section class="rl-p rl-tint rl-wide rlc-next">
         <div class="rl-in">
-          <div class="lk-label" data-in><span>What happens next</span><span>3 steps</span></div>
-          <h2 data-in style="--d:.1s">Three steps to your sample</h2>
-          <ol class="cs-steps">
-            <li data-in style="--d:.25s"><span>01</span><div><b>You send one message</b>Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span>, or message me on Facebook, right now.</div></li>
-            <li data-in style="--d:.4s"><span>02</span><div><b>We sort out how you get it</b>Dropped off or in the mail, whichever works. If it's the mail, I'll check the address with you.</div></li>
-            <li data-in style="--d:.55s"><span>03</span><div><b>You try it</b>One stick in 6 to 8 oz of water, hot or iced, 15 to 30 minutes before your biggest meal.</div></li>
+          <span class="rl-eyebrow" data-in>What happens next</span>
+          <h2 data-in style="--d:.1s">Three steps to <em>your sample</em></h2>
+          <ol class="cs-steps rlc-steps" data-in style="--d:.25s">
+            <li><b>You send one message.</b> Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span>, or message me on Facebook, right now.</li>
+            <li><b>We sort out how you get it.</b> Dropped off or in the mail, whichever works. If it's the mail, I'll check the address with you.</li>
+            <li><b>You try it.</b> One stick in 6 to 8 oz of water, hot or iced, 15 to 30 minutes before your biggest meal.</li>
           </ol>
         </div>
       </section>
 
-      <!-- 3. ESPRESSO: while you wait, the coffee named, its print -->
-      <section class="rl-p rl-night rl-plain rlc-what">
+      <!-- 3. PHOTO: while you wait, the coffee named -->
+      <section class="rl-p rl-photo rlc-what">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-coffee-sample/_img/cs-how.jpg')"></div>
         <div class="rl-in">
-          <div class="lk-label" data-in><span>While you wait</span><span>The coffee</span></div>
-          <figure class="lk-snap rl-art cs-wide"><img src="/_p/bepic/b-coffee-sample/_img/cs-hero.jpg" width="1000" height="666"
-            alt="A mug of hot black coffee and a glass of iced coffee side by side" loading="lazy"></figure>
-          <h2 data-in style="--d:.1s">It's called EpicSlim Coffee</h2>
+          <span class="rl-eyebrow" data-in>While you wait</span>
+          <h2 data-in style="--d:.1s">It's called <em>EpicSlim Coffee</em></h2>
           <p data-in style="--d:.2s">An instant Arabica cold brew with 10 g of collagen protein, cordyceps and lion's mane mushrooms, and about 75 mg of caffeine. 45 calories a stick.</p>
-          <ul class="rlc-checks" data-in style="--d:.3s">
+          <ul class="rl-pills rlc-checks" data-in style="--d:.3s">
             <li>It helps control appetite, taken 15 to 30 minutes before a meal</li>
             <li>It's made for energy, mood and focus</li>
             <li>It's hot or iced, with nothing to measure</li>
@@ -65,17 +63,15 @@
         </div>
       </section>
 
-      <!-- 4. KRAFT: the ask, with the rep, and the fine print -->
-      <section class="rl-p rl-paper rlc-ask">
+      <!-- 4. NIGHT: the ask, with the rep, and the fine print -->
+      <section class="rl-p rl-night rl-plain rl-wide rlc-ask">
         <div class="rl-in">
-          <div class="lk-card rlc-card">
-            <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
-            <p class="rlc-say" data-in style="--d:.1s">Send me a message now and I'll get you some to try!</p>
-            <a class="rl-btn rlc-go" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm" data-in style="--d:.25s"
-               href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
-            <p class="rlc-alt" data-in style="--d:.35s" data-needs="{{custom_values.bepic_rep_messenger}}"><a href="/b-coffee-sample-redirect-dm">Message me on Facebook instead</a></p>
-            <p class="rl-fine" data-in style="--d:.45s">* Subject to sample availability. Contains caffeine (about 75 mg a stick) and berberine: have it at least 6 hours before bed, and ask your doctor first if you take medication, are pregnant or nursing, have a medical condition or are under 18. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
-          </div>
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <p class="rlc-say" data-in style="--d:.1s">Send me a message now and I'll get you some to try!</p>
+          <a class="rl-btn rlc-go" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm" data-in style="--d:.25s"
+             href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+          <p class="rlc-alt" data-in style="--d:.35s" data-needs="{{custom_values.bepic_rep_messenger}}"><a href="/b-coffee-sample-redirect-dm">Message me on Facebook instead</a></p>
+          <p class="rl-fine" data-in style="--d:.45s">* Subject to sample availability. Contains caffeine (about 75 mg a stick) and berberine: have it at least 6 hours before bed, and ask your doctor first if you take medication, are pregnant or nursing, have a medical condition or are under 18. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
         </div>
       </section>
 

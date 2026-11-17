@@ -1,8 +1,11 @@
 <!--
   bepic/b-coffee-sample/b-coffee-sample-reel
-  The coffee sample opt-in as a REEL (Jeff, 2026-11-17: "lets build it"). Platform only. Ripped from GLP's
-  glp/glp-free-ignyt-sample/ignyt-sample-optin-reel (its screens and its mechanic: the form takes where to send it), in
-  the coffee guide's look, T · Roaster bag (_shared/reel/looks/roaster-bag.css).
+  The coffee sample opt-in as a REEL (Jeff, 2026-11-17: "lets build it"). Platform only. Its mechanic is GLP's
+  glp/glp-free-ignyt-sample/ignyt-sample-optin-reel (the form takes where to send it).
+  ⚠️ THE LOOK is Conectiv's free sample reel (conectiv/c-free-coffee-sample/c-sample-reel): C · Soft athletic, its six
+     screen shapes (photo cover, figures, white tiles, steps over a photo, a photo, the close on forest), in B-Epic's green
+     (lk-green, block.css). Jeff, 2026-11-17: "this should be a different aesthetic, look at the conectiv free sample
+     funnel" (it was T · Roaster bag, the coffee guide's). The photos are bright, like Conectiv's (_render/photos.mjs).
   ⚠️ EVERY WORD IS BEPICSHARK/campaigns/coffee-sample/copy.mjs OPTIN, verbatim. Change a word there first.
   ⚠️ OPTION A (Jeff, 2026-11-17): the rep sets the terms. "Sample", NEVER "free"; no stick count; no "mailed to you"; no
      "one per household". "Subject to sample availability" is the only hedge (GLP's).
@@ -11,77 +14,85 @@
      step, the funnel's one public link) forwards to their coffee guide, /b-coffees-teas.
   The form is the platform's own (name, email, phone, how they'd like it, an address if mailed), opened by the dock.
 -->
-<div class="rl rl-look-roast rl-cs" data-pf-native data-pf-dock="Get a sample" data-pf-handoff="#C9A57A">
+<div class="rl rl-look-soft lk-green rl-cs" data-pf-native data-pf-dock="Get a sample" data-pf-handoff="#F4EEE6">
   <div class="rl-frame">
     <div class="rl-track">
 
-      <!-- 1. The cover: the same coffee hot and iced, the bag's label, the headline -->
-      <section class="rl-p rl-paper rl-cover" aria-label="Try a sample">
+      <!-- 1. PHOTO: the cover. Hands round a coffee, lunch waiting behind; the words over the top. -->
+      <section class="rl-p rl-photo rl-cover cs-cover" aria-label="Try a sample">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-coffee-sample/_img/cs-cover.jpg')"></div>
         <div class="rl-in">
-          <div class="lk-label" data-in><span>Try it first</span><span>Sample</span></div>
-          <div class="rl-art cs-hero">
-            <figure class="lk-snap"><img src="/_p/bepic/b-coffee-sample/_img/cs-hero.jpg" width="1000" height="667"
-              alt="A mug of hot black coffee and a glass of iced coffee side by side on a wooden counter"></figure>
-          </div>
+          <span class="rl-eyebrow" data-in>Try it first</span>
           <h1 data-in style="--d:.1s">Try A Sample Of The Coffee You Drink <em>Before A Meal</em> To Help Control Your Appetite</h1>
-          <ul class="rl-pills" data-in style="--d:.25s"><li>Hot or iced</li><li>45 calories</li><li>10 g collagen protein</li><li>One stick</li></ul>
-          <p class="rl-note" data-in style="--d:.35s">* Subject to sample availability</p>
+          <ul class="rl-pills" data-in style="--d:.3s"><li>Hot or iced</li><li>45 calories</li><li>10 g collagen protein</li><li>One stick</li></ul>
+          <p class="rl-note" data-in style="--d:.45s">* Subject to sample availability</p>
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
         </div>
       </section>
 
-      <!-- 2. ESPRESSO: what it is, four cards in a sideways row -->
-      <section class="rl-p rl-night rl-plain rl-wide cs-what">
+      <!-- 2. PAPER: what it is, and the four figures -->
+      <section class="rl-p rl-paper rl-wide cs-what">
         <div class="rl-in">
-          <div class="lk-label" data-in><span>What it is</span><span>Instant</span></div>
-          <h2 data-in style="--d:.05s">An instant cold brew coffee with protein in it</h2>
-          <div class="rl-cards cs-cards" data-in style="--d:.15s">
-            <div class="lk-card"><h3>Smooth Arabica cold brew</h3><p>Instant, so it dissolves in hot or cold water. Smooth and mild in acidity.</p></div>
-            <div class="lk-card"><h3>10 g of collagen protein</h3><p>Types I and III, in every cup.</p></div>
-            <div class="lk-card"><h3>Two mushrooms</h3><p>Cordyceps and lion's mane, which are in there for energy, mood and focus.</p></div>
-            <div class="lk-card"><h3>About 75 mg of caffeine</h3><p>And 45 calories a stick.</p></div>
-          </div>
-          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 of 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <span class="rl-eyebrow" data-in>What it is</span>
+          <h2 data-in style="--d:.1s">An instant cold brew coffee <em>with protein in it</em></h2>
+          <dl class="cs-figs" data-in style="--d:.25s">
+            <div><dt>10 g</dt><dd>Collagen protein</dd></div>
+            <div><dt>75 mg</dt><dd>Caffeine</dd></div>
+            <div><dt>45</dt><dd>Calories a stick</dd></div>
+            <div><dt>2</dt><dd>Mushrooms</dd></div>
+          </dl>
         </div>
       </section>
 
-      <!-- 3. KRAFT: how you take it, the three steps typed on -->
-      <section class="rl-p rl-paper cs-how">
+      <!-- 3. TINT: in every cup, the four cards as white tiles -->
+      <section class="rl-p rl-tint rl-wide cs-cup">
         <div class="rl-in">
-          <div class="lk-label" data-in><span>How you take it</span><span>3 steps</span></div>
-          <figure class="lk-snap r rl-art cs-wide"><img src="/_p/bepic/b-coffee-sample/_img/cs-stir.jpg" width="1000" height="667"
-            alt="A hand stirring a mug of hot coffee, with lunch waiting behind it" loading="lazy"></figure>
-          <h2 data-in style="--d:.1s">Drink it before your biggest meal</h2>
-          <ol class="cs-steps">
-            <li data-in style="--d:.2s"><span>01</span><div><b>One stick in 6 to 8 oz of water</b>Hot or cold. Stir it, or shake it in a jar with ice.</div></li>
-            <li data-in style="--d:.32s"><span>02</span><div><b>15 to 30 minutes before you eat</b>That timing is the point: it's made to help control your appetite at the meal.</div></li>
-            <li data-in style="--d:.44s"><span>03</span><div><b>Drink plenty of water through the day</b>That's on the label too.</div></li>
+          <span class="rl-eyebrow" data-in>In every cup</span>
+          <h2 data-in style="--d:.1s">Smooth coffee, <em>with more in it</em></h2>
+          <div class="lk-tiles" data-in style="--d:.2s">
+            <div><span aria-hidden="true">☕</span><span><strong>Smooth Arabica cold brew</strong>Instant, so it dissolves in hot or cold water. Smooth and mild in acidity.</span></div>
+            <div><span aria-hidden="true">💪</span><span><strong>10 g of collagen protein</strong>Types I and III, in every cup.</span></div>
+            <div><span aria-hidden="true">🍄</span><span><strong>Two mushrooms</strong>Cordyceps and lion's mane, which are in there for energy, mood and focus.</span></div>
+            <div><span aria-hidden="true">⚡</span><span><strong>About 75 mg of caffeine</strong>And 45 calories a stick.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: how you take it, the three steps -->
+      <section class="rl-p rl-photo cs-how">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-coffee-sample/_img/cs-how.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>How you take it</span>
+          <h2 data-in style="--d:.1s">Drink it before <em>your biggest meal</em></h2>
+          <ol class="cs-steps" data-in style="--d:.2s">
+            <li><b>One stick in 6 to 8 oz of water.</b> Hot or cold. Stir it, or shake it in a jar with ice.</li>
+            <li><b>15 to 30 minutes before you eat.</b> That timing is the point: it's made to help control your appetite at the meal.</li>
+            <li><b>Drink plenty of water through the day.</b> That's on the label too.</li>
           </ol>
         </div>
       </section>
 
-      <!-- 4. KRAFT: who it's for, the iced print -->
-      <section class="rl-p rl-paper cs-why">
+      <!-- 5. PHOTO: who it's for, the iced pour -->
+      <section class="rl-p rl-photo cs-why">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-coffee-sample/_img/cs-iced-bright.jpg')"></div>
         <div class="rl-in">
-          <div class="lk-label" data-in><span>Who it's for</span><span>Goal</span></div>
-          <figure class="lk-snap rl-art cs-tall"><img src="/_p/bepic/b-coffee-sample/_img/cs-iced.jpg" width="667" height="1000"
-            alt="Iced coffee poured from a glass jar into a glass full of ice" loading="lazy"></figure>
-          <h2 data-in style="--d:.1s">For anyone working on their weight who isn't giving up coffee</h2>
+          <span class="rl-eyebrow" data-in>Who it's for</span>
+          <h2 data-in style="--d:.1s">For anyone working on their weight <em>who isn't giving up coffee</em></h2>
           <p data-in style="--d:.2s">You're having a coffee anyway. This one has protein in it, and you drink it at the time it's made for: just before the meal where you usually eat the most.</p>
         </div>
       </section>
 
-      <!-- 5. ESPRESSO: the close, the questions as a sideways row, the fine print -->
-      <section class="rl-p rl-night rl-plain rl-wide cs-close">
+      <!-- 6. NIGHT: the close, the questions as a sideways row, the fine print -->
+      <section class="rl-p rl-night rl-wide cs-close">
         <div class="rl-in">
-          <div class="lk-label" data-in><span>Try it</span><span>Then decide</span></div>
-          <h2 class="cs-big" data-in style="--d:.1s">Try it. Then decide.</h2>
+          <span class="rl-eyebrow" data-in>Try it</span>
+          <h2 data-in style="--d:.1s">Try it. <em>Then decide.</em></h2>
           <p data-in style="--d:.2s">Tell me where you are and how you'd like to get it, and I'll message you to sort out the rest.</p>
           <div class="rl-cards cs-faq" data-in style="--d:.3s">
-            <div class="lk-card"><h3>What do I get?</h3><p>Some of the coffee to try. I'll message you about how much and how you get it.</p></div>
-            <div class="lk-card"><h3>Why do you ask for an address?</h3><p>Only if you'd like it mailed. If you'd rather I hand it to you, pick that instead and skip the address.</p></div>
-            <div class="lk-card"><h3>What does it taste like?</h3><p>Coffee. Smooth cold brew, mild, and good hot or iced.</p></div>
-            <div class="lk-card"><h3>What happens after I try it?</h3><p>Nothing. If you like it, I'll tell you how to get more. If not, that's the end of it.</p></div>
+            <div><h3>What do I get?</h3><p>Some of the coffee to try. I'll message you about how much and how you get it.</p></div>
+            <div><h3>Why do you ask for an address?</h3><p>Only if you'd like it mailed. If you'd rather I hand it to you, pick that instead and skip the address.</p></div>
+            <div><h3>What does it taste like?</h3><p>Coffee. Smooth cold brew, mild, and good hot or iced.</p></div>
+            <div><h3>What happens after I try it?</h3><p>Nothing. If you like it, I'll tell you how to get more. If not, that's the end of it.</p></div>
           </div>
           <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 of 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
           <p class="rl-fine" data-in style="--d:.5s">* Subject to sample availability. Contains caffeine (about 75 mg a stick); have it at least 6 hours before bed. Contains berberine: if you take medication, are pregnant or nursing, have a medical condition or are under 18, ask your doctor first. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>

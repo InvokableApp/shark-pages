@@ -1,25 +1,26 @@
 /* bepic/b-coffee-sample/b-coffee-sample-product: EpicSlim Coffee, one card with its button to the rep's own page (platform
- * only; see block.html). Ported from b-coffees-teas-product/block.css (one card instead of two), on the opt-in reel's sheet. */
+ * only; see block.html). On the opt-in reel's sheet (Soft athletic in B-Epic green): one sand screen that scrolls, a
+ * white rounded card, the forest pill button. */
 @import url("../b-coffee-sample-reel/block.css");
 
 .rlp .rl-p{ height:auto; min-height:100%; overflow:visible; justify-content:flex-start; }
 .rlp .rl-track{ scroll-snap-type:none; }
-.rlp .rl-in{ padding:44px 22px 56px; max-width:560px; justify-content:flex-start; }
-.rl-look-roast.rlp h1{ margin:4px 0 6px; font-size:clamp(32px,9vw,42px); }
-.rlp-disclose{ display:inline-block; margin:0 0 6px; font:700 12.5px var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--stamp); }
-.rl .rlp-intro{ font-size:15px; line-height:1.5; margin:4px 0 0; }
-.rlp .rlp-prod{ padding:16px 16px 20px; margin-top:22px; }
-.rlp-prod .lk-snap{ margin:0 auto 12px; }
-.rlp-prod .lk-snap img{ aspect-ratio:4/3; object-position:center 60%; }
-.rlp-k{ display:block; font:700 11.5px var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--body); }
-.rlp .rlp-prod h2{ font-size:clamp(26px,7.4vw,32px); margin:4px 0 6px; }
-.rl .rlp-prod p{ font-size:15px; line-height:1.5; margin:0; max-width:none; }
-.rlp .rl-btn{ margin-top:16px; background:var(--ink); color:var(--cream); border:0; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); }
+.rlp .rl-in{ padding:48px 22px 56px; max-width:560px; justify-content:flex-start; }
+.rlp h1{ margin:0 0 8px; font-size:clamp(32px,9vw,42px); }
+.rlp-disclose{ display:inline-block; margin:0 0 6px; font:700 12.5px var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--coral); }
+.rl .rlp-intro{ font-size:16px; line-height:1.5; margin:4px 0 0; }
+.rlp-prod{ background:#fff; border-radius:26px; padding:14px 14px 22px; margin-top:24px; box-shadow:0 18px 40px -24px rgba(31,59,51,.35); }
+.rlp-pic{ margin:0 0 14px; border-radius:18px; overflow:hidden; }
+.rlp-pic img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:60% 55%; }
+.rlp-prod > :not(.rlp-pic){ margin-left:6px; margin-right:6px; }
+.rlp-k{ display:block; font:700 11.5px var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--coral); }
+.rlp .rlp-prod h2{ font-size:clamp(26px,7.4vw,32px); margin:4px 0 6px; color:var(--ink); }
+.rl .rlp-prod p{ font-size:15px; line-height:1.5; margin:0; max-width:none; color:var(--body); }
+.rlp .rl-btn{ display:inline-block; margin-top:18px; }
 .rlp-fine{ margin-top:26px; }
-.rl .rlp-fine p{ font-size:12px; line-height:1.5; color:var(--body); margin:8px 0 0; max-width:none; }
+.rl .rlp-fine p{ font-size:12px; line-height:1.5; color:var(--grey); margin:8px 0 0; max-width:none; }
 @media (min-width:701px){
-  .rlp .rl-p.rl-wide .rl-in{ display:block; max-width:640px; padding:64px 40px 72px; }
+  .rlp .rl-p.rl-wide .rl-in{ display:block; max-width:640px; padding:72px 40px 80px; }
   .rlp .rl-in > *{ max-width:none; }
-  .rlp .rlp-prod{ padding:20px 22px 24px; }
   .rl .rlp-intro{ font-size:17px; }
 }
