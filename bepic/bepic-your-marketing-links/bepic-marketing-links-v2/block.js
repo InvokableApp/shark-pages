@@ -1,7 +1,8 @@
 (function () {
 /* B-Epic's campaign list for the rep app's My funnels screen (platform/src/lib/rep-hub.mjs reads this SYS; it is not a
    page). Without it the system's My funnels screen draws no cards at all. The rep sees these words, never a lead: product
-   names are fine here. Two cards: BEPICSHARK/campaigns/metabolism-coffees-teas (migration 0781) and BEPICSHARK/campaigns/3pm-crash (0791). */
+   names are fine here. Cards: BEPICSHARK/campaigns/metabolism-coffees-teas (migration 0781), BEPICSHARK/campaigns/3pm-crash (0791) and
+   BEPICSHARK/campaigns/coffee-sample (0800). */
 var SYS = {
   appTitle:   'Marketing Shark',
   themeColor: '#278030',
@@ -26,7 +27,11 @@ var SYS = {
           { label:"Read / print / share the plan", cv:"bepic_crash_plan_guide_pdf_url" },
           { label:"The link for \"What To Take For Steady Energy, And What To Skip\", the supplement guide you send on request", cv:"bepic_crash_plan_supplement_pdf_url" }
         ],
-        desc:"A free 14 day plan for the afternoon energy crash: a walk after lunch, ten squats, and protein first at breakfast, about ten minutes a day. The bonus is your supplement guide, sent by you with product info, and the people who ask for it hear about ELEV8 and ELEV8 Drink 2.0." } ]}
+        desc:"A free 14 day plan for the afternoon energy crash: a walk after lunch, ten squats, and protein first at breakfast, about ten minutes a day. The bonus is your supplement guide, sent by you with product info, and the people who ask for it hear about ELEV8 and ELEV8 Drink 2.0." },
+      { slug:"b-coffee-sample", icon:"send", platformOnly:true,
+        name:"Coffee Sample",
+        tease:"Someone asks to try your coffee, you sort out how they get it",
+        desc:"A sample request page for EpicSlim Coffee (the opt-in never names it): what's in the cup, how to take it, and a form for how they'd like it, mailed or handed over. You set the terms: how much, and how it gets to them. The confirmation asks them to text you COFFEE right away, and you get their request with a ready reply." } ]}
   ]
 };
 })();

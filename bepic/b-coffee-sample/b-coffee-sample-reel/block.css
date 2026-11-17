@@ -1,0 +1,56 @@
+/* bepic/b-coffee-sample/b-coffee-sample-reel: the coffee sample opt-in as a reel (platform only; see block.html). The
+ * reel is _shared/reel/v1/reel.css; the look is T · Roaster bag (_shared/reel/looks/roaster-bag.css), sized the way the
+ * coffee guide's opt-in settled after Jeff's notes (b-coffees-teas-reel/block.css: room to breathe, the label above the
+ * photo, no roast bar). The confirmation reel and the product page import this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/roaster-bag.css");
+
+.rl-cs .rl-in{ gap:0; justify-content:center; }
+.rl-cs .lk-label{ margin:0 0 18px; }
+.rl-cs p{ font-size:15px; line-height:1.5; margin:8px 0 0; max-width:34ch; }
+.rl-look-roast.rl-cs h1{ font-size:clamp(25px,7vw,31px); line-height:1.12; margin:4px 0 16px; }
+.rl-look-roast.rl-cs h2{ font-size:clamp(24px,6.8vw,30px); line-height:1.12; margin:4px 0 14px; }
+.rl-look-roast.rl-cs h1 em,.rl-look-roast.rl-cs h2 em{ padding:0 5px; }
+.rl-cs .rl-pills li{ font-size:10.5px; padding:5px 9px; }
+.rl-cs .rl-note{ font-size:12px; opacity:.85; }
+
+/* 1. the cover print */
+.rl-cs .cs-hero{ position:relative; width:min(94%,420px); margin:0 auto 22px; flex:none; }
+.rl-cs .cs-hero .lk-snap{ margin:0; }
+.rl-cs .cs-hero .lk-snap img{ aspect-ratio:4/3; object-position:center 60%; }
+
+/* 3 and 4: a print above the words */
+.rl-cs .cs-wide{ width:min(90%,400px); margin:0 auto 18px; }
+.rl-cs .cs-wide img{ aspect-ratio:3/2; object-position:center 55%; }
+.rl-cs .cs-tall{ width:min(56%,240px); margin:0 auto 18px; }
+.rl-cs .cs-tall img{ aspect-ratio:4/5; object-position:center 60%; }
+
+/* 3. the three steps */
+.rl-cs .cs-steps{ list-style:none; margin:4px 0 0; padding:0; display:grid; gap:12px; max-width:36ch; }
+.rl-cs .cs-steps li{ display:grid; grid-template-columns:38px 1fr; gap:10px; align-items:start; font:400 14.5px/1.45 var(--sans); color:var(--body); }
+.rl-cs .cs-steps span{ font:700 22px/1 var(--head); color:var(--stamp); padding-top:2px; }
+.rl-cs .cs-steps b{ display:block; font:700 15.5px/1.3 var(--sans); color:var(--ink); margin-bottom:2px; }
+
+/* 2 and 5: the dark screens' cards */
+.rl-cs .cs-cards .lk-card h3,.rl-cs .cs-faq .lk-card h3{ margin:0 0 6px; }
+.rl-cs .cs-cards .lk-card p,.rl-cs .cs-faq .lk-card p{ font-size:15px; margin:0; }
+.rl-cs .cs-big{ font-size:clamp(34px,10vw,46px) !important; }
+.rl-cs .rl-fine{ font-size:11px; line-height:1.45; max-width:60ch; opacity:.8; margin-top:14px; }
+
+/* a short phone: the prints give way first */
+@media (max-height:700px){
+  .rl-cs .cs-hero .lk-snap img{ aspect-ratio:16/10; }
+  .rl-cs .cs-wide img{ aspect-ratio:2/1; }
+  .rl-cs .cs-tall{ width:min(40%,170px); }
+  .rl-cs .rl-cover .rl-pills{ display:none; }
+}
+
+/* the highlighted phrase is a dark box behind the capitals: at 1.12 it covered the line above (first preview,
+   2026-11-17), so the headlines get more line space and the box breaks cleanly onto each line it wraps to */
+.rl-look-roast.rl-cs h1,.rl-look-roast.rl-cs h2{ line-height:1.24; }
+/* Oswald's box is taller than its capitals (47px on a 38px line at desktop size), so the dark box is painted only
+   behind the capitals, not the whole box: it no longer reaches the line above at any width. */
+.rl-look-roast.rl-cs h1 em,.rl-look-roast.rl-cs h2 em{ -webkit-box-decoration-break:clone; box-decoration-break:clone; padding:0 5px;
+  background:linear-gradient(to bottom,transparent 17%,var(--ink) 17%,var(--ink) 91%,transparent 91%); }
+.rl-look-roast.rl-cs .rl-night h1 em,.rl-look-roast.rl-cs .rl-night h2 em{
+  background:linear-gradient(to bottom,transparent 17%,var(--stamp) 17%,var(--stamp) 91%,transparent 91%); }
