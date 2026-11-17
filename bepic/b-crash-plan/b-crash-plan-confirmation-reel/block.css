@@ -273,7 +273,9 @@
   font-size:0; color:transparent; }
 
 /* ---------- Gym poster on top of the ported frame (the roaster bag's rules, recoloured by the names above) ---------- */
-.rlt{ --bx:var(--ink); --bx-d:var(--stamp); --bx-ink:var(--cream); }
+/* The bonus button is the accent with black words: the bonus screen is near-black, so an ink (--ink) button vanished into it
+   (Jeff, 2026-11-17: "the button is hiding"; scripts/check-buttons.mjs now refuses it). */
+.rlt{ --bx:var(--stamp); --bx-d:var(--stamp); --bx-ink:var(--ink); }
 .rlt-pill{ border-radius:0; background:var(--ink); color:var(--cream); text-transform:uppercase; letter-spacing:.06em; font-size:12px; }
 .rlb-btn,.rlt .rl-btn,.rlt-claim .rlt-claim-ok{ border-radius:0; font-family:var(--head); letter-spacing:.06em; text-transform:uppercase; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); }
 .rlb-coupon{ border-radius:0; outline-color:var(--stamp); }

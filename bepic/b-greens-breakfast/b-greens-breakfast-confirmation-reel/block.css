@@ -187,6 +187,8 @@
 .rlt .lk-card .rl-btns{ margin-top:18px; }
 .rlt .rl-btn{ background:var(--ink); color:#fff; border:0; }
 .rlt .rl-btn-2{ background:var(--cream); color:var(--stamp); border:1.5px solid var(--ink); box-shadow:none; }
+/* B-Epic green #4FBA46 is 2.5:1 on white, too faint for words: the outline button reads in the brand's darker green. */
+.rl-gp.rlt .rl-btn-2{ color:#278030; }
 .rlt .rlt-top .rl-note{ margin-top:10px; }
 .rlt .rlt-top p b{ color:var(--stamp); }
 /* screen 2: the video, phone shaped (copied from n-tone-and-tighten-guide-confirmation-reel/block.css); a white print
@@ -274,7 +276,9 @@
   font-size:0; color:transparent; }
 
 /* ---------- Gym poster on top of the ported frame (the roaster bag's rules, recoloured by the names above) ---------- */
-.rlt{ --bx:var(--ink); --bx-d:var(--stamp); --bx-ink:var(--cream); }
+/* The bonus button is the accent with black words: the bonus screen is near-black, so an ink (--ink) button vanished into it
+   (Jeff, 2026-11-17: "the button is hiding"; scripts/check-buttons.mjs now refuses it). */
+.rlt{ --bx:var(--stamp); --bx-d:var(--stamp); --bx-ink:var(--ink); }
 .rlt-pill{ border-radius:0; background:var(--ink); color:var(--cream); text-transform:uppercase; letter-spacing:.06em; font-size:12px; }
 .rlb-btn,.rlt .rl-btn,.rlt-claim .rlt-claim-ok{ border-radius:0; font-family:var(--head); letter-spacing:.06em; text-transform:uppercase; box-shadow:0 3px 0 var(--stamp),0 14px 30px -14px rgba(0,0,0,.5); }
 .rlb-coupon{ border-radius:0; outline-color:var(--stamp); }
