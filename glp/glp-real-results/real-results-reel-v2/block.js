@@ -20,16 +20,19 @@
     if (t) t.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
   });
 
-  // v2: Watch video plays its video in a popup (an mp4 of ours, or Vimeo); closing it stops the video.
+  // v2: every video plays in a popup on the page (an mp4 of ours, Vimeo, or YouTube), never in a new tab (Joe, 2026-11-17:
+  // "We also never want videos like that to click out, probably always want them embedded"); closing it stops the video.
   var pop = root.querySelector("[data-rr-pop]"), slot = pop && pop.querySelector("[data-rr-slot]");
   var shut = function () { if (!pop) return; pop.hidden = true; slot.innerHTML = ""; };
   document.addEventListener("click", function (e) {
-    var w = e.target.closest && e.target.closest(".rr-watch");
+    var w = e.target.closest && e.target.closest(".rr-watch, [data-rr-youtube]");
     if (w && pop) {
-      var mp4 = w.getAttribute("data-rr-video"), vim = w.getAttribute("data-rr-vimeo"), t = w.getAttribute("data-rr-title") || "Video";
+      e.preventDefault();
+      var mp4 = w.getAttribute("data-rr-video"), vim = w.getAttribute("data-rr-vimeo"), yt = w.getAttribute("data-rr-youtube"), t = w.getAttribute("data-rr-title") || "Video";
       slot.innerHTML = "";
       var v;
       if (mp4) { v = document.createElement("video"); v.src = mp4; v.controls = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline", ""); }
+      else if (yt) { v = document.createElement("iframe"); v.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(yt) + "?autoplay=1&playsinline=1&rel=0"; v.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media"; v.allowFullscreen = true; }
       else { v = document.createElement("iframe"); v.src = "https://player.vimeo.com/video/" + encodeURIComponent(vim) + "?autoplay=1&title=0&byline=0&portrait=0"; v.allow = "autoplay; fullscreen; picture-in-picture"; v.allowFullscreen = true; }
       v.title = t; slot.appendChild(v); pop.hidden = false;
       return;
