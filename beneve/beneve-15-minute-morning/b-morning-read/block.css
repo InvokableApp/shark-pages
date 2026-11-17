@@ -59,4 +59,15 @@ body{ margin:0; background:#FBF6EE; }
 .g-part-next{ margin-top:34px; }
 .g-supp .g-entry{ padding:11px 16px; margin-top:10px; } .g-supp .g-entry p{ margin-top:4px; font-size:14px; line-height:1.5; } .g-supp .g-entry h3{ font-size:17px; }
 .g-skip{ background:#FFF4E8; border:1px solid #F5D4B0; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:14.5px; line-height:1.5; }
+/* The supplement guide in dark mode (Jeff 2026-11-17: "can we invert the supplement guide? so its kinda dark mode?"). Scoped to .g-supp: the 15-Minute Morning guide stays light. */
+.g-supp{ --g-paper:#18213D; --navy:#FBF6EE; --body:#D5D9E6; --grey:#9AA2BD; --line:#334170; --sand:#2A3762; --sage:#2C3F35; --sage-ink:#CFE3C2; --sage-mid:#A9BE98; --card:#222D52;
+  background-image:radial-gradient(#26315A 1.1px,transparent 1.3px); }
+.g-supp em{ color:var(--apricot); }
+.g-supp .g-entry,.g-supp .g-legend > div,.g-supp .g-pick{ background:var(--card); }
+.g-supp .g-pick img{ filter:drop-shadow(0 10px 16px rgba(0,0,0,.45)); }
+.g-supp .g-ask{ background:var(--card); border:1px solid var(--line); border-left:5px solid var(--apricot); }
+.g-supp .g-skip{ background:#2E2A3E; border-color:#5A4636; }
+.g-supp .g-skip b{ color:var(--apricot); }
+.g-supp .g-quote{ border-left-color:var(--apricot); color:#E9DCC6; }
+.g-supp .g-sun path[fill="#22305A"]{ fill:#FBF6EE; } .g-supp .g-sun path[stroke="#22305A"]{ stroke:#FBF6EE; } .g-supp .g-sun path[stroke="#B8C4D9"]{ stroke:#6E7AA0; }
 @media (max-width:560px){ .g-legend{ grid-template-columns:1fr; } .g-pick{ grid-template-columns:1fr; } .g-pick img{ width:96px; } .g-habit dl{ grid-template-columns:1fr; gap:2px; } .g-habit dd{ margin-bottom:8px; } .g-prod{ grid-template-columns:1fr; } .g-prod img{ width:120px; } }
