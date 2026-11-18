@@ -75,12 +75,13 @@ var SYS = {
         name:"The Calm Reset",
         tease:"Small calming habits for after a stressful day",
         desc:"A free 30 day guide of small calming habits, each hung on something they already do, with a nightly sleep diary. They can ask you what you recommend for winding down." } ]},
-    { label:"Skin and home", items:[
+    { label:"Skin and beauty", items:[
       { slug:"mlm-skin-quiz", icon:"quiz", platformOnly:true,
         name:"What's Making Your Skin Look Tired?",
         tease:"A 45 second skin quiz",
         guides:[ { label:"The Skin Food Guide", path:"mlm-skin-guide" } ],
-        desc:"Six quick questions about their habits. They get one of four results and a free 90 day routine by email, and can message you for more info on the skincare you recommend." },
+        desc:"Six quick questions about their habits. They get one of four results and a free 90 day routine by email, and can message you for more info on the skincare you recommend." } ]},
+    { label:"Home", items:[
       { slug:"mlm-swap-quiz", icon:"quiz", platformOnly:true,
         name:"One Swap Per Room",
         tease:"A 1 minute quiz for simpler swaps at home",
