@@ -88,3 +88,29 @@
   });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 })();
+
+/* ---------- the video: muted while its screen is on, a tap for sound ---------- */
+(function () {
+  var screen = document.querySelector(".rlt-vid"), v = screen && screen.querySelector("video"), btn = screen && screen.querySelector(".rlt-sound");
+  if (!v || !btn) return;
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function on() { return screen.classList.contains("is-on"); }
+  function sync() {
+    if (on()) { if (!still || !v.muted) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+    else v.pause();
+  }
+  // reel.js marks the screen in view with .is-on.
+  new MutationObserver(sync).observe(screen, { attributes: true, attributeFilter: ["class"] });
+  btn.addEventListener("click", function () {
+    if (v.muted) {
+      v.muted = false; v.loop = false; v.currentTime = 0;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", "Mute");
+    } else {
+      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound");
+    }
+  });
+  // A tap on the picture pauses it or plays it on.
+  v.addEventListener("click", function () { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound"); v.currentTime = 0; sync(); });
+})();

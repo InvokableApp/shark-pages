@@ -34,11 +34,15 @@
       </section>
 
       <!-- 2. BLACK, the bonus. The video's place on top (none yet: the guide's cover), the card, the claim. -->
-      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Your bonus">
         <div class="rl-in">
           <div class="rlb-vidbox">
-            <figure class="lk-snap ct-vidsnap"><img src="/_p/bepic/b-greens-breakfast/_img/guide-cover.jpg" width="765" height="990"
-              alt="The Greens at Breakfast Recipe Guide"></figure>
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_greens_bonus_video}}"
+                     poster="{{custom_values.bepic_greens_bonus_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Your Greens at Breakfast guide is on its way, and a bonus"></video>
+              <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+            </div>
           </div>
           <div class="rlb-coupon" data-in style="--d:.15s">
             <span class="rlb-tag">Bonus offer</span>

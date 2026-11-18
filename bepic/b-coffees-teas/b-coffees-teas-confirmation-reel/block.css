@@ -297,3 +297,13 @@
 .rlt-top h1{ line-height:1.14; }
 .rlt-pill{ font-size:11px; letter-spacing:.03em; }
 .rl-look-roast .rlt-top h1 em{ display:inline-block; line-height:1.05; padding:2px 6px 0; margin-top:4px; }
+/* the bonus video's sound button (as Beneve's b-morning, 2026-11-18) */
+.rlt-sound{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(42,26,23,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; bottom:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }

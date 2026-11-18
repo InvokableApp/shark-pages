@@ -321,3 +321,13 @@
 .rl-gp .ct-recs .rlb-rec-img{ height:110px; }
 .rl .rl-gp .ct-recs .rlb-rec p{ font-size:13.5px; }
 @media (max-height:740px){ .rl-gp .ct-recs .rlb-rec{ grid-template-columns:80px minmax(0,1fr); } .rl-gp .ct-recs .rlb-rec-img{ height:80px; } }
+/* the bonus video's sound button (as Beneve's b-morning, 2026-11-18) */
+.rlt-sound{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(42,26,23,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; bottom:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
