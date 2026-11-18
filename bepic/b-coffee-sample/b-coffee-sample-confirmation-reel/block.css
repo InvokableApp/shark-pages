@@ -16,19 +16,38 @@
 /* the second button: an outline in forest on sand (Conectiv's csc .rl-btn-2) */
 .rlc .rl-paper .rl-btn-2{ background:transparent; color:var(--forest); border:2px solid var(--forest); box-shadow:none; }
 
-/* 2. what happens next: the steps on the light screen */
+/* 2. the video: it takes the room the button leaves (as the guide confirmations' bonus screen), the button white on night */
+/* The reel's own .rl-in padding is kept: on a phone it leaves the dock its room, so the button sits above it. */
+.rlc-vid .rl-in{ height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; }
+.rlc-vidbox{ flex:1 1 0; min-height:0; width:100%; container-type:size; display:flex; justify-content:center; align-items:center; }
+.rlc-vidbox .rlt-video{ width:min(100cqw, calc(100cqh * 9 / 16)); max-width:320px; }
+.rlc .rlc-vid .rlc-go{ flex:0 0 auto; margin-top:0; align-self:center; background:#fff; color:var(--forest); }
+.rlt-video{ position:relative; aspect-ratio:9/16; border-radius:6px; overflow:hidden; background:#000; border:7px solid #fff; box-shadow:0 24px 60px -18px rgba(0,0,0,.7); }
+.rlt-video video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+/* the sound button (as Beneve's b-morning and Epic's guide confirmations) */
+.rlt-sound{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(20,24,22,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; bottom:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
+
+/* 3. what happens next: the steps on the light screen */
 .rlc-next h2{ font-size:clamp(28px,8vw,38px); }
 .rlc-steps li{ color:var(--body); }
 .rlc-steps b{ color:var(--ink); }
 
-/* 3. the coffee, over the photo */
+/* 4. the coffee, over the photo */
 .rlc-what h2{ font-size:clamp(28px,8vw,38px); }
 .rl .rlc-checks li{ font-size:12.5px; line-height:1.3; }
 .rl .rlc-more{ margin-top:16px; }
 .rlc-more a{ color:#fff; font-weight:700; text-underline-offset:3px; }
 .rl-cs .rlc-what::after{ background:linear-gradient(180deg,rgba(20,24,22,.88) 0%,rgba(20,24,22,.78) 60%,rgba(20,24,22,.2) 88%,rgba(20,24,22,.3) 100%); }
 
-/* 4. the ask, on forest: the button turns white so it stands off the green */
+/* 5. the ask, on forest: the button turns white so it stands off the green */
 .rlc-say{ font:800 clamp(26px,7.4vw,34px)/1.1 var(--head) !important; letter-spacing:-.02em; color:#fff !important; margin:0 !important; }
 .rlc .rlc-ask .rlc-go{ display:inline-block; justify-self:start; width:fit-content; margin-top:22px; background:#fff; color:var(--forest); }
 .rl .rlc-alt{ font-size:15px; margin-top:14px; }
@@ -42,6 +61,9 @@
   .rlc-ask .rl-fine{ font-size:9.5px !important; }
 }
 @media (min-width:701px){
+  .rlc-vid .rl-in{ display:flex; }
+  .rlc-vidbox{ flex:0 0 auto; height:min(600px, calc(100vh - 220px)); container-type:normal; }
+  .rlc-vidbox .rlt-video{ max-width:none; height:100%; width:auto; }
   .rlc-top h1{ font-size:clamp(42px,4vw,58px); max-width:14em; }
   .rlc .rlc-top .rl-btns{ grid-template-columns:auto auto; justify-content:start; max-width:none; } .rlc .rlc-top .rl-btn{ white-space:nowrap; padding-left:28px; padding-right:28px; }
   .rlc-next h2,.rlc-what h2{ font-size:clamp(34px,3.2vw,46px); }

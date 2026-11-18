@@ -34,6 +34,24 @@
         </div>
       </section>
 
+      <!-- 2. NIGHT: the video (Jeff, 2026-11-18: Anthony's Conectiv sample video, adapted). The presenter says "tap the
+           button below", so the text button sits right under it. Plays the rep's presenter's version (Brianna or Rafael,
+           `{key}_presenter_{presenter}`), or the rep's own upload once they add one (Your own videos). -->
+      <section class="rl-p rl-night rl-plain rl-wide rlc-vid rlt-vid" aria-label="A quick video">
+        <div class="rl-in">
+          <div class="rlc-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_coffee_sample_video}}"
+                     poster="{{custom_values.bepic_coffee_sample_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="What happens next with your coffee"></video>
+              <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>
+            </div>
+          </div>
+          <a class="rl-btn rlc-go" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm" data-in style="--d:.2s"
+             href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Text COFFEE to <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+        </div>
+      </section>
+
       <!-- 2. TINT: what happens next, the three steps they are now inside -->
       <section class="rl-p rl-tint rl-wide rlc-next">
         <div class="rl-in">
