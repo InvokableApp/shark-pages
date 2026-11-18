@@ -311,3 +311,10 @@
 .rr-ways > div{ display:flex; flex-direction:column; }
 .rr-ways .rr-watch{ margin-top:auto; }
 .rr-ways > div > p{ margin-bottom:12px; }
+
+/* 8b. Real science: IGNYT's numbers, two across */
+.rr-stats{ list-style:none; padding:0; margin:22px 0 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.rr-stats li{ padding:14px 14px 13px; border-radius:14px; background:rgba(250,67,0,.1); border:1px solid rgba(250,67,0,.35); color:#fff; }
+.rr-stats b{ display:block; font-size:20px; line-height:1.15; color:var(--flare); }
+.rr-stats span{ display:block; margin-top:4px; font-size:13.5px; line-height:1.35; opacity:.85; }
+@media (min-width:900px){ .rr-stats{ gap:12px; } .rr-stats b{ font-size:22px; } }
