@@ -294,7 +294,9 @@
 .rr-tabs .rr-tab-go{ background:var(--ember); color:#fff; margin-left:6px; }
 .rr-tabs .rr-tab-go:hover{ background:var(--flare); }
 .rr .rl-p > .rl-in{ padding-top:calc(var(--rr-tabs,56px) + 6px); }
-@media (max-width:380px){ .rr-tabs button{ padding:8px 10px; font-size:13px; } }
+.rr-tabs button{ white-space:nowrap; }
+@media (max-width:440px){ .rr-tabs{ gap:2px; } .rr-tabs button{ padding:8px 9px; font-size:14px; } .rr-tabs .rr-tab-go{ margin-left:4px; } }
+@media (max-width:370px){ .rr-tabs button{ padding:8px 7px; font-size:13px; } }
 .rr-watch{ display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:12px; padding:10px 12px;
   border:0; border-radius:12px; background:var(--flare); color:#fff; font:650 14.5px/1 var(--sans); cursor:pointer; }
 .rr-watch:hover{ background:var(--ember); }
