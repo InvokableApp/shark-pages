@@ -12,7 +12,7 @@
   ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE: only [data-rl-claim-open] opens the popup and fetches /n-recovery-bar-drop-request once,
      whose view is the rep's alert (0643, "Nueva - The Recovery Bar - Drop Request").
 -->
-<div class="rl rl-look-fruit rl-rb rlt rb-s-fall" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/n-recovery-bar-drop-request" data-pf-arrive="#FBF7F0">
+<div class="rl rl-look-fruit rl-rb rlt rb-s-winter" data-pf-native data-pf-dock="Swipe up for a bonus 🎁" data-rl-claim="/n-recovery-bar-drop-request" data-pf-arrive="#FBF7F0">
   <div class="rl-frame">
     <div class="rl-track">
 
@@ -33,10 +33,14 @@
         </div>
       </section>
 
-      <!-- 2. DARK: the bonus. This season's drink where the video goes. -->
-      <section class="rl-p rl-night rl-plain rlb rlb-bonus" aria-label="Your bonus">
+      <!-- 2. DARK: the bonus. Brianna holding the Seasonal Drop (Jeff, 2026-11-19), muted while the screen is on, a tap for
+           sound, as Greens at Breakfast's: a native <video> on a custom value (0881), so a rep can put their own in. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Your bonus">
         <div class="rl-in">
-          <div class="rlb-vidbox"><img class="rb-vid" data-season="winter" src="/_p/nueva/n-recovery-bar/n-recovery-bar-read/assets/drinks/cranberry-orange-smash.jpg" width="600" height="900" alt="Cranberry Orange Smash"><img class="rb-vid" data-season="spring" src="/_p/nueva/n-recovery-bar/n-recovery-bar-read/assets/drinks/cucumber-lime-cooler.jpg" width="600" height="900" alt="Cucumber Lime Cooler"><img class="rb-vid" data-season="summer" src="/_p/nueva/n-recovery-bar/n-recovery-bar-read/assets/drinks/pina-colada-slush.jpg" width="600" height="900" alt="Piña Colada Slush"><img class="rb-vid" data-season="fall" src="/_p/nueva/n-recovery-bar/n-recovery-bar-read/assets/drinks/pear-ginger-spritz.jpg" width="600" height="900" alt="Pear Ginger Spritz"></div>
+          <div class="rlb-vidbox"><div class="rb-vwrap"><video class="rb-vid" src="{{custom_values.nueva_recovery_bar_video}}"
+                 poster="{{custom_values.nueva_recovery_bar_video_poster}}"
+                 playsinline muted loop preload="metadata" aria-label="Your Recovery Bar is on its way, and a bonus"></video>
+            <button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button></div></div>
           <div class="rlb-coupon" data-in style="--d:.15s">
             <span class="rlb-tag">Bonus offer</span>
             <span class="rlb-coverwrap"><span class="rb-menucard" role="img" aria-label="The Recovery Bar: this season's drop"><span data-season="winter"><span class="rb-menucard-k">The Recovery Bar</span><span class="rb-menucard-h">Winter Drop</span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span></span><span data-season="spring"><span class="rb-menucard-k">The Recovery Bar</span><span class="rb-menucard-h">Spring Drop</span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span></span><span data-season="summer"><span class="rb-menucard-k">The Recovery Bar</span><span class="rb-menucard-h">Summer Drop</span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span></span><span data-season="fall"><span class="rb-menucard-k">The Recovery Bar</span><span class="rb-menucard-h">Fall Drop</span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span><span class="rb-menucard-r"><i></i></span></span></span><span class="rlb-sticker rb-sticker"><img src="/_p/nueva/n-recovery-bar/_img/revive.jpg" width="900" height="747" alt="Nueva Revive, Citrus Crush and Island Punch"></span></span>

@@ -185,8 +185,18 @@
 .rlt .rlt-top p{ font-size:15.5px; line-height:1.5; margin-top:12px; color:var(--body); }
 .rlt .rlt-top p b{ color:var(--berry); }
 .rlt .rlt-top .rl-note{ margin-top:8px; }
-/* screen 2: this season's drink where the video goes */
-.rlb-vidbox .rb-vid{ height:100%; max-height:100cqh; width:auto; max-width:min(100cqw,300px); aspect-ratio:2/3; object-fit:cover; border-radius:18px; }
+/* screen 2: Brianna's bonus video (2:3, her captions along the bottom), muted while the screen is on, a tap for sound */
+.rlb-vidbox .rb-vwrap{ position:relative; height:100%; max-height:100cqh; width:auto; max-width:min(100cqw,300px); aspect-ratio:2/3; border-radius:18px; overflow:hidden; background:var(--deep); }
+.rb-vwrap .rb-vid{ display:block; width:100%; height:100%; object-fit:cover; }
+.rlt-sound{ position:absolute; left:50%; top:12px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(31,61,43,.82); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:10px; top:10px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
 .rlb-bonus .rlb-coupon{ background:#fff; outline-color:var(--berry); }
 /* the drop as a little menu card: its name, then dotted rows */
 .rb-menucard{ position:relative; display:block; aspect-ratio:3/4; width:100%; padding:10px 9px; background:var(--deep); border-radius:8px;
@@ -227,7 +237,7 @@
   .rlt-top .lk-card{ padding:26px 32px 28px; }
   .rb-menucard{ padding:16px 14px; } .rb-menucard-h{ font-size:28px; } .rb-menucard-k{ font-size:10px; } .rb-menucard-r::before,.rb-menucard-r::after{ height:8px; }
   .rlb-bonus .rl-in > .rlb-vidbox{ aspect-ratio:auto; width:min(380px,30vw); height:auto; display:flex; align-items:center; }
-  .rlb-vidbox .rb-vid{ width:100%; height:auto; max-height:none; max-width:none; }
+  .rlb-vidbox .rb-vwrap{ width:100%; height:auto; max-height:none; max-width:none; }
   .rb-guidecard{ padding:28px 34px 22px; }
   .rl .rb-guidecard .rb-dh{ font-size:clamp(38px,3.4vw,46px); }
   .rb-guidecard .rlb-gets li{ font-size:18px; }
