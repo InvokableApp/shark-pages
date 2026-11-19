@@ -61,7 +61,7 @@ var SYS = {
           { label:"The link for this season's drop, the bonus you send on request", cv:"nueva_recovery_bar_drop_url" }
         ],
         desc:"A free guide of fifteen whole-fruit electrolyte drinks for women who already train: spritzers, coolers and smoothies, with the potassium, sodium and magnesium counted in every glass. It ships under Everyday Well, with no Nueva mark on it. The bonus is a new set of drinks every season, sent by you, and the people who ask for it hear about Revive." },
-      /* Platform only (NUEVASHARK/campaigns/greens-breakfast, 0641): shows only to an account that has the funnel. */
+      /* Platform only (NUEVASHARK/campaigns/greens-breakfast, 0840): shows only to an account that has the funnel. */
       { slug:"n-greens-breakfast", icon:"leaf", platformOnly:true,
         name:"Greens at Breakfast",
         tease:"12 free greens breakfast recipes that sell Alive",
