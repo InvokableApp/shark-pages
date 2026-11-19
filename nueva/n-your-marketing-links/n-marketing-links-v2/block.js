@@ -28,11 +28,11 @@ var SYS = {
     { label:"Product funnels", items:[
       { slug:"n-bf-vip", icon:"cart", platformOnly:true,
         name:"Black Friday VIP List",
-        tease:"Your list hears the specials first, Nov 12",
+        tease:"A first look list for Nueva's Black Friday specials",
         desc:"Your own Black Friday first look list. People join before November 12, tap what they're shopping for, and you get a text with your reply ready. On the 12th your app lists every VIP with a text to send, so you message them first and post publicly second. The page turns into the specials on the 12th and closes after the 20th. No prices or codes on it before the 12th, as Nueva asked." },
       { slug:"n-no-crash-plan", howtoSlug:"n-no-crash-plan-how-to", icon:"chart",
         name:"The No Crash Plan",
-        tease:"Free 14 day plan for the 3pm crash",
+        tease:"A free 14 day energy plan that sells Beyond",
         canva:"https://canva.link/azr1yqqdtzrl5hc",
         guides:[
           { label:"Read / print / share the plan", cv:"nueva_no_crash_plan_guide_pdf_url" },
@@ -43,7 +43,7 @@ var SYS = {
         desc:"A free fourteen day plan for the afternoon crash. It ships under Everyday Well, a neutral brand with no Nueva mark on it, so you can post it into a group. The people who ask you for the second guide are the ones worth your time, because asking costs them something, and you get a text the moment they do." },
       { slug:"n-tone-and-tighten-guide", howtoSlug:"n-tone-and-tighten-guide-how-to", icon:"leaf",
         name:"Tone and Tighten Guide",
-        tease:"A free guide, no shots involved",
+        tease:"A free workout and recipe guide that sells Snow Slim",
         canva:"https://canva.link/gmt6ngmhri0ce3d",
         guides:[
           { label:"Read / print / share the guide", cv:"nueva_tone_and_tighten_guide_pdf_url" },
@@ -55,7 +55,7 @@ var SYS = {
       /* Platform only (NUEVASHARK/campaigns/recovery-bar, 0643): shows only to an account that has the funnel. */
       { slug:"n-recovery-bar", icon:"leaf", platformOnly:true,
         name:"The Recovery Bar",
-        tease:"15 whole-fruit electrolyte drinks, free",
+        tease:"15 free electrolyte drink recipes that sell Revive",
         guides:[
           { label:"Read / print / share the guide", cv:"nueva_recovery_bar_pdf_url" },
           { label:"The link for this season's drop, the bonus you send on request", cv:"nueva_recovery_bar_drop_url" }
@@ -64,7 +64,7 @@ var SYS = {
       /* Platform only (NUEVASHARK/campaigns/greens-breakfast, 0641): shows only to an account that has the funnel. */
       { slug:"n-greens-breakfast", icon:"leaf", platformOnly:true,
         name:"Greens at Breakfast",
-        tease:"12 breakfast recipes with greens cooked in, free",
+        tease:"12 free greens breakfast recipes that sell Alive",
         guides:[
           { label:"Read / print / share the guide", cv:"nueva_greens_breakfast_guide_pdf_url" },
           { label:"The link for \"My Morning Supplement List\", the bonus you text on request", cv:"nueva_greens_breakfast_supplement_pdf_url" }
@@ -73,18 +73,18 @@ var SYS = {
       /* Platform only, sent one to one (Jeff, 2026-10-13): the page after Joe's Hydrate script in Send a message. */
       { slug:"n-revive-video", icon:"play", platformOnly:true, personal:true,
         name:"Revive Video",
-        tease:"One minute on Revive, then who comes to mind",
+        tease:"A one minute video that sells Revive",
         desc:"A one minute video on Nueva Revive, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Send it after the Hydrate message. Sent as a personal link, you see when they open it, how much they watch and what they pick." },
       /* Platform only, sent one to one (Joe, 2026-10-13: "Nitro Sample Funnel ... clone out revive sample funnel"). */
       { slug:"n-nitro-video", icon:"play", platformOnly:true, personal:true,
         name:"Nitro Video",
-        tease:"A short video on Nitro, then who comes to mind",
+        tease:"A short video that sells Nitro",
         desc:"A short video on Nueva Nitro, then three choices: they'd like to try it, someone they know would, or no one. Each one texts you or tells you so. Sent as a personal link, you see when they open it, how much they watch and what they pick." } ]},
 
     { label:"Opportunity funnels", items:[
       { slug:"n-match-quiz", howtoSlug:"n-side-hustle-how-to", icon:"quiz",
         name:"Side Hustle Quiz",
-        tease:"Is the opportunity a fit for them?",
+        tease:"A side hustle quiz that leads to the business",
         canva:"https://canva.link/bngpbfh4y2eme3c",
         desc:"A short quiz that sorts curious people into the kind of side hustle that suits them, then hands them into the Nueva opportunity page. Use it on someone who is interested in earning but not ready to talk to you yet." },
       /* Platform only (2026-10-06): GHL's hub skips it, the page is not in GHL. */
@@ -92,19 +92,19 @@ var SYS = {
          (Jeff, 2026-10-13). */
       { slug:"n-opportunity-video", icon:"play", platformOnly:true, personal:true,
         name:"Opportunity Sizzle Video",
-        tease:"One minute, then who comes to mind",
+        tease:"A one minute video that pitches the business",
         desc:"A one minute video on the opportunity, then four choices: they're interested, they know someone, both, or neither. Each one texts you or tells you so. Sent as a personal link, you see when they open it, how much they watch and what they pick." },
       /* Platform only (Joe's "NUEVA" doc, 2026-11-03): John Melton's three minute video, moved here from the Opportunity
          funnel when that one got the one minute video. */
       { slug:"n-business-overview", icon:"play", platformOnly:true, personal:true,
         name:"Opportunity 3 Minute Overview",
-        tease:"Three minutes, then their next move",
+        tease:"John's three minute video on joining the business",
         desc:"John Melton's three minute video on the opportunity, then four choices: be a customer, build the business, do both, or ask you some questions first. Each one gives them a message to send you, and tells you what they picked with your reply ready. Sent as a personal link, you see when they open it and how much they watch." },
       /* Platform only (Jeff, 2026-11-06: "a public facing funnel ... kinda near the 'what is nueva' funnel"; platform 0613):
          the Opportunity Sizzle Video for anyone, with a sign-up form first. Last here, so it sits just above What Is Nueva. */
       { slug:"n-opportunity-public", icon:"play", platformOnly:true,
         name:"Public Opportunity Video",
-        tease:"For your story: they sign up, watch, then pick",
+        tease:"The one minute business video, to post anywhere",
         desc:"The one minute opportunity video for a story, a post or a group. Anyone can open it: they put in their name, email and mobile, watch the video, then pick: they're interested, they know someone, both, or neither. You hear the moment they pick, with your reply ready." } ]},
 
     { label:"\"What I do\" funnel", items:[
@@ -113,7 +113,7 @@ var SYS = {
            DM, so it has no lead-generation part to link to */
         parts:["work","close"],
         name:"What Is Nueva",
-        tease:"The two minute overview",
+        tease:"One page on Nueva and its products",
         desc:"The whole company in one page. What Nueva is, what the range does and who it is for, written to be sent to anyone who asks what you are doing. It is the page to send the moment someone says yes, tell me more." } ]}
   ],
   /* WHOLE CATALOG FROM ONE CUSTOM VALUE. Nueva attributes by SUBDOMAIN: a rep's
