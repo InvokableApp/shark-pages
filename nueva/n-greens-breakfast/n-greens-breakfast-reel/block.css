@@ -1,0 +1,117 @@
+/* nueva/n-greens-breakfast/n-greens-breakfast-reel: the Greens at Breakfast opt-in as a reel (platform only; see
+ * block.html). The reel is _shared/reel/v1/reel.css; the look is Recipe tin (_shared/reel/looks/recipe-tin.css). This adds
+ * the guide's own screens: the cover print over the card, the three Sound familiar? prints, the frittata's card, the row
+ * of index cards on the dark green, the close. The confirmation reel and the request pages import this sheet for the look. */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/looks/recipe-tin.css");
+
+.rl-gb h3{ font-family:var(--head); font-weight:700; color:var(--ink-blue); letter-spacing:0; line-height:1.05; }
+.rl-gb .rl-night h3{ color:var(--ink-blue); }   /* on a cream card even on the dark screen */
+.rl-gb .lk-card p{ font-size:15px; line-height:1.55; margin-top:10px; }
+.rl-gb .lk-card .rl-eyebrow{ margin-bottom:8px; }
+.rl-gb .lk-card h1,.rl-gb .lk-card h2{ margin-top:0; }
+.rl-gb p b{ color:var(--ink); }
+/* the pills sit on the gingham as typed cream tags (the look), and the swipe arrows under them in the red */
+.rl-gb .rl-paper .rl-pills li{ background:var(--card); color:var(--gingham-d); border:1.5px dashed var(--gingham); }
+
+/* 1. the cover: the print, taped over the card's top edge */
+.rl-gb .rl-cover .rl-in{ padding-top:34px; }
+.rl-gb .gb-cover-snap{ width:min(46vw,200px); margin:0 auto -14px; }
+/* the cover collage: three prints, the middle one in front. Each print's own tilt is the `rotate` property, so it adds to
+   the look's drop-in animation (which animates `transform`) instead of being replaced by it. */
+.rl-gb .gb-collage{ position:relative; z-index:2; width:min(86vw,340px); aspect-ratio:340/222; margin:0 auto -16px; flex:none; }
+.rl-gb .gb-collage .lk-snap{ position:absolute; margin:0; width:46%; padding:6px 6px 18px; }
+.rl-gb .gb-collage .lk-snap::before{ width:52px; height:17px; margin-left:-26px; top:-8px; }
+.rl-gb .gb-c1{ left:0; top:15%; rotate:-5deg; }
+.rl-gb .gb-c2{ left:26%; top:0; width:50% !important; z-index:3; rotate:2deg; }
+.rl-gb .gb-c3{ right:0; top:17%; rotate:5deg; }
+/* screen 2: the same collage with the PDF's pages, portrait, as big as the screen allows (Jeff, 2026-11-11: "lets make
+   these recipe images bigger") */
+.rl-gb .rl-in > .gb-pages{ width:min(100%,420px); aspect-ratio:400/350; margin-bottom:-18px; }
+.rl-gb .gb-pages .lk-snap{ width:44%; padding:6px 6px 16px; }
+.rl-gb .gb-pages .gb-c1{ left:0; top:12%; } .rl-gb .gb-pages .gb-c3{ right:0; top:14%; }
+.rl-gb .gb-pages .gb-c2{ left:26%; width:48% !important; }
+.rl-gb .gb-pages .lk-snap img{ aspect-ratio:765/990; }
+@media (max-width:700px) and (max-height:760px){ .rl-gb .rl-in > .gb-pages{ width:min(88%,330px); } }
+@media (min-width:701px){ .rl-gb .rl-in > .gb-collage.gb-pages{ width:min(600px,42vw); } }
+@media (prefers-reduced-motion:no-preference){
+  .rl-gb .is-on .gb-c3{ animation-delay:.12s; } .rl-gb .is-on .gb-c2{ animation-delay:.24s; }
+}
+.rl-gb .rl-cover h1{ font-size:clamp(33px,9.4vw,42px); }
+.rl-gb .gb-lede{ font-size:14px !important; line-height:1.5 !important; }
+.rl-gb .rl-cover .rl-pills{ margin-top:16px; }
+.rl-gb .rl-cover .rl-pills li{ padding:6px 10px; }
+
+/* 2-4, 7. a print over a card */
+.rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(62vw,250px); margin-bottom:-10px; }
+
+/* 5. the frittata's card: the photo across the top, the amounts typed */
+.rl-gb .gb-rc{ max-width:440px; margin:0 auto; }
+.rl-gb .gb-rc h2{ font-size:clamp(30px,8.4vw,38px); }
+.rl-gb .gb-rc .lk-card-ph{ height:clamp(120px,24vh,200px); max-width:none; margin:-14px -16px 12px; }   /* full bleed across the card's top (the look's first-child rule zeroes the top margin) */
+.rl-gb .gb-rc .lk-tbl th{ white-space:nowrap; }
+.rl-gb .gb-rc .lk-tbl{ font-size:13px; }
+.rl-gb .gb-rc .lk-tbl th{ font-size:10.5px; }
+.rl-gb .gb-good{ font-size:14px !important; }
+
+/* 6. the dark green: what's in it, cream index cards in a sideways row */
+.rl-gb .gb-inside h2{ margin-top:2px; }
+.rl-gb .gb-inlist{ margin-top:18px; align-items:stretch; }
+.rl-gb .gb-inlist > .lk-card{ padding:16px 18px 18px; background-position:0 50px; }
+.rl-gb .gb-inlist h3{ font-size:30px; }
+.rl-gb .gb-inlist p{ color:var(--body); font-size:15px; }
+
+@media (max-width:700px) and (max-height:900px){ .rl-gb .gb-cover-snap{ width:min(38vw,160px); margin-top:10px; } .rl-gb .gb-collage{ width:min(76vw,290px); margin-top:8px; } }
+/* shorter phones: the prints shrink first (never the swipe arrows' margin) */
+@media (max-width:700px) and (max-height:760px){
+  .rl-gb .rl-cover .rl-in{ padding-top:22px; }
+  .rl-gb .gb-cover-snap{ width:min(26vw,104px); padding:5px 5px 14px; margin-top:12px; }
+  .rl-gb .gb-collage{ width:min(56vw,210px); margin-top:10px; } .rl-gb .gb-collage .lk-snap{ padding:4px 4px 12px; }
+  .rl-gb .rl-cover h1{ font-size:31px; }
+  .rl-gb .gb-lede{ font-size:13px !important; }
+  .rl-gb .rl-cover .rl-pills{ margin-top:12px; } .rl-gb .rl-cover .rl-pills li{ font-size:11px; padding:5px 8px; }
+  .rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(50vw,200px); }
+  .rl-gb .rl-p h2{ font-size:33px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:96px; }
+  .rl-gb .gb-rc h2{ font-size:29px; }
+  .rl-gb .gb-inlist p{ font-size:14px; }
+}
+@media (max-width:700px) and (max-height:620px){
+  .rl-gb .rl-cover .rl-in{ padding-top:14px; }
+  .rl-gb .gb-cover-snap,.rl-gb .gb-collage{ display:none; }
+  .rl-gb .rl-cover h1{ font-size:28px; }
+  .rl-gb .gb-fam .lk-snap,.rl-gb .gb-close .lk-snap{ width:min(40vw,150px); padding:6px 6px 16px; }
+  .rl-gb .rl-p h2{ font-size:29px; }
+  .rl-gb .lk-card p{ font-size:14px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:84px; }
+  .rl-gb .gb-rc h2{ font-size:26px; }
+  .rl-gb .gb-rc .lk-tbl{ font-size:12px; } .rl-gb .gb-rc .lk-tbl td{ padding:2px 0 2px 6px; }
+  .rl-gb .gb-good{ font-size:12.5px !important; margin-top:6px !important; }
+  .rl-gb .gb-inlist h3{ font-size:26px; } .rl-gb .gb-inlist p{ font-size:13px; }
+}
+
+/* a computer: the card on the left, the print on the right */
+@media (min-width:701px){
+  .rl-gb .lk-card p{ font-size:18px; }
+  .rl-gb .rl-in > .lk-snap.rl-art{ width:min(420px,30vw); margin:0; }
+  .rl-gb .gb-cover-snap{ margin:0; }
+  .rl-gb .rl-in > .gb-collage{ width:min(480px,36vw); margin:0; }
+  .rl-gb .rl-cover h1{ font-size:clamp(44px,4vw,58px); }
+  .rl-gb .rl-cover .lk-card{ padding:22px 26px 24px; }
+  .rl-gb .gb-lede{ font-size:16px !important; }
+  /* the recipe card alone, in the middle */
+  .rl-gb .gb-recipe .rl-in{ grid-template-columns:minmax(0,1fr); max-width:620px; }
+  .rl-gb .gb-recipe .rl-in > .rl-art{ grid-column:1; }
+  .rl-gb .gb-rc{ max-width:520px; }
+  .rl-gb .gb-rc .lk-card-ph{ height:min(220px,24vh); }
+  .rl-gb .gb-rc .lk-tbl{ font-size:15px; } .rl-gb .gb-rc .lk-tbl th{ font-size:12px; }
+  .rl-gb .gb-good{ font-size:16px !important; }
+  .rl-gb .gb-inlist > *{ flex-basis:31%; }
+  .rl-gb .gb-inlist h3{ font-size:34px; }
+  .rl-gb .gb-inlist p{ font-size:16px; }
+}
+@media (min-width:701px) and (max-height:900px){
+  .rl-gb .rl-in > .lk-snap.rl-art{ width:min(360px,28vw); }
+  .rl-gb .rl-in > .gb-collage{ width:min(420px,32vw); }
+  .rl-gb .gb-rc .lk-card-ph{ height:150px; }
+}
