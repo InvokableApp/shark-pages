@@ -265,3 +265,14 @@
 .rlt-video .gb-qv video,.rlt-video .gb-qv iframe{ width:100%; height:100%; object-fit:cover; display:block; border:0; }
 .rlt-video .qv-soon{ position:absolute; inset:0; background:#000 url("/_p/nueva/n-greens-breakfast/_img/video-still.jpg") center/cover no-repeat;
   font-size:0; color:transparent; }
+
+/* the bonus video's sound button (as Epic Shark's b-greens-breakfast, 2026-11-19), at the TOP: Brianna's captions run along the bottom */
+.rlt-sound{ position:absolute; left:50%; top:16px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px 10px 13px; border:0; border-radius:999px; background:rgba(30,47,92,.78); color:#fff; font:700 14px var(--sans);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); cursor:pointer; white-space:nowrap; }
+.rlt-sound svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rlt-sound svg path:first-child{ fill:currentColor; }
+.rlt-sound .rlt-w{ display:none; }
+.rlt-loud .rlt-sound{ left:auto; right:12px; top:12px; transform:none; padding:10px; }
+.rlt-loud .rlt-sound span,.rlt-loud .rlt-sound .rlt-x{ display:none; }
+.rlt-loud .rlt-sound .rlt-w{ display:inline; }
