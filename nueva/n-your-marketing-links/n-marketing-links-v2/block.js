@@ -26,6 +26,10 @@ var SYS = {
      rep's links page is the page they are already standing on. */
   groups: [
     { label:"Product funnels", items:[
+      { slug:"n-bf-vip", icon:"cart", platformOnly:true,
+        name:"Black Friday VIP List",
+        tease:"Your list hears the specials first, Nov 12",
+        desc:"Your own Black Friday first look list. People join before November 12, tap what they're shopping for, and you get a text with your reply ready. On the 12th your app lists every VIP with a text to send, so you message them first and post publicly second. The page turns into the specials on the 12th and closes after the 20th. No prices or codes on it before the 12th, as Nueva asked." },
       { slug:"n-no-crash-plan", howtoSlug:"n-no-crash-plan-how-to", icon:"chart",
         name:"The No Crash Plan",
         tease:"Free 14 day plan for the 3pm crash",
