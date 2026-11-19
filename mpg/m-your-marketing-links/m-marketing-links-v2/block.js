@@ -15,7 +15,7 @@ var SYS = {
     { label:"Lead generation", items:[
       { slug:"m-feed-your-gut", icon:"leaf", platformOnly:true,
         name:"Feed Your Gut",
-        tease:"10 easy recipes that feed the good bacteria in your gut",
+        tease:"10 free gut health recipes that sell your gut powder",
         /* The second label is the kit's gated.label word for word (campaign-kits/mpg/m-feed-your-gut.json): Generate
            leads finds the bonus link by it. */
         guides:[
@@ -25,7 +25,7 @@ var SYS = {
         desc:"A free recipe guide: ten everyday meals from a normal grocery store, with the shopping list already written. The follow ups keep the conversation on gut health, so you can introduce the gut powder you take." },
       { slug:"m-vagus-reset", icon:"chart", platformOnly:true,
         name:"Vagus Nerve Reset",
-        tease:"Four weeks of small habits for tired all day, wired at night",
+        tease:"A free four week stress guide that sells your drops",
         guides:[
           { label:"Read / print / share the guide", cv:"mpg_vagus_reset_pdf_url" },
           { label:"The link for the Supplement Companion Guide, the bonus you text on request", cv:"mpg_supplement_companion_pdf_url" }

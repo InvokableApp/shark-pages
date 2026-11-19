@@ -56,13 +56,13 @@ var SYS = {
              nothing read it, so the rep had no way to open, print or hand out the
              thing the funnel gives away. Same row every other system carries. */
           guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_hormone_lunchbox_guide_pdf_url' }],
-          tease: "Free make ahead lunches",
+          tease: "Free make ahead lunches that sell Glutathione+",
           desc: "A free guide with make ahead lunches built around the vegetables that support your hormones. Good opener for anyone who feels tired and puffy by the middle of the afternoon." },
         { icon: "chart", name: "Natural GLP Foods Guide",
           slug: "b-glp-food-guide", howtoSlug: "b-glp-food-guide-how-to", scripts: "https://sharksuite.ai/glp-foods-guide-scripts",
           canva: "https://canva.link/c2s35l1i69u68vp",
           guides: [{ label: 'Access / Print / Share The Guide', cv: 'beneve_glp_foods_guide_pdf_url' }],
-          tease: "Foods that support GLP naturally",
+          tease: "A free foods guide that sells Gut Advantage",
           desc: "A free guide to the everyday foods that help the body make more of its own GLP-1, no shots required. Strong opener for the weight conversation, and it leads into Gut Advantage." },
         /* Platform only (2026-11-02): the funnel exists only on the platform, so a Beneve GHL account showing this
            menu leaves it out (links-hub platformOnly). No howtoSlug: the kit's walkthrough is its training. The
@@ -74,7 +74,7 @@ var SYS = {
             { label: 'Access / Print / Share The Guide', cv: 'beneve_menopause_blueprint_pdf_url' },
             { label: "The link for the Menopause Supplement Guide, the bonus you text on request", cv: 'beneve_menopause_supplement_guide_pdf_url' }
           ],
-          tease: "Free guide to feeling like yourself again",
+          tease: "A free menopause guide that sells Glutathione+",
           desc: "Maria's free guide to perimenopause and menopause: a quick self-check, what is changing in the body, and a simple daily plan for food, movement and sleep. Afterwards they can tap for a free supplement guide, which leads into Glutathione+." },
         /* Platform only (2026-11-17), like the Blueprint: migrations 0732/0740/0786. The second label is the kit's
            gated.label word for word (campaign-kits/beneve/b-morning.json). */
@@ -84,7 +84,7 @@ var SYS = {
             { label: 'Access / Print / Share The Guide', cv: 'beneve_morning_pdf_url' },
             { label: "The Morning Supplement Guide, the bonus you text on request", cv: 'beneve_morning_supplement_guide_pdf_url' }
           ],
-          tease: "Free 15-minute morning for busy moms",
+          tease: "A free morning routine for moms, sells Glutathione+",
           desc: "A free 30-day guide to a 15-minute morning that puts her health first, so she can put her family first: fuel yourself, get focused, fill your cup. Afterwards they can tap for the Morning Supplement Guide, which leads into Glutathione+, Xcelerate Coffee and Electrolytes." }
       ]
     },
@@ -97,7 +97,7 @@ var SYS = {
              sends most had no ready made images. Verified live 2026-09-25: all
              seven Beneve Canva links 200 and every one is a distinct design. */
           canva: "https://canva.link/gwygkydyqdeetm6",
-          tease: "Both sides, in about a minute",
+          tease: "One page on Beneve's products and business",
           desc: "What Beneve actually is: the products, and the way you earn from sharing them. Send it to anyone who asks what you are doing, and it carries on to a page explaining the Influencer plan." }
       ]
     },
@@ -107,17 +107,17 @@ var SYS = {
         { icon: "quiz", name: "Side Hustle Quiz",
           slug: "b-match-quiz", howtoSlug: "b-side-hustle-how-to", scripts: "https://sharksuite.ai/side-hustle-scripts",
           canva: "https://canva.link/88d04yj0r000kkh",
-          tease: "Sorts them into the right fit",
+          tease: "A side hustle quiz that leads to the business",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Beneve fits. Use it when someone is interested but not ready to talk." },
         { icon: "drop", name: "Water Report",
           slug: "b-water-report", howtoSlug: "b-water-report-how-to", scripts: "https://sharksuite.ai/water-report-scripts",
           canva: "https://canva.link/4lhscdgpr4icfw3",
-          tease: "Free report on their own tap water",
+          tease: "A free tap water report that starts a conversation",
           desc: "Someone types in their address and gets the federal testing data for their own tap water. Nothing is sold on the page, which is what makes people pass it around and what opens the conversation." },
         { icon: "scan", name: "Skin Diagnostic",
           slug: "b-skin", howtoSlug: "b-skin-how-to", scripts: "https://sharksuite.ai/skin-diagnostic-scripts",
           canva: "https://canva.link/1n08nso1az22mzn",
-          tease: "Free 90 day skin routine",
+          tease: "A free skin quiz that sells Renew and Luxe",
           desc: "A 45 second quiz that hands every lead a free 90 day skin routine, then points them at Renew, Luxe or Glutathione+ depending on the result. Strong opener for anyone already spending money on skincare." }
       ]
     }

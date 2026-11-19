@@ -33,37 +33,37 @@ var SYS = {
   groups: [
     { label:"Product funnels", items:[
       { howtoSlug:"c-natural-glp-foods-guide-how-to", slug:"c-natural-glp-foods-guide", canva:"https://canva.link/wq64jii9m8k6wf5", howto:"https://conectivshark.com/c-natural-glp-foods-guide-training", icon:"leaf", name:"Natural GLP Foods Guide",
-        tease:"Free foods guide",
+        tease:"A free foods guide that sells ALIVE",
         guides:[{ label:"Access / Print / Share The Guide", cv:"conectiv__glp_foods_guide_download_url" }],
         desc:"A free guide to the foods that support GLP naturally. Your widest opener, it works on anyone curious about weight without mentioning the product." },
       { howtoSlug:"c-clean-brew-how-to", slug:"c-clean-iced-coffee", canva:"https://canva.link/e95p5e6tvk9bfcu", howto:"https://conectivshark.com/c-clean-brew-training", icon:"drop", name:"Clean Iced Coffee Recipes",
-        tease:"Free recipe guide",
+        tease:"Free iced coffee recipes that sell ALIVE",
         guides:[{ label:"Access / Print / Share The Guide", cv:"conectiv__coffee_guide_download_url" }],
         desc:"A free clean iced coffee recipe guide. Light, shareable, and a natural lead in to the coffee products." },
       { howtoSlug:"c-free-coffee-sample-how-to", slug:"c-free-coffee-sample-optin", gateCv:"conectiv__free_sample_live",
         canva:"https://canva.link/xfj62nc69jesx7q", howto:"https://conectivshark.com/c-free-coffee-sample-training", icon:"coffee", name:"Free ALIVE Sample",
-        tease:"You post them a real sample",
+        tease:"A free ALIVE sample you mail them yourself",
         desc:"They ask for a free ALIVE sample and you put it in the post yourself. Nothing is delivered automatically, so this one lives or dies on you calling and texting. The scripts are on the how to page." } ]},
 
     { label:"Opportunity funnels", items:[
       { howtoSlug:"c-side-hustle-how-to", slug:"c-side-hustle-quiz", canva:"https://canva.link/s6qp9hd49af04zk", howto:"https://conectivshark.com/c-side-hustle-training", icon:"quiz", name:"Side Hustle Quiz",
-        tease:"Finds their work-from-home fit",
+        tease:"A side hustle quiz that leads to the business",
         desc:"Sorts people into the side hustle that suits them, then shows where Conectiv fits. Good for the curious but not yet ready." },
       { slug:"c-opportunity-explainer", canva:"https://canva.link/auwgogirjanwxfu", howto:"https://conectivshark.com/c-opportunity-training", icon:"users", name:"Opportunity Explainer",
-        tease:"The business, explained",
+        tease:"One page that pitches the Conectiv business",
         desc:"The business explained end to end, for anyone who has told you they want to hear more." } ]},
 
     { label:"Services", items:[
       { slug:"c-travel-destination-quiz", canva:"https://canva.link/u7kmb8ff96e3l53", howto:"https://conectivshark.com/c-travel-destination-training", icon:"compass", name:"Travel Destination Quiz",
-        tease:"Matches them to a destination",
+        tease:"A travel quiz that starts a conversation",
         desc:"A light, high completion quiz that matches someone to a travel destination. Use it to open conversations with people who would ignore a business post." },
       { howtoSlug:"c-investment-how-to", slug:"c-investment-options", canva:"https://canva.link/c1mqv0iaol3twrc", howto:"https://conectivshark.com/c-investment-training", icon:"quiz", name:"Investment Options Quiz",
-        tease:"Matches them to an option",
+        tease:"A quiz that matches them to an investment option",
         desc:"Walks someone through the investment options that suit them. Best for a more financially minded audience." } ]},
 
     { label:"\"What I do\" funnel", items:[
       { howtoSlug:"c-what-is-conectiv-how-to", slug:"c-what-is-conectiv", canva:"https://canva.link/icwp67xvbmaimze", howto:"https://conectivshark.com/c-what-is-conectiv-training", icon:"info", name:"What Is Conectiv",
-        tease:"The full overview",
+        tease:"One page on Conectiv and what it offers",
         desc:"The complete explainer. What Conectiv is, what it does and who it is for, in one page you can send to anyone who asks." } ]},
 
     /* RENAMED 2026-09-25, the same call Joe and Jess made for GLP on 2026-09-24
@@ -73,7 +73,7 @@ var SYS = {
        do not drift apart on the same label. */
     { label:"Social share links", items:[
       { howtoSlug:"c-links-how-to", slug:"c-links", howto:"https://conectivshark.com/c-social-links-training", icon:"compass", name:"Social Links Share Page",
-        tease:"All your socials in one place",
+        tease:"One page with all your social profiles",
         desc:"One page holding every social profile you have filled in. Handy as a single link to hand out." } ]}
   ],
   lists: [

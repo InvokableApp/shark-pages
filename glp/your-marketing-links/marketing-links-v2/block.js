@@ -123,7 +123,7 @@ var SYS = {
   groups: [
     { label: 'Product funnels', items: [
       { cv: 'glp_foods_guide_funnel_link', icon: 'leaf', name: 'Natural GLP Foods Guide',
-        tease: 'Free foods guide',
+        tease: 'A free foods guide that sells IGNYT',
         howtoSlug: 'glp-food-guide-how-to',
         howto: 'https://glpshark.com/glp-food-guide-training',
         canva: 'https://canva.link/gszpkrgjxsn7fga',
@@ -136,32 +136,32 @@ var SYS = {
          account whose recipe funnel was deleted MUST have that value emptied, or the card lands on its home page.
          The 7 that were stale were emptied the same day (.audit/recipe-card-2026-10-28/before.json). */
       { cv: 'protein_recipe_guide_funnel_link', icon: 'guide', name: 'High Protein Recipe Guide',
-        tease: 'Free recipes and grocery list',
+        tease: 'Free high protein recipes and grocery list, sells IGNYT',
         howtoSlug: 'orygn-recipe-guide-how-to',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'protein_recipe_guide_pdf_url' }],
         desc: 'A free guide of 21 high protein recipes, 4 desserts and a grocery list, built to lose the fat and keep the muscle. An easy opener for anyone who cooks or is trying to eat better.' },
       { cv: 'glp_workout_guide_funnel_link', icon: 'dumbbell', name: 'GLP Workout Guide',
-        tease: 'Free workout download',
+        tease: 'A free workout guide for GLP users, sells IGNYT',
         howtoSlug: 'how-to-use-12',
         howto: 'https://glpshark.com/glp-workouts-training',
         print: 'https://canva.link/zbk14hqzyp51rrj',
         guides: [{ label: 'Access / Print / Share The Guide', cv: 'glp_workout_guide_pdf_url' }],
         desc: 'A free workout guide built for people on GLP medication, where holding muscle matters as much as losing weight.' },
       { cv: 'ignyt_sample_funnel_link', icon: 'gift', name: 'Test-Drive IGNYT Funnel',
-        tease: 'For folks who want to try out IGNYT.',
+        tease: 'A free 3 day IGNYT trial, mailed to them',
         howtoSlug: 'ignyt-sample-how-to',
         howto: 'https://glpshark.com/ignyt-sample-training',
         canva: 'https://canva.link/qtfm73vucfijq5z',
         desc: 'Sends a free 3 day IGNYT trial to their door. They hand you an address and expect you to make contact to confirm it, so every request is a conversation you are invited into.' },
       { cv: 'weight_loss_quiz_funnel_link', icon: 'quiz', name: 'Weight Loss Supplement Quiz',
-        tease: 'Recommends the right support',
+        tease: 'A short quiz that sells DROPS',
         howtoSlug: 'weight-loss-supplement-recommendation-quiz-funnel-how-to-use',
         howto: 'https://glpshark.com/weight-loss-quiz-training',
         desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' } ]},
 
     { label: 'Recruiting funnels', items: [
       { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
-        tease: 'Finds their work-from-home fit',
+        tease: 'A side hustle quiz that leads to the business',
         howtoSlug: 'tour-funnel-how-to-use-wfh-quiz',
         howto: 'https://glpshark.com/side-hustle-quiz-training',
         desc: 'Sorts people into the work from home model that suits them, then shows where ORYGN fits. Good for the curious but not yet ready.' } ]},
@@ -172,7 +172,7 @@ var SYS = {
        retired, per Jess the same day.) */
     { label: '"What I do" funnel', items: [
       { cv: 'orygn_tour_funnel_link', icon: 'info', name: '&#8220;What I Do&#8221; Funnel',
-        tease: 'A page that explains what you do',
+        tease: "One page on ORYGN's products and business",
         howtoSlug: 'tour-funnel-how-to-use1',
         /* Joe, 2026-09-23, voice note: "we don't want the 2nd and 3rd tabs, so
            the how I generate leads and the what to say to leads when they come
@@ -207,7 +207,7 @@ var SYS = {
        NOTHING about a rep's URLs moves. */
     { label: 'Social share links', items: [
       { cv: 'your_links_funnel_link', icon: 'compass', name: 'Social share links page',
-        tease: 'Let them choose their path',
+        tease: 'One link to all your pages, for your bio',
         howtoSlug: 'how-to-use-links',
         /* Joe, 2026-09-23: same call as "What I Do". The Linktree training
            page is data-parts="1", so rows 2 and 3 pointed at #part-2 and
@@ -221,10 +221,10 @@ var SYS = {
        custom values. These are the company's pages, not funnels the rep built. */
     { label: 'Your company links', items: [
       { cv: 'rep_buy_link', icon: 'cart', name: 'Product link, for customers',
-        tease: 'Your replicated ORYGN store',
+        tease: 'Your ORYGN store, for customers ready to buy',
         desc: 'Your own ORYGN store link. Send it to anyone ready to buy, and the order is credited to you.' },
       { cv: 'distributor_buy_link', icon: 'users', name: 'Recruitment link, for distributors',
-        tease: 'Your replicated sign-up page',
+        tease: 'Your ORYGN sign-up page, for new distributors',
         desc: 'Your ORYGN sign-up link, for anyone who has decided to join the business under you.' } ]}
   ],
   /* ⚠️ EMPTIED, NOT DELETED. Joe, 2026-09-23: "Remove social content section".

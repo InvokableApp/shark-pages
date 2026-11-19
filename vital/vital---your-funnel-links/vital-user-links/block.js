@@ -11,19 +11,19 @@ var SYS = {
       items: [
         { icon: "leaf", name: "High Protein Recipe Guide",
           slug: "vital-protein-first", canva: "https://canva.link/glkotdv7npi40hl", howto: "https://vitalshark.io/vital-protein-first-training",
-          tease: "Free recipes and grocery list",
+          tease: "Free high protein recipes and a grocery list",
           desc: "A free high protein recipe guide and grocery list. Your best cold opener for anyone who wants to lose weight without giving up food they actually like." },
         { icon: "chart", name: "GLP Recipe Guide",
           slug: "vital-free-glp-recipe-guide", howto: "https://vitalshark.io/vital-glp-recipe-training",
-          tease: "Built for people on GLP medications",
+          tease: "Free recipes for GLP users that sell Nourish+",
           desc: "A free recipe and shopping list guide written for people taking GLP medications. Strong opener for the weight loss conversation, and it leads into Nourish+." },
         { icon: "coffee", name: "Clean Coffee Recipes",
           slug: "vital-clean-iced-coffee", canva: "https://canva.link/reyh5ko5e8260am", howto: "https://vitalshark.io/vital-clean-brew-training",
-          tease: "Iced coffee without the junk",
+          tease: "Free clean iced coffee recipes",
           desc: "A free clean iced coffee recipe guide. Easy share for coffee drinkers who want to cut the sugar and the additives." },
         { icon: "kids", name: "Einstein Kids Meal Guide",
           slug: "vital-einstein-kids", canva: "https://canva.link/65wch4c5w1he7ma", howto: "https://vitalshark.io/vital-einstein-kids-training",
-          tease: "Kid friendly meals for parents",
+          tease: "A free kids' meal guide for parents",
           desc: "A free kid friendly meal guide for parents. Works well in mom groups, school communities and family pages." }
       ]
     },
@@ -32,11 +32,11 @@ var SYS = {
       items: [
         { icon: "scan", name: "Health Scanner",
           slug: "vital-health-scan", canva: "https://canva.link/8r9y6jcyifb3002", howto: "https://vitalshark.io/vital-health-scan-training",
-          tease: "Free face scan in about a minute",
+          tease: "A free one minute face scan of their health",
           desc: "Sends them to a free face scan that reads key wellness markers in about a minute. High curiosity, low commitment, and it hands you the follow up." },
         { icon: "quiz", name: "Side Hustle Quiz",
           slug: "vital-match-quiz", canva: "https://canva.link/iei2zd7bavlwksq", howto: "https://vitalshark.io/vital-side-hustle-training",
-          tease: "Sorts them into the right fit",
+          tease: "A side hustle quiz that leads to the business",
           desc: "A short quiz that sorts curious people into the kind of side hustle that suits them, then shows them where Vital fits. Use it when someone is interested but not ready to talk." }
       ]
     },
@@ -45,11 +45,11 @@ var SYS = {
       items: [
         { icon: "info", name: "What Is Vital",
           slug: "", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/what-is-vital-training",
-          tease: "Your main site, the simple version",
+          tease: "Your main site, on Vital's products and business",
           desc: "The plain explainer. Send it the moment someone asks what Vital actually is, so you are not answering the same question by text every week. This one is your domain on its own." },
         { icon: "chart", name: "Opportunity One Pager",
           slug: "vital-opportunity-explainer", canva: "https://canva.link/8mtdfsarwmyz3jk", howto: "https://vitalshark.io/vital-opportunity-training",
-          tease: "The business side, on one page",
+          tease: "One page that pitches the Vital business",
           desc: "One page that lays out the business side start to finish. Best for people who have already told you they want to hear more." }
       ]
     },
@@ -58,7 +58,7 @@ var SYS = {
       items: [
         { icon: "link", name: "Social Links Page",
           slug: "vital-social-links", howto: "https://vitalshark.io/vital-social-links-training",
-          tease: "One link that holds all your links",
+          tease: "One link to all your pages, for your bio",
           desc: "One link that holds every other link. Put it in your Instagram and TikTok bio so you are never editing a bio again." }
       ]
     }
