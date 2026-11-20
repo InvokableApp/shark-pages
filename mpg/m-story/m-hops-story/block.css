@@ -1,0 +1,80 @@
+/* mpg/m-story/m-hops-story: the PHIX story (see block.html). The reel, the story kit, then Beal's own look from his page:
+ * cobalt #103578 and ink #112e63 on ivory, lime #e1efba, Fraunces headlines over Manrope (his style-v2.css). */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/story/v1/story.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.rl.st.st-hops{
+  --st-brand:#103578; --st-brand-deep:#0a2152; --st-accent:#e1efba; --st-paper:#fffdf7; --st-tint:#f6f3ec;
+  --st-ink:#112e63; --st-body:#43587a; --st-line:#c2ccda; --shade:6,16,40;
+}
+.st-hops .rl-night{ background:radial-gradient(120% 80% at 10% 0%,#1a4aa0 0%,#103578 45%,#0a2152 100%); }
+
+/* 1. cover */
+.hp-glow{ position:absolute; inset:-20%; z-index:0; background:radial-gradient(40% 30% at 20% 20%,rgba(120,170,255,.35),transparent 70%);
+  animation:hp-drift 9s ease-in-out infinite alternate; pointer-events:none; }
+@keyframes hp-drift{ to{ transform:translate(12%,10%); } }
+.hp-hero{ margin:22px -28px 0; aspect-ratio:16/10; overflow:hidden; }
+.hp-hero img{ width:100%; height:100%; object-fit:cover; object-position:78% 60%; display:block; transform:scale(1.08); transition:transform 7s ease-out; }
+.rl-p.is-on .hp-hero img{ transform:scale(1); }
+.hp-cover .st-pills{ color:var(--st-accent); }
+
+.hp-hops::after{ background:linear-gradient(90deg,rgba(6,16,40,.88) 0%,rgba(6,16,40,.62) 60%,rgba(6,16,40,.35) 100%),linear-gradient(180deg,rgba(6,16,40,.2),rgba(6,16,40,.6)); }
+.hp-routine::after{ background:linear-gradient(180deg,rgba(6,16,40,.72) 0%,rgba(6,16,40,.6) 45%,rgba(6,16,40,.9) 100%); }
+
+/* 2. the film */
+.hp-path{ font:700 12px/1.3 var(--sans) !important; letter-spacing:.16em; text-transform:uppercase; color:var(--st-brand) !important; }
+.hp-path i{ font-style:normal; opacity:.6; margin:0 4px; }
+
+/* 3 and 9: cards a touch narrower so the next one peeks */
+.hp-formats .st-card{ text-align:left; }
+.hp-studies > *,.hp-quotes > *{ flex-basis:84%; }
+
+/* 5. the reports */
+.hp-reports h2{ margin-bottom:2px; }
+.hp-reports .st-chips li{ font-size:13px; padding:7px 11px; }
+
+/* 6. quotes */
+.hp-quotes .st-card{ background:#fff; }
+.hp-quotes q{ font-size:19px; }
+
+/* 8. the gut-brain axis: a signal runs up and down the nerve between the two */
+.hp-say{ font:italic 400 22px/1.3 var(--head) !important; color:var(--st-accent) !important; margin-top:10px !important; }
+.hp-axis{ position:relative; width:200px; margin:16px auto 0; }
+.hp-axis svg{ display:block; width:100%; height:auto; overflow:visible; }
+.hp-node circle{ fill:rgba(225,239,186,.1); stroke:var(--st-accent); stroke-width:2; }
+.hp-node path{ fill:none; stroke:var(--st-accent); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.rl-p.is-on .hp-node circle{ animation:hp-beat 2.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+.rl-p.is-on .hp-gutn circle{ animation-delay:1.2s; }
+@keyframes hp-beat{ 0%,100%{ transform:scale(1); } 15%{ transform:scale(1.07); fill:rgba(225,239,186,.28); } }
+.hp-nerve{ fill:none; stroke:rgba(225,239,186,.28); stroke-width:3; stroke-dasharray:2 7; stroke-linecap:round; }
+.hp-sig{ fill:none; stroke:var(--st-accent); stroke-width:4; stroke-linecap:round; stroke-dasharray:12 88; stroke-dashoffset:100; opacity:0; }
+.rl-p.is-on .hp-up{ animation:hp-run 2.4s linear infinite; }
+.rl-p.is-on .hp-down{ animation:hp-run 2.4s linear 1.2s infinite; stroke:#9fc3ff; }
+@keyframes hp-run{ 0%{ stroke-dashoffset:100; opacity:0; } 10%{ opacity:1; } 90%{ opacity:1; } 100%{ stroke-dashoffset:0; opacity:0; } }
+.hp-lab{ position:absolute; font:500 12px/1.3 var(--sans); color:rgba(255,255,255,.75); width:120px; }
+.hp-lab b{ display:block; font:700 11px/1.3 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--st-accent); }
+.hp-lab-b{ top:8%; left:calc(100% + 6px); }
+.hp-lab-g{ bottom:8%; right:calc(100% + 6px); text-align:right; }
+
+/* a phone: the diagram smaller, so the words fit */
+@media (max-width:899px){
+  .hp-axis{ width:120px; margin-top:6px; }
+  .hp-lab{ width:96px; font-size:11px; }
+  .hp-gut p{ font-size:15px; }
+}
+@media (max-height:740px) and (max-width:899px){
+  .hp-hero{ aspect-ratio:16/8; }
+  .hp-reports .st-chips li{ font-size:12px; padding:6px 9px; }
+  .hp-axis{ width:96px; }
+}
+/* a computer */
+@media (min-width:900px){
+  .hp-hero{ margin:0; width:100%; max-width:560px; aspect-ratio:4/3; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,.35); }
+  .hp-studies > *,.hp-quotes > *{ flex-basis:31%; }
+  .hp-formats > *{ flex-basis:46%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hp-glow,.hp-node circle,.hp-sig{ animation:none !important; }
+  .hp-sig{ opacity:0; }
+}

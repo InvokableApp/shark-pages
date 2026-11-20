@@ -30,7 +30,19 @@ var SYS = {
           { label:"Read / print / share the guide", cv:"mpg_vagus_reset_pdf_url" },
           { label:"The link for the Supplement Companion Guide, the bonus you text on request", cv:"mpg_supplement_companion_pdf_url" }
         ],
-        desc:"A free four week guide: each habit goes on something they already do, like the shower, the coffee or the drive home. The follow ups keep the conversation on stress and winding down, so you can introduce the drop you use." } ]}
+        desc:"A free four week guide: each habit goes on something they already do, like the shower, the coffee or the drive home. The follow ups keep the conversation on stress and winding down, so you can introduce the drop you use." } ]},
+    /* PRODUCT INFO (Jeff, 2026-11-20: "put these ... in a category of 'product info' in send a trackable link and in funnels
+       as well"): Beal's two product stories as swipe pages (mpg/m-story/*, platform 0899). Info pages, not lead gen: they
+       name the product, and the ask is a text to the rep. Also under Product info in Send a link (rep_app.send_groups). */
+    { label:"Product info", items:[
+      { slug:"m-hops-story", icon:"info", platformOnly:true,
+        name:"PHIX Story",
+        tease:"The PHIX story: the hops, the studies, real people",
+        desc:"Beal's PHIX explainer as a swipe page: the film, drops and Snaps, the research in plain words, and what people report. Send it to someone curious about the drops; they text you from the last screen." },
+      { slug:"m-aloe-story", icon:"leaf", platformOnly:true,
+        name:"VeraCell Story",
+        tease:"The VeraCell story: five ingredients, one mission",
+        desc:"Beal's VeraCell explainer as a swipe page: the film, every ingredient and amount, the research, and the kids it feeds. Send it to someone curious about the gut powder; they text you from the last screen." } ]}
   ]
 };
 })();

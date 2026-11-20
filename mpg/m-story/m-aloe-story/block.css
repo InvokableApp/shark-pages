@@ -1,0 +1,105 @@
+/* mpg/m-story/m-aloe-story: the VeraCell story (see block.html). The reel, the story kit, then Beal's own look from his
+ * page: deep green #142f27 on warm cream #f6f4ec, lime #d0dd9a, gold #e9ca75; a serif headline over Manrope (his own
+ * serif.ttf isn't ours to copy, so Fraunces, as the PHIX story). */
+@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/story/v1/story.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.rl.st.st-aloe{
+  --st-brand:#1f4a3a; --st-brand-deep:#142f27; --st-accent:#d0dd9a; --st-paper:#faf9f3; --st-tint:#eeeee3;
+  --st-ink:#142f27; --st-body:#4f5e52; --st-line:#d9dccd; --shade:10,26,18;
+}
+.st-aloe .rl-night{ background:radial-gradient(110% 80% at 85% 0%,#2c5a3f 0%,#173a2c 50%,#0f241c 100%); }
+.st-aloe .st-stat b{ color:var(--st-brand); }
+.st-aloe .rl-night .st-stat b,.st-aloe .rl-photo .st-stat b{ color:#e9ca75; }
+
+/* 1. cover: sun rays drift over the green */
+.al-rays{ position:absolute; inset:-30%; z-index:0; pointer-events:none;
+  background:conic-gradient(from 200deg at 85% 0%,transparent 0deg,rgba(233,202,117,.16) 12deg,transparent 24deg,rgba(233,202,117,.1) 40deg,transparent 56deg);
+  animation:al-sway 10s ease-in-out infinite alternate; }
+@keyframes al-sway{ to{ transform:rotate(6deg) translateX(-3%); } }
+.al-sub{ font:italic 400 20px/1.35 var(--head) !important; color:var(--st-accent) !important; margin-top:12px !important; }
+.al-hero{ margin:20px -28px 0; aspect-ratio:16/10; overflow:hidden; }
+.al-hero img{ width:100%; height:100%; object-fit:cover; object-position:72% 60%; display:block; transform:scale(1.08); transition:transform 7s ease-out; }
+.rl-p.is-on .al-hero img{ transform:scale(1); }
+.al-cover .st-stats{ gap:10px 22px; }
+.al-cover .st-stat b{ font-size:34px; }
+
+/* 3. the two talks */
+.al-talks .st-card{ text-decoration:none; padding:0 0 18px; overflow:hidden; }
+.al-talks .st-card > :not(.al-talk-pic){ margin-left:18px !important; margin-right:18px !important; }
+.al-talk-pic{ position:relative; display:block; aspect-ratio:16/9; background:#000; }
+.al-talk-pic img{ width:100%; height:100%; object-fit:cover; display:block; }
+.al-talk-pic i{ position:absolute; left:10px; bottom:10px; padding:5px 9px; border-radius:99px; background:rgba(0,0,0,.6); color:#fff; font:700 12px/1 var(--sans); font-style:normal; }
+.al-talk-go{ font:700 13.5px/1.2 var(--sans); color:var(--st-brand); margin-top:4px; }
+
+/* 4. the formula: each bar grows to its amount */
+.al-bars{ list-style:none; margin:20px 0 0; padding:0; display:grid; gap:12px; }
+.al-bars li{ display:grid; grid-template-columns:1fr auto; gap:6px 12px; align-items:end; }
+.al-bars span b{ display:block; font:600 16px/1.2 var(--head); color:var(--st-ink); }
+.al-bars span small{ display:block; font:500 12.5px/1.3 var(--sans); color:var(--st-body); }
+.al-bars em{ align-self:end; font:700 14px/1 var(--sans); font-style:normal; color:var(--st-brand); }
+.al-bars i{ grid-column:1 / -1; height:8px; border-radius:99px; background:color-mix(in srgb,var(--st-brand) 10%,transparent); position:relative; overflow:hidden; }
+.al-bars i::after{ content:""; position:absolute; inset:0 auto 0 0; width:0; border-radius:99px; background:linear-gradient(90deg,#5b8a4a,#a7bf5c);
+  transition:width 1s cubic-bezier(.2,.8,.2,1); transition-delay:calc(.3s + var(--k) * 150ms); }
+.rl-p.is-on .al-bars i::after{ width:var(--w); }
+
+/* 5. the 4x */
+.al-four{ display:flex; align-items:center; gap:16px; margin:18px 0 0; }
+.al-four b{ font:500 76px/1 var(--head); letter-spacing:-.04em; color:#e9ca75; }
+.al-four > span{ font:600 15px/1.35 var(--sans); color:rgba(255,255,255,.85); }
+
+/* 6. the team: three cells pass a signal around */
+.al-team{ width:150px; margin:14px auto 0; }
+.al-team svg{ display:block; width:100%; height:auto; overflow:visible; }
+.al-link{ fill:none; stroke:color-mix(in srgb,var(--st-brand) 35%,transparent); stroke-width:2; stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1.2s ease .3s; }
+.rl-p.is-on .al-link{ stroke-dashoffset:0; }
+.al-dot circle{ fill:#fff; stroke:var(--st-brand); stroke-width:2.5; transform-box:fill-box; transform-origin:center; transform:scale(0); transition:transform .5s cubic-bezier(.3,1.6,.5,1); transition-delay:calc(.2s + var(--k) * 150ms); }
+.rl-p.is-on .al-dot circle{ transform:scale(1); }
+.al-ping{ fill:#a7bf5c; offset-path:path("M120 50 L180 150 L60 150 Z"); opacity:0; }
+.rl-p.is-on .al-ping{ opacity:1; animation:al-pass 3s linear 1.2s infinite; }
+@keyframes al-pass{ from{ offset-distance:0%; } to{ offset-distance:100%; } }
+
+/* 7, 8: card rows */
+.al-cards > *{ flex-basis:84%; }
+
+/* 9. purpose */
+.al-purpose::after{ background:linear-gradient(180deg,rgba(10,26,18,.78) 0%,rgba(10,26,18,.7) 45%,rgba(10,26,18,.92) 100%); }
+.al-purpose h2{ font-size:clamp(32px,9vw,46px); }
+.al-purpose .st-stats{ gap:10px 20px; }
+.al-purpose .st-stat b{ font-size:32px; }
+
+/* 10. the pack */
+.al-pack{ margin:14px 0 0; }
+.al-pack img{ display:block; width:150px; height:auto; filter:drop-shadow(0 16px 24px rgba(20,47,39,.25)); transform:rotate(-4deg); }
+
+@media (max-width:899px){
+  .al-team{ display:none; }
+  .al-cover p{ font-size:15px; }
+  .al-cover .rl-in{ padding-top:56px; }
+  .st-has-banner .al-cover .rl-in{ padding-top:70px; }
+  .al-hero{ aspect-ratio:16/9; margin-top:16px; }
+  .al-cover .st-stats{ flex-wrap:nowrap; gap:18px; margin-top:16px; }
+  .al-cover .st-stat b{ font-size:30px; }
+  .al-cover .st-stat small{ font-size:11.5px; }
+}
+@media (max-height:740px) and (max-width:899px){
+  .al-hero{ aspect-ratio:16/8; }
+  .al-cover .st-stat b{ font-size:28px; }
+  .al-bars{ gap:8px; }
+  .al-pack img{ width:110px; }
+}
+@media (min-width:900px){
+  .al-hero{ margin:0; width:100%; max-width:560px; aspect-ratio:4/3; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,.35); }
+  .al-cards > *{ flex-basis:40%; }
+  .al-talks > *{ flex-basis:46%; }
+  .al-bars{ width:min(440px,100%); }
+  .al-team{ width:260px; }
+  .al-pack img{ width:300px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .al-rays,.al-ping{ animation:none !important; }
+  .al-bars i::after{ width:var(--w); transition:none; }
+  .al-link{ stroke-dashoffset:0; transition:none; }
+  .al-dot circle{ transform:none; transition:none; }
+}

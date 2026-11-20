@@ -1,0 +1,354 @@
+<!--
+  mpg/m-story/m-hops-story: THE PHIX STORY as a swipe page, a product explainer a rep sends one to one. Adapted from Michael
+  Beal's own page (keepingitbeal.com/phix-story, sent to Jeff on Facebook 2026-11-19: "a couple pages i created that we can
+  put in the system... Change if you need"). Jeff, 2026-11-20: "kinda want to retain a lot of the info and these pages are
+  long so might want some read more/expand buttons", then "its fine to adapt these pages as-is" (names, the reported list,
+  the testimonials and the numbers all stay: "these arent funnels theyre product/info pages").
+
+  ⚠️ BEAL'S WORDS, NOT OURS. Every line here is his page's, cut to a headline and a line or two per screen; the rest sits in
+     the Read more sheets (the <template>s at the end), word for word except em-dashes swapped out (no em-dashes in shipped
+     copy). A change to the facts is Beal's call: change his page first, then this.
+  ⚠️ THE SLUG names no product (MPG P&P §9.4.A: no product names "or any derivative" in URLs): /m-hops-story.
+  ⚠️ THE VIDEOS are Beal's, copied to our storage (media/mpg/story/, MPGSHARK/_build/upload-story-videos.mjs), so nothing
+     plays off his site. The audio-only version of the film is left out.
+
+  The kit is _shared/story/v1 (story.css, story.js) on the reel (reel.css, reel.js). The rep hears who opened it and every
+  Read more, video and button they tapped (watch.js, each one's data-label). The ask: text the rep (/m-hops-story-text, the
+  message written; mpg_rep_sms), or their Messenger (/m-hops-story-message) for a rep with no texting number.
+-->
+<div class="rl st st-hops" data-pf-native>
+  <div class="st-banner" hidden><span class="st-banner-pic" aria-hidden="true"></span><span>Sent to you by <b data-st-rep>a friend</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. COVER: cobalt night, the product on the right on a computer, under the words on a phone. -->
+      <section class="rl-p rl-night rl-plain hp-cover" id="top" aria-label="PHIX: a little snap, a deeper connection">
+        <div class="hp-glow" aria-hidden="true"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Matured hop extract &middot; Daily wellness</span>
+          <h1 data-in style="--d:.1s" data-label="PHIX: A little snap. A deeper connection.">A little snap. <em>A deeper connection.</em></h1>
+          <p data-in style="--d:.2s">A stimulant-free approach to healthy body composition, cognitive function, and mood support.<sup>*</sup> Discover the science behind PHIX.</p>
+          <div class="hp-hero rl-art" data-in style="--d:.3s"><img src="assets/phix-hero-campaign-v1.jpg" alt="PHIX Snaps bag and blue drops bottle in a cobalt-blue setting"></div>
+          <ul class="st-pills" data-in style="--d:.4s"><li>Stimulant-free</li><li>Matured hop extract</li><li>Drops + Snaps</li><li>Exclusive to MPG</li></ul>
+        </div>
+      </section>
+
+      <!-- 2. THE FILM: Beal's 4:29 story, tap the poster. -->
+      <section class="rl-p rl-paper" aria-label="Watch the story">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The big picture &middot; In under five minutes</span>
+          <h2 data-in style="--d:.1s">A different approach. <em>A reason to look closer.</em></h2>
+          <p data-in style="--d:.2s">Start with the story. Then explore the studies, the plant, and the people making PHIX part of their day.</p>
+          <button type="button" class="st-poster rl-art" data-in style="--d:.3s" data-st-play="film" data-label="Played the PHIX story (4:29)" aria-label="Play the PHIX story, 4 minutes 29">
+            <img src="assets/film-poster.jpg" alt="" loading="lazy"><span class="st-poster-play" aria-hidden="true"></span><span class="st-poster-time">4:29</span>
+          </button>
+          <p class="hp-path" data-in style="--d:.45s">The plant <i>&rarr;</i> The research <i>&rarr;</i> Your routine</p>
+        </div>
+      </section>
+
+      <!-- 3. DROPS OR SNAPS: two cards, each with its demo clip. -->
+      <section class="rl-p rl-tint rl-wide" aria-label="Drops at home. Snaps on the go.">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>PHIX, your way</span>
+          <h2 data-in style="--d:.1s">Drops at home. <em>Snaps on the go.</em></h2>
+          <p data-in style="--d:.2s">Choose the format that fits your day. Both make PHIX easy to add to a favorite beverage.</p>
+          <div class="rl-cards hp-formats" data-in style="--d:.3s">
+            <div class="st-card">
+              <img class="st-card-img" src="assets/drops-cutout-v2.png" alt="PHIX drops bottle" loading="lazy">
+              <span class="st-card-tag">01 / The drops</span>
+              <h3>Your countertop ritual.</h3>
+              <p>Shake well. Measure the label's serving with the dropper and mix it into your beverage.</p>
+              <button type="button" class="st-more" data-st-play="drops" data-label="Played the drops demo (0:46)">Watch the bottle demo &middot; 0:46</button>
+            </div>
+            <div class="st-card">
+              <img class="st-card-img" src="assets/bag-cutout-v2.png" alt="PHIX bag of 30 individual Snaps" loading="lazy">
+              <span class="st-card-tag">02 / The Snaps</span>
+              <h3>A little more portable.</h3>
+              <p>Fold. Snap. Squeeze. A single serving for a work bag, travel kit, or a busy day away from home.</p>
+              <button type="button" class="st-more" data-st-play="snaps" data-label="Played the Snap demo (0:11)">See a Snap in action &middot; 0:11</button>
+            </div>
+          </div>
+          <button type="button" class="st-more" data-in style="--d:.45s" data-st-more="formats" data-label="Read more: Drops and Snaps">Read more about each</button>
+        </div>
+      </section>
+
+      <!-- 4. WHY IT'S WORTH A LOOK: three reasons, numbered. -->
+      <section class="rl-p rl-paper rl-wide" aria-label="Not another jolt. A different conversation.">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>What makes it worth your attention?</span>
+          <h2 data-in style="--d:.1s">Not another jolt. <em>A different conversation.</em></h2>
+          <p data-in style="--d:.2s">PHIX is built around matured hop extract, not caffeine.</p>
+          <ol class="st-rows">
+            <li style="--k:0"><b>01</b><strong>Healthy body composition.</strong><span>A controlled human ingredient trial measured reductions in abdominal visceral fat over 12 weeks.</span></li>
+            <li style="--k:1"><b>02</b><strong>Attention. Mental clarity.</strong><span>Human trials reported improvements in selected attention-related test results.</span></li>
+            <li style="--k:2"><b>03</b><strong>Mood. Mental fatigue.</strong><span>Researchers have also measured mood and mental-fatigue outcomes in healthy adults.</span></li>
+          </ol>
+          <button type="button" class="st-more" data-in style="--d:.9s" data-st-more="why" data-label="Read more: Why PHIX">Read more</button>
+        </div>
+      </section>
+
+      <!-- 5. WHAT PEOPLE ARE REPORTING: the 20 reports from MPG's presentation pop in as chips, his caveat right under them. -->
+      <section class="rl-p rl-night rl-plain hp-reports rl-wide" aria-label="What people are reporting">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>From the MPG community presentation</span>
+          <h2 data-in style="--d:.1s">What people <em>are reporting.</em></h2>
+          <ul class="st-chips">
+            <li style="--k:0">Better sleep</li><li style="--k:1">Reduced brain fog</li><li style="--k:2">Reduced appetite</li><li style="--k:3">More energy</li>
+            <li style="--k:4">Increased libido</li><li style="--k:5">Reduced inflammation</li><li style="--k:6">Better digestion</li><li style="--k:7">Bowel movement / regulation</li>
+            <li style="--k:8">Improved prostate</li><li style="--k:9">Increased blood flow</li><li style="--k:10">Hair growth</li><li style="--k:11">Smoother skin</li>
+            <li style="--k:12">Improved recovery</li><li style="--k:13">Improved strength</li><li style="--k:14">Calm / relaxed feeling</li><li style="--k:15">Better focus</li>
+            <li style="--k:16">Improved cognitive function</li><li style="--k:17">Hormone regulation</li><li style="--k:18">Hot flash reduction</li><li style="--k:19">Overall health improved</li>
+          </ul>
+          <p class="rl-fine" data-in style="--d:1.2s">These are reports listed in an MPG presentation, not benefits established by PHIX clinical trials or a prediction of your results. Individual experiences vary. The published ingredient studies and their measured outcomes are explained separately.</p>
+        </div>
+      </section>
+
+      <!-- 6. REAL WORDS: six quotes in a sideways row, each opens its original message. -->
+      <section class="rl-p rl-paper rl-wide" aria-label="Real words from the PHIX community">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Real words from the PHIX community</span>
+          <h2 data-in style="--d:.1s">Different people. <em>Everyday moments.</em></h2>
+          <div class="rl-cards hp-quotes" data-in style="--d:.25s">
+            <figure class="st-card st-quote"><span class="st-card-tag">Sleep &amp; daily wellbeing</span><q>I definitely think I'm sleeping better &hellip; feeling better overall.</q><cite>Shared personal message</cite><button type="button" class="st-more" data-st-play="q1" data-label="Opened a message: Sleep">Read the original</button></figure>
+            <figure class="st-card st-quote"><span class="st-card-tag">Everyday energy</span><q>I had so much energy but not like an over caffeinated stimulated energy, but like a &ldquo;let's get it done&rdquo; energy.</q><cite>Shared personal experience</cite><button type="button" class="st-more" data-st-play="q2" data-label="Opened a message: Energy">Read the original</button></figure>
+            <figure class="st-card st-quote"><span class="st-card-tag">Relaxed &amp; motivated</span><q>I'm relaxed but motivated, and actually getting stuff done for once.</q><cite>Colette</cite><button type="button" class="st-more" data-st-play="q3" data-label="Opened a message: Relaxed and motivated">Read the original</button></figure>
+            <figure class="st-card st-quote"><span class="st-card-tag">A calmer day</span><q>I'm much more relaxed today.</q><cite>Katie Christner</cite><button type="button" class="st-more" data-st-play="q4" data-label="Opened a message: A calmer day">Read the original</button></figure>
+            <figure class="st-card st-quote"><span class="st-card-tag">Feeling centered</span><q>Just more balanced and centered.</q><cite>Shared personal message</cite><button type="button" class="st-more" data-st-play="q5" data-label="Opened a message: Centered">Read the original</button></figure>
+            <figure class="st-card st-quote"><span class="st-card-tag">Time to relax</span><q>I actually feel like I relaxed today.</q><cite>Missy Dodson</cite><button type="button" class="st-more" data-st-play="q6" data-label="Opened a message: Time to relax">Read the original</button></figure>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.4s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>Swipe for more</p>
+          <p class="rl-fine" data-in style="--d:.5s">Selected personal experiences, not clinical findings or a prediction of typical results. Timing and outcomes vary. Quotes are excerpts.</p>
+        </div>
+      </section>
+
+      <!-- 7. THE HOPS FLOWER: photo, then mature, extract, study drawn as a line. -->
+      <section class="rl-p rl-photo hp-hops" aria-label="The flower is only the beginning">
+        <div class="rl-bg" style="background-image:url('assets/hops.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Humulus lupulus &middot; The hops flower</span>
+          <h2 data-in style="--d:.1s">The flower is <em>only the beginning.</em></h2>
+          <p data-in style="--d:.2s">It is not simply &ldquo;more hops.&rdquo; Researchers study a particular group of compounds formed as hop bitter acids mature.</p>
+          <ol class="st-steps">
+            <li style="--k:0"><small>01 / Mature</small><strong>A transformation.</strong></li>
+            <li style="--k:1"><small>02 / Extract</small><strong>A selected fraction.</strong></li>
+            <li style="--k:2"><small>03 / Study</small><strong>A measurable response.</strong></li>
+          </ol>
+          <button type="button" class="st-more" data-in style="--d:1.4s" data-st-more="hops" data-label="Read more: The hops">Read more</button>
+        </div>
+      </section>
+
+      <!-- 8. THE GUT-BRAIN CONNECTION: signals run between the two along the vagus nerve. -->
+      <section class="rl-p rl-night rl-plain hp-gut" aria-label="Your gut is part of the conversation">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The gut&ndash;brain connection</span>
+          <h2 data-in style="--d:.1s">Your gut is part <em>of the conversation.</em></h2>
+          <p class="hp-say" data-in style="--d:.2s">Sensing. Signaling. Responding.</p>
+          <div class="hp-axis rl-art" aria-hidden="true">
+            <svg viewBox="0 0 220 300">
+              <g class="hp-node hp-brain"><circle cx="110" cy="46" r="38"/><path d="M92 40c0-10 8-16 18-16s18 6 18 16c6 2 9 7 9 13 0 9-8 14-15 13-2 6-7 9-12 9s-10-3-12-9c-7 1-15-4-15-13 0-6 3-11 9-13z"/></g>
+              <path class="hp-nerve" d="M110 86 C70 130 150 170 110 214"/>
+              <path class="hp-sig hp-up" pathLength="100" d="M110 214 C150 170 70 130 110 86"/>
+              <path class="hp-sig hp-down" pathLength="100" d="M110 86 C70 130 150 170 110 214"/>
+              <g class="hp-node hp-gutn"><circle cx="110" cy="254" r="38"/><path d="M96 236c10-4 22 0 22 8s-14 6-18 12 4 12 14 10 8 10-2 12-24-2-24-14 0-24 8-28z"/></g>
+            </svg>
+            <span class="hp-lab hp-lab-b"><b>Brain</b>Processing signals</span>
+            <span class="hp-lab hp-lab-g"><b>Gut</b>Sensing compounds</span>
+          </div>
+          <p data-in style="--d:.35s">Nerve pathways, including the vagus nerve, help carry information between the gut and brain.</p>
+          <p class="rl-fine" data-in style="--d:.45s">Illustrative pathway &middot; Animal research</p>
+          <button type="button" class="st-more" data-in style="--d:.55s" data-st-more="gut" data-label="Read more: The gut-brain connection">Read more</button>
+        </div>
+      </section>
+
+      <!-- 9. THE RESEARCH: three human ingredient trials as cards, each with its details. -->
+      <section class="rl-p rl-paper rl-wide" id="research" aria-label="Real questions. Published studies.">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The research, made understandable</span>
+          <h2 data-in style="--d:.1s">Real questions. <em>Published studies.</em></h2>
+          <div class="rl-cards hp-studies" data-in style="--d:.25s">
+            <div class="st-card"><span class="st-card-tag">Human ingredient trial &middot; 2016</span><div class="st-card-big"><b data-count="200">200</b><span>adults randomized<br>12 weeks</span></div><h3>Looking beyond the bathroom scale.</h3><p>The extract group had a greater reduction in visceral fat at weeks 8 and 12, compared with placebo.</p><button type="button" class="st-more" data-st-more="s1" data-label="Read more: 2016 body composition study">Study details</button></div>
+            <div class="st-card"><span class="st-card-tag">Human ingredient trial &middot; 2020</span><div class="st-card-big"><b data-count="60">60</b><span>adults<br>12 weeks</span></div><h3>Attention and mental fatigue.</h3><p>Selected verbal-fluency and Stroop-test measures improved, along with reported mental fatigue, compared with placebo.</p><button type="button" class="st-more" data-st-more="s2" data-label="Read more: 2020 attention study">Study details</button></div>
+            <div class="st-card"><span class="st-card-tag">Human ingredient trial &middot; 2020</span><div class="st-card-big"><b data-count="100">100</b><span>adults<br>12 weeks</span></div><h3>A closer look at divided attention.</h3><p>A separate trial reported improvement in a divided-attention test in adults aged 45&ndash;69.</p><button type="button" class="st-more" data-st-more="s3" data-label="Read more: 2020 divided attention study">Study details</button></div>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.4s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>1 of 3</p>
+          <div data-in style="--d:.5s"><button type="button" class="st-more" data-st-more="dose" data-label="Read more: One important distinction">One important distinction</button><button type="button" class="st-more" data-st-more="decade" data-label="Read more: A decade of research">A decade of research</button></div>
+        </div>
+      </section>
+
+      <!-- 10. THE ROUTINE: the photo, the two numbers, three steps, the safety line. -->
+      <section class="rl-p rl-photo hp-routine" aria-label="Your drink. Your daily ritual.">
+        <div class="rl-bg" style="background-image:url('assets/drops-routine-v2.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>The product in your day</span>
+          <h2 data-in style="--d:.1s">Your drink. <em>Your daily ritual.</em></h2>
+          <div class="st-stats" data-in style="--d:.2s">
+            <div class="st-stat"><b><span data-count="120">120</span>mg</b><small>Matured hop extract per serving</small></div>
+            <div class="st-stat"><b>1.2mL</b><small>Per serving, plus purified water</small></div>
+          </div>
+          <ol class="st-rows">
+            <li style="--k:0"><b>01</b><strong>Choose drops or a Snap.</strong></li>
+            <li style="--k:1"><b>02</b><strong>Build a consistent routine.</strong></li>
+            <li style="--k:2"><b>03</b><strong>Keep the bigger picture.</strong></li>
+          </ol>
+          <button type="button" class="st-more" data-in style="--d:.9s" data-st-more="routine" data-label="Read more: How to use it">Read more</button>
+          <p class="rl-fine" data-in style="--d:1s">If using twice daily, MPG directs at least 9.5 hours between uses. PHIX is intended for adults, not children or pregnant or nursing women. Consult a healthcare professional about medications or a medical condition.</p>
+        </div>
+      </section>
+
+      <!-- 11. YOUR NEXT STEP: exclusive to MPG, then text the rep. -->
+      <section class="rl-p rl-paper hp-next" id="next" aria-label="Curious? Start a conversation.">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Your next step &middot; PHIX, exclusively MPG</span>
+          <h2 data-in style="--d:.1s">Curious? <em>Start a conversation.</em></h2>
+          <p data-in style="--d:.2s">Text <b data-st-rep>the person who shared this page with you</b>. Ask about PHIX, the research, and how it could fit your routine.</p>
+          <p class="st-bubble" data-in style="--d:.3s">I watched the PHIX story. Can you help me understand whether it fits my goals and how to get started?</p>
+          <div class="st-btns" data-in style="--d:.4s">
+            <a class="st-btn" href="/m-hops-story-text" data-needs="{{custom_values.mpg_rep_sms}}" data-alt-href="/m-hops-story-message" data-label="Text me: I watched the PHIX story">Send this text</a>
+            <button type="button" class="st-btn st-btn-2" data-st-copy="I watched the PHIX story. Can you help me understand whether it fits my goals and how to get started?" data-label="Copied the PHIX message">Copy it</button>
+          </div>
+          <p class="st-copied" role="status" hidden>Copied. Paste it into a text.</p>
+          <button type="button" class="st-more" data-in style="--d:.5s" data-st-more="faq" data-label="Read more: PHIX questions">Good questions. Clear answers.</button>
+          <p class="rl-fine" data-in style="--d:.6s">Independent team educational page &middot; PHIX is a MarketPlace Global product, available exclusively through MarketPlace Global. *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Ingredient research is not a clinical trial of the finished product. Individual results vary.</p>
+        </div>
+      </section>
+
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE SHEET (story.js fills it from a template below). -->
+  <div class="st-sheet" role="dialog" aria-modal="true" hidden>
+    <div class="st-sheet-card"><span class="st-sheet-grab" aria-hidden="true"></span><button type="button" class="st-sheet-x" aria-label="Close" data-pf-quiet>&times;</button><div class="st-sheet-body"></div></div>
+  </div>
+
+  <!-- VIDEOS AND PICTURES (our storage; watch.js plays the .qv boxes and reports the watching). -->
+  <div class="st-pop" data-st-pop="film" role="dialog" aria-label="The PHIX story" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
+    <div class="qv" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/story/phix-film-v1.mp4" data-poster="/_p/mpg/m-story/m-hops-story/assets/film-poster.jpg" data-name="the PHIX story"></div></div></div>
+  <div class="st-pop" data-st-pop="drops" role="dialog" aria-label="How to use the PHIX drops" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
+    <div class="qv" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/story/phix-drops-demo.mp4" data-poster="/_p/mpg/m-story/m-hops-story/assets/drops-demo-poster.jpg" data-name="the drops demo"></div>
+    <p class="st-pop-cap">Follow your current label. Demonstrations show earlier packaging; the bottle clip is a 46-second excerpt.</p></div></div>
+  <div class="st-pop" data-st-pop="snaps" role="dialog" aria-label="How to use a PHIX Snap" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
+    <div class="qv" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/story/phix-snaps-demo.mp4" data-poster="/_p/mpg/m-story/m-hops-story/assets/snaps-demo-poster.jpg" data-name="the Snap demo"></div>
+    <p class="st-pop-cap">Follow your current label. Demonstrations show earlier packaging.</p></div></div>
+  <div class="st-pop" data-st-pop="q1" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/EOm6tXJBoCEigEyUu8RApt5c62jC.jpg" alt="Original shared message" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+  <div class="st-pop" data-st-pop="q2" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/axu8fAH4xqhM4C8p7JWOWdnBLCFg.jpg" alt="Original shared message" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+  <div class="st-pop" data-st-pop="q3" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/PdA75grJjSi21feDWnvJLhtZdJOT.jpg" alt="Original shared message from Colette" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+  <div class="st-pop" data-st-pop="q4" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/8dYSyfjkRt0JInTGr3MIEYQGFdzG.jpg" alt="Original shared message from Katie Christner" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+  <div class="st-pop" data-st-pop="q5" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/UXeFopBKNHD4LW8nSgURlABkDV2j.jpg" alt="Original shared message" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+  <div class="st-pop" data-st-pop="q6" role="dialog" aria-label="Original message" hidden><div class="st-pop-card st-pop-tall"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button><img src="assets/biEisALNFcHrqzXpua3yf7TcZTOJ.jpg" alt="Original shared message from Missy Dodson" loading="lazy"><p class="st-pop-cap">From the shared Boards collection</p></div></div>
+
+  <!-- READ MORE: Beal's full text, section by section. -->
+  <template data-st-for="formats">
+    <span class="st-sheet-eyebrow">PHIX, your way</span><h3>Drops at home. Snaps on the go.</h3>
+    <p>Choose the format that fits your day. A dropper bottle for your counter. Individual Snaps for your bag. Both make PHIX easy to add to a favorite beverage.</p>
+    <h4>01 / The drops: your countertop ritual.</h4>
+    <p>Shake well. Measure the label's serving with the dropper and mix it into your beverage. The current US offer includes a bottle plus six Snaps.</p>
+    <h4>02 / The Snaps: a little more portable.</h4>
+    <p>Fold. Snap. Squeeze. A single-serving format that fits a work bag, travel kit, or a busy day away from home.</p>
+    <p class="st-fine">Use your current label for the serving amount and directions. Demonstrations show earlier packaging; the bottle clip is a 46-second excerpt.</p>
+  </template>
+  <template data-st-for="why">
+    <span class="st-sheet-eyebrow">What makes it worth your attention?</span><h3>Not another jolt. A different conversation.</h3>
+    <p>PHIX is built around matured hop extract, not caffeine. The ingredient research asks how plant-derived compounds interact with pathways involved in body composition and the gut&ndash;brain connection.</p>
+    <h4>01 / Healthy body composition.</h4>
+    <p>For people working on their wellness beyond the scale. A controlled human ingredient trial measured reductions in abdominal visceral fat over 12 weeks.</p>
+    <h4>02 / Attention. Mental clarity.</h4>
+    <p>For people who value staying engaged. Human trials of matured hop bitter acids reported improvements in selected attention-related test results.</p>
+    <h4>03 / Mood. Mental fatigue.</h4>
+    <p>For people interested in the mind&ndash;body connection. Researchers have also measured mood and mental-fatigue outcomes in healthy adults.</p>
+    <p class="st-fine">These are reasons to explore the ingredient, not promises of an identical personal result. Study preparations and doses are described in the research.</p>
+    <a class="st-src" href="#research" data-st-go="research" data-label="Went to the research">See what was measured</a>
+  </template>
+  <template data-st-for="hops">
+    <span class="st-sheet-eyebrow">Humulus lupulus &middot; The hops flower</span><h3>From a bitter compound to a focused question.</h3>
+    <p>Nature provides the starting material. Understanding what is inside changes the story.</p>
+    <p>It is not simply &ldquo;more hops.&rdquo; Researchers study a particular group of compounds formed as hop bitter acids mature.</p>
+    <h4>01 / Mature: a transformation.</h4>
+    <p>Controlled oxidation changes some of the hop flower's original bitter acids into matured hop bitter acids, or MHBAs.</p>
+    <h4>02 / Extract: a selected fraction.</h4>
+    <p>Published research describes water extraction and filtration to obtain an extract containing these matured compounds.</p>
+    <h4>03 / Study: a measurable response.</h4>
+    <p>Researchers then examine defined preparations, amounts, and outcomes, from nerve signaling in animals to trials in people.</p>
+    <hr><h4>What does &ldquo;matured&rdquo; change?</h4>
+    <p>The 2016 paper describes matured hop bitter acids as having a more pleasant, milder bitterness than iso-alpha acids. Its research extract was produced by oxidizing hop pellets, followed by water extraction and purification. That paper documents its own preparation; it is not a manufacturing specification for PHIX.</p>
+    <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4784395/" target="_blank" rel="noopener" data-label="Opened a study: preparation method">Read the preparation method</a>
+  </template>
+  <template data-st-for="gut">
+    <span class="st-sheet-eyebrow">The gut&ndash;brain connection</span><h3>Your gut is part of the conversation.</h3>
+    <p>Sensing. Signaling. Responding.</p>
+    <p>The digestive tract contains receptors that sense compounds in what you consume. Nerve pathways, including the vagus nerve, help carry information between the gut and brain.</p>
+    <p>Animal studies have explored how matured hop bitter acids engage this communication network, with effects on memory-related pathways and energy use. That is the mechanism research behind the bigger question.</p>
+    <p class="st-fine">Illustrative pathway &middot; Animal research.</p>
+    <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194057/" target="_blank" rel="noopener" data-label="Opened a study: gut-brain">Explore the gut&ndash;brain study</a>
+  </template>
+  <template data-st-for="s1">
+    <span class="st-sheet-eyebrow">Human ingredient trial &middot; 2016 &middot; Nutrition Journal</span><h3>Looking beyond the bathroom scale.</h3>
+    <p><b>200 adults randomized &middot; 12 weeks &middot; Body composition.</b></p>
+    <p>Researchers used CT scans to measure abdominal fat. Adults with a BMI of 25 to under 30 drank either a beverage containing matured hop extract or a matching placebo.</p>
+    <p>The result: the extract group had a greater reduction in visceral fat at weeks 8 and 12, and total abdominal fat at week 12, compared with placebo.</p>
+    <h4>Study details &amp; context</h4>
+    <p>Randomized, double-blind, placebo-controlled trial. Daily test beverage: 35 mg matured hop bitter acids (MHBA). 200 participants randomized; 178 included in the per-protocol efficacy analysis. Kirin-affiliated researchers conducted the study. This was an ingredient beverage, not a clinical trial of finished PHIX.</p>
+    <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4784395/" target="_blank" rel="noopener" data-label="Opened a study: 2016 full study">Read the full 2016 study</a>
+  </template>
+  <template data-st-for="s2">
+    <span class="st-sheet-eyebrow">Human ingredient trial &middot; 2020</span><h3>Attention and mental fatigue.</h3>
+    <p><b>60 adults &middot; 12 weeks.</b></p>
+    <p>Over 12 weeks, selected verbal-fluency and Stroop-test measures improved, along with reported mental fatigue and anxiety-state measures, compared with placebo.</p>
+    <h4>Study details</h4>
+    <p>Healthy adults aged 45&ndash;64 who noticed cognitive changes; 35 mg MHBA daily. Outcomes differed by test and time point. The study had Kirin-affiliated authors. DOI: 10.1021/acs.jafc.9b06660.</p>
+    <a class="st-src" href="https://pubmed.ncbi.nlm.nih.gov/31808686/" target="_blank" rel="noopener" data-label="Opened a study: 2020 attention abstract">Read the published abstract</a>
+  </template>
+  <template data-st-for="s3">
+    <span class="st-sheet-eyebrow">Human ingredient trial &middot; 2020</span><h3>A closer look at divided attention.</h3>
+    <p><b>100 adults &middot; 12 weeks.</b></p>
+    <p>A separate 12-week trial reported improvement in a divided-attention test in adults aged 45&ndash;69 who noticed changes in their cognition.</p>
+    <h4>Study details</h4>
+    <p>Randomized, double-blind, placebo-controlled; 35 mg MHBA daily. The individual divided-attention result reached statistical significance; an integrated analysis accounting for multiple tests did not. Some memory findings were subgroup results. Further replication matters. Kirin funded the research.</p>
+    <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7369117/" target="_blank" rel="noopener" data-label="Opened a study: 2020 divided attention">Read the full study</a>
+  </template>
+  <template data-st-for="dose">
+    <span class="st-sheet-eyebrow">The research</span><h3>One important distinction.</h3>
+    <p>PHIX supplies 120 mg of matured hop extract per serving. That is the amount of the extract, not 120 mg of isolated MHBA. The studies used specified MHBA preparations; their doses should not be assumed equivalent to a PHIX serving.</p>
+    <h4>Keep exploring.</h4>
+    <div class="st-srcs">
+      <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4476742/" target="_blank" rel="noopener" data-label="Opened a study: 2015 brown fat">2015 &middot; Animal mechanism study: brown-fat thermogenesis and sympathetic nerve activity</a>
+      <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194057/" target="_blank" rel="noopener" data-label="Opened a study: 2018 vagus nerve">2018 &middot; Animal mechanism study: memory pathways and vagus-nerve activation</a>
+      <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6208082/" target="_blank" rel="noopener" data-label="Opened a study: 2018 reanalysis">2018 &middot; Reanalysis of the 2016 trial: physical activity and body-composition outcomes</a>
+      <a class="st-src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9300118/" target="_blank" rel="noopener" data-label="Opened a study: 2022 mood pilot">2022 &middot; Single-arm pilot, no placebo group: matured hop bitter acids and mood states</a>
+    </div>
+  </template>
+  <template data-st-for="decade">
+    <span class="st-sheet-eyebrow">A decade of focused investigation</span><h3>This story did not start yesterday.</h3>
+    <h4>2015 &middot; Mechanisms.</h4><p>Published research explores energy use and nerve activity in animals.</p>
+    <h4>2016 &middot; Human outcomes.</h4><p>A controlled trial measures body composition over 12 weeks.</p>
+    <h4>2020 &middot; A broader question.</h4><p>Human trials investigate attention, mood, and mental fatigue.</p>
+    <p class="st-fine">A timeline of matured-hop ingredient research, not the age of the PHIX brand.</p>
+  </template>
+  <template data-st-for="routine">
+    <span class="st-sheet-eyebrow">Make the small things simple</span><h3>At the counter. At your desk. In your routine.</h3>
+    <p>Follow the serving directions on your label. <b>120 mg</b> matured hop extract per serving; <b>1.2 mL</b> per serving, plus purified water.</p>
+    <h4>01 / Choose drops or a Snap.</h4>
+    <p>For the bottle, shake well and measure the serving with the dropper. For a Snap, fold, snap, and squeeze into your beverage. Follow your current label.</p>
+    <h4>02 / Build a consistent routine.</h4>
+    <p>Make it easy to remember. The human ingredient trials followed daily use over weeks, not an immediate stimulant sensation.</p>
+    <h4>03 / Keep the bigger picture.</h4>
+    <p>Nutrition, movement, and sleep still matter. Track your own goals and experience over time.</p>
+    <p class="st-fine">If using twice daily, MPG directs at least 9.5 hours between uses. PHIX is intended for adults, not children or pregnant or nursing women. Consult a healthcare professional about medications or a medical condition.</p>
+  </template>
+  <template data-st-for="faq">
+    <span class="st-sheet-eyebrow">Before you begin</span><h3>Good questions. Clear answers.</h3>
+    <div class="st-faq">
+      <details><summary>Why consider PHIX?</summary><p>Its appeal is the combination of a stimulant-free formula, a hops-derived ingredient with human research, and a simple liquid routine. Consider it in the context of your body-composition and cognitive-wellness goals, the study details, and your own health needs.</p></details>
+      <details><summary>Will I feel something immediately?</summary><p>PHIX is not a caffeine product. Some people describe personal changes in sleep, focus, or how they feel, while others may not notice an immediate sensation. The controlled ingredient studies measured outcomes over weeks. A sensation, or the lack of one, is not a clinical measurement.</p></details>
+      <details><summary>Is this the same as beer or ordinary hops?</summary><p>No. PHIX is a liquid dietary supplement formulated with matured hop extract and purified water. Matured hop bitter acids are a particular group of compounds; different hops products can contain different constituents and amounts.</p></details>
+      <details><summary>Does PHIX contain caffeine?</summary><p>MPG describes PHIX as stimulant-free. The US ingredient listing names matured hop extract and purified water.</p></details>
+      <details><summary>What about sleep support?</summary><p>MPG includes restful sleep among PHIX's support areas. People in the Boards collection also discuss sleep experiences. The most directly documented controlled matured-hop studies reviewed here focus on body composition and selected cognitive or mood outcomes; ordinary hops sleep studies should not automatically be treated as PHIX trials.</p></details>
+      <details><summary>Do I have to take it forever?</summary><p>Think of it as a wellness routine to evaluate, not a lifetime obligation. Follow the label and assess whether it fits your needs over time. Your healthcare professional can help with individual questions.</p></details>
+      <details><summary>Who should check before using it?</summary><p>The current US listing says PHIX is not intended for children or pregnant or lactating women. If you take medication or have a medical condition, speak with your healthcare professional before use.</p></details>
+      <details><summary>Where can I see the official product information?</summary><p>Use the current MPG product listing for directions and warnings. The research papers are linked in the science section of this page.</p><a class="st-src" href="https://marketplaceglobal.com/product/phix/mpgxtreme-us-30-phix-snap-box-sku316c-us-id811" target="_blank" rel="noopener" data-label="Opened MPG's PHIX product page">Official MPG product information</a></details>
+    </div>
+  </template>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/_shared/story/v1/story.js?v=1" defer></script>
