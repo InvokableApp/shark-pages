@@ -1,0 +1,117 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-crash-plan/b-crash-plan-confirmation-reel
+  The 3 PM Crash Plan, the confirmation as a REEL. Structure and script from bepic/b-coffees-teas/b-coffees-teas-confirmation-reel
+  (B-Epic's bonus frame, REEL-PAGE-SOP 2b); the words are Nueva's No Crash Plan confirmation (Jeff, 2026-11-17: "were
+  literally ripping nueva") with no coupon code (PAGE-COPY-SOP rule 14) and ELEV8 and ELEV8 Drink 2.0 in equal space.
+  ⚠️ EVERY WORD IS BEPICSHARK/campaigns/3pm-crash/copy.mjs CONFIRM. Change a word there first.
+  ⚠️ PRODUCT NAMES ARE FINE HERE, never on the opt-in. NO PACK PHOTOS. NO COMPANY NAME.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE: the two claim buttons fetch /b-crash-plan-list-request (block.js).
+-->
+<div class="rl rl-look-poster rl-cp rlt" data-words="{&quot;Tap for sound&quot;:&quot;Toca para el sonido&quot;,&quot;Mute&quot;:&quot;Silenciar&quot;}" data-pf-native data-pf-dock="Desliza hacia arriba para un regalo 🎁" data-rl-claim="/b-crash-plan-list-request" data-pf-arrive="#0B0B0B">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. BONE: you are in. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="lk-card ct-card">
+            <span class="rlt-pill" data-in>✅ ¡Listo! Desliza hacia arriba para un regalo 🎁</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type">Revisa tu correo<span data-if-name>, {{contact.first_name}}</span>. Ahí está <em>el plan contra el bajón de las 3 PM</em>.</h1>
+            <p data-in style="--d:.3s">Debería llegar en un minuto o dos. Si no lo ves, busca en promociones y en spam, que casi siempre termina ahí.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/b-crash-plan-read">LÉELO EN LÍNEA</a>
+              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_crash_plan_guide_pdf_url}}" href="https://{{custom_values.bepic_crash_plan_guide_pdf_url}}" target="_blank" rel="noopener">DESCARGA EL PDF</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para tu regalo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. BLACK, the bonus. The video's place on top (none yet: the cover photo as a print), the card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu regalo">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_crash_bonus_video}}"
+                     poster="{{custom_values.bepic_crash_bonus_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu plan contra el bajón de las 3 PM va en camino, y un regalo"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Regalo extra</span>
+            <span class="rlb-coverwrap"><span class="ct-listcard" role="img" aria-label="Qué tomar para tener energía estable y qué evitar"><span class="ct-listcard-k">Guía de suplementos</span><span class="ct-listcard-h">Qué tomar para tener energía estable</span></span></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">Guía de suplementos gratis</p>
+              <p class="rlb-plus">+ info de los productos</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Te llegan las dos en un mensaje</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-crash-plan-list-request">🎁 ¡SÍ! Mándame la guía de suplementos + info de los productos</a>
+        </div>
+      </section>
+
+      <!-- 3. BONE: what's in the supplement guide, the button again, the two products side by side, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="Qué tomar para tener energía estable y qué evitar">
+        <div class="rl-in">
+          <div class="lk-card ct-guidecard">
+            <span class="rlb-eyebrow" data-in>Regalo extra</span>
+            <div class="rlb-ad" data-in style="--d:.1s">
+              <span class="ct-listcard ct-listcard-sm" role="img" aria-label="Qué tomar para tener energía estable y qué evitar"><span class="ct-listcard-k">Guía de suplementos</span><span class="ct-listcard-h">Qué tomar</span></span>
+              <h2>Lo que trae la guía</h2>
+            </div>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Cada suplemento de energía, calificado</li>
+              <li data-in style="--d:.3s">Cómo leer una etiqueta</li>
+              <li data-in style="--d:.4s">Cuáles vale la pena tomar</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/b-crash-plan-list-request">🎁 ¡SÍ! Mándame la guía de suplementos + info de los productos</a>
+            <div class="ct-recs" data-in style="--d:.6s">
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-crash-plan/_img/cp-rec-capsule.jpg" width="800" height="800" alt="Desayuno en la mesa de la cocina">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">La cápsula</span>
+                  <p class="rlb-rec-h">ELEV8</p>
+                  <p>Una cápsula verde pequeña con unos 150 mg de cafeína de origen vegetal, hecha para la energía y la claridad mental.</p>
+                </div>
+              </div>
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-crash-plan/_img/cp-rec-drink.jpg" width="800" height="800" alt="Un vaso de agua junto a una ventana soleada">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">La bebida</span>
+                  <p class="rlb-rec-h">ELEV8 Drink 2.0</p>
+                  <p>La misma fórmula en un sobrecito que mezclas con agua, con electrolitos y unos 110 mg de cafeína.</p>
+                </div>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done, verbatim. The word is CRASH; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te vamos a mandar la <b>guía de suplementos</b> Y la <b>info de los productos en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+      <p>Revisa tus mensajes de texto y de Facebook, también las carpetas <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, ¡para que no se te pase!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de que te llegue?</b> Escribe <b>“CRASH”</b> al <a class="rlt-claim-num" data-claim-num data-word="CRASH" href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=CRASH">{{custom_values.bepic_rep_phone}}</a> para que no caiga en Remitentes desconocidos.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

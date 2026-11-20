@@ -1,0 +1,94 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-coffee-sample/b-coffee-sample-confirmation-reel
+  The coffee sample confirmation as a REEL. The one ask: text COFFEE (the reply keyword stays English) to the rep.
+-->
+<div class="rl rl-look-soft lk-green rl-cs rlc" data-words="{&quot;Tap for sound&quot;:&quot;Toca para el sonido&quot;,&quot;Mute&quot;:&quot;Silenciar&quot;}" data-pf-native data-pf-message="para recibir tu muestra de café" data-pf-arrive="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: one more step. The page rises out of the sand the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rl-wide rlc-top">
+        <div class="rl-in">
+          <span class="rlc-pill" data-in><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>Un paso más</span>
+          <!-- The name is filled on the platform from the opt-in, and the span drops when it isn't known (render.mjs
+               fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Listo<span data-if-name>, {{contact.first_name}}</span>. Mándame <em>un mensaje rápido</em> para hacértelo llegar.</h1>
+          <p data-in style="--d:.3s">Escríbeme la palabra COFFEE al <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span> ahora mismo. Así sé que eres una persona real, y vemos cómo te lo hago llegar.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm"
+               href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Escribe COFFEE al <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_rep_messenger}}" href="/b-coffee-sample-redirect-dm">Mejor escríbeme por Facebook</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video. The presenter says "tap the button below", so the text button sits right under it. -->
+      <section class="rl-p rl-night rl-plain rl-wide rlc-vid rlt-vid" aria-label="Un video corto">
+        <div class="rl-in">
+          <div class="rlc-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_coffee_sample_video}}"
+                     poster="{{custom_values.bepic_coffee_sample_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Lo que sigue con tu café"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <a class="rl-btn rlc-go" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm" data-in style="--d:.2s"
+             href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Escribe COFFEE al <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+        </div>
+      </section>
+
+      <!-- 2. TINT: what happens next, the three steps they are now inside -->
+      <section class="rl-p rl-tint rl-wide rlc-next">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Lo que sigue</span>
+          <h2 data-in style="--d:.1s">Tres pasos para <em>tu muestra</em></h2>
+          <ol class="cs-steps rlc-steps" data-in style="--d:.25s">
+            <li><b>Me mandas un mensaje.</b> Escribe COFFEE al <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span>, o escríbeme por Facebook, ahora mismo.</li>
+            <li><b>Vemos cómo te llega.</b> En persona o por correo, lo que te funcione. Si es por correo, confirmo la dirección contigo.</li>
+            <li><b>Lo pruebas.</b> Un sobrecito en 6 a 8 oz de agua, caliente o frío, de 15 a 30 minutos antes de tu comida más grande.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 3. PHOTO: while you wait, the coffee named -->
+      <section class="rl-p rl-photo rlc-what">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-coffee-sample/_img/cs-how.jpg')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Mientras esperas</span>
+          <h2 data-in style="--d:.1s">Se llama <em>EpicSlim Coffee</em></h2>
+          <p data-in style="--d:.2s">Un cold brew instantáneo de Arábica con 10 g de proteína de colágeno, hongos cordyceps y melena de león, y unos 75 mg de cafeína. 45 calorías por sobrecito.</p>
+          <ul class="rl-pills rlc-checks" data-in style="--d:.3s">
+            <li>Ayuda a controlar el apetito, tomado de 15 a 30 minutos antes de comer</li>
+            <li>Está hecho para la energía, el ánimo y la concentración</li>
+            <li>Caliente o frío, sin nada que medir</li>
+          </ul>
+          <p class="rlc-more" data-in style="--d:.4s"><a href="/b-coffee-sample-product">Más sobre EpicSlim Coffee</a></p>
+        </div>
+      </section>
+
+      <!-- 4. NIGHT: the ask, with the rep, and the fine print -->
+      <section class="rl-p rl-night rl-plain rl-wide rlc-ask">
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <p class="rlc-say" data-in style="--d:.1s">¡Mándame un mensaje ahora y te consigo un poco para que lo pruebes!</p>
+          <a class="rl-btn rlc-go" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-coffee-sample-redirect-dm" data-in style="--d:.25s"
+             href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=COFFEE">Escribe COFFEE al <span data-rep-phone>{{custom_values.bepic_rep_phone}}</span></a>
+          <p class="rlc-alt" data-in style="--d:.35s" data-needs="{{custom_values.bepic_rep_messenger}}"><a href="/b-coffee-sample-redirect-dm">Mejor escríbeme por Facebook</a></p>
+          <p class="rl-fine" data-in style="--d:.45s">* Sujeto a disponibilidad de muestras. Contiene cafeína (unos 75 mg por sobrecito) y berberina: tómalo al menos 6 horas antes de dormir, y consulta primero a tu médico si tomas medicamentos, estás embarazada o amamantando, tienes alguna condición médica o eres menor de 18 años. Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock and usually can't text: the ask floats in the window as the Facebook step, with the rep
+         (reel.js). No Messenger link: no floating button, and the screens' own text buttons and number carry the ask. -->
+    <a class="rl-cta" data-rep-cta="Escríbele a {first} por Facebook" data-needs="{{custom_values.bepic_rep_messenger}}"
+       href="/b-coffee-sample-redirect-dm">Escríbeme por Facebook</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Siguiente pantalla"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

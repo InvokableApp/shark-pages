@@ -1,0 +1,107 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-pre-workout-bar/b-pre-workout-bar-confirmation-reel
+  The Pre-Workout Bar, the confirmation as a REEL. Structure and script from bepic/b-greens-breakfast's (B-Epic's bonus
+  frame, REEL-PAGE-SOP 2b), in the look Y · Tracker. The bonus is product info only (Jeff, 2026-11-17: "make the drink or
+  buy the product"): no supplement list.
+  ⚠️ EVERY WORD IS BEPICSHARK/campaigns/pre-workout-bar/copy.mjs CONFIRM. Change a word there first.
+  ⚠️ PRODUCT NAMES ARE FINE HERE, never on the opt-in. NO PACK PHOTOS (the pack reads "Cardio Health Formula"). NO COMPANY
+     NAME. B-CARDIO only in B-Epic's usable words (brain/bepic.md).
+  ⚠️ NO VIDEO YET (Jeff: HeyGen after the campaigns): the guide's cover stands in the video's place on screen 2.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE: the two claim buttons fetch /b-pre-workout-bar-info-request (block.js).
+-->
+<div class="rl rl-look-tracker rl-pw rlt" data-words="{&quot;Tap for sound&quot;:&quot;Toca para el sonido&quot;,&quot;Mute&quot;:&quot;Silenciar&quot;}" data-pf-native data-pf-dock="Desliza hacia arriba para un regalo 🎁" data-rl-claim="/b-pre-workout-bar-info-request" data-pf-arrive="#0B0D10">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. You are in. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="pw-panel">
+            <span class="rlt-pill" data-in>✅ Ya estás dentro. Desliza hacia arriba para un regalo 🎁</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type"><span data-if-name>Hola {{contact.first_name}}, </span>tu Bar Pre-Entreno te llega <em>en 2 minutos.</em></h1>
+            <p data-in style="--d:.3s">Revisa tu correo. Si no lo ves ahí, revisa tu carpeta de SPAM.</p>
+            <p data-in style="--d:.4s">O ábrelo ahorita mismo.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/b-pre-workout-bar-read">LÉELO EN LÍNEA</a>
+              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_pre_workout_bar_guide_pdf_url}}" href="https://{{custom_values.bepic_pre_workout_bar_guide_pdf_url}}" target="_blank" rel="noopener">DESCARGA EL PDF</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver tu regalo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. The bonus. The video's place on top (none yet: the guide's cover), the card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu regalo">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_preworkout_bonus_video}}"
+                     poster="{{custom_values.bepic_preworkout_bonus_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu Bar Pre-Entreno ya va en camino, y un regalo"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Regalo</span>
+            <span class="rlb-coverwrap"><img class="pw-couponimg" src="/_p/bepic/b-pre-workout-bar/_img/pw-cover.jpg" width="1000" height="1500" alt="Una bebida roja oscura en una botella sobre una banca del gimnasio"></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">La que ya viene lista y yo tomo</p>
+              <p class="rlb-plus">+ info del producto</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Te la mando por mensaje</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-pre-workout-bar-info-request">🎁 ¡SÍ! Mándame la info del producto</a>
+        </div>
+      </section>
+
+      <!-- 3. What the info covers, the button again, the product, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="La que ya viene lista y yo tomo">
+        <div class="rl-in">
+          <div class="pw-panel pw-guidecard">
+            <span class="rlb-eyebrow" data-in>Regalo</span>
+            <h2 data-in style="--d:.1s">Para los días en que <em>no preparas una</em></h2>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Lo que tomo cuando no hay ganas de licuadora</li>
+              <li data-in style="--d:.3s">Cómo lo tomo antes de entrenar</li>
+              <li data-in style="--d:.4s">Dónde conseguirlo</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/b-pre-workout-bar-info-request">🎁 ¡SÍ! Mándame la info del producto</a>
+            <div class="rlb-rec" data-in style="--d:.6s">
+              <img class="rlb-rec-img" src="/_p/bepic/b-pre-workout-bar/_img/pw-cover-wide.jpg" width="1000" height="667" alt="Un vaso de una bebida roja en el piso del gimnasio">
+              <div class="rlb-rec-t">
+                <span class="rlb-rec-k">La que ya viene lista</span>
+                <p class="rlb-rec-h">B-CARDIO</p>
+                <p>Un sobrecito de frambuesa que mezclas en 8 a 12 oz de agua. 0 calorías, sin cafeína. Está hecho como pre-entreno, para energía y resistencia sin cafeína ni estimulantes.</p>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done, verbatim. The word is BAR; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te enviaremos por mensaje la <b>info del producto en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+      <p>¡Revisa tus mensajes de texto y de Facebook, incluidas tus carpetas de <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, para que no se te pase!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de que te llegue?</b> Envía un mensaje de texto con la palabra <b>“BAR”</b> al <a class="rlt-claim-num" data-claim-num data-word="BAR" href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=BAR">{{custom_values.bepic_rep_phone}}</a> para que no termine en tu carpeta de “Remitentes desconocidos”.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

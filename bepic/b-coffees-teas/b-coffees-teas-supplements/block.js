@@ -10,6 +10,11 @@
   var root = document.querySelector(".sk-ct");
   if (!root || root.dataset.skBooted) return;
   root.dataset.skBooted = "1";
+  // The page's language (as glp/your-links/links): block.<lang>.html carries its words as data-words on the root, a JSON
+  // table { "English": "translation" }; the English page's is empty, so the button reads as written.
+  var T = {};
+  try { T = JSON.parse(root.getAttribute("data-words") || "{}") || {}; } catch (e) { T = {}; }
+  function t(s) { return T[s] || s; }
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   root.addEventListener("click", function (ev) {
@@ -29,7 +34,7 @@
       var b = document.createElement("button");
       b.type = "button";
       b.className = "recipe-print";
-      b.textContent = "Print this recipe";
+      b.textContent = t("Print this recipe");
       b.addEventListener("click", function () {
         root.setAttribute("data-printing", "1");
         card.setAttribute("data-print", "1");

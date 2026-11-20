@@ -1,0 +1,31 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-pre-workout-bar/b-pre-workout-bar-text-me
+  Where the "🎁 Text me the product info" buttons in this campaign's emails go. Ported from
+  bepic/b-greens-breakfast/b-greens-breakfast-text-me (2026-11-17), the words from copy.mjs TEXTME.
+  ⚠️ ITS VIEW IS AN ALERT ("B-Epic - The Pre-Workout Bar - Text Me"). Known leads only; once per lead.
+  No company name, no product name in the lead's words, no code (PAGE-COPY-SOP rule 14).
+-->
+<div class="rl rl-look-tracker rl-pw rlr" data-pf-native data-tm data-pf-arrive="#0B0D10"
+  data-pf-say="Hola {first}, descargué El Bar Pre-Entreno, ¿me mandas la info de la que ya viene lista y tú tomas?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <div class="pw-panel">
+            <h1 class="rlr-big" data-in>Escríbeme<span data-if-name>, {{contact.first_name}},</span> y te mando <b>la que ya viene lista y yo tomo</b>.</h1>
+            <p data-in style="--d:.1s">El mensaje ya está escrito. Toca enviar y me llega directo a mí.</p>
+            <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+            <div class="rl-btns" data-in style="--d:.3s">
+              <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.bepic_rep_phone}}" href="sms:{{custom_values.bepic_rep_phone}}">💬 Enviarlo por mensaje de texto</a>
+              <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.bepic_rep_messenger}}" href="https://{{custom_values.bepic_rep_messenger}}">Escríbeme por Facebook</a>
+            </div>
+            <p class="tm-desk" data-tm-desk hidden>O envíalo por mensaje de texto al <b data-tm-num>{{custom_values.bepic_rep_phone}}</b> desde tu teléfono.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

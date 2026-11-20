@@ -1,0 +1,105 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-greens-breakfast/b-greens-breakfast-reel
+  The Greens at Breakfast Recipe Guide, the opt-in as a REEL. Ripped from nueva/n-greens-breakfast/n-greens-breakfast-reel
+  (Jeff, 2026-11-17: "lets do the greens guide, the nueva one is almost done anyway"): the same five screens and words,
+  in the look U · Green poster (Jeff, 2026-11-17: "u"): black, B-Epic green #4FBA46, Archivo condensed capitals, the food
+  in full colour, a yellow #E8FF3A stamp (block.css, on _shared/reel/looks/poster.css).
+  ⚠️ EVERY WORD IS BEPICSHARK/campaigns/greens-breakfast/copy.mjs (OPTIN, the frittata in RECIPES). Change a word there
+     first. The counts agree with the guide: 12 recipes, 5 ready in 15 minutes, 5 to make ahead, 2 for a slow weekend.
+  ⚠️ NO COMPANY NAME AND NO PRODUCT NAME on this page (brain/bepic.md). No product pack.
+  ⚠️ REAL FOOD PHOTOS ONLY (Nueva's renders, no brand), and the B-Epic guide's own PDF pages, in ../_img/.
+-->
+<div class="rl rl-look-poster rl-gp" data-pf-native data-pf-dock="Envíame las recetas" data-pf-handoff="#0A0A0A">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover. The frittata full colour behind, the stamp, the headline, the guide. -->
+      <section class="rl-p rl-photo rl-cover" aria-label="Guía de recetas Verduras en el desayuno">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-greens-breakfast/_img/frittata.jpg')"></div>
+        <div class="gp-stamp rl-art" aria-hidden="true">Sin<br>ensalada</div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in style="--d:.1s">Guía de recetas gratis</span>
+          <h1 data-in style="--d:.2s">Descarga gratis: 12 recetas de desayuno para comer tus <em>verduras</em> cada mañana</h1>
+          <p class="gp-lede" data-in style="--d:.35s">Frittata de brócoli y cheddar, shakshuka verde, burritos para congelar y 9 más.</p>
+          <ul class="rl-pills" data-in style="--d:.5s"><li>12 recetas</li><li>5 listas en 15 minutos</li><li class="gp-desk">5 para dejar hechas</li><li>Gratis</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. BONE: what's in the PDF, and that it's free. The guide's own pages fan out (_img/pdf-page-*.jpg, cut from
+           shark-pages/bepic/_guides/greens-at-breakfast-recipe-guide.pdf by build-guides.mjs --pdf). -->
+      <section class="rl-p rl-paper rl-get">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Lo que recibes</span>
+          <div class="rl-fan rl-art" aria-hidden="true">
+            <img class="f2" src="/_p/bepic/b-greens-breakfast/_img/pdf-page-4.es.jpg" alt="">
+            <img class="f1" src="/_p/bepic/b-greens-breakfast/_img/pdf-page-3.es.jpg" alt="">
+            <img class="f0" src="/_p/bepic/b-greens-breakfast/_img/pdf-page-1.es.jpg" alt="">
+          </div>
+          <h2 data-in style="--d:.5s">12 recetas en un PDF gratis</h2>
+          <p data-in style="--d:.6s">Cada receta trae una foto, las cantidades para 2, 4 o 6 personas y una lista del súper. Léela en tu celular o imprímela.</p>
+        </div>
+      </section>
+
+      <!-- 3. BLACK: one recipe as it is in the guide: the frittata, its badges and the first four rows typing on -->
+      <section class="rl-p rl-night rl-wide gp-recipe">
+        <div class="rl-in">
+          <div class="gp-rc rl-art" data-in>
+            <img class="gp-rc-ph" src="/_p/bepic/b-greens-breakfast/_img/frittata.jpg" width="1000" height="1000" alt="Frittata de brócoli y cheddar en un sartén" loading="lazy">
+            <div class="gp-rc-body">
+              <span class="rl-eyebrow">Para dejar hecha</span>
+              <h2>Frittata de brócoli y cheddar</h2>
+              <ul class="gp-badges"><li>Preparación 10 min</li><li>Cocción 20 min</li><li>Rinde 1 frittata</li></ul>
+              <table class="gp-tbl">
+                <tr><th></th><th>Para 2</th><th>Para 4</th><th>Para 6+</th></tr>
+                <tr style="--i:0"><td>Huevos</td><td>4</td><td>8</td><td>12</td></tr>
+                <tr style="--i:1"><td>Leche</td><td>2 cdas</td><td>¼ taza</td><td>⅓ taza</td></tr>
+                <tr style="--i:2"><td>Floretes de brócoli, picados finos</td><td>1 taza</td><td>2 tazas</td><td>3 tazas</td></tr>
+                <tr style="--i:3"><td>Espinaca baby</td><td>1 taza</td><td>2 tazas</td><td>3 tazas</td></tr>
+              </table>
+              <p class="gp-good"><b>Lo bueno:</b> Cada porción lleva como una taza de brócoli y espinaca, y los huevos te dejan satisfecho.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. BLACK: what's in it, three cards in a sideways row, each with a photo of one of its recipes -->
+      <section class="rl-p rl-night rl-plain rl-wide gp-inside">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Guía de recetas Verduras en el desayuno</span>
+          <h2 data-in style="--d:.05s">Lo que trae</h2>
+          <div class="rl-cards gp-inlist" data-in style="--d:.15s">
+            <div class="gp-icard"><img src="/_p/bepic/b-greens-breakfast/_img/pea-toast.jpg" alt="" loading="lazy"><div><h3><span class="gp-n">5</span> listas en 15 minutos</h3>
+              <p>Huevos revueltos con pesto, avena salada con huevo tierno, quesadilla de espinaca y feta, pan tostado con chícharos machacados y huevos a la turca.</p></div></div>
+            <div class="gp-icard"><img src="/_p/bepic/b-greens-breakfast/_img/burritos.jpg" alt="" loading="lazy"><div><h3><span class="gp-n">5</span> para dejar hechas</h3>
+              <p>Frittata de brócoli y cheddar (o muffins de huevo), cebada remojada toda la noche con sabor a pan de calabacita, muffins de calabacita y plátano, burritos para congelar y panqueques verdes.</p></div></div>
+            <div class="gp-icard"><img src="/_p/bepic/b-greens-breakfast/_img/shakshuka.jpg" alt="" loading="lazy"><div><h3><span class="gp-n">2</span> para un fin de semana tranquilo</h3>
+              <p>Shakshuka verde con feta y un salteado de kale y camote.</p></div></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 de 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: the close, the green pancakes and the guide -->
+      <section class="rl-p rl-photo rl-close">
+        <div class="rl-bg" style="background-image:url('/_p/bepic/b-greens-breakfast/_img/green-pancakes.jpg')"></div>
+        <div class="rl-in">
+          <img class="rl-book rl-book-lg rl-art" data-in src="/_p/bepic/b-greens-breakfast/_img/guide-cover.es.jpg" width="765" height="990" alt="Guía de recetas Verduras en el desayuno">
+          <span class="rl-eyebrow" data-in style="--d:.15s">Gratis</span>
+          <h2 data-in style="--d:.2s">Descarga la guía de recetas Verduras en el desayuno</h2>
+          <p class="rl-note" data-in style="--d:.3s">Llega a tu correo en unos 2 minutos.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. -->
+    <button type="button" class="rl-cta" data-sk-open>Envíame las recetas</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves (_shared/reel/v1/reel.js): written here, not loaded from block.js, so they run before the
+     platform builds the dock (funnel-native.js). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

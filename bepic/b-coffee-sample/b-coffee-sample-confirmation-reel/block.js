@@ -13,6 +13,11 @@
 (function () {
   var screen = document.querySelector(".rlt-vid"), v = screen && screen.querySelector("video"), btn = screen && screen.querySelector(".rlt-sound");
   if (!v || !btn) return;
+  // The page's language (as glp/your-links/links): block.<lang>.html carries its words as data-words on the reel, a JSON
+  // table { "English": "translation" }; the English page's is empty, so the labels below read as written.
+  var host = screen.closest ? screen.closest("[data-words]") : null, T = {};
+  try { T = JSON.parse((host && host.getAttribute("data-words")) || "{}") || {}; } catch (e) { T = {}; }
+  function t(s) { return T[s] || s; }
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function on() { return screen.classList.contains("is-on"); }
   function sync() {
@@ -25,11 +30,11 @@
     if (v.muted) {
       v.muted = false; v.loop = false; v.currentTime = 0;
       var p = v.play(); if (p && p.catch) p.catch(function () {});
-      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", "Mute");
+      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", t("Mute"));
     } else {
-      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound");
+      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", t("Tap for sound"));
     }
   });
   v.addEventListener("click", function () { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound"); v.currentTime = 0; sync(); });
+  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", t("Tap for sound")); v.currentTime = 0; sync(); });
 })();

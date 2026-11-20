@@ -1,0 +1,114 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-coffees-teas/b-coffees-teas-confirmation-reel
+  Metabolism Coffees and Teas, the confirmation as a REEL: you are in, the bonus, the supplement guide and the two
+  products. The claim is a tap. The popup's reply keyword BREW stays English.
+-->
+<div class="rl rl-look-roast rl-ct rlt" data-words="{&quot;Tap for sound&quot;:&quot;Toca para el sonido&quot;,&quot;Mute&quot;:&quot;Silenciar&quot;}" data-pf-native data-pf-dock="Desliza hacia arriba para un regalo 🎁" data-rl-claim="/b-coffees-teas-list-request" data-pf-arrive="#C9A57A">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. KRAFT: you are in. The page rises out of the kraft the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="lk-card ct-card">
+            <span class="rlt-pill" data-in>✅ Ya estás dentro. Desliza hacia arriba para un regalo 🎁</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type"><span data-if-name>Hola {{contact.first_name}}, </span>tu guía Cafés y tés para el metabolismo te llega <em>en 2 minutos.</em></h1>
+            <p data-in style="--d:.3s">Revisa tu correo. Si no la ves ahí, revisa tu carpeta de <b>SPAM</b>.</p>
+            <p class="rl-note" data-in style="--d:.4s">O ábrela ahora mismo.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/b-coffees-teas-read">LÉELA EN LÍNEA</a>
+              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.bepic_coffees_teas_guide_pdf_url}}" href="https://{{custom_values.bepic_coffees_teas_guide_pdf_url}}" target="_blank" rel="noopener">DESCARGA EL PDF</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver tu regalo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. ESPRESSO, the bonus. The video's place on top (none yet: the cover photo as a print), the card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu regalo">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.bepic_coffees_bonus_video}}"
+                     poster="{{custom_values.bepic_coffees_bonus_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu guía Cafés y tés para el metabolismo va en camino, y un regalo"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Regalo extra</span>
+            <span class="rlb-coverwrap"><span class="ct-listcard" role="img" aria-label="Qué agregar a tu taza y qué evitar"><span class="ct-listcard-k">Guía de suplementos</span><span class="ct-listcard-h">Qué agregar a tu taza y qué evitar</span></span></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">Qué agregar a tu taza y qué evitar</p>
+              <p class="rlb-plus">+ información del producto</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Las dos te llegan en un mensaje</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-coffees-teas-list-request">🎁 ¡SÍ! Mándame la guía de suplementos + información del producto</a>
+        </div>
+      </section>
+
+      <!-- 3. KRAFT: what's in the supplement guide, the button again, the two products side by side, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="Qué agregar a tu taza y qué evitar">
+        <div class="rl-in">
+          <div class="lk-card ct-guidecard">
+            <span class="rlb-eyebrow" data-in>Regalo extra</span>
+            <div class="rlb-ad" data-in style="--d:.1s">
+              <span class="ct-listcard ct-listcard-sm" role="img" aria-label="Qué agregar a tu taza y qué evitar"><span class="ct-listcard-k">Guía de suplementos</span><span class="ct-listcard-h">Qué agregar a tu taza</span></span>
+              <h2>Dentro de la guía de suplementos...</h2>
+            </div>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Qué suplementos para el metabolismo valen la pena, y cuáles no</li>
+              <li data-in style="--d:.3s">Cómo leer una etiqueta en 60 segundos</li>
+              <li data-in style="--d:.4s">El café y el té que tomo las mañanas que no licúo nada</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/b-coffees-teas-list-request">🎁 ¡SÍ! Mándame la guía de suplementos + información del producto</a>
+            <div class="ct-recs" data-in style="--d:.6s">
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-coffees-teas/_img/cinnamon-spice.jpg" width="1000" height="1000" alt="Una taza de café caliente con espuma">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">Para los que toman café</span>
+                  <p class="rlb-rec-h">EpicSlim Coffee</p>
+                  <p>Café Arábica con 10 g de colágeno y hongos. Un sobrecito en agua caliente o fría.</p>
+                </div>
+              </div>
+              <div class="rlb-rec">
+                <img class="rlb-rec-img" src="/_p/bepic/b-coffees-teas/_img/sg-fine.jpg" width="1000" height="1000" alt="Una taza de vidrio con té de hierbas, limón y jengibre">
+                <div class="rlb-rec-t">
+                  <span class="rlb-rec-k">Para los que toman té</span>
+                  <p class="rlb-rec-h">Drink2Shrink</p>
+                  <p>Un té de hierbas orgánico y sin cafeína. Prepara una jarra y tómalo caliente o frío.</p>
+                </div>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Siguiente pantalla"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done. The word is BREW; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te mandamos la <b>guía de suplementos</b> Y la <b>información del producto en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+      <p>Revisa tus mensajes de texto y de Facebook, incluidas las carpetas <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, ¡para que no se te pase!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de que te llegue?</b> Escribe <b>“BREW”</b> al <a class="rlt-claim-num" data-claim-num data-word="BREW" href="sms:{{custom_values.bepic_rep_phone}}?&amp;body=BREW">{{custom_values.bepic_rep_phone}}</a> para que no caiga en Remitentes desconocidos.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

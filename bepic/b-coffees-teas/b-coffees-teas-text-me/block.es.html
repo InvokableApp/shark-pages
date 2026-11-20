@@ -1,0 +1,29 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  bepic/b-coffees-teas/b-coffees-teas-text-me
+  Where the emails' "text me the supplement guide" buttons go. Jeff's template: "Hey {first}, I downloaded the <guide>...". The lead's message is written for them ({first} is the
+  rep). Its view is an alert.
+-->
+<div class="rl rl-look-roast rl-ct rlr" data-pf-native data-tm data-pf-arrive="#C9A57A"
+  data-pf-say="Hola {first}, descargué la guía Cafés y tés para el metabolismo, ¿me puedes mandar la guía de suplementos y la información del producto?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <div class="lk-card">
+            <h1 class="rlr-big" data-in>Escríbeme<span data-if-name>, {{contact.first_name}},</span> y te mando la <b>guía de suplementos</b> y la <b>información del producto</b>.</h1>
+            <p data-in style="--d:.1s">Tu mensaje ya está listo. Toca enviar y me llega directo a mí.</p>
+            <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+            <div class="rl-btns" data-in style="--d:.3s">
+              <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.bepic_rep_phone}}" href="sms:{{custom_values.bepic_rep_phone}}">💬 Enviarlo por mensaje de texto</a>
+              <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.bepic_rep_messenger}}" href="https://{{custom_values.bepic_rep_messenger}}">Escríbeme por Facebook</a>
+            </div>
+            <p class="tm-desk" data-tm-desk hidden>O mándalo por mensaje de texto al <b data-tm-num>{{custom_values.bepic_rep_phone}}</b> desde tu teléfono.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>
