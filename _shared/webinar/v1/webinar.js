@@ -135,7 +135,16 @@
     var z = root.querySelector("[data-wb-zones]");
     if (z) {
       z.textContent = hour(ET) + " ET ";
-      var rest = el("span", "", "/ " + hour("America/Chicago") + " CT / " + hour("America/Denver") + " MT / " + hour("America/Los_Angeles") + " PT");
+      var line = "/ " + hour("America/Chicago") + " CT / " + hour("America/Denver") + " MT / " + hour("America/Los_Angeles") + " PT";
+      // Extra places a call names after the US zones ("Australia/Brisbane:Brisbane|..."), with their own weekday when
+      // it differs from New York's: "/ Tuesday 11am in Brisbane" (Joe, 2026-11-19, GLP's 11-23 call).
+      String(val("zones-extra") || "").split("|").forEach(function (x) {
+        var i = x.indexOf(":"), tz = x.slice(0, i), name = x.slice(i + 1);
+        if (i < 1 || !name || !fmt({ hour: "numeric" }, tz)) return;
+        var wd = fmt({ weekday: "long" }, tz);
+        line += " / " + (wd !== fmt({ weekday: "long" }, ET) ? wd + " " : "") + hour(tz) + " in " + name;
+      });
+      var rest = el("span", "", line);
       z.appendChild(rest);
     }
     var here = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
