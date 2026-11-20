@@ -12,7 +12,7 @@
      it. Our own pages say "helps feed a child in need" with no number (brain/mpg.md); here Jeff kept Beal's ("its fine").
   ⚠️ THE SLUG names no product (MPG P&P §9.4.A): /m-aloe-story.
   ⚠️ THE FILM is Beal's, copied to our storage (media/mpg/story/veracell-film-v7.mp4, re-encoded to 23 MB from his 55 MB to
-     fit the storage limit). Dr. Ben's and Sam's full talks are links to MPG's share pages, as on Beal's page.
+     fit the storage limit). Dr. Ben's and Sam's full talks play here from MPG's video host (see the pop-ups), not through Beal's share.mpg.plus links.
 
   The kit is _shared/story/v1 on the reel. The rep hears who opened it and every Read more, video and button they tapped
   (watch.js). The ask: text the rep (/m-aloe-story-text; mpg_rep_sms), or their Messenger (/m-aloe-story-message).
@@ -59,12 +59,12 @@
           <h2 data-in style="--d:.1s">The people <em>behind the story.</em></h2>
           <p data-in style="--d:.2s">Explore the ingredients with Dr. Ben. Hear the research history and giving mission from Sam.</p>
           <div class="rl-cards al-talks" data-in style="--d:.3s">
-            <a class="st-card al-talk" href="https://share.mpg.plus/d7TKW1Sr3" target="_blank" rel="noopener" data-label="Opened Dr. Ben's full presentation">
+            <button type="button" class="st-card al-talk" data-st-play="ben" data-label="Played Dr. Ben's full presentation (19:56)">
               <span class="al-talk-pic"><img src="assets/dr-ben-stage.jpg" alt="Dr. Ben presenting on stage" loading="lazy"><i>&#9654; 19:56</i></span>
-              <span class="st-card-tag">The product &amp; ingredients</span><h3>Dr. Ben on stage</h3><p>A closer look at VeraCell, prebiotics, and the ingredients inside.</p><span class="al-talk-go">Watch full presentation &#8599;</span></a>
-            <a class="st-card al-talk" href="https://share.mpg.plus/WqrVgT150" target="_blank" rel="noopener" data-label="Opened Sam Caster's full presentation">
+              <span class="st-card-tag">The product &amp; ingredients</span><h3>Dr. Ben on stage</h3><p>A closer look at VeraCell, prebiotics, and the ingredients inside.</p><span class="al-talk-go">&#9654; Watch full presentation</span></button>
+            <button type="button" class="st-card al-talk" data-st-play="sam" data-label="Played Sam Caster's full presentation (41:33)">
               <span class="al-talk-pic"><img src="assets/sam-caster-stage.jpg" alt="Sam Caster presenting on stage" loading="lazy"><i>&#9654; 41:33</i></span>
-              <span class="st-card-tag">The research history &amp; mission</span><h3>Sam Caster on stage</h3><p>The acemannan story, the people behind it, and a purpose beyond the product.</p><span class="al-talk-go">Watch full presentation &#8599;</span></a>
+              <span class="st-card-tag">The research history &amp; mission</span><h3>Sam Caster on stage</h3><p>The acemannan story, the people behind it, and a purpose beyond the product.</p><span class="al-talk-go">&#9654; Watch full presentation</span></button>
           </div>
         </div>
       </section>
@@ -216,6 +216,15 @@
   <div class="st-pop" data-st-pop="film" role="dialog" aria-label="The VeraCell film" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
     <div class="qv" data-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/mpg/story/veracell-film-v7.mp4" data-poster="/_p/mpg/m-story/m-aloe-story/assets/veracell-film-v7-poster.jpg" data-name="the VeraCell film"></div></div></div>
 
+  <!-- DR. BEN'S AND SAM'S FULL TALKS, played here from MPG's own video host (Mux), never through a share.mpg.plus link: those
+       are made per rep in MPG's app and tell THAT rep who opened them (Beal's, on his page). Played here, watch.js tells the
+       rep who sent this page (Jeff, 2026-11-20: "can we make those the reps?"). The ids are the videos behind Beal's links
+       (share.mpg.plus/d7TKW1Sr3 and /WqrVgT150). ⚠️ If MPG re-uploads either, find the new id on a share page. -->
+  <div class="st-pop" data-st-pop="ben" role="dialog" aria-label="Dr. Ben on stage" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
+    <div class="qv" data-video="https://stream.mux.com/01OKCB5IvztwSY9Zgfxlqq1l7uVLOooVA26jfaqnvhlQ" data-poster="/_p/mpg/m-story/m-aloe-story/assets/dr-ben-stage.jpg" data-name="Dr. Ben's VeraCell presentation"></div></div></div>
+  <div class="st-pop" data-st-pop="sam" role="dialog" aria-label="Sam Caster on stage" hidden><div class="st-pop-card"><button type="button" class="st-pop-x" aria-label="Close" data-pf-quiet>&times;</button>
+    <div class="qv" data-video="https://stream.mux.com/bWRcKp5qxzrS1ky8F1LN01xkSo6Zux9wQ8fCxbX9e51Y" data-poster="/_p/mpg/m-story/m-aloe-story/assets/sam-caster-stage.jpg" data-name="The VeraCell Story with Sam Caster"></div></div></div>
+
   <!-- READ MORE: Beal's full text, section by section. -->
   <template data-st-for="sources">
     <span class="st-sheet-eyebrow">Watch the story</span><h3>The research-history sources</h3>
@@ -252,7 +261,7 @@
     <p>The VeraCell educational presentation describes &ldquo;4&times; more bioactive acemannan fractions per gram than standard extracts.&rdquo; That comparison concerns the ingredient's fractions per gram, not four times the health benefit.</p>
     <h4>Understand the comparison</h4>
     <p>The presentation attributes this comparison to Lorand Labs. The underlying assay, named comparator, and current product-linked report were not included in the material available for this page. In his VeraCell story, Sam Caster separately describes filtration and a historical 3.5-fold fraction comparison. Those descriptions are not a clinical trial showing four times better results from VeraCell.</p>
-    <a class="st-src" href="https://share.mpg.plus/WqrVgT150" target="_blank" rel="noopener" data-label="Opened Sam Caster's presentation">Hear Sam explain the extraction story</a>
+    <button type="button" class="st-src st-src-play" data-st-play="sam" data-label="Played Sam Caster's full presentation (41:33)">Hear Sam explain the extraction story</button>
   </template>
   <template data-st-for="immune">
     <span class="st-sheet-eyebrow">Immune modulation, in plain English</span><h3>Your immune system is a team. Not an on/off switch.</h3>
@@ -336,7 +345,7 @@
     <p>The people and relationships behind the mission matter as much as the numbers.</p>
     <p class="st-fine">MannaRelief's lifetime reach, as described by Sam Caster in the VeraCell story: founded 1999 by Sam &amp; Linda Caster; 300M+ lifetime servings reported by MannaRelief's founder; 90 countries reached. Photo: a historical visit with children in Mexico.</p>
     <div class="st-srcs">
-      <a class="st-src" href="https://share.mpg.plus/WqrVgT150" target="_blank" rel="noopener" data-label="Opened Sam Caster's presentation">Hear the VeraCell story from Sam Caster</a>
+      <button type="button" class="st-src st-src-play" data-st-play="sam" data-label="Played Sam Caster's full presentation (41:33)">Hear the VeraCell story from Sam Caster</button>
       <a class="st-src" href="https://www.mannarelief.org/" target="_blank" rel="noopener" data-label="Opened MannaRelief's site">Discover MannaRelief's work</a>
     </div>
   </template>
@@ -352,7 +361,7 @@
       <details><summary>Where can I see the sources?</summary><div class="st-srcs">
         <a class="st-src" href="https://support.marketplaceglobal.com/hc/en-us/articles/39448610694423-VeraCell-Frequently-Asked-Questions" target="_blank" rel="noopener" data-label="Opened MPG's VeraCell product guide">VeraCell ingredients &amp; directions &middot; MPG</a>
         <a class="st-src" href="https://marketplaceglobal.com/about-us-the-place" target="_blank" rel="noopener" data-label="Opened MPG's giving page">VeraCell giving connection &middot; MPG</a>
-        <a class="st-src" href="https://share.mpg.plus/WqrVgT150" target="_blank" rel="noopener" data-label="Opened Sam Caster's presentation">VeraCell story &amp; per-bag commitment &middot; Sam Caster</a>
+        <button type="button" class="st-src st-src-play" data-st-play="sam" data-label="Played Sam Caster's full presentation (41:33)">VeraCell story &amp; per-bag commitment &middot; Sam Caster</button>
         <a class="st-src" href="https://www.mannarelief.org/about/" target="_blank" rel="noopener" data-label="Opened MannaRelief's history">MannaRelief's history</a></div></details>
     </div>
   </template>
