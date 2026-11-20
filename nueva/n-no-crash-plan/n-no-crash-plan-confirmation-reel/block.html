@@ -50,8 +50,10 @@
         <div class="rl-in">
           <!-- THE VIDEO SPOT (Jeff, 2026-10-20): the same size and place as Katie's video on Tone and Tighten. Joe's No Crash
                confirmation video (vimeo.com/1238344788, 2026-10-22; 52s, 720x1280, hosted like Katie's) plays here; block.js
-               swaps the still for it, muted with a tap for sound. An empty data-video-src shows the still again. -->
-          <div class="rlb-vidbox" data-video-src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/nc-no-crash-joe.mp4" data-video-poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/nueva/nc-no-crash-joe-poster.jpg">
+               swaps the still for it, muted with a tap for sound. An empty data-video-src shows the still again.
+               Both are the rep's own values (0886, Jeff 2026-11-19): Joe's video and poster on every Nueva account, which a
+               rep can replace with their own from Your own videos (the platform fills the values; lib/own-video.mjs). -->
+          <div class="rlb-vidbox" data-video-src="{{custom_values.nueva_no_crash_plan_video}}" data-video-poster="{{custom_values.nueva_no_crash_plan_video_poster}}">
             <div class="rlt-video rlb-still"><img src="/_p/nueva/n-no-crash-plan/n-no-crash-plan-confirmation-reel/assets/video-still.webp"
                  width="720" height="1280" alt="The supplement companion guide, What To Take, And What To Skip"></div>
           </div>
