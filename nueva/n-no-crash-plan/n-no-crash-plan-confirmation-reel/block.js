@@ -6,8 +6,8 @@
 
 /* "Swipe for a bonus" under the buttons; a computer scrolls. */
 (function () {
-  var w = document.querySelector(".rlc-gift-word");
-  if (w && !window.matchMedia("(pointer: coarse)").matches) w.textContent = "Scroll for a bonus";
+  var w = document.querySelector(".rlc-gift-word"), pw = window.__pfWords;
+  if (w && !window.matchMedia("(pointer: coarse)").matches) w.textContent = (pw && pw["reel.scroll_bonus"]) || "Scroll for a bonus";
 })();
 
 /* THE HEADLINE TYPES ITSELF OUT when the platform has put the visitor's first name in it, exactly as on the
@@ -130,13 +130,15 @@
   var box = document.querySelector(".rlb-vidbox[data-video-src]");
   var src = box && (box.getAttribute("data-video-src") || "").trim();
   if (!src) return;
+  // The page's language (platform page-words, window.__pfWords): the English below when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var screen = box.closest(".rl-p"), frame = box.querySelector(".rlt-video");
   var v = document.createElement("video");
   v.src = src; v.muted = true; v.loop = true; v.preload = "metadata";
-  v.setAttribute("playsinline", ""); v.setAttribute("muted", ""); v.setAttribute("aria-label", "The video");
+  v.setAttribute("playsinline", ""); v.setAttribute("muted", ""); v.setAttribute("aria-label", W("video.the_video", "The video"));
   var poster = (box.getAttribute("data-video-poster") || "").trim(); if (poster) v.poster = poster;
   frame.classList.remove("rlb-still"); frame.textContent = ""; frame.appendChild(v);
-  frame.insertAdjacentHTML("beforeend", '<button type="button" class="rlt-sound" aria-label="Tap for sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button>');
+  frame.insertAdjacentHTML("beforeend", '<button type="button" class="rlt-sound" aria-label="' + W("video.tap_sound", "Tap for sound") + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>' + W("video.tap_sound", "Tap for sound") + '</span></button>');
   screen.classList.add("rlt-vid");
 })();
 
@@ -144,6 +146,8 @@
 (function () {
   var screen = document.querySelector(".rlt-vid"), v = screen && screen.querySelector("video"), btn = screen && screen.querySelector(".rlt-sound");
   if (!v || !btn) return;
+  // The page's language (platform page-words, window.__pfWords): the English below when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function on() { return screen.classList.contains("is-on"); }
   function sync() {
@@ -156,12 +160,12 @@
     if (v.muted) {
       v.muted = false; v.loop = false; v.currentTime = 0;
       var p = v.play(); if (p && p.catch) p.catch(function () {});
-      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", "Mute");
+      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", W("video.mute", "Mute"));
     } else {
-      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound");
+      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", W("video.tap_sound", "Tap for sound"));
     }
   });
   // A tap on the picture pauses it or plays it on.
   v.addEventListener("click", function () { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound"); v.currentTime = 0; sync(); });
+  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", W("video.tap_sound", "Tap for sound")); v.currentTime = 0; sync(); });
 })();

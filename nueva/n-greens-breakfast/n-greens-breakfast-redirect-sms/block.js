@@ -36,6 +36,9 @@
     document.head.appendChild(s);
   });
 
+  // The page's language (platform page-words, window.__pfWords): the English below when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
+
   var root = document.querySelector(".sk-prod-nva-gbsms");
   if (!root) return;
   var cta = root.querySelector("[data-sms-cta]");
@@ -79,11 +82,11 @@
   /* ── no usable number: say the ask without it, and stop ──────────────────────────────── */
   if (nums.length < 10) {
     var label = cta.querySelector("[data-sms-label]");
-    if (label) label.textContent = "Text GREENS now";
+    if (label) label.textContent = W("sms.text_word_now", "Text {word} now").replace("{word}", "GREENS");
     cta.removeAttribute("href");
     cta.setAttribute("role", "text");
     // The card would otherwise print the whole instruction sentence where a number belongs.
-    if (print) print.textContent = "Number not set yet";
+    if (print) print.textContent = W("sms.not_set", "Number not set yet");
     return;
   }
 
@@ -97,12 +100,12 @@
     copyBtn.addEventListener("click", function () {
       navigator.clipboard.writeText(e164).then(function () {
         var was = copyBtn.textContent;
-        copyBtn.textContent = "Copied";
+        copyBtn.textContent = W("ft.copied", "Copied");
         setTimeout(function () { copyBtn.textContent = was; }, 2000);
       }, function () {
         // Clipboard can reject on a permissions policy even where the API exists. Say so
         // rather than leaving the button looking like it worked.
-        copyBtn.textContent = "Select the number above to copy";
+        copyBtn.textContent = W("sms.select_to_copy", "Select the number above to copy");
       });
     });
   }
@@ -120,7 +123,7 @@
   function handoff() {
     if (fired) return;
     fired = true;
-    if (status) status.textContent = "Opening your messaging app.";
+    if (status) status.textContent = W("sms.opening", "Opening your messaging app.");
     window.location.href = href;
   }
 

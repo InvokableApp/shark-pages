@@ -1,0 +1,34 @@
+<!--
+  nueva/n-greens-breakfast/n-greens-breakfast-text-me
+  Where the "text me for the supplement list" button in this campaign's emails goes (REEL-PAGE-SOP §The email's text me
+  page; Jeff, 2026-10-24). The lead's message is written for them (Jeff's template: "Hey {first}, I downloaded the <guide>,
+  can you send me the <bonus> and more info on the product?"): one tap texts it to the rep, or it goes by Messenger through
+  the copy-the-message card. _shared/text-me/v1 does the work. Copied from n-tone-and-tighten-text-me.
+  ⚠️ ITS VIEW IS AN ALERT: the step /n-greens-breakfast-text-me starts "Nueva - Greens at Breakfast Guide - Text Me"
+  (migration 0641), which tags the lead, marks them hot, and tells the rep to look for their text, with the reply ready.
+  Known leads only (the email link names them); once per lead. No code (PAGE-COPY-SOP rule 14). The look is the
+  list request page's.
+-->
+<div class="rl rl-look-tin rl-gb rlr" data-pf-native data-tm data-pf-arrive="#F7F3E8"
+  data-pf-say="Hola {first}, descargué la guía de recetas Greens at Breakfast. ¿Me puedes mandar la lista de suplementos para la mañana y más info de la bebida verde que usas?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <div class="lk-card gb-card">
+            <h1 class="rlr-big" data-in>Mándame un mensaje<span data-if-name>, {{contact.first_name}},</span> y te envío la <b>lista de suplementos</b> y <b>más info de la bebida verde que uso</b>.</h1>
+            <p data-in style="--d:.1s">Tu mensaje ya está escrito. Toca enviar y me llega directo a mí.</p>
+            <span class="tm-bubble" data-in data-tm-words style="--d:.2s"></span>
+            <div class="rl-btns" data-in style="--d:.3s">
+              <a class="rl-btn" data-tm-text data-pf-text-link data-needs="{{custom_values.nueva_rep_phone}}" href="sms:{{custom_values.nueva_rep_phone}}">💬 Enviarlo por mensaje de texto</a>
+              <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.nueva_rep_messenger}}" href="https://{{custom_values.nueva_rep_messenger}}">Escríbeme en Facebook</a>
+            </div>
+            <p class="tm-desk" data-tm-desk hidden>O mándalo al <b data-tm-num>{{custom_values.nueva_rep_phone}}</b> desde tu celular.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/text-me/v1/text-me.js?v=1" defer></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

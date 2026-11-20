@@ -93,6 +93,8 @@
 (function () {
   var screen = document.querySelector(".rlt-vid"), v = screen && screen.querySelector("video"), btn = screen && screen.querySelector(".rlt-sound");
   if (!v || !btn) return;
+  // The page's language (platform page-words, window.__pfWords): the English below when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function on() { return screen.classList.contains("is-on"); }
   function sync() {
@@ -105,12 +107,12 @@
     if (v.muted) {
       v.muted = false; v.loop = false; v.currentTime = 0;
       var p = v.play(); if (p && p.catch) p.catch(function () {});
-      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", "Mute");
+      screen.classList.add("rlt-loud"); btn.setAttribute("aria-label", W("video.mute", "Mute"));
     } else {
-      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound");
+      v.muted = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", W("video.tap_sound", "Tap for sound"));
     }
   });
   // A tap on the picture pauses it or plays it on.
   v.addEventListener("click", function () { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", "Tap for sound"); v.currentTime = 0; sync(); });
+  v.addEventListener("ended", function () { v.muted = true; v.loop = true; screen.classList.remove("rlt-loud"); btn.setAttribute("aria-label", W("video.tap_sound", "Tap for sound")); v.currentTime = 0; sync(); });
 })();

@@ -1,0 +1,113 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  nueva/n-revive-video/n-revive-video: Nueva Revive's product video page, a reel (Jeff, 2026-10-13: "for the revive
+  trackable product page ... we should make it reels style. headline, swipe to vid, swipe to buttons, yea? nueva
+  colors"; the headline and the three buttons are his, the flow is Joe's SCRIPTS doc: a video, then "After seeing this
+  video... Who comes to mind?", each with a pop-up).
+  THE CARDS FOLLOW THE VIDEO'S OWN ASK (Joe, 2026-10-13: "the revive should be myself or like for my kid or myself ... we
+  have to adjust what the language is ... based on what the frame of the video was"). The video asks parents: "having
+  your son or daughter give it a try? Or even trying it yourself? Or maybe you know another parent who might be
+  interested?" So: My Kid Or Myself / Another Parent I Know / No One. A new video means watching it first
+  (references/REEL-PAGE-SOP.md §A video page).
+
+  Platform only. The rep sends it one to one, after Joe's Hydrate script in Send a message ("Would you be open to
+  watching a quick 2-minute video? ... whether your kids (or you) - or another parent you know - might be interested in
+  trying a sample"), so it goes out as a personal link and the rep hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (No One) is only true for a personal link: a stranger's tap reports to no one. The links page
+  lists it personal:true, so the app only offers Send a private link.
+
+  THE VIDEO is a content value, nueva_revive_video (an .mp4 in our storage, the "media" bucket, so it plays in the page
+  like a story: no Vimeo frame), with nueva_revive_video_poster as the still shown while it loads. When it ends, the
+  page moves on to the three cards (block.js).
+  THE CLAIM is Nueva's own (nueva.com/product/nv-rev, 2026-10-13): "designed to help support hydration at the cellular
+  level, where hydration actually happens.*" The asterisk's disclaimer is on the last screen. No other claim. Joe's edits
+  (2026-10-22) took it off the cover ("After watching this video, let us know who comes to mind..."); it stays in the texts.
+  TEXT ME buttons are redirect steps to a text with the message written (n-revive-video-try / -refer); with no texting
+  number they go to the rep's Messenger instead ([data-needs], reel.js).
+-->
+<div class="rl rl-tone rv" data-pf-native>
+  <!-- THE REP, ACROSS THE TOP (Jeff, 2026-10-13: "put the name of the rep on a banner across the top, then ... 'Hey (name),
+       (rep name) wanted you to see this...' ... under nueva revive pill"): their picture and name, from the page's data
+       (block.js); hidden until there is a name. -->
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Te lo envió <b data-rv-rep>tu contacto</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the headline -->
+      <section class="rl-p rl-photo rl-cover rv-cover" aria-label="Nueva Revive">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-revive-video/n-revive-video/assets/revive-pool.webp')"></div>
+        <div class="rl-in">
+          <span class="rv-pill" data-in>Nueva Revive</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hola, {{contact.first_name}}. </span><span data-rv-rep>Yo</span> quería que vieras esto.</p>
+          <h1 data-in style="--d:.1s" data-label="Nueva Revive: the video">Osmolitos de espectro completo e <span class="rl-hl">hidratación celular</span> en una solución</h1>
+          <p data-in style="--d:.25s">Después de ver este video, dinos en quién piensas...</p>
+        </div>
+        <!-- pinned to the bottom of the screen, the words centred under the arrows (Jeff, 2026-10-13) -->
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Desliza hacia arriba para ver el video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video, filling the screen like a story -->
+      <section class="rl-p rl-night rv-watch" aria-label="El video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.nueva_revive_video}}" data-poster="{{custom_values.nueva_revive_video_poster}}" data-name="the Revive video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Después de ver este video, desliza hacia arriba y dinos en quién piensas</span><span class="rv-on-computer">Después de ver este video, dinos en quién piensas</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: who comes to mind -->
+      <section class="rl-p rl-paper rv-ask" aria-label="¿En quién piensas?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Después de ver este video&hellip;</span>
+          <h2 data-in style="--d:.1s">¿En quién piensas?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="My kid or myself: we'd like to try it">
+              <b class="rv-n">01</b><span class="rv-t"><b>Mi hijo(a) o yo</b><small>Nos gustaría probar una muestra</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.3s" data-label="Another parent: I think they'd be interested">
+              <b class="rv-n">02</b><span class="rv-t"><b>Otro papá o mamá que conozco</b><small>Creo que le interesaría probarlo</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="Me or my kid, plus others I know">
+              <b class="rv-n">03</b><span class="rv-t"><b>Yo / mi hijo(a) + otros</b><small>La verdad, yo + mucha gente que conozco seguro querríamos probarlo</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Nadie</b><small>No me interesa / no conozco a nadie</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este producto no tiene la intención de diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- The pop-ups: one per card. {rep} is filled from the page's data (block.js); the visitor's name only when the
+       platform knows it (data-if-name). -->
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Mi hijo(a) o yo" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bien<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Revive está hecho para ayudar a apoyar la hidratación a nivel celular, que es donde de verdad ocurre la hidratación.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y pregúntale cómo conseguir una muestra para tu hijo o hija, o para ti.</p>
+    <a class="rv-btn" href="/n-revive-video-try" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-revive-video-message" data-label="Text me: we'd like to try it">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Otro papá o mamá que conozco" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Gracias por pensar en otro papá o mamá<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Revive está hecho para ayudar a apoyar la hidratación a nivel celular, que es donde de verdad ocurre la hidratación.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y dile en quién pensaste.</p>
+    <a class="rv-btn" href="/n-revive-video-refer" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-revive-video-message" data-label="Text me: another parent came to mind">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Yo o mi hijo(a), y otros más" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bien<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Revive está hecho para ayudar a apoyar la hidratación a nivel celular, que es donde de verdad ocurre la hidratación.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y dile que a ti y a gente que conoces les podría interesar probar una muestra.</p>
+    <a class="rv-btn" href="/n-revive-video-both" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-revive-video-message" data-label="Text me: we'd like to try it, and others came to mind">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Nadie" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Gracias por tu tiempo<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Le avisamos a <span data-rv-rep>quien te lo envió</span> que no te interesa y que por ahora no tienes a nadie a quien recomendar.</p>
+    <p class="rv-ps">P.D. ¿Lo tocaste por error? Cierra este cuadro con la X para volver.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

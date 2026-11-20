@@ -1,0 +1,25 @@
+<!--
+  nueva/n-tone-and-tighten-guide-funnel/n-tone-and-tighten-discount-request
+  The page a lead lands on after tapping "Get the companion guide + a discount" on the confirmation reel (Jeff, 2026-10-20, from
+  Joe's Nueva call doc): a Snow Slim discount code.
+  Platform only. ⚠️ ITS VIEW IS THE ALERT: the step /n-tone-and-tighten-discount-request starts "Nueva - Tone and Tighten
+  Guide - Discount Request" (migration 0427), which tags the lead, marks them hot, and texts and emails the rep to text
+  the code. Known leads only (the opt-in's cookie); once per lead.
+  ⚠️ THE WORDS ARE JOE'S POPUP COPY as Jeff set them (2026-10-20): the rep texts the code; nothing for the lead to do.
+  The look is the confirmation reel's (one screen of it); the page fades up out of its own paper (data-pf-arrive).
+-->
+<div class="rl rl-tone rlr" data-pf-native data-pf-arrive="#fcfeff">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <!-- The page's title (render.mjs deriveMeta takes the first h1): read by a screen reader and the browser tab, not shown. -->
+          <h1 style="position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">Tu guía complementaria de suplementos y tu código de descuento te llegan por mensaje</h1>
+          <span class="rlr-pill" data-in>✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+          <p class="rlr-big" data-in style="--d:.1s">Te enviaremos por mensaje la guía complementaria de suplementos Y un <b>código de descuento especial en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+          <p data-in style="--d:.2s">¡Revisa tus mensajes de texto y de Facebook, incluidas tus carpetas de <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, para que no se te pase!</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

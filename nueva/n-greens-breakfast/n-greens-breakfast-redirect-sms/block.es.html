@@ -1,0 +1,52 @@
+<!--
+  nueva/n-greens-breakfast/n-greens-breakfast-redirect-sms
+  The SMS twin of the Redirect DM step, copied from n-tone-and-tighten-redirect-sms. Its job is to be a PAGEVIEW (the step
+  /n-greens-breakfast-redirect-sms starts "Nueva - Greens at Breakfast Guide - Text Request", migration 0641: the rep is told
+  to check their texts and send the supplement list) and then hand off to the visitor's messaging app with GREENS filled in.
+  The word is GREENS, the same as the comment word and the confirmation's popup (CONFIRM.done.saveNumber).
+  ⚠️ This is the guide's side: branded Everyday Well, it never names Nueva or Alive. No code, no sample.
+
+  WHY THIS IS A REAL PAGE AND NOT A 0.5s MINUTE-TIMER LIKE THE DM STEP
+  `sms:` is an OS protocol hand-off, not a web URL. On a phone it opens Messages; on a DESKTOP it opens nothing at all, and
+  a timer page would leave the visitor staring at a blank screen with the rep's number nowhere on it. So the number is
+  always on the page, in text, before any hand-off is attempted. It reads correctly on a phone with the app opening, on a
+  desktop with no app, and on an account where nueva_rep_phone still holds its instruction sentence instead of a number.
+-->
+<div class="sk-prod sk-prod-nva-gbsms" data-sk-requires="nueva_rep_phone">
+
+  <section class="sk-prod-nva-gbsms-hero">
+    <div class="sk-prod-wrap sk-prod-center">
+
+      <span class="sk-prod-nva-gbsms-mark">Everyday Well</span>
+
+      <p class="sk-prod-eyebrow">Mi lista de suplementos para la mañana</p>
+      <h1 class="sk-prod-h1">Envía <span class="sk-prod-accent">GREENS</span></h1>
+
+      <!-- JS-ONLY, and empty until the hand-off is actually attempted (block.js), because "opening your messaging app" is
+           a lie on a laptop, where nothing opens. aria-live so a screen reader hears the state change. -->
+      <p class="sk-prod-nva-gbsms-status" data-sms-status role="status" aria-live="polite"></p>
+
+      <!-- The prefill is THE MARKUP, and it works with JS off. `?&body=` is the shape iOS and Android both accept. block.js
+           only normalises the number. -->
+      <a class="sk-prod-btn sk-prod-btn-lg sk-prod-nva-gbsms-go"
+         data-sms-cta href="sms:{{custom_values.nueva_rep_phone}}?&body=GREENS">
+        <span data-sms-label>Envía GREENS al <span data-rep-phone>{{custom_values.nueva_rep_phone}}</span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <!-- THE FALLBACK: on a desktop this card is the entire page, the number in selectable text and a copy button. -->
+      <div class="sk-prod-nva-gbsms-card">
+        <p class="sk-prod-nva-gbsms-k">Envía la palabra GREENS al</p>
+        <p class="sk-prod-nva-gbsms-n" data-rep-phone-print>{{custom_values.nueva_rep_phone}}</p>
+        <button type="button" class="sk-prod-btn-ghost sk-prod-nva-gbsms-copy" data-sms-copy hidden>
+          Copiar el número
+        </button>
+        <p class="sk-prod-nva-gbsms-t">
+          Si tu app de mensajes no se abrió, envíalo tú. En una computadora, mándalo desde tu celular.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div>

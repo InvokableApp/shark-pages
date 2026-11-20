@@ -1,0 +1,42 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  nueva/n-your-links/n-links
+  The PUBLIC link hub: the page a rep posts in their social bio. A visitor taps
+  one row and lands in that funnel. This is NOT the rep console, which lives at
+  nueva/n-your-marketing-links/n-marketing-links and is for the rep's own eyes.
+
+  ⚠️ LINK MODEL: DOMAIN CUSTOM VALUE PLUS A FIXED SLUG, not one custom value per
+  funnel. Jeff, 2026-09-22: "we know the cv for default domain and we know the
+  slugs so we can do it the way we do the marketing-links pages, glp is the
+  exception in this case." GLP ships per-funnel link values in its snapshot, so
+  its fork of this page reads them; nothing else does, and inventing them for
+  Nueva would be six more values for a rep to fill for no gain.
+
+  GHL substitutes merge fields only in its own HTML, so every value the block
+  reads is declared here and carried in on the socket as data-cv-*. ADDING one
+  here needs a push-block re-push per account; changing markup does not.
+-->
+<div class="sk-nva-links"
+     data-words="{&quot;Free guides&quot;: &quot;Guías gratis&quot;, &quot;Tone and tighten in 8 weeks&quot;: &quot;Tonifica y reafirma en 8 semanas&quot;, &quot;Eight 20 minute workouts and 12 high protein recipes.&quot;: &quot;Ocho rutinas de 20 minutos y 12 recetas altas en proteína.&quot;, &quot;Stop the 3pm crash&quot;: &quot;Adiós al bajón de las 3pm&quot;, &quot;A 19 page plan for steady energy through the afternoon.&quot;: &quot;Un plan de 19 páginas para tener energía estable toda la tarde.&quot;, &quot;Work with me&quot;: &quot;Trabaja conmigo&quot;, &quot;What is Nueva?&quot;: &quot;¿Qué es Nueva?&quot;, &quot;The two minute version: what the products do and how the business works.&quot;: &quot;La versión de dos minutos: qué hacen los productos y cómo funciona el negocio.&quot;, &quot;Which side hustle fits you?&quot;: &quot;¿Qué ingreso extra va contigo?&quot;, &quot;A few questions, then the model that suits how you live.&quot;: &quot;Unas preguntas, y luego el modelo que va con tu forma de vivir.&quot;, &quot;Shop Nueva&quot;: &quot;Compra Nueva&quot;, &quot;Order as a customer.&quot;: &quot;Haz tu pedido como cliente.&quot;, &quot;Become a Social Marketer&quot;: &quot;Hazte Social Marketer&quot;, &quot;Start your own Nueva business with me.&quot;: &quot;Empieza tu propio negocio Nueva conmigo.&quot;, &quot;Connect with me&quot;: &quot;Sígueme en redes&quot;, &quot;Social profiles&quot;: &quot;Redes sociales&quot;, &quot;Ready to order&quot;: &quot;Listo para pedir&quot;, &quot;Not set up yet&quot;: &quot;Todavía no está listo&quot;, &quot;Fill in your domain in the custom values for this account and every link on this page fills itself in.&quot;: &quot;Llena tu dominio en los valores personalizados de esta cuenta y cada link de esta página se llena solo.&quot;, &quot;Everything in one place. Tap any one to get started.&quot;: &quot;Todo en un solo lugar. Toca cualquiera para empezar.&quot;}"
+     data-cv-nueva_main_url="{{custom_values.nueva_main_url}}"
+     data-cv-nueva_rep_full_name="{{custom_values.nueva_rep_full_name}}"
+     data-cv-nueva_buy_link="{{custom_values.nueva_buy_link}}"
+     data-cv-nueva_opportunity_url="{{custom_values.nueva_opportunity_url}}"
+     data-cv-nueva_income_disclaimer="{{custom_values.nueva_income_disclaimer}}"
+     data-cv-nueva_facebook="{{custom_values.nueva_facebook}}"
+     data-cv-nueva_instagram="{{custom_values.nueva_instagram}}"
+     data-cv-nueva_tiktok="{{custom_values.nueva_tiktok}}"
+     data-cv-nueva_youtube="{{custom_values.nueva_youtube}}">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <h1 class="sk-name" data-name></h1>
+    <p class="sk-sub" data-sub></p>
+  </header>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <p class="sk-legal" data-legal></p>
+  </footer>
+</div>

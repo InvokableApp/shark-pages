@@ -104,6 +104,9 @@
 
   root.querySelectorAll("[data-pf-print]").forEach(function (el) {
     var label = el.getAttribute("data-pf-print");
+    // The page's language (platform page-words, window.__pfWords), keyed by the English label; English when none are sent.
+    var key = { "Print the calendar": "guide.print_calendar", "Print the journal": "guide.print_journal", "Print the snack list": "guide.print_snacks" }[label];
+    label = (key && window.__pfWords && window.__pfWords[key]) || label;
     var b = document.createElement("button");
     b.className = "pf-print";
     b.type = "button";

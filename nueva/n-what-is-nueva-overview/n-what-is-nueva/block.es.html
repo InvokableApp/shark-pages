@@ -1,0 +1,259 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  NUEVA / n-what-is-nueva-overview / n-what-is-nueva
+  The company overview: what Nueva is, on both sides, for someone a rep has just sent here.
+
+  BUILT 2026-09-23. Modelled on beneve/b-what-is-beneve-overview/b-what-is-beneve, which is the
+  same page for Beneve, and on Joe's GLP "What I Do" one pager for the PRESENTED BY strip.
+
+  ⚠️ NO VIDEO, and not by oversight. Beneve's hero holds a sub two minute explainer. nuevalife.com
+  carries no video at all: four pages were loaded and network traffic watched, and there is no
+  <video>, no iframe and no media response anywhere. A page with no video is honest where a page
+  with another company's video is not, which is the standing rule on every Nueva page. The hero
+  carries the lineup photograph instead. Add one here and push when Nueva shoot one.
+
+  ⚠️ EVERY FACT IS FROM NUEVASHARK/BRAND-AND-PRODUCTS.md, captured from nuevalife.com. The only
+  income figure is Nueva's own published comp headline, and it is the ONLY one allowed on any
+  Nueva asset. No earnings examples, no lifestyle signalling, no money imagery.
+
+  ⚠️ CLAIMS ARE WRITTEN AS SUPPORT, never as results. Same discipline as the product pages.
+-->
+<div class="sk-prod sk-prod-nva-what"
+     data-cv-nueva_rep_full_name="{{custom_values.nueva_rep_full_name}}"
+     data-cv-nueva_income_disclaimer="{{custom_values.nueva_income_disclaimer}}"
+     data-cv-nueva_main_url="{{custom_values.nueva_main_url}}">
+
+  <!-- PRESENTED BY: a page a rep sends should say who sent it before it says anything else -->
+  <div class="sk-nva-present">
+    <div class="sk-nva-present-in">
+      <p class="sk-nva-present-by">Te lo presenta <b>{{custom_values.nueva_rep_full_name}}</b></p>
+      <ul class="sk-nva-present-nav">
+        <li><a href="#sk-nva-what">¿Qué es esto?</a></li>
+        <li><a href="#sk-nva-products">Productos</a></li>
+        <li><a href="#sk-nva-opp">Oportunidad</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Conoce Nueva</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          ¿Qué es <span class="sk-nva-nowrap"><span class="sk-prod-accent">Nueva</span>?</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          Nueva hace productos de bienestar para todos los días, pensados para tomarse juntos. También les paga a las
+          personas que los comparten, hasta un 40% de las compras de sus clientes.
+        </p>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          Las dos cosas están en esta página, así puedes ver cuál es la que te interesa.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>Pensados como sistema</li>
+          <li>Certificación GMP</li>
+          <li>Probados por terceros</li>
+          <li>Garantía de 30 días</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="#sk-nva-products">
+            Ver los productos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-nva-opp">Conocer la oportunidad</a>
+        </div>
+      </div>
+
+      <figure class="sk-nva-shot" data-rise data-delay="2">
+        <img src="assets/hero-life.webp" alt="Una Social Marketer de Nueva corriendo, con una bebida en la mano" loading="eager">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-nva-what" aria-label="Desplázate para leer más"></button>
+  </section>
+
+  <section class="sk-prod-claim" id="sk-nva-what">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>Lo que hace distinta a Nueva</h2>
+      <p class="sk-prod-lede sk-prod-center" data-rise data-delay="1">
+        Casi todos terminan con una alacena llena de envases de distintas compañías que nunca se hicieron para
+        ir juntos. Nueva se hizo al revés: energía, hidratación, verdes, digestión, enfoque y
+        peso, hechos para combinarse. Más de 70,000 miembros se han unido desde que empezó.
+      </p>
+      <figure class="sk-nva-band" data-rise data-delay="2">
+        <img src="assets/life-table.webp" alt="Un polvo de verdes de Nueva en la barra de la cocina, junto a verduras frescas" loading="lazy">
+      </figure>
+
+      <div class="sk-prod-pillars" data-rise data-delay="3">
+        <article class="sk-prod-pillar">
+          <h3>Una sola línea, hecha para combinarse</h3>
+          <p>Empieza con un producto y agrega más poco a poco. Están hechos para tomarse juntos.</p>
+        </article>
+        <article class="sk-prod-pillar">
+          <h3>Hechos con un estándar</h3>
+          <p>Se fabrican en instalaciones con certificación GMP y los prueba un laboratorio independiente.</p>
+        </article>
+        <article class="sk-prod-pillar">
+          <h3>Pruébalo sin riesgo</h3>
+          <p>Garantía de devolución de dinero de 30 días, y vale aunque el envase esté vacío.</p>
+        </article>
+        <article class="sk-prod-pillar">
+          <h3>Más barato si te quedas</h3>
+          <p>Cada producto tiene un precio más bajo con suscripción, así el hábito cuesta menos que la prueba.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-prod-formula" id="sk-nva-products">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>La línea</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Empieza con uno. Casi todos empiezan con energía o hidratación.</h2>
+      <p class="sk-prod-lede" data-rise data-delay="1">
+        Cada línea de abajo sale de la etiqueta de Nueva. Lee la etiqueta antes de pedir, sobre todo si
+        evitas algún ingrediente.
+      </p>
+
+      <div class="sk-nva-grid" data-rise data-delay="2">
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/nitro.webp" alt="Nueva Nitro" loading="lazy"></div>
+          <span>Energía</span>
+          <h3>Nueva Nitro</h3>
+          <p>Un sobre que mezclas y dejas reposar cinco minutos. Hecho a base de L citrulina, cafeína de té verde y complejo B.</p>
+        </article>
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/revive.webp" alt="Nueva Revive" loading="lazy"></div>
+          <span>Hidratación</span>
+          <h3>Nueva Revive</h3>
+          <p>Un sobre de hidratación con su tecnología Aquivance de cinco capas, con electrolitos, glicina y minerales traza marinos.</p>
+        </article>
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/snow-slim.webp" alt="Nueva Snow Slim" loading="lazy"></div>
+          <span>Control de peso</span>
+          <h3>Nueva Snow Slim</h3>
+          <p>Una cucharada de líquido al día, hecho a base de extracto de naranja roja Morosil. Contiene colágeno de pollo.</p>
+        </article>
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/coffee.webp" alt="Nueva Morning Coffee" loading="lazy"></div>
+          <span>Enfoque</span>
+          <h3>Nueva Morning Coffee</h3>
+          <p>Café con melena de león, cordyceps y L teanina, si prefieres no sumar otra bebida a tu día.</p>
+        </article>
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/alive.webp" alt="Nueva Alive" loading="lazy"></div>
+          <span>Verdes diarios</span>
+          <h3>Nueva Alive</h3>
+          <p>Una mezcla de verdes con espirulina y prebióticos, para las verduras que casi nunca comemos.</p>
+        </article>
+        <article class="sk-nva-card">
+          <div class="sk-nva-shotbox"><img src="assets/boost.webp" alt="Nueva Boost" loading="lazy"></div>
+          <span>Hongos</span>
+          <h3>Nueva Boost</h3>
+          <p>Gomitas con melena de león, cordyceps, ashwagandha y reishi, si las cápsulas no son lo tuyo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-prod-facts" id="sk-nva-opp">
+    <div class="sk-prod-wrap sk-nva-split">
+     <figure class="sk-nva-split-img" data-rise>
+       <img src="assets/life-work.webp" alt="Una Social Marketer de Nueva trabajando en su laptop al atardecer" loading="lazy">
+     </figure>
+     <div class="sk-nva-split-copy">
+      <p class="sk-prod-kicker" data-rise>La otra parte</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Si ya los usas, te pueden pagar por compartirlos</h2>
+      <p class="sk-prod-lede" data-rise data-delay="1">
+        Si compartes Nueva, eres Social Marketer. No hay tienda, ni inventario en un cuarto
+        ni nada que enviar. Compartes tu propio enlace, y cuando alguien compra con él, la venta
+        queda a tu nombre. El plan publicado de Nueva paga hasta un 40% de las compras de los clientes.
+      </p>
+      <ul class="sk-prod-checks" data-rise data-delay="2">
+        <li>Nada que almacenar y nada que enviar</li>
+        <li>Tu propio horario, junto con lo que ya haces</li>
+        <li>Llamadas semanales de mentoría y una comunidad que te respalda</li>
+        <li>Dos plataformas de viajes, hasta 70% de descuento</li>
+      </ul>
+      <p class="sk-prod-note" data-rise data-delay="3">
+        {{custom_values.nueva_income_disclaimer}}
+      </p>
+     </div>
+    </div>
+  </section>
+
+  <!-- WANT TO KNOW MORE (2026-11-09, the texting registration). The page's one opt-in: name, mobile and an optional,
+       unticked texting box, drawn by the platform's form.js into [data-pf-slot] when the step names a form. Jess's
+       approved GHL reps showed the carriers exactly this on their business page, and nothing else on the page may
+       collect a phone number. Hidden until the form is in (block.css, data-pf-ready), so GHL and an account without
+       the form show nothing. -->
+  <section class="sk-nva-more" id="sk-nva-more" data-pf-inline>
+    <div class="sk-prod-wrap sk-nva-more-in">
+      <div class="sk-nva-more-copy">
+        <p class="sk-prod-kicker">¿Preguntas?</p>
+        <h2 class="sk-prod-h2">¿Quieres saber más?</h2>
+        <p class="sk-prod-lede">Déjame tu nombre y tu número, y te contacto sobre los productos.</p>
+      </div>
+      <div class="sk-nva-more-form" data-pf-slot></div>
+    </div>
+  </section>
+
+  <section class="sk-prod-close sk-nva-close">
+    <div class="sk-nva-close-bg" aria-hidden="true"></div>
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-close-h sk-prod-center" data-rise>¿Cuál es tu siguiente paso?</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Dos puertas, y eres bienvenido(a) por cualquiera.
+      </p>
+      <!-- ⚠️ BOTH DOORS GO THROUGH THE REP, NOT STRAIGHT OUT. Two reasons, either decisive:
+             1. The opportunity page on nuevalife.com carries NO sponsor. Sending a reader there
+                cold credits nobody, and the site does not error, it just drops the rep.
+             2. A direct link is invisible. Routing the click through a funnel STEP makes it a
+                pageview, which is a trigger, which is the only reason the tag, the opportunity
+                card and the rep alert happen at all.
+           The rep then sends the link themselves, which the internal notification hands them
+           ready to paste. Same pattern as the Side Hustle Quiz and the No Crash Plan. -->
+      <div class="sk-prod-cta-row" data-rise data-delay="2">
+        <button class="sk-prod-btn sk-prod-btn-lg" type="button" data-nva-ask="product">
+          Comprar como cliente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="sk-prod-btn-ghost" type="button" data-nva-ask="opportunity">Ver cómo funciona compartir</button>
+      </div>
+      <p class="sk-prod-fine">
+        Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Estos productos
+        no tienen la intención de diagnosticar, tratar, curar ni prevenir ninguna enfermedad.
+      </p>
+    </div>
+  </section>
+  <!-- ── the ask modal ─────────────────────────────────────────────────────────────────
+       Drawn by the block, deliberately. A native GHL popup would mean cloning a popup
+       container: ids are minted per page, a re-minted one silently shrink-wraps to its own
+       headline width because the compiled rule keyed to the old id matches nothing, and
+       there is a one-popup-per-page limit that the two doors would fight over.
+
+       ⚠️ THE BUTTON HREF IS BUILT IN JS, NOT WRITTEN HERE. The destination needs
+       nueva_main_url, and a block fetched from GitHub Pages never passes through GHL, so a
+       merge field inside an href we build at runtime would ship its literal braces. The
+       loader substitutes the data-cv-* on the root; block.js reads it from there.
+  -->
+  <div class="sk-nva-ask" data-nva-modal hidden>
+    <div class="sk-nva-ask-scrim" data-nva-close></div>
+    <div class="sk-nva-ask-card" role="dialog" aria-modal="true" aria-labelledby="sk-nva-ask-h">
+      <button class="sk-nva-ask-x" type="button" data-nva-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h3 class="sk-nva-ask-h" id="sk-nva-ask-h" data-nva-h></h3>
+      <p class="sk-nva-ask-p" data-nva-p></p>
+      <a class="sk-prod-btn sk-prod-btn-lg sk-nva-ask-go" data-nva-go href="#">
+        Escríbeme por Facebook
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="sk-nva-ask-note" data-nva-note hidden></p>
+    </div>
+  </div>
+</div>

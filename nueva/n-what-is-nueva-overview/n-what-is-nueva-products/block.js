@@ -45,16 +45,18 @@
   var domain = cv('nueva_main_url').replace(/^https?:\/\//i, '').replace(/\/+$/, '');
   var hasDomain = /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain);
 
+  // The page's language (platform page-words, window.__pfWords): the English below when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var DOORS = {
     product: {
       slug: 'n-what-is-nueva-product-dm-redirect',
-      h: 'Send me a message and I will send your link',
-      p: 'Tell me what you are after and I will point you at the right products, with the link to order them.'
+      h: W('nueva.win_product_h', 'Send me a message and I will send your link'),
+      p: W('nueva.win_product_p', 'Tell me what you are after and I will point you at the right products, with the link to order them.')
     },
     opportunity: {
       slug: 'n-what-is-nueva-opportunity-dm-redirect',
-      h: 'Send me a message and I will send you the details',
-      p: 'I will send you how sharing Nueva actually works, and answer anything you want to ask first.'
+      h: W('nueva.win_opp_h', 'Send me a message and I will send you the details'),
+      p: W('nueva.win_opp_p', 'I will send you how sharing Nueva actually works, and answer anything you want to ask first.')
     }
   };
 

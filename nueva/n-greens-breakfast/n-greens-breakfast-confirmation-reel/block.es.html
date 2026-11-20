@@ -1,0 +1,130 @@
+<!--
+  nueva/n-greens-breakfast/n-greens-breakfast-confirmation-reel
+  The Greens at Breakfast confirmation as a REEL, after its opt-in. Platform only; the platform's step points here
+  (migration 0641). Copied from n-tone-and-tighten-guide-confirmation-reel; the bonus frame is REEL-PAGE-SOP step 2b.
+  ⚠️ EVERY WORD IS NUEVASHARK/campaigns/greens-breakfast/copy.mjs CONFIRM, verbatim. Change a word there first.
+  ⚠️ THREE SCREENS, JEFF'S "SWIPE UP FOR A BONUS" FRAME (2026-10-20):
+    1. you are in (CONFIRM.bar, the headline with the typed first name, spam, skip, the two buttons); the dock says
+       "Swipe up for a bonus 🎁" and takes them to 2
+    2. the bonus. A VIDEO on top (Jeff, 2026-11-11: "video"; Joe makes it), phone shaped, in the platform's video box
+       (.qv, played by watch.js) from the value nueva_greens_breakfast_video, so a rep can put their own YouTube or Vimeo
+       video in from Your own videos ("user should have option to swap their own vid in"). ⚠️ THE VIDEO DOES NOT EXIST YET:
+       the value is "coming soon" (0641; never empty, clone_tenant refuses an empty content value), watch.js puts its
+       .qv-soon in the box, and block.css paints the still there (_img/video-still.jpg, the cover photo cut to 9:16).
+       When Joe's video arrives: the .mp4 into media/nueva/, its address as the value on tmpl-nueva, push it; then
+       `node platform/scripts/reel-video-check.mjs <address>` must print PAUSED OK (REEL-PAGE-SOP §A video page step 5).
+       Then the BONUS OFFER card (the supplement list's card on the left with Alive as a sticker on its corner, the
+       write-up on the right: "+ product info" (the product named only on the Recommended supplement card, as No Crash Plan does; Jeff 2026-11-11), "Both sent to you by text") and the claim button
+    3. "Inside the supplement list...", its three bullets, the same button, the "Recommended supplement" card
+       with Alive's photo, and the FDA line
+  ⚠️ NO CODE OF ANY KIND, anywhere (PAGE-COPY-SOP rule 14, Jeff 2026-11-09): "more info on Alive". The word they
+     can text is GREENS (CONFIRM.done.saveNumber), the same as the comment word.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup and, on the first
+     open, fetch /n-greens-breakfast-list-request in the background (data-rl-claim, block.js): that step's view is the rep's
+     alert (migration 0641, "Nueva - Greens at Breakfast Guide - List Request"), for a lead the opt-in's cookie names. The
+     hrefs stay on the buttons, so with no script a tap still lands on the request page.
+  The card names no rep ("Both sent to you by text"; Joe, 2026-10-21). The reel is _shared/reel/v1; the look is the opt-in
+  reel's sheet (Recipe tin), which block.css imports.
+-->
+<div class="rl rl-look-tin rl-gb rlt" data-pf-native data-pf-dock="Desliza hacia arriba para un regalo 🎁" data-rl-claim="/n-greens-breakfast-list-request" data-pf-arrive="#F7F3E8">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: you are in. The page rises out of the cream the opt-in's form left on screen. -->
+      <section class="rl-p rl-paper rlt-top">
+        <div class="rl-in">
+          <div class="lk-card gb-card">
+            <span class="rlt-pill" data-in>✅ Ya estás dentro. Tus recetas van en camino.</span>
+            <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+                 (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+            <h1 class="rl-type"><span data-if-name>Hola, {{contact.first_name}}. </span>Tu guía de recetas Greens at Breakfast te llega <em>en 2 minutos.</em></h1>
+            <p data-in style="--d:.3s">Revisa tu correo. Si no la ves ahí, revisa tu carpeta de <b>SPAM</b>.</p>
+            <p class="rl-note" data-in style="--d:.4s">O ábrela ahora mismo.</p>
+            <div class="rl-btns" data-in style="--d:.5s">
+              <a class="rl-btn" href="/n-greens-breakfast-read">LÉELA EN LÍNEA</a>
+              <a class="rl-btn rl-btn-2" data-needs="{{custom_values.nueva_greens_breakfast_guide_pdf_url}}" href="https://{{custom_values.nueva_greens_breakfast_guide_pdf_url}}" target="_blank" rel="noopener">DESCARGA EL PDF</a>
+            </div>
+          </div>
+          <!-- The swipe indicator names the next screen, the bonus. A computer reads "Scroll" (reel.js). -->
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para un regalo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK, the bonus. Brianna's video on top, muted while the screen is on, a tap for sound (as Epic Shark's b-greens-breakfast,
+           0832): a native <video> on a custom value, so a rep can put their own in from Your own videos. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu regalo">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.nueva_greens_breakfast_video}}"
+                     poster="{{custom_values.nueva_greens_breakfast_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu guía Greens at Breakfast va en camino, y un regalo"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Oferta de regalo</span>
+            <!-- The supplement list has no printed cover yet: its title on an index card is the mockup, with Alive small on the
+                 bottom right corner so the list stays the focus (REEL-PAGE-SOP 2b, the product on the mockup). -->
+            <span class="rlb-coverwrap"><span class="gb-listcard" role="img" aria-label="Mi lista de suplementos para la mañana"><span class="gb-listcard-k">Everyday Well</span><span class="gb-listcard-h">Mi lista de suplementos para la mañana</span></span><img class="rlb-sticker gb-sticker-cut"
+                 src="/_p/nueva/n-greens-breakfast/_img/alive-cutout.webp" width="441" height="593" alt="Un envase de Nueva Alive"></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">Mi lista de suplementos para la mañana</p>
+              <p class="rlb-plus">+ info del producto</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Te enviamos las dos cosas por mensaje de texto</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/n-greens-breakfast-list-request">🎁 ¡SÍ! Envíame los regalos gratis por mensaje</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what's in the supplement list, the button again, the product card, the FDA line. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="Mi lista de suplementos para la mañana">
+        <div class="rl-in">
+          <div class="lk-card gb-guidecard">
+            <span class="rlb-eyebrow" data-in>Mi lista de suplementos para la mañana</span>
+            <div class="rlb-ad" data-in style="--d:.1s">
+              <span class="gb-listcard gb-listcard-sm" role="img" aria-label="Mi lista de suplementos para la mañana"><span class="gb-listcard-k">Everyday Well</span><span class="gb-listcard-h">Mi lista de suplementos para la mañana</span></span>
+              <h2>Lo que hay en la lista...</h2>
+            </div>
+            <ul class="rlb-gets">
+              <li data-in style="--d:.2s">Qué suplementos de la mañana valen la pena y cuáles no</li>
+              <li data-in style="--d:.3s">Qué tomar con el desayuno y qué tomar aparte</li>
+              <li data-in style="--d:.4s">Una bebida verde para las mañanas en que no cocinas</li>
+            </ul>
+            <a class="rlb-btn" data-in style="--d:.55s" data-rl-claim-open href="/n-greens-breakfast-list-request">🎁 ¡SÍ! Envíame la lista + info del producto</a>
+            <div class="rlb-rec" data-in style="--d:.6s">
+              <img class="rlb-rec-img gb-rec-cut" src="/_p/nueva/n-greens-breakfast/_img/alive-cutout.webp" width="441" height="593" alt="Un envase de Nueva Alive, sabor frambuesa y piña">
+              <div class="rlb-rec-t">
+                <span class="rlb-rec-k">Suplemento recomendado</span>
+                <p class="rlb-rec-h">Nueva Alive</p>
+                <p>10 verduras y hongos orgánicos en una medida. Mézclalo con agua. Sabe a frambuesa y piña.</p>
+              </div>
+            </div>
+            <div class="rlb-fine">
+              <p class="rl-fine">Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: CONFIRM.done, verbatim. The word is GREENS; no code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te enviaremos la <b>lista de suplementos</b> Y <b>la info del producto por mensaje de texto en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+      <p>Revisa tus mensajes de texto, también tu carpeta de <b>“Remitentes desconocidos”</b>, para que no se te pase.</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de que te llegue?</b> Envía <b>“GREENS”</b> al <a class="rlt-claim-num" data-claim-num data-word="GREENS" href="sms:{{custom_values.nueva_rep_phone}}?&amp;body=GREENS">{{custom_values.nueva_rep_phone}}</a> para que no caiga en Remitentes desconocidos.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

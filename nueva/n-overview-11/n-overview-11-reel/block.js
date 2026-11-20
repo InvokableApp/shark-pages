@@ -35,7 +35,7 @@
     var copy = e.target.closest && e.target.closest("[data-rv-copy]");
     if (copy) {
       var say = copy.parentNode.querySelector("[data-rv-say]"), text = say ? say.textContent.replace(/\s+/g, " ").trim() : "";
-      var done = function () { copy.textContent = "Copied! Now paste it to " + (first || "them"); };
+      var done = function () { var w = window.__pfWords || {}; copy.textContent = (w["copy.paste_to"] || "Copied! Now paste it to {name}").replace("{name}", first || w["copy.them"] || "them"); };
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { pick(say); });
       else pick(say);
       return;
@@ -71,11 +71,13 @@
     var z = function (x) { return x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
     // the step's own slug answers on every rep address (the page may have been opened as /{funnel}/{step})
     var path = "/" + location.pathname.split("/").filter(Boolean).pop();
-    var title = "Watch the 11 minute opportunity overview";
-    var note = "The 11 minute overview, from " + (first || "the person who shared it with you") + ".";
+    // The page's language (platform page-words, window.__pfWords): the English when none are sent.
+    var w = window.__pfWords || {};
+    var title = w["nueva.o11_cal_title"] || "Watch the 11 minute opportunity overview";
+    var note = (w["nueva.o11_cal_note"] || "The 11 minute overview, from {name}.").replace("{name}", first || w["nueva.o11_cal_who"] || "the person who shared it with you");
     if (/Android/i.test(navigator.userAgent)) {
       location.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) + "&dates=" + z(at) + "/" + z(end) +
-        "&details=" + encodeURIComponent(note + " Open: " + location.origin + path);
+        "&details=" + encodeURIComponent(note + " " + (w["cal.open"] || "Open:") + " " + location.origin + path);
       return;
     }
     location.href = "/_cal?t=" + encodeURIComponent(title) + "&s=" + z(at) + "&m=15&p=" + encodeURIComponent(path) + "&n=" + encodeURIComponent(note);

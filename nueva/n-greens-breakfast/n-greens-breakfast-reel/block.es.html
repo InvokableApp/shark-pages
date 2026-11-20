@@ -1,0 +1,121 @@
+<!--
+  nueva/n-greens-breakfast/n-greens-breakfast-reel
+  The Greens at Breakfast opt-in as a REEL (Jeff, 2026-11-08: a free "greens at breakfast" recipe guide that leads to Nueva
+  Alive; 2026-11-09: "yea build it local"). Platform only; the platform's step points here (migration 0641). Copied from
+  n-tone-and-tighten-guide-reel with the words, pictures and look swapped.
+  ⚠️ EVERY WORD IS NUEVASHARK/campaigns/greens-breakfast/copy.mjs (OPTIN, the frittata in RECIPES, GUIDE.sets), verbatim.
+     Change a word there first. The counts agree with the guide: 12 recipes, 5 ready in 15 minutes, 5 to make ahead, 2 for
+     a slow weekend.
+  ⚠️ THE GUIDE IS EVERYDAY WELL: nothing on this page names Nueva or Alive.
+  ⚠️ REAL PHOTOS ONLY (Jeff, 2026-11-08: "i like this, only use real photos"): every picture is a photo of the dish, from
+     _img/ (gpt-image-2 per recipe, NUEVASHARK/campaigns/greens-breakfast/_render/photos.mjs). Never a drawn plate.
+  The look is Recipe tin (_shared/reel/looks/recipe-tin.css, class rl-look-tin): the words sit on a ruled index card, never
+  straight on the gingham. The reel itself is _shared/reel/v1 (references/REEL-PAGE-SOP.md).
+-->
+<div class="rl rl-look-tin rl-gb" data-pf-native data-pf-dock="Envíame las recetas" data-pf-handoff="#F7F3E8">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. The cover, with three photo prints taped above the index card in a collage (Jeff, 2026-11-11: "i love that taped
+           look, can we get like 3 images up there kinda a collage?"), then the card with the handwritten headline -->
+      <section class="rl-p rl-paper rl-cover" aria-label="La guía de recetas Greens at Breakfast">
+        <div class="rl-in">
+          <div class="rl-art gb-collage">
+            <figure class="lk-snap gb-c1"><img src="/_p/nueva/n-greens-breakfast/_img/frittata.jpg" width="1000" height="1000"
+              alt="Frittata de brócoli y queso cheddar en un sartén de hierro fundido"></figure>
+            <figure class="lk-snap r gb-c3"><img src="/_p/nueva/n-greens-breakfast/_img/green-pancakes.jpg" width="1000" height="1000"
+              alt="Una pila de panqueques verdes con plátano"></figure>
+            <figure class="lk-snap gb-c2"><img src="/_p/nueva/n-greens-breakfast/_img/pea-toast.jpg" width="1000" height="1000"
+              alt="Pan tostado con chícharos machacados, queso feta y un huevo tierno"></figure>
+          </div>
+          <div class="lk-card gb-card" data-in>
+            <span class="rl-eyebrow">La guía de recetas Greens at Breakfast</span>
+            <h1>Descarga gratis: <em>12 recetas de desayuno</em> para comer tus verduras cada mañana</h1>
+            <p class="gb-lede">Frittata de brócoli y cheddar, shakshuka verde, burritos para congelar y 9 más.</p>
+          </div>
+          <ul class="rl-pills" data-in style="--d:.25s"><li>12 recetas</li><li>5 listas en 15 minutos</li><li>5 para dejar hechas</li><li>Gratis</li></ul>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. What's in the PDF, and that it's free (Jeff, 2026-11-11: "one slide giving an idea of whats in the pdf and that its
+           free"; it replaced the "Sound familiar?" screens). Three real pages of the PDF, taped on: the cover, the contents and
+           a recipe (_img/pdf-page-*.jpg, rendered from shark-pages/nueva/_guides/greens-at-breakfast-recipe-guide.pdf; render
+           them again when the PDF changes). -->
+      <section class="rl-p rl-paper gb-pdf">
+        <div class="rl-in">
+          <div class="rl-art gb-collage gb-pages">
+            <figure class="lk-snap gb-c1"><img src="/_p/nueva/n-greens-breakfast/_img/pdf-page-3.jpg" width="765" height="990"
+              alt="La página de contenido de la guía" loading="lazy"></figure>
+            <figure class="lk-snap r gb-c3"><img src="/_p/nueva/n-greens-breakfast/_img/pdf-page-4.jpg" width="765" height="990"
+              alt="Una receta de la guía: huevos revueltos con pesto en pan tostado" loading="lazy"></figure>
+            <figure class="lk-snap gb-c2"><img src="/_p/nueva/n-greens-breakfast/_img/pdf-page-1.jpg" width="765" height="990"
+              alt="La portada de la guía" loading="lazy"></figure>
+          </div>
+          <div class="lk-card gb-card" data-in style="--d:.1s">
+            <span class="rl-eyebrow">Lo que recibes</span>
+            <h2>12 recetas en un PDF gratis</h2>
+            <p>Cada receta trae foto, las cantidades para 2, 4 o 6 personas y una lista del súper. Léela en tu celular o imprímela.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. One recipe card, as it is in the guide: the frittata, its photo, badges and the first four rows typing on -->
+      <section class="rl-p rl-paper gb-recipe">
+        <div class="rl-in">
+          <div class="lk-card gb-rc rl-art">
+            <img class="lk-card-ph" src="/_p/nueva/n-greens-breakfast/_img/frittata.jpg" width="1000" height="1000" alt="Frittata de brócoli y queso cheddar en un sartén" loading="lazy">
+            <span class="rl-eyebrow">Para dejar hecha</span>
+            <h2>Frittata de brócoli y cheddar</h2>
+            <ul class="lk-badges"><li>PREP. 10 min</li><li>COCCIÓN 20 min</li><li>RINDE 1 frittata</li></ul>
+            <table class="lk-tbl">
+              <tr><th></th><th>Para 2</th><th>Para 4</th><th>Para 6+</th></tr>
+              <tr style="--i:0"><td>Huevos</td><td>4</td><td>8</td><td>12</td></tr>
+              <tr style="--i:1"><td>Leche</td><td>2 cdas</td><td>¼ taza</td><td>⅓ taza</td></tr>
+              <tr style="--i:2"><td>Floretes de brócoli, picados finos</td><td>1 taza</td><td>2 tazas</td><td>3 tazas</td></tr>
+              <tr style="--i:3"><td>Espinaca baby</td><td>1 taza</td><td>2 tazas</td><td>3 tazas</td></tr>
+            </table>
+            <p class="gb-good"><b>Lo bueno:</b> Cada porción lleva como una taza de brócoli y espinaca, y los huevos te dejan satisfecho.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Dark, what's in it, a sideways row of index cards -->
+      <section class="rl-p rl-night rl-plain rl-wide gb-inside">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>La guía de recetas Greens at Breakfast</span>
+          <h2 data-in style="--d:.05s">Lo que trae</h2>
+          <div class="rl-cards gb-inlist" data-in style="--d:.15s">
+            <div class="lk-card"><h3>5 listas en 15 minutos</h3>
+              <p>Huevos revueltos con pesto, avena salada con huevo tierno, quesadilla de espinaca y feta, pan tostado con chícharos machacados y huevos turcos.</p></div>
+            <div class="lk-card"><h3>5 para dejar hechas</h3>
+              <p>Frittata de brócoli y cheddar (o muffins de huevo), cebada remojada sabor pan de calabacita, muffins de calabacita y plátano, burritos para congelar y panqueques verdes.</p></div>
+            <div class="lk-card"><h3>2 para un fin de semana tranquilo</h3>
+              <p>Shakshuka verde con feta y un hash de kale y camote.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 de 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. The close, with the green pancakes and the download. -->
+      <section class="rl-p rl-paper gb-close">
+        <div class="rl-in">
+          <figure class="lk-snap r rl-art"><img src="/_p/nueva/n-greens-breakfast/_img/green-pancakes.jpg" width="1000" height="1000"
+            alt="Una pila de panqueques verdes de espinaca y plátano" loading="lazy"></figure>
+          <div class="lk-card gb-card" data-in style="--d:.1s">
+            <span class="rl-eyebrow">Gratis</span>
+            <h2>Descarga la guía de recetas Greens at Breakfast</h2>
+            <p>Te llega al correo en unos 2 minutos.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the window. -->
+    <button type="button" class="rl-cta" data-sk-open>Envíame las recetas</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

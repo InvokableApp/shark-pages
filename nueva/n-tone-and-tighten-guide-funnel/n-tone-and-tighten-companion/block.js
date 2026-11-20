@@ -111,7 +111,7 @@
       var b = document.createElement("button");
       b.type = "button";
       b.className = "recipe-print";
-      b.textContent = "Print this recipe";
+      b.textContent = (window.__pfWords && window.__pfWords["guide.print_recipe"]) || "Print this recipe";
       b.addEventListener("click", function () {
         root.setAttribute("data-printing", "1");
         card.setAttribute("data-print", "1");

@@ -35,7 +35,7 @@
     var copy = e.target.closest && e.target.closest("[data-rv-copy]");
     if (copy) {
       var say = copy.parentNode.querySelector("[data-rv-say]"), text = say ? say.textContent.replace(/\s+/g, " ").trim() : "";
-      var done = function () { copy.textContent = "Copied! Now paste it to " + (first || "them"); };
+      var done = function () { var w = window.__pfWords || {}; copy.textContent = (w["copy.paste_to"] || "Copied! Now paste it to {name}").replace("{name}", first || w["copy.them"] || "them"); };
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { pick(say); });
       else pick(say);
       return;

@@ -1,0 +1,109 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  nueva/n-nitro-video/n-nitro-video: Nueva Nitro's product video page, a reel cloned from Revive's
+  (nueva/n-revive-video/n-revive-video; Joe, 2026-10-13: "Just clone out revive sample funnel for the nitro one. Whipping
+  up nitro video now with heygen."). Same flow: the headline, swipe to the video, swipe to "After seeing this video...
+  Who comes to mind?", Myself / Someone I Know / No One, each with a pop-up.
+
+  Platform only. The rep sends it one to one as a personal link and hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (No One) is only true for a personal link: a stranger's tap reports to no one.
+
+  THE VIDEO is a content value, nueva_nitro_video (an .mp4 in our storage, the "media" bucket), with
+  nueva_nitro_video_poster as the still. Both are EMPTY until Joe's HeyGen video is uploaded (0253). When it ends, the
+  page moves on to the three cards (block.js).
+  THE HEADLINE AND CLAIM are Nueva's own (nueva.com/product/mp8916-vm, 2026-10-13): the hero title "Prime Your Body" and
+  its line "Clean, sustained energy designed to support oxygenation, healthy circulation, and nutrient delivery for daily
+  performance.*" The headline joins the two; the claim line is the rest of the sentence. The asterisk's disclaimer is on
+  the last screen. No other claim.
+  THE PHOTO is Nueva's own Nitro lifestyle shot (a woman pouring a Nitro stick into water beside the Lemon Lime pouch),
+  from nuevalife.com/product/mp8916-vm (/nuevaassets/img/nitro-upgrade.webp, 2026-10-13), re-encoded to
+  assets/nitro-lifestyle.webp at its native 971x894.
+  TEXT ME buttons are redirect steps to a text with the message written (n-nitro-video-try / -refer); with no texting
+  number they go to the rep's Messenger instead ([data-needs], reel.js).
+-->
+<div class="rl rl-tone rv" data-pf-native>
+  <!-- THE REP, ACROSS THE TOP (Jeff, 2026-10-13: "put the name of the rep on a banner across the top, then ... 'Hey (name),
+       (rep name) wanted you to see this...' ... under nueva revive pill"): their picture and name, from the page's data
+       (block.js); hidden until there is a name. -->
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Te lo envió <b data-rv-rep>tu contacto</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the headline -->
+      <section class="rl-p rl-photo rl-cover rv-cover" aria-label="Nueva Nitro">
+        <div class="rl-bg" style="background-image:url('/_p/nueva/n-nitro-video/n-nitro-video/assets/nitro-lifestyle.webp')"></div>
+        <div class="rl-in">
+          <span class="rv-pill" data-in>Nueva Nitro</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hola, {{contact.first_name}}. </span><span data-rv-rep>Yo</span> quería que vieras esto.</p>
+          <h1 data-in style="--d:.1s" data-label="Nueva Nitro: the video">Prepara tu cuerpo con <span class="rl-hl">energía limpia y constante</span></h1>
+          <p data-in style="--d:.25s">Diseñado para apoyar la oxigenación, una circulación saludable y el aporte de nutrientes para tu rendimiento diario.*</p>
+        </div>
+        <!-- pinned to the bottom of the screen, the words centred under the arrows (Jeff, 2026-10-13) -->
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Desliza hacia arriba para ver el video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video, filling the screen like a story -->
+      <section class="rl-p rl-night rv-watch" aria-label="El video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.nueva_nitro_video}}" data-poster="{{custom_values.nueva_nitro_video_poster}}" data-name="the Nitro video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Desliza hacia arriba y dile a <span data-rv-rep>quien te lo envió</span> qué piensas</span><span class="rv-on-computer">Dile a <span data-rv-rep>quien te lo envió</span> qué piensas</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: who comes to mind -->
+      <section class="rl-p rl-paper rv-ask" aria-label="¿En quién piensas?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Después de ver este video&hellip;</span>
+          <h2 data-in style="--d:.1s">¿En quién piensas?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Myself: I'd like to try Nitro">
+              <b class="rv-n">01</b><span class="rv-t"><b>Yo</b><small>Me encantaría tener más energía saludable. Quiero probar Nitro.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="Someone I know: they might be interested">
+              <b class="rv-n">02</b><span class="rv-t"><b>Alguien que conozco</b><small>Creo que le podría interesar probar Nitro. ¿Qué sigue?</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="Myself and someone I know">
+              <b class="rv-n">03</b><span class="rv-t"><b>Yo + alguien que conozco</b><small>La verdad me gustaría probarlo + conozco a alguien más que también.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="No One: not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Nadie</b><small>No me interesa / no conozco a nadie</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">*Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este producto no tiene la intención de diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- The pop-ups: one per card. {rep} is filled from the page's data (block.js); the visitor's name only when the
+       platform knows it (data-if-name). -->
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Yo" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bien<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Nitro está diseñado para apoyar la oxigenación, una circulación saludable y el aporte de nutrientes para tu rendimiento diario.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y pregúntale cómo tener una muestra en tus manos.</p>
+    <a class="rv-btn" href="/n-nitro-video-try" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-nitro-video-message" data-label="Text me: I'd like to try it">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Alguien que conozco" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Gracias por pensar en alguien<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Nitro está diseñado para apoyar la oxigenación, una circulación saludable y el aporte de nutrientes para tu rendimiento diario.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y dile en quién pensaste.</p>
+    <a class="rv-btn" href="/n-nitro-video-refer" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-nitro-video-message" data-label="Text me: someone came to mind">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Yo y alguien que conozco" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bien<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nueva Nitro está diseñado para apoyar la oxigenación, una circulación saludable y el aporte de nutrientes para tu rendimiento diario.* Escríbele ahora mismo a <span data-rv-rep>quien te lo envió</span> y dile que a ti y a alguien que conoces les podría interesar probarlo.</p>
+    <a class="rv-btn" href="/n-nitro-video-both" data-needs="{{custom_values.nueva_rep_sms}}" data-alt-href="/n-nitro-video-message" data-label="Text me: I'd like to try it, and someone came to mind">Escríbele a <span data-rv-rep>quien te lo envió</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Nadie" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Gracias por tu tiempo<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Le avisamos a <span data-rv-rep>quien te lo envió</span> que no te interesa y que por ahora no tienes a nadie a quien recomendar.</p>
+    <p class="rv-ps">P.D. ¿Lo tocaste por error? Cierra este cuadro con la X para volver.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

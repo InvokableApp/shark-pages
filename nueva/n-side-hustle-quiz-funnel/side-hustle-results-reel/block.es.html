@@ -1,0 +1,67 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  nueva/n-side-hustle-quiz-funnel/side-hustle-results-reel
+  Nueva's quiz RESULTS page as a REEL, after the side hustle quiz reel (Jeff, 2026-10-14: "nueva gets the new version of
+  the side hustle quiz that glp got"). Three screens, PLATFORM ONLY: the platform's /n-quiz-results-page step points here
+  (migration 0280). GLP's is glp/which-work-from-home-model-is-right-for-you-quiz-funnel/side-hustle-results-reel.
+  ⚠️ EVERY WORD IS NUEVA'S NATIVE RESULTS PAGE'S (its result, its note, its popup; masters/steps.json), plus the visitor's
+     first name (PAGE-COPY-SOP §5c) and "an" for its "a Influencer". The result is the page's one result, "Influencer
+     Marketing Model": the survey had no branches to another.
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's: message "VIEW COMPENSATION PLAN" to the rep on Messenger, or
+     text it. The button goes where the native popup's did, the DM redirect step /n-side-hustle-redirect-message (the
+     rep's Messenger): that visit fires the Fire Lead alert. The text is an sms: link with the words in it.
+  The look is the quiz reel's sheet (block.css imports it).
+-->
+<div class="rl rl-match rl-nvq rlr" data-pf-native data-pf-message="para ver el plan de compensación" data-pf-say="VIEW COMPENSATION PLAN" data-pf-arrive="#fcfeff">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: your result -->
+      <section class="rl-p rl-paper rl-wide rlr-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tu resultado</span>
+          <h1 class="rl-type">¡Hola<span data-if-name> {{contact.first_name}}</span>! ¡Lo que mejor te queda es un <em>modelo de marketing de influencers!</em></h1>
+          <p data-in style="--d:.3s">Según tus respuestas, esta oportunidad va muy bien con lo que buscas: te da la flexibilidad, el bajo costo
+            para empezar y el equipo que te apoya, que es lo que más te importa.</p>
+          <p data-in style="--d:.4s"><strong>Tu siguiente paso es sencillo: conoce una de nuestras oportunidades de mercadeo en red desde casa más
+            recomendadas y ve si es para ti.</strong></p>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver cómo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: by personal invitation only -->
+      <section class="rl-p rl-night rl-wide rlr-note">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Nota importante</span>
+          <h2 data-in style="--d:.1s">Esta oportunidad de Social Marketer es solo por invitación personal.</h2>
+          <p data-in style="--d:.25s">Como líder de equipo de la compañía, {{custom_values.nueva_rep_first_name}} te puede enviar los detalles
+            privados de la marca y el plan de compensación. Después de verlos, si tienes preguntas, se las puedes hacer directamente.</p>
+          <a class="rl-btn rlr-go" data-in style="--d:.4s" href="/n-side-hustle-redirect-message">Envíale un mensaje a {{custom_values.nueva_rep_first_name}}</a>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the rep, and the ask with its words -->
+      <section class="rl-p rl-tint rlr-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Solo por invitación personal</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Escríbele "VIEW COMPENSATION PLAN" (ver el plan de compensación) a {{custom_values.nueva_rep_first_name}} por Messenger.</h2>
+          <div class="rl-btns" data-in style="--d:.35s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.nueva_rep_messenger}}"
+               href="/n-side-hustle-redirect-message">💬 Envíale un mensaje a {{custom_values.nueva_rep_first_name}}</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.nueva_rep_phone}}"
+               href="sms:{{custom_values.nueva_rep_phone}}?&body=VIEW%20COMPENSATION%20PLAN">📲 ¿Prefieres un texto? Escribe al <span data-rep-phone>{{custom_values.nueva_rep_phone}}</span></a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.45s"><a href="/income-disclosure" style="color:inherit;text-decoration:underline">Divulgación de ingresos</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Escríbele a {first} para ver el plan de compensación" data-needs="{{custom_values.nueva_rep_messenger}}"
+       data-alt-href="sms:{{custom_values.nueva_rep_phone}}?&body=VIEW%20COMPENSATION%20PLAN" href="/n-side-hustle-redirect-message">Escríbenos para ver el plan de compensación</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

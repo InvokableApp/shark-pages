@@ -11,6 +11,11 @@
   var screens = [].slice.call(root.querySelectorAll(".rl-p"));
   var answers = window.__pfExtra = {};
   var flags = { employed: false, single: false, high: false };
+  // The page's language (platform page-words, window.__pfWords): English when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
+  // The answer saved is the option's English (data-qz-value, the same in every language's block): the rep's alerts and
+  // the lead's fields read English whatever language the lead tapped in. A button without one saves its words, as before.
+  function val(b) { var v = b.getAttribute("data-qz-value"); return v != null ? v : b.textContent.replace(/\s+/g, " ").trim(); }
 
   function shown(s) { return !s.hidden; }
   function apply() {
@@ -24,7 +29,7 @@
     if (h) { if (!h.dataset.other) h.dataset.other = h.textContent; h.textContent = flags.employed ? h.getAttribute("data-qz-hours-employed") : h.dataset.other; }
     // "Question 3 of 9", counting only the questions this visitor gets.
     var qs = screens.filter(function (s) { return s.hasAttribute("data-qz") && shown(s); });
-    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = "Question " + (i + 1) + " of " + qs.length; });
+    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = W("quiz.question_n", "Question {n} of {t}").replace("{n}", i + 1).replace("{t}", qs.length); });
     // The dots on the side follow: a skipped question has no dot.
     var dots = [].slice.call(root.querySelectorAll(".rl-dots button"));
     dots.forEach(function (d, i) { if (screens[i]) d.hidden = screens[i].hidden; });
@@ -49,13 +54,13 @@
     var key = sec.getAttribute("data-qz");
     if (sec.hasAttribute("data-qz-many")) {
       b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true"));
-      var picked = [].slice.call(sec.querySelectorAll('.qz-opts [aria-pressed="true"]')).map(function (x) { return x.textContent.trim(); });
+      var picked = [].slice.call(sec.querySelectorAll('.qz-opts [aria-pressed="true"]')).map(function (x) { var v = x.getAttribute("data-qz-value"); return v != null ? v : x.textContent.trim(); });
       if (picked.length) answers[key] = picked.join("; "); else delete answers[key];
       sec.querySelector("[data-qz-next]").disabled = !picked.length;
       return;
     }
     [].forEach.call(sec.querySelectorAll(".qz-opts button"), function (x) { x.classList.toggle("is-picked", x === b); });
-    answers[key] = b.textContent.replace(/\s+/g, " ").trim();
+    answers[key] = val(b);
     if (key === "nueva_sh_parent_status") flags.single = b.hasAttribute("data-qz-single");
     if (key === "nueva_sh_employment") flags.employed = b.hasAttribute("data-qz-employed");
     if (key === "nueva_sh_household_income") flags.high = b.hasAttribute("data-qz-high");
