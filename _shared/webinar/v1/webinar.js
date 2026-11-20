@@ -159,6 +159,13 @@
     all(".wb-when, [data-wb-count], [data-wb-short]").forEach(function (n) { n.hidden = true; });
   }
 
+  // A call's own words for a block's fixed lines ([data-wb-say="say-pill"] <- data-wb-say-pill): GLP's 11-23 call is a
+  // look at the system, not a training (Joe, 2026-11-19: "This is purely an info session about the system").
+  all("[data-wb-say]").forEach(function (n) {
+    var v = val(n.getAttribute("data-wb-say")), a = n.getAttribute("data-wb-say-attr");
+    if (v) { if (a) n.setAttribute(a, v); else n.textContent = v; }
+  });
+
   // Countdown, then "live now", then ended.
   var count = root.querySelector("[data-wb-count]"), status = root.querySelector("[data-wb-status]");
   var cells = {}; all("[data-wb-count] [data-u]").forEach(function (n) { cells[n.getAttribute("data-u")] = n; });
