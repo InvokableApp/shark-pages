@@ -118,7 +118,14 @@ var SYS = {
           slug: "b-skin", howtoSlug: "b-skin-how-to", scripts: "https://sharksuite.ai/skin-diagnostic-scripts",
           canva: "https://canva.link/1n08nso1az22mzn",
           tease: "A free skin quiz that sells Renew and Luxe",
-          desc: "A 45 second quiz that hands every lead a free 90 day skin routine, then points them at Renew, Luxe or Glutathione+ depending on the result. Strong opener for anyone already spending money on skincare." }
+          desc: "A 45 second quiz that hands every lead a free 90 day skin routine, then points them at Renew, Luxe or Glutathione+ depending on the result. Strong opener for anyone already spending money on skincare." },
+        /* Platform only (2026-11-17): migrations 0784/0785, BENEVESHARK/campaigns/product-quiz. No guides: the quiz
+           gives no PDF, its result page is the payoff. No howtoSlug: the kit's walkthrough
+           (campaign-kits/beneve/b-product-match.json) is its training. */
+        { icon: "quiz", name: "Product Quiz", platformOnly: true,
+          slug: "b-product-match",
+          tease: "A 60 second quiz that picks their Beneve products",
+          desc: "Eight quick questions about their energy, cravings and workouts, and they see the routine you'd start them on: Xcelerate Coffee, Glutathione+ and Gut Advantage, plus GlucoGuard for cravings, or a Sculpt bundle if they train. Every answer is on their lead for your follow up." }
       ]
     }
   ],

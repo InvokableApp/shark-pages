@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@600;800;900&family=Figtree:wght@400;500;600;700&display=swap");
+/* _shared/reel/looks/battery-day.css — LOOK "Battery day" (references/REEL-LOOKS.md, look Q; Jeff picked it 2026-11-16 for
+ * the Beneve product quiz: "i like the batter"). The day as a sky, morning gold to evening dusk, and a phone battery that
+ * drains at 3pm and fills back up. Gabarito 900 headings, Figtree body, plum ink.
+ * Use: @import after reel.css, <div class="rl rl-look-battery">.
+ *   .rl-sky            a screen painted with the day's sky; set style="--sky:0%" (morning) to "--sky:100%" (dusk) on it.
+ *                      Past about 70% the words should turn light: add .rl-sky-late.
+ *   .lk-bat            a battery: <div class="lk-bat" style="--lv:.8"><i></i></div>; --lv is 0 to 1. Add .lk-drain to
+ *                      run it from full to 3pm red when the screen comes on, .lk-fill to run it up to --lv.
+ *   .lk-bat-sm         a small battery, for one place it MEANS something (a stat, a level). Never one per answer:
+ *                      answers get an icon of what they say (Jeff, 2026-11-16: "so many batteries.... lets get creative"). */
+.rl.rl-look-battery{
+  --gold:#FFD9A8; --apricot:#FFB38A; --rose:#C98FA8; --dusk:#3B2A4D; --plum:#2A1D33; --cream:#FFF7EE; --low:#E0475B; --full:#5FB37A;
+  --paper:var(--cream); --tint:#FFE9D6; --night:var(--dusk);
+  --ink:var(--plum); --body:#4A3B52; --grey:#7A6B80; --on-dark:#FFF7EE;
+  --head:"Gabarito",system-ui,sans-serif; --head-w:900; --sans:"Figtree",system-ui,sans-serif;
+  --eyebrow:var(--plum); --eyebrow-dark:var(--gold);
+  --cta:var(--plum); --cta-ink:#fff; --mark:var(--apricot); --shade:42,29,51;
+  --sk-accent:var(--plum); --pfn-accent:var(--plum); --pfn-ink:#fff;
+}
+.rl-look-battery h1,.rl-look-battery h2{ letter-spacing:-.025em; line-height:1.02; }
+.rl-look-battery h1{ font-size:clamp(34px,9.6vw,44px); }
+.rl-look-battery h2{ font-size:clamp(28px,8vw,36px); }
+.rl-look-battery h1 em,.rl-look-battery h2 em{ font-style:normal; color:var(--plum); background:rgba(255,247,238,.88); border-radius:10px; padding:0 6px;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.rl-look-battery .rl-sky-late h1 em,.rl-look-battery .rl-sky-late h2 em{ color:var(--plum); }
+.rl-look-battery .rl-eyebrow{ font:800 12px/1 var(--head); letter-spacing:.16em; }
+.rl-look-battery .rl-btn,.rl-look-battery .pfn-dock{ border-radius:22px; }
+.rl-look-battery .rl-cards > *{ border-radius:20px; }
+@media (min-width:701px){ .rl-look-battery .rl-cta{ border-radius:22px; } }
+
+/* the sky: one tall gradient, each screen shows its hour of it */
+.rl-look-battery .rl-sky{ background:linear-gradient(180deg,var(--gold) 0%,var(--apricot) 30%,var(--rose) 62%,var(--dusk) 100%);
+  background-size:100% 340%; background-position:0 var(--sky,0%); color:var(--ink); }
+.rl-look-battery .rl-sky-late{ color:var(--on-dark); }
+.rl-look-battery .rl-sky-late h1,.rl-look-battery .rl-sky-late h2,.rl-look-battery .rl-sky-late h3{ color:var(--on-dark); }
+.rl-look-battery .rl-sky-late .rl-eyebrow{ color:var(--gold); }
+.rl-look-battery .rl-sky p{ color:inherit; }
+
+/* the battery */
+.lk-bat{ position:relative; width:118px; height:50px; border:4px solid currentColor; border-radius:13px; margin-bottom:22px; color:var(--plum); }
+.lk-bat::after{ content:""; position:absolute; right:-11px; top:13px; width:6px; height:16px; background:currentColor; border-radius:0 3px 3px 0; }
+.lk-bat > i{ position:absolute; inset:4px; border-radius:6px; background:currentColor; transform-origin:left; transform:scaleX(var(--lv,1)); }
+.rl-sky-late .lk-bat{ color:var(--on-dark); }
+.rl-p.is-on .lk-bat.lk-drain > i{ animation:lk-drain 2.4s .25s ease-in-out forwards; }
+@keyframes lk-drain{ 0%{ transform:scaleX(1); } 70%,100%{ transform:scaleX(.12); background:var(--low); } }
+.lk-bat.lk-fill > i{ transform:scaleX(.12); background:var(--low); }
+.rl-p.is-on .lk-bat.lk-fill > i{ animation:lk-fill 1.6s .2s ease-out forwards; }
+@keyframes lk-fill{ 0%{ transform:scaleX(.12); background:var(--low); } 40%{ background:var(--apricot); } 100%{ transform:scaleX(var(--lv,1)); background:var(--full); } }
+.lk-bat-sm{ position:relative; flex:none; width:28px; height:15px; border:2.5px solid var(--plum); border-radius:4px; }
+.lk-bat-sm::after{ content:""; position:absolute; right:-5px; top:3px; width:2.5px; height:5px; background:var(--plum); border-radius:0 1px 1px 0; }
+.lk-bat-sm > i{ position:absolute; inset:2px; border-radius:1px; background:var(--plum); transform-origin:left; transform:scaleX(var(--lv,.5)); }
+@media (prefers-reduced-motion:reduce){
+  .rl-p.is-on .lk-bat.lk-drain > i{ animation:none; transform:scaleX(.12); background:var(--low); }
+  .rl-p.is-on .lk-bat.lk-fill > i{ animation:none; transform:scaleX(var(--lv,1)); background:var(--full); }
+}
