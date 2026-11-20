@@ -1,0 +1,100 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  The reply keyword SAMPLE stays in English on purpose: the rep's system listens for it.
+  glp/glp-free-ignyt-sample/ignyt-sample-confirmation-reel
+  The IGNYT sample confirmation as a REEL, after its opt-in reel (Jeff, 2026-10-10). Four screens, PLATFORM ONLY: the
+  platform's /sample-confirmed step points here. GHL keeps ignyt-sample-confirmation-v2 (and its frozen parent), loaded
+  live by every installed GLP account's socket, so this is a new folder and those are never edited. Their rules hold:
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is one message sent now (Joe's mechanic, 2026-09-02): the visitor texts SAMPLE to the
+     rep, which confirms they are a person and confirms the address. TEXT FIRST, Facebook second ("instead"), as on v2.
+     So the "Swipe up to message Jordan" dock opens the text (the first [data-pf-message-link]); with no rep phone it
+     falls to the Facebook step ([data-needs] + data-alt-href, reel.js). A computer can't text, so its floating button is
+     the Facebook step, and it isn't shown when the rep has no Messenger link (the screens' text buttons remain).
+  ⚠️ The Facebook route is the DM Redirect STEP (/ignyt-sample-redirect), never the Messenger link itself: the step's
+     visit is what tags the lead, alerts the rep and sends the InitiateCheckout event.
+  ⚠️ No purchase button, no offer terms (one per household and "subject to availability" only, in the fine print).
+  ⚠️ EVERY WORD IS v2's, verbatim, plus the visitor's first name in the headline (PAGE-COPY-SOP §5c).
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet (block.css imports it).
+-->
+<div class="rl rl-ig rlc" data-pf-native data-pf-message="para confirmar tu dirección de envío" data-pf-arrive="#07070a">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. DARK: one more step. The page rises out of the black the opt-in's form left on screen. -->
+      <section class="rl-p rl-night rl-plain rlc-top">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-free-ignyt-sample/ignyt-sample-optin/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rlc-pill" data-in><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>Un paso más</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Confirma tus datos de envío <span class="rli-ember">con nosotros</span><span data-if-name>, {{contact.first_name}}</span>.</h1>
+          <p data-in style="--d:.3s">Para hacerlo, envía ahora mismo un texto con la palabra SAMPLE al <span data-rep-phone>{{custom_values.rep_phone}}</span>. Así
+            confirmamos que eres una persona real y confirmamos tu dirección de envío.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" data-pf-message-link data-needs="{{custom_values.rep_phone}}" data-alt-href="/ignyt-sample-redirect"
+               href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">Envía SAMPLE al <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.your_facebook_messenger_link}}" href="/ignyt-sample-redirect">Mejor escríbenos por Facebook</a>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. FROST: what happens next, the three steps they are now inside -->
+      <section class="rl-p rl-paper rl-wide rlc-next">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Qué sigue</span>
+          <h2 data-in style="--d:.1s">Tres pasos para recibir tu muestra.</h2>
+          <ol class="rlc-steps">
+            <li data-in style="--d:.25s"><span>01</span><div><h3>Envías un mensaje</h3><p>Envía SAMPLE por texto al <span data-rep-phone>{{custom_values.rep_phone}}</span>, o mándanos un mensaje por Facebook, ahora
+              mismo. Así confirmamos que eres una persona real y a dónde va la muestra.</p></div></li>
+            <li data-in style="--d:.4s"><span>02</span><div><h3>Recibes las opciones de muestra</h3><p>Te compartimos las opciones y tú eliges el paquete de muestra que quieres.</p></div></li>
+            <li data-in style="--d:.55s"><span>03</span><div><h3>¡Siente el poder de IGNYT!</h3><p>Un sobrecito en 8 oz (240 ml) de agua, una vez al día. Usa un vaso mezclador o un batidor de café, no una cuchara. Mejor con hielo.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 3. DARK: what's in the envelope, the pack on black -->
+      <section class="rl-p rl-night rlc-what">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Mientras esperas</span>
+          <img class="rli-pack rlc-pack rl-art" data-in style="--d:.1s" src="/_p/glp/glp-free-ignyt-sample/ignyt-sample-optin/assets/ignyt-pack.webp"
+               width="720" height="695" alt="La bolsa de IGNYT con sobrecitos individuales y un vaso preparado con hielo">
+          <h2 data-in style="--d:.2s">Lo que viene en el sobre.</h2>
+          <p data-in style="--d:.3s">IGNYT es el potenciador metabólico en polvo de ORYGN, hecho con péptidos bioactivos patentados con el estándar ORYGN
+            PURE. Apoya tres vías de receptores en vez de una: GLP-1, GLP-2 y GIP.</p>
+          <ul class="rlc-checks" data-in style="--d:.4s">
+            <li>Quema grasa de forma natural</li>
+            <li>Cuida y desarrolla músculo magro</li>
+            <li>Menos "ruido" de comida</li>
+            <li>Apoya un intestino y una pared intestinal saludables</li>
+            <li>Apoya una energía y un azúcar en la sangre saludables</li>
+          </ul>
+          <p class="rl-note" data-in style="--d:.5s">Es una bebida de arándano y manzana, no un batido espeso. La mayoría lo toma frío con hielo.</p>
+        </div>
+      </section>
+
+      <!-- 4. PHOTO: the ask, with the rep, and the fine print -->
+      <section class="rl-p rl-photo rl-wide rlc-ask">
+        <div class="rl-bg" style="background-image:url('/_p/glp/glp-free-ignyt-sample/ignyt-sample-optin/assets/ritual.webp')"></div>
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <p class="rlc-say" data-in style="--d:.1s">¡Mándame un mensaje ahora para confirmar tu dirección, elegir tu paquete de muestra y enviártelo por correo!</p>
+          <a class="rl-btn rlc-go" data-needs="{{custom_values.rep_phone}}" data-alt-href="/ignyt-sample-redirect" data-in style="--d:.25s"
+             href="sms:{{custom_values.rep_phone}}?&body=SAMPLE">Envía SAMPLE al <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+          <p class="rlc-alt" data-in style="--d:.35s" data-needs="{{custom_values.your_facebook_messenger_link}}"><a href="/ignyt-sample-redirect">Mejor escríbenos por Facebook</a></p>
+          <p class="rl-fine" data-in style="--d:.45s">* Sujeto a disponibilidad de muestras. Una por hogar hasta agotar existencias. Estas declaraciones no han sido evaluadas
+            por la Administración de Alimentos y Medicamentos (FDA). Este producto no tiene la intención de diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock and usually can't text: the ask floats in the window as the Facebook step, with the rep
+         (reel.js). No Messenger link: no floating button, and the screens' own text buttons and number carry the ask. -->
+    <a class="rl-cta" data-rep-cta="Escríbele a {first} por Facebook" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       href="/ignyt-sample-redirect">Escríbenos por Facebook</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

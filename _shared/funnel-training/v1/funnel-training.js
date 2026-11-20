@@ -135,10 +135,10 @@ if (!window.__sharkFunnelTraining) {
     var a = document.createElement("a");
     a.className = "sk-backpill";
     a.href = "https://" + dom + "/" + hubSlug(mount);
-    a.setAttribute("aria-label", "Go to your marketing hub");
+    a.setAttribute("aria-label", ((window.__pfWords || {})["ft.hub_go"] || "Go to your marketing hub"));
     var g = icon("back");
     if (g) a.appendChild(g);
-    a.appendChild(document.createTextNode("Your marketing hub"));
+    a.appendChild(document.createTextNode(((window.__pfWords || {})["ft.hub"] || "Your marketing hub")));
     /* first in the measure, above the logo, so it cannot overlap the header at
        any breakpoint the way an absolutely positioned pill would */
     var head = root.querySelector(".sk-head");
@@ -167,10 +167,10 @@ if (!window.__sharkFunnelTraining) {
       var label = btn.querySelector("span");
       navigator.clipboard.writeText(plain(body)).then(function () {
         btn.setAttribute("data-done", "true");
-        label.textContent = "Copied";
+        label.textContent = ((window.__pfWords || {})["ft.copied"] || "Copied");
         setTimeout(function () {
           btn.removeAttribute("data-done");
-          label.textContent = "Copy";
+          label.textContent = ((window.__pfWords || {})["ft.copy"] || "Copy");
         }, 1800);
       });
     });
@@ -201,7 +201,7 @@ if (!window.__sharkFunnelTraining) {
     var segs = [];
     bar.className = "sk-bottomnav";
     bar.setAttribute("aria-label", panels.length === 1
-      ? "This training" : "The " + panels.length + " parts of this training");
+      ? ((window.__pfWords || {})["ft.this_training"] || "This training") : ((window.__pfWords || {})["ft.parts_n"] || "The {n} parts of this training").replace("{n}", panels.length));
 
     /* Joe, 2026-09-22: "on sticky footer let's put QUICK NAVIGATION above the
        three icons". The bar was three unlabelled segments, so what it WAS took
@@ -210,7 +210,7 @@ if (!window.__sharkFunnelTraining) {
     var barLabel = document.createElement("span");
     barLabel.className = "sk-nav-label";
     barLabel.setAttribute("aria-hidden", "true");
-    barLabel.textContent = "QUICK NAVIGATION";
+    barLabel.textContent = ((window.__pfWords || {})["ft.quick_nav"] || "QUICK NAVIGATION");
     bar.appendChild(barLabel);
 
     panels.forEach(function (panel, i) {
@@ -470,7 +470,7 @@ if (!window.__sharkFunnelTraining) {
       box.setAttribute("data-open", on ? "true" : "false");
       head.setAttribute("aria-expanded", on ? "true" : "false");
       /* the label states the action available NOW, not the current state */
-      if (label) label.textContent = on ? "Read less" : "Read more";
+      if (label) label.textContent = on ? ((window.__pfWords || {})["ft.read_less"] || "Read less") : ((window.__pfWords || {})["ft.read_more"] || "Read more");
     });
   });
 
@@ -521,7 +521,7 @@ if (!window.__sharkFunnelTraining) {
             "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
     f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
     f.setAttribute("allowfullscreen", "");
-    f.setAttribute("title", frame.getAttribute("aria-label") || "Training video");
+    f.setAttribute("title", frame.getAttribute("aria-label") || ((window.__pfWords || {})["ft.video"] || "Training video"));
     frame.appendChild(f);
     frame.setAttribute("data-playing", "true");
   }
@@ -611,7 +611,7 @@ if (!window.__sharkFunnelTraining) {
       var phone = window.matchMedia("(max-width: 640px)").matches;
       var src = (phone && t.getAttribute("data-shot-mobile")) || t.getAttribute("data-shot");
       if (!src) return;
-      var label = t.getAttribute("data-shot-label") || "Page preview";
+      var label = t.getAttribute("data-shot-label") || ((window.__pfWords || {})["ft.preview"] || "Page preview");
       title.textContent = label;
       img.setAttribute("alt", label);
       if (img.getAttribute("src") !== src) img.setAttribute("src", src);
@@ -710,7 +710,7 @@ if (!window.__sharkFunnelTraining) {
       card.querySelectorAll(".sk-cv").forEach(function (pill) {
         if (!isUnset(pill.textContent)) return;
         bad = true;
-        pill.textContent = "not set up yet";
+        pill.textContent = ((window.__pfWords || {})["ft.not_set"] || "not set up yet");
         pill.setAttribute("data-unset", "1");
       });
 
@@ -722,11 +722,11 @@ if (!window.__sharkFunnelTraining) {
         /* Joe's button wraps its label in a span beside an icon; the situation
            index button is plain text. Write to whichever is actually there. */
         var label = btn.querySelector("span") || btn;
-        label.textContent = "Fill your settings first";
+        label.textContent = ((window.__pfWords || {})["ft.fill_first"] || "Fill your settings first");
         var note = document.createElement("p");
         note.className = "sk-say-unset";
         note.textContent =
-          "This one needs a setting you have not filled in yet, so it is not ready to send.";
+          ((window.__pfWords || {})["ft.needs_setting"] || "This one needs a setting you have not filled in yet, so it is not ready to send.");
         (card.querySelector(".sk-msg-body") || card).appendChild(note);
         return;
       }
@@ -741,7 +741,7 @@ if (!window.__sharkFunnelTraining) {
         var text = scriptText(box);
         var done = function () {
           var was = btn.textContent;
-          btn.textContent = "Copied";
+          btn.textContent = ((window.__pfWords || {})["ft.copied"] || "Copied");
           btn.setAttribute("data-done", "1");
           setTimeout(function () {
             btn.textContent = was;

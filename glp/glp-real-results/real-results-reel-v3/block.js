@@ -28,7 +28,7 @@
     var w = e.target.closest && e.target.closest(".rr-watch, [data-rr-youtube], [data-rr-vimeo]");
     if (w && pop) {
       e.preventDefault();
-      var mp4 = w.getAttribute("data-rr-video"), vim = w.getAttribute("data-rr-vimeo"), yt = w.getAttribute("data-rr-youtube"), t = w.getAttribute("data-rr-title") || "Video";
+      var mp4 = w.getAttribute("data-rr-video"), vim = w.getAttribute("data-rr-vimeo"), yt = w.getAttribute("data-rr-youtube"), t = w.getAttribute("data-rr-title") || ((window.__pfWords || {})["video.title"]) || "Video";
       slot.innerHTML = "";
       var v;
       if (mp4) { v = document.createElement("video"); v.src = mp4; v.controls = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline", ""); }

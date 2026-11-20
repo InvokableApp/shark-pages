@@ -4,6 +4,8 @@
  * screen takes several, then Next (none picked is fine: the survey didn't require it). The answers ride with the form
  * as window.__pfExtra (platform form.js), keyed by the survey's field names so a rep's lead page shows them as before. */
 (function () {
+  // The page's language (platform page-words, window.__pfWords): English when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var root = document.querySelector(".rl-match");
   if (!root) return;
   var track = root.querySelector(".rl-track");
@@ -13,7 +15,7 @@
   function apply() {
     // "Question 3 of 7"
     var qs = screens.filter(function (s) { return s.hasAttribute("data-qz"); });
-    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = "Question " + (i + 1) + " of " + qs.length; });
+    qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = W("quiz.question_n", "Question {n} of {t}").replace("{n}", i + 1).replace("{t}", qs.length); });
   }
   function next(from) {
     var i = screens.indexOf(from) + 1;

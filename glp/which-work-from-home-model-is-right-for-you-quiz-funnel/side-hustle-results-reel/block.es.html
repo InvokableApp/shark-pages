@@ -1,0 +1,64 @@
+<!--
+  glp/which-work-from-home-model-is-right-for-you-quiz-funnel/side-hustle-results-reel (es: a translation; the English is block.html)
+  GLP's quiz RESULTS page as a REEL, after the side hustle quiz reel (Jeff, 2026-10-14). Three screens, PLATFORM ONLY:
+  the platform's /quiz-results step points here (migration 0273). GHL keeps serving its native results page.
+  ⚠️ EVERY WORD IS THE NATIVE RESULTS PAGE'S, verbatim (its result, its note, its popup), plus the visitor's first name
+     (PAGE-COPY-SOP §5c). The result is the page's one result, "Affiliate Marketing Model": GHL's survey had no branches
+     to another, and neither has the platform's (no endings on the form).
+  ⚠️ THE ONE THING THIS PAGE ASKS FOR is the native page's: message "VIEW COMPENSATION PLAN" to the rep on Messenger, or
+     text it. The button goes where the native page's did, the DM redirect step /wfh-redirect-message (the rep's
+     Messenger): that visit fires the Fire Lead alert. The text is an sms: link with the words in it.
+  The look is the quiz reel's sheet (block.css imports it).
+-->
+<div class="rl rl-match rl-glpq rlr" data-pf-native data-pf-message="para ver el plan de compensación" data-pf-say="VIEW COMPENSATION PLAN" data-pf-arrive="#ffffff">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: your result -->
+      <section class="rl-p rl-paper rl-wide rlr-top">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tu resultado</span>
+          <h1 class="rl-type">¡Hola<span data-if-name> {{contact.first_name}}</span>! ¡Lo que mejor te queda es un <em>modelo de marketing de afiliados!</em></h1>
+          <p data-in style="--d:.3s">Según tus respuestas, esta oportunidad parece ir muy bien con lo que buscas: te da flexibilidad, un gran
+            potencial de ingresos y un equipo que te apoya.</p>
+          <p data-in style="--d:.4s"><strong>¿Quieres ver cómo funciona de verdad la oportunidad y cómo te pagarían? 💰</strong></p>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver cómo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: by invitation only -->
+      <section class="rl-p rl-night rl-wide rlr-note">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Nota importante</span>
+          <h2 data-in style="--d:.1s">Esta información es solo por invitación.</h2>
+          <p data-in style="--d:.25s">Toca ahora el botón de abajo para pedirle los detalles de la compañía y el plan de compensación oficial a
+            un líder de confianza de la compañía.</p>
+          <a class="rl-btn rlr-go" data-in style="--d:.4s" href="/wfh-redirect-message">¡Pide ver el plan de compensación!</a>
+          <p class="rl-note" data-in style="--d:.5s">Toca aquí para escribirle ahora a un líder de la compañía...</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the rep, and the ask with its words -->
+      <section class="rl-p rl-tint rlr-ask">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Solo por invitación personal</span>
+          <div class="rl-who" data-in style="--d:.1s" hidden><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <h2 data-in style="--d:.2s">Escríbele "VIEW COMPENSATION PLAN" (ver el plan de compensación) a {{custom_values.rep_full_name}}, líder de confianza de la marca, por Messenger.</h2>
+          <div class="rl-btns" data-in style="--d:.35s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}"
+               href="/wfh-redirect-message">💬 Envíale un mensaje a {{custom_values.rep_full_name}}</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-needs="{{custom_values.rep_phone}}"
+               href="sms:{{custom_values.rep_phone}}?&body=VIEW%20COMPENSATION%20PLAN">📲 ¿Prefieres un texto? Escribe al <span data-rep-phone>{{custom_values.rep_phone}}</span></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <a class="rl-cta" data-pf-ask data-rep-cta="Escríbele a {first} para ver el plan de compensación" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       data-alt-href="sms:{{custom_values.rep_phone}}?&body=VIEW%20COMPENSATION%20PLAN" href="/wfh-redirect-message">Escríbenos para ver el plan de compensación</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,120 @@
+<!--
+  es translation of block.html (Claude draft, 2026-11-20). Change block.html first, then this.
+  glp/orygn-free-protein-packed-recipe-guide/recipe-guide-bonus-reel
+  The High Protein Recipe Guide confirmation as the "SWIPE UP FOR A BONUS" reel: the same back end as the Natural GLP
+  Foods Guide (Jeff, 2026-11-12: "pivot the backend of the high protein guide ... to whats in the backend of the glp foods
+  guide"). PLATFORM ONLY: the platform's /download-your-recipe-guide step points here (migration 0748). GHL keeps its
+  native confirmation; the four-screen reel next door (recipe-guide-confirmation-reel) is left as it was, so pushing this
+  folder changes nothing until the step is switched.
+  THREE SCREENS, as glp-food-guide-bonus-reel (read its header for the why of each piece):
+    1. you are in: the old recipe reel's screen 1 words unchanged (with its "Access the free guide now" button); the
+       dock says "Swipe up for a free bonus 🎁"
+    2. the bonus: Joe's foods guide bonus video (it names the workout guide and the product, never the foods guide), the
+       FREE BONUS card (the workout guide's cover, IGNYT + triGLP on its corner), the claim button
+    3. what's in the workout guide, the same button, the "Recommended supplement" card, the small print
+  THE BONUS IS THE WEIGHT LOSS WORKOUT GUIDE + product info, read online at /weight-loss-workout-guide on the rep's site.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE: the claim buttons fetch /recipe-guide-bonus-request in the background
+  (_shared/reel-bonus/v1/bonus.js); that step's view starts "High Protein Recipe Guide Lead Mag - Bonus Request" (0748),
+  the rep's alert, for a lead the opt-in's cookie names.
+  "Message", not "text", on the buttons, the card and the popup (Jeff, 2026-11-12 and 2026-11-15; the reps reach people on
+  Facebook too). The "text WORKOUT" line stays: that step is a text.
+  The voice is the company's, never the rep's. The look is the recipe opt-in reel's (via the old confirmation's sheet).
+-->
+<div class="rl rl-pf rlc rlb-root" data-pf-native data-pf-dock="Desliza hacia arriba para un regalo gratis 🎁" data-rl-claim="/recipe-guide-bonus-request" data-pf-arrive="#f6f2ea">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: check your inbox (the old recipe reel's words) -->
+      <section class="rl-p rl-paper rlc-top">
+        <div class="rl-in">
+          <svg class="rlc-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="4"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">✅ Ya estás dentro</span>
+          <h1 class="rl-type">¡Hola<span data-if-name> {{contact.first_name}}</span>! Te estamos enviando tu guía de recetas por correo. Dale 2 minutos 📬</h1>
+          <p data-in style="--d:.3s">Te enviamos la guía de recetas altas en proteína a tu correo. Debe llegar en los próximos dos minutos.
+            Si no la ves, revisa tu carpeta de Promociones, Notificaciones o Spam, ¡puede estar ahí!</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/protein-first-recipe-guide">Abre la guía gratis ahora</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver tu regalo</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the bonus. Joe's video on top (muted, a tap for sound), the coupon card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlb-vid" aria-label="Tu regalo">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlb-video">
+              <video src="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/glp-foods-guide-bonus-video.mp4"
+                     poster="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/glp-foods-guide-bonus-video-poster.jpg"
+                     playsinline muted loop preload="metadata" aria-label="Tu guía de ejercicios de regalo"></video>
+              <button type="button" class="rlb-sound" aria-label="Toca para el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlb-x" d="m16 9 5 6m0-6-5 6"/><path class="rlb-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Regalo gratis</span>
+            <span class="glpb-cover"><img class="rlb-cover" src="/_p/glp/glp-natural-foods-guide/glp-weight-loss-workout-guide-read/assets/cover-page.jpg"
+                 width="773" height="1000" alt="La portada de la guía de ejercicios para bajar de peso">
+              <img class="glpb-prods" src="/_p/glp/glp-natural-foods-guide/glp-food-guide-reel/assets/products.webp" width="1566" height="1676" alt="La bolsa de IGNYT y las gotas ORYGN triGLP"></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">Guía gratis de ejercicios para bajar de peso, en casa o en el gimnasio</p>
+              <p class="rlb-plus">+ info de un producto que nos encanta</p>
+              <p class="rlb-by">Te enviamos las dos cosas por mensaje</p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/recipe-guide-bonus-request">🎁 Sí, envíame por mensaje la guía de ejercicios gratis + info del producto recomendado</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what's in the workout guide, the button again, the recommended supplement (information only), the small print. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="La guía gratis de ejercicios para bajar de peso">
+        <div class="rl-in">
+          <span class="rlb-eyebrow" data-in>La guía gratis de ejercicios para bajar de peso</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <img class="rlb-adcover" src="/_p/glp/glp-natural-foods-guide/glp-weight-loss-workout-guide-read/assets/cover-page.jpg"
+                 width="773" height="1000" alt="La portada de la guía de ejercicios para bajar de peso">
+            <h2>Lo que hay en la guía</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">3 rutinas cortas: brazos, abdomen y parte baja del vientre, espalda baja</li>
+            <li data-in style="--d:.3s">Cada ejercicio en casa o en el gimnasio</li>
+            <li data-in style="--d:.4s">Un plan semanal sencillo</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/recipe-guide-bonus-request">Sí, envíame la guía de ejercicios + info del producto</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img" src="/_p/glp/glp-natural-foods-guide/glp-food-guide-reel/assets/products.webp" width="1566" height="1676" alt="La bolsa de IGNYT con un sobre y el gotero de triGLP">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">Suplemento recomendado</span>
+              <p class="rlb-rec-h">ORYGN triGLP™ (líquido) o IGNYT (polvo)</p>
+              <p>Cuatro ingredientes totalmente naturales, diseñados para apoyar el GLP-1 natural de tu cuerpo.</p>
+            </div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">La información de esta guía es solo para fines educativos e informativos y no pretende ser un consejo médico, diagnóstico ni tratamiento.</p>
+            <p class="rl-fine">Si actualmente tomas cualquier tipo de medicamento GLP-1 o medicamentos similares, tienes alguna condición médica, lesión o problema de salud, o vas a empezar un nuevo programa de ejercicio, debes consultar a tu médico o a un proveedor de salud calificado antes de empezar cualquier programa de ejercicio, nutrición o bienestar.</p>
+            <p class="rl-fine">Los resultados varían de persona a persona.</p>
+            <p class="rl-fine">AVISO: Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este producto no tiene la intención de diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: Nueva's popup (Joe's words, 2026-10-20) for this bonus, in the company's voice. -->
+  <div class="rlb-claim" data-rlb-claim role="dialog" aria-modal="true" aria-labelledby="rlb-claim-h" hidden>
+    <div class="rlb-claim-card">
+      <button type="button" class="rlb-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlb-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlb-claim-big" id="rlb-claim-h">Te enviaremos por mensaje la <b>guía de ejercicios</b> Y la <b>info del producto en menos de 24 horas</b> (¡casi siempre mucho antes!).</p>
+      <p>¡Revisa tus mensajes de texto y de Facebook, incluidas tus carpetas de <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, para que no se te pase!</p>
+      <p class="rlb-claim-sms" data-claim-sms><b>¿Quieres asegurarte de que te llegue sin problemas?</b> Solo envía un mensaje de texto con la palabra <b>“WORKOUT”</b> al <a class="rlb-claim-num" data-claim-num data-word="WORKOUT" href="sms:{{custom_values.rep_phone}}?&amp;body=WORKOUT">{{custom_values.rep_phone}}</a> para que no termine en tu carpeta de “Remitentes desconocidos”.</p>
+      <button type="button" class="rl-btn rlb-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
+<script src="/_p/_shared/reel-bonus/v1/bonus.js?v=1" defer></script>
