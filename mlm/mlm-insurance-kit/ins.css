@@ -1,0 +1,85 @@
+/* mlm/mlm-insurance-kit/ins.css (Marketing Shark | MLM): what the four insurance checks share, on top of reel.css and their
+ * look. Everything takes the look's variables (--ink --body --cta --cta-ink --paper --night --mark --eyebrow). */
+[data-if-name]{ display:none; }
+.ins .rl-btn{ font:700 16px var(--sans); cursor:pointer; text-decoration:none; }
+.ins .rl-note{ margin-top:14px; }
+.ins .rl-fine{ font-size:11.5px !important; line-height:1.5; opacity:.8; margin-top:10px !important; }
+.ins .ins-tag{ display:inline-block; align-self:flex-start; font:700 12.5px/1 var(--sans); padding:6px 10px; border-radius:6px;
+  background:var(--ink); color:var(--paper); margin-bottom:16px; }
+.ins .rl-night .ins-tag{ background:var(--eyebrow-dark); color:var(--night); }
+.ins .ins-src{ display:block; font-size:13px !important; color:var(--grey); margin-top:12px !important; }
+.ins .rl-night .ins-src{ color:rgba(255,255,255,.65); }
+
+/* cards: a sideways row of facts or steps */
+.ins .ins-cards > *{ background:#fff; border-radius:var(--ins-r,14px); padding:18px 18px 20px; color:var(--body); box-shadow:0 1px 0 rgba(0,0,0,.06); }
+.ins .ins-cards h3{ font-size:19px; line-height:1.2; color:var(--ink); }
+.ins .ins-cards p{ font-size:15px; line-height:1.5; margin-top:8px; color:var(--body); }
+.ins .ins-n{ display:inline-grid; place-items:center; min-width:28px; height:28px; padding:0 8px; border-radius:6px; background:var(--ink);
+  color:var(--paper); font:700 13px/1 var(--sans); margin-bottom:10px; }
+.ins .rl-night .ins-cards > *{ background:rgba(255,255,255,.07); box-shadow:inset 0 0 0 1px rgba(255,255,255,.14); }
+.ins .rl-night .ins-cards h3{ color:#fff; } .ins .rl-night .ins-cards p{ color:rgba(255,255,255,.82); }
+
+/* a list of plain items on one screen */
+.ins .ins-list{ list-style:none; margin:20px 0 0; padding:0; display:grid; gap:12px; }
+.ins .ins-list li{ font-size:16px; line-height:1.45; color:var(--body); padding-left:30px; position:relative; }
+.ins .ins-list li b{ color:var(--ink); }
+.ins .ins-list li::before{ content:""; position:absolute; left:4px; top:.5em; width:12px; height:12px; border-radius:3px; background:var(--cta); }
+.ins .rl-night .ins-list li{ color:rgba(255,255,255,.82); } .ins .rl-night .ins-list li b{ color:#fff; }
+.ins ol.ins-list{ counter-reset:q; } .ins ol.ins-list li{ counter-increment:q; padding-left:36px; }
+.ins ol.ins-list li::before{ content:counter(q); width:24px; height:24px; top:0; border-radius:50%; background:var(--ink); color:var(--paper);
+  font:700 13px/24px var(--sans); text-align:center; }
+
+/* questions */
+.qz-opts{ display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+.qz-opts button{ display:flex; align-items:center; gap:12px; text-align:left; font:700 16px/1.35 var(--sans); color:var(--ink); background:#fff; cursor:pointer;
+  border:1.5px solid rgba(0,0,0,.12); border-radius:var(--ins-r,14px); padding:15px 18px; transition:border-color .15s,background-color .15s,transform .1s; }
+.qz-opts button::before{ content:""; flex:none; width:18px; height:18px; border-radius:50%; border:2px solid currentColor; opacity:.45; }
+.qz-opts button:active{ transform:scale(.98); }
+.qz-opts button.is-picked{ border-color:var(--cta); box-shadow:inset 0 0 0 1px var(--cta); }
+.qz-opts button.is-picked::before{ opacity:1; background:var(--cta); border-color:var(--cta); box-shadow:inset 0 0 0 3px #fff; }
+.rl-night .qz-opts button{ color:#fff; background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.18); }
+@media (hover:hover){ .qz-opts button:hover{ border-color:var(--cta); } }
+.qz-help{ font-size:15px !important; color:var(--grey); margin-top:8px !important; }
+.qz-money{ margin-top:18px; display:flex; gap:10px; }
+.qz-money[hidden]{ display:none; }
+.qz-money input{ flex:1; min-width:0; font:700 22px var(--sans); color:var(--ink); background:#fff; border:1.5px solid rgba(0,0,0,.16); border-radius:var(--ins-r,14px);
+  padding:14px 16px; font-variant-numeric:tabular-nums; }
+.qz-money input:focus{ outline:none; border-color:var(--cta); box-shadow:inset 0 0 0 1px var(--cta); }
+.qz-money input[aria-invalid="true"]{ border-color:#B3261E; }
+.qz-money button{ font:700 16px var(--sans); background:var(--cta); color:var(--cta-ink); border:0; border-radius:var(--ins-r,14px); padding:0 22px; cursor:pointer; }
+
+/* the loader before the form */
+.qz-proc .rl-in{ text-align:left; }
+.qz-msgs{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.qz-msgs li{ display:grid; gap:2px; opacity:0; animation:qzIn .5s ease-out forwards; }
+.qz-msgs li:nth-child(2){ animation-delay:.9s; }
+.qz-msgs b{ font:700 18px var(--head); color:var(--on-dark); } .qz-msgs span{ font-size:14px; color:rgba(255,255,255,.7); }
+.qz-bar{ height:6px; border-radius:3px; background:rgba(255,255,255,.14); margin-top:22px; overflow:hidden; }
+.qz-bar i{ display:block; height:100%; width:0; background:var(--eyebrow-dark); animation:qzBar 1.8s ease-out forwards; }
+.qz-ready{ opacity:0; animation:qzIn .5s 1.9s ease-out forwards; margin-top:28px; }
+.qz-ready h2{ color:var(--on-dark); } .qz-ready p{ color:rgba(255,255,255,.8); margin-top:8px; }
+@keyframes qzIn{ to{ opacity:1; } }
+@keyframes qzBar{ to{ width:100%; } }
+@media (prefers-reduced-motion:reduce){ .qz-msgs li,.qz-ready{ opacity:1; animation:none; } .qz-bar i{ width:100%; animation:none; } }
+
+/* the result's buttons */
+.ins .rl-btns{ display:flex; flex-direction:column; gap:10px; margin-top:22px; }
+.ins .ins-hide[hidden]{ display:none !important; }
+
+/* covers carry a long headline and their object: keep them inside one phone screen */
+@media (max-width:700px){
+  .ins .rl-cover .rl-in{ padding-top:36px; }
+  .ins .rl-cover h1{ font-size:clamp(27px,8vw,34px); line-height:1.06; }
+  .ins .rl-cover p{ font-size:15px; line-height:1.45; margin-top:12px; }
+  .ins .rl-cover .rl-art{ margin-top:16px; }
+}
+@media (max-width:700px) and (max-height:900px){ .ins .rl-cover .rl-note{ display:none; } }
+/* a result's amounts can be long ("$6,300 to $8,300 + cemetery"): the amount drops under its label */
+.ins-r .lk-li,.ins-r .lk-tot{ flex-wrap:wrap; }
+.ins-r .lk-li em,.ins-r .lk-tot b{ margin-left:auto; }
+@media (max-width:700px) and (max-height:700px){ .ins .rl-cover .rl-pills{ display:none; } .ins .rl-cover h1{ font-size:25px; } .ins .rl-cover .rl-in{ padding-top:24px; } }
+@media (min-width:701px){
+  .ins .rl-cover h1{ font-size:clamp(40px,3.4vw,54px); }
+  .ins .ins-tag{ justify-self:start; }
+  .ins .rl-in > [data-r]{ grid-column:1; }
+}

@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,800..900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
+/* _shared/reel/looks/side-by-side.css: LOOK "Side by side" (references/REEL-LOOKS.md; Jeff 2026-11-20, MLM IUL Check).
+ * Graph paper with two choices in columns, ticked: Archivo condensed capitals for headings, Space Grotesk to read, Space
+ * Mono for labels. White graph paper, navy ink, one vermilion for the ticks and the button.
+ * Use: @import after reel.css, <div class="rl rl-look-graph">.
+ * Helper: .lk-table (<div class="lk-table"><p class="lk-hr"><span></span><b>Term</b><b>IUL</b></p><p><span>Row</span><i class="y"></i><i></i></p></div>);
+ * the ticks land one row at a time when its screen comes on. */
+.rl.rl-look-graph{
+  --gp-navy:#14213D; --gp-red:#E4572E; --gp-line:#E4ECF4;
+  --paper:#FFFFFF; --tint:#F1F5FA; --night:var(--gp-navy);
+  --ink:var(--gp-navy); --body:#33405C; --grey:#6B7690; --on-dark:#fff;
+  --head:"Archivo",system-ui,sans-serif; --head-w:900; --sans:"Space Grotesk",system-ui,sans-serif;
+  --eyebrow:var(--gp-red); --eyebrow-dark:#FFB39C; --mark:var(--gp-red);
+  --cta:var(--gp-red); --cta-ink:#fff; --shade:20,33,61; --ins-r:2px;
+  --sk-accent:var(--gp-red); --pfn-accent:var(--gp-red); --pfn-ink:#fff;
+}
+.rl-look-graph .rl-paper{ background-color:#fff; background-image:repeating-linear-gradient(0deg,transparent 0 23px,var(--gp-line) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,var(--gp-line) 23px 24px); }
+.rl-look-graph h1,.rl-look-graph h2{ font-stretch:72%; text-transform:uppercase; letter-spacing:0; line-height:.98; }
+.rl-look-graph h1{ font-size:clamp(38px,11vw,50px); } .rl-look-graph h3{ font-stretch:80%; font-weight:800; }
+.rl-look-graph h1 em,.rl-look-graph h2 em{ font-style:normal; color:var(--gp-red); }
+.rl-look-graph .rl-eyebrow,.rl-look-graph .ins-tag{ font-family:"Space Mono",monospace; letter-spacing:.04em; }
+.rl-look-graph .rl-btn,.rl-look-graph .pfn-dock{ border-radius:2px; }
+.rl-look-graph .ins-cards > *{ border:2px solid var(--gp-navy); box-shadow:none; }
+
+.rl-look-graph .lk-table{ background:#fff; border:2px solid var(--gp-navy); margin-top:22px; max-width:440px; font:400 14px "Space Mono",monospace; color:var(--gp-navy); }
+.rl-look-graph .lk-table p{ display:grid; grid-template-columns:1fr 64px 64px; border-top:1px solid var(--gp-navy); align-items:stretch; margin:0 !important; font-size:14px !important; color:var(--gp-navy) !important; }
+.rl-look-graph .lk-table .lk-hr{ border-top:0; font-weight:700; }
+.rl-look-graph .lk-table span{ padding:10px 10px; }
+.rl-look-graph .lk-table b{ text-align:center; border-left:1px solid var(--gp-navy); padding:10px 0; }
+.rl-look-graph .lk-table i{ display:block; border-left:1px solid var(--gp-navy); min-height:40px; position:relative; }
+.rl-look-graph .lk-table i.y::after{ content:""; position:absolute; left:50%; top:50%; width:16px; height:9px; border-left:3px solid var(--gp-red); border-bottom:3px solid var(--gp-red);
+  transform:translate(-50%,-70%) rotate(-45deg) scale(0); transition:transform .35s cubic-bezier(.2,.7,.2,1) var(--t,.4s); }
+.rl-look-graph .rl-p.is-on .lk-table i.y::after{ transform:translate(-50%,-70%) rotate(-45deg) scale(1); }
+.rl-look-graph .lk-table p:nth-child(3) i{ --t:.6s } .rl-look-graph .lk-table p:nth-child(4) i{ --t:.8s } .rl-look-graph .lk-table p:nth-child(5) i{ --t:1s }
+@media (prefers-reduced-motion:reduce){ .rl-look-graph .lk-table i.y::after{ transform:translate(-50%,-70%) rotate(-45deg); transition:none; } }
+@media (min-width:701px){ .rl-look-graph h1{ font-size:clamp(52px,5vw,72px); } .rl-look-graph .lk-table{ font-size:16px; } .rl-look-graph .lk-table p{ font-size:16px !important; grid-template-columns:1fr 84px 84px; } }

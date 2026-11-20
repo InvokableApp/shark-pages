@@ -1,0 +1,55 @@
+<!--
+  mlm/mlm-iul-check/mlm-iul-check-result-reel
+  Marketing Shark | MLM (company-neutral): "The IUL Check". Written by MLMSHARK/campaigns/insurance/build-pages.mjs from
+  iul/copy.json: change the words there and rebuild, never here. No company, carrier or product name; no income; no
+  IUL return figures; an amount, never a price (brain/mlm.md §Company rules). Platform only: migration 0920.
+-->
+<div class="rl rl-look-graph ins ins-r" data-ins="iul" data-default="term-fits" data-pf-native>
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide">
+        <div class="rl-in">
+          <span class="ins-tag" data-in>Your IUL check</span>
+          <div data-r="cover-first" hidden>
+            <h1 data-in style="--d:.1s">Get covered first<span data-if-name>, {{contact.first_name}}</span></h1>
+            <p data-in style="--d:.2s">Someone depends on your income and you don't have a policy of your own yet. The first job is cover that's in place now. Plain term life does that for the least money, and you can look at IUL later.</p>
+            <p class="rl-note" data-in style="--d:.3s">This week: write down what your family would need each month, and how many years they'd need it.</p>
+          </div>
+          <div data-r="term-fits" hidden>
+            <h1 data-in style="--d:.1s">Term life is likely the better fit for now<span data-if-name>, {{contact.first_name}}</span></h1>
+            <p data-in style="--d:.2s">IUL works best for someone who wants cover for life and can keep paying for many years without strain. From your answers, cover for a set time at a lower cost fits you better today. That can change later.</p>
+            <p class="rl-note" data-in style="--d:.3s">This week: work out how much cover you'd need and for how many years. That's the number to ask about.</p>
+          </div>
+          <div data-r="worth-a-look" hidden>
+            <h1 data-in style="--d:.1s">IUL is worth a closer look<span data-if-name>, {{contact.first_name}}</span></h1>
+            <p data-in style="--d:.2s">You want lifelong cover, your basics are in place, and you could keep up the payments. That's who IUL is built for. The next step is seeing the real costs for you, next to term life, before you decide anything.</p>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+      <section class="rl-p rl-tint rl-wide">
+        <div class="rl-in">
+          <h2 data-in>Ask these before you sign any IUL</h2>
+          <ol class="ins-list" data-in style="--d:.2s"><li>What are all the fees and charges in the first 10 years?</li><li>How big is the surrender charge, and how many years does it last?</li><li>What's the cap, and can the company change it?</li><li>What happens if I take a loan and don't pay it back?</li><li>Which numbers in this illustration are guaranteed, and which aren't?</li></ol>
+        </div>
+      </section>
+      <section class="rl-p rl-night rl-wide">
+        <div class="rl-in">
+          <h2 data-in>Want to go through it together?</h2>
+          <p data-in style="--d:.15s">I'm a licensed agent. On a short call I'll show you what term and IUL would each cost for you, and answer those five questions. If term is the better fit, I'll tell you. No obligation.</p>
+          <div class="rl-btns" data-in style="--d:.25s">
+            <a class="rl-btn" href="/mlm-iul-check-talk">Pick a time to talk</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=Hey%2C%20I%20did%20the%20IUL%20check.%20Can%20we%20find%20a%20time%20to%20talk%3F">Text me instead</a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.35s">This is general information about life insurance, not investment, tax or legal advice, and not a quote or an offer of insurance. An IUL is life insurance, not an investment. Policy loans and withdrawals reduce the death benefit and cash value, and a policy can lapse.</p>
+          <p class="rl-fine" data-in style="--d:.4s">{{custom_values.mlm_license_line}}</p>
+          <p class="rl-fine" data-in style="--d:.4s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+    <nav class="rl-dots" aria-label="Screens"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Next screen"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/mlm/mlm-insurance-kit/result.js?v=1"></script>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

@@ -1,0 +1,27 @@
+<!--
+  mlm/mlm-funeral-cost/mlm-funeral-cost-talk
+  Marketing Shark | MLM (company-neutral): "Funeral Cost Check". Written by MLMSHARK/campaigns/insurance/build-pages.mjs from
+  final-expense/copy.json: change the words there and rebuild, never here. No company, carrier or product name; no income; no
+  IUL return figures; an amount, never a price (brain/mlm.md §Company rules). Platform only: migration 0920.
+-->
+<div class="rl rl-look-pricelist ins" data-pf-native data-pf-say="Hey {first}, I did the funeral cost check. Can we find a time to talk?">
+  <div class="rl-frame">
+    <div class="rl-track">
+      <section class="rl-p rl-paper rl-wide is-on">
+        <div class="rl-in">
+          <h1 data-in style="--d:.05s">Want to talk about covering it?</h1>
+          <p data-in style="--d:.1s">Pick a time that suits you, or text me and we'll find one. I'll walk you through what it would cost and whether it's a fit. No obligation.</p>
+          <div class="rl-btns" data-in style="--d:.2s">
+            <a class="rl-btn" data-needs="{{custom_values.mlm_booking_link}}" href="/mlm-funeral-cost-book">Book a time</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.mlm_rep_sms}}" href="sms:{{custom_values.mlm_rep_sms}}?&amp;body=Hey%2C%20I%20did%20the%20funeral%20cost%20check.%20Can%20we%20find%20a%20time%20to%20talk%3F">Text me</a>
+            <a class="rl-btn rl-btn-2" data-pf-ask data-pf-message-link data-needs="{{custom_values.mlm_rep_messenger}}" href="/mlm-funeral-cost-redirect-dm">Message me</a>
+          </div>
+          <p class="rl-fine" data-in style="--d:.35s">This is general information about funeral costs, not a quote or an offer of insurance. Prices are national middle prices from the National Funeral Directors Association (2023) and vary by state and funeral home.</p>
+          <p class="rl-fine" data-in style="--d:.4s">{{custom_values.mlm_license_line}}</p>
+          <p class="rl-fine" data-in style="--d:.4s">{{custom_values.mlm_independence_line}}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

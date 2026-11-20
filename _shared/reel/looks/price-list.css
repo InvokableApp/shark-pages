@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&family=Courier+Prime:wght@400;700&family=Libre+Franklin:wght@400;500;700;800&display=swap");
+/* _shared/reel/looks/price-list.css: LOOK "Price list" (references/REEL-LOOKS.md; Jeff 2026-11-20, MLM Funeral Cost Check:
+ * "yes price list"). A funeral home's itemized price list, typed on warm paper, the lead's own amounts filled in: Bitter
+ * slab headings, Libre Franklin body, Courier Prime for the list. Warm grey paper, dark brown ink, one deep burgundy.
+ * Use: @import after reel.css, <div class="rl rl-look-pricelist">.
+ * Helpers: .lk-sheet (the price list: .lk-st title, .lk-li rows <p class="lk-li"><span>Item</span><i></i><em>$ ____</em></p>,
+ * .lk-tot total row <p class="lk-tot"><span>..</span><b>..</b></p>); it slides in and its amounts type on when its screen comes on. */
+.rl.rl-look-pricelist{
+  --pl-paper:#F3EFE7; --pl-sheet:#FBF8F1; --pl-ink:#2B2622; --pl-wine:#7A2E2E; --pl-dot:#8C8476;
+  --paper:var(--pl-paper); --tint:#E9E4DA; --night:#2B2622;
+  --ink:var(--pl-ink); --body:#4A433C; --grey:#7A7167; --on-dark:#FBF8F1;
+  --head:"Bitter",Georgia,serif; --head-w:800; --sans:"Libre Franklin",system-ui,sans-serif;
+  --eyebrow:var(--pl-wine); --eyebrow-dark:#E9C9C0; --mark:#C98F84;
+  --cta:var(--pl-wine); --cta-ink:#FBF8F1; --shade:43,38,34; --ins-r:8px;
+  --sk-accent:var(--pl-wine); --pfn-accent:var(--pl-wine); --pfn-ink:#FBF8F1; --dock-flip:#FBF8F1; --dock-flip-ink:var(--pl-wine);
+}
+.rl-look-pricelist h1,.rl-look-pricelist h2{ letter-spacing:-.015em; line-height:1.08; }
+.rl-look-pricelist h1 em,.rl-look-pricelist h2 em{ font-style:normal; color:var(--pl-wine); }
+.rl-look-pricelist .rl-night h1 em,.rl-look-pricelist .rl-night h2 em{ color:var(--eyebrow-dark); }
+.rl-look-pricelist .rl-eyebrow{ letter-spacing:.08em; }
+.rl-look-pricelist .rl-btn,.rl-look-pricelist .pfn-dock{ border-radius:8px; }
+.rl-look-pricelist .rl-night .rl-btn{ background:#FBF8F1; color:var(--pl-wine); }
+
+.rl-look-pricelist .lk-sheet{ background:var(--pl-sheet); color:var(--pl-ink); padding:16px 18px 14px; margin-top:22px; max-width:400px;
+  box-shadow:0 2px 0 #D8D1C3,0 14px 28px -16px rgba(0,0,0,.45); transform:rotate(-1.2deg); font:400 14px/1.3 "Courier Prime",monospace; display:grid; gap:9px; }
+.rl-look-pricelist .lk-st{ font-weight:700; text-align:center; border-bottom:1.5px solid var(--pl-ink); padding-bottom:7px; font-size:14.5px; margin:0; }
+.rl-look-pricelist .lk-li{ display:flex; align-items:baseline; gap:6px; margin:0 !important; font-size:14px !important; color:var(--pl-ink) !important; }
+.rl-look-pricelist .lk-li i{ flex:1; border-bottom:1.5px dotted var(--pl-dot); transform:translateY(-4px); min-width:12px; }
+.rl-look-pricelist .lk-li em{ font-style:normal; white-space:nowrap; }
+.rl-look-pricelist .lk-tot{ display:flex; justify-content:space-between; gap:10px; border-top:1.5px solid var(--pl-ink); padding-top:8px; margin:0 !important;
+  font-weight:700; color:var(--pl-wine) !important; font-size:14.5px !important; }
+.rl-look-pricelist .lk-tot b{ white-space:nowrap; }
+.rl-look-pricelist .lk-sheet .lk-ex{ font-size:11px !important; color:var(--grey) !important; margin:0 !important; text-align:right; }
+/* motion: the sheet slides in, then each amount types on (REEL-LOOKS §motion: a short eased slide, nothing follows the finger) */
+.rl-look-pricelist .rl-p .lk-sheet{ opacity:0; transform:translateY(14px) rotate(-1.2deg); transition:opacity .5s ease-out .2s,transform .6s cubic-bezier(.2,.7,.2,1) .2s; }
+.rl-look-pricelist .rl-p.is-on .lk-sheet{ opacity:1; transform:rotate(-1.2deg); }
+.rl-look-pricelist .lk-sheet em,.rl-look-pricelist .lk-sheet .lk-tot b{ display:inline-block; clip-path:inset(0 100% 0 0); transition:clip-path .5s steps(8) var(--t,.8s); }
+.rl-look-pricelist .rl-p.is-on .lk-sheet em,.rl-look-pricelist .rl-p.is-on .lk-sheet .lk-tot b{ clip-path:inset(0 0 0 0); }
+@media (prefers-reduced-motion:reduce){ .rl-look-pricelist .rl-p .lk-sheet{ opacity:1; transform:rotate(-1.2deg); transition:none; }
+  .rl-look-pricelist .lk-sheet em,.rl-look-pricelist .lk-sheet .lk-tot b{ clip-path:none; transition:none; } }
+@media (min-width:701px){ .rl-look-pricelist .lk-sheet{ font-size:16px; max-width:440px; } .rl-look-pricelist .lk-li{ font-size:16px !important; } }

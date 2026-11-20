@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,800..900&family=Libre+Franklin:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap");
+/* _shared/reel/looks/exam-ticket.css: LOOK "Exam ticket" (references/REEL-LOOKS.md; Jeff 2026-11-20, MLM Next Step Check).
+ * An admission slip for the state licence exam: the one real step that makes this different. Archivo condensed capitals,
+ * Libre Franklin body, Space Mono for the slip's labels. Deep navy nights, warm paper, a marigold button.
+ * Use: @import after reel.css, <div class="rl rl-look-ticket">.
+ * Helper: .lk-ticket (<div class="lk-ticket"><p class="lk-k1">Admission</p><p class="lk-k2">..</p><p class="lk-k3">..</p></div>);
+ * it rises in and its stamp (.lk-stamp, optional) presses on when the screen comes on. */
+.rl.rl-look-ticket{
+  --tk-navy:#1D2B3A; --tk-paper:#F3EEE3; --tk-gold:#F2B33D; --tk-rust:#B5462F;
+  --paper:var(--tk-paper); --tint:#E6ECF1; --night:var(--tk-navy);
+  --ink:var(--tk-navy); --body:#3E4A57; --grey:#6E7986; --on-dark:#F3EEE3;
+  --head:"Archivo",system-ui,sans-serif; --head-w:900; --sans:"Libre Franklin",system-ui,sans-serif;
+  --eyebrow:var(--tk-rust); --eyebrow-dark:var(--tk-gold); --mark:var(--tk-gold);
+  --cta:var(--tk-navy); --cta-ink:var(--tk-gold); --shade:29,43,58; --ins-r:8px;
+  --sk-accent:var(--tk-navy); --pfn-accent:var(--tk-navy); --pfn-ink:var(--tk-gold); --dock-flip:var(--tk-gold); --dock-flip-ink:var(--tk-navy);
+}
+.rl-look-ticket h1,.rl-look-ticket h2{ font-stretch:74%; letter-spacing:0; line-height:1; }
+.rl-look-ticket h1{ font-size:clamp(38px,11vw,50px); } .rl-look-ticket h3{ font-stretch:85%; font-weight:800; }
+.rl-look-ticket h1 em,.rl-look-ticket h2 em{ font-style:normal; color:var(--tk-rust); }
+.rl-look-ticket .rl-night h1 em,.rl-look-ticket .rl-night h2 em{ color:var(--tk-gold); }
+.rl-look-ticket .rl-eyebrow,.rl-look-ticket .ins-tag{ font-family:"Space Mono",monospace; letter-spacing:.04em; }
+.rl-look-ticket .rl-btn,.rl-look-ticket .pfn-dock{ border-radius:8px; }
+.rl-look-ticket .rl-night .rl-btn{ background:var(--tk-gold); color:var(--tk-navy); }
+.rl-look-ticket .rl-night .rl-btn.rl-btn-2{ background:transparent; color:var(--tk-paper); box-shadow:inset 0 0 0 1.5px rgba(243,238,227,.5); }
+
+.rl-look-ticket .lk-ticket{ position:relative; background:var(--tk-paper); color:var(--tk-navy); border-radius:10px; padding:16px 18px 16px 24px; margin-top:24px; max-width:420px;
+  display:grid; gap:7px; box-shadow:0 16px 30px -18px rgba(0,0,0,.6);
+  -webkit-mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000) ; mask:radial-gradient(circle 9px at 0 50%,transparent 98%,#000); }
+.rl-look-ticket .lk-ticket::before{ content:""; position:absolute; left:10px; top:10px; bottom:10px; border-left:2px dashed rgba(29,43,58,.5); }
+.rl-look-ticket .lk-ticket p{ margin:0 !important; color:var(--tk-navy) !important; }
+.rl-look-ticket .lk-k1{ font:700 12px "Space Mono",monospace !important; color:var(--tk-rust) !important; letter-spacing:.06em; }
+.rl-look-ticket .lk-k2{ font:800 19px/1.2 var(--sans) !important; }
+.rl-look-ticket .lk-k3{ display:flex; flex-wrap:wrap; gap:6px 14px; font:400 13px "Space Mono",monospace !important; }
+.rl-look-ticket .lk-stamp{ position:absolute; right:12px; bottom:-12px; font:700 12px "Space Mono",monospace; color:var(--tk-rust); border:2px solid var(--tk-rust);
+  border-radius:4px; padding:4px 7px; transform:rotate(-8deg) scale(1.6); opacity:0; transition:transform .3s cubic-bezier(.3,1.4,.5,1) .7s,opacity .2s .7s; }
+.rl-look-ticket .rl-p .lk-ticket{ opacity:0; transform:translateY(14px); transition:opacity .5s ease-out .2s,transform .6s cubic-bezier(.2,.7,.2,1) .2s; }
+.rl-look-ticket .rl-p.is-on .lk-ticket{ opacity:1; transform:none; }
+.rl-look-ticket .rl-p.is-on .lk-stamp{ opacity:1; transform:rotate(-8deg) scale(1); }
+@media (prefers-reduced-motion:reduce){ .rl-look-ticket .rl-p .lk-ticket{ opacity:1; transform:none; transition:none; } .rl-look-ticket .lk-stamp{ opacity:1; transform:rotate(-8deg); transition:none; } }
+@media (min-width:701px){ .rl-look-ticket h1{ font-size:clamp(52px,5vw,72px); } .rl-look-ticket .lk-k2{ font-size:22px !important; } }
+.rl-look-ticket .rl-cta{ background:var(--tk-gold); color:var(--tk-navy); }

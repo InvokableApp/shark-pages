@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&family=Kalam:wght@700&display=swap");
+/* _shared/reel/looks/door-frame.css: LOOK "Door frame" (references/REEL-LOOKS.md; Jeff 2026-11-20, MLM Keep the House Check).
+ * The kids' heights pencilled on a door frame: the thing you'd lose with the house. Figtree, warm white walls, a painted
+ * wood frame down the left of a screen, slate blue. Use: @import after reel.css, <div class="rl rl-look-door">.
+ * Helpers: .lk-frame on a screen (.rl-p.lk-frame) draws the frame down its left edge; its marks are
+ * <span class="lk-mk" style="--y:22%">Mia, 9</span> inside <div class="lk-marks" aria-hidden="true">, drawn on when the screen comes on.
+ * .lk-sum (the result rows: <p><span>Label</span><b>$x</b></p>, .lk-gap for the last). */
+.rl.rl-look-door{
+  --df-wall:#F4EFE7; --df-wood:#C8996A; --df-slate:#2D5B7A; --df-ink:#1F2A33;
+  --paper:var(--df-wall); --tint:#E7EDF1; --night:#1F2A33;
+  --ink:var(--df-ink); --body:#46525C; --grey:#77818A; --on-dark:#F4EFE7;
+  --head:"Figtree",system-ui,sans-serif; --head-w:800; --sans:"Figtree",system-ui,sans-serif;
+  --eyebrow:var(--df-slate); --eyebrow-dark:#B9D3E4; --mark:#C8996A;
+  --cta:var(--df-slate); --cta-ink:#fff; --shade:31,42,51; --ins-r:12px;
+  --sk-accent:var(--df-slate); --pfn-accent:var(--df-slate); --pfn-ink:#fff; --dock-flip:#F4EFE7; --dock-flip-ink:var(--df-ink);
+}
+.rl-look-door h1,.rl-look-door h2{ letter-spacing:-.025em; line-height:1.06; }
+.rl-look-door h1 em,.rl-look-door h2 em{ font-style:normal; color:var(--df-slate); }
+.rl-look-door .rl-night h1 em,.rl-look-door .rl-night h2 em{ color:var(--eyebrow-dark); }
+.rl-look-door .rl-eyebrow{ letter-spacing:.08em; }
+.rl-look-door .rl-btn,.rl-look-door .pfn-dock{ border-radius:12px; }
+.rl-look-door .rl-night .rl-btn{ background:#F4EFE7; color:var(--df-ink); }
+
+.rl-look-door .lk-frame .rl-in{ padding-left:96px; }
+.rl-look-door .lk-marks{ position:absolute; left:0; top:0; bottom:0; width:64px; z-index:0;
+  background:linear-gradient(90deg,#B98A5A,#D2A574 40%,#C39363); border-right:3px solid #8E6640; }
+.rl-look-door .lk-mk{ position:absolute; left:6px; top:var(--y); width:52px; font:700 14px Kalam,cursive; color:#3A3A3A; white-space:nowrap;
+  border-top:2px solid #3A3A3A; padding-top:1px; clip-path:inset(0 100% 0 0); transition:clip-path .6s ease-out var(--t,.3s); }
+.rl-look-door .rl-p.is-on .lk-mk{ clip-path:inset(0 0 0 0); }
+.rl-look-door .lk-sum{ background:#fff; border-radius:14px; padding:16px 18px; margin-top:22px; display:grid; gap:10px; max-width:420px; box-shadow:0 10px 26px -18px rgba(0,0,0,.4); }
+.rl-look-door .lk-sum p{ display:flex; justify-content:space-between; gap:12px; margin:0 !important; font-size:16px !important; color:var(--body); }
+.rl-look-door .lk-sum b{ color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.rl-look-door .lk-sum .lk-gap{ border-top:2px solid var(--ink); padding-top:10px; font-weight:800; color:var(--ink); font-size:18px !important; }
+.rl-look-door .lk-bar{ height:10px; border-radius:5px; background:#E4E9ED; overflow:hidden; }
+.rl-look-door .lk-bar i{ display:block; height:100%; width:0; background:var(--df-slate); transition:width 1s ease-out .4s; }
+.rl-look-door .rl-p.is-on .lk-bar i{ width:var(--covered,0%); }
+@media (prefers-reduced-motion:reduce){ .rl-look-door .lk-mk{ clip-path:none; transition:none; } .rl-look-door .lk-bar i{ width:var(--covered,0%); transition:none; } }
+@media (min-width:701px){ .rl-look-door .lk-frame .rl-in{ padding-left:160px; } .rl-look-door .lk-marks{ width:96px; } .rl-look-door .lk-mk{ width:80px; font-size:17px; left:10px; } }
+@media (max-width:360px){ .rl-look-door .lk-frame .rl-in{ padding-left:80px; } .rl-look-door .lk-marks{ width:54px; } }
