@@ -157,7 +157,17 @@ var SYS = {
         tease: 'A short quiz that sells DROPS',
         howtoSlug: 'weight-loss-supplement-recommendation-quiz-funnel-how-to-use',
         howto: 'https://glpshark.com/weight-loss-quiz-training',
-        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' } ]},
+        desc: 'A short quiz that recommends the right weight support and lands them on the DROPS recommendation. Use it when someone is interested but unsure what to take.' },
+      /* The two "shot averse" pamphlets (Jeff, 2026-11-20: "yea" to a card each; platform 0901-0903). PLATFORM ONLY:
+         they carry a `slug`, not a `cv`, so on GHL (domainCv null) funnelUrl() comes back empty and the card renders
+         nothing; on the platform a card shows only where the account serves the slug, so they appear once 0901 has
+         run for that account. No how-to page yet: the campaign kit is still to be drafted. */
+      { slug: 'natural-glp-no-shots', icon: 'drop', name: 'Info For Shot Averse Patients',
+        tease: "For people who don't want the shots, sells triGLP and IGNYT",
+        desc: 'A swipe page a rep sends one to one, to someone who wants help with their weight but is scared of the needle, the side effects or the price. Ends on replying to the rep.' },
+      { slug: 'natural-glp-practitioners', icon: 'guide', name: 'Info For Practitioners With Shot Averse Patients',
+        tease: 'For practitioners whose patients want off the shots, sells triGLP',
+        desc: 'A swipe page for a practitioner whose patients want off the injections: what triGLP is, the three pathways and the published studies on ProGo. Ends on asking the rep for the papers.' } ]},
 
     { label: 'Recruiting funnels', items: [
       { cv: 'side_hustle_quiz_funnel_link', icon: 'quiz', name: 'Side Hustle Quiz',
