@@ -1,7 +1,7 @@
 /* bepic/b-video/b-opportunity-video: B-Epic's opportunity video page as a reel (see block.html), cloned from Beneve's
  * (beneve/b-video/b-opportunity-video), itself GLP's flow (glp/glp-orygn-video/orygn-opportunity-video): the reel kit, the
  * "Clinical calm" look in B-Epic's green, the rep banner, the wide video with its bar, the four numbered cards and their
- * pop-ups. No photo card (GLP's page has none, and Beneve's photo is Beneve's). */
+ * pop-ups. The cover's photo card is the video's own still (block.html). */
 @import url("../../../_shared/reel/v1/reel.css");
 @import url("../../../_shared/reel/looks/clinical-calm.css");
 @import url("../../../_shared/reel/v1/video-watch.css");   /* the video screen: fit and the prompt under the video */

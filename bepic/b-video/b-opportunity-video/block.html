@@ -6,7 +6,8 @@
 
   ⚠️ JOE'S WORDS, verbatim from GLP's page: the cover, the question, the four cards, the pop-ups. No company or product name:
   opportunity copy never names one.
-  ⚠️ THE LOOK is "Clinical calm" in B-Epic's green (block.css). No logo and no photo, as on GLP's.
+  ⚠️ THE LOOK is "Clinical calm" in B-Epic's green (block.css). No logo, as on GLP's. The cover's photo card is the video's
+  own still (bepic_opportunity_video_poster), so it follows a rep who swaps in their own video.
 
   THE VIDEO is a content value, bepic_opportunity_video (Joe's Vimeo, 2026-11-22), with bepic_opportunity_video_poster as its
   still. Never empty, or B-Epic signups stop (clone_tenant, 0047).
@@ -22,9 +23,10 @@
   <div class="rl-frame">
     <div class="rl-track">
 
-      <!-- 1. PAPER: the headline -->
+      <!-- 1. PAPER: the headline under the video's own still -->
       <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Here's how this opportunity works">
         <div class="rl-in">
+          <div class="lk-photo bv-photo" data-in style="background-image:url('{{custom_values.bepic_opportunity_video_poster}}');background-position:50% 28%"></div>
           <span class="lk-tag" data-in style="--d:.05s">Short video</span>
           <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hey {{contact.first_name}}, </span><span data-rv-rep>I</span> wanted you to see this.</p>
           <h1 data-in style="--d:.15s" data-label="Here's how this opportunity works">Here's how this opportunity works. 💸</h1>
