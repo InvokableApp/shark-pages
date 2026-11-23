@@ -1,0 +1,42 @@
+<!--
+  beneve/b-your-links/b-links
+  The PUBLIC link hub: the page a rep posts in their social bio. A visitor taps
+  one row and lands in that funnel. This is NOT the rep console, which lives at
+  beneve/beneve---your-marketing-links/beneve-marketing-links and is for the rep's own eyes.
+
+  ⚠️ LINK MODEL: DOMAIN CUSTOM VALUE PLUS A FIXED SLUG, not one custom value per
+  funnel. Jeff, 2026-09-22: "we know the cv for default domain and we know the
+  slugs so we can do it the way we do the marketing-links pages, glp is the
+  exception in this case." GLP ships per-funnel link values in its snapshot, so
+  its fork of this page reads them; nothing else does, and inventing them for
+  Beneve would be six more values for a rep to fill for no gain.
+
+  GHL substitutes merge fields only in its own HTML, so every value the block
+  reads is declared here and carried in on the socket as data-cv-*. ADDING one
+  here needs a push-block re-push per account; changing markup does not.
+-->
+<div class="sk-bnv-links" data-words="{&quot;Free guides&quot;: &quot;Guías gratis&quot;, &quot;10 packable lunches for your hormones&quot;: &quot;10 almuerzos para llevar que apoyan tus hormonas&quot;, &quot;Lunches you can make ahead, built to support your hormones.&quot;: &quot;Almuerzos que puedes preparar antes, pensados para apoyar tus hormonas.&quot;, &quot;The natural GLP foods guide&quot;: &quot;La guía de alimentos GLP naturales&quot;, &quot;Everyday foods that help keep you full longer.&quot;: &quot;Alimentos de todos los días que te ayudan a sentirte satisfecho por más tiempo.&quot;, &quot;What&#x27;s in your tap water?&quot;: &quot;¿Qué hay en el agua de tu llave?&quot;, &quot;Type your ZIP code and see what the EPA has on file.&quot;: &quot;Escribe tu código postal y mira lo que la EPA tiene registrado.&quot;, &quot;Why does your skin look tired?&quot;: &quot;¿Por qué tu piel se ve cansada?&quot;, &quot;A few questions on your routine, then what to change.&quot;: &quot;Unas preguntas sobre tu rutina y luego qué cambiar.&quot;, &quot;Work with me&quot;: &quot;Trabaja conmigo&quot;, &quot;What is Beneve?&quot;: &quot;¿Qué es Beneve?&quot;, &quot;The short version: what the products do and how the business works.&quot;: &quot;La versión corta: qué hacen los productos y cómo funciona el negocio.&quot;, &quot;Which side hustle fits you?&quot;: &quot;¿Qué ingreso extra va contigo?&quot;, &quot;A few questions, then the model that suits how you live.&quot;: &quot;Unas preguntas y luego el modelo que va con tu forma de vivir.&quot;, &quot;Ready to order&quot;: &quot;Listo para pedir&quot;, &quot;Shop Beneve&quot;: &quot;Compra Beneve&quot;, &quot;Order as a customer.&quot;: &quot;Pide como cliente.&quot;, &quot;Join Beneve&quot;: &quot;Únete a Beneve&quot;, &quot;Start your own Beneve business with me.&quot;: &quot;Empieza tu propio negocio de Beneve conmigo.&quot;, &quot;Connect with me&quot;: &quot;Conéctate conmigo&quot;, &quot;Social profiles&quot;: &quot;Redes sociales&quot;, &quot;Everything in one place. Tap any one to get started.&quot;: &quot;Todo en un solo lugar. Toca cualquiera para empezar.&quot;}"
+     data-cv-beneve_main_url="{{custom_values.beneve_main_url}}"
+     data-cv-beneve_rep_full_name="{{custom_values.beneve_rep_full_name}}"
+     data-cv-beneve_buy_link="{{custom_values.beneve_buy_link}}"
+     data-cv-beneve_opportunity_url="{{custom_values.beneve_opportunity_url}}"
+     data-cv-beneve_income_disclaimer="{{custom_values.beneve_income_disclaimer}}"
+     data-cv-beneve_instagram="{{custom_values.beneve_instagram}}"
+     data-cv-beneve_facebook="{{custom_values.beneve_facebook}}"
+     data-cv-beneve_x="{{custom_values.beneve_x}}"
+     data-cv-beneve_tiktok="{{custom_values.beneve_tiktok}}"
+     data-cv-beneve_youtube="{{custom_values.beneve_youtube}}"
+     data-cv-beneve_linkedin="{{custom_values.beneve_linkedin}}">
+  <div class="sk-grain" aria-hidden="true"></div>
+
+  <header class="sk-head">
+    <h1 class="sk-name" data-name></h1>
+    <p class="sk-sub" data-sub></p>
+  </header>
+
+  <main class="sk-body" data-body></main>
+
+  <footer class="sk-foot">
+    <p class="sk-legal" data-legal></p>
+  </footer>
+</div>

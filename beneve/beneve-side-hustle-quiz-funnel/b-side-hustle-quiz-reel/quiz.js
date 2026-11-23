@@ -7,6 +7,8 @@
 (function () {
   var root = document.querySelector(".rl-match");
   if (!root) return;
+  // The page's language (platform page-words, window.__pfWords): English when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var track = root.querySelector(".rl-track");
   var screens = [].slice.call(root.querySelectorAll(".rl-p"));
   var answers = window.__pfExtra = {};
@@ -25,7 +27,7 @@
     // "Question 3 of 9", counting only the questions this visitor gets.
     var qs = screens.filter(function (s) { return s.hasAttribute("data-qz") && shown(s); });
     qs.forEach(function (s, i) {
-      var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = "Question " + (i + 1) + " of " + qs.length;
+      var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = W("quiz.question_n", "Question {n} of {t}").replace("{n}", i + 1).replace("{t}", qs.length);
       var p = s.querySelector(".qz-prog"); if (p) p.style.setProperty("--lk-p", Math.round((i + 1) / qs.length * 100) + "%");
     });
     // The dots on the side follow: a skipped question has no dot.

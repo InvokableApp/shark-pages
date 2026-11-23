@@ -1,0 +1,129 @@
+<!--
+  beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel
+  The Hormone Lunchbox confirmation, rebuilt on Nueva's No Crash Plan "second filter" (Jeff, 2026-10-23: change the back
+  end "to more like the nueva no crash plan"; the group offer: "remove it, rep can invite ppl interested to group if they
+  have one"). PLATFORM ONLY: the platform's /b-hormone-lunchbox-confirmation step points here (migration 0478). The group
+  reel it replaces, ../b-hormone-lunchbox-confirmation-reel, stays as it was (live serves it until 0478 runs there), and
+  GHL keeps ../beneve-hormone-lunchbox-confirmation-group. Neither is edited.
+  ⚠️ THREE SCREENS, JEFF'S "SWIPE UP FOR A BONUS" FRAME (REEL-PAGE-SOP step 2b), the same as both Nueva confirmations:
+    1. it is on the way (the old reel's words: the headline, check your email); the dock says "Swipe up for a bonus 🎁"
+    2. the bonus: Joe's video on top (muted, a tap for sound), the BONUS OFFER card (the supplement guide's cover with the
+       Glutathione+ bottle on its corner) and the claim button
+    3. what is in the additional guide (three bullets, from the guide's own file: BENEVESHARK/campaigns/hormone-lunchbox/supplement-guide/), the same button, a "Recommended
+       supplement" card (Glutathione+, Beneve's approved line), and the small print with the FDA line (a product is named)
+  ⚠️ JOE'S VIDEO SETS THE WORDS (REEL-PAGE-SOP §A video page): "your hormone lunchbox guide is on its way ... check your spam
+    or promotions ... we put together a free supplement guide with recommendations based on your goals ... we can also send
+    you info on one product from that guide that we really like. It's an antioxidant blend featuring glutathione, DIM, and
+    xanthohumol ... tap any button on this page. We'll text both right to your phone". So: one name, "the supplement guide";
+    the product is "info on one product from it we really like"; "we" text both. The video is a draft cut Joe will replace:
+    the file is ONE content value per account, beneve_hormone_supplement_video (and _poster), set in 0478. Swap the value,
+    never this page.
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE. Only the two claim buttons ([data-rl-claim-open]) open the popup and, on the first
+    open, fetch /b-hormone-supplement-request in the background (data-rl-claim, block.js, the same code as the Nueva reels):
+    that step's view is the rep's 🎁 alert with the text ready to send (0478), for a lead the opt-in's cookie names. The
+    opt-in already took the mobile number. The hrefs stay on the buttons, so with no script a tap lands on the request page.
+  ⚠️ NO GROUP on this page. A rep with a group invites people themselves (the kit says how).
+  ⚠️ "Hormone support", never "hormone balance". Glutathione+ gets Beneve's own approved line only, and the FDA line.
+  The voice is the company's ("we"), no rep name or picture (Joe, 2026-10-21, on the Nueva reels).
+  The reel is _shared/reel/v1; the look is the opt-in reel's sheet, G · Editorial serif (block.css imports it).
+-->
+<div class="rl rl-look-serif rl-lb rlg" data-pf-native data-pf-dock="Desliza para tu regalo 🎁" data-rl-claim="/b-hormone-supplement-request" data-pf-arrive="#F6F1E9">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: it is on the way. The page rises out of the cream the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper rlg-top">
+        <div class="rl-in">
+          <svg class="rlg-env" data-in viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="m8 14 16 12 16-12"/></svg>
+          <span class="lk-rule" data-in style="--d:.05s">☀️ Tu PDF ya va en camino</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type"><span data-if-name>Hola {{contact.first_name}}, </span>Tu guía La lonchera hormonal te llega <em>en 2 minutos.</em></h1>
+          <p data-in style="--d:.3s">Revisa tu correo. Si no lo ves ahí, busca en la carpeta de <b>SPAM</b> o de <b>promociones</b>.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/b-hormone-lunchbox-read">Léela en línea</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.beneve_hormone_lunchbox_guide_pdf_url}}" href="https://{{custom_values.beneve_hormone_lunchbox_guide_pdf_url}}" target="_blank" rel="noopener">Descarga el PDF</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para un bonus</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the bonus. Joe's video on top (muted, a tap for sound), the bonus card, the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu bonus">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.beneve_hormone_supplement_video}}"
+                     poster="{{custom_values.beneve_hormone_supplement_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu guía ya va en camino, y hay un bonus"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para activar el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para activar el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Oferta bonus</span>
+            <!-- the Glutathione+ bottle cut out, small, on the cover's bottom right corner; the cover stays the focus -->
+            <span class="rlb-coverwrap"><img class="rlb-cover" src="/_p/beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel/assets/guide-cover.jpg"
+                 width="680" height="880" alt="La guía de suplementos para las hormonas"><img class="rlb-sticker"
+                 src="/_p/beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel/assets/glut-cutout.webp" width="300" height="546" alt="Un frasco de Glutathione+"></span>
+            <div class="rlb-copy">
+              <p class="rlb-h">Guía de suplementos gratis, según tus metas</p>
+              <p class="rlb-plus">+ info de un producto de la guía que nos gusta mucho</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Te mandamos las dos en un mensaje</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-hormone-supplement-request">🎁 ¡SÍ! Escríbeme los bonus gratis</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: the guide, the button again, the recommended supplement, the small print. -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="La guía de suplementos">
+        <div class="rl-in">
+          <span class="rlb-eyebrow" data-in>La guía de suplementos para las hormonas</span>
+          <div class="rlb-ad" data-in style="--d:.1s">
+            <img class="rlb-adcover" src="/_p/beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel/assets/guide-cover.jpg"
+                 width="680" height="880" alt="La portada de la guía de suplementos para las hormonas">
+            <h2>Lo que trae la guía adicional...</h2>
+          </div>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">13 suplementos para 5 metas, calificados según la investigación</li>
+            <li data-in style="--d:.3s">Cuáles vale la pena revisar</li>
+            <li data-in style="--d:.4s">Qué evitar y quiénes deben tener cuidado</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/b-hormone-supplement-request">🎁 ¡SÍ! Escríbeme la guía + info del producto</a>
+          <div class="rlb-rec" data-in style="--d:.5s">
+            <img class="rlb-rec-img" src="/_p/beneve/beneve-hormone-lunchbox-guide/b-hormone-lunchbox-confirmation-guide-reel/assets/glut.webp" width="360" height="360" alt="Un frasco de Glutathione+">
+            <div class="rlb-rec-t">
+              <span class="rlb-rec-k">Suplemento recomendado</span>
+              <p class="rlb-rec-h">Glutathione+</p>
+              <p>Una mezcla antioxidante con glutatión, DIM y xanthohumol.</p>
+            </div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">Estas guías son solo para fines educativos e informativos y no son consejo médico, nutricional, de diagnóstico ni de tratamiento.</p>
+            <p class="rl-fine">No somos médicos, profesionales de la salud, nutriólogos registrados ni proveedores de salud con licencia. Este contenido no sustituye el consejo profesional.</p>
+            <p class="rl-fine">Habla con tu médico o farmacéutico antes de empezar cualquier suplemento, sobre todo si estás embarazada, en lactancia, tomas medicamentos o tienes alguna condición médica. Los resultados varían de una persona a otra.</p>
+            <p class="rl-fine">La Administración de Alimentos y Medicamentos (FDA) no ha evaluado estas declaraciones. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP: the Nueva reels' words (Joe, 2026-10-20), for a guide and product info instead of a code. -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te mandamos un mensaje con la <b>guía de suplementos</b> Y la <b>info del producto en menos de 24 horas</b> (¡normalmente mucho antes!).</p>
+      <p>Pendiente de tus mensajes y de tus mensajes de Facebook, incluidas tus carpetas de <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, para que no se te pase.</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de recibir este bonus?</b> Escríbeme, o manda un mensaje con la palabra <b>“GUIDE”</b> al <a class="rlt-claim-num" data-claim-num data-word="GUIDE" href="sms:{{custom_values.beneve_rep_phone}}?&amp;body=GUIDE">{{custom_values.beneve_rep_phone}}</a> y me aseguro de que no se vaya a tu spam ni a tu carpeta de “Remitentes desconocidos”.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

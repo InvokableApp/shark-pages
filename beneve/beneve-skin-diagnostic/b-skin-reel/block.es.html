@@ -1,0 +1,225 @@
+<!--
+  beneve/beneve-skin-diagnostic/b-skin-reel
+  Beneve's SKIN DIAGNOSTIC (the lander and its 6 question quiz) as a REEL, look C "Soft athletic" (REEL-LOOKS, Jeff picked
+  it 2026-10-15). PLATFORM ONLY: the platform's /b-skin step points here (migration 0305); GHL keeps serving
+  beneve-skin (the lander with the survey in its popup) on every installed account. Neither is touched.
+  ⚠️ EVERY WORD IS THE LANDER'S OR THE SURVEY'S, VERBATIM. The lander's words: beneve-skin/block.html. The questions,
+     options and the two sub lines: the GHL survey "Beneve - Skin Diagnostic - Survey" (BENEVESHARK/campaigns/
+     skin-diagnostic/build/survey.config.mjs, .survey-live.json); its icons are the survey's (the survey builder's set).
+     The last screen carries the result page's loader lines (they ran on the result page; here they run once, before the
+     form, the way the survey's own processing slide did until 2026-09-09) and the survey's contact slide heading.
+  ⚠️ THIS PAGE MUST NOT SAY "BENEVE" (Jeff, 2026-08-27: "do not name beneve till the result"). Nothing here names a brand
+     or a product.
+  ⚠️ 45 SECONDS AND 6 QUESTIONS must stay true and agree (headline lede, pills, close, the six question screens).
+  ⚠️ THE OPTION WORDS ARE THE ROUTING. The answers ride with the form as window.__pfExtra under the survey's field names
+     (beneve_skin_*), and the form's endings (forms.schema.endings, the GHL survey's 9 rule ladder, first match wins) pick
+     the result: quiz.js sends the visitor there (window.__PF__.next) and the server tags the lead from the same answers
+     and the same endings (lib/survey-endings.mjs). Change an option's words and that answer routes nowhere.
+  ⚠️ THE DOCK: on the lander's screens it is the lander's own button, "Take The 45 Second Quiz", and jumps to question 1;
+     it hides on the questions; on the last screen it reads "See My Routine" (the survey's own submit words) and opens the
+     form "Beneve - Skin Diagnostic - Survey", which 0305 turns into the survey's contact slide alone. A question left
+     unanswered sends the visitor back to it instead of opening the form.
+  The look is _shared/reel/looks/soft-athletic.css; the quiz's own pieces are in block.css; the moves are quiz.js.
+  ⚠️ COPY SCRUBBED FOR MACHINE PHRASING 2026-10-15 (Jeff: "please scrub for llm jargon"), so this reel's words no longer
+     match the GHL page word for word. A re-cut from the GHL generator would undo it: carry the scrub over first.
+-->
+<div class="rl rl-look-soft rl-skin rl-skq" data-pf-native data-pf-dock="Haz el quiz de 45 segundos" data-pf-handoff="#F4EEE6">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the cover (the lander's hero) -->
+      <section class="rl-p rl-photo rl-cover rl-wide" aria-label="El Diagnóstico de piel">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/hero.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>El Diagnóstico de piel</span>
+          <h1 data-in style="--d:.1s">¿Haces todo bien y tu piel sigue <em>viéndose cansada?</em></h1>
+          <p data-in style="--d:.25s">6 preguntas sobre tu piel, tu alimentación y tu semana, y recibes gratis una rutina de 90 días hecha con tus respuestas: qué hacer, en qué orden y en qué dejar de gastar dinero. Casi todo no cuesta nada.</p>
+          <ul class="rl-pills" data-in style="--d:.4s"><li>45 segundos</li><li>6 preguntas</li><li>Gratis, sin crear cuenta</li></ul>
+          <p class="rl-note" data-in style="--d:.5s">Tu rutina aparece apenas termines.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: why routines fail, the three pains as a sideways row -->
+      <section class="rl-p rl-paper rl-wide skq-pain">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Por qué fallan las rutinas</span>
+          <h2 data-in style="--d:.1s">La mayoría estamos tratando lo que no es</h2>
+          <p data-in style="--d:.2s">Tres problemas distintos se ven igual en el espejo, y solo uno responde a lo que te pones en la cara. El quiz averigua cuál es el tuyo.</p>
+          <div class="rl-cards skn-cards" data-in style="--d:.3s">
+            <div class="skn-card"><span class="skn-n">1</span><h3>Un estante lleno de frascos a medias</h3><p>Tres productos empezados el mismo mes, todos abandonados en la semana seis, y sin saber cuál estaba funcionando.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>Descansas, y aun así te ves cansada</h3><p>Ocho horas de sueño y una buena rutina, y la cara que ves en el espejo todavía tiene un tono grisáceo.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>Dejó de recuperarse</h3><p>Una piel que se marca y se queda marcada. La crema cara no cambió nada.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 de 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 3. TINT: what the quiz checks, the three lanes with their own pictures, and the question the quiz answers -->
+      <section class="rl-p rl-tint rl-wide skq-lanes">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Lo que revisa el quiz</span>
+          <h2 data-in style="--d:.1s">Tres cosas, y solo una está en el estante de tu baño</h2>
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/lane-surface.webp" width="1000" height="1000" alt="Gotas de agua sobre una superficie de cerámica color crema mate bajo una luz cálida" loading="lazy"><span aria-hidden="true">01</span></figure>
+              <span class="skq-tag">Tu piel</span>
+              <h3>Lo que tienes sobre la piel</h3>
+              <p>La textura, las líneas finas, la hidratación y el estado de tu barrera cutánea. Es la que responde más rápido de las tres, y la única a la que una crema puede llegar.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/lane-supply.webp" width="1000" height="1000" alt="Pliegues escultóricos de seda color crema con luz cálida rasante" loading="lazy"><span aria-hidden="true">02</span></figure>
+              <span class="skq-tag">Tu cuerpo</span>
+              <h3>Con qué puede construir tu cuerpo</h3>
+              <p>Se nota primero en la elasticidad, y después en el cabello y las uñas. Nada de lo que te pongas en la cara llega ahí.</p>
+            </article>
+            <article class="skn-card skq-lane">
+              <figure><img src="/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/lane-load.webp" width="1000" height="1000" alt="Luz fuerte de la mañana entrando por una cortina de lino tejido sobre una pared de yeso" loading="lazy"><span aria-hidden="true">03</span></figure>
+              <span class="skq-tag">Tu semana</span>
+              <h3>Lo que te está costando tu semana</h3>
+              <p>El estrés, las noches cortas, el sol, una copa de vino casi todas las noches. Es lo que hay detrás de un aspecto apagado y cansado en una cara descansada, y casi nadie lo revisa.</p>
+            </article>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 de 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="skq-ask" data-in style="--d:.45s"><strong>Entonces, ¿cuál de las tres es la tuya?</strong> <span class="rl-note">El quiz lo averigua en 45 segundos.</span></p>
+        </div>
+      </section>
+
+      <!-- 4. PAPER: what you get at the end, the four as a sideways row; the routine card on the right on a computer -->
+      <section class="rl-p rl-paper skq-get">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Lo que recibes al final</span>
+          <h2 data-in style="--d:.1s">Una rutina de 90 días, en el orden en que se hace</h2>
+          <img class="skq-routine rl-art" data-in style="--d:.15s" src="/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/routine.webp" width="1400" height="933" alt="Una tarjeta color crema en blanco y una pluma dorada sobre lino color avena a la luz de la mañana">
+          <div class="rl-cards skn-cards" data-in style="--d:.25s">
+            <!-- card 1 was "Your three scores" until the result screen became a ranking of causes (Jeff, 2026-10-27) -->
+            <div class="skn-card"><span class="skn-n">1</span><h3>Qué hay detrás de tu piel</h3><p>La causa principal de lo que estás viendo, y qué más influye.</p></div>
+            <div class="skn-card"><span class="skn-n">2</span><h3>Entre nueve y doce hábitos, todos gratis</h3><p>Sacar los químicos fuertes de tu baño y después de tu casa, proteína en el desayuno, diez minutos de luz del día, meditar con la cara relajada. Uno a la vez, para que puedas ver qué hizo cada uno.</p></div>
+            <div class="skn-card"><span class="skn-n">3</span><h3>En qué no gastar dinero</h3><p>Los productos que no vale la pena comprar para tu piel, y por qué.</p></div>
+            <div class="skn-card"><span class="skn-n">4</span><h3>Dónde entra un producto</h3><p>Los productos van al final, después del plan gratis, en el orden en que conviene probarlos. Son opcionales, y la rutina funciona sin ellos.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.35s" aria-hidden="true">1 de 4<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="rl-note" data-in style="--d:.45s">Todo apenas termines. Es gratis y no tienes que crear una cuenta.</p>
+        </div>
+      </section>
+
+      <!-- 5. PHOTO: the close, and the lander's disclaimer -->
+      <section class="rl-p rl-photo rl-wide skq-close">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-skin-diagnostic/beneve-skin/assets/hero.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>6 preguntas, 45 segundos</span>
+          <h2 data-in style="--d:.1s">Responde 6 preguntas. Recibe tu rutina.</h2>
+          <p data-in style="--d:.2s">Es gratis, no necesitas cuenta, y puedes empezar la rutina mañana por la mañana sin comprar nada.</p>
+          <p class="rl-note" data-in style="--d:.3s">Tu rutina aparece apenas termines.</p>
+          <p class="rl-fine" data-in style="--d:.4s">Este quiz es solo para fines educativos e informativos. No es consejo médico, no es un diagnóstico y no reemplaza la evaluación de un profesional de la salud. Los resultados individuales varían según el tipo de piel, la rutina, el estilo de vida y la constancia. Si estás embarazada, en período de lactancia, tienes una condición de la piel o de la tiroides, o tomas medicamentos, habla con tu proveedor de salud antes de cambiar tu rutina o agregar un suplemento.</p>
+        </div>
+      </section>
+
+      <!-- 6. beneve_skin_main_concern (routes) -->
+      <section class="rl-p rl-paper rl-wide" data-qz="beneve_skin_main_concern">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Qué es lo que más te molesta de tu piel ahora mismo?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Fine lines and wrinkles"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><span>Líneas finas y arrugas</span></button>
+            <button type="button" data-v="It looks saggy, or less firm"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg><span>Se ve flácida o menos firme</span></button>
+            <button type="button" data-v="It looks dull and tired"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="16" height="8" rx="2"/><path d="M22 11v2M6 11v2M9 11v2"/></svg><span>Se ve opaca y cansada</span></button>
+            <button type="button" data-v="All three"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.3L12 3z"/><path d="M19 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"/></svg><span>Las tres</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 7. beneve_skin_daily_load (routes) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="beneve_skin_daily_load">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Cuál se parece más a tu semana normal?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Stressed, or not sleeping enough"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg><span>Estresada, o sin dormir lo suficiente</span></button>
+            <button type="button" data-v="Out in the sun most days"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2s4 4 4 9a4 4 0 0 1-8 0c0-1.2.5-2.2 1.2-3 .4 1 1 1.6 1.8 1.8C11 8 12 5 12 2z"/></svg><span>Al sol casi todos los días</span></button>
+            <button type="button" data-v="A drink most evenings, or a lot of takeout"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 9v13M18 2c-2 0-3 2-3 5s1 4 3 4v11"/></svg><span>Una copa casi todas las noches, o mucha comida para llevar</span></button>
+            <button type="button" data-v="None of these"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Ninguna de estas</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 8. beneve_skin_collagen_intake (routes) -->
+      <section class="rl-p rl-night rl-wide" data-qz="beneve_skin_collagen_intake">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Tomas algún suplemento de colágeno?</h2>
+          <p data-in style="--d:.18s">El caldo de huesos y el pescado con piel también cuentan.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Most days"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M9 16l2 2 4-4"/></svg><span>Casi todos los días</span></button>
+            <button type="button" data-v="Sometimes"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg><span>A veces</span></button>
+            <button type="button" data-v="Rarely or never"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Casi nunca o nunca</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 9. beneve_skin_current_routine (routes) -->
+      <section class="rl-p rl-paper rl-wide" data-qz="beneve_skin_current_routine">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Qué te pones en la piel en este momento?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Just a cleanser"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>Solo un limpiador</span></button>
+            <button type="button" data-v="A moisturizer, nothing special"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Una crema hidratante, nada especial</span></button>
+            <button type="button" data-v="A full routine, with retinol or acids"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span>Una rutina completa, con retinol o ácidos</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 10. beneve_skin_hormonal_shift (the result's words read it; it doesn't route) -->
+      <section class="rl-p rl-tint rl-wide" data-qz="beneve_skin_hormonal_shift">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Tu piel cambió después de un cambio hormonal?</h2>
+          <p data-in style="--d:.18s">Tener un bebé, la perimenopausia, dejar las pastillas anticonceptivas.</p>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Yes"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M9 16l2 2 4-4"/></svg><span>Sí</span></button>
+            <button type="button" data-v="Maybe, the timing fits"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-8 5"/><path d="M3 4v4h4"/><path d="M12 8v4l3 2"/></svg><span>Tal vez, las fechas coinciden</span></button>
+            <button type="button" data-v="No"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span>No</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- 11. beneve_skin_hair_and_nails (the result's words read it; it doesn't route) -->
+      <section class="rl-p rl-night rl-wide" data-qz="beneve_skin_hair_and_nails">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in data-qz-count></span>
+          <h2 data-in style="--d:.1s">¿Tu cabello o tus uñas también han cambiado?</h2>
+          <div class="qz-opts" data-in style="--d:.25s">
+            <button type="button" data-v="Yes, thinner hair or weak nails"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 17l-8.5-8.5-5 5L2 7"/><path d="M16 17h6v-6"/></svg><span>Sí, cabello más delgado o uñas débiles</span></button>
+            <button type="button" data-v="A little"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg><span>Un poco</span></button>
+            <button type="button" data-v="No"><svg class="qz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>No</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. the result page's loader, then the survey's contact slide heading; the dock opens the form -->
+      <section class="rl-p rl-night rl-plain rl-wide qz-proc" data-qz-ready aria-label="Tu resultado está listo">
+        <div class="rl-in">
+          <div class="qz-orb" aria-hidden="true"><i></i></div>
+          <div class="qz-stage">
+            <div class="qz-load">
+              <ul class="qz-msgs">
+                <li><b>Leyendo tus respuestas...</b><span>Separando lo que está sobre tu piel de lo que está debajo</span></li>
+                <li><b>Armando tu rutina...</b><span>Poniendo primero la parte gratis, porque es la que hace casi todo el trabajo</span></li>
+              </ul>
+              <div class="qz-bar" aria-hidden="true"><i></i></div>
+            </div>
+            <div class="qz-ready">
+              <h2>Tu resultado está listo</h2>
+              <p>Escribe tus datos para ver tu rutina.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock: the button and the arrows live in the frame. quiz.js gives it the dock's words and moves. -->
+    <button type="button" class="rl-cta" data-sk-open>Haz el quiz de 45 segundos</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<!-- The reel's moves, then the quiz's (both deferred, so in this order, before the platform builds the dock). -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/beneve/beneve-skin-diagnostic/b-skin-reel/quiz.js?v=1" defer></script>

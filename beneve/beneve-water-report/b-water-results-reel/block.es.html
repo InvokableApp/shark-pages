@@ -1,0 +1,188 @@
+<!--
+  beneve/beneve-water-report/b-water-results-reel
+  Beneve's WATER REPORT results page as a REEL, after the opt-in reel, on the platform only: the platform's
+  /b-water-results step points here (migration 0304). GHL keeps serving beneve/beneve-water-report/b-water-results on
+  every installed account; that folder is never edited.
+  Look: D, Clinical calm, as the opt-in reel (block.css imports its sheet).
+  WARNING: EVERY WORD IS THE GHL RESULTS PAGE'S, verbatim (block.html and block.js there): the report's labels and
+     sentences, the blurb, the 3 Day Reset section, the filter list, the ask built from her own numbers, the sources and
+     the fine print. Plus the visitor's first name in the headline (PAGE-COPY-SOP 5c), on the page's own words
+     "Your water report".
+  WARNING: THE PAGE NEVER INTERPRETS (GHL rule). The utility's number beside the federal limit, nothing more. The meaning
+     lives in the guide, which is the one ask.
+  WARNING: ONE ACTION AND IT IS THE CLAIM (Joe's Beneve edits, 2026-10-28; Jeff: "same mechanism as other funnels weve
+     done, where a rep gets a notification that someone is requesting it and they copy/paste a message to the lead").
+     The dock ("Send me the free 3-Day Reset"), the blurb's button, the last screen's button and a computer's button all open
+     the 3-Day Reset popup (claim.js), whose first open fetches /b-water-reset-request: that view is the rep's 🎁 alert
+     with the text ready (migration 0529). Until then (2026-09-09 to 10-28) they opened the message card, the word WATER;
+     /b-water-dm-redirect and its alert stay for links already out. No PDF on the page, ever (GHL rule).
+  WHERE THE ADDRESS COMES FROM: ?address= (GHL's way, and a shared link), else what the opt-in reel left in this tab
+  (sessionStorage), else the page asks for a ZIP code itself (the GHL page's askForAddress()).
+  Screens: 1 the report's cover, 2 the two numbers, 3 every compound (hidden when none), 4 what the research says
+  (forever chemicals and hormones, everyone), 5 your water is one piece of your toxic load, 6 the 3 Day Reset, 7 which filter takes out
+  what, 8 the ask. NOTE: the GHL page has no screen 4 and no popup; this reel no longer matches it word for word.
+-->
+<div class="rl rl-look-calm wr wrr rlb-root" data-pf-native data-pf-dock="Pide tu Reset de 3 días GRATIS" data-rl-claim="/b-water-reset-request" data-pf-arrive="#F7FAFC"
+     data-api="https://water-api-production-c8d2.up.railway.app">
+  <!-- The swipe hint says what is below (Jeff, 2026-10-28: "let them know to swipe for more of the report", then "the continuity
+       of the prompts to swipe and the buttons"): the report screens say "your report", the screens from the Reset say "the
+       3-Day Reset", and the two screens with their own sage button (the Reset screen, the last) show none. Phone only. -->
+  <p class="wrr-more" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><span class="wrr-more-r">Desliza hacia arriba para ver más de tu reporte</span><span class="wrr-more-x">Desliza hacia arriba para ver más del Reset de 3 días</span></p>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the report's cover. The page rises out of the paper the opt-in's sheet left on screen. -->
+      <section class="rl-p rl-paper wrr-top" aria-label="Reporte de tu agua">
+        <div class="rl-in">
+          <span class="lk-tag">Reporte de la calidad del agua</span>
+          <!-- The name is filled on the platform from the opt-in, and the whole span drops when it isn't known
+               (render.mjs fillLeadName); reel.js types the headline out when it is. -->
+          <h1 class="rl-type">Reporte de tu agua<span data-if-name>, {{contact.first_name}}</span></h1>
+          <div class="wrr-head" aria-live="polite">
+            <div class="wrr-wait">
+              <p class="wrr-wait-t">Buscando tu sistema de agua...</p>
+              <p class="wrr-wait-s">Buscamos con tu dirección la empresa que te suministra el agua</p>
+              <div class="lk-bar"><i></i></div>
+            </div>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. TINT: the two numbers, the record, the fine print (filled by block.js) -->
+      <section class="rl-p rl-tint wrr-figs" hidden>
+        <div class="rl-in"></div>
+      </section>
+
+      <!-- 3. PAPER: every compound they found (filled by block.js; hidden when none were) -->
+      <section class="rl-p rl-paper wrr-table" hidden>
+        <div class="rl-in"></div>
+      </section>
+
+      <!-- 4. TINT: what the research says (Joe's Beneve edits, 2026-10-28; Jeff: shown to everyone). Every line names its
+           source; Vibrant Wellness (a testing company's blog) is left out, so the metabolism line says what the Endocrine
+           Society page does, and the thyroid line what the Endocrine Society and the PMC study do ("function and transport",
+           not "production"). -->
+      <section class="rl-p rl-tint wrr-edc" aria-label="Los químicos eternos y tus hormonas">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Lo que dice la investigación</span>
+          <h2 data-in style="--d:.08s">Los químicos eternos pueden alterar tus hormonas</h2>
+          <p class="wrr-edc-sub" data-in style="--d:.14s">El PFOA y el PFOS, dos PFAS que se encuentran en el agua de la llave de algunos lugares, están clasificados como
+            químicos que alteran el sistema endocrino. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a> <a class="wrr-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">[2]</a></p>
+          <ul class="wrr-edc-cards" data-in style="--d:.2s">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M8 5c-3 2-4 5-4 8a8 8 0 0 0 16 0c0-3-1-6-4-8"/><path d="M9 13c1 1 2 1.5 3 1.5s2-.5 3-1.5"/></svg>
+              <div><b>Tiroides</b><span>Pueden interferir con la función y el transporte de la hormona tiroidea. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a> <a class="wrr-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">[2]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M12 14v7M9 18h6"/></svg>
+              <div><b>Hormonas reproductivas</b><span>Se han relacionado con cambios en el estrógeno, la progesterona y la testosterona. <a class="wrr-ref" href="https://www.sciencedirect.com/science/article/abs/pii/S0013935123023575" target="_blank" rel="noopener noreferrer">[3]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+              <div><b>Ciclos y ovarios</b><span>La investigación relaciona la exposición con ciclos irregulares y un envejecimiento más rápido de los ovarios. <a class="wrr-ref" href="https://pubmed.ncbi.nlm.nih.gov/28982594/" target="_blank" rel="noopener noreferrer">[4]</a> <a class="wrr-ref" href="https://academic.oup.com/humupd/article/26/5/724/5848465" target="_blank" rel="noopener noreferrer">[5]</a></span></div></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+              <div><b>Metabolismo</b><span>Pueden imitar los ácidos grasos que tu cuerpo usa para formar y almacenar grasa. <a class="wrr-ref" href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">[1]</a></span></div></li>
+          </ul>
+          <p class="wrr-edc-src" data-in style="--d:.28s">Fuentes:
+            <a href="https://www.endocrine.org/topics/edc/what-edcs-are/common-edcs/pfas" target="_blank" rel="noopener noreferrer">1 Endocrine Society</a>,
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12681035/" target="_blank" rel="noopener noreferrer">2 JAMA Network Open (PMC)</a>,
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0013935123023575" target="_blank" rel="noopener noreferrer">3 Environmental Research</a>,
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28982594/" target="_blank" rel="noopener noreferrer">4 PubMed</a>,
+            <a href="https://academic.oup.com/humupd/article/26/5/724/5848465" target="_blank" rel="noopener noreferrer">5 Human Reproduction Update</a>.
+            Solo con fines educativos, no es consejo médico.</p>
+        </div>
+      </section>
+
+      <!-- 5. NIGHT: the blurb. Static, so the offer is there on the day the lookup is not (GHL rule). The button opens the
+           3-Day Reset popup (claim.js), which is the rep's alert. -->
+      <section class="rl-p rl-night wrr-blurb" id="reset">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>PDF gratis</span>
+          <img class="wrr-shot rl-art" data-in style="--d:.1s" src="/_p/beneve/beneve-water-report/b-water-results-reel/assets/reset-cover.webp"
+               width="1028" height="1200" alt="El Reset de 3 días, un PDF gratis">
+          <h2 data-in style="--d:.2s">Tu agua es solo una parte de tu carga tóxica</h2>
+          <p data-in style="--d:.3s">Revisar tu agua es el paso 1. El paso 2 es reducir tu carga tóxica: eliminar
+            los disruptores endocrinos de tus productos de todos los días, desde los plásticos y las fragancias hasta los recibos y los
+            sartenes antiadherentes.</p>
+          <p data-in style="--d:.35s">Tengo una guía gratis para eso ✅ El Reset de 3 días son 27 cambios en tres
+            días. Toca abajo y te la mando.</p>
+          <a class="rl-btn wrr-msg" data-in style="--d:.4s" data-rl-claim-open href="/b-water-reset-request">Mándame el Reset de 3 días</a>
+        </div>
+      </section>
+
+      <!-- 6. PAPER: the 3 Day Reset, its three days (a sideways row of cards on a phone) with two of each day's three swaps faded (GHL: "if you want to know,
+           dm me"). The faded ones are aria-hidden, so a screen reader does not hand over what the fade withholds. -->
+      <section class="rl-p rl-paper wrr-reset">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>Tu siguiente paso</span>
+          <h2 data-in style="--d:.08s">El Reset de 3 días</h2>
+          <p class="wrr-lede" data-in style="--d:.16s">27 cambios en 3 días, 9 al día, para reducir
+            tu carga de EDC. El primer día no cuesta nada.</p>
+          <ul class="wrr-pills" data-in style="--d:.22s"><li>27 cambios</li><li>3 días</li><li>Una fuente en cada afirmación</li><li>Gratis</li></ul>
+          <ul class="wrr-days rl-cards" data-in style="--d:.3s">
+            <li><span class="wrr-d">Día 1</span><div><h3>Nada que comprar</h3>
+              <p class="wrr-ex"><span>Nunca calientes comida en plástico</span><span class="wrr-fade" aria-hidden="true">Di que no al recibo</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">Zapatos fuera en la puerta</span></p></div></li>
+            <li><span class="wrr-d">Día 2</span><div><h3>Cámbialos cuando se acaben</h3>
+              <p class="wrr-ex"><span>Detergente para la ropa</span><span class="wrr-fade" aria-hidden="true">Jabón corporal y champú</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">Velas y aromatizantes eléctricos</span></p></div></li>
+            <li><span class="wrr-d">Día 3</span><div><h3>Compra una vez, úsalo por años</h3>
+              <p class="wrr-ex"><span>Un filtro para el agua de beber</span><span class="wrr-fade" aria-hidden="true">Un filtro para la regadera</span><span class="wrr-fade wrr-fade-2" aria-hidden="true">Un buen sartén</span></p></div></li>
+          </ul>
+          <p class="rl-cards-cue wrr-cue" aria-hidden="true">1 de 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+        </div>
+      </section>
+
+      <!-- 7. TINT: which filter takes out what -->
+      <section class="rl-p rl-tint wrr-filters">
+        <div class="rl-in">
+          <span class="lk-tag" data-in>El Reset de 3 días</span>
+          <h2 data-in style="--d:.08s">Qué filtro elimina qué</h2>
+          <ul class="wrr-nsf lk-cardrow">
+            <li data-in style="--d:.16s"><b>NSF/ANSI 53</b><span>Plomo</span></li>
+            <li data-in style="--d:.22s"><b>NSF/ANSI 58</b><span>Ósmosis inversa. El que atiende los PFAS</span></li>
+            <li data-in style="--d:.28s"><b>NSF/ANSI 401</b><span>Contaminantes emergentes, incluidos algunos fármacos</span></li>
+            <li data-in style="--d:.34s"><b>NSF/ANSI 42</b><span>Solo cloro, sabor y olor</span></li>
+          </ul>
+          <p class="wrr-nsf-n" data-in style="--d:.42s">Lo que debes buscar es el número en la caja, no la marca.</p>
+        </div>
+      </section>
+
+      <!-- 8. PAPER: the ask, built from her own numbers (block.js askCopy), then the button, the rep, the sources -->
+      <section class="rl-p rl-paper wrr-ask">
+        <div class="rl-in">
+          <h2 data-in>¿Quieres saber qué significan estas cosas?</h2>
+          <p class="wrr-ask-p" data-in style="--d:.1s">El Reset de 3 días te dice qué estándar de filtro elimina el plomo, cuál atiende los PFAS, y otros 26 cambios. Es gratis.</p>
+          <a class="rl-btn wrr-msg" data-in style="--d:.2s" data-rl-claim-open href="/b-water-reset-request">Mándame el Reset de 3 días</a>
+          <p class="wrr-how" data-in style="--d:.28s">Toca el botón y te mando la guía enseguida.</p>
+          <p class="wrr-sign" data-in style="--d:.32s">{{custom_values.beneve_rep_full_name}}</p>
+          <div class="wrr-src" data-in style="--d:.4s">
+            <p class="wrr-src-h">De dónde salen estos números</p>
+            <ul>
+              <li><a href="https://www.epa.gov/dwreginfo/lead-and-copper-rule" target="_blank" rel="noopener noreferrer">EPA, Lead and Copper Rule</a></li>
+              <li><a href="https://www.epa.gov/dwucmr/fifth-unregulated-contaminant-monitoring-rule" target="_blank" rel="noopener noreferrer">EPA, Fifth Unregulated Contaminant Monitoring Rule</a></li>
+              <li><a href="https://www.epa.gov/sdwa/and-polyfluoroalkyl-substances-pfas" target="_blank" rel="noopener noreferrer">EPA, PFAS drinking water regulations</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- A computer has no dock: the ask and the arrows live in the frame. -->
+    <a class="rl-cta" data-rl-goto-reset href="#reset">Haz clic aquí para pedir el Reset de 3 días GRATIS</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE 3-DAY RESET POPUP (Joe's Beneve edits, 2026-10-28), built like Nueva's and GLP's claim popup. Opening it fetches
+       /b-water-reset-request, whose view is the rep's 🎁 alert with the text ready to copy (migration 0529); nothing is
+       texted to the lead by us. The "Text RESET" box leaves when the rep has no number (claim.js). -->
+  <div class="rlb-claim wrr-claim" data-rlb-claim role="dialog" aria-modal="true" aria-labelledby="wrr-claim-h" hidden>
+    <div class="rlb-claim-card">
+      <button type="button" class="rlb-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlb-pill">✅ Buenas noticias<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlb-claim-big" id="wrr-claim-h">📲 Te vamos a mandar el <b>Reset de 3 días</b>, <b>27 cambios sencillos</b> para <b>reducir tu carga tóxica</b> y eliminar los <b>disruptores endocrinos</b> de tus productos de todos los días, empezando por los más fáciles.</p>
+      <p>Revisa tus mensajes y DMs, incluida tu carpeta de <b>“Remitentes desconocidos”</b>, para que no se te pase.</p>
+      <p class="rlb-claim-sms" data-claim-sms><b>¿Quieres asegurarte de recibir este bono?</b> Escríbeme, o manda un mensaje con la palabra <b>“RESET”</b> al <a class="rlb-claim-num" data-claim-num data-word="RESET" href="sms:{{custom_values.beneve_rep_phone}}?&amp;body=RESET">{{custom_values.beneve_rep_phone}}</a> y yo me encargo de que no caiga en tu spam ni en tu carpeta de “Remitentes desconocidos”.</p>
+      <button type="button" class="rl-btn rlb-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<!-- The reel's moves. This folder's block.js (the report) is added after it by the platform, so runs second; claim.js last. -->
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
+<script src="/_p/beneve/beneve-water-report/b-water-results-reel/claim.js?v=5" defer></script>

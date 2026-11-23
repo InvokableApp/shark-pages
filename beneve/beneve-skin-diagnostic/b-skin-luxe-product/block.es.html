@@ -1,0 +1,263 @@
+<!--
+  PLATFORM ONLY (2026-10-15): a copy of beneve-skin-luxe-product, which GHL still serves unchanged. This one carries
+  the jargon scrub Jeff asked for ("please scrub for llm jargon"); the platform's Product step points here (migration 0327).
+  beneve/beneve-skin-diagnostic/b-skin-luxe-product
+  Luxe Liquid Collagen Peptides, the ingestible product of the Skin Diagnostic funnel.
+
+  INFO-CENTRIC, not a store page. No quantity, no Add To Cart and no Subscribe & Save, because
+  the purchase happens on beneve.com under the rep's own link and that link is what earns the
+  commission. No price is shown: Beneve's own page does not publish one for Luxe, and inventing
+  one here would be the first false claim on the page.
+
+  ⚠️ CONTAINS FISH (COD). It is the only declared allergen across the three skin products and it
+  appears twice below, once in the hero tags and once in the facts block. Do not remove either.
+
+  Every purchase CTA points at this funnel's OWN redirect step, so the click is measurable per
+  product: a pageview on beneve-skin-luxe-redirect is the Fire Lead signal for Luxe specifically,
+  and the step forwards to https://{{custom_values.beneve_luxe_link}} on its own.
+
+  Design and behaviour live in _shared/product/v1/. This file holds only markup.
+  Claims are sourced from BENEVESHARK/product-pages/luxe-liquid-collagen-peptides/product.json,
+  read off the supplement panel. No em-dashes.
+-->
+<div class="sk-prod sk-prod-bnv-luxe"
+     data-buy-step="b-skin-luxe-redirect"
+     data-buy-url="{{custom_values.beneve_luxe_link}}">
+
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Luxe Liquid Collagen</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="/b-skin-luxe-redirect" data-buy>Quiero Luxe</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>La mitad de tu rutina que va por dentro</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          Luxe <span class="sk-prod-accent">Liquid Collagen Peptides</span>
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          Un colágeno líquido con espermidina Yuth, formulado para apoyar un cabello, una piel,
+          unas uñas y unas articulaciones saludables. Una cucharada al día, treinta porciones por botella, sabor naranja y vainilla.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>15 ml al día</li>
+          <li>30 porciones</li>
+          <li>Colágeno marino y de pollo</li>
+          <li>Contiene pescado (bacalao)</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="/b-skin-luxe-redirect" data-buy>
+            Quiero Luxe
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-prod-formula">Mira qué lleva</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-float>
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/bottle.webp"
+             alt="Beneve Luxe Liquid Collagen Peptides, naranja y vainilla, 15.2 fl oz" loading="eager" decoding="async">
+      </figure>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-prod-claim" aria-label="Desliza para leer más">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== CLAIM ============================== -->
+  <section class="sk-prod-claim" id="sk-prod-claim">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>Lo que Beneve dice que apoya</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Cinco cosas, con las palabras de la propia marca.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c3-5 13-5 16 0"/><path d="M4 9c3 5 13 5 16 0"/></svg>
+          </span>
+          <h3>Firme y suave</h3>
+          <p>Ayuda a apoyar una piel de aspecto más suave y firme.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.4 6 10.4A6 6 0 0 1 6 13.4C6 9.4 12 3 12 3Z"/></svg>
+          </span>
+          <h3>Hidrata y equilibra</h3>
+          <p>Apoya la hidratación de la piel y el equilibrio de su humedad.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-5 3-8 6-8s6 3 6 8"/><path d="M9 8a3 3 0 1 1 6 0"/><path d="M12 2v2"/></svg>
+          </span>
+          <h3>Cabello y uñas</h3>
+          <p>Apoya un cabello, una piel, unas uñas y unas articulaciones saludables.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v6a4 4 0 0 0 8 0V4"/><path d="M8 20v-6a4 4 0 0 1 8 0v6"/></svg>
+          </span>
+          <h3>Articulaciones y tejido conectivo</h3>
+          <p>Ayuda a apoyar articulaciones, cartílago y tejido conectivo saludables.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="5">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <h3>Bienestar celular</h3>
+          <p>La espermidina Yuth apoya la función celular normal y un envejecimiento saludable, como parte de un estilo de vida equilibrado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FORMULA ROWS ============================== -->
+  <section class="sk-prod-formula" id="sk-prod-formula">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>Más que solo colágeno</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Cinco cosas en cada cucharada</h2>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/ingredients.webp"
+               alt="Botella de Luxe con sus seis ingredientes señalados" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">01</span>
+          <h3>Dos tipos de colágeno, 500 mg</h3>
+          <p>Péptidos de colágeno marino de pesca silvestre (Tipo I) y péptidos de colágeno de pollo hidrolizado (Tipo II).</p>
+          <p class="sk-prod-note">
+            Beneve dice que el Tipo I es el más abundante en el cuerpo y lo relaciona con
+            la hidratación, la elasticidad, el cabello y las uñas. El Tipo II lo relacionan con el cartílago y la estructura
+            de la piel. Los dos están hidrolizados, que es lo que la
+            marca quiere decir con fácil de absorber.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/benefits.webp"
+               alt="Botella de Luxe con sus cinco beneficios" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">02</span>
+          <h3>Ácido hialurónico, 120 mg</h3>
+          <p>El colágeno da estructura y el ácido hialurónico ayuda a mantener la humedad. Juntos apoyan una piel de aspecto flexible.</p>
+          <p class="sk-prod-note">
+            El ácido hialurónico está en los dos productos: el sérum lo pone sobre tu piel, y este lo pone en tu dosis diaria.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row">
+        <figure class="sk-prod-row-img" data-slide="left">
+          <img src="assets/bottle.webp"
+               alt="Botella de Luxe Liquid Collagen Peptides con flores de vainilla" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="right">
+          <span class="sk-prod-num" aria-hidden="true">03</span>
+          <h3>Espermidina Yuth, 15 mg</h3>
+          <p>Un compuesto estudiado por su papel en apoyar los procesos celulares y el bienestar en general.</p>
+          <p class="sk-prod-note">
+            Yuth tiene patente en trámite y distribución global exclusiva de Compound Solutions,
+            Inc. Es el ingrediente que lo distingue de un colágeno común, y es el que la marca destaca primero en la etiqueta.
+          </p>
+        </div>
+      </div>
+
+      <div class="sk-prod-row sk-prod-row-flip">
+        <figure class="sk-prod-row-img" data-slide="right">
+          <img src="assets/supplement-facts.webp"
+               alt="Tabla de información nutricional de Luxe Liquid Collagen Peptides" loading="lazy" decoding="async">
+        </figure>
+        <div class="sk-prod-row-copy" data-slide="left">
+          <span class="sk-prod-num" aria-hidden="true">04</span>
+          <h3>Sulfato de condroitina y aceite MCT, 25 mg de cada uno</h3>
+          <p>La condroitina trabaja junto al colágeno para las articulaciones y la movilidad. El aceite MCT ayuda al cuerpo a absorber y aprovechar el resto de la mezcla.</p>
+          <p class="sk-prod-note">
+            Endulzado con glucósidos de esteviol y fruta del monje, con sabor a naranja y vainilla. Sin gluten,
+            sin lácteos, sin nueces y sin transgénicos, y contiene pescado (bacalao).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <section class="sk-prod-facts">
+    <div class="sk-prod-wrap sk-prod-facts-grid">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>Ingredientes de primera</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Lo que hace especial a Luxe</h2>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>Mezcla de colágeno Luxe 500 mg, marino Tipo I y de pollo Tipo II</li>
+          <li>Ácido hialurónico 120 mg, como hialuronato de sodio</li>
+          <li>Aceite MCT 25 mg y sulfato de condroitina 25 mg</li>
+          <li>HCl de espermidina 15 mg, como Yuth</li>
+          <li>Sin gluten, sin lácteos, sin nueces y sin transgénicos</li>
+          <li><strong>Contiene pescado (bacalao)</strong></li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">1</span>
+          <div>
+            <strong>Modo de uso sugerido</strong>
+            <span>Toma 15 ml, una cucharada, al día. Refrigera después de abrir y úsalo dentro de los
+            60 días siguientes a la apertura. Beneve comenta que, para obtener mejores resultados, algunas personas lo toman dos veces
+            al día, con lo que la botella dura unos quince días.</span>
+          </div>
+        </div>
+        <p class="sk-prod-note" data-rise data-delay="4">
+          Consulta a un profesional de la salud antes de usar este producto si estás embarazada o
+          en periodo de lactancia, si eres menor de 18 años o si estás bajo tratamiento médico. No lo uses si el sello
+          de seguridad está roto o no está. Mantenlo fuera del alcance de los niños.
+        </p>
+      </div>
+
+      <figure class="sk-prod-facts-img" data-rise data-delay="2">
+        <img src="assets/supplement-facts.webp"
+             alt="Información nutricional de Luxe Liquid Collagen Peptides, modo de uso sugerido y advertencias" loading="lazy" decoding="async">
+        <figcaption>Información nutricional completa</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSE ============================== -->
+  <section class="sk-prod-close">
+    <div class="sk-prod-wrap sk-prod-center">
+      <h2 class="sk-prod-h2 sk-prod-close-h" data-rise>Una cucharada, treinta días</h2>
+      <p class="sk-prod-sub" data-rise data-delay="1">
+        Es una cucharada al día y sabe a naranja y vainilla. Tómalo junto con algo que
+        ya haces cada mañana, y termina la botella antes de juzgarlo.
+      </p>
+      <div class="sk-prod-cta-row" data-rise data-delay="2">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="/b-skin-luxe-redirect" data-buy>
+          Quiero Luxe
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="sk-prod-btn-alt" href="/b-skin-renew-product">Mira Renew, la mitad que va sobre la piel</a>
+        <a class="sk-prod-btn-alt" href="/b-skin-glutathione-product">Mira Glutathione+</a>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="3">
+        Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este
+        producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.
+      </p>
+    </div>
+  </section>
+</div>

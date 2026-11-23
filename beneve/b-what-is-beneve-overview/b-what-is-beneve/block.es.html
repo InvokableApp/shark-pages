@@ -1,0 +1,323 @@
+<!--
+  beneve/b-what-is-beneve-overview/b-what-is-beneve
+  The "What is Beneve" overview page. Adapted from the Vital and Conectiv what-is pages, which
+  are section-for-section identical: hero + video, products, opportunity + video, next-move cards,
+  disclaimer. Not redesigned, adapted.
+
+  Two differences from the donors, both deliberate:
+    - NO testimonials section. Beneve's own site has ten of them; none are cleared for use here,
+      and inventing social proof is not an option. The section is simply absent.
+    - ONE video, in the hero: Beneve's own "Beneve Vision" (Vimeo 954476127, 1:40), added
+      2026-09-10. The slot is a click to load facade, so nothing is requested from vimeo.com until
+      the visitor actually clicks and an unwatched video costs the page nothing.
+      The OPPORTUNITY section used to carry a second slot and it is now removed: there is no
+      opportunity video yet, and a "video coming soon" placeholder beside finished copy reads as an
+      unfinished page. Its grid is marked .sk-what-opp-solo, which collapses the two column layout
+      to one centered column. Putting the video back is that div plus dropping the class.
+
+  Copy is Beneve's own, taken from beneve.com/{rep} and beneve.com/{rep}/customer/become-an-influencer:
+  the four principles of The Beneve Difference, the product names and their own subtitle lines, the
+  compensation facts and the influencer framing. House rules applied on top: addressed to the reader,
+  em-dashes removed, no claim Beneve does not already make, and "hormone support" never
+  "hormone balancing".
+
+  Design and behaviour come from _shared/product/v1/, scoped under .sk-prod, the same family as the
+  product pages and the opportunity page, so every long-form page in the system reads as one thing.
+  The product grid, the video slots and the next-move cards are additions and live in block.css
+  under .sk-what-*.
+-->
+<div class="sk-prod sk-prod-bnv-what sk-what"
+     data-buy-step="b-what-is-redirect-opportunity"
+     data-buy-url="{{custom_values.beneve_opportunity_url}}"
+     data-cv-beneve_rep_full_name="{{custom_values.beneve_rep_full_name}}"
+     data-cv-beneve_rep_first_name="{{custom_values.beneve_rep_first_name}}">
+
+  <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+
+  <!-- ============================ REP INTRO ============================
+       A page a rep SENDS should say who sent it before it says anything else,
+       and Jess asked for an introduction rather than a byline, so this carries
+       the rep's own opening line as well as their name (2026-09-26).
+
+       ⚠️ HIDDEN UNTIL THERE IS A NAME. On the snapshot both custom values are
+       empty by design, and an unsubstituted merge field renders as literal
+       braces. The ORYGN page this was modelled on currently shows "Enter Your
+       Full Name Here" to every visitor, which is exactly the outcome being
+       avoided here: block.js reveals this only once a real name is present, so
+       an un-onboarded account shows the page as it was before, not a placeholder.
+
+       ⚠️ THE SOCKET MUST DECLARE BOTH BRIDGES. The two data-cv-* attributes above
+       are only half of it: shark-embed fills merge fields from the SOCKET's
+       attributes, and a value the socket does not declare resolves to the empty
+       string with no error. Re-run push-block after editing, never hand-edit the
+       socket. This is the failure that made a links page read "Not set up yet".
+
+       The paragraph is one piece of copy for every rep on the system, so it
+       claims nothing about the products that Beneve does not already claim. -->
+  <div class="sk-what-rep" data-rep-intro hidden>
+    <div class="sk-what-rep-in">
+      <p class="sk-what-rep-by">Te lo presenta <span data-rep-full>{{custom_values.beneve_rep_full_name}}</span></p>
+      <p class="sk-what-rep-hi">Hola, soy <span data-rep-first>{{custom_values.beneve_rep_first_name}}</span>.</p>
+      <p class="sk-what-rep-copy">Comparto Beneve porque los productos están hechos para funcionar juntos y no para acumularse en un estante. Échales un vistazo, mira si algo te queda con lo que estás buscando, y si quieres saber cómo me pagan por compartirlos, eso también está en esta página.</p>
+      <ul class="sk-what-rep-nav">
+        <li><a href="#sk-what-difference">La diferencia</a></li>
+        <li><a href="#sk-what-products">Productos</a></li>
+        <li><a href="#sk-what-opp">Oportunidad</a></li>
+        <li><a href="#sk-what-next">Qué sigue</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sk-prod-bar" hidden>
+    <span class="sk-prod-bar-name">Qué es Beneve</span>
+    <a class="sk-prod-btn sk-prod-bar-btn" href="#sk-what-next">Ver tus opciones</a>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="sk-prod-hero">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>Conoce Beneve</p>
+        <h1 class="sk-prod-h1" data-rise data-delay="1">
+          ¿Qué es <span class="sk-prod-accent">Beneve</span>?
+        </h1>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          Beneve hace productos de bienestar respaldados por la ciencia, pensados para funcionar juntos
+          y no para amontonarse en tu gabinete. Además, les paga a las personas que los comparten uno
+          de los planes de comisiones más generosos de la industria.
+        </p>
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          Esta página te muestra las dos partes, para que veas cuál es la que viniste a buscar.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="3">
+          <li>Simplicidad</li>
+          <li>Sinergia</li>
+          <li>Ciencia</li>
+          <li>Estándares</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="4">
+          <a class="sk-prod-btn" data-hero-cta href="#sk-what-products">
+            Ver los productos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="sk-prod-btn-ghost" href="#sk-what-opp">Conocer la oportunidad</a>
+        </div>
+      </div>
+
+      <div class="sk-what-video sk-what-video-hero" data-video="954476127" data-video-h="8a6c0df985" data-rise data-delay="2">
+        <div class="sk-what-video-in">
+          <span class="sk-what-video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+          </span>
+          <p class="sk-what-video-cap">Qué es Beneve, en menos de dos minutos</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="sk-prod-scroll" type="button" data-scroll-to="#sk-what-difference" aria-label="Desliza para leer más">
+      <span></span>
+    </button>
+  </section>
+
+  <!-- ============================== THE BENEVE DIFFERENCE ============================== -->
+  <section class="sk-prod-claim" id="sk-what-difference">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise>La diferencia de Beneve</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Cuatro principios deciden qué se formula, qué se deja fuera y cómo funciona la compañía.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 7h10M4 17h7"/></svg>
+          </span>
+          <h3>Simplicidad</h3>
+          <p>El bienestar tiene que caber en un día real. Rutinas sencillas y menos decisiones, porque la constancia es donde de verdad se da el cambio.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg>
+          </span>
+          <h3>Sinergia</h3>
+          <p>Tu cuerpo no trabaja por separado, y los productos tampoco. Cada uno está hecho para apoyar a los demás y no para quedarse al lado.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.2L5.6 17A2 2 0 0 0 7.3 20h9.4a2 2 0 0 0 1.7-3L14 9.2V3"/><path d="M7.5 15h9"/></svg>
+          </span>
+          <h3>Ciencia</h3>
+          <p>Nada de ingredientes de polvo mágico agregados para que la etiqueta se vea impresionante. Cada fórmula se basa en investigación y en ingredientes elegidos por lo que hacen.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.2l5.9-.9L12 3Z"/></svg>
+          </span>
+          <h3>Estándares</h3>
+          <p>El origen de los ingredientes, la formulación, la manufactura y la educación se mantienen en un nivel más alto, porque creemos que la excelencia debe ser lo esperado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRODUCTS ============================== -->
+  <section class="sk-prod-formula" id="sk-what-products">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker sk-prod-center" data-rise>Los productos</p>
+      <h2 class="sk-prod-h2 sk-prod-center" data-rise data-delay="1">Una lista corta, hecha para funcionar en conjunto</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="2">
+        Aquí no hay un muro de opciones. Cada fórmula cumple una función, y están diseñadas para
+        combinarse sin estorbarse.
+      </p>
+
+      <div class="sk-what-grid">
+        <article class="sk-what-card" data-rise data-delay="1">
+          <span class="sk-what-flag">Más vendido</span>
+          <figure class="sk-what-shot"><img src="assets/renew.webp" alt="Beneve Renew" loading="lazy" decoding="async"></figure>
+          <h3>Renew</h3>
+          <p class="sk-what-sub">Fórmula de cuatro péptidos</p>
+          <p>Cuatro tecnologías de péptidos en una sola fórmula tópica, elegidas para apoyar la hidratación, la textura y la apariencia general de la piel.</p>
+        </article>
+
+        <article class="sk-what-card" data-rise data-delay="2">
+          <span class="sk-what-flag">Más vendido</span>
+          <figure class="sk-what-shot"><img src="assets/luxe.webp" alt="Beneve Luxe Liquid Collagen Peptides" loading="lazy" decoding="async"></figure>
+          <h3>Luxe Liquid Collagen Peptides</h3>
+          <p class="sk-what-sub">Apoyo para cabello, piel y articulaciones</p>
+          <p>Un colágeno líquido con Yüth Spermidine, hecho para apoyar la salud del cabello, la piel, las uñas y las articulaciones.</p>
+        </article>
+
+        <article class="sk-what-card" data-rise data-delay="3">
+          <span class="sk-what-flag">Más vendido</span>
+          <figure class="sk-what-shot"><img src="assets/coffee-tub.webp" alt="Beneve Original Coffee" loading="lazy" decoding="async"></figure>
+          <h3>Original Coffee</h3>
+          <p class="sk-what-sub">Energía limpia y enfoque</p>
+          <p>Un café nootrópico de fuerza completa, con Arábica premium e ingredientes de apoyo cognitivo, para tener energía constante y no un pico.</p>
+        </article>
+
+        <article class="sk-what-card" data-rise data-delay="1">
+          <figure class="sk-what-shot"><img src="assets/glutathione.webp" alt="Beneve Glutathione Plus" loading="lazy" decoding="async"></figure>
+          <h3>Glutathione +</h3>
+          <p class="sk-what-sub">Apoyo hormonal diario</p>
+          <p>Una mezcla antioxidante de Glutathione, DIM y Xanthohumol, formulada para apoyar la salud celular y el apoyo hormonal.</p>
+        </article>
+
+        <article class="sk-what-card" data-rise data-delay="2">
+          <figure class="sk-what-shot"><img src="assets/gut.webp" alt="Beneve Gut Advantage Capsules" loading="lazy" decoding="async"></figure>
+          <h3>Gut Advantage Capsules</h3>
+          <p class="sk-what-sub">Apoyo para el equilibrio digestivo</p>
+          <p>Una fórmula con pre, pro y postbióticos de verdad, con butirato y calostro, para nutrir el ambiente intestinal.</p>
+        </article>
+
+        <article class="sk-what-card" data-rise data-delay="3">
+          <figure class="sk-what-shot"><img src="assets/glucoguard.webp" alt="Beneve GlucoGuard" loading="lazy" decoding="async"></figure>
+          <h3>GlucoGuard</h3>
+          <p class="sk-what-sub">Apoyo para el control de antojos</p>
+          <p>Una fórmula que apoya el GLP-1, hecha para ayudar a regular el apetito y apoyar hábitos de alimentación balanceados.</p>
+        </article>
+      </div>
+
+      <div class="sk-prod-center sk-what-shop" data-rise>
+        <a class="sk-prod-btn sk-prod-btn-lg" href="https://{{custom_values.beneve_buy_link}}" target="_blank" rel="noopener">
+          Ver toda la línea
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="sk-what-shop-note">Los precios, los ingredientes y toda la línea están en el sitio de Beneve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== THE APP ============================== -->
+  <section class="sk-what-app">
+    <div class="sk-prod-wrap sk-what-app-grid">
+      <figure class="sk-what-app-img" data-slide="left">
+        <img src="assets/laptop.webp" alt="Una mujer revisando su plan del día" loading="lazy" decoding="async">
+      </figure>
+      <div class="sk-what-app-copy" data-slide="right">
+        <p class="sk-prod-kicker">La app Beneve 4 Life</p>
+        <h2 class="sk-prod-h2">La pieza que une las buenas intenciones con la constancia</h2>
+        <p>
+          Lleva el registro de tus hábitos diarios, sigue los programas y mantente en contacto con las
+          personas que lo hacen contigo. La app es gratis, y es donde la mayoría encuentra que la
+          rutina por fin se les mantiene.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== THE OPPORTUNITY ============================== -->
+  <section class="sk-prod-facts" id="sk-what-opp">
+    <div class="sk-prod-wrap sk-prod-facts-grid sk-what-opp-solo">
+      <div class="sk-prod-facts-copy">
+        <p class="sk-prod-kicker" data-rise>La otra mitad</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Si te encantan los productos, te pueden pagar por compartirlos</h2>
+        <p data-rise data-delay="2">
+          Los Influencers de Beneve ganan comisiones por las ventas que se hacen a través de su propio
+          sitio de Beneve. Algunos lo hacen para cubrir el costo de sus propios productos, otros lo
+          convierten en un ingreso real de medio tiempo, y otros se dedican por completo. El plan es el
+          mismo en cualquier caso.
+        </p>
+        <ul class="sk-prod-checks" data-rise data-delay="2">
+          <li>El 65% de cada dólar se destina al pago de los Influencers</li>
+          <li>13 formas distintas de ganar</li>
+          <li>Bono del 50% por cliente nuevo, pagado cada semana</li>
+          <li>Una Carta de Derechos del Influencer que protege tu negocio y tus redes sociales</li>
+          <li>Sin tienda, sin inventario y sin mínimo de seguidores</li>
+        </ul>
+        <div class="sk-prod-use" data-rise data-delay="3">
+          <span class="sk-prod-use-n">65</span>
+          <div>
+            <strong>Por ciento de pago</strong>
+            <span>De cada dólar, se destina al pago de los Influencers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== YOUR NEXT MOVE ============================== -->
+  <section class="sk-prod-close" id="sk-what-next">
+    <div class="sk-prod-wrap">
+      <h2 class="sk-prod-h2 sk-prod-close-h sk-prod-center" data-rise>¿Cuál es tu siguiente paso?</h2>
+      <p class="sk-prod-sub sk-prod-center" data-rise data-delay="1">
+        Hay dos puertas, y eres bienvenido(a) por cualquiera de las dos.
+      </p>
+
+      <div class="sk-what-move">
+        <article class="sk-what-move-card" data-rise data-delay="1">
+          <figure class="sk-what-move-img"><img src="assets/belong.webp" alt="Rutina de la mañana en casa" loading="lazy" decoding="async"></figure>
+          <div class="sk-what-move-body">
+            <h3>Compra como cliente</h3>
+            <p>Empieza con un producto y mira cómo te sientes. Con Subscribe and Save obtienes ahorros automáticos y entregas flexibles en los que sigues usando.</p>
+            <a class="sk-prod-btn" href="https://{{custom_values.beneve_buy_link}}" target="_blank" rel="noopener">Ver los productos</a>
+          </div>
+        </article>
+
+        <article class="sk-what-move-card" data-rise data-delay="2">
+          <figure class="sk-what-move-img"><img src="assets/redefining.webp" alt="Dos mujeres al aire libre con productos Beneve" loading="lazy" decoding="async"></figure>
+          <div class="sk-what-move-body">
+            <h3>Conviértete en Influencer</h3>
+            <p>Comparte lo que ya usas y construye un negocio a tu propio ritmo, con capacitación, herramientas y una comunidad que te respalda.</p>
+            <a class="sk-prod-btn" href="b-what-is-redirect-opportunity" data-buy>Ver cómo funciona</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="sk-prod-fine sk-prod-center" data-rise data-delay="3">
+        Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos
+        (FDA). Estos productos no están destinados a diagnosticar, tratar, curar ni prevenir ninguna
+        enfermedad.
+        {{custom_values.beneve_income_disclaimer}} Beneve no garantiza ningún nivel específico de
+        ingresos. Tus resultados dependen de tu propio esfuerzo, habilidad y circunstancias.
+      </p>
+    </div>
+  </section>
+</div>

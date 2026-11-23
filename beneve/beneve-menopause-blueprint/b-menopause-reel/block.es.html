@@ -1,0 +1,133 @@
+<!--
+  beneve/beneve-menopause-blueprint/b-menopause-reel
+  The Menopause Blueprint opt-in as a REEL (references/REEL-PAGE-SOP.md). Six screens, PLATFORM ONLY: the platform's
+  /b-menopause step on Beneve's master copy and every Beneve account points here. The guide is Maria Fox Giambrone's
+  (BENEVESHARK/campaigns/menopause-blueprint/README.md).
+  LOOK: M · Blueprint (_shared/reel/looks/blueprint.css), the guide's own print look, so the page and the PDF match.
+  ⚠️ THE WORDS ARE THE GUIDE'S (guide/blueprint.json), cut down, plus the lead's own words from the README's Depth (3am,
+     "normal" bloodwork). Change a fact here only if the guide says it.
+  ⚠️ HER CHOICE (brain/beneve.md): she wants a natural route. Nothing here knocks HRT or says to avoid a medication.
+     "Hormone support" or "hormone health", never "hormone balance". No product is named on this page.
+  ⚠️ The self-check counts with CSS (counter on :checked); block.js hands what she ticked to the opt-in form
+     (window.__pfExtra, platform form.js), so the rep's lead page shows it under "Here's what they told you".
+  PAPER, PHOTO, TINT, DARK, PAPER, PHOTO.
+  The form is the platform's own (Beneve - Menopause Blueprint - Opt-In Form), opened by the dock as a sheet.
+-->
+<div class="rl rl-look-blueprint rl-mb" data-pf-native data-pf-dock="Quiero el plan gratis" data-pf-handoff="#F7F1EA">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the cover. A smiling woman very faded behind (Jeff, 2026-10-31), the guide large with the free seal
+           turning on its corner, a hand-drawn line under "Like Yourself Again" that draws itself in. -->
+      <section class="rl-p rl-paper rl-cover mb-hero" aria-label="El plan gratis para la menopausia">
+        <div class="mb-hero-bg" aria-hidden="true"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>El plan para la menopausia</span>
+          <h1 data-in style="--d:.1s">Una guía gratis que busca la raíz del problema para que vuelvas a <span class="mb-mark">sentirte como tú<svg class="mb-scribble" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 13 C 52 5, 104 17, 156 10 S 252 6, 296 12"/></svg></span> en la menopausia</h1>
+          <div class="mb-hero-art rl-art" data-in style="--d:.3s">
+            <img class="mb-book" src="/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/cover.webp" width="900" height="1165" alt="Portada de El plan para la menopausia">
+            <svg class="mb-seal" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="mb-seal-path" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="58"/>
+              <g class="mb-seal-spin"><text><textPath href="#mb-seal-path">GUÍA GRATIS · GUÍA GRATIS · GUÍA GRATIS ·</textPath></text></g>
+              <text class="mb-seal-mid" x="60" y="67" text-anchor="middle">100%</text>
+            </svg>
+          </div>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. PHOTO: 3am -->
+      <section class="rl-p rl-photo mb-3am">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/3am.webp')"></div>
+        <div class="rl-in">
+          <div class="mb-3am-head rl-art" data-in aria-hidden="true">
+            <svg class="mb-clock" viewBox="0 0 64 64"><circle class="mb-clock-face" pathLength="1" cx="32" cy="32" r="29"/>
+              <g class="mb-clock-ticks"><path d="M32 6v5M58 32h-5M32 58v-5M6 32h5"/></g>
+              <line class="mb-clock-m" x1="32" y1="32" x2="32" y2="11"/><line class="mb-clock-h" x1="32" y1="32" x2="32" y2="18"/><circle cx="32" cy="32" r="2.6"/></svg>
+            <div class="lk-big mb-big">3am</div>
+          </div>
+          <p class="mb-lede" data-in style="--d:.2s">Te despiertas cansada y te acuestas con el cuerpo acelerado. Estás despierta a las 3am. El peso no se mueve
+            hagas lo que hagas. Y tus análisis salen normales.</p>
+          <p class="mb-sub" data-in style="--d:.35s">Esto es la perimenopausia. Esto es la menopausia. Y nadie se ha sentado contigo a
+            explicarte qué te está pidiendo tu cuerpo.</p>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the self-check, from the guide's own. Tap to tick; the count is CSS. -->
+      <section class="rl-p rl-tint mb-check">
+        <div class="rl-in">
+          <span class="lk-rule" data-in>La autoevaluación</span>
+          <h2 data-in style="--d:.1s">¿Cuántas de estas te suenan?</h2>
+          <div class="mb-boxes" data-in style="--d:.2s">
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Me despierto cansada y me acuesto con el cuerpo acelerado.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Me despierto a las 2 o 3am y no puedo volver a dormirme.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Se me antojan siempre el azúcar, los carbohidratos o las botanas saladas.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Tengo sudores nocturnos, bochornos o escalofríos.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Siempre estoy hinchada o estreñida.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Me siento frágil emocionalmente o con la mente nublada.</label>
+            <label><input type="checkbox"><span class="mb-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>No puedo bajar de peso hagas lo que haga.</label>
+            <!-- What it says follows her count (block.js); Maria's own line, "If more than two hit, your body has something
+                 to tell you", shows once more than two are ticked. This is the no-script wording. -->
+            <p class="mb-count" aria-live="polite">Marca las que te suenen. Sé sincera.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. DARK: the six shifts, a sideways row -->
+      <section class="rl-p rl-night rl-wide mb-shifts">
+        <div class="rl-in">
+          <svg class="mb-waves" data-in viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true">
+            <path class="mb-w1" pathLength="1" d="M0 35 C 50 5, 100 5, 150 35 S 250 65, 300 35 S 400 5, 450 35 S 550 65, 600 35"/>
+            <path class="mb-w2" pathLength="1" d="M0 50 C 60 40, 110 15, 170 22 S 270 62, 330 52 S 430 12, 490 20 S 580 50, 600 46"/>
+          </svg>
+          <span class="lk-rule" data-in>Dentro de la guía</span>
+          <h2 data-in style="--d:.05s">Lo que de verdad está pasando en tu cuerpo</h2>
+          <div class="rl-cards mb-cards" data-in style="--d:.15s">
+            <div><b class="mb-n6">1</b><h3>Cambios de estrógeno y progesterona</h3><p>Cambios de humor, ciclos irregulares, irritabilidad, bochornos.</p></div>
+            <div><b class="mb-n6">2</b><h3>Cortisol desajustado</h3><p>Agotamiento, grasa terca en la panza, despertares a las 2 o 3am, sin energía para hacer ejercicio.</p></div>
+            <div><b class="mb-n6">3</b><h3>Azúcar en la sangre inestable</h3><p>Antojos, mente nublada, bajones por la tarde, mal humor cuando tienes hambre.</p></div>
+            <div><b class="mb-n6">4</b><h3>Intestino e hígado lentos</h3><p>Hinchazón, estreñimiento, problemas de piel, digestión pesada.</p></div>
+            <div><b class="mb-n6">5</b><h3>Tiroides y falta de nutrientes</h3><p>Manos y pies fríos, pelo más delgado, cansancio. Aun con análisis normales.</p></div>
+            <div><b class="mb-n6">6</b><h3>Pérdida de músculo y metabolismo más lento</h3><p>Debilidad, aumento de peso, dolor en las articulaciones, y en la menopausia todo esto se acelera.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 de 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. PAPER: what is inside -->
+      <section class="rl-p rl-paper mb-inside">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Lo que incluye</span>
+          <img class="mb-stack rl-art" data-in style="--d:.1s" src="/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/stack.webp"
+               width="1400" height="1050" alt="El plan para la menopausia, portada y páginas interiores">
+          <ul class="mb-list" data-in style="--d:.2s">
+            <li>La autoevaluación de síntomas</li>
+            <li>Los 6 cambios internos, y las pistas de cada uno</li>
+            <li>Un protocolo diario sencillo: mañana, mediodía y noche</li>
+            <li>7 hábitos de vida que hacen que todo lo demás funcione</li>
+          </ul>
+          <p class="mb-plain" data-in style="--d:.3s">No necesitas una dieta restrictiva, llevar cuentas obsesivas ni un horario loco en el gimnasio.</p>
+        </div>
+      </section>
+
+      <!-- 6. PHOTO: the close -->
+      <section class="rl-p rl-photo rl-wide mb-close">
+        <div class="rl-bg" style="background-image:url('/_p/beneve/beneve-menopause-blueprint/b-menopause-reel/assets/window.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Descarga gratis</span>
+          <h2 data-in style="--d:.1s">Deja de decirle "envejecer".</h2>
+          <p data-in style="--d:.25s">Descarga El plan para la menopausia gratis y empieza por lo que tu cuerpo te está pidiendo primero.</p>
+          <p class="rl-fine" data-in style="--d:.4s">Esta guía es solo para informar y no es consejo médico. Las necesidades de cada persona varían. Si estás
+            embarazada, amamantando, tomas medicamentos o tienes una condición médica, habla con tu profesional de la salud antes de hacer cambios.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <button type="button" class="rl-cta" data-sk-open>Quiero el plan gratis</button>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

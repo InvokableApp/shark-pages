@@ -12,10 +12,12 @@
   var qs = screens.filter(function (s) { return s.hasAttribute("data-qz"); });
   var ready = root.querySelector("[data-qz-ready]");
   var answers = window.__pfExtra = {};
-  var START = "Take the 60 second quiz", SEE = "Show me my match";
+  // The page's language (platform page-words, window.__pfWords): English when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
+  var START = W("beneve.pq_start", "Take the 60 second quiz"), SEE = W("beneve.pq_see", "Show me my match");
   var on = 0;
 
-  qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = "Question " + (i + 1) + " of " + qs.length; });
+  qs.forEach(function (s, i) { var e = s.querySelector("[data-qz-count]"); if (e) e.textContent = W("quiz.question_n", "Question {n} of {t}").replace("{n}", i + 1).replace("{t}", qs.length); });
 
   function to(s) { if (s) track.scrollTo({ top: s.offsetTop, behavior: "smooth" }); }
   function missing() { for (var i = 0; i < qs.length; i++) if (!answers[qs[i].getAttribute("data-qz")]) return qs[i]; return null; }

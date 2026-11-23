@@ -8,6 +8,8 @@
 (function () {
   var root = document.querySelector(".rl-bqr");
   if (!root) return;
+  // The page's language (platform page-words, window.__pfWords): English when none are sent.
+  function W(k, d) { var w = window.__pfWords; return (w && w[k]) || d; }
   var track = root.querySelector(".rl-track"), picks = root.querySelector("#bq-picks");
   var screens = [].slice.call(root.querySelectorAll(".rl-p"));
   var textLink = root.querySelector(".bq-text"), cta = root.querySelector(".rl-cta");
@@ -21,7 +23,7 @@
   function paint() {
     var i = screens.findIndex(function (s) { return s.classList.contains("is-on"); });
     mode = i <= 0 ? "picks" : screens[i] === picks ? "text" : "none";
-    var label = mode === "text" ? "Questions? Message me" : first;
+    var label = mode === "text" ? W("beneve.pq_questions", "Questions? Message me") : first;
     if (cta) {
       cta.textContent = label;
       cta.setAttribute("href", mode === "text" && textLink ? textLink.getAttribute("href") : "#bq-picks");

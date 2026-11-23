@@ -1,0 +1,113 @@
+<!--
+  beneve/beneve-15-minute-morning/b-morning-confirmation-reel
+  The 15-Minute Morning's confirmation as a REEL, the Menopause Blueprint's order (its block.html, migration 0555):
+  1. delivery: read it online (/b-morning-read) or download the PDF (beneve_morning_pdf_url), "Swipe for a bonus"
+  2. navy: the three products and the BONUS OFFER card (the Morning Supplement Guide + more info on the three), the claim
+  3. what's inside the companion guide, the button again, the three products as information cards, the small print
+  ⚠️ THE WORDS ARE BENEVESHARK/campaigns/morning-15/copy.mjs (CONFIRM). Each product line is Beneve's own (product.json
+     brand_claims). "More info on", never a price, coupon or sample (PAGE-COPY-SOP rule 14).
+  ⚠️ THE CLAIM IS A TAP, NEVER A SWIPE (block.js, copied word for word from the Blueprint's): only the two claim buttons
+     open the Done popup and, on the first open, fetch /b-morning-supplement-request in the background. That step's view
+     is the rep's 🎁 alert (migration's "Beneve - 15-Minute Morning - Supplement Guide Request"), once per lead.
+  THE VIDEO (screen 2): Brianna holding the guide (style 1, Jeff approved 2026-11-17, "we can use this vid"), from the
+     content values beneve_morning_supplement_video and _poster (platform migration 0796). A new cut = those two values only.
+     Words and files: BENEVESHARK/campaigns/morning-15/videos/.
+  The pack shots are Beneve's own (BENEVESHARK/product-pages), cut out; guide-mock.webp (BENEVESHARK/campaigns/morning-15/_build/guide-mock.mjs) stands them in front of the supplement guide's real cover, every name readable.
+-->
+<div class="rl rl-look-planner rl-m15 rlg" data-pf-native data-pf-dock="Desliza para tu regalo 🎁" data-rl-claim="/b-morning-supplement-request" data-pf-arrive="#FBF6EE">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: it is on the way. An envelope draws itself and a page rises out of it. -->
+      <section class="rl-p rl-paper rlg-top mbc-top">
+        <div class="rl-in">
+          <svg class="mbc-env" data-in viewBox="0 0 96 80" aria-hidden="true">
+            <g class="mbc-page"><rect x="22" y="14" width="52" height="46" rx="2"/><path d="M30 26h36M30 34h36M30 42h24"/></g>
+            <path class="mbc-body" pathLength="1" d="M10 34 L10 72 L86 72 L86 34"/>
+            <path class="mbc-front" d="M10 34 L48 58 L86 34 L86 72 L10 72 Z"/>
+            <path class="mbc-fold" pathLength="1" d="M10 72 L40 50 M86 72 L56 50"/>
+            <path class="mbc-flap" d="M10 34 L48 60 L86 34 Z"/>
+          </svg>
+          <span class="rl-eyebrow" data-in style="--d:.05s">Tu guía va en camino</span>
+          <h1 class="rl-type"><span data-if-name>Hola {{contact.first_name}}, </span>Tu mañana de 15 minutos te llega <em>en 2 minutos.</em></h1>
+          <p data-in style="--d:.3s">Revisa tu correo. Si no la ves ahí, busca en la carpeta de <b>SPAM</b> o de <b>promociones</b>.</p>
+          <div class="rl-btns" data-in style="--d:.45s">
+            <a class="rl-btn" href="/b-morning-read">Léela en línea</a>
+            <a class="rl-btn rl-btn-2" data-needs="{{custom_values.beneve_morning_pdf_url}}" href="https://{{custom_values.beneve_morning_pdf_url}}" target="_blank" rel="noopener">Descarga el PDF</a>
+          </div>
+          <div class="rl-hint rl-gift"><span class="rl-gift-word">Desliza para ver tu bono</span><span class="rl-gift-ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span></div>
+        </div>
+      </section>
+
+      <!-- 2. DARK: the bonus. Brianna's video (the Blueprint's video box), the bonus card with the guide mockup and the three products (guide-mock.webp, Jeff 2026-11-17), the claim. -->
+      <section class="rl-p rl-night rl-plain rlb rlb-bonus rlt-vid" aria-label="Tu bono">
+        <div class="rl-in">
+          <div class="rlb-vidbox">
+            <div class="rlt-video">
+              <video src="{{custom_values.beneve_morning_supplement_video}}"
+                     poster="{{custom_values.beneve_morning_supplement_video_poster}}"
+                     playsinline muted loop preload="metadata" aria-label="Tu mañana de 15 minutos va en camino, y también un bono"></video>
+              <button type="button" class="rlt-sound" aria-label="Toca para activar el sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="rlt-x" d="m16 9 5 6m0-6-5 6"/><path class="rlt-w" d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg><span>Toca para activar el sonido</span></button>
+            </div>
+          </div>
+          <div class="rlb-coupon m15c-coupon" data-in style="--d:.15s">
+            <span class="rlb-tag">Bono</span>
+            <img class="m15c-mock" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/guide-mock.webp" width="680" height="598"
+                 alt="La guía de suplementos para la mañana, con Xcelerate Original Coffee, Glutathione+ y Electrolytes">
+            <div class="rlb-copy">
+              <p class="rlb-h">La guía de suplementos para la mañana</p>
+              <p class="rlb-plus">+ más información sobre Glutathione+, Xcelerate Coffee y Electrolytes</p>
+              <p class="rlb-by"><span class="rlb-pic" data-rep-pic hidden></span><span data-rep-by>Te mando las dos en un mensaje</span></p>
+            </div>
+          </div>
+          <a class="rlb-btn" data-in style="--d:.25s" data-rl-claim-open href="/b-morning-supplement-request">🎁 ¡SÍ! Mándame la guía y más información</a>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: the guide, the button again, the three products, the small print -->
+      <section class="rl-p rl-paper rlb rlb-guide" aria-label="La guía de suplementos para la mañana">
+        <div class="rl-in">
+          <span class="rlb-eyebrow" data-in>La guía de suplementos para la mañana</span>
+          <h2 data-in style="--d:.1s">Lo que trae la guía adicional...</h2>
+          <ul class="rlb-gets">
+            <li data-in style="--d:.2s">Qué suplementos de la mañana valen la pena, cuáles vale la pena probar y cuáles saltarte, bloque por bloque a lo largo de tus 15 minutos</li>
+            <li data-in style="--d:.3s">Cómo leer una etiqueta en 60 segundos</li>
+            <li data-in style="--d:.4s">Los tres con los que yo empezaría, y quién debería saltarse alguno</li>
+          </ul>
+          <a class="rlb-btn" data-in style="--d:.45s" data-rl-claim-open href="/b-morning-supplement-request">🎁 ¡SÍ! Mándame la guía y más información</a>
+          <div class="m15c-recs" data-in style="--d:.5s">
+            <div class="rlb-rec"><img class="rlb-rec-img" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/glut.webp" width="276" height="520" alt="Un frasco de Glutathione+">
+              <div class="rlb-rec-t"><p class="rlb-rec-h">Glutathione+</p><p>Una mezcla antioxidante con Glutathione, DIM y Xanthohumol.</p></div></div>
+            <div class="rlb-rec"><img class="rlb-rec-img" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/coffee.webp" width="364" height="520" alt="Una bolsa de Xcelerate Original Coffee">
+              <div class="rlb-rec-t"><p class="rlb-rec-h">Xcelerate Original Coffee</p><p>Un café nootrópico de máxima potencia que da energía suave y sostenida, y mejora el enfoque.</p></div></div>
+            <div class="rlb-rec"><img class="rlb-rec-img" src="/_p/beneve/beneve-15-minute-morning/b-morning-confirmation-reel/assets/lytes.webp" width="397" height="520" alt="Una bolsa de Electrolytes">
+              <div class="rlb-rec-t"><p class="rlb-rec-h">Electrolytes</p><p>Repone minerales esenciales como sodio, potasio y magnesio.</p></div></div>
+          </div>
+          <div class="rlb-fine">
+            <p class="rl-fine">Estas guías son solo para fines educativos e informativos, y no son consejo médico, nutricional, de diagnóstico ni de tratamiento.</p>
+            <p class="rl-fine">Habla con tu médico o farmacéutico antes de empezar cualquier suplemento, sobre todo si estás embarazada, en lactancia, tomas medicamentos o tienes alguna condición médica. Los resultados varían de una persona a otra.</p>
+            <p class="rl-fine">Estas declaraciones no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <!-- No floating button on a computer: the claim is the two buttons on screens 2 and 3. -->
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Pantalla siguiente"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- THE CLAIM POPUP -->
+  <div class="rlt-claim" data-rlt-claim role="dialog" aria-modal="true" aria-labelledby="rlt-claim-h" hidden>
+    <div class="rlt-claim-card">
+      <button type="button" class="rlt-claim-x" data-claim-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <span class="rlt-pill">✅ Listo<span data-if-name>, {{contact.first_name}}</span>.</span>
+      <p class="rlt-claim-big" id="rlt-claim-h">Te mandaremos <b>la guía de suplementos para la mañana</b> Y <b>la información de los productos en un máximo de 24 horas</b> (¡normalmente mucho antes!).</p>
+      <p>Pendiente de tus mensajes del celular y de Facebook, incluidas tus carpetas de <b>“Remitentes desconocidos”</b> y <b>“Solicitudes de mensajes”</b>, ¡para que no se te pase!</p>
+      <p class="rlt-claim-sms" data-claim-sms><b>¿Quieres asegurarte de recibir este bono?</b> Escríbeme, o manda un mensaje con la palabra <b>“MORNING”</b> al <a class="rlt-claim-num" data-claim-num data-word="MORNING" href="sms:{{custom_values.beneve_rep_phone}}?&amp;body=MORNING">{{custom_values.beneve_rep_phone}}</a> y yo me encargo de que no caiga en tu spam ni en la carpeta de “Remitentes desconocidos”.</p>
+      <button type="button" class="rl-btn rlt-claim-ok" data-claim-close>Entendido</button>
+    </div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>

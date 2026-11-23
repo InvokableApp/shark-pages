@@ -21,6 +21,12 @@
   if (!root || root.getAttribute('data-built') === '1') return;
   root.setAttribute('data-built', '1');
 
+  /* The page's language (Beneve in Spanish, 2026-11-23; GLP's way): block.<lang>.html carries its words as data-words, a
+     JSON table { "English": "translation" }; the English page has none, so every line below reads as written. */
+  var T = {};
+  try { T = JSON.parse(root.getAttribute('data-words') || '{}') || {}; } catch (e) { T = {}; }
+  function t(s) { return T[s] || s; }
+
   /* ---------- icons, 24x24, stroke currentColor ---------- */
   var I = {
     compass: '<circle cx="12" cy="12" r="9"/><path d="m15.2 8.8-2 4.4-4.4 2 2-4.4z"/>',
@@ -145,11 +151,11 @@
   }
   function row(it, href, mod) {
     // data-label: the rep is told the row's name alone, not its name and description run together (2026-10-16)
-    return '<a class="sk-row' + (mod ? ' ' + mod : '') + '" href="' + esc(href) + '" data-label="' + esc(it.name) + '">' +
+    return '<a class="sk-row' + (mod ? ' ' + mod : '') + '" href="' + esc(href) + '" data-label="' + esc(t(it.name)) + '">' +
       '<span class="sk-mark">' + icon(it.icon) + '</span>' +
       '<span class="sk-text">' +
-        '<span class="sk-row-name">' + esc(it.name) + '</span>' +
-        '<span class="sk-row-tease">' + esc(it.tease) + '</span>' +
+        '<span class="sk-row-name">' + esc(t(it.name)) + '</span>' +
+        '<span class="sk-row-tease">' + esc(t(it.tease)) + '</span>' +
       '</span>' +
       '<span class="sk-chev">' + icon('chev', 2) + '</span>' +
     '</a>';
@@ -164,7 +170,7 @@
     if (!items.length) return;
     live += items.length;
     html += '<section class="sk-group"><div class="sk-group-head">' +
-      '<span class="sk-group-label">' + esc(g.label) + '</span>' +
+      '<span class="sk-group-label">' + esc(t(g.label)) + '</span>' +
       '<span class="sk-rule"></span></div>' +
       items.map(function (it) { return row(it, url(it)); }).join('') +
       '</section>';
@@ -179,9 +185,9 @@
   }).join('');
   if (socLinks) {
     html += '<section class="sk-group"><div class="sk-group-head">' +
-      '<span class="sk-group-label">Connect with me</span>' +
+      '<span class="sk-group-label">' + esc(t('Connect with me')) + '</span>' +
       '<span class="sk-rule"></span></div>' +
-      '<nav class="sk-social" aria-label="Social profiles">' + socLinks + '</nav>' +
+      '<nav class="sk-social" aria-label="' + esc(t('Social profiles')) + '">' + socLinks + '</nav>' +
       '</section>';
   }
 
@@ -189,7 +195,7 @@
   if (shop.length) {
     live += shop.length;
     html += '<section class="sk-group"><div class="sk-group-head">' +
-      '<span class="sk-group-label">Ready to order</span>' +
+      '<span class="sk-group-label">' + esc(t('Ready to order')) + '</span>' +
       '<span class="sk-rule"></span></div>' +
       shop.map(function (it) { return row(it, abs(cv(it.cvKey)), 'sk-row--buy'); }).join('') +
       '</section>';
@@ -217,7 +223,7 @@
     nameEl.remove();
   }
   if (live) {
-    subEl.textContent = 'Everything in one place. Tap any one to get started.';
+    subEl.textContent = t('Everything in one place. Tap any one to get started.');
   } else {
     subEl.remove();
   }
