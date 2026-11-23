@@ -1,0 +1,108 @@
+<!--
+  bepic/b-video/b-business-overview: B-Epic's BUSINESS OVERVIEW VIDEO - 3 MIN (Joe, 2026-11-22: clone GLP's
+  orygn-business-overview-funnel, "Change to fit the branding of the B EPIC sizzle though and ob change ORYGN wording to
+  B EPIC"). Built from Beneve's clone of the same page (beneve/b-video/b-business-overview), which wears the Sizzle page's
+  look; its sheet imports B-Epic's Sizzle sheet (../b-opportunity-video/block.css), so the two match.
+
+  ⚠️ THE WORDS are GLP's page's (glp/glp-orygn-video/orygn-business-overview) with ORYGN made B-Epic: "The B-Epic
+  Opportunity Explained", "After watching this video, choose your next move.", "What's your next move?" and its four
+  choices and pop-ups (Nueva's words, no company or product named), plus the Sizzle page's "I wanted you to see this".
+  No income disclosure link: B-Epic has no such page of ours.
+
+  THE VIDEO is a content value, bepic_business_overview_video (Joe's 3 minute HeyGen overview, on Vimeo), with
+  bepic_business_overview_video_poster as the cover's photo and the player's still. Never empty (clone_tenant, 0047).
+
+  EACH CHOICE IS THE REP'S ALERT (platform 0966, as GLP's 0749): the tap opens the pop-up and quietly opens the choice's
+  step (/b-business-overview-customer, -build, -both, -questions; block.js), and a known lead's view of it runs its
+  automation: the alert on the rep's phone and email, and the message to paste back on the lead's page in the app.
+  TEXT ME buttons are redirect steps to a text with the message written, to bepic_rep_sms; with no phone they go to the
+  rep's Messenger (/b-business-overview-message; [data-needs], reel.js).
+-->
+<div class="rl rl-pf rl-look-calm rv bv bo" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Te lo envió <b data-rv-rep>esta persona</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under a photo card -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="La oportunidad de B-Epic, explicada">
+        <div class="rl-in">
+          <img class="lk-photo bv-photo bo-photo" data-in src="{{custom_values.bepic_business_overview_video_poster}}" alt="La oportunidad de B-Epic, explicada">
+          <span class="lk-tag" data-in style="--d:.05s">Video de 3 minutos</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hola {{contact.first_name}}, </span><span data-rv-rep>Yo</span> quería que vieras esto.</p>
+          <h1 data-in style="--d:.15s" data-label="The B-Epic Opportunity Explained">La oportunidad de B-Epic, explicada</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">Después de ver este video, elige tu siguiente paso.</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Desliza hacia arriba para ver el video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="El video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.bepic_business_overview_video}}" data-poster="{{custom_values.bepic_business_overview_video_poster}}" data-name="the B-Epic overview video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Después de ver este video, desliza hacia arriba y elige tu siguiente paso</span><span class="rv-on-computer">Después de ver este video, elige tu siguiente paso</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. TINT: the video's four choices -->
+      <section class="rl-p rl-tint rv-ask" aria-label="¿Cuál es tu siguiente paso?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Después de ver este video&hellip;</span>
+          <h2 data-in style="--d:.1s">¿Cuál es tu siguiente paso?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="customer" data-rv-step="/b-business-overview-customer" data-pf-quiet data-in style="--d:.2s">
+              <b class="rv-n">01</b><span class="rv-t"><b>Quiero ser cliente</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="build" data-rv-step="/b-business-overview-build" data-pf-quiet data-in style="--d:.28s">
+              <b class="rv-n">02</b><span class="rv-t"><b>Quiero construir el negocio</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-rv-step="/b-business-overview-both" data-pf-quiet data-in style="--d:.36s">
+              <b class="rv-n">03</b><span class="rv-t"><b>Quiero hacer las dos cosas</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="questions" data-rv-step="/b-business-overview-questions" data-pf-quiet data-in style="--d:.44s">
+              <b class="rv-n">04</b><span class="rv-t"><b>Primero tengo algunas preguntas</b></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.55s">Los resultados varían. Los resultados de ingresos descritos no son típicos y no son una garantía de tus resultados.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Siguiente pantalla"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="customer" role="dialog" aria-label="Quiero ser cliente" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Excelente<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Estos productos son increíbles. Escríbele ahora a <span data-rv-rep>esta persona</span> y dile que quieres probar los productos<span data-if-rep hidden> (por cierto, a esa persona también le llegó un aviso)</span>. Solo copia el mensaje de abajo y envíaselo por donde estén hablando.</p>
+    <p class="rv-say" data-rv-say>¡Hola, <span data-rv-rep>qué tal</span>! Me interesa probar los productos. ¿Me puedes enviar el enlace para ver los productos y comprarlos?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copiar el mensaje</button>
+    <a class="rv-btn rv-btn-2" href="/b-business-overview-customer-text" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-business-overview-message" data-label="Text me: I'd like to be a customer">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="build" role="dialog" aria-label="Quiero construir el negocio" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Excelente<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Esta oportunidad es increíble para la persona común que quiere construir algo real, junto a un grupo de gente estupenda. Escríbele ahora a <span data-rv-rep>esta persona</span> y dile que te interesa inscribirte en el negocio<span data-if-rep hidden> (por cierto, a esa persona también le llegó un aviso)</span>. Solo copia el mensaje de abajo y envíaselo por donde estén hablando.</p>
+    <p class="rv-say" data-rv-say>¡Hola, <span data-rv-rep>qué tal</span>! Me interesa inscribirme en el negocio. ¿Me puedes enviar el enlace?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copiar el mensaje</button>
+    <a class="rv-btn rv-btn-2" href="/b-business-overview-build-text" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-business-overview-message" data-label="Text me: I'd like to build the business">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Quiero hacer las dos cosas" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Excelente<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Estos productos son increíbles, y esta oportunidad es genial para la persona común que quiere construir algo real. Escríbele ahora a <span data-rv-rep>esta persona</span> y dile que quieres hacer las dos cosas<span data-if-rep hidden> (por cierto, a esa persona también le llegó un aviso)</span>. Solo copia el mensaje de abajo y envíaselo por donde estén hablando.</p>
+    <p class="rv-say" data-rv-say>¡Hola, <span data-rv-rep>qué tal</span>! Quiero probar los productos e inscribirme en el negocio. ¿Me puedes enviar los enlaces?</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copiar el mensaje</button>
+    <a class="rv-btn rv-btn-2" href="/b-business-overview-both-text" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-business-overview-message" data-label="Text me: I'd like to do both">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="questions" role="dialog" aria-label="Tengo algunas preguntas" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Excelente<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Qué bueno que tengas preguntas, ¡es el momento de hacerlas! Escríbele ahora a <span data-rv-rep>esta persona</span> y dile que tienes algunas preguntas<span data-if-rep hidden> (por cierto, a esa persona también le llegó un aviso)</span>. Solo copia el mensaje de abajo y envíaselo por donde estén hablando.</p>
+    <p class="rv-say" data-rv-say>¡Hola, <span data-rv-rep>qué tal</span>! Me interesa, ¡pero tengo algunas preguntas!</p>
+    <button type="button" class="rv-btn" data-rv-copy data-pf-quiet>Copiar el mensaje</button>
+    <a class="rv-btn rv-btn-2" href="/b-business-overview-questions-text" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-business-overview-message" data-label="Text me: I have some questions">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

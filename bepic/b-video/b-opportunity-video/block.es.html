@@ -1,0 +1,99 @@
+<!--
+  bepic/b-video/b-opportunity-video: B-Epic's OPPORTUNITY SIZZLE VIDEO page (Joe, 2026-11-22: "we need to get some trackable
+  link pages on B EPIC system. Clone this funnel out" (GLP's orygn-opportunity-video-funnel), "Opportunity Sizzle Video. For
+  someone ready to hear about the opportunity"). Built from Beneve's clone of the same page (beneve/b-video/b-opportunity-video:
+  Vimeo-ready, light look), with GLP's words, the page Joe pointed at.
+
+  ⚠️ JOE'S WORDS, verbatim from GLP's page: the cover, the question, the four cards, the pop-ups. No company or product name:
+  opportunity copy never names one.
+  ⚠️ THE LOOK is "Clinical calm" in B-Epic's green (block.css). No logo, as on GLP's. The cover's photo card is the video's
+  own still (bepic_opportunity_video_poster), so it follows a rep who swaps in their own video.
+
+  THE VIDEO is a content value, bepic_opportunity_video (Joe's Vimeo, 2026-11-22), with bepic_opportunity_video_poster as its
+  still. Never empty, or B-Epic signups stop (clone_tenant, 0047).
+
+  Platform only. The rep sends it one to one as a personal link and hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (Not interested) is only true for a personal link: a stranger's tap reports to no one.
+  TEXT ME buttons are redirect steps to a text with the message written (/b-opportunity-try, -refer, -both) to the rep's
+  phone (bepic_rep_phone); with no phone they go to the rep's Messenger instead (/b-opportunity-message, [data-needs], reel.js).
+-->
+<div class="rl rl-pf rl-look-calm rv bv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Te lo envió <b data-rv-rep>esta persona</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PAPER: the headline under the video's own still -->
+      <section class="rl-p rl-paper rl-cover rv-cover" aria-label="Así funciona esta oportunidad">
+        <div class="rl-in">
+          <div class="lk-photo bv-photo" data-in style="background-image:url('{{custom_values.bepic_opportunity_video_poster}}');background-position:50% 28%"></div>
+          <span class="lk-tag" data-in style="--d:.05s">Video corto</span>
+          <p class="rv-from" data-in style="--d:.1s"><span data-if-name>Hola {{contact.first_name}}, </span><span data-rv-rep>Yo</span> quería que vieras esto.</p>
+          <h1 data-in style="--d:.15s" data-label="Así funciona esta oportunidad">Así funciona esta oportunidad. 💸</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">Después de ver este video, ¡fíjate si se te viene alguien a la mente!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Desliza hacia arriba para ver el video</div>
+        </div>
+      </section>
+
+      <!-- 2. PAPER: the video, its progress bar under it -->
+      <section class="rl-p rl-paper rv-watch" aria-label="El video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.bepic_opportunity_video}}" data-poster="{{custom_values.bepic_opportunity_video_poster}}" data-name="the opportunity video"></div>
+          <div class="lk-bar bv-bar" data-in aria-hidden="true"><i></i></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Después de ver este video, desliza hacia arriba y cuéntanos quién se te viene a la mente</span><span class="rv-on-computer">Después de ver este video, cuéntanos quién se te viene a la mente</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. TINT: what direction (Joe's buttons, verbatim) -->
+      <section class="rl-p rl-tint rv-ask" aria-label="¿Quién se te viene a la mente?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Después de ver este video&hellip;</span>
+          <h2 data-in style="--d:.1s">¿Quién se te viene a la mente?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
+              <b class="rv-n">01</b><span class="rv-t"><b>A mí me interesa</b><small>Me gustaría saber más de esto. Cuéntame más&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>Puede que conozca a alguien</b><small>Se me viene a la mente alguien a quien le podría interesar&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>Me interesa + puede que conozca a alguien</b><small>Tengo curiosidad por saber más de esto + puede que conozca a alguien&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>No me interesa / no conozco a nadie</b><small>No creo poder ayudarte con esto&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">Los resultados varían. Los resultados de ingresos descritos no son típicos y no son una garantía de tus resultados.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Pantallas"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Pantalla anterior"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Siguiente pantalla"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="A mí me interesa" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bueno<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Esta es una oportunidad muy buena que gente de todo el mundo está empezando a aprovechar. Escríbele ahora mismo a <span data-rv-rep>mí</span> y pídele ver el plan de compensación para que veas cómo te pagarían.</p>
+    <a class="rv-btn" href="/b-opportunity-try" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-opportunity-message" data-label="Text me: show me the compensation plan">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Conozco a alguien" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bueno<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Esta es una oportunidad muy buena para cualquiera que busque un buen ingreso extra. Escríbele ahora mismo a <span data-rv-rep>mí</span> y dile quién se te viene a la mente.</p>
+    <a class="rv-btn" href="/b-opportunity-refer" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-opportunity-message" data-label="Text me: someone came to mind">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Me interesa y puede que conozca a alguien" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">¡Qué bueno<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Esta es una oportunidad muy buena para cualquiera que busque un buen ingreso extra. Escríbele ahora mismo a <span data-rv-rep>mí</span> y dile que a ti y a alguien que conoces les puede interesar saber más.</p>
+    <a class="rv-btn" href="/b-opportunity-both" data-needs="{{custom_values.bepic_rep_phone}}" data-alt-href="/b-opportunity-message" data-label="Text me: I'm interested and someone came to mind">Escríbele a <span data-rv-rep>mí</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="No me interesa" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Cerrar">&times;</button>
+    <p class="rv-pop-h">Gracias por tu tiempo<span data-if-name>, {{contact.first_name}}</span>.</p>
+    <p>Ya le avisamos a <span data-rv-rep>esa persona</span> que no te interesa y que por ahora no tienes a nadie a quien recomendar.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
