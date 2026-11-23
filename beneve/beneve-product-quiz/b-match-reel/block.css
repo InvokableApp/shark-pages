@@ -124,3 +124,7 @@ body:has(.rl-bq) .pfn-dock{ transition:opacity .4s,transform .4s; }
   .bq-cloud,.bq-sky.is-night .bq-star,.rl-p.is-on .bq-prog::after,.qz-opts button.is-picked .qz-chip{ animation:none; }
   .bq-star{ opacity:.7; } .rl-bq .qz-opts button{ opacity:1; transform:none; }
 }
+/* "What to add" (Jeff, 2026-11-23): the first card is the one to add first, the rest wait for "when you're ready". */
+.bq-tag{ display:inline-block; font:800 11px/1 var(--head); letter-spacing:.08em; text-transform:uppercase; color:var(--plum); background:rgba(42,29,51,.08); border-radius:999px; padding:6px 10px; margin-bottom:10px; }
+.bq-first{ box-shadow:0 0 0 2px var(--plum), 0 8px 24px rgba(42,29,51,.1); }
+.bq-first .bq-tag{ color:#fff; background:var(--plum); }

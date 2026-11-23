@@ -125,7 +125,7 @@ var SYS = {
         { icon: "quiz", name: "Product Quiz", platformOnly: true,
           slug: "b-product-match",
           tease: "A 60 second quiz that picks their Beneve products",
-          desc: "Eight quick questions about their energy, cravings and workouts, and they see the routine you'd start them on: Xcelerate Coffee, Glutathione+ and Gut Advantage, plus GlucoGuard for cravings, or a Sculpt bundle if they train. Every answer is on their lead for your follow up." }
+          desc: "Eight quick questions about their energy, cravings and workouts, and they see the first thing you'd add to their routine: Xcelerate Coffee, GlucoGuard if cravings are their thing, or a Sculpt bundle if they train, with the rest for when they're ready. Every answer is on their lead for your follow up." }
       ]
     }
   ],
