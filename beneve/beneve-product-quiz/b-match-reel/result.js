@@ -21,7 +21,7 @@
   function paint() {
     var i = screens.findIndex(function (s) { return s.classList.contains("is-on"); });
     mode = i <= 0 ? "picks" : screens[i] === picks ? "text" : "none";
-    var label = mode === "text" ? "Questions? Text me" : first;
+    var label = mode === "text" ? "Questions? Message me" : first;
     if (cta) {
       cta.textContent = label;
       cta.setAttribute("href", mode === "text" && textLink ? textLink.getAttribute("href") : "#bq-picks");
