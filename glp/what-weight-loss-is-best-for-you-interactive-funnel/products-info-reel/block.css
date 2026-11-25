@@ -239,3 +239,4 @@
 .rl.gz .gz-read{ display:inline-block; margin-top:.6em; color:var(--ember); font-size:.76em; font-weight:600; text-decoration:none; }
 .rl.gz .gz-read::after{ content:""; position:absolute; inset:0; border-radius:inherit; }
 .rl.gz .gz-read:focus-visible{ outline:2px solid var(--ember); outline-offset:2px; }
+.rl.gz .gz-read[hidden]{ display:none; }   /* the BMI card's link to the rep's ORYGN science page, gone without an ORYGN link */

@@ -211,3 +211,12 @@ body .pfn-dock .pfn-txt small{ font-family:"Poppins",system-ui,sans-serif; }
 .pm a.pm-study{ color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
 .pm a.pm-study:focus-visible{ outline:2px solid var(--orange); outline-offset:2px; }
 .pm-read{ margin-top:auto; padding-top:4px; color:var(--orange); font:600 12px/1.2 var(--sans); }
+
+/* THE BMI STUDY -> THE REP'S OWN ORYGN SCIENCE PAGE (Jeff 2026-11-25: "that can link to users orygn science page"): its paper's
+   own page can't be checked, so the card's Read the study opens /real-science on the rep's ORYGN site, stretched over the
+   card; a rep with no ORYGN link loses the link (reel.js [data-needs]) and the card stays a plain card. */
+.pm .pm-study-in{ position:relative; }
+.pm .pm-read-in{ text-decoration:none; }
+.pm .pm-read-in::after{ content:""; position:absolute; inset:0; border-radius:inherit; }
+.pm .pm-read-line{ display:inline-block; margin-top:12px; text-decoration:none; font-size:14px; }
+.pm .pm-read[hidden]{ display:none; }
