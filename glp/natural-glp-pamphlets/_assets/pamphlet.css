@@ -2,7 +2,7 @@
  * the reel, the ORYGN look, and the SVG motion Jeff asked for (2026-11-20: "lets really make it feel smooth, you know? add
  * some svg animations that make it immersive"). Every move starts when its screen comes on (reel.js adds .is-on) and
  * stops for anyone who asks the phone for less motion. pamphlet.js counts the numbers and sizes the drawn lines. */
-@import url("../../../_shared/reel/v1/reel.css");
+@import url("../../../_shared/reel/v1/reel.css?v=6");
 @import url("../../../_shared/reel/looks/orygn.css");
 
 .pm .rl-in{ text-align:center; }
