@@ -418,3 +418,9 @@
 
 /* Anchored bands clear the sticky jump nav + reading line when jumped to. */
 .sk-glp-info [id]{scroll-margin-top:64px}
+
+/* THE STUDIES OPEN (2026-11-25): "Read the study" on each card with a published paper, stretched over the whole card. */
+.sk-glp-info .sk-glp-study{ position:relative; }
+.sk-glp-info .sk-glp-read{ display:inline-block; margin-top:.7rem; color:var(--gi-ember); font-size:.8rem; font-weight:600; text-decoration:none; }
+.sk-glp-info .sk-glp-read::after{ content:""; position:absolute; inset:0; border-radius:inherit; }
+.sk-glp-info .sk-glp-read:focus-visible{ outline:2px solid var(--gi-ember); outline-offset:2px; }

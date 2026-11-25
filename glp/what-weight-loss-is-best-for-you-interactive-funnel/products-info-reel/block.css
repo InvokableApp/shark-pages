@@ -233,3 +233,9 @@
 }
 
 @media (prefers-reduced-motion:reduce){ .gz-faq summary::after{ transition:none; } }
+
+/* THE STUDIES OPEN (2026-11-25): "Read the study" on each card with a published paper, stretched over the whole card. */
+.gz-study{ position:relative; }
+.rl.gz .gz-read{ display:inline-block; margin-top:.6em; color:var(--ember); font-size:.76em; font-weight:600; text-decoration:none; }
+.rl.gz .gz-read::after{ content:""; position:absolute; inset:0; border-radius:inherit; }
+.rl.gz .gz-read:focus-visible{ outline:2px solid var(--ember); outline-offset:2px; }

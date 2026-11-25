@@ -205,3 +205,9 @@
    "Swipe up to message {name}" whole on a 375px phone, where Poppins cut the name off */
 body .pfn-dock .pfn-txt b{ font-family:"Barlow Condensed","Arial Narrow",sans-serif; font-weight:500; font-size:19px; letter-spacing:.01em; }
 body .pfn-dock .pfn-txt small{ font-family:"Poppins",system-ui,sans-serif; }
+
+/* THE STUDIES OPEN (2026-11-25, a practitioner tapped them and nothing opened): each card with a published paper is a link
+   to it, new tab; "Read the study" at its foot says so. A plain link, so a sideways swipe across the cards still scrolls. */
+.pm a.pm-study{ color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
+.pm a.pm-study:focus-visible{ outline:2px solid var(--orange); outline-offset:2px; }
+.pm-read{ margin-top:auto; padding-top:4px; color:var(--orange); font:600 12px/1.2 var(--sans); }
