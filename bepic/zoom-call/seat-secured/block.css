@@ -1,0 +1,29 @@
+/* GLP's live Zoom call: GLP's sales-page palette (platform src/sales-pages/glp.html, its :root line) on the shared
+ * webinar template. */
+@import url("../../../_shared/webinar/v1/webinar.css");
+
+.sk-wb {
+  --wb-brand: #0E9A2C;
+  --wb-brand-hi: #3CC45A;
+  --wb-deep: #0A7A22;
+  --wb-brand-rgb: 14,154,44;
+  --wb-glow-rgb: 242,167,140;
+  --wb-accent: #6FE08A;
+  --wb-accent-pale: #C9F5D3;
+  --wb-ink: #07110A;
+  --wb-ink-2: #0B1A0F;
+  --wb-card: #0F2214;
+  --wb-glass-rgb: 15,38,20;
+  --wb-text: #F2FAF4;
+  --wb-text-2: #DDEDE1;
+  --wb-soft: #A8BDAE;
+  --wb-faint: #7D9684;
+}
+
+/* Jeff, 2026-11-03: "center the confirmation page". With no video (data-wb-has-video hidden) the steps are one
+ * column in the middle, and they count from 1: a hidden step doesn't count. */
+.sk-wb .wb-steps { counter-reset: wb-step; }
+.sk-wb .wb-step:not([hidden]) { counter-increment: wb-step; }
+.sk-wb .wb-step-n::before { content: "Step " counter(wb-step); }
+.sk-wb .wb-steps:has(> .wb-step-video[hidden]) { grid-template-columns: minmax(0, 620px); justify-content: center; }
+.sk-wb .wb-ok-what em{font-style:normal;color:var(--wb-brand-hi)}
