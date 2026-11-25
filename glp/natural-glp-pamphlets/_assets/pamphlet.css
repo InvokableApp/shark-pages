@@ -184,6 +184,10 @@
   .pm-duo-cards img{ height:96px; } .pm-month{ width:140px; height:140px; } .pm-month .mid b{ font-size:31px; }
   .pm-list li{ padding:11px 14px; font-size:14px; }
   .pm-path .og-card{ padding:11px 14px; } .pm-path .h{ font-size:19px; }
+  /* The study screens: Spanish ran 22 to 25px past a 375x667 screen, into the message bar (2026-11-25). */
+  .pm-studies .pm-pct .og-num{ font-size:50px; }
+  .pm-studies .pm-chart{ max-width:250px; margin-top:8px; }
+  .pm .pm-studies .rl-cards .og-card{ padding:12px 14px; gap:4px; }
 }
 @media (max-width:700px) and (max-height:620px){
   .pm-stage{ width:min(160px,42vw); } .pm-stage-sm{ width:min(120px,34vw); }
