@@ -140,6 +140,43 @@
     }, { passive: true });
   });
 
+  // ARROWS FOR A ROW OF CARDS ON A COMPUTER (.rl-cards[data-rl-arrows]; Joe, 2026-11-25: "let's add slider for desktop",
+  // after a practitioner on a computer couldn't get past the first two study cards): a mouse can't swipe a row, so a
+  // computer gets a back and a next button beside the row's "1 of 4", and the left and right keys move the row while its
+  // screen is on. Only a row that asks for it; a phone keeps its swipe.
+  if (!touch) [].forEach.call(root.querySelectorAll(".rl-cards[data-rl-arrows]"), function (row) {
+    var cue = row.nextElementSibling, n = row.children.length;
+    var step = function (d) {
+      var c = row.children[0], w = c ? c.getBoundingClientRect().width + 12 : row.clientWidth;
+      row.scrollBy({ left: d * w, behavior: "smooth" });
+    };
+    var nav = document.createElement("span");
+    nav.className = "rl-cards-nav";
+    nav.innerHTML = '<button type="button" data-d="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>' +
+      '<button type="button" data-d="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>';
+    var bs = nav.querySelectorAll("button");
+    bs[0].setAttribute("aria-label", W("form.back", "Back")); bs[1].setAttribute("aria-label", W("reel.next", "Next"));
+    nav.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b && !b.disabled) step(Number(b.getAttribute("data-d"))); });
+    var ends = function () {
+      bs[0].disabled = row.scrollLeft < 4;
+      bs[1].disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
+      nav.hidden = row.scrollWidth <= row.clientWidth + 4;
+    };
+    row.addEventListener("scroll", ends, { passive: true });
+    window.addEventListener("resize", ends);
+    if (cue && cue.classList.contains("rl-cards-cue")) {
+      // "Swipe for more ..." is a phone's word: a computer reads "1 of 4" from the start, with the arrows after it.
+      if (cue.firstChild && cue.firstChild.nodeType === 3) cue.firstChild.nodeValue = W("reel.k_of_n", "{k} of {n}").replace("{k}", 1).replace("{n}", n);
+      var nudge = cue.querySelector("svg"); if (nudge) nudge.remove();
+      cue.appendChild(nav);
+    } else row.insertAdjacentElement("afterend", nav);
+    document.addEventListener("keydown", function (e) {
+      if (!screens[on] || !screens[on].contains(row) || /^(INPUT|SELECT|TEXTAREA)$/.test((e.target || {}).tagName)) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); } else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    });
+    ends();
+  });
+
   /* ---------- a confirmation's pieces ---------- */
   var gift = root.querySelector(".rl-gift-word");
   if (gift && !touch) {

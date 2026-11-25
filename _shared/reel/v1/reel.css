@@ -90,6 +90,14 @@
 .rl-cards-cue{ display:flex; align-items:center; gap:6px; margin-top:12px; font:650 11px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--eyebrow); }
 .rl-night .rl-cards-cue,.rl-photo .rl-cards-cue{ color:var(--eyebrow-dark); }
 .rl-cards-cue svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; animation:rl-nudge-x 1.6s ease-in-out infinite; }
+/* a computer's back and next for a row of cards (reel.js, .rl-cards[data-rl-arrows]) */
+.rl-cards-nav{ display:inline-flex; gap:8px; margin-left:8px; }
+.rl-cards-nav[hidden]{ display:none; }
+.rl-cards-nav button{ display:grid; place-items:center; width:36px; height:36px; padding:0; border-radius:50%; border:1.5px solid currentColor;
+  background:transparent; color:inherit; cursor:pointer; }
+.rl-cards-nav button:hover:not(:disabled){ background:rgba(127,127,127,.14); }
+.rl-cards-nav button:disabled{ opacity:.3; cursor:default; }
+.rl-cards-nav svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; animation:none; }
 @keyframes rl-nudge-x{ 0%,100%{ transform:translateX(0); } 45%{ transform:translateX(4px); } }
 /* the rep, big, with a check (filled from the platform's data by reel.js; hidden until it is) */
 .rl-who{ position:relative; width:84px; height:84px; margin:26px 0 4px; }
