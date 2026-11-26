@@ -1,0 +1,106 @@
+/* glp/rep-pages/lisasimmons/wellness: Lisa Simmons's "Hello, I'm Lisa" page in her v1 page's look (see block.html).
+ * Every class is .lw-*, scoped under .lw, so nothing here reaches another page. */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap");
+
+.lw{
+  --lw-brown:#A6632B; --lw-cream:#FCFAF5; --lw-sage:#9DB5A3; --lw-black:#0A0A0A; --lw-green:#4C7656;
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif; color:#1b1b1b; background:var(--lw-cream);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+.lw *{ box-sizing:border-box; }
+.lw img{ display:block; max-width:100%; height:auto; }
+.lw-wrap{ width:min(1110px,100%); margin:0 auto; padding:0 20px; }
+.lw-narrow{ width:min(720px,100%); }
+.lw-two{ display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
+.lw-center{ text-align:center; }
+.lw-brown{ color:var(--lw-brown) !important; }
+
+.lw-h2{ margin:0 0 18px; font-size:clamp(30px,7.4vw,40px); line-height:1.15; font-weight:800; text-transform:uppercase; letter-spacing:-.01em; }
+
+.lw-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:12px 28px;
+  border-radius:10px; color:#fff; font-weight:700; font-size:16px; text-transform:uppercase; text-decoration:none;
+  transition:transform .15s ease, filter .15s ease;
+}
+.lw-btn:hover{ filter:brightness(1.08); }
+.lw-btn:active{ transform:translateY(1px); }
+.lw-btn-brown{ background:var(--lw-brown); }
+.lw-btn-green{ background:var(--lw-green); }
+.lw-btn-soft{ text-transform:none; font-weight:500; font-size:18px; border:1px solid #fff; border-radius:4px; min-width:196px; }
+
+/* Hero */
+.lw-hero{ background:var(--lw-cream); padding:40px 0 50px; }
+.lw-hero-copy{ text-align:center; }
+.lw-hello{ margin:0; color:var(--lw-brown); font-size:22px; font-weight:700; }
+.lw-name{ margin:8px 0 10px; color:var(--lw-brown); font-size:44px; line-height:1.1; font-weight:800; }
+.lw-lede{ margin:0 auto 28px; max-width:520px; color:var(--lw-brown); font-size:16px; line-height:1.5; font-weight:500; }
+.lw-hero .lw-btn{ width:100%; max-width:440px; }
+.lw-photo img{ width:100%; object-fit:cover; }
+
+/* About */
+.lw-about{ background:var(--lw-sage); padding:50px 0 30px; }
+.lw-about-copy{ text-align:center; color:#2a2a2a; }
+.lw-about-copy .lw-h2{ color:#2a2a2a; }
+.lw-about-copy p{ margin:0 0 22px; font-size:16px; line-height:1.55; font-weight:600; }
+
+/* Let's stay connected */
+.lw-connect{ background:var(--lw-cream); padding:50px 0 70px; }
+.lw-connect-card{ border:1px solid #2a2a2a; border-radius:16px; padding:40px 20px 54px; text-align:center; }
+.lw-connect-card .lw-h2{ margin-bottom:28px; }
+.lw-social{ display:flex; justify-content:center; gap:30px; }
+.lw-social a{ display:block; width:32px; height:32px; color:#111; }
+.lw-social svg{ width:100%; height:100%; display:block; }
+
+/* What you'll find here, Curious, the business */
+.lw-dark{ background:var(--lw-black); color:#fff; padding:50px 0; }
+.lw-dark .lw-h2{ color:#fff; }
+.lw-cards{ display:grid; grid-template-columns:1fr; gap:22px; margin:34px 0 50px; }
+.lw-card{ background:#000; border:1px solid #2b2b2b; border-radius:14px; padding:40px 18px 28px; text-align:center; display:flex; flex-direction:column; align-items:center; }
+.lw-card img{ width:120px; height:120px; margin-bottom:14px; }
+.lw-card b{ font-size:20px; font-weight:800; line-height:1.3; }
+.lw-card i{ font-size:20px; font-weight:800; line-height:1.3; }
+.lw-curious{ text-align:center; }
+.lw-curious p{ margin:0 auto 30px; max-width:760px; font-size:16px; line-height:1.55; font-weight:500; }
+.lw-business{ padding-top:20px; }
+.lw-business-copy{ text-align:center; }
+.lw-business-copy p{ margin:0 0 30px; font-size:16px; line-height:1.55; font-weight:500; }
+.lw-curious .lw-btn, .lw-business-copy .lw-btn{ min-width:196px; }
+
+/* The form: hidden until form.js has drawn it in (data-pf-ready) */
+.lw-form{ display:none; background:#fff; padding:40px 0 60px; }
+.lw-form[data-pf-ready]{ display:block; }
+.lw-form .lw-h2{ font-size:clamp(28px,7vw,36px); margin-bottom:24px; }
+.lw-form-slot{ display:flex; justify-content:center; }
+.lw-form{ --pf-accent:var(--lw-brown); --pf-accent-ink:#fff; }
+.lw-form .pf-ov.pf-inline .pf-card{ max-width:620px; box-shadow:none; border:1px solid #e5e2da; font-family:"Plus Jakarta Sans",system-ui,sans-serif; }
+.lw-form .pf-go{ background:var(--lw-brown); color:#fff; border-radius:8px; text-transform:uppercase; font-weight:700; letter-spacing:.02em; }
+
+/* Footer */
+.lw-foot{ background:var(--lw-black); color:#fff; padding:56px 0 70px; }
+.lw-foot-in{ display:grid; grid-template-columns:1fr; gap:40px; }
+.lw-foot-h{ margin:0 0 18px; font-size:20px; font-weight:600; text-transform:uppercase; }
+.lw-foot-p{ margin:0; font-size:16px; }
+.lw-foot-social{ display:flex; gap:24px; }
+.lw-foot-social a{ display:block; width:24px; height:24px; color:#9aa3b2; }
+.lw-foot-social svg{ width:100%; height:100%; display:block; }
+
+/* Computer: two columns, as on v1 */
+@media (min-width:860px){
+  .lw-two{ grid-template-columns:1fr 1fr; gap:56px; }
+  .lw-hero{ padding:40px 0 30px; min-height:600px; display:flex; align-items:center; }
+  .lw-hero > .lw-wrap{ width:min(1110px,100%); }
+  .lw-hero-copy{ text-align:left; }
+  .lw-name{ font-size:64px; }
+  .lw-lede{ margin-left:0; font-size:20px; }
+  .lw-hero .lw-btn{ width:auto; }
+  .lw-photo-hero{ max-width:460px; justify-self:end; }
+  .lw-about{ padding:50px 0; }
+  .lw-about-copy{ text-align:left; }
+  .lw-about-copy p{ font-size:18px; }
+  .lw-cards{ grid-template-columns:repeat(4,1fr); gap:18px; }
+  .lw-card{ padding:30px 14px 24px; }
+  .lw-card img{ width:110px; height:110px; }
+  .lw-card b, .lw-card i{ font-size:17px; }
+  .lw-business-copy{ text-align:left; }
+  .lw-foot-in{ grid-template-columns:1fr auto; }
+}

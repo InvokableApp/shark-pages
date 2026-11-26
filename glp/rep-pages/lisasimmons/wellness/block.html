@@ -1,0 +1,109 @@
+<!--
+  GLP / rep-pages / lisasimmons / wellness: Lisa Simmons's own "Hello, I'm Lisa" page, rebuilt from her v1 (GHL) page at
+  mywellnesswithlisa.com/wellness (Jeff, 2026-11-26: "it needs to look like her v1 page"). ONE REP'S PAGE: only her
+  account has a step that names this folder (platform migration lisa_simmons_wellness_page), so no other rep, and no GLP
+  master funnel, ever serves it. Not in glp/manifest.json, so GHL never touches it either.
+
+  Her words are verbatim from the v1 page, except two em dashes (no em dashes in shipped copy): "feel your best, without
+  hype or pressure" and "No pressure, just information". Her photos and the four icons were copied off the v1 page into
+  assets/ (not hotlinked). Colours and type are the v1 page's: Plus Jakarta Sans, brown #A6632B, cream #FCFAF5,
+  sage #9DB5A3, black #0A0A0A, green #4C7656.
+
+  Buttons: See My Wellness Resources goes to her /links page (on v1 it scrolled down this page); Let's Connect, Tell me more
+  and Learn more scroll here, as on v1. The form is the platform's (form.js draws it into [data-pf-slot]): her fields, and
+  the consent sentence naming her. Hidden until it is drawn, so a copy of this page with no form shows no empty box.
+-->
+<div class="lw">
+
+  <section class="lw-hero">
+    <div class="lw-wrap lw-two">
+      <div class="lw-hero-copy">
+        <p class="lw-hello">Hello, I’m</p>
+        <h1 class="lw-name">Lisa</h1>
+        <p class="lw-lede">I share simple wellness tips, healthy habits, and real-life support to help you feel your best, without hype or pressure.</p>
+        <a class="lw-btn lw-btn-brown" href="/links">See my wellness resources <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="lw-photo lw-photo-hero"><img src="assets/lisa-hero.webp" alt="Lisa Simmons" width="600" height="800" loading="eager"></div>
+    </div>
+  </section>
+
+  <section class="lw-about">
+    <div class="lw-wrap lw-two">
+      <div class="lw-photo"><img src="assets/lisa-about.webp" alt="Lisa smiling at home" width="900" height="1141" loading="lazy"></div>
+      <div class="lw-about-copy">
+        <h2 class="lw-h2">A little about me</h2>
+        <p>I started paying more attention to my own wellness because I wanted simple, realistic ways to feel better and stay consistent. Along the way, I’ve learned that small daily choices really can add up.</p>
+        <p>Now I enjoy sharing what I’m learning, the wellness products and resources I personally use, and practical ideas that can fit into everyday life. My goal is to share helpful information and options without hype or pressure.</p>
+        <a class="lw-btn lw-btn-brown lw-btn-soft" href="#connect">Let’s Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-connect" id="connect">
+    <div class="lw-wrap">
+      <div class="lw-connect-card">
+        <h2 class="lw-h2 lw-brown">Let’s stay connected!</h2>
+        <div class="lw-social">
+          <a href="https://www.facebook.com/profile.php?id=61593284257656" target="_blank" rel="noopener" aria-label="Lisa on Facebook" class="lw-fb">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/><path fill="#fff" d="m16.7 15.5.5-3.5h-3.4V9.8c0-1 .5-1.9 2-1.9h1.5v-3s-1.4-.2-2.7-.2c-2.7 0-4.5 1.7-4.5 4.7V12h-3v3.5h3v8.4a12 12 0 0 0 3.7 0v-8.4z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/well_nesswithlisa/" target="_blank" rel="noopener" aria-label="Lisa on Instagram" class="lw-ig">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-dark">
+    <div class="lw-wrap">
+      <h2 class="lw-h2 lw-center">What you’ll find here</h2>
+      <div class="lw-cards">
+        <div class="lw-card"><img src="assets/icon-leaf.webp" alt="" width="120" height="120" loading="lazy"><b>Everyday Wellness</b><i>Simple tips for real life</i></div>
+        <div class="lw-card"><img src="assets/icon-book.webp" alt="" width="120" height="120" loading="lazy"><b>Free Resources</b><i>Guides, recipes &amp; helpful tools</i></div>
+        <div class="lw-card"><img src="assets/icon-drop.webp" alt="" width="120" height="120" loading="lazy"><b>What I Use</b><i>Products I personally use</i></div>
+        <div class="lw-card"><img src="assets/icon-dollar.webp" alt="" width="120" height="120" loading="lazy"><b>Business Opportunity</b><i>Curious about earning by sharing?</i></div>
+      </div>
+      <div class="lw-curious">
+        <h2 class="lw-h2 lw-center">Curious about the business side?</h2>
+        <p>If you’re curious about earning by sharing products you believe in, I’d be happy to tell you more about what I do and how it works. No pressure, just information so you can decide if it might be a fit for you.</p>
+        <a class="lw-btn lw-btn-green" href="#business">Tell me more <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lw-dark lw-business" id="business">
+    <div class="lw-wrap lw-two">
+      <div class="lw-business-copy">
+        <h2 class="lw-h2">A little about the business</h2>
+        <p>I love being able to share something I believe in while building an extra stream of income from home. It’s flexible, simple to learn, and something I can work around real life. If you’re curious about what I do, I’m happy to share the details and let you decide if it could be a fit for you.</p>
+        <a class="lw-btn lw-btn-green" href="#form">Learn more <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="lw-photo"><img src="assets/lisa-business.webp" alt="Lisa at her desk with her laptop and phone" width="1000" height="750" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="lw-form" id="form" data-pf-inline>
+    <div class="lw-wrap lw-narrow">
+      <h2 class="lw-h2 lw-brown lw-center">Want to learn more about the business?</h2>
+      <div class="lw-form-slot" data-pf-slot></div>
+    </div>
+  </section>
+
+  <footer class="lw-foot">
+    <div class="lw-wrap lw-foot-in">
+      <div>
+        <p class="lw-foot-h">Wellness with Lisa</p>
+        <div class="lw-foot-social">
+          <a href="https://www.facebook.com/profile.php?id=61593284257656" target="_blank" rel="noopener" aria-label="Lisa on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
+          <a href="https://www.instagram.com/well_nesswithlisa/" target="_blank" rel="noopener" aria-label="Lisa on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="lw-foot-h">Let’s connect</p>
+        <p class="lw-foot-p">Message me on Facebook or Instagram.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
