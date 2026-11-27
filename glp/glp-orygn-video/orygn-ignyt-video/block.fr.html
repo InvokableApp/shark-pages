@@ -29,14 +29,14 @@
         <div class="rl-bg" style="background-image:url('/_p/glp/glp-free-ignyt-sample/ignyt-sample-optin/assets/ritual.webp')"></div>
         <div class="rl-in">
           <span class="rv-pill" data-in>Vidéo d'une minute</span>
-          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Salut {{contact.first_name}}, </span><span data-rv-rep>Votre ami</span> apprécie que vous regardiez ceci!</p>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Salut {{contact.first_name}}, </span><span data-rv-rep>Ton ami</span> apprécie que tu regardes ceci!</p>
           <h1 data-in style="--d:.1s" data-label="La vidéo IGNYT">Le soutien GLP <em>en poudre!</em></h1>
           <p class="rv-sub" data-in style="--d:.25s">Propulsé par des peptides bioactifs norvégiens brevetés</p>
-          <p class="rv-sub rv-mind" data-in style="--d:.35s">Après avoir regardé cette vidéo, dites-nous à qui vous pensez...</p>
+          <p class="rv-sub rv-mind" data-in style="--d:.35s">Après avoir regardé cette vidéo, dis-nous à qui tu penses...</p>
         </div>
         <div class="rv-swipe">
           <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
-          <div class="rv-next">Glissez vers le haut pour regarder la vidéo</div>
+          <div class="rv-next">Glisse vers le haut pour regarder la vidéo</div>
         </div>
       </section>
 
@@ -44,15 +44,15 @@
       <section class="rl-p rl-night rv-watch" aria-label="La vidéo">
         <div class="rl-in">
           <div class="qv rv-video" data-in data-video="{{custom_values.glp_orygn_ignyt_video}}" data-poster="{{custom_values.glp_orygn_ignyt_video_poster}}" data-name="the IGNYT video"></div>
-          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Après avoir regardé cette vidéo, glissez vers le haut et dites-nous à qui vous pensez</span><span class="rv-on-computer">Après avoir regardé cette vidéo, dites-nous à qui vous pensez</span></span></button>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Après avoir regardé cette vidéo, glisse vers le haut et dis-nous à qui tu penses</span><span class="rv-on-computer">Après avoir regardé cette vidéo, dis-nous à qui tu penses</span></span></button>
         </div>
       </section>
 
       <!-- 3. PAPER: who comes to mind -->
-      <section class="rl-p rl-paper rv-ask" aria-label="À qui pensez-vous?">
+      <section class="rl-p rl-paper rv-ask" aria-label="À qui penses-tu?">
         <div class="rl-in">
           <span class="rv-eyebrow" data-in>Après avoir vu cette vidéo&hellip;</span>
-          <h2 data-in style="--d:.1s">À qui pensez-vous?</h2>
+          <h2 data-in style="--d:.1s">À qui penses-tu?</h2>
           <div class="rv-cards">
             <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Moi-même : j'aimerais essayer IGNYT">
               <b class="rv-n">01</b><span class="rv-t"><b>Moi-même</b><small>Je voudrais perdre un peu de poids. J'aimerais essayer IGNYT.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
@@ -78,26 +78,26 @@
   <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Moi-même" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Fermer">&times;</button>
     <p class="rv-pop-h">Génial<span data-if-name>, {{contact.first_name}}</span>!</p>
-    <p>IGNYT soutient trois des voies naturelles de votre corps, sans stimulants et sans aiguilles.* Écrivez à <span data-rv-rep>moi</span> tout de suite pour en savoir plus sur comment l'essayer!</p>
+    <p>IGNYT soutient trois des voies naturelles de ton corps, sans stimulants et sans aiguilles.* Écris à <span data-rv-rep>moi</span> tout de suite pour en savoir plus sur comment l'essayer!</p>
     <a class="rv-btn" href="/orygn-ignyt-try" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Textez-moi : j'aimerais essayer IGNYT">Écrire à <span data-rv-rep>moi</span></a>
   </div></div>
   <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Quelqu'un que je connais" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Fermer">&times;</button>
     <p class="rv-pop-h">Génial<span data-if-name>, {{contact.first_name}}</span>!</p>
-    <p>IGNYT soutient trois des voies naturelles de votre corps, sans stimulants et sans aiguilles.* Écrivez à <span data-rv-rep>moi</span> tout de suite pour dire à qui vous pensez!</p>
+    <p>IGNYT soutient trois des voies naturelles de ton corps, sans stimulants et sans aiguilles.* Écris à <span data-rv-rep>moi</span> tout de suite pour dire à qui tu penses!</p>
     <a class="rv-btn" href="/orygn-ignyt-refer" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Textez-moi : quelqu'un m'est venu à l'esprit">Écrire à <span data-rv-rep>moi</span></a>
   </div></div>
   <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Moi-même et quelqu'un que je connais" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Fermer">&times;</button>
     <p class="rv-pop-h">Génial<span data-if-name>, {{contact.first_name}}</span>!</p>
-    <p>IGNYT soutient trois des voies naturelles de votre corps, sans stimulants et sans aiguilles.* Écrivez à <span data-rv-rep>moi</span> tout de suite pour dire que vous et quelqu'un que vous connaissez voudriez peut-être l'essayer!</p>
+    <p>IGNYT soutient trois des voies naturelles de ton corps, sans stimulants et sans aiguilles.* Écris à <span data-rv-rep>moi</span> tout de suite pour dire que toi et quelqu'un que tu connais voudriez peut-être l'essayer!</p>
     <a class="rv-btn" href="/orygn-ignyt-both" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Textez-moi : j'aimerais l'essayer, et quelqu'un m'est venu à l'esprit">Écrire à <span data-rv-rep>moi</span></a>
   </div></div>
   <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Personne" hidden><div class="rv-pop-card">
     <button type="button" class="rv-x" aria-label="Fermer">&times;</button>
-    <p class="rv-pop-h">Merci de votre temps<span data-if-name>, {{contact.first_name}}</span>!</p>
-    <p>Nous avons fait savoir à <span data-rv-rep>cette personne</span> que vous n'êtes pas intéressé et que vous ne connaissez personne à recommander pour le moment.</p>
-    <p class="rv-ps">P.S. Vous avez cliqué par erreur? Fermez simplement cette fenêtre avec le X pour revenir à la page.</p>
+    <p class="rv-pop-h">Merci de ton temps<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Nous avons fait savoir à <span data-rv-rep>cette personne</span> que tu n'es pas intéressé et que tu ne connais personne à recommander pour le moment.</p>
+    <p class="rv-ps">P.S. Tu as cliqué par erreur? Ferme simplement cette fenêtre avec le X pour revenir à la page.</p>
   </div></div>
 </div>
 <script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
