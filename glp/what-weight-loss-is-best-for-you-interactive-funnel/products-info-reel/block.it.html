@@ -1,0 +1,469 @@
+<!--
+  glp / what-weight-loss-is-best-for-you-interactive-funnel / products-info-reel
+
+  GLP's "Sizzle" product page as a REEL (references/REEL-PAGE-SOP.md). Jeff, 2026-10-14: "the glp sizzle.... can we
+  convert that whole page to a reel scroll thing?", then "go for it" on a ten-screen layout. On the platform this page
+  is BOTH /sizzle (Sizzle Funnel - Quick Info Page To Share) and /products-info (step 3 of the Weight Loss Supplement
+  Recommendation quiz funnel); one migration points both steps here.
+
+  ⚠️ PLATFORM ONLY. The scrolling page next door (../products-info) is still served live to every GHL account; it is not
+  touched, and this folder borrows its pictures by /_p/ path rather than copying them.
+
+  ⚠️ COPY IS THE CLIENT'S, VERBATIM. Every claim, number, study citation, testimonial and the FDA disclaimer is carried
+  across from ../products-info/block.html unchanged; only the layout is new. Do not "tighten" any of it without Joe.
+  Left out on purpose, because a reel moves by swipe: the jump nav (The Formula / Science / GLP Drops / GLP Drink), the
+  "Scroll below for more details..." cue and the sticky bar (the platform's dock replaces it).
+
+  THE SCREENS (13; Jeff's ten, with the science band and the two products taking the room their words need):
+    1 the headline   2 the video   3 the three pathways (sideways)   4 the clinical evidence   5 the numbers
+    6 the eight studies (sideways)   7 when will I see results (sideways)   8 the comparison table (scrolls in its box)
+    9 reviews (sideways) and the scorecard   10 the drops' four ingredients   11 the drink's four ingredients
+    12 the FAQ (tap to open)   13 two delivery systems: try the products
+
+  THE BUTTON. On GHL every CTA opens the page's popup, which is EMPTY on the Sizzle page (its builder popup has no
+  children, 2026-10-05 backup), and on the platform the step has no form, so [data-optin] opened nothing at all
+  (measured on yourname.heresthepage.com/sizzle, 2026-10-14). Both funnels' next step is the rep's Facebook DM redirect
+  (/sizzle-redirect, /redirect-weightloss), and the page's own line says "Message us on Facebook (or text us) for more
+  product & sampling info!". Jeff, 2026-10-14: "try these products can we make that go to reps replicated link?" So
+  every product button, and the dock, goes to the rep's own shop (rep_buy_link, data-gz-shop); a rep with no shop link
+  on file sends them to THIS funnel's DM step instead (block.js picks it by the address the page is on: data-gz-dm).
+  "Check Out More Of The Science" stays on the DM step (data-gz-go="dm"). Each keeps data-optin, so if a form is ever put on the step, form.js opens
+  it instead, as it does on every other page.
+
+  THE VIDEO is a .qv box, so the platform's player (watch.js) plays it and tells the rep how much was watched when
+  the visitor came by their personal link.
+-->
+<div class="rl rl-pf gz" data-pf-native data-pf-dock="Prova questi prodotti!" data-gz-dm="/products-info=/redirect-weightloss /sizzle=/sizzle-redirect" data-gz-shop="{{custom_values.rep_buy_link}}">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the headline -->
+      <section class="rl-p rl-paper gz-cover" aria-label="Il segnale">
+        <div class="rl-in">
+          <img class="gz-mark" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/orygn-wordmark.svg" alt="ORYGN" width="150" height="24" data-in>
+          <h1 data-in style="--d:.08s" data-label="L'ago GLP non è mai stata la vera svolta">
+            L&rsquo;ago &ldquo;GLP&rdquo; non è mai stata la vera svolta.
+            <em>Lo è il SEGNALE. Guarda subito questo video!</em>
+          </h1>
+          <img class="rl-art gz-trio" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-trio.webp" alt="Tre flaconi di gocce ORYGN triGLP" width="1000" height="1000" data-in style="--d:.2s">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. the video, filling the screen -->
+      <section class="rl-p rl-night rl-plain rl-wide gz-watch" aria-label="Il video">
+        <div class="rl-in">
+          <div class="qv gz-video" data-in data-video="{{custom_values.glp_orygn_product_video}}" data-poster="{{custom_values.glp_orygn_product_video_poster}}" data-name="the triGLP video"></div>
+        </div>
+      </section>
+
+      <!-- 3. the mode of action: three pathways, sideways -->
+      <section class="rl-p rl-tint rl-wide gz-paths" aria-label="Il meccanismo d'azione">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Il meccanismo d&rsquo;azione</p>
+          <h2 data-in style="--d:.08s">La maggior parte degli integratori agisce su una sola leva. <em>I nostri ne attivano tre.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">Un profilo peptidico esclusivo, identificato come molecolarmente diverso da altri 1.324
+            idrolizzati commerciali, che coinvolge allo stesso tempo tre dei più potenti sistemi di
+            regolazione del corpo.</p>
+          <div class="rl-cards gz-cards" data-in style="--d:.24s">
+            <article class="gz-card gz-path" data-num="01">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg></span>
+              <p class="gz-kicker">Primo percorso</p>
+              <h3>GLP-1</h3>
+              <p class="gz-lead">Il sussurratore dell&rsquo;appetito.</p>
+              <ul class="gz-ticks">
+                <li>Regola la fame a livello neurale attivando i recettori del cervello</li>
+                <li>Rallenta lo svuotamento gastrico per un senso di sazietà naturale</li>
+                <li>Riduce la voglia di cibo e le dimensioni delle porzioni</li>
+                <li>Favorisce una perdita di peso sostenibile senza sforzo</li>
+              </ul>
+            </article>
+            <article class="gz-card gz-path" data-num="02">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p class="gz-kicker">Secondo percorso</p>
+              <h3>GLP-2</h3>
+              <p class="gz-lead">Lo scudo del centro del corpo</p>
+              <ul class="gz-ticks">
+                <li>Aiuta a riparare e rafforzare la funzione di barriera dell&rsquo;intestino</li>
+                <li>Riduce l&rsquo;infiammazione sistemica in tutto il corpo</li>
+                <li>Migliora l&rsquo;assorbimento dei nutrienti e il microbioma intestinale</li>
+                <li>Favorisce il benessere digestivo e la funzione immunitaria</li>
+              </ul>
+            </article>
+            <article class="gz-card gz-path" data-num="03">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+              <p class="gz-kicker">Terzo percorso</p>
+              <h3>GIP</h3>
+              <p class="gz-lead">L&rsquo;ottimizzatore del metabolismo</p>
+              <ul class="gz-ticks">
+                <li>Ottimizza la sensibilità all&rsquo;insulina e la regolazione del glucosio</li>
+                <li>Previene i picchi di zucchero nel sangue e i cali di energia</li>
+                <li>Potenzia la combustione dei grassi e l&rsquo;efficienza metabolica</li>
+                <li>Sostiene energia costante e lucidità mentale</li>
+              </ul>
+            </article>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 di 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+        </div>
+      </section>
+
+      <!-- 4. the clinical evidence -->
+      <section class="rl-p rl-paper rl-wide gz-proof" aria-label="Le prove cliniche">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Le prove cliniche</p>
+          <h2 data-in style="--d:.08s">Risultati da farmaco. <em>Assunzione naturale.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">triGLP è un peptide bioattivo con doppia protezione brevettuale, derivato dal salmone
+            atlantico norvegese, classificato come Nuovo Ingrediente Dietetico (NDI) dalla FDA
+            statunitense con status self-GRAS. La scienza è reale. I risultati sono documentati.</p>
+          <ul class="gz-badges">
+            <li data-in style="--d:.24s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3v5.2L4.8 17a3 3 0 0 0 2.6 4.5h9.2A3 3 0 0 0 19.2 17l-4.7-8.8V3"/><path d="M8.5 3h7"/></svg></span>
+              <div><h3>Doppia protezione brevettuale</h3><p>Composizione peptidica unica, identificata come molecolarmente diversa da altri 1.324 idrolizzati commerciali.</p></div>
+            </li>
+            <li data-in style="--d:.32s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <div><h3>Status NDI della FDA</h3><p>Classificato come Nuovo Ingrediente Dietetico dalla FDA statunitense con status self-GRAS (Generally Recognized As Safe, cioè generalmente riconosciuto come sicuro).</p></div>
+            </li>
+            <li data-in style="--d:.4s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 10h7M8.5 14h7M8.5 17.5h4"/></svg></span>
+              <div><h3>Più studi clinici</h3><p>Convalidato da studi clinici indipendenti che misurano BMI, composizione corporea, infiammazione e marcatori metabolici.</p></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. the numbers -->
+      <section class="rl-p rl-paper rl-wide gz-nums" aria-label="I numeri">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Risultati da farmaco. Assunzione naturale. Distribuito in esclusiva da ORYGN<sup>*</sup></p>
+          <dl class="gz-stats">
+            <div data-in style="--d:.1s"><dt>$50M&#8202;+</dt><dd>Investiti in ricerca</dd></div>
+            <div data-in style="--d:.16s"><dt><span data-gz-count="10" data-gz-suffix="+">10+</span></dt><dd>Anni di studi</dd></div>
+            <div data-in style="--d:.22s"><dt><span data-gz-count="8" data-gz-suffix="+">8+</span></dt><dd>Studi pubblicati</dd></div>
+            <div data-in style="--d:.28s"><dt><span data-gz-count="13">13</span></dt><dd>Indicazioni FDA</dd></div>
+            <div data-in style="--d:.34s"><dt><span data-gz-count="80" data-gz-suffix="+">80+</span></dt><dd>Paesi</dd></div>
+            <div data-in style="--d:.4s"><dt><span data-gz-count="98" data-gz-suffix="%">98%</span></dt><dd>Biodisponibilità</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 6. the science: eight studies, sideways (transcribed verbatim from the source page's images; do not reword) -->
+      <section class="rl-p rl-paper rl-wide gz-science" aria-label="La scienza è reale">
+        <div class="rl-in">
+          <h2 data-in>La <span class="gz-hot">scienza</span> è reale.</h2>
+          <p class="gz-sub gz-italic" data-in style="--d:.08s">Ricerca clinica sottoposta a revisione paritaria, studi indipendenti e riconoscimento globale:
+            ogni prodotto è sostenuto da prove solide.</p>
+          <div class="rl-cards gz-cards gz-studies" data-in style="--d:.16s">
+            <article class="gz-study">
+              <p class="gz-tag">Studio clinico</p>
+              <h3>Anemia da carenza di ferro: livelli di ferritina ed emoglobina dopo integrazione con ProGo<sup>&reg;</sup> rispetto alla proteina del siero di latte</h3>
+              <p class="gz-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+              <p class="gz-method">n = 48 &middot; Controllato con placebo vs. isolato di proteine del siero &middot; 6 settimane &middot; 16g/giorno</p>
+              <p class="gz-finding">+140% di ferritina (riportata alla norma); +14% di emoglobina contro +2% nel gruppo del siero di latte (p&lt;0,05). Base per 6 indicazioni FDA struttura/funzione e per le indicazioni qualificate di Health Canada.</p>
+              <a class="gz-read" href="https://www.longdom.org/articles/623670/a-placebo-controlled-study-of-the-impact-of-dietary-salmon-protein-hydrolysate-supplementation-in-increasing-ferritin-an" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Studio clinico</p>
+              <h3>Gestione del peso e biomarcatori metabolici: studio randomizzato controllato con placebo sul BMI in adulti in sovrappeso</h3>
+              <p class="gz-cite">Journal of Obesity &amp; Weight Loss Therapy &middot; 2016</p>
+              <p class="gz-method">Soggetti in sovrappeso &middot; Controllato con placebo vs. WPI &middot; 42 giorni &middot; 16g/giorno</p>
+              <p class="gz-finding">&minus;5,9% di BMI (p&lt;0,05); cambiamenti significativi in 4 biomarcatori sierici legati al metabolismo; riduzione costante del 3&ndash;6% della glicemia a digiuno.</p>
+              <a class="gz-read" href="https://{{custom_values.distributor_buy_link}}/real-science" data-needs="{{custom_values.distributor_buy_link}}" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Studio clinico</p>
+              <h3>Indagine sull&rsquo;efficacia di 18 settimane di integrazione con idrolizzato proteico di salmone su infiammazione metabolica, benessere ed effetti estetici</h3>
+              <p class="gz-cite">Functional Foods in Health and Disease &middot; 2024 &middot; Vol.14(11): 814&ndash;842</p>
+              <p class="gz-method">n = 20 &middot; In aperto, a braccio singolo &middot; 128 giorni &middot; 4g/giorno &middot; KGK Science Inc.</p>
+              <p class="gz-finding">+10,24% di energia percepita (donne +14,55%); &minus;9% di stress ossidativo; HMOX1 &uarr;4,09&times;; FTH1 &uarr;3,77&times;; pelle/capelli/unghie +24% (donne +34,5%); IL-5, IL-8 e CRP ridotti.</p>
+              <a class="gz-read" href="https://www.ffhdj.com/index.php/ffhd/article/view/1491" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Studio clinico</p>
+              <h3>Anemia da carenza di ferro: livelli di ferritina ed emoglobina dopo integrazione con ProGo<sup>&reg;</sup> rispetto alla proteina del siero di latte</h3>
+              <p class="gz-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+              <p class="gz-method">n = 48 &middot; Controllato con placebo vs. isolato di proteine del siero &middot; 6 settimane &middot; 16g/giorno</p>
+              <p class="gz-finding">+140% di ferritina (riportata alla norma); +14% di emoglobina contro +2% nel gruppo del siero di latte (p&lt;0,05). Base per 6 indicazioni FDA struttura/funzione e per le indicazioni qualificate di Health Canada.</p>
+              <a class="gz-read" href="https://www.longdom.org/articles/623670/a-placebo-controlled-study-of-the-impact-of-dietary-salmon-protein-hydrolysate-supplementation-in-increasing-ferritin-an" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Prima esplorazione dell&rsquo;attivazione in vitro dei recettori GLP-1 e GIP e della protezione delle cellule delle isole pancreatiche da parte di peptidi bioattivi derivati dal salmone</h3>
+              <p class="gz-cite">Marine Drugs &middot; MDPI &middot; 2024 &middot; 22(11): 490</p>
+              <p class="gz-method">In vitro &middot; Currie C. et al. &middot; Hofseth BioCare</p>
+              <p class="gz-finding">La frazione peptidica più piccola di ProGo<sup>&reg;</sup> attiva i recettori GLP-1 e GIP; protezione delle cellule delle isole pancreatiche; inibizione di DPP-IV; migliore assorbimento di glucosio nel muscolo.</p>
+              <a class="gz-read" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11595994/" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro / Animale</p>
+              <h3>L&rsquo;idrolizzato proteico solubile attenua l&rsquo;infiammazione e il danno gastrointestinale nella colite indotta da TNBS nei topi</h3>
+              <p class="gz-cite">Biomolecules &middot; 2022 &middot; 12(9): 1287</p>
+              <p class="gz-method">Modello murino di colite &middot; Wei J. et al. &middot; Stanford University &amp; Hofseth BioCare</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> ha ridotto in modo significativo il danno al tessuto del colon, gli infiltrati di cellule infiammatorie e lo stress ossidativo. Confermata l&rsquo;aumentata espressione di HMOX1. Guidato dal Dr. Karl Sylvester MD, Stanford.</p>
+              <a class="gz-read" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9496120/" target="_blank" rel="noopener">Leggi lo studio <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Espressione genica antiossidante: ProGo<sup>&reg;</sup> aumenta l&rsquo;espressione di 16 geni protettivi contro l&rsquo;ossidazione, tra cui FTH1, HMOX1 e ALOX12</h3>
+              <p class="gz-cite">Hofseth BioCare / Stanford University &middot; Preclinico</p>
+              <p class="gz-method">Linee cellulari umane &middot; HBC &amp; Stanford University</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> ha aumentato l&rsquo;espressione di 16 geni protettivi contro l&rsquo;ossidazione e ridotto quella di 9 geni dello stress ossidativo. FTH1, HMOX1 e ALOX12 hanno mostrato variazioni notevoli, a sostegno dei benefici clinici osservati.</p>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Espressione genica antiossidante: ProGo<sup>&reg;</sup> aumenta l&rsquo;espressione di 16 geni protettivi contro l&rsquo;ossidazione, tra cui FTH1, HMOX1 e ALOX12</h3>
+              <p class="gz-cite">Hofseth BioCare / Stanford University &middot; Preclinico</p>
+              <p class="gz-method">Linee cellulari umane &middot; HBC &amp; Stanford University</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> ha aumentato l&rsquo;espressione di 16 geni protettivi contro l&rsquo;ossidazione e ridotto quella di 9 geni dello stress ossidativo. FTH1, HMOX1 e ALOX12 hanno mostrato variazioni notevoli, a sostegno dei benefici clinici osservati.</p>
+            </article>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.22s">1 di 8<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-more" data-in style="--d:.28s"><a class="gz-link" href="/sizzle-redirect" data-optin data-gz-go="dm">Scopri di più sulla scienza&hellip;</a></p>
+        </div>
+      </section>
+
+      <!-- 7. when will I see results (dark) -->
+      <!-- 8. the honest comparison: every cell verbatim; the table scrolls inside its own box on a short phone -->
+      <section class="rl-p rl-tint rl-wide gz-compare" aria-label="Il confronto onesto">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Il confronto onesto</p>
+          <h2 data-in style="--d:.08s">Qui sotto trovi il confronto&hellip; <em>Tu cosa scegli?</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">Non ti chiediamo di scegliere tra i risultati e la tua salute. triGLP ti dà entrambi.</p>
+          <div class="gz-table-box" data-gz-box data-in style="--d:.24s">
+            <div class="gz-table" role="table" aria-label="triGLP a confronto con il GLP-1 farmaceutico e il collagene standard">
+              <div class="gz-th gz-rowhead"></div>
+              <div class="gz-th">GLP-1 farmaceutico</div>
+              <div class="gz-th">Collagene standard</div>
+              <div class="gz-th gz-own gz-own-top">triGLP <span class="gz-dot" aria-hidden="true"></span></div>
+
+              <div class="gz-td gz-rowhead">Formato</div>
+              <div class="gz-td">Iniezione settimanale</div>
+              <div class="gz-td">Misurino al giorno</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Poche gocce al giorno</div>
+
+              <div class="gz-td gz-rowhead">Meccanismo</div>
+              <div class="gz-td">Agonista del GLP-1 (1 percorso)</div>
+              <div class="gz-td">Proteina</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Attivazione peptidica su 3 percorsi</div>
+
+              <div class="gz-td gz-rowhead">Conservazione muscolare</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Perdita documentata</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Nessun effetto misurato</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Inibisce miostatina e Activina A</div>
+
+              <div class="gz-td gz-rowhead">Salute intestinale</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Effetti collaterali gastrici</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Studio di Stanford: nessun beneficio</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Attivazione di GLP-2 + HMOX1</div>
+
+              <div class="gz-td gz-rowhead">Effetti collaterali</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Comuni e significativi</div>
+              <div class="gz-td">Minimi</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Nessun effetto collaterale grave segnalato</div>
+
+              <div class="gz-td gz-rowhead">Costo (tipico)</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> $900&ndash;1.300 / mese</div>
+              <div class="gz-td">$30&ndash;60 / mese</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> $129,95 / mese (2 flaconi)</div>
+
+              <div class="gz-td gz-rowhead gz-last">Sostenibilità</div>
+              <div class="gz-td gz-last"><i class="gz-no" aria-hidden="true">&#10005;</i> Smetti = effetto rimbalzo</div>
+              <div class="gz-td gz-last">Indefinita</div>
+              <div class="gz-td gz-own gz-own-btm gz-last"><i class="gz-yes" aria-hidden="true">&#10003;</i> Si accumula con l&rsquo;uso</div>
+            </div>
+          </div>
+          <p class="gz-getrow" data-in style="--d:.3s"><a class="gz-btn gz-btn-sm" href="/sizzle-redirect" data-optin data-gz-go>Prendi triGLP</a> <span class="gz-fine">Nessun abbonamento richiesto. Nessun impegno.</span></p>
+        </div>
+      </section>
+
+      <!-- 9. proof: six reviews, sideways, and the scorecard -->
+      <section class="rl-p rl-paper rl-wide gz-reviews" aria-label="Persone vere, risultati veri">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Le prove in ogni goccia</p>
+          <h2 data-in style="--d:.08s">Persone vere. <em>Risultati veri.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">Ecco cosa succede quando la scienza funziona davvero.</p>
+          <div class="rl-cards gz-cards gz-quotes" data-in style="--d:.24s">
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">5 kg in 11 giorni!</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Non ci credo! Ho perso 11 libbre in 11 giorni! Devo costringermi a mangiare quando lo prendo. Niente aghi e mi sento benissimo!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t6.webp" alt="" width="80" height="80" loading="lazy"><span><b>DeMarr Z.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">6 lbs in 19 giorni</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;19 giorni, 10 gocce al giorno. Sono scesa di 6 libbre, il grasso corporeo è calato, l&rsquo;energia è salita e la mia sicurezza è ALTA&hellip; perfino mio marito continua a dirmi quanto sto bene!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t5.webp" alt="" width="80" height="80" loading="lazy"><span><b>Rosie A.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">Risultati in 3 giorni</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Solo tre giorni e sono già scesa di una libbra. Le voglie sono diminuite molto. Energia allegra e costante per tutto il giorno, niente cali, niente nebbia mentale, solo io, serena e costante!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t4.webp" alt="" width="80" height="80" loading="lazy"><span><b>Brittany P.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">6,2 lbs perse</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Dal primo giorno, e sempre meglio ogni giorno dopo, un&rsquo;energia che dura TUTTO IL GIORNO con molta più concentrazione. Ho perso 6,2 libbre e mi sento come se avessi perso centimetri!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t3.webp" alt="" width="80" height="80" loading="lazy"><span><b>Lisa P.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">Gestisce l&rsquo;Hashimoto</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Non mi ero resa conto di quanto mi aiutasse triGLP finché non è finito. Pur gestendo l&rsquo;Hashimoto e la perimenopausa, mi teneva in equilibrio, calmando le voglie e il rumore del cibo. Sentivo chiaramente la differenza!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t2.webp" alt="" width="80" height="80" loading="lazy"><span><b>Erica S.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">3 lbs in 6 giorni</p>
+              <p class="gz-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;6 giorni di prova, un modo di vivere tutto nuovo! Energia, lucidità, concentrazione. Niente rumore del cibo né fame emotiva. Giù di 3 libbre, addio grasso ostinato. Mi sta trasformando in ogni senso!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t1.webp" alt="" width="80" height="80" loading="lazy"><span><b>Misty M.</b><i>Stati Uniti</i></span></figcaption>
+            </figure>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 di 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <dl class="gz-score" data-in style="--d:.36s">
+            <div><p class="gz-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p><dt>4,9</dt><dd>Valutazione media</dd></div>
+            <div><dt><span data-gz-count="4200" data-gz-suffix="+">4.200+</span></dt><dd>Utenti attivi</dd></div>
+            <div><dt>0</dt><dd>Effetti collaterali gravi</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 10. triGLP drops: four ingredients, sideways -->
+      <section class="rl-p rl-tint gz-ing gz-drops" aria-label="Gocce triGLP">
+        <div class="rl-in">
+          <p class="gz-pill gz-pill-left" data-in>Gocce triGLP&hellip;</p>
+          <h2 class="gz-serif" data-in style="--d:.08s">Quattro ingredienti. <em>Niente da nascondere.</em></h2>
+          <p class="gz-lede" data-in style="--d:.16s">triGLP contiene solo quattro ingredienti completamente naturali. La maggior parte degli
+            integratori nasconde la formula in una miscela esclusiva. Noi elenchiamo ogni ingrediente
+            perché non abbiamo niente da nascondere e tutto da dimostrare.</p>
+          <img class="rl-art gz-prod" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-bottle.webp" alt="Un flacone di gocce ORYGN triGLP" width="900" height="1200" loading="lazy" data-in style="--d:.2s">
+          <ul class="rl-cards gz-cards gz-ings" data-in style="--d:.24s">
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg></span>
+              <h3>Idrolizzato proteico di salmone norvegese</h3>
+              <p class="gz-ing-role">Il complesso peptidico attivo</p>
+              <p>Salmone atlantico norvegese di qualità sashimi, lavorato con un&rsquo;idrolisi enzimatica delicata e brevettata. È la fonte di tutti e tre i percorsi bioattivi: GLP-1, GLP-2 e GIP.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Estratto di scorza di limone biologico</h3>
+              <p class="gz-ing-role">Potenziatore della biodisponibilità</p>
+              <p>Favorisce l&rsquo;assorbimento e aggiunge un aroma naturale. Ricco di flavonoidi che completano gli effetti antinfiammatori del complesso peptidico.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Estratto di radice di zenzero biologico</h3>
+              <p class="gz-ing-role">Sostegno digestivo e antinfiammatorio</p>
+              <p>Lavora in sinergia con il percorso GLP-2 per la salute dell&rsquo;intestino. I gingeroli naturali dello zenzero sostengono i benefici digestivi e riducono ancora di più l&rsquo;infiammazione sistemica.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3z"/></svg></span>
+              <h3>Acqua deionizzata</h3>
+              <p class="gz-ing-role">Veicolo ultra puro</p>
+              <p>Tutto qui. Niente riempitivi, niente leganti, niente conservanti artificiali, niente composti sintetici. La formula è pulita esattamente come sembra.</p>
+            </li>
+            <li class="gz-card gz-note">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p><b>Status NDI della FDA + GRAS autodichiarato.</b> triGLP è stato classificato come Nuovo Ingrediente Dietetico dalla FDA statunitense, il più alto standard di sicurezza per gli integratori alimentari.</p>
+            </li>
+          </ul>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 di 5<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-try" data-in style="--d:.34s"><a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prova le gocce triGLP!</a></p>
+        </div>
+      </section>
+
+      <!-- 11. IGNYT powder: four ingredients, sideways -->
+      <section class="rl-p rl-tint gz-ing gz-drink" aria-label="Polvere IGNYT">
+        <div class="rl-in">
+          <p class="gz-pill gz-pill-left" data-in>Polvere IGNYT&hellip;</p>
+          <h2 class="gz-serif" data-in style="--d:.08s">Quattro ingredienti. <em>Semplice. Puro. Potente.</em></h2>
+          <p class="gz-lede" data-in style="--d:.16s">IGNYT contiene solo quattro ingredienti completamente naturali. Lo abbiamo creato con una
+            tecnologia avanzata che offre la massima biodisponibilità e libera tutto il potenziale
+            di ogni ingrediente.</p>
+          <img class="rl-art gz-prod" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/ignyt-pack.webp" alt="Bustina e stick di ORYGN IGNYT, il booster metabolico" width="1000" height="1000" loading="lazy" data-in style="--d:.2s">
+          <ul class="rl-cards gz-cards gz-ings" data-in style="--d:.24s">
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg></span>
+              <h3>Idrolizzato proteico di salmone norvegese</h3>
+              <p class="gz-ing-role">Il complesso peptidico attivo</p>
+              <p>Salmone atlantico norvegese di qualità sashimi, lavorato con un&rsquo;idrolisi enzimatica delicata e brevettata. È la fonte di tutti e tre i percorsi bioattivi: GLP-1, GLP-2 e GIP.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-3.5 0-6-2.5-6-6 0-3 2-5.5 6-5.5s6 2.5 6 5.5c0 3.5-2.5 6-6 6z"/><path d="M12 9.5V5.5M12 5.5C12 4 13 3 14.5 3"/></svg></span>
+              <h3>Polvere di barbabietola</h3>
+              <p>Dà un colore naturale e altri antiossidanti.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Stevia Reb A</h3>
+              <p>Un dolcificante naturale di origine vegetale, senza calorie.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="4.5"/><circle cx="16" cy="11" r="4"/><path d="M13 5.5c0-1.5 1-2.5 2.5-2.5"/></svg></span>
+              <h3>Aroma naturale di mirtillo rosso e mela</h3>
+              <p>Un gusto buono e rinfrescante che ti piacerà.</p>
+            </li>
+            <li class="gz-card gz-note">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p><b>PROCESSO DI ESTRAZIONE BREVETTATO ED ESCLUSIVO.</b> Una tecnologia avanzata che offre la massima biodisponibilità e libera tutto il potenziale di ogni ingrediente.</p>
+            </li>
+          </ul>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 di 5<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-try" data-in style="--d:.34s"><a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prova la bevanda IGNYT!</a></p>
+        </div>
+      </section>
+
+      <!-- 12. FAQ, tap to open (one at a time) -->
+      <section class="rl-p rl-tint rl-wide gz-faqs" aria-label="Domande frequenti">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Domande frequenti</p>
+          <h2 data-in style="--d:.08s">Ogni domanda. <em>Con una risposta sincera.</em></h2>
+          <div class="gz-faq" data-gz-box="always" data-in style="--d:.16s">
+            <details>
+              <summary>Come si prende triGLP?</summary>
+              <p>Metti .25ml sulla lingua o sotto la lingua, tieni per 30 secondi e poi ingoia. Prendilo una o due volte al giorno. L&rsquo;assunzione sublinguale evita il sistema digerente per un assorbimento più rapido ed efficiente.</p>
+            </details>
+            <details>
+              <summary>triGLP è completamente naturale?</summary>
+              <p>Sì, al 100%. triGLP contiene solo quattro ingredienti: idrolizzato proteico di salmone norvegese (il peptide attivo), acqua deionizzata, estratto di scorza di limone biologico ed estratto di radice di zenzero biologico. Nessun composto sintetico, nessun riempitivo, nessun conservante artificiale.</p>
+            </details>
+            <details>
+              <summary>In cosa è diverso dagli altri prodotti GLP sul mercato?</summary>
+              <p>Molti degli altri prodotti GLP (non tutti) sono farmaci sintetici somministrati con un&rsquo;iniezione settimanale che attivano un solo percorso (GLP-1). In genere costano $900&ndash;1.300 al mese senza assicurazione, hanno effetti collaterali documentati come nausea e perdita di massa muscolare, e fanno riprendere peso quando si smette. triGLP è un peptide bioattivo completamente naturale che attiva tre percorsi (GLP-1, GLP-2 e GIP), costa $129,95 per due flaconi, circa un mese di scorta, non ha effetti collaterali gravi e si accumula con l&rsquo;uso continuato.</p>
+            </details>
+            <details>
+              <summary>Quali ricerche cliniche sostengono le indicazioni di triGLP?</summary>
+              <p>triGLP è stato convalidato da più studi clinici indipendenti che mostrano: riduzione del BMI del 6&ndash;7% in 6&ndash;8 settimane, calo del 10% del grasso corporeo senza perdita di massa muscolare, riduzione del 15% dei marcatori di infiammazione IL-6, miglioramento del 100% dell&rsquo;assorbimento di glucosio nel muscolo e riduzione del 3&ndash;6% della glicemia a digiuno. Ha una doppia protezione brevettuale e ha lo status di Nuovo Ingrediente Dietetico (NDI) della FDA con status GRAS autodichiarato.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. the close: two delivery systems, try the products -->
+      <section class="rl-p rl-paper rl-wide gz-close" aria-label="Prova questi prodotti">
+        <div class="rl-in">
+          <h2 class="gz-serif gz-inline" data-in>Le gocce triGLP <em>o la bevanda IGNYT.</em> Tu cosa scegli?</h2>
+          <div class="gz-duo">
+            <div data-in style="--d:.12s">
+              <img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-trio.webp" alt="Tre flaconi di gocce ORYGN triGLP" width="1000" height="1000" loading="lazy">
+              <a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prova le gocce triGLP!</a>
+            </div>
+            <div data-in style="--d:.2s">
+              <img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/ignyt-pack.webp" alt="Bustina e stick di ORYGN IGNYT, il booster metabolico" width="1000" height="1000" loading="lazy">
+              <a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prova la bevanda IGNYT!</a>
+            </div>
+          </div>
+          <p class="gz-msg" data-in style="--d:.28s">&#128172; <em>Scrivici su Facebook (o mandaci un messaggio) per avere più informazioni sui prodotti e sui campioni!</em></p>
+          <p class="rl-fine gz-foot" data-in style="--d:.34s">AVVERTENZA: Queste affermazioni non sono state valutate dalla Food and Drug Administration. Questo prodotto non è destinato a diagnosticare, trattare, curare o prevenire alcuna malattia.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Schermate"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Schermata precedente"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Schermata successiva"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <a class="rl-cta" href="/sizzle-redirect" data-optin data-gz-go>Prova questi prodotti!</a>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

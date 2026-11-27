@@ -1,0 +1,103 @@
+<!--
+  glp/glp-orygn-video/orygn-ignyt-video: GLP's IGNYT VIDEO page, the third trackable video link beside the product and
+  opportunity pages (Joe's doc "ORYGN Remainign Things To Do", 2026-10-21: "IGNYT Trackable link sample funnel / Same idea
+  Nueva hydrate funnel"; his video in Slack the same day). The product video page's reel (orygn-product-video), with its
+  four cards and pop-ups, and Joe's IGNYT video in place of the triGLP one.
+
+  ⚠️ THE WORDS come from Joe's video (0:52): "an all-natural triple pathway GLP support drink", "No stimulants, no
+  needles. Just mix a packet, stir, and enjoy", "does anyone come to mind who you think could be interested in trying
+  this?". The cards follow the product page's (Joe's 2026-10-16 edits), with "try IGNYT" for "try this".
+  NO LOGO, same as the other two pages.
+
+  Platform only. The rep sends it one to one as a personal link and hears who opened it, how much they watched and which
+  card they tapped (watch.js; data-label is what the rep is told).
+  ⚠️ "We've let {rep} know" (No One) is only true for a personal link: a stranger's tap reports to no one.
+
+  THE VIDEO is a content value, glp_orygn_ignyt_video (an .mp4 in our storage, the "media" bucket), with
+  glp_orygn_ignyt_video_poster as the still (platform migration 0456). 9:16, so no rv-wide: the phone-shaped frame.
+  THE PHOTO is the IGNYT sample page's stick being stirred into a glass (glp-free-ignyt-sample/ignyt-sample-optin/assets).
+  TEXT ME buttons are redirect steps to a text with the message written (/orygn-ignyt-try, -refer, -both) to the rep's
+  phone (rep_phone); with no phone they go to the rep's Messenger instead (/orygn-ignyt-message; [data-needs], reel.js).
+-->
+<div class="rl rl-pf rv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Ti è stato inviato da <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. PHOTO: the headline -->
+      <section class="rl-p rl-photo rl-cover rv-cover" aria-label="Il supporto GLP in polvere">
+        <div class="rl-bg" style="background-image:url('/_p/glp/glp-free-ignyt-sample/ignyt-sample-optin/assets/ritual.webp')"></div>
+        <div class="rl-in">
+          <span class="rv-pill" data-in>Video di 1 minuto</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Ciao {{contact.first_name}}, </span><span data-rv-rep>Il tuo amico</span> ti ringrazia per aver guardato questo video!</p>
+          <h1 data-in style="--d:.1s" data-label="Il video di IGNYT">Il supporto GLP <em>in polvere!</em></h1>
+          <p class="rv-sub" data-in style="--d:.25s">Con peptidi bioattivi norvegesi brevettati</p>
+          <p class="rv-sub rv-mind" data-in style="--d:.35s">Dopo aver guardato il video, facci sapere a chi pensi...</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Scorri verso l'alto per guardare il video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video, filling the screen like a story -->
+      <section class="rl-p rl-night rv-watch" aria-label="Il video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.glp_orygn_ignyt_video}}" data-poster="{{custom_values.glp_orygn_ignyt_video_poster}}" data-name="the IGNYT video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Dopo aver guardato il video, scorri verso l'alto e facci sapere a chi pensi</span><span class="rv-on-computer">Dopo aver guardato il video, facci sapere a chi pensi</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: who comes to mind -->
+      <section class="rl-p rl-paper rv-ask" aria-label="A chi pensi?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Dopo aver visto questo video&hellip;</span>
+          <h2 data-in style="--d:.1s">A chi pensi?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Me stesso: mi piacerebbe provare IGNYT">
+              <b class="rv-n">01</b><span class="rv-t"><b>Me stesso</b><small>Vorrei perdere qualche chilo. Mi piacerebbe provare IGNYT.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="Qualcuno che conosco: potrebbe volerlo provare">
+              <b class="rv-n">02</b><span class="rv-t"><b>Qualcuno che conosco</b><small>Penso che potrebbe volerlo provare. E adesso?</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="Me stesso e qualcuno che conosco">
+              <b class="rv-n">03</b><span class="rv-t"><b>Me stesso + qualcuno che conosco</b><small>Sinceramente mi piacerebbe provarlo e conosco anche qualcun altro a cui potrebbe interessare.</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Nessuno: non mi interessa, non conosco nessuno">
+              <b class="rv-n">04</b><span class="rv-t"><b>Nessuno</b><small>Non mi interessa / non conosco nessuno</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">*Queste affermazioni non sono state valutate dalla Food and Drug Administration. Questo prodotto non è destinato a diagnosticare, trattare, curare o prevenire alcuna malattia.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Schermate"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Schermata precedente"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Schermata successiva"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <!-- The pop-ups: {rep} is filled from the page's data (block.js); the visitor's name only when the platform knows it
+       (data-if-name). -->
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Me stesso" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>IGNYT supporta tre dei percorsi naturali del tuo corpo, senza stimolanti e senza aghi.* Scrivi subito a <span data-rv-rep>me</span> e chiedi come provarlo!</p>
+    <a class="rv-btn" href="/orygn-ignyt-try" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Scrivimi: mi piacerebbe provare IGNYT">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Qualcuno che conosco" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>IGNYT supporta tre dei percorsi naturali del tuo corpo, senza stimolanti e senza aghi.* Scrivi subito a <span data-rv-rep>me</span> e dimmi a chi hai pensato!</p>
+    <a class="rv-btn" href="/orygn-ignyt-refer" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Scrivimi: mi è venuto in mente qualcuno">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Me stesso e qualcuno che conosco" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>IGNYT supporta tre dei percorsi naturali del tuo corpo, senza stimolanti e senza aghi.* Scrivi subito a <span data-rv-rep>me</span> e dimmi che sia tu sia qualcuno che conosci potreste voler provarlo!</p>
+    <a class="rv-btn" href="/orygn-ignyt-both" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-ignyt-message" data-label="Scrivimi: mi piacerebbe provarlo e mi è venuto in mente qualcuno">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Nessuno" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Grazie per il tuo tempo<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Abbiamo avvisato <span data-rv-rep>them</span> che non ti interessa e che al momento non hai nessuno da segnalare.</p>
+    <p class="rv-ps">P.S. Hai cliccato per sbaglio? Chiudi questa finestra con la X per tornare alla pagina.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

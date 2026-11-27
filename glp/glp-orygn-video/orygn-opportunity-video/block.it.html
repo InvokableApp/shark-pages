@@ -1,0 +1,102 @@
+<!--
+  glp/glp-orygn-video/orygn-opportunity-video: GLP's OPPORTUNITY VIDEO page, a reel with the product video page's flow
+  (Jeff, 2026-10-14). The headline, swipe to the video, swipe to "What direction would you like to go?", three cards, each
+  with a pop-up.
+
+  ⚠️ JOE'S WORDS (his SCRIPTS doc, ORYGN > Opportunity flow): the question, the three buttons, the pop-ups, his " - " made
+  into a full stop and "(name)" / "(lead name)" filled with the visitor's and the rep's names. The cover has no words of
+  his for a page, so its headline and line are his script's own ("earning some extra cash in exchange for posting about
+  my company's products on social media", "They don't need a big following", "explains exactly how it works in a
+  minute"). No company or product name: opportunity copy never names one.
+  ⚠️ NO LOGO. The look is the product video page's, imported.
+
+  THE VIDEO is a content value, glp_orygn_opportunity_video (Joe: "60 second video that explains the opportunity (done by
+  Dr. J, or Joe, or Heygen)"), with glp_orygn_opportunity_video_poster. From 2026-10-15 the real 53 second vertical video (platform 0293), so the frame stays a story (no rv-wide).
+  TEXT ME buttons are redirect steps (/orygn-opportunity-try, /orygn-opportunity-refer) to the rep's phone, or their
+  Messenger without one.
+
+  2026-10-16, Joe's "Trackable link funnel edits" doc (Nueva's opportunity page, "this same copy will translate in all of the
+  opportunity funnels"): the cover reads "Here's how this opportunity works. Does anyone come to mind?" with no line under
+  it, the question is "Who comes to mind?", and a third card "I'm interested + may know someone" (/orygn-opportunity-both, platform
+  migration 0370) sits before Not interested.
+  Joe, 2026-10-16 (DM, on the live cover): the headline is "Here's how this opportunity works. 💸" and "Does anyone come to
+  mind?" moves to a line under it in the "wanted you to see this" font, as "After watching this video, see if anyone comes to
+  mind!"; the swipe prompt is bigger and pulses.
+-->
+<div class="rl rl-pf rv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Inviato a te da <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: the headline -->
+      <section class="rl-p rl-night rl-cover rv-cover" aria-label="Ecco come funziona questa opportunità">
+        <div class="rl-in">
+          <span class="rv-pill" data-in>Video di 60 secondi</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Ciao {{contact.first_name}}, </span><span data-rv-rep>I</span> voleva che vedessi questo.</p>
+          <h1 data-in style="--d:.1s" data-label="Ecco come funziona questa opportunità">Ecco come funziona questa opportunità. 💸</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">Dopo aver guardato il video, pensa se ti viene in mente qualcuno!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Scorri verso l'alto per guardare il video</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video -->
+      <section class="rl-p rl-night rv-watch" aria-label="Il video">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.glp_orygn_opportunity_video}}" data-poster="{{custom_values.glp_orygn_opportunity_video_poster}}" data-name="the opportunity video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Dopo aver guardato il video, scorri verso l'alto e dicci chi ti viene in mente</span><span class="rv-on-computer">Dopo aver guardato il video, dicci chi ti viene in mente</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what direction (Joe's buttons, verbatim) -->
+      <section class="rl-p rl-paper rv-ask" aria-label="Chi ti viene in mente?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Dopo aver visto il video&hellip;</span>
+          <h2 data-in style="--d:.1s">Chi ti viene in mente?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="Sono interessato io">
+              <b class="rv-n">01</b><span class="rv-t"><b>Sono interessato io</b><small>Mi piacerebbe saperne di più. Dimmi di più&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="Forse conosco qualcuno">
+              <b class="rv-n">02</b><span class="rv-t"><b>Forse conosco qualcuno</b><small>Mi viene in mente qualcuno che potrebbe essere interessato&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="Sono interessato e forse conosco qualcuno di interessato">
+              <b class="rv-n">03</b><span class="rv-t"><b>Sono interessato + forse conosco qualcuno</b><small>Sono aperto a saperne di più + forse conosco qualcuno&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Non sono interessato, non conosco nessuno">
+              <b class="rv-n">04</b><span class="rv-t"><b>Non sono interessato / non conosco nessuno</b><small>Non credo di potervi aiutare in questo caso&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">I risultati variano. I risultati di reddito descritti non sono tipici e non sono una garanzia dei tuoi risultati.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Schermate"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Schermata precedente"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Schermata successiva"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Sono interessato io" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>È un'opportunità davvero interessante che sempre più persone in tutto il mondo stanno cogliendo. Scrivi subito a <span data-rv-rep>me</span> e chiedi di vedere il piano di compensi, così capisci come verresti pagato!</p>
+    <a class="rv-btn" href="/orygn-opportunity-try" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Scrivimi: mostrami il piano di compensi">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Conosco qualcuno" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>È un'opportunità davvero interessante, pensata per chiunque cerchi un ottimo lavoretto extra. Scrivi subito a <span data-rv-rep>me</span> e dì chi ti viene in mente!</p>
+    <a class="rv-btn" href="/orygn-opportunity-refer" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Scrivimi: mi è venuto in mente qualcuno">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Sono interessato e forse conosco qualcuno" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Fantastico<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>È un'opportunità davvero interessante, pensata per chiunque cerchi un ottimo lavoretto extra. Scrivi subito a <span data-rv-rep>me</span> e fai sapere che sia tu sia qualcuno che conosci potreste essere interessati a saperne di più!</p>
+    <a class="rv-btn" href="/orygn-opportunity-both" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Scrivimi: sono interessato e mi è venuto in mente qualcuno">Scrivi a <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Non interessato" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Chiudi">&times;</button>
+    <p class="rv-pop-h">Grazie per il tuo tempo<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Abbiamo fatto sapere a <span data-rv-rep>them</span> che non sei interessato e che al momento non hai nessuno da segnalare.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
