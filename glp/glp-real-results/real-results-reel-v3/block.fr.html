@@ -1,0 +1,258 @@
+<!--
+  glp/glp-real-results/real-results-reel-v3 (STAGING, 11-18: v2 plus Dr Jer's before and after as the third card and the
+  Why IGNYT is different screen, Joe 11-18; live reads v2 until Jeff moves it). Its v2 notes:
+  glp/glp-real-results/real-results-reel-v2 (STAGING: Joe's 11-17 changes on a copy, so the live reel is untouched until
+  Jeff moves GLP over): a sticky header (Drops | Drink | Results | Get some) that jumps to its screen, and a Watch video
+  button under each product card that plays its ~2 minute video in a popup (Joe, 2026-11-17). Results and Get some's
+  targets (the before-and-afters, the close) are our guess: Joe didn't say. Everything else is the original's.
+  triGLP + IGNYT: Real Results. A ten screen reel a rep sends to someone curious about the products (Jeff, 2026-11-11:
+  "turn this into the most badass swipe funnel these glp users have ever seen"), made from a GLP rep's board of ORYGN
+  graphics and customer before-and-afters. PLATFORM ONLY. No form: it ends on the rep's own two links, as the board did
+  (/real-results-order -> rep_buy_link, /real-results-join -> distributor_buy_link; steps in the migration).
+  ⚠️ CLAIMS: every product line is one ORYGN prints on its own sheets (the triGLP + IGNYT sheet, Two Powerful Ways, the
+     4 Ingredients sheets, Benefits Beyond Weight Loss, the daily guide, the certifications row). Left out on purpose
+     (Jeff, 2026-11-11, "convert those lines to something more compliant"): "15-25% body weight reduction", results by
+     week, the injection/ER line, sleep apnea, "inflammation way down", "financially". No comparison to prescription
+     GLP-1 drugs.
+  ⚠️ PEOPLE: photos cut out of the board's graphics so none of their baked-in claims come along; permission per Jeff
+     2026-11-11 (brain/testimonials/glp.md). No pounds on the cards. Kept gender neutral (Jeff: "this needs to stay as
+     gender neutral as possible"): men and women alternate, no "she", no "girl".
+  The reel is _shared/reel/v1 in the IGNYT sample reel's ember look (its block.css is imported).
+-->
+<div class="rl rl-ig rr" data-pf-native>
+  <div class="rl-frame">
+    <nav class="rr-tabs" aria-label="Aller à">
+      <button type="button" data-jump="rr-two">Gouttes GLP</button>
+      <button type="button" data-jump="rr-two">Boisson GLP</button>
+      <button type="button" data-jump="rr-people">Résultats</button>
+      <button type="button" class="rr-tab-go" data-jump="rr-close">J'en veux</button>
+    </nav>
+    <div class="rl-track">
+
+      <!-- 1. DARK: the cover. The bottle and the pack on embers, five faces that open the gallery. -->
+      <section class="rl-p rl-night rl-plain rl-cover" aria-label="triGLP et IGNYT : de vrais résultats">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>De vraies personnes. De vrais changements.</span>
+          <h1 data-in style="--d:.1s">Des gouttes ou une boisson qui soutiennent la <span class="rli-ember">perte de gras</span> sans perdre de muscle</h1>
+          <div class="rr-duo rl-art" data-in style="--d:.3s">
+            <img class="rr-bottle" src="/_p/glp/glp-real-results/real-results-reel/assets/triglp-bottle.webp" width="300" height="900" alt="Une bouteille de gouttes triGLP">
+            <img class="rr-pack" src="/_p/glp/glp-real-results/real-results-reel/assets/ignyt-pack.webp" width="720" height="695" alt="Le sachet IGNYT avec ses bâtonnets individuels et un verre sur glace">
+          </div>
+          <ul class="rl-pills" data-in style="--d:.45s"><li>Gouttes triGLP</li><li>Boisson IGNYT</li><li>GLP-1 &middot; GLP-2 &middot; GIP</li><li>Sans aiguilles</li></ul>
+          <button type="button" class="rr-faces" data-in style="--d:.6s" data-jump="rr-people">
+            <span aria-hidden="true"><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-laura.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-68.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-blonde.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-lutian.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-wendee.webp" alt=""></span>
+            <b>Voir leurs avant et après</b>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. FROST: two ways to take it (Your Choice + Two Powerful Ways) -->
+      <section class="rl-p rl-paper rr-two" id="rr-two">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>À votre choix</span>
+          <h2 data-in style="--d:.1s">Des gouttes ou une boisson. Les mêmes peptides brevetés.</h2>
+          <div class="rr-ways rl-art">
+            <div data-in style="--d:.2s"><img src="/_p/glp/glp-real-results/real-results-reel/assets/triglp-bottle.webp" alt="" width="300" height="900">
+              <h3>Gouttes triGLP</h3><p>Un compte-gouttes sous la langue, deux fois par jour. Ça entre dans une poche.</p>
+              <button type="button" class="rr-watch" data-rr-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/orygn-product-video.mp4" data-rr-title="Gouttes triGLP"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder la vidéo</button></div>
+            <div data-in style="--d:.32s"><img src="/_p/glp/glp-real-results/real-results-reel/assets/ignyt-pack.webp" alt="" width="720" height="695">
+              <h3>Boisson IGNYT</h3><p>Un bâtonnet dans 8 oz d'eau, agité ou mousseux. Ça goûte la canneberge et la pomme.</p>
+              <button type="button" class="rr-watch" data-rr-vimeo="1247605683" data-rr-title="Boisson IGNYT"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder la vidéo</button></div>
+          </div>
+          <p data-in style="--d:.45s">Plusieurs personnes prennent les deux : des gouttes le matin, une boisson plus tard dans la journée.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: three pathways (the triGLP + IGNYT sheet). Three lines light from ash to ember. -->
+      <section class="rl-p rl-night rli-paths">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Comment ça marche</span>
+          <div class="rli-wires rl-art" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2 data-in style="--d:.1s">Trois voies que votre corps utilise déjà.</h2>
+          <p data-in style="--d:.2s">Les deux produits sont faits de ProGo&reg;, des peptides brevetés tirés du saumon norvégien, qui soutiennent les trois.</p>
+          <ol class="rli-list">
+            <li data-in style="--d:.3s"><span>01</span><div><h3>GLP-1</h3><p>Contrôle de l'appétit, sensation de satiété et soutien face aux fringales.</p></div></li>
+            <li data-in style="--d:.42s"><span>02</span><div><h3>GIP</h3><p>Sensibilité à l'insuline et façon dont votre corps utilise les nutriments.</p></div></li>
+            <li data-in style="--d:.54s"><span>03</span><div><h3>GLP-2</h3><p>Santé de l'intestin, digestion et maintien de la masse musculaire maigre.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. DARK: what's in it, the two ingredient sheets as a sideways pair -->
+      <section class="rl-p rl-night rl-wide rr-what">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Ce qu'il y a dedans</span>
+          <h2 data-in style="--d:.1s">Quatre ingrédients chacun. Vous pouvez lire toute l'étiquette.</h2>
+          <div class="rl-cards rr-labels" data-in style="--d:.25s">
+            <div><h3>Gouttes triGLP</h3>
+              <ul>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-salmon2.webp" alt="" loading="lazy"><span><b>Peptides de saumon norvégien</b>Les peptides bioactifs derrière les trois voies</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-lemon.webp" alt="" loading="lazy"><span><b>Extrait de zeste de citron biologique</b>Antioxydants et flavonoïdes naturels</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-ginger.webp" alt="" loading="lazy"><span><b>Extrait de racine de gingembre biologique</b>Utilisé depuis longtemps pour soutenir la digestion</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-water.webp" alt="" loading="lazy"><span><b>Eau purifiée</b>C'est le quatrième</span></li>
+              </ul></div>
+            <div><h3>Boisson IGNYT</h3>
+              <ul>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-salmon2.webp" alt="" loading="lazy"><span><b>Peptides de saumon ProGo&reg;</b>4 000 mg dans chaque bâtonnet</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-beet.webp" alt="" loading="lazy"><span><b>Poudre de racine de betterave</b>La couleur, et quelques antioxydants de plus</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-stevia.webp" alt="" loading="lazy"><span><b>Stévia (Reb A)</b>D'origine végétale, zéro calorie</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-cran.webp" alt="" loading="lazy"><span><b>Saveur naturelle de canneberge et pomme</b>Pourquoi ça goûte une boisson froide</span></li>
+              </ul></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 de 2<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. FROST: what else it supports (Benefits Beyond Weight Loss), a sideways row -->
+      <section class="rl-p rl-paper rl-wide rr-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Le corps au complet</span>
+          <h2 data-in style="--d:.1s">Ce que les gens remarquent à part la balance.</h2>
+          <div class="rl-cards rli-pillars rr-pillars" data-in style="--d:.25s">
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+              <h3>Énergie stable</h3><p>Soutient une énergie saine tout au long de la journée, sans stimulant.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg></span>
+              <h3>Muscle maigre</h3><p>Vous aide à garder le muscle que vous avez et soutient la récupération.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3v4a4 4 0 0 0 8 0V3"/><path d="M6 9c0 6 3 7 3 12"/><path d="M18 9c0 6-3 7-3 12"/><path d="M9 15h6"/></svg></span>
+              <h3>Santé de l'intestin</h3><p>Soutient une muqueuse intestinale saine et l'absorption de vos aliments.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <h3>Glycémie</h3><p>Aide à maintenir un taux de sucre sanguin sain.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 2.4 1.3 3.8 2.5 5 .9.9 1.5 2 1.5 3h4c0-1 .6-2.1 1.5-3 1.2-1.2 2.5-2.6 2.5-5a6 6 0 0 0-6-6z"/><path d="M10 21h4"/></svg></span>
+              <h3>Concentration et humeur</h3><p>Soutient la clarté d'esprit et une humeur positive.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+              <h3>Vieillissement en santé</h3><p>Soutient vos cellules et une bonne circulation sanguine.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 de 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: real people, swiped left and right. Men and women alternate; no pounds on the cards. -->
+      <section class="rl-p rl-night rl-plain rl-wide rr-people" id="rr-people">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>De vraies personnes</span>
+          <h2 data-in style="--d:.1s">Faites défiler leurs avant et après.</h2>
+          <div class="rl-cards rr-gallery" data-in style="--d:.2s">
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-laura.webp" alt="Laura et son mari à une fête, puis plus tard devant un sapin de Noël" loading="lazy"></div>
+              <figcaption><q>Notre parcours va de mieux en mieux!! La constance, c'est la clé!!</q><b>Laura et son mari</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-68.webp" alt="Un homme de 68 ans en chemise rose, puis plus tard en t-shirt noir" loading="lazy"></div>
+              <figcaption><q>Après avoir essayé les gouttes, j'arrivais à mieux contrôler le grignotage. Quand j'ai commencé à voir des changements, j'étais accro! J'ai arrêté de manger autant de pain, j'ai ajouté des protéines, bu plus d'eau et commencé à marcher.</q><b>De vrais résultats à 68 ans</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-drjer.webp" alt="Dr Jeremy avant, en sarrau blanc, et après, en veste sombre, souriant" loading="lazy"></div>
+              <figcaption><p>Avant et après, côte à côte.</p><b>Dr Jeremy</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-wendee.webp" alt="Wendee avant et après, souriante" loading="lazy"></div>
+              <figcaption><q>Mon parcours a commencé avec les gouttes&hellip; Quand j'ai ajouté les sachets à ma routine, je les ai adorés, et c'est devenu un rituel quotidien que j'ai vraiment hâte de retrouver.</q><b>Wendee</b></figcaption></figure>
+            <figure><div class="rr-shot rr-pair"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-lutian-a.webp" alt="Lutian avant, en t-shirt gris" loading="lazy"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-lutian-b.webp" alt="Lutian après, tenant une boisson IGNYT" loading="lazy"></div>
+              <figcaption><p>Les gouttes triGLP et la boisson IGNYT, et ce n'est que le début.</p><b>Lutian</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-aug.webp" alt="Une femme en mars, puis en août" loading="lazy"></div>
+              <figcaption><q>Au début, j'aimais surtout que les gouttes m'aident à contrôler mon appétit. Maintenant, je vois les résultats. Le secret, c'est de continuer les gouttes, même quand on a l'impression qu'elles ne font rien!</q><b>De mars à août</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-weighin.webp" alt="Le même homme photographié en novembre, en février et à la fin de février" loading="lazy"></div>
+              <figcaption><p>Trois suivis dans la même porte, de novembre à février.</p><b>Trois mois plus tard</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-blonde.webp" alt="Une femme avant, puis après avec une bouteille de triGLP" loading="lazy"></div>
+              <figcaption><p>Avant, et après avec triGLP en main.</p><b>Avec triGLP</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-profile.webp" alt="Une femme de profil devant la même porte, avant et après" loading="lazy"></div>
+              <figcaption><p>La même porte, côte à côte.</p><b>Avant et après</b></figcaption></figure>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 de 9<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="rl-note" data-in style="--d:.4s">Résultats individuels. Les résultats varient. Partagé avec permission.</p>
+        </div>
+      </section>
+
+      <!-- 7. FROST: what people notice first (the timeline sheet, without the weeks) -->
+      <section class="rl-p rl-paper rr-first">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Pour commencer</span>
+          <h2 data-in style="--d:.1s">Ce que les gens remarquent en premier.</h2>
+          <p data-in style="--d:.15s">Chacun est différent, et les premiers changements se voient souvent avant que la balance bouge.</p>
+          <ol class="rr-ticks">
+            <li data-in style="--d:.25s"><b>Une énergie plus stable</b>tout au long de la journée</li>
+            <li data-in style="--d:.33s"><b>Moins de fringales</b>et une meilleure idée de quand vous êtes rassasié</li>
+            <li data-in style="--d:.41s"><b>Un meilleur sommeil</b>et une meilleure récupération</li>
+            <li data-in style="--d:.49s"><b>Moins de ballonnements</b>et un ventre plus à l'aise</li>
+            <li data-in style="--d:.57s"><b>Puis vos vêtements</b>commencent à tomber différemment</li>
+          </ol>
+          <p class="rr-tip" data-in style="--d:.65s">Mesurez votre tour de taille en plus de vous peser. Les pouces bougent souvent en premier.</p>
+        </div>
+      </section>
+
+      <!-- 8. TINT: your month (the drops + drinks daily guide) -->
+      <section class="rl-p rl-tint rr-month">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Votre routine</span>
+          <h2 data-in style="--d:.1s">Choisissez les gouttes, la boisson ou les deux.</h2>
+          <div class="rr-plans">
+            <div data-in style="--d:.2s"><span>Gouttes</span><b>2</b><em>bouteilles par mois</em></div>
+            <div data-in style="--d:.3s"><span>Boisson</span><b>2</b><em>sacs par mois</em></div>
+            <div data-in style="--d:.4s" class="is-both"><span>Les deux</span><b>2 + 2</b><em>bouteilles et sacs par mois</em></div>
+          </div>
+          <p data-in style="--d:.5s">Vous prenez les deux? Une dose de gouttes et une boisson par jour, ça marche aussi. Oui, vous pouvez les prendre le même jour.</p>
+        </div>
+      </section>
+
+      <!-- 8b. DARK: real science, IGNYT's numbers (Joe 11-18, from ORYGN's "Why is IGNYT different" graphic; Dr Jer asked for IGNYT's benefits) -->
+      <section class="rl-p rl-night rr-science">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>De la vraie science</span>
+          <h2 data-in style="--d:.1s">Pourquoi IGNYT est différent.</h2>
+          <ul class="rr-stats">
+            <li data-in style="--d:.2s"><b>10 ans et plus</b><span>d'études</span></li>
+            <li data-in style="--d:.28s"><b>50 millions et plus</b><span>investis en recherche</span></li>
+            <li data-in style="--d:.36s"><b>Breveté</b><span>technologie biodisponible exclusive</span></li>
+            <li data-in style="--d:.44s"><b>8 et plus</b><span>études publiées</span></li>
+            <li data-in style="--d:.52s"><b>13 allégations de la FDA</b><span>et 4 allégations de Santé Canada</span></li>
+            <li data-in style="--d:.6s"><b>Qualité pharmaceutique</b><span>normes de fabrication</span></li>
+          </ul>
+          <a class="rl-btn rr-sci-btn" data-in style="--d:.7s" href="https://{{custom_values.distributor_buy_link}}/real-science" target="_blank" rel="noopener">Voir plus sur la science</a>
+        </div>
+      </section>
+
+      <!-- 9. DARK: how it's made (the certifications row) and Dr Jer's video -->
+      <section class="rl-p rl-night rr-made">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Comment c'est fabriqué</span>
+          <h2 data-in style="--d:.1s">Des peptides d'origine alimentaire, fabriqués proprement.</h2>
+          <ul class="rr-certs" data-in style="--d:.2s">
+            <li>Qualité alimentaire</li><li>Certifié HACCP</li><li>Certifié halal</li><li>Certifié casher</li>
+            <li>Zéro additif</li><li>Sans antibiotiques</li><li>Sans pesticides</li><li>Sans ESB/EST</li>
+          </ul>
+          <a class="rr-video rl-art" data-in style="--d:.35s" href="https://player.vimeo.com/video/1247940456" data-rr-vimeo="1247940456" data-rr-title="Dr Jeremy explique triGLP et IGNYT">
+            <img src="https://i.vimeocdn.com/video/2227858073-6731f5f29b5eca240dbc9b281870ff56bc473f32f829306b8c9e33faf33d2868-d_640x360" alt="" loading="lazy" width="640" height="360">
+            <span class="rr-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <b>Dr Jeremy explique triGLP et IGNYT</b>
+          </a>
+        </div>
+      </section>
+
+      <!-- 10. DARK: the close. The rep's own two links, as the board ended, then how to order. -->
+      <section class="rl-p rl-night rl-plain rli-close rr-close" id="rr-close">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Quand vous serez prêt</span>
+          <h2 class="rli-big" data-in style="--d:.1s">Essayez-le vous-même.</h2>
+          <div class="rl-btns" data-in style="--d:.2s">
+            <a class="rl-btn" href="/real-results-order">Commander comme client</a>
+            <a class="rl-btn rl-btn-2" href="/real-results-join">Voir le côté distributeur</a>
+          </div>
+          <ol class="rr-how" data-in style="--d:.3s">
+            <li>Choisissez les gouttes, les boissons ou un forfait combiné.</li>
+            <li>Choisissez le format.</li>
+            <li>Touchez <b>Customer</b> ou <b>Distributor</b> à côté du produit, et non le bouton du haut, avant de passer à la caisse.</li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.4s">Les résultats individuels varient. Ces énoncés n'ont pas été évalués par la Food and Drug Administration. Ce
+            produit n'est pas destiné à diagnostiquer, traiter, guérir ou prévenir une maladie. Parlez à votre médecin avant de commencer tout supplément.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Écrans"></nav>
+    <div class="rr-pop" data-rr-pop hidden role="dialog" aria-modal="true" aria-label="Vidéo">
+      <div class="rr-pop-box">
+        <button type="button" class="rr-pop-x" data-rr-close aria-label="Fermer la vidéo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <div class="rr-pop-v" data-rr-slot></div>
+      </div>
+    </div>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Écran précédent"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Écran suivant"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>
