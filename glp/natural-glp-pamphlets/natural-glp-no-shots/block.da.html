@@ -1,0 +1,169 @@
+<!--
+  glp / natural-glp-pamphlets / natural-glp-no-shots
+
+  A PAMPHLET a GLP rep sends one to one, for someone who wants help with their weight but is scared of the shots, can't
+  afford them or doesn't want a needle. From a GLP rep's voice message Joe forwarded (GLPSHARK/CAMPAIGN-IDEAS.md,
+  2026-11-19). Jeff, 2026-11-20: "these would be almost purely info-based ... almost like a pamphlet the rep could send";
+  the ask "along the lines of respond to the person who sent this to you"; look A from ORYGN's own product page, "lets
+  really make it feel smooth ... add some svg animations that make it immersive".
+
+  ⚠️ EVERY CLAIM IS ORYGN'S (Jeff, 2026-11-20: "anything orygn publishes is fine to put on page"): the pathway lines from
+     orygn.co/triglp, the benefits from /ignyt, the dose and price from /product and /triglp, the study from /real-science
+     (on ProGo, said as ProGo's, never as triGLP's: ORYGN says study references "do not constitute product claims"). The
+     source file is GLPSHARK/campaigns/natural-glp-pamphlets/copy.json; change the words there first. No drug brand
+     names, no timeline (ORYGN's Code of Ethics, brain/glp.md).
+  ⚠️ HOW IGNYT IS TAKEN is Jeff's rule (brain/glp.md, 2026-10-01): one stick in 8oz of water, a shaker or a frother.
+
+  THE SCREENS (7): 1 cover   2 maybe this sounds like you   3 zero injections (orange)   4 what they help with
+  5 the study   6 two ways and the price   7 reply to the person who sent you this
+
+  THE ASK. No form. The dock is "Swipe up to message {rep} / who sent you this" (data-pf-message); it opens the card with
+  the words written (data-pf-say), Message on Facebook (/natural-glp-no-shots-message, the rep's Messenger) and Send a
+  text (/natural-glp-no-shots-text, the rep's phone with the words in it). The last screen has the same two buttons.
+  The rep's own app may be texts only (0311): the card then offers the text.
+
+  The reel is _shared/reel/v1; the look _shared/reel/looks/orygn.css; the motion ../_assets/pamphlet.css + pamphlet.js.
+-->
+<div class="rl rl-look-orygn pm pm-shots" data-pf-native data-pf-message="som sendte dig dette"
+     data-pf-say="Hej {first}, jeg har læst siden, du sendte mig, om de naturlige GLP-dråber og drikken. Kan du fortælle mig mere?">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. COVER: the drops and the drink over a drop that draws itself -->
+      <section class="rl-p rl-paper" aria-label="Naturlige GLP-dråber og drikke">
+        <div class="rl-in">
+          <img class="pm-logo" data-in src="/_p/glp/natural-glp-pamphlets/_assets/orygn-logo.svg" alt="ORYGN">
+          <div class="pm-stage pm-duo rl-art" data-in style="--d:.1s" aria-hidden="true">
+            <svg class="pm-drop" viewBox="0 0 200 204"><path d="M100 6C100 6 26 92 26 136a74 74 0 0 0 148 0C174 92 100 6 100 6Z"/></svg>
+            <svg class="pm-rings" viewBox="0 0 200 204"><ellipse cx="96" cy="190" rx="78" ry="12"/><ellipse cx="96" cy="190" rx="78" ry="12"/><ellipse cx="96" cy="190" rx="78" ry="12"/></svg>
+            <svg class="pm-bubbles" viewBox="0 0 200 204"><circle cx="40" cy="170" r="3"/><circle cx="160" cy="176" r="2.4"/><circle cx="70" cy="184" r="2"/><circle cx="134" cy="160" r="3.4"/><circle cx="104" cy="182" r="2.2"/></svg>
+            <img class="pm-prod" src="/_p/glp/natural-glp-pamphlets/_assets/triglp-splash.webp" alt="">
+            <img class="pm-prod-2" src="/_p/glp/natural-glp-pamphlets/_assets/ignyt-pouch.webp" alt="">
+          </div>
+          <span class="rl-eyebrow" data-in style="--d:.25s">Ingen nål</span>
+          <h1 data-in style="--d:.32s">Naturlige GLP-dråber og drikke til dig, der ikke vil have sprøjterne</h1>
+          <p class="pm-lede" data-in style="--d:.42s">Du har tænkt på vægttabssprøjterne, men kunne ikke få dig selv til at starte. ORYGN laver to ting, du kan tage hjemme, helt uden nål.</p>
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. MAYBE THIS SOUNDS LIKE YOU: each worry arrives with its own small drawn mark -->
+      <section class="rl-p rl-tint rl-wide" aria-label="Måske kan du genkende dig selv">
+        <div class="pm-waves pm-tint-waves" aria-hidden="true">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70 Q150 30 300 70 T600 70 T900 70 T1200 70 V120 H0Z"/></svg>
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 86 Q150 56 300 86 T600 86 T900 86 T1200 86 V120 H0Z"/></svg>
+        </div>
+        <div class="rl-in">
+          <h2 data-in>Måske kan du <em>genkende dig selv</em></h2>
+          <ul class="pm-list">
+            <li data-in style="--d:.2s"><svg class="pm-draws" viewBox="0 0 30 30" aria-hidden="true"><path class="pm-line" style="--ld:.45s" d="M15 4 3 26h24L15 4Zm0 8v7m0 4v.5"/></svg>Bivirkningerne gør dig nervøs.</li>
+            <li data-in style="--d:.32s"><svg class="pm-draws" viewBox="0 0 30 30" aria-hidden="true"><path class="pm-line" style="--ld:.6s" d="M6 24 20 10l4 4-14 14H6v-4Zm14-14 3-3m-3 3 5-5M8 22l2 2"/></svg>Du vil ikke have en nål hver uge.</li>
+            <li data-in style="--d:.44s"><svg class="pm-draws" viewBox="0 0 30 30" aria-hidden="true"><path class="pm-line" style="--ld:.75s" d="M15 3v24m6-19c-1-2-3-3-6-3-3.5 0-6 1.8-6 4.5S11.5 14 15 15s6 2 6 5-2.5 4.5-6 4.5c-3 0-5-1-6-3"/></svg>Sprøjterne koster mere, end du kan betale.</li>
+            <li data-in style="--d:.56s"><svg class="pm-draws" viewBox="0 0 30 30" aria-hidden="true"><path class="pm-line" style="--ld:.9s" d="M5 9h7l4 9 4-12 3 6h3M5 23h20"/></svg>Du har hørt, at folk tager vægten på igen, når de stopper.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. ORANGE: zero injections, the syringe drawn and crossed out, waves rolling under it -->
+      <section class="rl-p rl-night rl-plain rl-wide pm-orange" aria-label="Nul injektioner">
+        <div class="pm-waves" aria-hidden="true">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60 Q150 20 300 60 T600 60 T900 60 T1200 60 V120 H0Z"/></svg>
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 80 Q150 50 300 80 T600 80 T900 80 T1200 80 V120 H0Z"/></svg>
+        </div>
+        <div class="rl-in">
+          <svg class="pm-nosyr pm-draws" viewBox="0 0 96 96" data-in aria-hidden="true">
+            <path class="pm-line" style="--ld:.2s" d="M26 62 54 34l10 10-28 28Z"/>
+            <path class="pm-line" style="--ld:.6s" d="M59 39 76 22M30 68 18 80m-5-5 10 10M38 50l5 5m3-13 5 5"/>
+            <circle class="pm-line" style="--ld:.9s" cx="48" cy="48" r="42"/>
+            <path class="pm-line" style="--ld:1.3s" d="M18 18 78 78"/>
+          </svg>
+          <div class="pm-bigs" data-in style="--d:.2s">
+            <div class="pm-big"><b data-count="3">3</b><small>Veje</small></div>
+            <div class="pm-big"><b>NUL</b><small>Injektioner</small></div>
+          </div>
+          <h2 data-in style="--d:.35s">Dråber under tungen eller en drik om morgenen</h2>
+          <p data-in style="--d:.45s">Begge dele hjælper din krop med at lave mere af sit eget GLP-1, uden en nål.</p>
+        </div>
+      </section>
+
+      <!-- 4. WHAT THEY HELP WITH: ORYGN's three icons, each ringed as it arrives, joined by a flowing line -->
+      <section class="rl-p rl-paper rl-wide" aria-label="Hvad de hjælper med">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Tre veje</span>
+          <h2 data-in style="--d:.08s">Hvad de <em>hjælper med</em></h2>
+          <div class="pm-paths">
+            <svg class="pm-flow" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true"><line x1="1" y1="0" x2="1" y2="100"/></svg>
+            <div class="pm-path" data-in style="--d:.2s"><span class="pm-ico" style="--d:.3s"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/></svg><img src="/_p/glp/natural-glp-pamphlets/_assets/icon-glp1.svg" alt=""></span>
+              <div class="og-card"><div class="k">GLP-1</div><div class="b">At føle dig mæt i længere tid, mindre madstøj og sundt blodsukker.</div></div></div>
+            <div class="pm-path" data-in style="--d:.35s"><span class="pm-ico" style="--d:.5s"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/></svg><img src="/_p/glp/natural-glp-pamphlets/_assets/icon-glp2.svg" alt=""></span>
+              <div class="og-card"><div class="k">GLP-2</div><div class="b">Din tarm og hvordan du optager næringsstoffer.</div></div></div>
+            <div class="pm-path" data-in style="--d:.5s"><span class="pm-ico" style="--d:.7s"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/></svg><img src="/_p/glp/natural-glp-pamphlets/_assets/icon-gip.svg" alt=""></span>
+              <div class="og-card"><div class="k">GIP</div><div class="b">At beholde din muskelmasse, mens du taber dig, og jævn energi uden stimulanser.</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. THE STUDY: 5.9% counts up while the line falls -->
+      <section class="rl-p rl-tint pm-studies" aria-label="Det er blevet undersøgt">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Det er blevet undersøgt</span>
+          <div class="pm-pct" data-in style="--d:.1s"><span class="og-num" data-count="5.9">5.9</span><span class="og-num">%</span></div>
+          <h2 data-in style="--d:.2s">Lavere BMI på 42 dage</h2>
+          <svg class="pm-chart pm-draws rl-art" viewBox="0 0 320 130" data-in style="--d:.25s" aria-hidden="true">
+            <defs><linearGradient id="pm-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FE5000" stop-opacity=".22"/><stop offset="1" stop-color="#FE5000" stop-opacity="0"/></linearGradient></defs>
+            <line class="grid" x1="10" y1="20" x2="310" y2="20"/><line class="grid" x1="10" y1="60" x2="310" y2="60"/><line class="grid" x1="10" y1="100" x2="310" y2="100"/>
+            <path class="area" d="M10 24C70 30 110 44 160 58S260 84 310 92V112H10Z"/>
+            <path class="pm-line" style="--ld:.4s;stroke-width:3" d="M10 24C70 30 110 44 160 58S260 84 310 92"/>
+            <circle class="dot" cx="310" cy="92" r="6"/>
+            <text class="lbl" x="10" y="126">Dag 1</text><text class="lbl" x="268" y="126">Dag 42</text>
+          </svg>
+          <p class="pm-lede" data-in style="--d:.35s">I et placebokontrolleret studie med overvægtige voksne sænkede de, der tog ProGo&reg;, laksepeptidet i IGNYT, deres BMI med 5,9 %. Den anden gruppe tog valleprotein.</p>
+          <a class="pm-read pm-read-line" href="https://{{custom_values.distributor_buy_link}}/real-science" data-needs="{{custom_values.distributor_buy_link}}" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+          <p class="rl-fine" data-in style="--d:.45s">Journal of Obesity &amp; Weight Loss Therapy, 2016. Studie af ProGo&reg;. Henvisninger til kliniske studier gives kun som information og er ikke produktpåstande.</p>
+        </div>
+      </section>
+
+      <!-- 6. TWO WAYS, AND THE PRICE: the month ring fills -->
+      <section class="rl-p rl-paper rl-wide" aria-label="To måder at tage det på">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>To måder at tage det på</span>
+          <h2 data-in style="--d:.08s">Dråber <em>eller en drik</em></h2>
+          <div class="pm-duo-cards">
+            <div class="og-card" data-in style="--d:.2s"><img src="/_p/glp/natural-glp-pamphlets/_assets/triglp-splash.webp" alt="ORYGN triGLP-dråber">
+              <div class="h">triGLP</div><div class="b">Hold 0,25 ml under tungen i 30 sekunder, og synk derefter. En eller to gange om dagen.</div></div>
+            <div class="og-card" data-in style="--d:.32s"><img src="/_p/glp/natural-glp-pamphlets/_assets/ignyt-pouch.webp" alt="ORYGN IGNYT-pose og stick">
+              <div class="h">IGNYT</div><div class="b">En stick i 8 oz vand (ca. 240 ml), i en shaker eller med en mælkeskummer. En gang om dagen, bedst om morgenen.</div></div>
+          </div>
+          <p class="pm-lede" data-in style="--d:.45s"><b style="font-weight:500;color:var(--ink)">$129.95 for cirka en måned:</b> to flasker triGLP eller to poser IGNYT. Et enkelt produkt koster $74.95.</p>
+        </div>
+      </section>
+
+      <!-- 7. THE ASK: the rep, with rings going out -->
+      <section class="rl-p rl-tint pm-ask" aria-label="Vil du vide mere?">
+        <div class="rl-in">
+          <div class="rl-who" data-in hidden><svg class="pm-pulse" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56"/><circle cx="60" cy="60" r="56"/></svg><span class="rl-who-pic"></span><span class="rl-who-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+          <span class="rl-eyebrow" data-in style="--d:.08s">Vil du vide mere?</span>
+          <h2 data-in style="--d:.15s">Svar til personen <em>som sendte dig dette</em></h2>
+          <p class="pm-lede" data-in style="--d:.25s">Du får hjælp til at vælge mellem dråberne og drikken.</p>
+          <div class="rl-btns" data-in style="--d:.35s">
+            <a class="rl-btn" data-pf-message-link data-pf-ask data-needs="{{custom_values.your_facebook_messenger_link}}"
+               href="/natural-glp-no-shots-message" data-label="Svar på Facebook">💬 Svar på Facebook</a>
+            <a class="rl-btn rl-btn-2" data-pf-text-link data-pf-message-link data-needs="{{custom_values.rep_phone}}"
+               href="/natural-glp-no-shots-text" data-label="Svar på sms">📲 Svar på sms</a>
+          </div>
+          <p class="rl-fine pm-from" data-in style="--d:.45s">{{custom_values.rep_full_name}}, ORYGN Independent Brand Partner</p>
+          <p class="rl-fine" data-in style="--d:.5s">Disse udsagn er ikke blevet evalueret af den amerikanske fødevare- og lægemiddelstyrelse (FDA). Dette produkt er ikke beregnet til at diagnosticere, behandle, helbrede eller forebygge nogen sygdom.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Skærme"></nav>
+    <!-- A computer has no dock: the reply button and the arrows live in the window. It opens the same card as the dock. -->
+    <a class="rl-cta" data-pf-ask data-rep-cta="Svar til {first}, som sendte dig dette" data-needs="{{custom_values.your_facebook_messenger_link}}"
+       data-alt-href="/natural-glp-no-shots-text" href="/natural-glp-no-shots-message" data-label="Svar til rådgiveren">Svar til personen, som sendte dig dette</a>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Forrige skærm"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Næste skærm"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=6" defer></script>
+<script src="/_p/glp/natural-glp-pamphlets/_assets/pamphlet.js?v=1" defer></script>

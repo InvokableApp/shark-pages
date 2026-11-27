@@ -1,0 +1,102 @@
+<!--
+  glp/glp-orygn-video/orygn-opportunity-video: GLP's OPPORTUNITY VIDEO page, a reel with the product video page's flow
+  (Jeff, 2026-10-14). The headline, swipe to the video, swipe to "What direction would you like to go?", three cards, each
+  with a pop-up.
+
+  ⚠️ JOE'S WORDS (his SCRIPTS doc, ORYGN > Opportunity flow): the question, the three buttons, the pop-ups, his " - " made
+  into a full stop and "(name)" / "(lead name)" filled with the visitor's and the rep's names. The cover has no words of
+  his for a page, so its headline and line are his script's own ("earning some extra cash in exchange for posting about
+  my company's products on social media", "They don't need a big following", "explains exactly how it works in a
+  minute"). No company or product name: opportunity copy never names one.
+  ⚠️ NO LOGO. The look is the product video page's, imported.
+
+  THE VIDEO is a content value, glp_orygn_opportunity_video (Joe: "60 second video that explains the opportunity (done by
+  Dr. J, or Joe, or Heygen)"), with glp_orygn_opportunity_video_poster. From 2026-10-15 the real 53 second vertical video (platform 0293), so the frame stays a story (no rv-wide).
+  TEXT ME buttons are redirect steps (/orygn-opportunity-try, /orygn-opportunity-refer) to the rep's phone, or their
+  Messenger without one.
+
+  2026-10-16, Joe's "Trackable link funnel edits" doc (Nueva's opportunity page, "this same copy will translate in all of the
+  opportunity funnels"): the cover reads "Here's how this opportunity works. Does anyone come to mind?" with no line under
+  it, the question is "Who comes to mind?", and a third card "I'm interested + may know someone" (/orygn-opportunity-both, platform
+  migration 0370) sits before Not interested.
+  Joe, 2026-10-16 (DM, on the live cover): the headline is "Here's how this opportunity works. 💸" and "Does anyone come to
+  mind?" moves to a line under it in the "wanted you to see this" font, as "After watching this video, see if anyone comes to
+  mind!"; the swipe prompt is bigger and pulses.
+-->
+<div class="rl rl-pf rv" data-pf-native>
+  <div class="rv-banner" hidden><span class="rv-banner-pic" aria-hidden="true"></span><span>Sendt til dig af <b data-rv-rep>me</b></span></div>
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. NIGHT: the headline -->
+      <section class="rl-p rl-night rl-cover rv-cover" aria-label="Sådan fungerer denne mulighed">
+        <div class="rl-in">
+          <span class="rv-pill" data-in>Video på 60 sekunder</span>
+          <p class="rv-from" data-in style="--d:.05s"><span data-if-name>Hej {{contact.first_name}}, </span><span data-rv-rep>I</span> ville gerne have, at du så den her.</p>
+          <h1 data-in style="--d:.1s" data-label="Here's how this opportunity works">Sådan fungerer denne mulighed. 💸</h1>
+          <p class="rv-from rv-after" data-in style="--d:.2s">Når du har set videoen, så tænk over, om der er nogen, du kommer til at tænke på!</p>
+        </div>
+        <div class="rv-swipe">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+          <div class="rv-next">Swipe op for at se videoen</div>
+        </div>
+      </section>
+
+      <!-- 2. NIGHT: the video -->
+      <section class="rl-p rl-night rv-watch" aria-label="Videoen">
+        <div class="rl-in">
+          <div class="qv rv-video" data-in data-video="{{custom_values.glp_orygn_opportunity_video}}" data-poster="{{custom_values.glp_orygn_opportunity_video_poster}}" data-name="the opportunity video"></div>
+          <button type="button" class="rv-onward" data-go="1" data-in><span class="rv-next rv-onward-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></span><span class="rv-next"><span class="rv-on-phone">Når du har set videoen, så swipe op og fortæl os, hvem du kommer til at tænke på</span><span class="rv-on-computer">Når du har set videoen, så fortæl os, hvem du kommer til at tænke på</span></span></button>
+        </div>
+      </section>
+
+      <!-- 3. PAPER: what direction (Joe's buttons, verbatim) -->
+      <section class="rl-p rl-paper rv-ask" aria-label="Hvem kommer du til at tænke på?">
+        <div class="rl-in">
+          <span class="rv-eyebrow" data-in>Efter at have set videoen&hellip;</span>
+          <h2 data-in style="--d:.1s">Hvem kommer du til at tænke på?</h2>
+          <div class="rv-cards">
+            <button type="button" class="rv-card" data-rv="me" data-in style="--d:.2s" data-label="I'm interested myself">
+              <b class="rv-n">01</b><span class="rv-t"><b>Jeg er selv interesseret</b><small>Jeg vil gerne høre mere om det her. Fortæl mig mere&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="them" data-in style="--d:.28s" data-label="I may know someone">
+              <b class="rv-n">02</b><span class="rv-t"><b>Jeg kender måske nogen</b><small>Jeg kommer til at tænke på nogen, som måske kunne være interesseret&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="both" data-in style="--d:.36s" data-label="I'm interested and may know someone interested">
+              <b class="rv-n">03</b><span class="rv-t"><b>Jeg er interesseret + kender måske nogen</b><small>Jeg vil gerne høre mere om det her + kender måske nogen&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+            <button type="button" class="rv-card" data-rv="no" data-in style="--d:.44s" data-label="Not interested, doesn't know anyone">
+              <b class="rv-n">04</b><span class="rv-t"><b>Ikke interesseret / kender ingen</b><small>Jeg er ikke helt sikker på, at jeg kan hjælpe dig her&hellip;</small></span><span class="rv-go" aria-hidden="true">&rarr;</span></button>
+          </div>
+          <p class="rl-fine rv-fine" data-in style="--d:.5s">Resultaterne varierer. De beskrevne indkomstresultater er ikke typiske og er ingen garanti for dine resultater.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Skærme"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Forrige skærm"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Næste skærm"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+
+  <div class="rv-pop" data-rv-pop="me" role="dialog" aria-label="Jeg er selv interesseret" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Luk">&times;</button>
+    <p class="rv-pop-h">Det er super<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Det her er en rigtig fed mulighed, som folk over hele verden er begyndt at gribe. Skriv til <span data-rv-rep>me</span> lige nu, og bed om at se kompensationsplanen, så du kan se, hvordan du ville blive betalt!</p>
+    <a class="rv-btn" href="/orygn-opportunity-try" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Text me: show me the compensation plan">Skriv til <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="them" role="dialog" aria-label="Jeg kender nogen" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Luk">&times;</button>
+    <p class="rv-pop-h">Det er super<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Det her er en rigtig fed mulighed for alle, der leder efter et godt sidejob. Skriv til <span data-rv-rep>me</span> lige nu, og fortæl, hvem du kommer til at tænke på!</p>
+    <a class="rv-btn" href="/orygn-opportunity-refer" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Text me: someone came to mind">Skriv til <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="both" role="dialog" aria-label="Jeg er interesseret og kender måske nogen" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Luk">&times;</button>
+    <p class="rv-pop-h">Det er super<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Det her er en rigtig fed mulighed for alle, der leder efter et godt sidejob. Skriv til <span data-rv-rep>me</span> lige nu, og fortæl, at både du og en, du kender, måske gerne vil høre mere!</p>
+    <a class="rv-btn" href="/orygn-opportunity-both" data-needs="{{custom_values.rep_phone}}" data-alt-href="/orygn-opportunity-message" data-label="Text me: I'm interested and someone came to mind">Skriv til <span data-rv-rep>me</span></a>
+  </div></div>
+  <div class="rv-pop" data-rv-pop="no" role="dialog" aria-label="Ikke interesseret" hidden><div class="rv-pop-card">
+    <button type="button" class="rv-x" aria-label="Luk">&times;</button>
+    <p class="rv-pop-h">Tak for din tid<span data-if-name>, {{contact.first_name}}</span>!</p>
+    <p>Vi har fortalt <span data-rv-rep>them</span>, at du ikke er interesseret og ikke har nogen at henvise til lige nu.</p>
+  </div></div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>

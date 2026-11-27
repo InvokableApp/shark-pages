@@ -1,0 +1,402 @@
+<!--
+  glp/glp-ignyt-info/ignyt-info-optin
+
+  INFO FORK of glp/glp-free-ignyt-sample/ignyt-sample-optin (2026-11-06), for a rep who
+  doesn't hand out samples. Same look, layout, images and capture. Changed ONLY where the
+  parent promised a sample: the ask is now "get the info on IGNYT" and the rep follows up.
+  No price, no "free", no mailing, no sample. The parent is untouched and keeps serving
+  every GLP v1 rep.
+
+  REMOVED, not reworded: the "Offer good for" countdown in the header (there is no offer
+  on an info page; block.js still carries the timer code and exits when the element is
+  missing) and every "* Subject to sample availability" note.
+
+  CAPTURE is the parent's: every CTA carries data-optin and block.js fires GHL's own
+  customWidgetOpenPopup event, so the page's NATIVE popup form collects the details.
+  That popup lives in the rep's GHL page, not here. The parent's popup asks for a
+  MAILING ADDRESS; on an info page it should not. Fix the popup when this block is wired in.
+
+  Every product claim is the parent's, unchanged (see the parent's notes for sources).
+  No em-dashes anywhere in shipped copy.
+-->
+<div class="sk-prod sk-prod-ig">
+
+  <!-- Page-wide film grain. One fixed overlay rather than a background-image per section,
+       so it never tiles out of register across a section seam. -->
+  <div class="sk-prod-ig-grain" aria-hidden="true"></div>
+
+  <!-- ============================ OFFER STRIP ============================ -->
+  <div class="sk-prod-ig-strip">
+    <span>Én stick, 8oz vand</span>
+    <i aria-hidden="true"></i>
+    <span>Under et minut</span>
+    <i aria-hidden="true"></i>
+    <span>Ingen stimulanser</span>
+  </div>
+
+  <!-- ============================ STICKY HEADER ============================ -->
+  <!-- Replaces the shared .sk-prod-bar, which only existed under 900px and only appeared
+       after the hero CTA scrolled past, so desktop carried no persistent CTA. This sticks
+       on every breakpoint. The reading gauge is nested inside it as the header's bottom
+       rule: a separate sticky element would just get covered by the header. -->
+  <header class="sk-prod-ig-nav">
+    <div class="sk-prod-wrap sk-prod-ig-nav-in">
+      <a class="sk-prod-ig-mark" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+        <span>IGNYT</span>
+      </a>
+
+      <nav class="sk-prod-ig-nav-links">
+        <a href="#what-it-does">Hvad den gør</a>
+        <a href="#pathways">Veje</a>
+        <a href="#proof">Videnskaben</a>
+        <a href="#taste">Smag</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="sk-prod-btn sk-prod-ig-nav-cta" href="#claim" data-optin>FÅ INFO OM IGNYT</a>
+    </div>
+    <div class="sk-prod-prog" aria-hidden="true"><i></i></div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="sk-prod-hero" id="top">
+    <div class="sk-prod-orb sk-prod-orb-a" aria-hidden="true"></div>
+    <div class="sk-prod-orb sk-prod-orb-b" aria-hidden="true"></div>
+
+    <div class="sk-prod-wrap sk-prod-hero-grid">
+      <div class="sk-prod-hero-copy">
+        <p class="sk-prod-eyebrow" data-rise>IGNYT info</p>
+
+        <h1 class="sk-prod-h1 sk-prod-h1--long" data-rise data-delay="1">
+          Få info om <span style="white-space:nowrap"><span class="sk-prod-accent">IGNYT</span>:</span> én stick om dagen
+          der understøtter fedttab uden at miste muskler
+        </h1>
+
+        <p class="sk-prod-lede" data-rise data-delay="2">
+          IGNYT er en metabolisk booster i pulverform fra ORYGN. Én stick, 8oz vand, under et
+          minut. Den smager af tranebær og æble og minder mere om en kold drik end et kosttilskud.
+          Skriv dine oplysninger, så vender vi tilbage med info.
+        </p>
+
+        <ul class="sk-prod-hero-tags" data-rise data-delay="4">
+          <li>Patenterede peptider</li>
+          <li>GLP-1 &middot; GLP-2 &middot; GIP</li>
+          <li>Hypoallergen</li>
+          <li>Ingen afmåling</li>
+        </ul>
+
+        <div class="sk-prod-cta-row" data-rise data-delay="5">
+          <div class="sk-prod-ig-claim">
+            <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin data-hero-cta>
+              FÅ INFO OM IGNYT
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <a class="sk-prod-btn-ghost" href="#taste">Hvordan smager den?</a>
+        </div>
+      </div>
+
+      <figure class="sk-prod-hero-shot" data-rise data-delay="2">
+        <span class="sk-prod-halo" aria-hidden="true"></span>
+        <img src="assets/ignyt-pack.webp" alt="IGNYT-posen med fire enkeltportionsstick og et tilberedt glas med is" data-float width="720" height="695">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IT DOES ============================ -->
+  <section class="sk-prod-claim" id="what-it-does">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Hvad den gør</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Forbrænd fedt. Bevar muskler. Tænd for resultaterne.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Der er ingen stimulanser i den. IGNYT arbejder med signaler, som din krop allerede bruger.
+        Her kan du se, hvad den understøtter.
+      </p>
+
+      <div class="sk-prod-pillars">
+        <article class="sk-prod-pillar" data-rise data-delay="1">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.7.8-3.2 1.6-4.3"/><path d="M12 22a4 4 0 0 0 4-4c0-2-2-3.4-4-6-2 2.6-4 4-4 6a4 4 0 0 0 4 4z"/></svg>
+          </span>
+          <h3>Forbrænd fedt naturligt</h3>
+          <p>Understøtter fedtforbrændingen, uden stimulanser.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="2">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg>
+          </span>
+          <h3>Bevar og opbyg mager muskelmasse</h3>
+          <p>Behold det, du har opbygget i træningscentret, og understøt nyt muskelvækst.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="3">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 3 10 2.5-7 1.8 4H21"/></svg>
+          </span>
+          <h3>Dæmp madstøjen</h3>
+          <p>Mindre af den evige tænken på mad.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="4">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          </span>
+          <h3>Understøt sund energi</h3>
+          <p>Jævn energi og ingen nedtur klokken tre.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="5">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h3>Understøt sundt blodsukker</h3>
+          <p>Støtte til et mere stabilt blodsukker.</p>
+        </article>
+
+        <article class="sk-prod-pillar" data-rise data-delay="6">
+          <span class="sk-prod-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v4a4 4 0 0 0 8 0V3"/><path d="M6 9c0 6 3 7 3 12"/><path d="M18 9c0 6-3 7-3 12"/><path d="M9 15h6"/></svg>
+          </span>
+          <h3>Understøt en sund tarm</h3>
+          <p>Støtte til tarmslimhinden, og det er GLP-2-vejen i arbejde.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 2 ============================ -->
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Vil du vide mere om IGNYT?</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHO DRINKS IT ============================ -->
+  <!-- The page was all type on black and read cold. These three carry the human weight. -->
+  <section class="sk-prod-ig-people">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Hvem drikker den</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Tre gode tidspunkter at tage den på.</h2>
+
+      <div class="sk-prod-ig-people-grid">
+        <figure data-rise data-delay="1">
+          <img src="assets/athlete.webp" alt="En kvinde hviler sig på en træningsbænk efter træning med et glas af den blandede drik i hånden" loading="lazy" width="1024" height="1536">
+          <figcaption><b>Efter træning</b><span>For at øge aminosyrerne og understøtte muskelvækst.</span></figcaption>
+        </figure>
+        <figure data-rise data-delay="2">
+          <img src="assets/mom.webp" alt="En kvinde blander en IGNYT-stick i et glas vand ved en solbeskinnet køkkenbordplade" loading="lazy" width="1024" height="1536">
+          <figcaption><b>Om morgenen</b><span>For energi hele dagen, uden nedturen.</span></figcaption>
+        </figure>
+        <figure data-rise data-delay="3">
+          <img src="assets/runner.webp" alt="En mand drikker af en flaske på en højderyg efter en løbetur i det gyldne lys" loading="lazy" width="1024" height="1536">
+          <figcaption><b>Eftermiddag eller aften</b><span>For at dæmpe appetitten og styre sukkertrang.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Fortæl os dit mål, så vender vi tilbage med info.</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ TRI PATHWAY ============================ -->
+  <!-- The only numbered block on the page. The three are real and load bearing: they are
+       the three receptor pathways ORYGN names, and they are why the company is called
+       triGLP. Numbering anything else here would be decoration. -->
+  <section class="sk-prod-formula" id="pathways">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Hvorfor tre veje</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Tre veje, én stick.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        De fleste produkter i denne kategori virker på én receptor. IGNYTs peptider virker på tre.
+      </p>
+
+      <ol class="sk-prod-ig-paths">
+        <li data-rise data-delay="1">
+          <span class="sk-prod-ig-path-n">01</span>
+          <h3>Støtte til GLP-1-receptoren</h3>
+          <p>Støtte til appetit, mæthed og blodsukker. Den, de fleste har hørt om.</p>
+        </li>
+        <li data-rise data-delay="2">
+          <span class="sk-prod-ig-path-n">02</span>
+          <h3>Støtte til GLP-2-receptoren</h3>
+          <p>Understøtter tarmslimhinden og, hvor godt du optager næringsstofferne fra din mad.</p>
+        </li>
+        <li data-rise data-delay="3">
+          <span class="sk-prod-ig-path-n">03</span>
+          <h3>Støtte til GIP-receptoren</h3>
+          <p>Insulin og fedtomsætning. Den arbejder sammen med GLP-1.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Skriv dine oplysninger, så tager vi den derfra.</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ THE PATENT ============================ -->
+  <section class="sk-prod-facts" id="proof">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>Videnskaben</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Bygget på ti års peptidforskning.</h2>
+
+      <div class="sk-prod-ig-stats">
+        <div data-rise data-delay="1"><b>$<span data-count="50">50</span>M+</b><span>Investeret i peptidforskningen</span></div>
+        <div data-rise data-delay="2"><b><span data-count="10">10</span>+</b><span>År med publiceret forskning</span></div>
+        <div data-rise data-delay="3"><b>3</b><span>Receptorveje, én formel</span></div>
+        <div data-rise data-delay="4"><b><span data-count="13">13</span></b><span>FDA-udsagn om struktur og funktion</span></div>
+      </div>
+
+      <ul class="sk-prod-checks sk-prod-ig-checks" data-rise data-delay="2">
+        <li>Patenterede bioaktive peptider, fremstillet efter ORYGN PURE-standarden</li>
+        <li>Hypoallergene peptider med lav Dalton-vægt</li>
+        <li>Videnskabeligt dokumenteret GLP-1-, GLP-2- og GIP-receptoragonist</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Få infoen og beslut selv.</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TASTE AND FORMAT ============================ -->
+  <section class="sk-prod-ig-taste" id="taste">
+    <div class="sk-prod-wrap sk-prod-ig-taste-grid">
+      <div>
+        <p class="sk-prod-kicker" data-rise>Smag</p>
+        <h2 class="sk-prod-h2" data-rise data-delay="1">Den smager ikke som et kosttilskud.</h2>
+        <p data-rise data-delay="2" class="sk-prod-ig-taste-p">
+          De fleste dropper et kosttilskud, fordi de bliver trætte af at drikke det. IGNYT er én
+          stick i 8oz vand. Den smager af tranebær og æble, og den er bedre over is.
+          Brug en shaker eller en lille mælkeskummer. Den blander sig ikke godt med en ske.
+        </p>
+        <p class="sk-prod-note" data-rise data-delay="3">
+          Der går ikke lang tid, før du ved, om du gider at blive ved med at drikke den.
+        </p>
+
+        <ol class="sk-prod-ig-steps" data-rise data-delay="4">
+          <li><span class="sk-prod-ig-step-n">1</span><div><h3>Riv én stick op</h3><p>Enkeltportion. Intet at måle af.</p></div></li>
+          <li><span class="sk-prod-ig-step-n">2</span><div><h3>Ryst eller skum den op i 8oz vand</h3><p>En shaker eller en mælkeskummer. En ske gør det ikke.</p></div></li>
+          <li><span class="sk-prod-ig-step-n">3</span><div><h3>Drik den</h3><p>Cirka et minut, én gang om dagen.</p></div></li>
+        </ol>
+      </div>
+
+      <figure class="sk-prod-ig-ritual" data-rise data-delay="2">
+        <img src="assets/ritual.webp" alt="Den blandede drik i et glas isvand ved siden af en åbnet stick" loading="lazy" width="1536" height="1024">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ CTA 3 ============================ -->
+  <section class="sk-prod-ig-cta">
+    <div class="sk-prod-wrap sk-prod-ig-cta-in" data-rise>
+      <p>Én formular. Så kontakter vi dig.</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+          FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="sk-prod-ig-faq" id="faq">
+    <div class="sk-prod-wrap">
+      <p class="sk-prod-kicker" data-rise>FAQ</p>
+      <h2 class="sk-prod-h2" data-rise data-delay="1">Ofte stillede spørgsmål.</h2>
+
+      <div class="sk-prod-ig-faq-list">
+        <details data-rise data-delay="1">
+          <summary>Hvad får jeg?</summary>
+          <p>Infoen om IGNYT og svar på dine spørgsmål. Din rep går detaljerne igennem med dig.</p>
+        </details>
+        <details data-rise data-delay="2">
+          <summary>Hvordan kontakter I mig?</summary>
+          <p>Med sms eller e-mail, via de oplysninger du skriver i formularen. De bliver brugt
+            til det og ikke andet.</p>
+        </details>
+        <details data-rise data-delay="3">
+          <summary>Hvornår hører jeg fra jer?</summary>
+          <p>Kort tid efter, at du har sendt formularen. Skriv til os fra den næste side, så svarer
+            vi hurtigere.</p>
+        </details>
+        <details data-rise data-delay="4">
+          <summary>Skal jeg købe noget?</summary>
+          <p>Nej. Bestil den, hvis du vil have den. Hvis ikke, er det bare det.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sk-prod-ig-cta-slim">
+    <div class="sk-prod-wrap">
+      <p>Formularen tager cirka et minut.</p>
+      <div class="sk-prod-ig-claim">
+        <a class="sk-prod-btn" href="#claim" data-optin>FÅ INFO OM IGNYT
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ CLOSE ============================ -->
+  <section class="sk-prod-close" id="claim">
+    <div class="sk-prod-wrap sk-prod-center">
+      <p class="sk-prod-eyebrow" data-rise>IGNYT info</p>
+      <h2 class="sk-prod-close-h" data-rise data-delay="1">Få infoen.<br>Beslut bagefter.</h2>
+      <p class="sk-prod-sub" data-rise data-delay="2">
+        Udfyld dine oplysninger, så vender vi tilbage med info. Så ved du, om du vil have den.
+      </p>
+      <div class="sk-prod-cta-row sk-prod-ig-cta-center" data-rise data-delay="3">
+        <div class="sk-prod-ig-claim">
+          <a class="sk-prod-btn sk-prod-btn-lg" href="#claim" data-optin>
+            FÅ INFO OM IGNYT
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="sk-prod-fine" data-rise data-delay="4">
+        Disse udsagn er ikke blevet vurderet
+        af den amerikanske fødevare- og lægemiddelmyndighed (FDA). Dette produkt er ikke beregnet til at diagnosticere, behandle,
+        helbrede eller forebygge nogen sygdom.
+      </p>
+    </div>
+  </section>
+
+</div>

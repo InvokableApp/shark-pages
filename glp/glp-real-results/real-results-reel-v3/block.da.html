@@ -1,0 +1,258 @@
+<!--
+  glp/glp-real-results/real-results-reel-v3 (STAGING, 11-18: v2 plus Dr Jer's before and after as the third card and the
+  Why IGNYT is different screen, Joe 11-18; live reads v2 until Jeff moves it). Its v2 notes:
+  glp/glp-real-results/real-results-reel-v2 (STAGING: Joe's 11-17 changes on a copy, so the live reel is untouched until
+  Jeff moves GLP over): a sticky header (Drops | Drink | Results | Get some) that jumps to its screen, and a Watch video
+  button under each product card that plays its ~2 minute video in a popup (Joe, 2026-11-17). Results and Get some's
+  targets (the before-and-afters, the close) are our guess: Joe didn't say. Everything else is the original's.
+  triGLP + IGNYT: Real Results. A ten screen reel a rep sends to someone curious about the products (Jeff, 2026-11-11:
+  "turn this into the most badass swipe funnel these glp users have ever seen"), made from a GLP rep's board of ORYGN
+  graphics and customer before-and-afters. PLATFORM ONLY. No form: it ends on the rep's own two links, as the board did
+  (/real-results-order -> rep_buy_link, /real-results-join -> distributor_buy_link; steps in the migration).
+  ⚠️ CLAIMS: every product line is one ORYGN prints on its own sheets (the triGLP + IGNYT sheet, Two Powerful Ways, the
+     4 Ingredients sheets, Benefits Beyond Weight Loss, the daily guide, the certifications row). Left out on purpose
+     (Jeff, 2026-11-11, "convert those lines to something more compliant"): "15-25% body weight reduction", results by
+     week, the injection/ER line, sleep apnea, "inflammation way down", "financially". No comparison to prescription
+     GLP-1 drugs.
+  ⚠️ PEOPLE: photos cut out of the board's graphics so none of their baked-in claims come along; permission per Jeff
+     2026-11-11 (brain/testimonials/glp.md). No pounds on the cards. Kept gender neutral (Jeff: "this needs to stay as
+     gender neutral as possible"): men and women alternate, no "she", no "girl".
+  The reel is _shared/reel/v1 in the IGNYT sample reel's ember look (its block.css is imported).
+-->
+<div class="rl rl-ig rr" data-pf-native>
+  <div class="rl-frame">
+    <nav class="rr-tabs" aria-label="Hop til">
+      <button type="button" data-jump="rr-two">GLP-dråber</button>
+      <button type="button" data-jump="rr-two">GLP-drik</button>
+      <button type="button" data-jump="rr-people">Resultater</button>
+      <button type="button" class="rr-tab-go" data-jump="rr-close">Få fat i det</button>
+    </nav>
+    <div class="rl-track">
+
+      <!-- 1. DARK: the cover. The bottle and the pack on embers, five faces that open the gallery. -->
+      <section class="rl-p rl-night rl-plain rl-cover" aria-label="triGLP og IGNYT: ægte resultater">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Rigtige mennesker. Rigtig forandring.</span>
+          <h1 data-in style="--d:.1s">En dråbe eller en drik, der understøtter <span class="rli-ember">fedttab</span> uden at miste muskler</h1>
+          <div class="rr-duo rl-art" data-in style="--d:.3s">
+            <img class="rr-bottle" src="/_p/glp/glp-real-results/real-results-reel/assets/triglp-bottle.webp" width="300" height="900" alt="En flaske triGLP-dråber">
+            <img class="rr-pack" src="/_p/glp/glp-real-results/real-results-reel/assets/ignyt-pack.webp" width="720" height="695" alt="IGNYT-posen med enkeltstående sticks og et glas med isterninger">
+          </div>
+          <ul class="rl-pills" data-in style="--d:.45s"><li>triGLP-dråber</li><li>IGNYT-drik</li><li>GLP-1 &middot; GLP-2 &middot; GIP</li><li>Ingen nåle</li></ul>
+          <button type="button" class="rr-faces" data-in style="--d:.6s" data-jump="rr-people">
+            <span aria-hidden="true"><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-laura.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-68.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-blonde.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-lutian.webp" alt=""><img src="/_p/glp/glp-real-results/real-results-reel/assets/face-wendee.webp" alt=""></span>
+            <b>Se deres før og efter</b>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. FROST: two ways to take it (Your Choice + Two Powerful Ways) -->
+      <section class="rl-p rl-paper rr-two" id="rr-two">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Du vælger</span>
+          <h2 data-in style="--d:.1s">Dråber eller en drik. Samme patenterede peptider.</h2>
+          <div class="rr-ways rl-art">
+            <div data-in style="--d:.2s"><img src="/_p/glp/glp-real-results/real-results-reel/assets/triglp-bottle.webp" alt="" width="300" height="900">
+              <h3>triGLP-dråber</h3><p>En pipette under tungen, to gange om dagen. Den kan være i lommen.</p>
+              <button type="button" class="rr-watch" data-rr-video="https://pqvwaefppavydbrltdeo.supabase.co/storage/v1/object/public/media/glp/orygn-product-video.mp4" data-rr-title="triGLP-dråber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Se video</button></div>
+            <div data-in style="--d:.32s"><img src="/_p/glp/glp-real-results/real-results-reel/assets/ignyt-pack.webp" alt="" width="720" height="695">
+              <h3>IGNYT-drik</h3><p>En stick i 8 oz vand, rystet eller pisket. Den smager af tranebær og æble.</p>
+              <button type="button" class="rr-watch" data-rr-vimeo="1247605683" data-rr-title="IGNYT-drik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Se video</button></div>
+          </div>
+          <p data-in style="--d:.45s">Mange tager begge dele: dråber om morgenen og en drik senere på dagen.</p>
+        </div>
+      </section>
+
+      <!-- 3. DARK: three pathways (the triGLP + IGNYT sheet). Three lines light from ash to ember. -->
+      <section class="rl-p rl-night rli-paths">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Sådan virker det</span>
+          <div class="rli-wires rl-art" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2 data-in style="--d:.1s">Tre veje, din krop allerede bruger.</h2>
+          <p data-in style="--d:.2s">Begge er lavet af ProGo&reg;, patenterede peptider fra norsk laks, som understøtter alle tre.</p>
+          <ol class="rli-list">
+            <li data-in style="--d:.3s"><span>01</span><div><h3>GLP-1</h3><p>Kontrol over appetitten, følelsen af at være mæt og hjælp mod sukkertrang.</p></div></li>
+            <li data-in style="--d:.42s"><span>02</span><div><h3>GIP</h3><p>Insulinfølsomhed og hvordan din krop bruger næringsstoffer.</p></div></li>
+            <li data-in style="--d:.54s"><span>03</span><div><h3>GLP-2</h3><p>Tarmsundhed, fordøjelse og at bevare den magre muskelmasse.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. DARK: what's in it, the two ingredient sheets as a sideways pair -->
+      <section class="rl-p rl-night rl-wide rr-what">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Hvad er der i</span>
+          <h2 data-in style="--d:.1s">Fire ingredienser i hver. Du kan læse hele etiketten.</h2>
+          <div class="rl-cards rr-labels" data-in style="--d:.25s">
+            <div><h3>triGLP-dråber</h3>
+              <ul>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-salmon2.webp" alt="" loading="lazy"><span><b>Peptider fra norsk laks</b>De bioaktive peptider bag alle tre veje</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-lemon.webp" alt="" loading="lazy"><span><b>Økologisk citronskalsekstrakt</b>Naturlige antioxidanter og flavonoider</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-ginger.webp" alt="" loading="lazy"><span><b>Økologisk ingefærrodsekstrakt</b>Længe brugt til at støtte fordøjelsen</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-water.webp" alt="" loading="lazy"><span><b>Renset vand</b>Det er den fjerde</span></li>
+              </ul></div>
+            <div><h3>IGNYT-drik</h3>
+              <ul>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-salmon2.webp" alt="" loading="lazy"><span><b>ProGo&reg; laksepeptider</b>4.000 mg i hver stick</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-beet.webp" alt="" loading="lazy"><span><b>Rødbedepulver</b>Farven, og lidt ekstra antioxidanter</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-stevia.webp" alt="" loading="lazy"><span><b>Stevia (Reb A)</b>Plantebaseret, uden kalorier</span></li>
+                <li><img src="/_p/glp/glp-real-results/real-results-reel/assets/i-cran.webp" alt="" loading="lazy"><span><b>Naturlig tranebær-æble-smag</b>Derfor smager den som en kold drik</span></li>
+              </ul></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 af 2<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 5. FROST: what else it supports (Benefits Beyond Weight Loss), a sideways row -->
+      <section class="rl-p rl-paper rl-wide rr-more">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Hele kroppen</span>
+          <h2 data-in style="--d:.1s">Hvad folk lægger mærke til ud over vægten.</h2>
+          <div class="rl-cards rli-pillars rr-pillars" data-in style="--d:.25s">
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+              <h3>Jævn energi</h3><p>Understøtter sund energi hen over dagen, uden stimulanser.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg></span>
+              <h3>Mager muskelmasse</h3><p>Hjælper dig med at bevare de muskler, du har, og understøtter restitution.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3v4a4 4 0 0 0 8 0V3"/><path d="M6 9c0 6 3 7 3 12"/><path d="M18 9c0 6-3 7-3 12"/><path d="M9 15h6"/></svg></span>
+              <h3>Tarmsundhed</h3><p>Understøtter en sund tarmslimhinde og hvordan du optager din mad.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <h3>Blodsukker</h3><p>Hjælper med at holde blodsukkeret på et sundt niveau.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 2.4 1.3 3.8 2.5 5 .9.9 1.5 2 1.5 3h4c0-1 .6-2.1 1.5-3 1.2-1.2 2.5-2.6 2.5-5a6 6 0 0 0-6-6z"/><path d="M10 21h4"/></svg></span>
+              <h3>Fokus og humør</h3><p>Understøtter mental klarhed og et godt humør.</p></div>
+            <div><span class="rli-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+              <h3>Sund aldring</h3><p>Understøtter dine celler og en sund blodgennemstrømning.</p></div>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.4s" aria-hidden="true">1 af 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 6. DARK: real people, swiped left and right. Men and women alternate; no pounds on the cards. -->
+      <section class="rl-p rl-night rl-plain rl-wide rr-people" id="rr-people">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Rigtige mennesker</span>
+          <h2 data-in style="--d:.1s">Swipe igennem deres før og efter.</h2>
+          <div class="rl-cards rr-gallery" data-in style="--d:.2s">
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-laura.webp" alt="Laura og hendes mand til en fest, og senere foran et juletræ" loading="lazy"></div>
+              <figcaption><q>Vores rejse bliver bare bedre og bedre!! Vedholdenhed er nøglen!!</q><b>Laura og hendes mand</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-68.webp" alt="En mand på 68 i en lyserød skjorte, og senere i en sort t-shirt" loading="lazy"></div>
+              <figcaption><q>Efter jeg prøvede dråberne, kunne jeg styre småspisningen bedre. Da jeg begyndte at se forandringer, var jeg solgt! Jeg skar de enorme mængder brød ud, spiste mere protein, drak mere vand og begyndte at gå ture.</q><b>Ægte resultater som 68-årig</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-drjer.webp" alt="Dr. Jeremy før i en hvid kittel, og efter i en mørk jakke, smilende" loading="lazy"></div>
+              <figcaption><p>Før og efter, side om side.</p><b>Dr. Jeremy</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-wendee.webp" alt="Wendee før og efter, smilende" loading="lazy"></div>
+              <figcaption><q>Min rejse begyndte med dråberne&hellip; Da jeg tilføjede pakkerne til min rutine, elskede jeg dem, og de er blevet et dagligt ritual, jeg oprigtigt glæder mig til.</q><b>Wendee</b></figcaption></figure>
+            <figure><div class="rr-shot rr-pair"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-lutian-a.webp" alt="Lutian før, i en grå t-shirt" loading="lazy"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-lutian-b.webp" alt="Lutian efter, med en IGNYT-drik i hånden" loading="lazy"></div>
+              <figcaption><p>triGLP-dråber og IGNYT-drikken, og lige på vej i gang.</p><b>Lutian</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-aug.webp" alt="En kvinde i marts og igen i august" loading="lazy"></div>
+              <figcaption><q>Først elskede jeg bare, at dråberne hjalp på min appetitkontrol. Nu kan jeg se resultaterne. Det handler om at blive ved med dråberne, selv hvis du føler, at de ikke gør noget!</q><b>Fra marts til august</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-weighin.webp" alt="Den samme mand fotograferet i november, februar og sidst i februar" loading="lazy"></div>
+              <figcaption><p>Tre tjek i samme dørkarm, fra november til februar.</p><b>Tre måneder inde</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-blonde.webp" alt="En kvinde før, og efter med en flaske triGLP" loading="lazy"></div>
+              <figcaption><p>Før, og efter med triGLP i hånden.</p><b>På triGLP</b></figcaption></figure>
+            <figure><div class="rr-shot"><img src="/_p/glp/glp-real-results/real-results-reel/assets/p-profile.webp" alt="En kvinde i profil foran den samme dør, før og efter" loading="lazy"></div>
+              <figcaption><p>Den samme dør, side om side.</p><b>Før og efter</b></figcaption></figure>
+          </div>
+          <div class="rl-cards-cue" data-in style="--d:.3s" aria-hidden="true">1 af 9<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+          <p class="rl-note" data-in style="--d:.4s">Individuelle resultater. Resultaterne varierer. Delt med tilladelse.</p>
+        </div>
+      </section>
+
+      <!-- 7. FROST: what people notice first (the timeline sheet, without the weeks) -->
+      <section class="rl-p rl-paper rr-first">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Kom i gang</span>
+          <h2 data-in style="--d:.1s">Det lægger folk ofte mærke til først.</h2>
+          <p data-in style="--d:.15s">Vi er alle forskellige, og de første forandringer kommer ofte, før vægten rykker sig.</p>
+          <ol class="rr-ticks">
+            <li data-in style="--d:.25s"><b>Jævnere energi</b>hen over dagen</li>
+            <li data-in style="--d:.33s"><b>Mindre trang</b>og en bedre fornemmelse for, hvornår du er mæt</li>
+            <li data-in style="--d:.41s"><b>Bedre søvn</b>og restitution</li>
+            <li data-in style="--d:.49s"><b>Mindre oppustethed</b>og en roligere mave</li>
+            <li data-in style="--d:.57s"><b>Så dit tøj</b>begynder at sidde anderledes</li>
+          </ol>
+          <p class="rr-tip" data-in style="--d:.65s">Mål din talje, og ikke kun din vægt. Centimeterne rykker sig ofte først.</p>
+        </div>
+      </section>
+
+      <!-- 8. TINT: your month (the drops + drinks daily guide) -->
+      <section class="rl-p rl-tint rr-month">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Din rutine</span>
+          <h2 data-in style="--d:.1s">Vælg dråber, drikken eller begge dele.</h2>
+          <div class="rr-plans">
+            <div data-in style="--d:.2s"><span>Dråber</span><b>2</b><em>flasker om måneden</em></div>
+            <div data-in style="--d:.3s"><span>Drik</span><b>2</b><em>poser om måneden</em></div>
+            <div data-in style="--d:.4s" class="is-both"><span>Begge</span><b>2 + 2</b><em>flasker og poser om måneden</em></div>
+          </div>
+          <p data-in style="--d:.5s">Tager du begge dele? En dosis dråber og en drik om dagen fungerer også. Ja, du kan tage dem på samme dag.</p>
+        </div>
+      </section>
+
+      <!-- 8b. DARK: real science, IGNYT's numbers (Joe 11-18, from ORYGN's "Why is IGNYT different" graphic; Dr Jer asked for IGNYT's benefits) -->
+      <section class="rl-p rl-night rr-science">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Ægte videnskab</span>
+          <h2 data-in style="--d:.1s">Derfor er IGNYT anderledes.</h2>
+          <ul class="rr-stats">
+            <li data-in style="--d:.2s"><b>10+ år</b><span>med studier</span></li>
+            <li data-in style="--d:.28s"><b>50 millioner+</b><span>investeret i forskning</span></li>
+            <li data-in style="--d:.36s"><b>Patenteret</b><span>eksklusiv biotilgængelig teknologi</span></li>
+            <li data-in style="--d:.44s"><b>8+</b><span>offentliggjorte studier</span></li>
+            <li data-in style="--d:.52s"><b>13 FDA-claims</b><span>og 4 Health Canada-claims</span></li>
+            <li data-in style="--d:.6s"><b>Farmaceutisk kvalitet</b><span>produktionsstandarder</span></li>
+          </ul>
+          <a class="rl-btn rr-sci-btn" data-in style="--d:.7s" href="https://{{custom_values.distributor_buy_link}}/real-science" target="_blank" rel="noopener">Se mere af videnskaben</a>
+        </div>
+      </section>
+
+      <!-- 9. DARK: how it's made (the certifications row) and Dr Jer's video -->
+      <section class="rl-p rl-night rr-made">
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Sådan er det lavet</span>
+          <h2 data-in style="--d:.1s">Peptider fra fødevarer, lavet rent.</h2>
+          <ul class="rr-certs" data-in style="--d:.2s">
+            <li>Fødevarekvalitet</li><li>HACCP-certificeret</li><li>Halal-certificeret</li><li>Kosher-certificeret</li>
+            <li>Ingen tilsætningsstoffer</li><li>Fri for antibiotika</li><li>Fri for pesticider</li><li>Fri for BSE/TSE</li>
+          </ul>
+          <a class="rr-video rl-art" data-in style="--d:.35s" href="https://player.vimeo.com/video/1247940456" data-rr-vimeo="1247940456" data-rr-title="Dr. Jeremy forklarer triGLP og IGNYT">
+            <img src="https://i.vimeocdn.com/video/2227858073-6731f5f29b5eca240dbc9b281870ff56bc473f32f829306b8c9e33faf33d2868-d_640x360" alt="" loading="lazy" width="640" height="360">
+            <span class="rr-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <b>Dr. Jeremy forklarer triGLP og IGNYT</b>
+          </a>
+        </div>
+      </section>
+
+      <!-- 10. DARK: the close. The rep's own two links, as the board ended, then how to order. -->
+      <section class="rl-p rl-night rl-plain rli-close rr-close" id="rr-close">
+        <div class="rl-bg rli-embers" style="background-image:url('/_p/glp/glp-real-results/real-results-reel/assets/texture-ember.webp')"></div>
+        <div class="rl-in">
+          <span class="rl-eyebrow" data-in>Klar, når du er</span>
+          <h2 class="rli-big" data-in style="--d:.1s">Prøv det selv.</h2>
+          <div class="rl-btns" data-in style="--d:.2s">
+            <a class="rl-btn" href="/real-results-order">Bestil som kunde</a>
+            <a class="rl-btn rl-btn-2" href="/real-results-join">Se distributørsiden</a>
+          </div>
+          <ol class="rr-how" data-in style="--d:.3s">
+            <li>Vælg dråber, drikke eller en kombipakke.</li>
+            <li>Vælg din pakkestørrelse.</li>
+            <li>Tryk på <b>Customer</b> eller <b>Distributor</b> ved siden af produktet, ikke på knappen øverst, før du betaler.</li>
+          </ol>
+          <p class="rl-fine" data-in style="--d:.4s">Individuelle resultater varierer. Disse udsagn er ikke blevet evalueret af Food and Drug Administration. Dette
+            produkt er ikke beregnet til at diagnosticere, behandle, helbrede eller forebygge nogen sygdom. Tal med din læge, før du starter på noget kosttilskud.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Skærme"></nav>
+    <div class="rr-pop" data-rr-pop hidden role="dialog" aria-modal="true" aria-label="Video">
+      <div class="rr-pop-box">
+        <button type="button" class="rr-pop-x" data-rr-close aria-label="Luk videoen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <div class="rr-pop-v" data-rr-slot></div>
+      </div>
+    </div>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Forrige skærm"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Næste skærm"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=4" defer></script>

@@ -1,0 +1,469 @@
+<!--
+  glp / what-weight-loss-is-best-for-you-interactive-funnel / products-info-reel
+
+  GLP's "Sizzle" product page as a REEL (references/REEL-PAGE-SOP.md). Jeff, 2026-10-14: "the glp sizzle.... can we
+  convert that whole page to a reel scroll thing?", then "go for it" on a ten-screen layout. On the platform this page
+  is BOTH /sizzle (Sizzle Funnel - Quick Info Page To Share) and /products-info (step 3 of the Weight Loss Supplement
+  Recommendation quiz funnel); one migration points both steps here.
+
+  ⚠️ PLATFORM ONLY. The scrolling page next door (../products-info) is still served live to every GHL account; it is not
+  touched, and this folder borrows its pictures by /_p/ path rather than copying them.
+
+  ⚠️ COPY IS THE CLIENT'S, VERBATIM. Every claim, number, study citation, testimonial and the FDA disclaimer is carried
+  across from ../products-info/block.html unchanged; only the layout is new. Do not "tighten" any of it without Joe.
+  Left out on purpose, because a reel moves by swipe: the jump nav (The Formula / Science / GLP Drops / GLP Drink), the
+  "Scroll below for more details..." cue and the sticky bar (the platform's dock replaces it).
+
+  THE SCREENS (13; Jeff's ten, with the science band and the two products taking the room their words need):
+    1 the headline   2 the video   3 the three pathways (sideways)   4 the clinical evidence   5 the numbers
+    6 the eight studies (sideways)   7 when will I see results (sideways)   8 the comparison table (scrolls in its box)
+    9 reviews (sideways) and the scorecard   10 the drops' four ingredients   11 the drink's four ingredients
+    12 the FAQ (tap to open)   13 two delivery systems: try the products
+
+  THE BUTTON. On GHL every CTA opens the page's popup, which is EMPTY on the Sizzle page (its builder popup has no
+  children, 2026-10-05 backup), and on the platform the step has no form, so [data-optin] opened nothing at all
+  (measured on yourname.heresthepage.com/sizzle, 2026-10-14). Both funnels' next step is the rep's Facebook DM redirect
+  (/sizzle-redirect, /redirect-weightloss), and the page's own line says "Message us on Facebook (or text us) for more
+  product & sampling info!". Jeff, 2026-10-14: "try these products can we make that go to reps replicated link?" So
+  every product button, and the dock, goes to the rep's own shop (rep_buy_link, data-gz-shop); a rep with no shop link
+  on file sends them to THIS funnel's DM step instead (block.js picks it by the address the page is on: data-gz-dm).
+  "Check Out More Of The Science" stays on the DM step (data-gz-go="dm"). Each keeps data-optin, so if a form is ever put on the step, form.js opens
+  it instead, as it does on every other page.
+
+  THE VIDEO is a .qv box, so the platform's player (watch.js) plays it and tells the rep how much was watched when
+  the visitor came by their personal link.
+-->
+<div class="rl rl-pf gz" data-pf-native data-pf-dock="Prøv produkterne!" data-gz-dm="/products-info=/redirect-weightloss /sizzle=/sizzle-redirect" data-gz-shop="{{custom_values.rep_buy_link}}">
+  <div class="rl-frame">
+    <div class="rl-track">
+
+      <!-- 1. the headline -->
+      <section class="rl-p rl-paper gz-cover" aria-label="Signalet">
+        <div class="rl-in">
+          <img class="gz-mark" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/orygn-wordmark.svg" alt="ORYGN" width="150" height="24" data-in>
+          <h1 data-in style="--d:.08s" data-label="The GLP needle was never the breakthrough">
+            &ldquo;GLP&rdquo;-nålen var aldrig det store gennembrud.
+            <em>SIGNALET var. Se videoen nu!</em>
+          </h1>
+          <img class="rl-art gz-trio" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-trio.webp" alt="Tre flasker ORYGN triGLP-dråber" width="1000" height="1000" data-in style="--d:.2s">
+          <div class="rl-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></div>
+        </div>
+      </section>
+
+      <!-- 2. the video, filling the screen -->
+      <section class="rl-p rl-night rl-plain rl-wide gz-watch" aria-label="Videoen">
+        <div class="rl-in">
+          <div class="qv gz-video" data-in data-video="{{custom_values.glp_orygn_product_video}}" data-poster="{{custom_values.glp_orygn_product_video_poster}}" data-name="the triGLP video"></div>
+        </div>
+      </section>
+
+      <!-- 3. the mode of action: three pathways, sideways -->
+      <section class="rl-p rl-tint rl-wide gz-paths" aria-label="Virkemåden">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Virkemåden</p>
+          <h2 data-in style="--d:.08s">De fleste kosttilskud trykker på én knap. <em>Vores aktiverer tre.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">En unik peptidprofil, som er påvist at være molekylært anderledes end 1.324 andre
+            kommercielle hydrolysater, og som samtidig aktiverer tre af kroppens mest
+            kraftfulde reguleringssystemer.</p>
+          <div class="rl-cards gz-cards" data-in style="--d:.24s">
+            <article class="gz-card gz-path" data-num="01">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg></span>
+              <p class="gz-kicker">Vej nummer et</p>
+              <h3>GLP-1</h3>
+              <p class="gz-lead">Appetitten på stille og rolig.</p>
+              <ul class="gz-ticks">
+                <li>Regulerer sulten i hjernen ved at aktivere receptorer</li>
+                <li>Gør, at maven tømmes langsommere, så du naturligt føler dig mæt</li>
+                <li>Mindsker madtrang og portionsstørrelser</li>
+                <li>Fremmer vægttab, der holder, uden stor anstrengelse</li>
+              </ul>
+            </article>
+            <article class="gz-card gz-path" data-num="02">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p class="gz-kicker">Vej nummer to</p>
+              <h3>GLP-2</h3>
+              <p class="gz-lead">Kernens skjold</p>
+              <ul class="gz-ticks">
+                <li>Hjælper med at reparere og styrke tarmens barrierefunktion</li>
+                <li>Mindsker betændelsestilstande i hele kroppen</li>
+                <li>Forbedrer optagelsen af næringsstoffer og tarmfloraen</li>
+                <li>Fremmer fordøjelsen og immunforsvaret</li>
+              </ul>
+            </article>
+            <article class="gz-card gz-path" data-num="03">
+              <span class="gz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+              <p class="gz-kicker">Vej nummer tre</p>
+              <h3>GIP</h3>
+              <p class="gz-lead">Stofskiftets optimerer</p>
+              <ul class="gz-ticks">
+                <li>Optimerer insulinfølsomheden og reguleringen af blodsukkeret</li>
+                <li>Forebygger blodsukkerudsving og energi-dyk</li>
+                <li>Forbedrer fedtforbrændingen og stofskiftets effektivitet</li>
+                <li>Understøtter stabil energi og mental klarhed</li>
+              </ul>
+            </article>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 af 3<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+        </div>
+      </section>
+
+      <!-- 4. the clinical evidence -->
+      <section class="rl-p rl-paper rl-wide gz-proof" aria-label="De kliniske beviser">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>De kliniske beviser</p>
+          <h2 data-in style="--d:.08s">Resultater på medicinsk niveau. <em>Naturligt indtag.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">triGLP er et bioaktivt peptid med dobbelt patentbeskyttelse, udvundet af norsk
+            atlanterhavslaks. Den amerikanske fødevaremyndighed FDA har klassificeret det som en ny kosttilskudsingrediens (NDI)
+            med selv-GRAS-status. Videnskaben er ægte. Resultaterne er dokumenteret.</p>
+          <ul class="gz-badges">
+            <li data-in style="--d:.24s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3v5.2L4.8 17a3 3 0 0 0 2.6 4.5h9.2A3 3 0 0 0 19.2 17l-4.7-8.8V3"/><path d="M8.5 3h7"/></svg></span>
+              <div><h3>Dobbelt patentbeskyttet</h3><p>Unik peptidsammensætning, som er påvist at være molekylært anderledes end 1.324 andre kommercielle hydrolysater.</p></div>
+            </li>
+            <li data-in style="--d:.32s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <div><h3>FDA NDI-status</h3><p>Klassificeret som en ny kosttilskudsingrediens af den amerikanske FDA med selv-GRAS-status (Generally Recognized As Safe, altså generelt anerkendt som sikker).</p></div>
+            </li>
+            <li data-in style="--d:.4s">
+              <span class="gz-ico gz-ico-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 10h7M8.5 14h7M8.5 17.5h4"/></svg></span>
+              <div><h3>Flere kliniske studier</h3><p>Bekræftet i uafhængige kliniske forsøg, der har målt BMI, kropssammensætning, betændelsestilstande og stofskiftemarkører.</p></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. the numbers -->
+      <section class="rl-p rl-paper rl-wide gz-nums" aria-label="Tallene">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Resultater på medicinsk niveau. Naturligt indtag. Distribueres eksklusivt af ORYGN<sup>*</sup></p>
+          <dl class="gz-stats">
+            <div data-in style="--d:.1s"><dt>$50M&#8202;+</dt><dd>Investeret i forskning</dd></div>
+            <div data-in style="--d:.16s"><dt><span data-gz-count="10" data-gz-suffix="+">10+</span></dt><dd>Års studier</dd></div>
+            <div data-in style="--d:.22s"><dt><span data-gz-count="8" data-gz-suffix="+">8+</span></dt><dd>Offentliggjorte studier</dd></div>
+            <div data-in style="--d:.28s"><dt><span data-gz-count="13">13</span></dt><dd>FDA-påstande</dd></div>
+            <div data-in style="--d:.34s"><dt><span data-gz-count="80" data-gz-suffix="+">80+</span></dt><dd>Lande</dd></div>
+            <div data-in style="--d:.4s"><dt><span data-gz-count="98" data-gz-suffix="%">98%</span></dt><dd>Biotilgængelighed</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 6. the science: eight studies, sideways (transcribed verbatim from the source page's images; do not reword) -->
+      <section class="rl-p rl-paper rl-wide gz-science" aria-label="Videnskaben er ægte">
+        <div class="rl-in">
+          <h2 data-in><span class="gz-hot">Videnskaben</span> er ægte.</h2>
+          <p class="gz-sub gz-italic" data-in style="--d:.08s">Fagfællebedømt klinisk forskning, uafhængige forsøg og international anerkendelse. Hvert
+            produkt er bakket op af solid dokumentation.</p>
+          <div class="rl-cards gz-cards gz-studies" data-in style="--d:.16s">
+            <article class="gz-study">
+              <p class="gz-tag">Klinisk forsøg</p>
+              <h3>Jernmangelanæmi: Ferritin- og hæmoglobinniveauer efter tilskud af ProGo<sup>&reg;</sup> sammenlignet med valleprotein</h3>
+              <p class="gz-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+              <p class="gz-method">n = 48 &middot; Placebokontrolleret mod valleproteinisolat &middot; 6 uger &middot; 16g/dag</p>
+              <p class="gz-finding">+140% ferritin (normaliseret); +14% hæmoglobin mod +2% i vallegruppen (p&lt;0,05). Grundlag for 6 FDA-påstande om struktur/funktion og kvalificerede påstande hos Health Canada.</p>
+              <a class="gz-read" href="https://www.longdom.org/articles/623670/a-placebo-controlled-study-of-the-impact-of-dietary-salmon-protein-hydrolysate-supplementation-in-increasing-ferritin-an" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Klinisk forsøg</p>
+              <h3>Vægtkontrol og stofskiftemarkører: Randomiseret placebokontrolleret studie af BMI hos overvægtige voksne</h3>
+              <p class="gz-cite">Journal of Obesity &amp; Weight Loss Therapy &middot; 2016</p>
+              <p class="gz-method">Overvægtige deltagere &middot; Placebokontrolleret mod WPI &middot; 42 dage &middot; 16g/dag</p>
+              <p class="gz-finding">&minus;5,9% BMI (p&lt;0,05); markante ændringer i 4 stofskiftemarkører i blodet; vedvarende 3&ndash;6% fald i fastende blodsukker.</p>
+              <a class="gz-read" href="https://{{custom_values.distributor_buy_link}}/real-science" data-needs="{{custom_values.distributor_buy_link}}" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Klinisk forsøg</p>
+              <h3>Undersøgelse af effekten af 18 ugers tilskud af laksehydrolysat på stofskifterelateret betændelse, trivsel og kosmetiske resultater</h3>
+              <p class="gz-cite">Functional Foods in Health and Disease &middot; 2024 &middot; Vol.14(11): 814&ndash;842</p>
+              <p class="gz-method">n = 20 &middot; Åbent, enkeltarmet &middot; 128 dage &middot; 4g/dag &middot; KGK Science Inc.</p>
+              <p class="gz-finding">+10,24% oplevet energi (kvinder +14,55%); &minus;9% oxidativt stress; HMOX1 &uarr;4,09&times;; FTH1 &uarr;3,77&times;; hud/hår/negle +24% (kvinder +34,5%); IL-5, IL-8 og CRP nedsat.</p>
+              <a class="gz-read" href="https://www.ffhdj.com/index.php/ffhd/article/view/1491" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag">Klinisk forsøg</p>
+              <h3>Jernmangelanæmi: Ferritin- og hæmoglobinniveauer efter tilskud af ProGo<sup>&reg;</sup> sammenlignet med valleprotein</h3>
+              <p class="gz-cite">Journal of Nutrition &amp; Food Sciences &middot; 2015</p>
+              <p class="gz-method">n = 48 &middot; Placebokontrolleret mod valleproteinisolat &middot; 6 uger &middot; 16g/dag</p>
+              <p class="gz-finding">+140% ferritin (normaliseret); +14% hæmoglobin mod +2% i vallegruppen (p&lt;0,05). Grundlag for 6 FDA-påstande om struktur/funktion og kvalificerede påstande hos Health Canada.</p>
+              <a class="gz-read" href="https://www.longdom.org/articles/623670/a-placebo-controlled-study-of-the-impact-of-dietary-salmon-protein-hydrolysate-supplementation-in-increasing-ferritin-an" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Første undersøgelse af in vitro-aktivering af GLP-1- og GIP-receptorer og beskyttelse af bugspytkirtlens øceller med bioaktive peptider fra laks</h3>
+              <p class="gz-cite">Marine Drugs &middot; MDPI &middot; 2024 &middot; 22(11): 490</p>
+              <p class="gz-method">In vitro &middot; Currie C. et al. &middot; Hofseth BioCare</p>
+              <p class="gz-finding">Den mindste ProGo<sup>&reg;</sup>-peptidfraktion aktiverer GLP-1- og GIP-receptorer; beskytter bugspytkirtlens øceller; hæmmer DPP-IV; øger glukoseoptagelsen i musklerne.</p>
+              <a class="gz-read" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11595994/" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro / dyr</p>
+              <h3>Opløseligt proteinhydrolysat lindrer betændelse og skader i mave-tarmkanalen ved TNBS-induceret colitis hos mus</h3>
+              <p class="gz-cite">Biomolecules &middot; 2022 &middot; 12(9): 1287</p>
+              <p class="gz-method">Musemodel af colitis &middot; Wei J. et al. &middot; Stanford University &amp; Hofseth BioCare</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> mindskede markant skader på tyktarmsvæv, ophobning af betændelsesceller og oxidativt stress. Øget HMOX1 bekræftet. Ledet af Dr. Karl Sylvester MD, Stanford.</p>
+              <a class="gz-read" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9496120/" target="_blank" rel="noopener">Læs studiet <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Antioxidant-genudtryk: ProGo<sup>&reg;</sup> opregulerer 16 oxidativt beskyttende gener, bl.a. FTH1, HMOX1 og ALOX12</h3>
+              <p class="gz-cite">Hofseth BioCare / Stanford University &middot; Prækliniske</p>
+              <p class="gz-method">Humane cellelinjer &middot; HBC og Stanford University</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> opregulerede 16 oxidativt beskyttende gener og nedregulerede 9 gener for oxidativt stress. FTH1, HMOX1 og ALOX12 viste en tydelig ændring, som understøtter de observerede kliniske fordele.</p>
+            </article>
+            <article class="gz-study">
+              <p class="gz-tag gz-tag-alt">In vitro</p>
+              <h3>Antioxidant-genudtryk: ProGo<sup>&reg;</sup> opregulerer 16 oxidativt beskyttende gener, bl.a. FTH1, HMOX1 og ALOX12</h3>
+              <p class="gz-cite">Hofseth BioCare / Stanford University &middot; Prækliniske</p>
+              <p class="gz-method">Humane cellelinjer &middot; HBC og Stanford University</p>
+              <p class="gz-finding">ProGo<sup>&reg;</sup> opregulerede 16 oxidativt beskyttende gener og nedregulerede 9 gener for oxidativt stress. FTH1, HMOX1 og ALOX12 viste en tydelig ændring, som understøtter de observerede kliniske fordele.</p>
+            </article>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.22s">1 af 8<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-more" data-in style="--d:.28s"><a class="gz-link" href="/sizzle-redirect" data-optin data-gz-go="dm">Se mere af videnskaben&hellip;</a></p>
+        </div>
+      </section>
+
+      <!-- 7. when will I see results (dark) -->
+      <!-- 8. the honest comparison: every cell verbatim; the table scrolls inside its own box on a short phone -->
+      <section class="rl-p rl-tint rl-wide gz-compare" aria-label="Den ærlige sammenligning">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Den ærlige sammenligning</p>
+          <h2 data-in style="--d:.08s">Oversigten er herunder&hellip; <em>Hvad vælger du?</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">Vi beder dig ikke vælge mellem resultater og dit helbred. triGLP giver dig begge dele.</p>
+          <div class="gz-table-box" data-gz-box data-in style="--d:.24s">
+            <div class="gz-table" role="table" aria-label="triGLP sammenlignet med GLP-1-medicin og almindeligt kollagen">
+              <div class="gz-th gz-rowhead"></div>
+              <div class="gz-th">GLP-1-medicin</div>
+              <div class="gz-th">Almindeligt kollagen</div>
+              <div class="gz-th gz-own gz-own-top">triGLP <span class="gz-dot" aria-hidden="true"></span></div>
+
+              <div class="gz-td gz-rowhead">Form</div>
+              <div class="gz-td">Ugentlig indsprøjtning</div>
+              <div class="gz-td">Daglig måleske</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Et par dråber hver dag</div>
+
+              <div class="gz-td gz-rowhead">Virkemåde</div>
+              <div class="gz-td">GLP-1-agonist (1 vej)</div>
+              <div class="gz-td">Protein</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Peptidaktivering af 3 veje</div>
+
+              <div class="gz-td gz-rowhead">Bevarelse af muskler</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Dokumenteret tab</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Ingen målt effekt</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Hæmmer myostatin og Activin A</div>
+
+              <div class="gz-td gz-rowhead">Tarmsundhed</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Bivirkninger i maven</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Stanford-studie: ingen gavn</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> GLP-2 + HMOX1-aktivering</div>
+
+              <div class="gz-td gz-rowhead">Bivirkninger</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> Almindelige og betydelige</div>
+              <div class="gz-td">Minimale</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> Ingen alvorlige bivirkninger rapporteret</div>
+
+              <div class="gz-td gz-rowhead">Pris (typisk)</div>
+              <div class="gz-td"><i class="gz-no" aria-hidden="true">&#10005;</i> $900&ndash;1.300 / måned</div>
+              <div class="gz-td">$30&ndash;60 / måned</div>
+              <div class="gz-td gz-own"><i class="gz-yes" aria-hidden="true">&#10003;</i> $129,95 / måned (2 flasker)</div>
+
+              <div class="gz-td gz-rowhead gz-last">Holdbarhed</div>
+              <div class="gz-td gz-last"><i class="gz-no" aria-hidden="true">&#10005;</i> Stopper du, kommer vægten tilbage</div>
+              <div class="gz-td gz-last">Uden tidsbegrænsning</div>
+              <div class="gz-td gz-own gz-own-btm gz-last"><i class="gz-yes" aria-hidden="true">&#10003;</i> Virker bedre, jo længere du bruger det</div>
+            </div>
+          </div>
+          <p class="gz-getrow" data-in style="--d:.3s"><a class="gz-btn gz-btn-sm" href="/sizzle-redirect" data-optin data-gz-go>Få triGLP</a> <span class="gz-fine">Intet abonnement kræves. Ingen binding.</span></p>
+        </div>
+      </section>
+
+      <!-- 9. proof: six reviews, sideways, and the scorecard -->
+      <section class="rl-p rl-paper rl-wide gz-reviews" aria-label="Rigtige mennesker, rigtige resultater">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Bevis i hver dråbe</p>
+          <h2 data-in style="--d:.08s">Rigtige mennesker. <em>Rigtige resultater.</em></h2>
+          <p class="gz-sub" data-in style="--d:.16s">Sådan går det, når videnskaben virkelig virker.</p>
+          <div class="rl-cards gz-cards gz-quotes" data-in style="--d:.24s">
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">11 lbs på 11 dage!</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Jeg kan ikke tro det! Jeg tabte 11 pund på 11 dage! Jeg må tvinge mig selv til at spise, når jeg tager det her. Ingen nåle, og jeg har det som en million!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t6.webp" alt="" width="80" height="80" loading="lazy"><span><b>DeMarr Z.</b><i>USA</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">6 lbs på 19 dage</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;19 dage, 10 dråber om dagen. Jeg er nede med 6 pund, min kropsfedt er faldet, min energi er oppe, og min selvtillid er HØJ&hellip; selv min mand bliver ved med at sige, hvor godt jeg ser ud!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t5.webp" alt="" width="80" height="80" loading="lazy"><span><b>Rosie A.</b><i>USA</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">Resultater på 3 dage</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Bare tre dage, og jeg er allerede nede med et pund. Trangen er faldet markant. Glad, jævn energi hele dagen, intet dyk, ingen tåge, bare en stabil, glad mig!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t4.webp" alt="" width="80" height="80" loading="lazy"><span><b>Brittany P.</b><i>USA</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">6,2 lbs tabt</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Fra dag 1 og bedre og bedre hver dag derefter, energi der holdt HELE DAGEN med meget mere fokus. Har tabt 6,2 pund og føler, jeg har tabt centimeter!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t3.webp" alt="" width="80" height="80" loading="lazy"><span><b>Lisa P.</b><i>USA</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">Klarer Hashimotos</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;Jeg var ikke klar over, hvor meget triGLP hjalp, før jeg løb tør. Selvom jeg har Hashimotos og er i overgangsalderen, holdt det mig i balance og dæmpede trang og madstøj. Jeg kunne tydeligt mærke forskellen!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t2.webp" alt="" width="80" height="80" loading="lazy"><span><b>Erica S.</b><i>USA</i></span></figcaption>
+            </figure>
+            <figure class="gz-card gz-quote">
+              <p class="gz-result">3 lbs på 6 dage</p>
+              <p class="gz-stars" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <blockquote>&ldquo;6 dages test, en helt ny måde at leve på! Energi, klarhed, fokus. Ingen madstøj eller følelsesspisning. Nede med 3 pund, farvel til stædigt fedt. Det forandrer mig på alle måder!&rdquo;</blockquote>
+              <figcaption><img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/t1.webp" alt="" width="80" height="80" loading="lazy"><span><b>Misty M.</b><i>USA</i></span></figcaption>
+            </figure>
+          </div>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 af 6<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <dl class="gz-score" data-in style="--d:.36s">
+            <div><p class="gz-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p><dt>4,9</dt><dd>Gennemsnitlig bedømmelse</dd></div>
+            <div><dt><span data-gz-count="4200" data-gz-suffix="+">4.200+</span></dt><dd>Aktive brugere</dd></div>
+            <div><dt>0</dt><dd>Alvorlige bivirkninger</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 10. triGLP drops: four ingredients, sideways -->
+      <section class="rl-p rl-tint gz-ing gz-drops" aria-label="TriGLP-dråber">
+        <div class="rl-in">
+          <p class="gz-pill gz-pill-left" data-in>TriGLP-dråber&hellip;</p>
+          <h2 class="gz-serif" data-in style="--d:.08s">Fire ingredienser. <em>Intet at skjule.</em></h2>
+          <p class="gz-lede" data-in style="--d:.16s">triGLP indeholder kun fire helt naturlige ingredienser. De fleste kosttilskud gemmer
+            formlen væk i en hemmelig blanding. Vi oplyser alle ingredienser, fordi vi intet har
+            at skjule og alt at bevise.</p>
+          <img class="rl-art gz-prod" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-bottle.webp" alt="En flaske ORYGN triGLP-dråber" width="900" height="1200" loading="lazy" data-in style="--d:.2s">
+          <ul class="rl-cards gz-cards gz-ings" data-in style="--d:.24s">
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg></span>
+              <h3>Norsk laksehydrolysat</h3>
+              <p class="gz-ing-role">Det aktive peptidkompleks</p>
+              <p>Atlantisk laks i sashimi-kvalitet fra Norge, forarbejdet med en patenteret, skånsom enzymatisk hydrolyse. Kilden til alle tre bioaktive veje: GLP-1, GLP-2 og GIP.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Økologisk citronskalsekstrakt</h3>
+              <p class="gz-ing-role">Forbedrer biotilgængeligheden</p>
+              <p>Hjælper optagelsen og giver naturlig smag. Rig på flavonoider, der supplerer peptidkomplekset og dets effekt mod betændelse.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Økologisk ingefærrodsekstrakt</h3>
+              <p class="gz-ing-role">Støtter fordøjelsen og virker mod betændelse</p>
+              <p>Spiller sammen med GLP-2-vejen for tarmsundhed. Ingefærens naturlige gingeroler understøtter fordøjelsen og mindsker betændelse i kroppen yderligere.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3z"/></svg></span>
+              <h3>Deioniseret vand</h3>
+              <p class="gz-ing-role">Ultrarent bæremedium</p>
+              <p>Det var det. Ingen fyldstoffer, ingen bindemidler, ingen kunstige konserveringsmidler, ingen syntetiske stoffer. Formlen er præcis så ren, som den lyder.</p>
+            </li>
+            <li class="gz-card gz-note">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p><b>FDA NDI-status + selvbekræftet GRAS.</b> triGLP er af den amerikanske FDA klassificeret som en ny kosttilskudsingrediens, den højeste sikkerhedsstandard for kosttilskud.</p>
+            </li>
+          </ul>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 af 5<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-try" data-in style="--d:.34s"><a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prøv triGLP-dråber!</a></p>
+        </div>
+      </section>
+
+      <!-- 11. IGNYT powder: four ingredients, sideways -->
+      <section class="rl-p rl-tint gz-ing gz-drink" aria-label="IGNYT-pulver">
+        <div class="rl-in">
+          <p class="gz-pill gz-pill-left" data-in>IGNYT-pulver&hellip;</p>
+          <h2 class="gz-serif" data-in style="--d:.08s">Fire ingredienser. <em>Enkelt. Rent. Kraftfuldt.</em></h2>
+          <p class="gz-lede" data-in style="--d:.16s">IGNYT indeholder kun fire helt naturlige ingredienser. Vi har skabt IGNYT med avanceret
+            teknologi, der giver maksimal biotilgængelighed og frigør det fulde potentiale i
+            hver ingrediens.</p>
+          <img class="rl-art gz-prod" src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/ignyt-pack.webp" alt="ORYGN IGNYT metabolic booster-pose og stickpakker" width="1000" height="1000" loading="lazy" data-in style="--d:.2s">
+          <ul class="rl-cards gz-cards gz-ings" data-in style="--d:.24s">
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-4 7-6 11-6 3.5 0 6 2 7 6-1 4-3.5 6-7 6-4 0-7.5-2-11-6z"/><path d="m3 12 3-2.5M3 12l3 2.5"/><circle cx="16" cy="10.5" r=".7" fill="currentColor"/></svg></span>
+              <h3>Norsk laksehydrolysat</h3>
+              <p class="gz-ing-role">Det aktive peptidkompleks</p>
+              <p>Atlantisk laks i sashimi-kvalitet fra Norge, forarbejdet med en patenteret, skånsom enzymatisk hydrolyse. Kilden til alle tre bioaktive veje: GLP-1, GLP-2 og GIP.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-3.5 0-6-2.5-6-6 0-3 2-5.5 6-5.5s6 2.5 6 5.5c0 3.5-2.5 6-6 6z"/><path d="M12 9.5V5.5M12 5.5C12 4 13 3 14.5 3"/></svg></span>
+              <h3>Rødbedepulver</h3>
+              <p>Giver naturlig farve og ekstra antioxidanter.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C3 15 5 7.5 12.5 5.5c4-1 7-1.5 7-1.5s.5 3.5-.5 7c-2 7-8 9.5-12.5 8.5z"/><path d="M4.5 19.5C7 16 10 13 14 11"/></svg></span>
+              <h3>Stevia Reb A</h3>
+              <p>Et naturligt sødemiddel af planter uden kalorier.</p>
+            </li>
+            <li class="gz-card">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="4.5"/><circle cx="16" cy="11" r="4"/><path d="M13 5.5c0-1.5 1-2.5 2.5-2.5"/></svg></span>
+              <h3>Naturlig tranebær- og æblesmag</h3>
+              <p>En lækker og frisk smag, du vil elske.</p>
+            </li>
+            <li class="gz-card gz-note">
+              <span class="gz-ing-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10v-6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+              <p><b>PATENTERET, SÆRLIG UDVINDINGSPROCES.</b> Avanceret teknologi, der giver maksimal biotilgængelighed og frigør det fulde potentiale i hver ingrediens.</p>
+            </li>
+          </ul>
+          <p class="rl-cards-cue" data-in style="--d:.3s">1 af 5<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></p>
+          <p class="gz-try" data-in style="--d:.34s"><a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prøv IGNYT-drikken!</a></p>
+        </div>
+      </section>
+
+      <!-- 12. FAQ, tap to open (one at a time) -->
+      <section class="rl-p rl-tint rl-wide gz-faqs" aria-label="Ofte stillede spørgsmål">
+        <div class="rl-in">
+          <p class="gz-pill" data-in>Ofte stillede spørgsmål</p>
+          <h2 data-in style="--d:.08s">Alle spørgsmål. <em>Besvaret ærligt.</em></h2>
+          <div class="gz-faq" data-gz-box="always" data-in style="--d:.16s">
+            <details>
+              <summary>Hvordan tager jeg triGLP?</summary>
+              <p>Læg .25 ml på eller under tungen, hold det der i 30 sekunder, og synk så. Tag det en til to gange dagligt. Indtaget under tungen går uden om fordøjelsessystemet, så optagelsen sker hurtigere og mere effektivt.</p>
+            </details>
+            <details>
+              <summary>Er triGLP helt naturligt?</summary>
+              <p>Ja, 100%. triGLP indeholder kun fire ingredienser: Norsk laksehydrolysat (det aktive peptid), deioniseret vand, økologisk citronskalsekstrakt og økologisk ingefærrodsekstrakt. Ingen syntetiske stoffer, ingen fyldstoffer, ingen kunstige konserveringsmidler.</p>
+            </details>
+            <details>
+              <summary>Hvad er forskellen på dette og andre GLP-produkter på markedet?</summary>
+              <p>Mange af de andre GLP-produkter (ikke alle) er syntetiske lægemidler, der gives som ugentlig indsprøjtning og kun aktiverer én vej (GLP-1). De koster typisk $900&ndash;1.300 om måneden uden forsikring, har dokumenterede bivirkninger som kvalme og muskeltab, og vægten kommer tilbage, når man stopper. triGLP er et helt naturligt bioaktivt peptid, der aktiverer tre veje (GLP-1, GLP-2 og GIP), koster $129,95 for to flasker, cirka en måneds forbrug, har ingen alvorlige bivirkninger og virker bedre, jo længere du bruger det.</p>
+            </details>
+            <details>
+              <summary>Hvilken klinisk forskning støtter triGLPs påstande?</summary>
+              <p>triGLP er bekræftet i flere uafhængige kliniske studier, der viser: 6&ndash;7% lavere BMI på 6&ndash;8 uger, 10% mindre kropsfedt uden muskeltab, 15% lavere IL-6-markører for betændelse, 100% bedre glukoseoptagelse i musklerne og 3&ndash;6% lavere fastende blodsukker. Det er dobbelt patentbeskyttet og har FDA-status som ny kosttilskudsingrediens (NDI) med selvbekræftet GRAS-status.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. the close: two delivery systems, try the products -->
+      <section class="rl-p rl-paper rl-wide gz-close" aria-label="Prøv produkterne">
+        <div class="rl-in">
+          <h2 class="gz-serif gz-inline" data-in>triGLP-dråber <em>eller IGNYT-drikken.</em> Hvad vælger du?</h2>
+          <div class="gz-duo">
+            <div data-in style="--d:.12s">
+              <img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/triglp-trio.webp" alt="Tre flasker ORYGN triGLP-dråber" width="1000" height="1000" loading="lazy">
+              <a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prøv triGLP-dråber!</a>
+            </div>
+            <div data-in style="--d:.2s">
+              <img src="/_p/glp/what-weight-loss-is-best-for-you-interactive-funnel/products-info/assets/ignyt-pack.webp" alt="ORYGN IGNYT metabolic booster-pose og stickpakker" width="1000" height="1000" loading="lazy">
+              <a class="gz-btn" href="/sizzle-redirect" data-optin data-gz-go>Prøv IGNYT-drikken!</a>
+            </div>
+          </div>
+          <p class="gz-msg" data-in style="--d:.28s">&#128172; <em>Skriv til os på Facebook (eller send en sms) for mere info om produkter og prøver!</em></p>
+          <p class="rl-fine gz-foot" data-in style="--d:.34s">ANSVARSFRASKRIVELSE: Disse udsagn er ikke blevet vurderet af den amerikanske fødevare- og lægemiddelmyndighed (FDA). Dette produkt er ikke beregnet til at diagnosticere, behandle, helbrede eller forebygge nogen sygdom.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <nav class="rl-dots" aria-label="Skærme"></nav>
+    <div class="rl-arrows"><button type="button" data-go="-1" aria-label="Forrige skærm"><svg viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button><button type="button" data-go="1" aria-label="Næste skærm"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <a class="rl-cta" href="/sizzle-redirect" data-optin data-gz-go>Prøv produkterne!</a>
+</div>
+<script src="/_p/_shared/reel/v1/reel.js?v=5" defer></script>
