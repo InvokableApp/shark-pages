@@ -29,6 +29,10 @@
 .sk-wb .tt-title em{font-style:normal;font-weight:900;letter-spacing:-.01em;background:linear-gradient(100deg,#FFC3A6 0%,var(--brand-hi) 40%,var(--brand) 75%);-webkit-background-clip:text;background-clip:text;color:transparent !important;filter:drop-shadow(0 6px 30px rgba(236,94,42,.35))}
 .sk-wb .tt-powered{display:flex;align-items:center;gap:12px;margin:22px 0 26px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
 .sk-wb .tt-powered img{height:30px;width:auto}
+/* A call's own words in place of "Powered by" (page.say.powered, Joe 2026-11-27: "Weekly ORYGN Team Call"), and its lit
+   words on a line of their own (page.say["title-line"] = "em": "Team Update with Featured Guests" / "Dr. Mike + Joe"). */
+.sk-wb .tt-title[data-line="em"]{max-width:none}
+.sk-wb .tt-title[data-line="em"] em{display:block}
 .sk-wb .tt-blurb{font-size:18.5px;color:var(--text2);max-width:560px}
 .sk-wb .tt-blurb b{color:var(--text);font-weight:600}
 .sk-wb .tt-when{display:flex;align-items:center;gap:18px;margin:32px 0 26px}
